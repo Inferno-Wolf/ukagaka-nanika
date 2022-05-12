@@ -20,7 +20,7 @@ On_username
 //This is the URL where your ghost will look for updates.
 On_homeurl
 {
-	"http://www.somekindofwebhost.com/yourghostsdirectory/"
+	"https://raw.githubusercontent.com/Inferno-Wolf/ukagaka-nanika/deduction-maker/"
 }
 
 
@@ -42,21 +42,6 @@ On_sakura.recommendsites
 	"%ASC(1)http://www.ashido.com/ukagaka/%ASC(2)"
 	--
 	//And this is the site that it would link to. Note that a website address begins with %ASC(1) and ends with %ASC(2). Don't forget these!
-	
-	"Zarla's Twitter"
-	--
-	"%ASC(1)https://twitter.com/Zarla_S/%ASC(2)"
-	--
-	
-	"Zarla's Tumblr"
-	--
-	"%ASC(1)http://zarla-s.tumblr.com/%ASC(2)"
-	--
-	
-	"Zarla's Dreamwidth"
-	--
-	"%ASC(1)http://zarla.dreamwidth.org/%ASC(2)"
-	--
 	
 	"SSP"
 	--
@@ -87,36 +72,28 @@ On_sakura.recommendsites
 //This is the name of the second option in that list.
 On_portalrootbutton.caption
 {
-	"Second Website Caption"
-	"Another Second Website Caption"
+	"Find the Cretors"
+	"Herlock's Parents' Sites"
+	"Creator References"
 }
 
 //---- Websites in the Second Option --------------------------------------------------
 //These are the websites listed under that second button we just named up there.
 On_sakura.portalsites
 {
- 	"Site Name 1"
-	"Site Name 1 Alternate"
+ 	"Tega's Tumblr"
 	--
-	"%ASC(1)http://somesite.com/%ASC(2)"
+	"%ASC(1)https://ageofzeroart.tumblr.com/%ASC(2)"
 	--
 	
-	"Site Name 2"
+	"Verse's Tumblr"
 	--
-	"%ASC(1)http://www.anothersite.org/%ASC(2)"
+	"%ASC(1)https://versegm.tumblr.com/%ASC(2)"
 	--
-
-	"Site Name 3"
+	
+	"KFC's Tumblr"
 	--
-	"%ASC(1)http://www.thirdsite.com/%ASC(2)"
-	--
-	"Site Name 4"
-	--
-	"%ASC(1)http://www.fourthsite.com/%ASC(2)"
-	--
-	"Site Name 5"
-	--
-	"%ASC(1)http://www.fifthsite.com/%ASC(2)"
+	"%ASC(1)http://www.characteroulette.tumblr.com/%ASC(2)"
 }
 
 
@@ -124,34 +101,38 @@ On_sakura.portalsites
 //If you right-click the secondary character, a tiny menu will pop up. This is the caption for the top option.
 On_kero.recommendbuttoncaption
 {
-	"Top Menu Option Caption"
+	"Wineries"
+	"Distilleries"
 }
 
 //---- Top Menu Websites for the Second Character --------------------------------------
 //As with the above, this is another chance for you to add some links to some websites you like.
 On_kero.recommendsites
 {
-	"A Site"
+	"Maintenance"
 	--
-	"%ASC(1)http://www.asite.com/%ASC(2)"
+	"%ASC(1)https://ukagakadreamteam.tumblr.com/%ASC(2)"
 	--
-	"Another Site"
+	"Brewing"
 	--
-	"%ASC(1)http://anothersite.org/%ASC(2)"
+	"%ASC(1)https://ukagakadreamteam.tumblr.com/%ASC(2)"
 }
 
 //---- Update Menu Caption ------------------------------------------------------------
 //What it will say on the menu for the option to Update.
 On_updatebutton.caption
 {
-	"Update Menu Caption"
+	"Click here for Updates"
+	"Update the Bastard Man"
+	"Update!"
 }
 
 //---- Dress-up Menu Caption ----------------------------------------------------------
 //What it will say on the menu for Dress-Up.
 On_dressuprootbutton.caption
 {
-	"Dress-Up Caption"
+	"Dress-Up Items"
+	"Dress-Up Things"
 }
 
 //---- Headlines and RSS Feeds ---------------------------------------------------------
