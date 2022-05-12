@@ -90,6 +90,8 @@ RandomTalk : nonoverlap
 	
 	"\0\s[0]Professor Moriarty?\w8 \s[1]You mean the man in Iris's stories?\w8 \n\n[half]As I recall,\w4 the man used to tutor Iris in maths,\w4 when she was younger.\w8 \n\n[half]I believe they had a...\w8 disagreement,\w4 regarding Fermat's theorem.\w8 \s[0]\n\n[half]It angered Iris so much she made him the villain in one of her stories.\w8 \s[2]\n\n[half]Good on her!\w8 \s[0]I wish I could earn money from my anger.\w8 \n\n[half]Oh!\w8 \s[1]Maybe I could make a machine that converts emotions to gold!\w8\e"
 	
+	"\0\s[0]My landlady,\w4 Mrs Hudson,\w4 is a lovely woman.\w8 \s[2]\n\n[half]She didn't even bat an eye when my kid roommate came to her to chip in for the rent!\w8\e"
+	
 	
 	//other dialogue
 	"\0\s[0]You know,\w4 \s[1]I have seen some astonishing things running on steam.\w8 \s[0]\n\n[half]I got to see a steamboat engine up close once.\w8 \s[6]It was truly marvelous.\w8 \s[3]\n\n[half]But this is the first I've heard of games running on steam!\w8\e"

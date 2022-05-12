@@ -65,36 +65,53 @@ element0,overlay,surface0.png,0,0
 //Herlock thinking
 surface1
 {
+collision0,240,0,326,44,SHead
+collision1,241,46,305,93,SFace
+
 element0,overlay,surface1001.png,0,0
 }
 
 //Herlock deduce!
 surface2
 {
+collision0,242,6,339,39,SHead
+collision1,265,43,326,100,SFace
+
 element0,overlay,surface1002.png,0,0
 }
 
 //Herlock A-Ha!!
 surface3
 {
+collision0,215,23,292,60,SHead
+collision1,228,74,288,130,SFace
+
 element0,overlay,surface1003.png,0,0
 }
 
 //Herlock deep sigh / tired
 surface4
 {
+collision0,234,3,318,60,SHead
+
 element0,overlay,surface1004.png,0,0
 }
 
 //Herlock ANGY!!
 surface5
 {
+collision0,170,21,357,83,SHead
+collision1,196,73,262,133,SFace
+
 element0,overlay,surface1005.png,0,0
 }
 
 //Herlock Present! pose
 surface6
 {
+collision0,260,33,320,45,SHead
+collision1,270,90,347,153,SFace
+
 element0,overlay,surface1006.png,0,0
 }
 
@@ -210,11 +227,11 @@ collision1,40,50,102,84,Point
 
 //Maybe you'd like a tooltip to pop up when your user is hovering over a hitbox on your ghost. It works much the same as above!
 
-//sakura.tooltips 
-//{ 
-//Head,This is Girl's head. 
-//Face,This is Girl's face.  
-//}
+sakura.tooltips 
+{ 
+SHead,A whispy poof of hair.
+SFace,Looks punchable.
+}
 
 //Basically put the name of your collision first, then what you want the tooltip to say.
 //Like above, replace sakura with kero for the secondary character.
