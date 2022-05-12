@@ -1,0 +1,144 @@
+//Sakura
+//0, 1 - Herlock speech balloons
+//2, 3 - big Herlock speech balloons
+//4, 5 - blue text Herlock speech balloon
+//6, 7 - green text Herlock speech balloon
+
+//Kero
+//0, 1 - regular balloons, no title
+//2, 3 - big balloons, no title
+//4, 5 - small blue text balloons
+//6, 7 - small green text balloons
+//8, 9 - big blue text balloon
+//10, 11 - big green text balloon
+
+
+
+
+
+//--Descript.txt
+//1. -- Basic information
+
+
+charset,UTF-8
+type,balloon
+use_self_alpha,1
+use_input_alpha,1
+
+name,The Great Dialogue Box
+//name is the name of your balloon as it will appear in the "Change Balloon" menu option, and how it'll be referenced in install.txt. Replace "Z - Simple" with whatever you want to call your balloon.
+
+craftman,Tega
+craftmanw,Tega
+craftmanurl,https://ageofzeroart.tumblr.com
+
+
+//2. -- Defining Text Areas
+
+origin.x,36
+origin.y,36
+
+
+validrect.left,34
+validrect.top,30
+validrect.right,277
+validrect.bottom,164
+
+wordwrappoint.x,276
+wordwrappoint.y,0
+
+
+font.name,Igiari.ttf
+font.height,16
+font.color.r,255
+font.color.g,252
+font.color.b,241
+
+
+//3. -- Balloon Position
+
+windowposition.x,0
+windowposition.y,0
+
+
+//4. -- Other String
+
+font.shadowcolor.r,-1
+font.shadowcolor.g,-1
+font.shadowcolor.b,-1
+
+
+anchor.font.color.r,255
+anchor.font.color.g,96
+anchor.font.color.b,0
+
+
+//5. -- Choice Markers
+
+cursor.blendmethod,none
+cursor.style,underline
+
+//cursor.style defines how the balloon displays a choice. You can put underline, square, or square+underline. As you can guess, this will either underline the option, put a square around it, or do both.
+//If you set cursor.style to square, you'll need to set blendmethod as well. There are three values you can put after blendmethod. They are none, notmaskpen, and mergepennot. None keeps the square the same color, notmaskpen blends the color of the text and the background and then inverts it (supposedly), and mergepennot overlays the brush.color (below) over your text.
+//In most cases, I would recommend leaving blendmethod as none and cursor.style as underline. You won't have to mess with these very much if that's the case. If you're feeling creative though, you can mess with blendmethod and see if you like how it looks.
+
+
+cursor.pen.color.r,255
+cursor.pen.color.g,96
+cursor.pen.color.b,0
+
+cursor.brush.color.r,200
+cursor.brush.color.g,200
+cursor.brush.color.b,200
+
+cursor.font.color.r,255
+cursor.font.color.g,96
+cursor.font.color.b,0
+
+//cursor.font.color is the color of text for a choice. font.color and pen.color should probably be the same.
+
+
+
+//6. -- Image Markers
+
+arrow0.x,281
+arrow0.y,35
+
+arrow1.x,281
+arrow1.y,151
+
+
+onlinemarker.x,245
+onlinemarker.y,151
+
+
+sstpmarker.x,36
+sstpmarker.y,168
+
+sstpmessage.font.height,9
+sstpmessage.font.color.r,191
+sstpmessage.font.color.g,191
+sstpmessage.font.color.b,191
+sstpmessage.x,70
+sstpmessage.y,168
+
+
+number.font.name,Microsoft Sans Serif
+number.font.height,10
+number.font.color.r,191
+number.font.color.g,191
+number.font.color.b,191
+number.xr,37
+number.y,16
+
+
+//7. -- Communication Box
+
+communicatebox.x,38
+communicatebox.y,45
+
+
+communicatebox.width,278
+communicatebox.height,27
+
+//Moving on!

@@ -1,0 +1,445 @@
+﻿//---------------------------Menus--------------------------
+//This .dic file is primarily concerned with the double-click menus for each of your ghosts.
+
+
+//--Test Variable --------------------------------------------------------
+
+Select.testvariable
+{
+	"\1\s[10]Testing!\e"
+}
+
+
+//--OpenSakuraMenu
+OpenSakuraMenu
+{
+	"\0\s[0]"
+	"\0\s[1]"
+	"\0\s[3]"
+	"\0\s[6]"
+	--
+	"\b2How can I help you,\w4 my dear fellow?"
+	--
+	MenuRun
+}
+
+//--MenuRun
+MenuRun
+{	
+	"\n\n\_q\b2\![set,autoscroll,0]"
+	--
+	if lastTalk != ""
+	{
+		"\![*]\q[Can you say that again?,OnLastTalk]\n\n[half]"
+		"\![*]\q[Can you repeat that please?,OnLastTalk]\n\n[half]"
+		"\![*]\q[Say that again please?,OnLastTalk]\n\n[half]"
+	}
+	--
+ 	"\![*]\q[Talk to me,OnAiTalk]\n"
+	"\![*]\q[Speak to me,OnAiTalk]\n"
+	"\![*]\q[Say something?,OnAiTalk]\n"
+	"\![*]\q[What's on your mind?,OnAiTalk]\n"
+	--
+	"\![*]\q[Say hi to a friend!,OnStartTalking]\n\n[half]"
+	"\![*]\q[Say hello to your fellow ghosts!,OnStartTalking]\n\n[half]"
+	--
+	if user == "KFC" //|| user == "Verse" || user == "Tega"
+	{
+		"\![*]\q[Test variable,testvariable]\n\n[half]"
+	}
+	--
+	"\![*]\q[Config Menu,configmenu] \n\![*]\q[Functions,dosomething]"
+	--
+	"\n\![*]\q[Update,keroupdatecheck] \n\![*]\q[Bug report,bugreport]"
+	--
+	"\n\n[half]\![*]\q[Nevermind,CANCEL]\e"
+}
+
+
+//Leave this alone
+OnLastTalk
+{
+	"%(lastTalk)\e"
+}
+
+
+//If someone selects an option linked to BACKTOMENU, it will go back to MenuRun.
+Select.BACKTOMENU
+{
+	MenuRun
+}
+
+//If someone selects configmenu, this will lead to TalkConfig.
+Select.configmenu
+{
+	OnTalkConfig
+}
+
+
+//--TalkConfig
+OnTalkConfig
+{
+	"\0\b[2]\_q\![set,autoscroll,0]"
+	--
+	"\f[bold,1]Your name:\f[bold,0] %(user) \n(\q[Change it?,TEACHNAME])\n"
+	--
+	"\f[bold,1]Your pronouns:\f[bold,0] %(they)/%(them)/%(their) \n(\q[Change them?,TEACHPRONOUN])\n"
+	--
+	"\f[bold,1]Your birthday:\f[bold,0] %(birthdayprint) \n(\q[Change it?,TEACHBDAY])\n\n[half]"
+	--
+	"\f[bold,1]Talk Rate:\f[bold,0] - %(talktime) \n(\q[Change it,talkinter])\n\n"
+	--		
+	{
+	"\![*]Enable Uninstall? (NOW : %(deleteshitai))\n\q[ON,deleteon] \q[OFF,deleteoff]\n\n[half]\n"
+	}
+	--
+	"\![*]\q[Back to the menu,BACKTOMENU]\e"
+}
+
+
+//This and the next few set up the pronouns, as you can see by the linkedfunction names.
+Select.TEACHPRONOUN
+{
+	"\0\s[1]\b2Feeling like changing pronouns?\w8 \s[0]I can certainly relate to that.\w8 \s[6]\n\n[half]How shall I refer to you then?\w8"
+	--
+	"\n\n\_q\![*]\q[He/Him/His,OnPronouns,masc] \n\![*]\q[She/Her/Hers,OnPronouns,fem] \n\![*]\q[They/Them/Their,OnPronouns,undef] \n\![*]\q[I have my own,OnPronouns,own] \n\n[half]\![*]\q[No change,OnPronouns,cancel]\e"
+}
+
+
+
+//These two options toggle whether or not you can delete your ghost. Leave them alone.
+Select.deleteon
+{
+	deleteshitai = "ON"
+	TalkConfig
+}
+
+Select.deleteoff
+{
+	deleteshitai = "OFF"
+	TalkConfig
+}
+
+
+//This next set of functions handles inputting the user's birthday.
+Select.TEACHBDAY
+{
+	"\0\s[2]So,\w4 when were you born,\w4 my dear fellow?\w8 \s[0]\n\n[half]Let's start with the month.\w8"
+	--
+	"\![open,inputbox,OnUserBornMonth,-1]\![set,balloontimeout,-1]\e"
+}
+
+//--OnUserBornMonth
+OnUserBornMonth
+{
+	_tempmonth = TOSTR(reference0) //this stores what the user put in as a variable called _tempmonth
+	_tempmonth = TOLOWER(_tempmonth) //changes it to lowercase
+	
+	//this is attaching the right value to the input from the user
+	if _tempmonth == "january" || _tempmonth == "1" {bornmonth = 1; bornmonthprint = "January"}
+	elseif _tempmonth == "february" || _tempmonth == "2" {bornmonth = 2; bornmonthprint = "February"}
+	elseif _tempmonth == "march" || _tempmonth == "3" {bornmonth = 3; bornmonthprint = "March"}
+	elseif _tempmonth == "april" || _tempmonth == "4" {bornmonth = 4; bornmonthprint = "April"}
+	elseif _tempmonth == "may" || _tempmonth == "5" {bornmonth = 5; bornmonthprint = "May"}
+	elseif _tempmonth == "june" || _tempmonth == "6" {bornmonth = 6; bornmonthprint = "June"}
+	elseif _tempmonth == "july" || _tempmonth == "7" {bornmonth = 7; bornmonthprint = "July"}
+	elseif _tempmonth == "august" || _tempmonth == "8" {bornmonth = 8; bornmonthprint = "August"}
+	elseif _tempmonth == "september" || _tempmonth == "9" {bornmonth = 9; bornmonthprint = "September"}
+	elseif _tempmonth == "october" || _tempmonth == "10" {bornmonth = 10; bornmonthprint = "October"}
+	elseif _tempmonth == "november" || _tempmonth == "11" {bornmonth = 11; bornmonthprint = "November"}
+	elseif _tempmonth == "december" || _tempmonth == "12" {bornmonth = 12; bornmonthprint = "December"}
+	
+	else //if the month isn't a valid month, like 32 or something.
+	{
+		"\0\s[0]My good fellow!\w8 \s[3]That is not a valid month at all!\w8 \s[2]\n\n[half]Try again.\w8"
+		--
+		"\![open,inputbox,OnUserBornMonth,-1]\![set,balloontimeout,-1]\e"
+	}
+	--
+	//If it's a valid month
+	
+	"\0\s[1]So that's %(bornmonthprint)...\w8 \s[2]\n\n[half]And what of the day?\w8"
+	--
+	"\![open,inputbox,OnUserBornDay,-1]\![set,balloontimeout,-1]\e"
+}
+
+//This adds an appropriate suffix to the number for the day. No need to mess with this.
+Printday
+{
+	if bornday == 1 || bornday == 21 || bornday == 31
+	{	"%(bornday)st"	}
+	elseif bornday == 2 || bornday == 22
+	{	"%(bornday)nd"	}
+	elseif bornday == 3 || bornday == 23
+	{	"%(bornday)rd"	}
+	else
+	{	"%(bornday)th"	}
+}
+
+//--OnUserBornDay
+OnUserBornDay
+{
+	_tempday = reference0 //storing the input in _tempday
+	_tempday = TOLOWER(_tempday) //changes it to lowercase
+	_tempday = REPLACE(_tempday,"st","")
+	_tempday = REPLACE(_tempday,"nd","")
+	_tempday = REPLACE(_tempday,"rd","")
+	_tempday = REPLACE(_tempday,"th","")
+	//if the user types something like 2nd, 3rd, etc, this will make it just the number. It'll just add the suffix back later on the one that actually shows.
+	_tempday = TOINT(_tempday) //Converts it to an integer
+	
+	if ((bornmonth == 1 || bornmonth == 3 || bornmonth == 5 || bornmonth == 7 || bornmonth == 8 || bornmonth == 10 || bornmonth == 12) && _tempday >= 1 && _tempday <= 31) || (bornmonth == 2 && _tempday >= 1 && _tempday <= 29) || ((bornmonth == 4 || bornmonth == 6 || bornmonth == 9 || bornmonth == 11) && _tempday >= 1 && _tempday <= 30)
+	//This ugly function checks if the day falls into a valid range. If it does, we set some variables and continue down.
+	{
+		bornday = _tempday
+		borndayprint = Printday
+		userbirthday = "%(bornmonth)month %(bornday)day"
+		birthdayprint = "%(bornmonthprint) %(borndayprint)"
+		
+		"%(birthchecked)"
+	}
+	else //If the day isn't valid, like the 10046th or something
+	{
+		"\0\s[0]My dear fellow!\w8 \s[3]That is not a day within %(bornmonthprint) at all!\w8 \s[2]\n\n[half]Try again.\w8"
+		--
+		"\![open,inputbox,OnUserBornDay,-1]\e"
+	}	
+}
+
+
+//--birthchecked
+birthchecked
+{
+	if userbirthday == dayslot //if today is the user's birthday
+	{
+		"\0\s[0]Why,\w8 \s[3]that's today's date!\w8 \s[6]\n\n[half]Happy birthday,\w4 my dear fellow!\w8 \s[1]I hope you had a fine day up until this point.\w8\e"
+	}
+	elseif userbirthday == "6month 7day" || userbirthday == "9month 10day" || userbirthday == "11month 13day"
+	{
+		"\0\s[1]Oh,\w4 really?\w8 \s[3]That is a rather auspicious date.\w8 \s[1]\n\n[half]As you might know,\w4 I was born of three wonderful parents.\w8 \n\n[half]They pulled me together with love,\w4 care,\w4 and just a pinch of hard work.\w8 \s[2]\n\n[half]You just happen to be born the same day as one of them!\w8 \s[6]Aren’t you a lucky one?\w8\e"
+	}
+	else //if the birthday is not listed above.
+	{
+		"\0\s[1]So that's %(bornmonthprint) %(borndayprint)?\w8 \s[6]\n\n[half]Wonderful!\w8 I’ll make sure to remember.\w8 \s[2]\n\n[half]As I remember everything about everyone,\w4 %(user)ley!\w8\e"
+	}
+}
+
+
+//--Talk Rate
+Select.talkinter
+{
+	"\0\s[2]\b2Am I going too fast for you,\w4 my dear fellow?\w8 \s[1]Or too slow,\w4 perhaps?\w8 \n\n[half]Right now it's set to %(talktime).\w8"
+	--
+	"\n\n[half]\_q\![*]\q[Every 30 seconds,OnTalkrate,max] \n\![*]\q[Every minute,OnTalkrate,high] \n\![*]\q[Every 3 minutes,OnTalkrate,norm] \n\![*]\q[Every 5 minutes,OnTalkrate,poor] \n\![*]\q[Don't speak,OnTalkrate,none] \n\n[half]\![*]\q[Don't change,OnTalkrate,cancel]\e"
+}
+
+//actual rate changer
+OnTalkrate
+{
+	if reference0 == "max"
+	{
+		talktime = "30 seconds"
+		aitalkinterval = 30
+	}
+	elseif reference0 == "high"
+	{
+		talktime = "minute"
+		aitalkinterval = 60
+	}
+	elseif reference0 == "norm"
+	{
+		talktime = "3 minutes"
+		aitalkinterval = 180
+	}
+	elseif reference0 == "poor"
+	{
+		talktime = "5 minutes"
+		aitalkinterval = 300
+	}
+	elseif reference0 == "none"
+	{
+		talktime = "Silent"
+		aitalkinterval = 0
+		
+		"\0\s[1]...\w8\w8\w8 \s[3]\n\n[half]Understood!\w8 I’ll be over there.\w8 \s[0]Discreet.\w8 Silent.\w8 \s[4]Absolutely not sulking.\w8 \n\n[half]Oh,\w4 my sweet sweet caramel friend,\w4 we’re really in it now.\w8\e"
+	}
+	else //cancel
+	{
+		"\0\s[1]You’re good?\w8 \s[3]Magnificient!\w8 Let us go,\w3 then.\w8 \s[2]The game is afoot!\w8\e"
+	}
+	--
+	"\0\s[1]So that'll be %(talktime),\w4 then?\w8 \s[2]Understood!\w8 I’ll adapt to your pace.\w8 \s[0]\n\n[half]It would be a shame if you were to miss any of my input!\w8\e"
+}
+
+
+//This is when the user chooses to change their name. It's linked to the functions outlined in nameteach.dic.
+Select.TEACHNAME
+{
+	OnTeachName	
+}
+
+	
+//If the user selects cancel in a menu.
+Select.CANCEL
+{
+	"\0\s[0]Alright!\w8"
+	--
+	"\s[2]"
+	"\s[3]"
+	"\s[6]"
+	"\s[7]"
+	--
+	" Back to investigating we go!"
+}
+
+	
+//Going back to the MenuRun function we finished above, this is if someone selects the Functions option, linked to dosomething. As you can see, it ends up as Select.dosomething.
+Select.dosomething
+{
+	"\0\s[1]\b2There are so many functions here.\w8 \s[6]Doesn’t it make you want to slam every button to see what would happen?\w8"
+	--
+	"\_q\n\n\![*]\q[Open Calendar,CALENDAR] \n\![*]\q[Check Email,MailCheck] \n\![*]\q[Open SSP Preferences,sspconfig] \n\![*]\q[Empty Recycle Bin,areyousure] \n\![*]\q[System Information,ChoiceSystemInformation] \n\n\![*]\q[Back to main menu,BACKTOMENU]\e"
+}
+
+
+//When the user clicks Open Calender. This will open the calender function of SSP, an in-built feature that you don't have to worry about in the least.
+Select.CALENDAR
+{
+	"\0\s[1]Oh my!\w8 \s[3]What is this strange device...?\w8\w8\w8 \c\s[6]Kidding!\w8 \s[0]Of course I know what a calendar is.\w8 \s[1]\n\n[half]I even know what ‘planning’ is,\w4 though that is a skill I rarely ever use.\w8"
+	--
+	"\![open,calendar]\e"
+}
+
+//When the user chooses SSP preferences. This will open the same window that shows up if you right click your ghost and go to Utilities - Preferences.
+Select.sspconfig
+{
+	"\0\s[1]My dear fellow,\w4 \s[2]I will gladly stick my nose in this strange-looking device!\w8"
+	--
+	"\![open,configurationdialog]\e"
+}
+
+
+//garbage check
+Select.areyousure
+{
+	"\0\s[0]Are you certain you want to dispose of all of this,\w4 my dear fellow?\w8 \s[1]You won’t be able to get it back afterwards.\w8"
+	--
+	"\n\n\![*]\q[Out with the trash!,ChoiceGarbagecan] \n\![*]\q[Don't do it!,garbagecancel]\e"
+}
+
+Select.garbagecancel
+{
+	"\0\s[0]A wise decision.\w8 "
+	--
+	"\s[2]"
+	"\s[6]"
+	"\s[3]"
+	--
+	"There might still be decisive evidence inside!\w8\e"
+}
+
+//If the user chooses to empty the recycle bin.
+//for those curious, it's referencing a SAORI, which are optional user-made plug-in dlls you can download to enable different functions on your ghost. gomi.dll is one included with this template.
+Select.ChoiceGarbagecan
+{
+	_gomicheck = FUNCTIONEX("gomi.dll", "-n")
+	
+	if _gomicheck == 0 //If the recycle bin is empty.
+	{
+		"\0\s[4]Ah...\w8\w8\w8 \s[5]\n\n[half]It seems like there is nothing to dispose of!\w8\e"
+	}
+	elseif _gomicheck >= 1 //If the recycle bin is full.
+	{
+		"\![raise,OnGarbagecanEmpty]"
+		--
+		"\0\s[0]Alright...\w8!\w8 \s[2]Out the window you go!\w8\e"
+	}
+}
+
+//This is for the SAORI, don't touch it.
+OnGarbagecanEmpty
+{
+	_gomi = FUNCTIONEX("gomi.dll", "-f")
+}
+
+
+//This is when the user chooses System Information. For those curious though, note that this is done using another SAORI, this time saori_cpuid.dll.
+Select.ChoiceSystemInformation
+{
+	os_name = FUNCTIONEX("saori_cpuid.dll","os.name")
+	os_version = FUNCTIONEX("saori_cpuid.dll","os.version")
+	cpu_name = FUNCTIONEX("saori_cpuid.dll","cpu.name")
+	cpu_clockex = FUNCTIONEX("saori_cpuid.dll","cpu.clockex")
+	"\0\s[0]\b[2]\_q\f[bold,1]OS:\f[bold,0] %(os_name) %(os_version)\n\f[bold,1]Memory Load:\f[bold,0] %(memoryload)%\n\f[bold,1]Physical Memory:\f[bold,0] %(memoryavailphys) KB\n\f[bold,1]CPU:\f[bold,0] %(cpu_name) %(cpu_clockex)MHz\n\f[bold,1]Ukagaka:\f[bold,0] %property[baseware.version]\e"
+}
+
+
+//This is when the user chooses to check their email. The rest of this function plays out in etc.dic.
+Select.MailCheck
+{
+	"\![biff]\e"
+}
+
+
+
+//---- OnChoiceTimeout ---------------------------------------------------------
+OnChoiceTimeout
+{
+	"\0\s[0]My dear fellow?\w8 \s[1]Did you fall asleep on me?\w8\e"
+	
+	"\0\s[0]My dear fellow?\w8 \s[1]Did you fall asleep on me?\w8 \s[0]\n\n[half]I can hardly blame you.\w8 \s[1]The same thing happened to me the other day.\w8 \n\n[half]I was having a chat with Inspector Gregson at the time.\w8 \n\n[half]He was...\w8\s[2]less than pleased.\w8\e"
+}
+
+
+
+
+//---- Secondary Character Menu ---------------------------------------------------------
+OpenKeroMenu
+{
+	"\1\s[10]\b[2]"
+ 	--
+	"What would you like me to do?\w8"
+	
+	"What?\w8"
+	
+	"...\w8did you want something?\w8"
+	
+	"I don't know why I should do anything for you.\w8 \0\s[0]Come on,\w4 Barok!\w8 \1\s[10]\n\n[half]....\w8 \0\s[0]\c\b[-1]\1\s[10]\cWhat shall it be?\w8"
+ 	--
+	KeroMenuRun
+}
+
+KeroMenuRun
+{
+	"\b[2]\_q\n\n[half]"
+	--
+	"\![*]\q[Update,keroupdatecheck]\n"
+	--
+	"\![*]\q[Bug report,bugreport]\n\n"
+	--
+	"\![*]\q[Test variable,testvariable]\n\n"
+	--
+	"\![*]\q[Nothing,keroCANCEL]\e"
+}
+
+//If you click cancel.
+Select.keroCANCEL
+{
+	"\1\s[10]Then pray forgive the discourtesy of my continuing to stand here,\w4 accomplishing nothing of importance.\w8\e"
+}
+
+
+//This is when they select bug report. This is mostly meant to briefly give the user information about you, the creator, and how to report a problem to you. This can be handy if the person forgot where they got their ghost or how to contact you. Add whatever info you like here.
+Select.bugreport
+{
+	"\0\s[1]A bug,\w4 you say?\w8 \s[3]\_a[http://www.characteroulette.tumblr.com/]You should send this report at once!\_a\w8\e"
+}
+
+//When clicked, this will automatically tell the ghost to check for updates.
+Select.keroupdatecheck
+{
+	"\0\s[0]\![updatebymyself]\e"
+}
+
+
+//[VERSE DIALOGUE AHEAD]

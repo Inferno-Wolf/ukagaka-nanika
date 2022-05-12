@@ -1,0 +1,609 @@
+﻿//---------------------------AI Talk--------------------------
+//This is where all their random conversations are stored.
+
+
+
+//--AiTalk
+AiTalk
+{
+	if RAND(100) < communicateratio
+ 	{
+ 		StartCommunicate
+	}
+ 	else
+	{
+ 		if mikireflag == 0
+		{
+			if CHAIN.IDName == "" {
+ 				lastTalk = RandomTalk
+			}
+			else {
+				lastTalk = ChainTalk
+			}
+			lastTalk
+		}
+ 		else
+		{ 
+		MikireTalk
+ 		}
+	}
+}
+
+
+//--RandomTalk 
+
+
+//--Rules (By Quonit)
+
+// You can change the size of text using \f[height,(number, or the word default).
+// \f[strike,true] makes the words struck out. \f[strike,defualt] resets the text to defualt.
+// \f[sub,true] makes text subscript. \f[sub,default] resets text to normal.
+// \f[sup,true] makes text superscript. \f[sup,false] makes the text normal again.
+// \f[underline,true] underlines text. \f[underline,default] removes the line from under the text.
+// \f[bold,true] makes your statement bold. \f[bold,false] makes the text not so bold.
+// \f[italic,true] makes text slanted. \f[italic,false] de-slants the text.
+// \f[color0-255,0-255,0-255] changes the color of the text. \f[color,default] will return the color to default.
+// \f[default] returns everything back to normal.
+// \_a[[http://www.website.com/](put text here)\_a can link a website in dialogue.
+
+// \0\s[0]\1\s[0]\_s(put dialogue here)\_s has characters say dialogue at the same time. Using \_s[0,1](text here)\_s specifies which characters are speaking at the same time.
+// \_v[filename.mp3] plays a sound
+// \_b[name.png,50,50,centerxy] displays an image in the balloon.
+// \![set,balloonwait,0.1] this controls the speed of the text!! default set at 1
+// \c[char,6] clears 6 characters; basically deleting specific things!!
+
+
+//Envelopes
+// %(user) // %(they) // %(them) // %(their) // %(theyre)
+// %(filetype) // %(userfolder) // %(fairfood) // %(numb) // %(Hermonth)
+
+//SURFACE GUIDE
+//--HERLOCK
+// \s[0] -> Neutral
+// \s[1] -> Thinking
+// \s[2] -> Pointing w/left hand
+// \s[3] -> Wacky
+// \s[4] -> Head down / Tired
+// \s[5] -> ANGER
+// \s[6] -> Lean forward shrug / Smarmy
+// \s[7] -> FIGHT!!
+// \s[99] -> DLC Outfit Neutral
+// \s[100] -> Coat and Hat Neutral
+
+
+RandomTalk : nonoverlap
+{
+	//talk about friends!!
+	"\0\s[0]Iris would absolutely love this place.\w8 \s[6]There's so much to see!\w8 \s[1]\n\n[half]These moving pictures ahead,\w4 this strange typewriter of yours...\w8 \s[0]She would be all over it.\w8 \s[1]\n\n[half]I hope I can bring her with me next time.\w8 \s[4]Wherevere here is.\w8\e"
+	
+	"\0\s[0]Barok would absolutely loathe this place.\w8 \s[1]He's much too straight-laced for this.\w8 \n\n[half]I don't believe he even knows morse code.\w8 \s[2]It's possible he'd only see the ones and zeros rather than the entire place.\w8 \s[6]\n\n[half]We must get him here at once,\w4 my dear fellow!\w8\e"
+	
+	
+	//pic gags
+	"\0\s[1]My roommate often compares me to a hare,\w4 \s[3]because I am quick to think and even quicker to act.\w8 \s[0]\n\n[half]That is fine,\w4 \s[1]but I'd rather be something more noble...\w8 \1\_b[sherlock_fursona.png,20,20,centerxy]\0More cunning...\w8 \s[2]\n\n[half]You see what I mean?\w8\e"
+	
+	"\0\s[0]My roommate enjoys making little felt dolls.\w8 \s[1]\n\n[half]Naturally,\w4 I had to try my hands at it as well.\w8 \1\_b[muppet_herlock.png,20,20,centerxy]\0\s[3]\n\n[half]Behold!\w8\w5 \s[0]My creation!\w8\w5 \s[6]\n\n[half]Wonderful,\w4 isn't it?\w8\e"
+	
+	
+	//references
+	"\0\s[1]Irene Adler?\w8 \s[4]\n\n[half]Ah...\w8\w8 \s[0]\n\n[half]This is a bit of an embarassing story.\w8\w8\w8 \cSee,\w4 \s[2]I enjoy switching things up every once in a while.\w8 \s[1]Change clothes,\w4 and pronouns,\w4 and gender,\w4 and name.\w8 \s[0]\n\n[half]It's rather enjoyable \s[3]and I can only recommend that you try as well.\w8 \s[1]\n\n[half]''Irene Adler'' is a name I enjoyed wearing in such a fashion.\w8 \n\n[half]But there was a whole lot of trouble with the King of Bohemia,\w4 and,\w4 well...\w8\w8 \s[0]''Irene''\w4 had to disappear.\w8\w8 \s[4]\n\n[half]That is a shame.\w8 I'd grown attached to that name.\w8\w8\w8 \c\s[0]Hm?\w8 My relationship with the king?\w8 \s[3]\n\n[half]Why,\w4 my dear fellow,\w4 a lady doesn't kiss and tell!\w8\e"
+	
+	"\0\s[0]Professor Moriarty?\w8 \s[1]You mean the man in Iris's stories?\w8 \n\n[half]As I recall,\w4 the man used to tutor Iris in maths,\w4 when she was younger.\w8 \n\n[half]I believe they had a...\w8 disagreement,\w4 regarding Fermat's theorem.\w8 \s[0]\n\n[half]It angered Iris so much she made him the villain in one of her stories.\w8 \s[2]\n\n[half]Good on her!\w8 \s[0]I wish I could earn money from my anger.\w8 \n\n[half]Oh!\w8 \s[1]Maybe I could make a machine that converts emotions to gold!\w8\e"
+	
+	
+	//other dialogue
+	"\0\s[0]You know,\w4 \s[1]I have seen some astonishing things running on steam.\w8 \s[0]\n\n[half]I got to see a steamboat engine up close once.\w8 \s[6]It was truly marvelous.\w8 \s[3]\n\n[half]But this is the first I've heard of games running on steam!\w8\e"
+	
+	"\0\s[1]Speaking to you is a bit strange,\w8 I must say.\w8 \s[0]\n\n[half]I am certainly hearing you speak,\w4 \s[1]but it feels like I am reading your words at the same time.\w8 \n\n[half]I've heard of people who had synaesthesia,\w4 \s[3]but I've certainly never heard of people who caused it in others!\w8\e"
+	
+	"\0\s[0]People often think that being a detective is a hard and noble work.\w8 \s[2]\n\n[half]Which is true,\w4 obviously.\w8 \s[1]But it does involve a fair bit of rummaging through people's trash.\w8 \n\n[half]Completely coincidentally...\w8 \s[3]I found an %(filetype) in the %(userfolder) earlier.\w8 \s[1]This doesn't happen to be yours,\w4 does it?\w8\e"
+	
+	
+	//--Chains
+	"\0\s[1]I've been curious about that strange typewriter of yours...\w8 \s[0]\n\n[half]And I am of the opinion that experimentation is always the best way to figure out how something works.\w8\e:chain=capstest"
+	
+	
+	//other user input
+	"\0\s[0]You know,\w4 \a[1]I have no idea what you actually look like behind that foggy screen.\w8 \n\n[half]For all I know,\w4 \s[2]you might not even be human,\w4 haha!\w8 \n\n[half]...\w8\w8\w8 \s[0]\n\n[half]No,\w4 seriously,\w4 are you?\w8 \1\_q\![*]\q[I am a human\, like you.,amhuman] \n\![*]\q[I am a human\, but in 3D.,3dhuman] \n\![*]\q[You got me. I'm not human.,nothuman]\e"
+	
+	
+	/*
+	if nowshell == "master" //the shell folder name
+	{
+	"\0\s[0]Here is dialogue related to the default shell.\w8\1\s[10]You can use this to comment on clothing your ghost is wearing.\e"
+	
+	"\0\s[0]Here is more dialogue related to the default shell.\e"
+	}
+	*/
+	
+	
+	/*
+	//month dialogue
+	if month == 1
+	{
+		"\0\s[0]This is dialogue for January.\w8\1\s[10]Yup.\e"
+		
+		"\0\s[0]This is more dialogue for January.\w8\1\s[10]That it is.\e"
+	}
+	if month == 2
+	{
+		"\0\s[0]This is dialogue for February.\w8\1\s[10]Yup.\e"
+		
+		"\0\s[0]This is more dialogue for February.\w8\1\s[10]That it is.\e"
+	}
+	if month == 3
+	{
+		"\0\s[0]This is dialogue for March.\w8\1\s[10]Yup.\e"
+		
+		"\0\s[0]This is more dialogue for March.\w8\1\s[10]That it is.\e"
+	}
+	if month == 4
+	{
+		"\0\s[0]This is dialogue for April.\w8\1\s[10]Yup.\e"
+		
+		"\0\s[0]This is more dialogue for April.\w8\1\s[10]That it is.\e"
+	}
+	if month == 5
+	{
+		"\0\s[0]This is dialogue for May.\w8\1\s[10]Yup.\e"
+		
+		"\0\s[0]This is more dialogue for May.\w8\1\s[10]That it is.\e"
+	}
+	if month == 6
+	{
+		"\0\s[0]This is dialogue for June.\w8\1\s[10]Yup.\e"
+		
+		"\0\s[0]This is more dialogue for June.\w8\1\s[10]That it is.\e"
+	}
+	if month == 7
+	{
+		"\0\s[0]This is dialogue for July.\w8\1\s[10]Yup.\e"
+		
+		"\0\s[0]This is more dialogue for July.\w8\1\s[10]That it is.\e"
+	}
+	if month == 8
+	{
+		"\0\s[0]This is dialogue for August.\w8\1\s[10]Yup.\e"
+		
+		"\0\s[0]This is more dialogue for August.\w8\1\s[10]That it is.\e"
+	}
+	if month == 9
+	{
+		"\0\s[0]This is dialogue for September.\w8\1\s[10]Yup.\e"
+		
+		"\0\s[0]This is more dialogue for September.\w8\1\s[10]That it is.\e"
+	}
+	if month == 10
+	{
+		"\0\s[0]This is dialogue for October.\w8\1\s[10]Yup.\e"
+		
+		"\0\s[0]This is more dialogue for October.\w8\1\s[10]That it is.\e"
+	}
+	if month == 11
+	{
+		"\0\s[0]This is dialogue for November.\w8\1\s[10]Yup.\e"
+		
+		"\0\s[0]This is more dialogue for November.\w8\1\s[10]That it is.\e"
+	}
+	if month >= 12
+	{
+		"\0\s[0]This is dialogue for December.\w8\1\s[18]A cold month?\e"
+		
+		"\0\s[0]This is more dialogue for December.\w8\1\s[18]Still cold?\e"
+	}
+	*/
+	
+	"\0\s[1]Is it %(Hermonth)??\w8 \s[5]How has time passed so fast?!\w8\w8\w8 \s[0]\n\n[half]Mh?\w8 \s[1]It isn’t,\w4 you say?\w8 \s[4]\n\n[half]Oh...\w8 This newspaper issue is dated from last year...\w8\e"
+	
+	/*
+	//These ifs check what day of the week it is.
+	if weekday == 1
+	{
+		"\0\s[0]This is dialogue for Monday.\w8\1\s[10]Yup.\e"
+		
+		"\0\s[0]This is more dialogue for Monday.\w8\1\s[10]That it is.\e"
+	}
+	if weekday == 2
+	{
+		"\0\s[0]This is dialogue for Tuesday.\w8\1\s[10]Yup.\e"
+		
+		"\0\s[0]This is more dialogue for Tuesday.\w8\1\s[10]That it is.\e"
+	}
+	if weekday == 3
+	{
+		"\0\s[0]This is dialogue for Wednesday.\w8\1\s[10]Yup.\e"
+		
+		"\0\s[0]This is more dialogue for Wednesday.\w8\1\s[10]That it is.\e"
+	}
+	if weekday == 4
+	{
+		"\0\s[0]This is dialogue for Thursday.\w8\1\s[10]Yup.\e"
+		
+		"\0\s[0]This is more dialogue for Thursday.\w8\1\s[10]That it is.\e"
+	}
+	if weekday == 5
+	{
+		"\0\s[0]This is dialogue for Friday.\w8\1\s[10]Yup.\e"
+		
+		"\0\s[0]This is more dialogue for Friday.\w8\1\s[10]That it is.\e"
+	}
+	if weekday == 6
+	{
+		"\0\s[0]This is dialogue for Saturday.\w8\1\s[10]Yup.\e"
+		
+		"\0\s[0]This is more dialogue for Saturday.\w8\1\s[10]That it is.\e"
+	}
+	if weekday == 0
+	{
+		"\0\s[0]This is dialogue for Sunday.\w8\1\s[10]Yup.\e"
+		
+		"\0\s[0]This is more dialogue for Sunday.\w8\1\s[10]That it is.\e"
+	}
+	*/
+	
+	//These ifs check for the time of day as defined in bootend.dic.
+	/*
+	if timeslot == "earlymorning"
+	{
+		"\0\s[0]This is dialogue for the early morning.\w8\1\s[10]Yup.\e"
+		
+		"\0\s[0]This is more dialogue for early morning.\w8\1\s[10]That it is.\e"
+	}
+	if timeslot == "morning"
+	{
+		"\0\s[0]This is dialogue for the morning.\w8\1\s[10]Yup.\e"
+		
+		"\0\s[0]This is more dialogue for the morning.\w8\1\s[10]That it is.\e"
+	}
+	*/
+	if timeslot == "lunch"
+	{
+		"\0\s[4]Candles are so terribly disappointing.\w8 \s[1]\n\n[half]They smell so nice.\w8 They burn so bright.\w8 They feel so good to bite into.\w8 \n\n[half]But the taste?\w8 \s[5]Horrible.\w8 This is just soap all over again.\w8 \s[4]\n\n[half]When will I ever stop undergoing betrayal?\w8\e"
+		
+		"\0\s[4]Wine is the most treacherous friend there is on this Earth.\w8 \s[1]\n\n[half]It smells so sweet...\w8it looks so nice...\w8\s[6]hold it under the light and the liquid will reflect a thousand delicious promises.\w8 \s[3]\n\n[half]And then you drink it,\w4 and!\w8 \s[5]\n\n[half]Betrayal!\w8 Bitterness!\w8 \n\n[half]A taste so foul it curses your entire mouth!\w8 \s[0]\n\n[half]I guess this is why Barok only ever uses it as a drama prop in court.\w8\e"
+	}
+	/*
+	if timeslot == "afternoon"
+	{
+		"\0\s[0]This is dialogue for the afternoon.\w8\1\s[10]Yup.\e"
+		
+		"\0\s[0]This is more dialogue for the afternoon.\w8\1\s[10]That it is.\e"
+	}
+	if timeslot == "evening"
+	{
+		"\0\s[0]This is dialogue for the evening.\w8\1\s[10]Yup.\e"
+		
+		"\0\s[0]This is more dialogue for the evening.\w8\1\s[10]That it is.\e"
+	}
+	*/
+	if timeslot == "latenight" || timeslot == "midnight"
+	{
+		"\0\s[0]Ah!\w8 \s[1]A fellow night owl,\w4 I see!\w8 \s[0]\n\n[half]Working late is often very stimulating for the nerves.\w8 \s[1]\n\n[half]Sadly,\w4 my roommate is someone who must be in bed by 8 in the evening,\w4 \s[0]so I have to be quiet past that.\w8\e"
+	}
+	
+	
+	//--Double Envelopes
+	/*
+	//note that this is enclosed in its own set of brackets
+	{
+	_korean = lessonkor //Here, the envelope "lessonkor" (which is in word.dic) is stored as a new temporary value called _korean. As a reminder, when coding, it goes "4 = 2 + 2" and not "2 + 2 = 4". The result always comes first!
+	//If you look at lessonkor in word.dic, you'll see it goes "Korean word, meaning". So "Korean word" is the first value in that array, and "meaning" is the second. Arrays always start at 0, as a note.
+	_korword = _korean[0] //Now we make a temporary value called "_korword", which is what will store the Korean word. Since the Korean word is the first value in the array _korean which we just defined, then we can pull that value from the array with _korean[0]. [0] is telling it which entry in the array to take - in this case, the first one (again, arrays start at 0).
+	_kormean = _korean[1] //Now we make a temporary value called "_kormean", which is what will store the meaning of the Korean word. This is the second value in the array, so we can pull it out of _korean by using _korean[1].
+	
+	//Now we put it all together!
+	"\1\s[10]Here is an example of a double envelope. The Korean word is %(_korword).\w8\0\s[0]The word means %(_kormean).\e"
+	
+	//As you can see here, we then use the values we set above for _korword and _kormean up there in the dialogue as our new envelopes.
+	//The underscores in front of korword and kormean mean that the value is temporary, and will disappear when the dialogue has finished.
+	
+	//Additional Note - You can't test this kind of dialogue in Script Input. You'll have to wait until it comes up naturally in your ghost's random dialogue.
+	}
+	*/
+	
+	//--Multiple Responses
+	
+	//Ryuu references!
+	{
+	"\0\s[2]Presenting evidence to random people is the most human reflex of them all.\w8 \s[0]\n\n[half]So,\w4 \s[3]behold!\w8\w8 \s[1]I found this %(filetype) in this %(userfolder)!\w8"
+	--
+	if user == "Mister Naruhodou"
+	{
+		"\s[0]\n\n[half]Oh,\w4 don't look at me like that.\w8 \s[6]You do it all the time!\w8"
+	}
+	--
+	"\e"
+	}
+	
+	{
+	"\0\s[0]I wish I had some symbol of my profession to show off to people at random.\w8"
+	--
+	if user == "Mister Naruhodou"
+	{
+		"\s[6]\n\n[half]Like you do with your armband,\w4 you get me?\w8"
+	}
+	else
+	{
+		"\s[6]\n\n[half]Like an attorney's armband,\w4 you get me?\w8"
+	}
+	--
+	"\s[1]\n\n[half]Maybe I should present my deercap to people.\w8 \s[0]Do you think it'd work?\w8\e"
+	}
+	
+	
+	////Other ghost dialogue
+	/*
+	if ghostexcount == 0
+	{
+		"\0No other ghosts open at this time.\w8\e"
+	}
+	if ghostexcount >= 3
+	{
+		"\0Three or more other ghosts are out.\w8\e"
+	}
+	
+	if ghostexcount > 0
+	{
+	_number = RAND(ghostexcount)
+	--
+	checkname = "%(ghostexlist[_number])"
+	--
+	case checkname
+	{
+		when ""
+		{
+			""
+		}
+		//when ""
+		//{
+			//""
+		//}
+		when ""
+		{
+			""
+		}
+		others
+		{
+			"\![raise,OnStartTalking]"
+		}
+	}
+	//Always include an "other" it is just a good idea
+	}
+	*/
+	
+	
+	"\0\s[0]Truth be told,\w4 I am terrible with names.\w8 \s[3]\n\n[half]Which is why I often greet people with a ''my dear fellow''.\w8 \s[1]I can’t get a name wrong if I don’t call people by their name.\w8 \s[6]\n\n[half]Clever,\w4 don’t you think, %(user)sy?\w8\e"
+}
+
+
+//--Chains
+//Each chain function will go through each part of the chain in order even if it's in one function, until it goes to \e:chain=end which will end the chain. So you can put the entire chain dialogue into one place.
+//Pay careful attention to the CHAIN text and double brackets for these.
+//Note also it ends with \e:chain=end, basically ending the chain.
+capstest
+{{CHAIN
+	"\0\s[0]Say,\w4 my dear fellow,\w4 \s[1]could you type something in upper case for me?\w8"
+	--
+	"\n\n\b2\_q\![*]\q[Sure!,typeit] \n\![*]\q[Not right now.,nothks]\e:chain=end"
+}}CHAIN
+
+//not right now
+Select.nothks
+{
+	"\0\s[2]Fair enough!\w8\e"
+}
+
+//sure, Mister Sholmes!
+Select.typeit
+{
+	"\0\s[3]Have at it!\w8"
+	--
+	"\![open,inputbox,OnCapsSherlock,-1]\e"
+}
+
+//the actual input stuff
+OnCapsSherlock
+{
+	_tempstuff = reference0
+	reference0 = TOUPPER(reference0) //to caps
+	reference0 = REPLACE(reference0," ","") //removes spaces
+	reference0 = REPLACE(reference0,".","") //removes periods
+	reference0 = REPLACE(reference0,"-","") //removes dashes
+	reference0 = REPLACE(reference0,"'","") //removes apostrophes
+	
+	if reference0 == "BITCH" || reference0 == "SHIT" || reference0 == "FUCK" || reference0 == "GODDAMN" || reference0 == "BLOODYHELL" || reference0 == "BASTARD" || reference0 == "DAMN" || reference0 == "HELL" || reference0 == "BASTARDMAN" || reference0 == "PUNKASSBITCH"
+	{
+		"\0\s[0]Well,\w4 now.\w8 There's no need to be rude.\w8 \s[4]\n\n[half]A simple no would have suffised."
+	}
+	elseif reference0 == "" //blank check
+	{
+		"\0\s[0]...\w8 \s[4]\n\n[half]You are quite the contrarian,\w4 aren't you,\w4 %(user)?"
+	}
+	else //all other possible inputs
+	{
+		"\0\s[1]I see,\w4 I see.\w8 \s[3]This is fascinating!\w8 \s[1]\n\n[half]You are writing in upper cases,\w4 but your typewriter does not,\w4 in fact,\w4 include any cases at all!\w8 \n\n[half]How does it work,\w4 I wonder...?"
+	}
+	--
+	"\w8\e"
+}
+
+
+//am human
+Select.amhuman
+{
+	"\0\s[0]...\w8\w8\w8 \s[4]\n\n[half]Well,\w8 that's disappointing.\w8\e"
+}
+
+//am 3d
+Select.3dhuman
+{
+	"\0\s[1]Three whole dimensions...?\w8 \s[3]\n\n[half]Now that's just weird to imagine.\w8\e"
+}
+
+//am cat
+Select.nothuman
+{
+	if user == "Wagahai"
+	{
+		"\0\s[3]I knew it!\w8 You actually are the cat!!\w8 \s[1]\n\n[half]Who taught you how to write?!\w8 Iris?\w8 \s[2]It must have been Iris.\w8 \s[3]\n\n[half]I can't believe we came to host the first cat who grew smarter than %(their) original master!\w8\e"
+	}
+	else //user != "Wagahai"
+	{
+		user = "Wagahai" //because Herlock is a little bitch XD
+		
+		"\0\s[3]I knew it!\w8 \s[0]You chose a different name at the start to confound me,\w4 but in truth...\w8 \s[6]\n\n[half]You are Wagahai,\w4 are you not?\w8 \n\n[half]Wonderful!\w8 \s[2]You are so much smarter than your previous owner!\w8 \s[1]Who would have guessed?\w8\e"
+	}
+}
+
+
+
+//-OnMinuteChange
+
+
+//Keeps track of if an hour has passed.
+HourCheck
+{
+if passmin >= 59
+	{
+		passmin = 0
+		passhour = passhour + 1
+	}
+}
+
+//This is what will trigger time-based dialogue for your Ghost.
+OnMinuteChange
+{
+	HourCheck
+	--
+ 	if minute == 0
+	{
+		/*
+ 		if hour == 12 //noon
+		{
+ 			"\0\s[0]It's noon.\w8\1\s[15]Let's have a showdown!\w8\0\n\n[half]\s[9]There are no corrals here, dude.\e"
+		}
+ 		elseif hour == 0 //midnight
+		{
+ 			"\0\s[0]It's midnight!\e"
+ 			"\0\s[0]This is another bit of dialogue for midnight.\w8\1\s[10]BooooOoooOOOooOOOOo.\e"
+ 			"\0\s[0]This is the third bit of dialogue for midnight.\e"
+		}
+		else
+		{
+			"\0\s[0]It's %(hour12)'o clock.\e"
+		}
+		*/
+	}
+	/*
+	elseif hour == 23 && minute == 55 //this checks to see if the hour is 23 and the minutes are at 55... essentially, 11:55 pm.
+	{
+		"\0\s[0]5 minutes to midnight.\e"
+	}
+	elseif hour == 7 && minute == 30 && weekday == 0 //Here, it's checking for a specific time on a specific day.
+	{			
+		"\0\s[0]It's 7:30 on Sunday.\e"
+	}
+	*/
+	
+	elseif mikireflag == 1
+ 	{
+ 		MikireTalk
+	}
+}
+
+
+//--OnSecondChange
+//reference1 is if the ghost is offscreen or not
+OnSecondChange
+{
+	if passsec == 59
+	{
+	 	passsec = 0
+ 		passmin = passmin + 1
+	}
+ 	else
+	{
+	 	passsec = passsec + 1
+	}
+	if mikireflag == 0 && reference1 == 1 //Dialogue for when they're offscreen.
+	{
+		MikireTalk
+	}
+	if mikireflag == 1 && reference1 == 0 //Dialogue for coming back on the screen
+	{
+		EndMikireTalk
+	}
+	
+	mikireflag = reference1
+	
+	if reference2 == 1
+	{
+ 		//"\0\s[0]Me and Triangle are overlapping.\w8\1\s[19]That's strange since your resolution is %screenwidthx%screenheight, %(username). Shouldn't we have enough space?\4\e"
+	}
+}
+// \4 -> moves away; \5 -> moves towards (if they can; if too close, also moves away)
+// %screenwidthx%screenheight -> for screen resolution
+
+
+//---- MikireTalk ---------------------------------------------------------------------
+//Note the hotkey combo Ctrl-Shift-F12
+MikireTalk
+{
+	//this should hold him in thought pose while he's offscreen...
+	"\0\s[1]\e"
+}
+
+//----EndMikireTalk--------------------------------------------------------------------
+//this shouldn't get called at all anymore BUT LET'S BE SAFE
+EndMikireTalk
+{
+	"\0\s[3]\e"
+}
+
+
+//------- On Offscreen!! ------------------------------------------------------------
+//In case the Mikiretalk doesn't work out, we have this function instead.
+OnOffscreen
+{
+	if reference0 == 0 //the Sakura
+	{
+		"\0\s[1]Now now,\w4 what do we have over there...?\w8 \n\n[half]Oh!\w8 Wow!\w8 \s[6]Are these the so-called 'shrimp colors'?!\w8 \s[3]\n\n[half]It's as if sweetness had a color!\w8 As if purple was made into sound!\w8 \s[6]\n\n[half]Oh,\w4 I so wish you could witness that with me,\w4 %(user)!\w8\e"
+	}
+	elseif reference0 == 1 //the Kero
+	{
+		"\1\s[10]...\w8\w8\w8 \n\n[half]Pray forgive the discourtesy of my not appreciating your moving me out of view.\w8\e"
+	}
+	else //moving either back onscreen
+	{
+		"\0\s[0]Ah,\w4 that is a shame.\w8 \s[4]The poney kingdom was in need of my aid.\w8 \n\n[half]But alas -\w8 I belong on this side of the realm,\w4 and therefore cannot be the hero they need.\w8\w8\w8 \s[0]\n\n[half]Mh?\w8 \s[1]Am I pulling your leg?\w8 \n\n[half]Haha...\w8 \s[3]That's for you to decide,\w4 my dear fellow!\w8\e"
+	}
+}
+
+
+//**** OnSurfaceRestore *****************************************************************
+//Sakura is reference0, Kero is reference1.
+OnSurfaceRestore
+{
+	"\0\s[0]\1\s[10]\e"
+}
+
+
+//--OnKeyPress
+OnKeyPress
+{
+	if reference0 == "t"
+	{
+	OnAiTalk
+	}
+	elseif reference0 == "r"
+	{
+	OnLastTalk
+	}
+	elseif reference0 == "f1"
+	{
+	"\![open,readme]"
+	}
+}
+
+
+//[VERSE DIALOGUE AHEAD]

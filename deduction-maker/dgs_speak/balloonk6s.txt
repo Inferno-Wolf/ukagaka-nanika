@@ -1,0 +1,7 @@
+//a green text balloon!!
+//everything is the same except the font, so this should work
+
+
+font.color.r,89
+font.color.g,159
+font.color.b,0

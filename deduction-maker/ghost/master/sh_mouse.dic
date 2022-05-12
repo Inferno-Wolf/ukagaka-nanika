@@ -1,0 +1,128 @@
+﻿//---------------------------Mouse Functions--------------------------
+//don't mind the random Barok dialogue lol
+
+
+//--OnMouseMove
+//---- reference3 determines the character in question
+OnMouseMove
+{
+	if reference3 == 0 // 0, aka the main character
+	{
+		MouseMoveSakura
+	}
+	else // not 0, then it must be the side character.
+	{
+		MouseMoveKero
+	}
+}
+
+
+//--MouseMoveSakura
+MouseMoveSakura
+{
+	if reference4 != ""
+ 	{
+ 		stroke++
+		if stroke >= 40
+		{
+			stroke = 0
+			if reference4 == "SHead" || reference4 == "SFace"
+			{
+				"\0\s[3]Ah,\w4 fond of my golden locks,\w4 aren't you?\w8 \n\n[half]Go right ahead!\w8 This face is made for petting!\w8 \s[6]\n\n[half]For a mere five shillings per pat,\w4 you can stroke these handsome cheeks any time you wish!\w8\e"
+				
+				"\0\s[1]Can't get your hands off me,\w4 can you,\w4 %(user)?\w8 \n\n[half]Am I correct in assuming that you are...\w8\w8\s[6]fond of me?\w8 \s[4]\n\n[half]I'm sorry,\w4 %(user).\w8 I only have one love in my life,\w4 and that is my work.\w8 \s[1]\n\n[half]Also science.\w8 And my partner.\w8 And my daughter.\w8 And...\w8\w8\w8 \n\n[half]...\w8\s[0]I actually have a lot of loves in my life,\w4 huh.\w8\e"
+				
+				"\0\s[0]You know,\w4 this actually feels really nice.\w8 \s[1]\n\n[half]I shall do that to my daughter when I get back.\w8\w8\w8\w8 \s[0]\n\n[half]...\s[4]Roommate.\w8 I meant to say roommate.\w8 \s[0]\n\n[half]Obviously.\w8\e"
+			}
+ 			//elseif reference4 == ""
+ 		}
+	}
+ 	else
+	{
+		stroke = 0
+ 	}
+}
+
+
+//---- MouseMoveKero -----------------------------------------------------------------
+MouseMoveKero
+{
+	if reference4 != ""
+ 	{
+ 		stroke++
+ 		if stroke >= 40
+		{
+			stroke = 0
+			if reference4 == "BHead"
+ 			{
+				"\1\s[10]Stop that.\w8 \0\s[0]My dear,\w4 I do believe that %(user) is rather fond of you.\w8 \1\s[10]\n\n[half]I'd much prefer %(they) show that fondness in some other manner besides unsolicited touching.\w8 \0\s[0]\n\n[half]You're absolutely no fun,\w4 my dear.\w8\e"
+ 			}
+			elseif reference4 == "BFace"
+			{
+				"\1\s[10]Stop.\w8 \0\s[0]\1\s[10]I would much prefer you not touch my face,\w4 %(user).\w8 \0\s[0]Perhaps %(theyre) simply fascinated by your scar,\w4 my dear.\w8 \1\s[10]\n\n[half]What is there to be fascinated by?\w8 \0\s[0]\1\s[10]It is merely a mark on my face from encounters past.\w8 \0\s[0]\n\n[half]Sounds like a right tale to me!\w8 Let's hear it!\w8 \1\s[10]\n\n[half]...\w8\w8\w8No.\w8 \0\s[0]\n\n[half]Foiled again!\w8\e"
+			}
+ 		}
+	}
+ 	else
+	{
+		stroke = 0
+ 	}
+}
+
+
+//---- OnMouseDoubleClick -------------------------------------------------------
+//reference5 checks which button is being used for the click
+OnMouseDoubleClick
+{
+	if reference5 == 0
+	{
+	 	if reference3 == 0 //if the character is 0, aka your main character
+		{
+			MouseDoubleClickSakura
+		}
+		else
+		{
+			MouseDoubleClickKero
+		}
+	}
+}
+
+
+//---- MouseDoubleClickSakura ----------------------------------------------------------
+MouseDoubleClickSakura
+{
+	if reference4 == "SHead" || reference4 == "SFace"
+	{
+		"\0\s[7]Are you a boxer too,\w4 %(user)?!\w8 \n\n[half]I'll have you know I'm a champion boxer myself!\w8 \n\n[half]Square up,\w4 my dear fellow!\w8 I'll show you how to throw a punch!\w8\e"
+		
+		"\0\s[2]It has been way too long since the last time I got to throw down for fun.\w8 \s[7]\n\n[half]Still,\w4 I would appreciate a warning next time!\w8\e"
+		
+		"\0\s[0]Ah!\w8 \s[3]Mercy,\w4 mercy!\w8 \s[2]\n\n[half]I've yet to find a way to hit you back,\w4 %(user).\w8 This is hardly fair!\w8 \s[7]\n\n[half]I'll gladly wrestle with you the moment I figure out how to reach you,\w4 but I'm afraid this is a rather compromised endeavor right now.\w8\e"
+	}
+	else
+	{
+		OpenSakuraMenu
+	}
+}
+
+
+//---- MouseDoubleClickKero -----------------------------------------------------------
+MouseDoubleClickKero
+{
+ 	if reference4 == "Wine"
+	{
+		"\0\s[0]\1\s[10]\_s...\w8\w8\w8\_s \1\s[10]\n\n[half]Pray forgive the discourtesy of my fumbling my glass in your presence,\w4 %(user).\w8 \0\s[0]\n\n[half]That was all %(user)'s fault,\w4 my dear.\w8 \1\s[10]\0\s[0]You shouldn't apologise for %(their) bumbling!\w8 \1\s[10]\n\n[half]...\w8\s[10]I suppose not.\w8\e"
+ 	}
+	else
+ 	{
+		OpenKeroMenu
+	}
+}
+
+
+//*********************Advanced User Info*******************************
+//There are other mouse related functions you could set up much like the above, such as OnMouseDragStart, OnMouseDragEnd, OnMouseWheel, and others which correspond to various things you can do with your mouse. You can probably guess what those functions do just by their names - OnMouseWheel would be if someone spun their mouse wheel over a certain area, for example. If you're interested in these, I'd recommend doing some reading at the CROW-SSP Encyclopedia to get a better idea of them and settle down for some trial and error learning as you try to put them in.
+//***********************************************************************
+
+
+//[VERSE DIALOGUE AHEAD]

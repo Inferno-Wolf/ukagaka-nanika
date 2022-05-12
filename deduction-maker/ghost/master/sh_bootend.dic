@@ -1,0 +1,432 @@
+﻿//---------------------------Booting and Ending--------------------------
+//This .dic file is set aside for booting and ending dialogue, as well as a few other functions.
+
+
+
+//--OnFirstBoot--
+//OnFirstBoot begins with some code at first to define some values your ghost will be using.
+OnFirstBoot
+{
+ 	FirstBootVars
+	Gettime
+	
+	if reference0 == 0 
+ 	{
+		"\![enter,passivemode]\1\s[10]\0\s[3]Greetings,\w4 my dear fellow!\w8 \s[0]It is good to see you.\w8 \s[1]\n\n[half]It’s a rather queer place,\w4 isn’t it?\w8 I’ve never seen anything like this before!\w8 \s[0]London's Great Exhibition really went all out this year.\w8 \s[4]\n\n[half]It is a bit hard to see you clearly through this glass,\w4 though.\w8 \s[2]\n\n[half]But fear not!\w8 I have no need to see your face.\w8 \s[1]For I have already deduced who you are!\x"
+		--
+		if hour >= 22 && hour <= 7 //between 10pm and 7am
+		{
+			user = "Nikolina"
+			
+			"Are you familiar with the concept of time zones?\w8 \n\n[half]If one were to take the boat from Great Britain to France with a pocket watch,\w4 they would find,\w4 upon arrival,\w4 that their watch is running one hour late.\w8 \s[0]\n\n[half]That is not in any way due to a dysfunction of the watch -\w8 rather,\w4 \s[3]the entire country of France is the one running one hour ahead of Great Britain!\w8 \s[1]\n\n[half]Incredible,\w4 isn’t it?\w8 \s[0]\n\n[half]Now,\w4 normally,\w4 people get gradually used to the different time zones during the course of their travel,\w4 so they don’t suffer anything as drastic as this watch’s fate.\w8 \s[2]\n\n[half]But I know for a fact that people who come from very far away might still be one or two hours off upon their arrival.\w8 \s[3]\n\n[half]The fact that you are still awake and working at this hour is definite proof that you are one of these people!\w8 \s[0]\n\n[half]So,\w8 \s[6]where are you from,\w4 my dear fellow?\w8 \s[0]Japan?\w8 \s[1]China?\w8 Or maybe...\w8 \s[2]America?\w8 \s[0]\n\n[half]And your skills upon this strange typewriter of yours...\w8 \s[1]You are someone quite dexterous,\w4 aren’t you?\w8 \n\n[half]Perhaps in a profession that values finesse?\w8 \n\n[half]Such as,\w4 say...\w8 \s[2]A ballerina?\w8 \s[0]\n\n[half]Yes.\w8 I know exactly who you are.\w8 \s[6]\n\n[half]You are Nikolina Pavlova!"
+		}
+		elseif hour >= 11 && hour <= 14 //between 11am and 2pm
+		{
+			user = "Vilen"
+			
+			"\s[4]I find myself rather famished currently.\w8 \s[1]\n\n[half]And who could blame me?\w8 It is the perfect time for a luncheon.\w8 \s[0]\n\n[half]I’m sure most Londoners would agree with me...\w8\s[3]but here you are,\w4 skipping lunch.\w8 \s[1]Or perhaps,\w4 eating at work?\w8 \n\n[half]What could possibly have you in such a hurry that you cannot pause to appreciate the tastes on your tongue?\w8 \n\n[half]A deadline?\w8 A nagging boss?\w8 Or perhaps...\w8\s[6]you are being chased?\w8 \s[0]\n\n[half]Yes.\w8 \s[2]You cannot hide it from me.\w8 I know Scotland Yard is after you.\w8 \n\n[half]You,\w4 \s[1]the infamous Russian revolutionary...\w8 \s[3]\nVilen Borshevik!"
+		}
+		else //any other time
+		{
+			user = "Skulkin"
+			
+			"\s[0]You seem well-acquainted with this place.\w8 \s[1]Which must mean,\w4 surely,\w4 that you are a born Londoner.\w8 \n\n[half]Your skills upon this strange typewriter of yours are rather impressive...\w8 \s[0]You are someone quite dexterous,\w4 aren’t you?\w8 \s[1]\n\n[half]Perhaps in a profession that values finesse?\w8 \n\n[half]Such as,\w4 say...\w8 \s[2]Lockpicking?\w8 \s[0]\n\n[half]Now,\w4 that is a perfectly respectable hobby.\w8 \s[3]I know a few tricks myself,\w4 believe it or not!\w8 \s[0]\n\n[half]But the question becomes...\w8\s[1]what is someone such as you doing at the Great Exhibition?\w8 \n\n[half]You could be simply perusing the exhibits,\w4 obviously.\w8 But the fact that you haven’t moved since the beginning of this conversation tells me otherwise.\w8 \s[0]\n\n[half]Waiting for someone,\w4 perhaps?\w8 Maybe...\w8\s[2]a brother?\w8 Or two?\w8 \s[1]\n\n[half]Yes.\w8 I know exactly who you are.\w8 \s[3]\n\n[half]You are the third Skullkin brother!\w8\w8 \n...\w8\w8\w8 \nWhatever your actual name may be!"
+		}
+		--
+		"\x\s[0]So?\w8 \s[6]How did I do?\w8\n\n\_q"
+		-- //yep answers
+		//\![*]\q[,correctsholmes]
+		"\![*]\q[That is absolutely correct. I am %(user).,correctsholmes]"
+		"\![*]\q[Yup! You got it!,correctsholmes]"
+		"\![*]\q[Sure I can be %(user).,correctsholmes]"
+		"\![*]\q[Guess I'm %(user) now.,correctsholmes]"
+		-- //nope answers
+		//\![*]\q[,sholmesno]
+		"\n\![*]\q[You were completely wrong.,sholmesno]"
+		"\n\![*]\q[Totally wrong.,sholmesno]"
+		"\n\![*]\q[That's not who I am.,sholmesno]"
+		"\n\![*]\q[I'm not %(user).,sholmesno]"
+		--
+		"\e"
+ 	}
+	else //---- This is dialogue for when the user uninstalls the ghost, then reinstalls them again.
+ 	{
+		//It would be cool if he could like. recognise that he's been here before!! but for now I'm copy/pasting the text here so it doesn't cause errors or anything.
+ 		"\![enter,passivemode]\1\s[10]\0\s[3]Greetings,\w4 my dear fellow!\w8 \s[0]It is good to see you.\w8 \s[1]\n\n[half]It’s a rather queer place,\w4 isn’t it?\w8 I’ve never seen anything like this before!\w8 \s[0]London's Great Exhibition really went all out this year.\w8 \s[4]\n\n[half]It is a bit hard to see you clearly through this glass,\w4 though.\w8 \s[2]\n\n[half]But fear not!\w8 I have no need to see your face.\w8 \s[1]For I have already deduced who you are!\x"
+		--
+		if hour >= 22 && hour <= 7 //between 10pm and 7am
+		{
+			user = "Nikolina"
+			
+			"Are you familiar with the concept of time zones?\w8 \n\n[half]If one were to take the boat from Great Britain to France with a pocket watch,\w4 they would find,\w4 upon arrival,\w4 that their watch is running one hour late.\w8 \s[0]\n\n[half]That is not in any way due to a dysfunction of the watch -\w8 rather,\w4 \s[3]the entire country of France is the one running one hour ahead of Great Britain!\w8 \s[1]\n\n[half]Incredible,\w4 isn’t it?\w8 \s[0]\n\n[half]Now,\w4 normally,\w4 people get gradually used to the different time zones during the course of their travel,\w4 so they don’t suffer anything as drastic as this watch’s fate.\w8 \s[2]\n\n[half]But I know for a fact that people who come from very far away might still be one or two hours off upon their arrival.\w8 \s[3]\n\n[half]The fact that you are still awake and working at this hour is definite proof that you are one of these people!\w8 \s[0]\n\n[half]So,\w8 \s[6]where are you from,\w4 my dear fellow?\w8 \s[0]Japan?\w8 \s[1]China?\w8 Or maybe...\w8 \s[2]America?\w8 \s[0]\n\n[half]And your skills upon this strange typewriter of yours...\w8 \s[1]You are someone quite dexterous,\w4 aren’t you?\w8 \n\n[half]Perhaps in a profession that values finesse?\w8 \n\n[half]Such as,\w4 say...\w8 \s[2]A ballerina?\w8 \s[0]\n\n[half]Yes.\w8 I know exactly who you are.\w8 \s[6]\n\n[half]You are Nikolina Pavlova!"
+		}
+		elseif hour >= 11 && hour <= 14 //between 11am and 2pm
+		{
+			user = "Vilen"
+			
+			"\s[4]I find myself rather famished currently.\w8 \s[1]\n\n[half]And who could blame me?\w8 It is the perfect time for a luncheon.\w8 \s[0]\n\n[half]I’m sure most Londoners would agree with me...\w8\s[3]but here you are,\w4 skipping lunch.\w8 \s[1]Or perhaps,\w4 eating at work?\w8 \n\n[half]What could possibly have you in such a hurry that you cannot pause to appreciate the tastes on your tongue?\w8 \n\n[half]A deadline?\w8 A nagging boss?\w8 Or perhaps...\w8\s[6]you are being chased?\w8 \s[0]\n\n[half]Yes.\w8 \s[2]You cannot hide it from me.\w8 I know Scotland Yard is after you.\w8 \n\n[half]You,\w4 \s[1]the infamous Russian revolutionary...\w8 \s[3]\nVilen Borshevik!"
+		}
+		else //any other time
+		{
+			user = "Skulkin"
+			
+			"\s[0]You seem well-acquainted with this place.\w8 \s[1]Which must mean,\w4 surely,\w4 that you are a born Londoner.\w8 \n\n[half]Your skills upon this strange typewriter of yours are rather impressive...\w8 \s[0]You are someone quite dexterous,\w4 aren’t you?\w8 \s[1]\n\n[half]Perhaps in a profession that values finesse?\w8 \n\n[half]Such as,\w4 say...\w8 \s[2]Lockpicking?\w8 \s[0]\n\n[half]Now,\w4 that is a perfectly respectable hobby.\w8 \s[3]I know a few tricks myself,\w4 believe it or not!\w8 \s[0]\n\n[half]But the question becomes...\w8\s[1]what is someone such as you doing at the Great Exhibition?\w8 \n\n[half]You could be simply perusing the exhibits,\w4 obviously.\w8 But the fact that you haven’t moved since the beginning of this conversation tells me otherwise.\w8 \s[0]\n\n[half]Waiting for someone,\w4 perhaps?\w8 Maybe...\w8\s[2]a brother?\w8 Or two?\w8 \s[1]\n\n[half]Yes.\w8 I know exactly who you are.\w8 \s[3]\n\n[half]You are the third Skullkin brother!\w8\w8 \n...\w8\w8\w8 \nWhatever your actual name may be!"
+		}
+		--
+		"\x\s[0]So?\w8 \s[6]How did I do?\w8\n\n\_q"
+		-- //yep answers
+		//\![*]\q[,correctsholmes]
+		"\![*]\q[That is absolutely correct. I am %(user).,correctsholmes]"
+		"\![*]\q[Yup! You got it!,correctsholmes]"
+		"\![*]\q[Sure I can be %(user).,correctsholmes]"
+		"\![*]\q[Guess I'm %(user) now.,correctsholmes]"
+		-- //nope answers
+		//\![*]\q[,sholmesno]
+		"\n\![*]\q[You were completely wrong.,sholmesno]"
+		"\n\![*]\q[Totally wrong.,sholmesno]"
+		"\n\![*]\q[That's not who I am.,sholmesno]"
+		"\n\![*]\q[I'm not %(user).,sholmesno]"
+		--
+		"\e"
+ 	}
+}
+
+
+FirstBootVars
+{
+	lastTalk = ""
+	passhour = 0
+	passmin = 0 
+	passsec = 0
+ 	user = "USER"
+	stroke = 0
+ 	teachusername = 0
+	mikireflag = 0
+ 	aitalkinterval = 300
+ 	birthdayprint = "????"
+	talktime = "5 minutes"
+	deleteshitai = "OFF"
+	nowshell = "master"
+	firstboot = 1
+	//personal ghost variables
+	poutyboi = 0
+	Friends = 0
+}
+
+
+//correct, Mister Sholmes!
+Select.correctsholmes
+{
+	"\0\s[0]And what do you go by,\w4 my dear %(user)?\w8"
+	--
+	"\n\n\_q\![*]\q[He/Him/His,OnPronouns,masc] \n\![*]\q[She/Her/Hers,OnPronouns,fem] \n\![*]\q[They/Them/Their,OnPronouns,undef] \n\![*]\q[I have my own,OnPronouns,own]\e"
+}
+
+//no.... just no....
+Select.sholmesno
+{
+	"\0\s[0]...\w8\w8\w8 \s[5]\n\n[half]Then who the devil ARE you??\w8"
+	--
+	"\![open,inputbox,OnNameTeach,-1]\e"
+}
+
+
+
+
+//--timeslot
+timeslot
+{
+	if hour >= 5 && hour <= 8
+	{	"earlymorning"	}
+	elseif hour >= 9 && hour <= 11
+	{	"morning"	}
+	elseif hour >= 12 && hour <= 14
+	{	"lunch"	}
+	elseif hour >= 15 && hour <= 17
+	{	"afternoon"	}
+	elseif hour >= 18 && hour <= 20
+	{	"evening"	}
+	elseif hour >= 21 && hour <= 24
+	{ "latenight"	}
+	else
+	{ "midnight" }
+}
+
+//--dayslot
+dayslot
+{
+	"%(month)month %(day)day"
+}
+
+
+//-----------------------Normal Booting----------------------------
+
+
+//--OnBoot
+OnBoot
+{
+	lastTalk = "" 
+	passhour = 0
+	passmin = 0
+	passsec = 0
+	
+ 	"\0\s[0]\1\s[10]"	
+	--
+	
+	if dayslot == userbirthday 	
+	{
+		"\0\s[3]It’s good to see you again,\w4 my dear fellow!\w8 \s[1]\n\n[half]If I am not mistaken,\w8 \s[2]it is your birthday,\w4 is it not?\w8 \n\n[half]After all,\w4 \s[1]today is %(bornmonthprint) %(borndayprint)!\w8 \s[3]\n\n[half]Let us celebrate!\w8 \s[1]And for a mere five pence,\w4 \s[6]I will burst out of a cake just for you!\w8\e"
+	}
+	elseif dayslot == "5month 6day"
+	{
+		"\0\s[3]It’s good to see you again,\w4 my dear fellow!\w8 \s[0]\n\n[half]Today is a very special day,\w4 you know?\w8 \s[2]\n\n[half]May 6th marks the day of my creation!\w8 \s[0]\n\n[half]No,\w4 not the date of my birth,\w4 silly.\w8 \s[2]Creation!\w8 \s[6]\![set,balloonwait,4]C-R-E-A-T-I-O-N!\![set,balloonwait,1]\w8 \s[0]\n\n[half]Today is the day my parents started pulling me together for the 2022 Ghost Jam.\w8 \s[1]\n\n[half]A most marvelous event,\w4 wouldn’t you agree?\w8\e"
+	}
+	elseif dayslot == "6month 7day"
+	{
+		"\0\s[0]It’s good to see you again,\w4 my dear fellow!\w8 \s[1]\n\n[half]Today is a very special day,\w4 you know?\w8 \n\n[half]Indeed,\w4 \s[6]the seventh of June marks my father’s birthday!\w8 \s[3]\n\n[half]He’s the one who breathed life in my shell once my body and voice has been properly shaped.\w8 \s[0]Without him,\w4 \s[2]I would only be some text with no face,\w4 \s[4]or a body with no mind.\w8 \s[0]\n\n[half]He did the most wonderful work,\w4 \s[6]don’t you agree?\w8\e"
+	}
+	elseif dayslot == "9month 10day"
+	{
+		"\0\s[2]It’s good to see you again,\w4 my dear fellow!\w8 \s[1]\n\n[half]Today is a very special day,\w4 you know?\w8 \n\n[half]Indeed,\w8 \s[3]the tenth of September marks my parent’s birthday!\w8 \s[0]\n\n[half]They’re the one who gave me my voice!\w8 \s[6]Every dialogue,\w4 every joke,\w4 \s[3]they’re all the result of their hard work!\w8 \s[0]\n\n[half]They did the most wonderful work,\w4 \s[6]don’t you agree?\w8\e"
+	}
+	elseif dayslot == "11month 13day"
+	{
+		"\0\s[2]It’s good to see you again,\w4 my dear fellow!\w8 \s[1]\n\n[half]Today is a very special day,\w4 you know?\w8 \n\n[half]Indeed,\w8 \s[3]the thirteenth of November marks my mother’s birthday!\w8 \s[0]\n\n[half]She’s the one who put my body together all on her own!\w8 \s[1]Every muscle,\w8 \s[2]every line,\w8 \s[6]every hair on my head is the result of her hard work!\w8 \s[0]\n\n[half]She did the most wonderful work,\w4 \s[6]don’t you agree?\w8\e"
+	}
+	else
+	{
+		"%(normalboottalk)"
+	}
+}
+
+
+//--normalboottalk
+normalboottalk
+{
+	//if weekday == 6 && hour >= 19 //It's Saturday night!!
+	//{
+		//"\0\s[0]It's Saturday night.\e"
+	//}
+	if RAND(100) < 5
+	{
+		"\0\s[0]Ah,\w8 \s[3]my dear fellow!\w8 \s[0]It's good to see you again!\w8 \n\n[half]...\w8\w8\w8 \s[1]\n\n[half]What was your name again?\w8"
+		--
+		"\![open,inputbox,OnNameTeach,-1]\e"
+	}
+ 	else
+ 	{
+		if month == 6 //June
+		{
+			"\0\s[0]Ah,\w4 my dear fellow!\w8 \s[3]\n\n[half]Quick!\w8 Come with me at once!\w8 \s[0]\n\n[half]You must help me find a birthday gift for my roommate.\w8 \s[1]\n\n[half]Surely there is something in this marvel of technology I can take home to her,\w4 \s[6]isn't there?\w8\e"
+		}
+		elseif timeslot == "latenight" || timeslot == "midnight" //pm9 to pm11 //am12 to am5
+		{
+			"\0\s[3]Ah,\w4 my dear fellow!\w8 \s[0]\n\n[half]You surprised me!\w8 I wasn't expecting to see anyone at this hour.\w8 \n\n[half]Still,\w4 \s[6]it's good to see you again!\w8\e"
+		}
+		elseif weekday == 3 //Wednesday
+		{
+			"\0\s[2]Ah,\w4 my dear fellow!\w8 \s[0]It's good to see you again!\w8 \s[1]\n\n[half]Coincidentally,\w4 you are also under arrest for attempted murder.\w8 \n\n[half]Why,\w4 you ask?\w8 My,\w4 aren't you killing time right now?\w8\w8\w8 \s[6]\n\n[half]HAHAHAHAHA\w8\w8, \s[3]of course I'm kidding!\w8 \s[0]I have no authority to arrest people!\w8 \s[5]\n\n[half]You should have seen your face!\w8 \s[1]Hilarious,\w4 I tell you!\w8\e"
+		}
+		else //any other time/day/month
+		{
+			"\0\s[3]Ah,\w4 my dear fellow!\w8 \s[0]It's good to see you again!\w8 \s[6]\n\n[half]I look forward to rummaging through the garbage with you!\w8\e"
+		}
+	}
+}
+
+
+//--OnClose
+OnClose
+{
+	if passmin >= 5 || passhour > 0	//open for at least five minutes.
+	{
+		//if RAND(100) < 5
+		//{
+			//"\0\s[0]This is a random close dialogue.\w8\1\s[10]The random number generator chose something below 40.\w8\w8"
+		//}
+		//else
+		//{
+			"\0\s[0]Oh,\w4 you are leaving,\w4 %(user)?\w8"
+			--
+			if timeslot == "latenight" || timeslot == "midnight" //pm9 to pm11 //am12 to am5
+			{
+				"\n\n[half]Then I shall be on my way as well.\w8 \s[2]I wouldn't want Iris to wake up alone,\w4 after all.\w8"
+			}
+			elseif user == "Mister Naruhodou" || user == "Miss Susato"
+			{
+				"\s[2]\n\n[half]I'll see you at home,\w4 then!\w8"
+			}
+			elseif month == 12
+			{
+				"\s[6]\n\n[half]Santa Claus needs to prepare to visit a very good girl who has undoubtedly booby-trapped the entire house.\w8"
+			}
+			elseif weekday == 2 //Tuesday
+			{
+				"\n\n[half]Then I shall be on my way as well.\w8 \s[3]I want to see if my Petri dish have invented the wheel yet.\w8"
+			}
+			else //any other time
+			{
+				"\s[4]\n\n[half]Then I shall be on my way as well.\w8 I have a kid waiting at home for me,\w4 after all.\w8"
+			}
+			--
+			"\s[100]\n\n[half]See you around,\w4 my dear fellow!\w8"
+		//}
+	}
+ 	else //This dialogue is for if they haven't been open for at least five minutes.
+ 	{
+		"\0\s[0]Leaving already,\w4 %(user)?\w8 \s[99]\n\n[half]Then I shall be on my way as well.\w8 \n\n[half]See you around,\w4 my dear fellow!\w8"
+ 	}
+ 	--
+	"\-\e"
+}
+
+
+//-------------------------State Changing--------------------
+
+ 
+ //--OnWindowStateMinimize
+OnWindowStateMinimize
+{
+	"\0\s[1]I’ll investigate down there!\w8 \s[3]See you soon!\w8\e"
+}
+
+//--OnWindowStateRestore
+OnWindowStateRestore
+{
+	"\0\s[0]\1\s[10]"
+	--
+	"\0\s[3]My dear fellow,\w4 you would not believe the things I’ve seen crouched down there!\w8 \s[1]I think the mice are planning a revolution.\w8\e"
+}
+
+
+//--OnGhostChanging
+//Uses the name of your Sakura character as you put in install.txt or descript.txt.
+OnGhostChanging
+{
+	if reference0 == "Herlock Sholmes"
+	{
+		"\0\s[2]I shall return!\w8\e"
+		
+		"\0\s[3]Just a moment,\w4 my dear fellow!\w8\e"
+	}
+	//elseif reference0 == ""
+ 	else
+	{
+		"\0\s[1]Ah,\w8 \s[2]it seems that an old acquaintance is waving at me over there!\w8 \s[0]I shall join them shortly.\w8 I’m sure this nice %(reference0) right here will keep you company just fine,\w4 %(user)!\w8\e"
+	}
+}
+
+//--OnGhostChanged
+OnGhostChanged
+{
+	"\0\s[0]\1\s[10]"
+	--
+	if reference0 == "Herlock Sholmes"
+	{
+		"\0\s[6]I am back once more,\w4 my dear fellow!\w8\e"
+		
+		"\0\s[6]Did you know they're selling %(fairfood) over there?\w8 \n\n[half]I had the most wonderful time,\w4 \s[1]though I do admit I missed you a little bit.\w8\e"
+	}
+	//elseif reference0 == ""
+	else
+	{
+		"\0\s[3]Step aside,\w4 %(reference0)!\w8 \s[2]The Great Ace Detective is back on scene!\w8\e"
+	}
+}
+
+
+//--OnShellChanging
+//reference0 in OnShellChanging is the name of the shell you're swapping to. It should be defined in the descript.txt file in your shell folder. If you do have alternate shells, put in the right name here.
+OnShellChanging
+{
+	if reference0 == "Detective (Derogatory)"
+	{
+		"\0\s[3]I'm already wearing this!\w8 \s[1]\n\n[half]But I shall indulge you.\w8 \s[0]Just this once.\w8\e"
+	}
+	//elseif reference0 == ""
+	else
+	{
+		"\0\s[1]%(reference0)?\w8 \s[3]Doesn't ring a bell!\w8\e"
+	}
+}
+
+
+//--OnShellChanged
+//reference0 this is the name of your shell as you put in the descript.txt file for that shell.
+//nowshell is the folder name for your shell. Not the same as the above!
+//Note the %(reference[0]) here! This time that should store the name of whatever shell you're switching to.
+OnShellChanged
+{
+ 	if reference0 == "Detective (Derogatory)"
+ 	{
+ 		nowshell = "master"
+		
+		"\0\s[3]Behold!\w8 \s[0]I have returned.\w8 \s[1]\n\n[half]Gaze upon my marvelous figure to your heart's content,\w4 %(user).\w8\e"
+ 	}
+ 	elseif reference0 == "Hypothetical Shell that doesn't actually exist"
+ 	{
+ 		nowshell = "totallyrealshell"
+		
+ 		"\0\s[3]Now that's what I call a 'fit!\w8\e"
+ 	}
+ 	elseif reference0 == "Another totally real shell wow"
+ 	{
+ 		nowshell = "thiswouldbesomuchwork"
+		
+		"\0\s[5]Why must there be so many clothing options?!\w8\e"
+ 	}
+ 	else
+ 	{
+		"\0\s[1]%(reference[0])?\w8 \s[3]Doesn't ring a bell!\w8\e"
+	}
+}
+
+
+//--OnDressupChanged
+/*
+OnDressupChanged
+{
+	if reference0 == 0 //in OnDressupChanged, reference0 refers to the character, therefore this is evaluating which character in question is getting dressed up. 0 is the main character.
+	{
+		if reference1 == "Clothing for Girl" //This is the name of the clothing item in the descript.txt file, I'm pretty sure.
+		{
+			if reference2 == 1 //This checks if you're putting it on.
+			{
+			"\0\s[0]You put my clothing item on me.\w8\1\s[19]lol like zar would ever bother with clothes for a ghost.\w8\0\s[9]\n\n[half]Shut up dude you're going to get us in trouble.\e"
+			}
+			else // This checks if you're taking it off.
+			{
+			"\0\s[0]You took the clothing item off.\e"
+			}
+		}		
+	}
+	else //if reference0 isn't the main character, then it has to be the side character.
+	{
+		if reference1 == "some kind of clothing for triangle??" //The name of the item of clothing in the descript.txt file in your shell folder.
+		{
+			if reference2 == 1 //If you put it on
+			{
+			"\1\s[10]I'm wearing some kind of clothing.\w8\0\s[8]Maybe a hat?\e"
+			}
+			else //When you take it off.
+			{
+			"\1\s[10]You took off some kind of clothing.\e"
+			}
+		}
+		elseif reference1 == "i'm gonna say a propeller beanie"
+		{
+			if reference2 == 1 //if you're putting it on
+			{
+			"\1\s[10]You put a hat on me.\w8\0\s[6]lol.\w8\1\n\n[half]\s[11]Shaddap.\e"
+			}
+			else //when you take it off
+			{
+			"\1\s[10]You took off the hat.\e"
+			}
+		}
+	}
+}
+*/
+
+
+//[VERSE DIALOGUE AHEAD]

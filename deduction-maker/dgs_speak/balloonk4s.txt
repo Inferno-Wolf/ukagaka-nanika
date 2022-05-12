@@ -1,0 +1,7 @@
+//a thought bubble balloon!!
+//everything is the same except the font, so this should work
+
+
+font.color.r,0
+font.color.g,138
+font.color.b,203

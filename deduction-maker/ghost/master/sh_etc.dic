@@ -1,0 +1,829 @@
+﻿//---------------------------Miscellaneous Functions--------------------------
+//This .dic file is concerned with a number of functions that didn't quite fit in anywhere else.
+
+
+//--OnFileDrop2
+OnFileDrop2
+{
+	_filepath = SPLITPATH(reference0)
+	_filename = _filepath[2]
+	_fileext = TOLOWER(_filepath[3])
+	case _fileext
+	{
+		when ".jpg", ".jpeg", ".bmp", ".png"
+		{
+			Wallpaperfile = reference0
+			
+			"\0\s[6]Ooh,\w4 is that a photographic print?\w8 \s[1]\n\n[half]%(_filename)%(_fileext)...\w8 \s[2]\n\n[half]Fascinating!\w8 Its quality is off the roof,\w4 I must say!\w8"
+			--
+			"\1\b[6]\![*]\q[Can you centre it for me?,OnWallpaper,center] \n\![*]\q[Can you tile it for me?,OnWallpaper,tile] \n\![*]\q[Can you stretch it for me?,OnWallpaper,stretch] \n\n[half]\![*]\q[It sure is!,OnWallpaper,cancel]\e"
+		}
+		when ".mid", ".wav", ".mp3", ".wma", ".au"
+		{
+			"\0\s[6]Oh my!\w8 Is that a music disk?\w8 \s[1]\n\n[half]%(_filename)%(_fileext)...?\w8 \s[0]\n\n[half]This is so strange.\w8 \s[1]It cannot be touched by human hands,\w4 yet it is more accurate than any gramophone I’ve ever heard.\w8 \s[2]\n\n[half]How queer!\w8\e"
+		}
+		others
+		{
+			if _fileext == "" //If it's a folder. Using \_? lets you display the slashes and such in dialogue, but you have to toggle it off after you no longer need it
+			{
+				"\0\s[1]\_?%(_filepath[1])\_??\w8 \n\n[half]The whole folder?\w8 For me?\w8 \s[6]\n\n[half]Why,\w4 thank you,\w4 my dear fellow!\w8 \s[0]I’m sure it will be useful for my investigation!\w8 \n\n[half]Now,\w4 \s[1]how much would this fetch at the pawnbroker...?\w8\e"
+			}
+			else //If it's a file
+			{
+				"\0\s[1]%(_filename)%(_fileext)?\w8 For me?\w8 \s[3]\n\n[half]Why,\w4 thank you,\w4 my dear fellow!\w8 I’m sure it will be useful for my investigation!\w8 \s[0]\n\n[half]Now,\w4 \s[1]how much would this fetch at the pawnbroker...?\w8\e"
+			}
+		}
+	}
+}
+
+
+//This set of options sets the wallpaper up.
+OnWallpaper
+{
+	if reference0 == "center"
+	{
+		"\![set,wallpaper,%(Wallpaperfile),center]"
+	}
+	elseif reference0 == "tile"
+	{
+		"\![set,wallpaper,%(Wallpaperfile),tile]"
+	}
+	elseif reference0 == "stretch"
+	{
+		"\![set,wallpaper,%(Wallpaperfile),stretch]"
+	}
+	else //cancel
+	{
+		"\0\s[0]\e"
+		"\0\s[2]\e"
+		"\0\s[6]\e"
+		"\0\s[3]\e"
+	}
+	--
+	"\0\s[6]I can certainly help you out with that.\w8 \s[2]I’ll have you know I was the one to paint Iris’s room when she was born!\w8 \s[1]\n\n[half]One,\w4 two...\w8\s[6]aaaand there you go!\w8 \s[1]\n\n[half]Dazzling,\w4 is it not?\w8 \s[2]I could have not picked better wallpaper myself!\w8\e"
+}
+
+
+//--OnShellScaling
+OnShellScaling
+{
+	if reference0 > 100 //bigger
+	{
+		"\0\s[3]\![set,balloonwait,4]Hahaha... yes... yes... YES!!!\![set,balloonwait,1]\w8\e"
+	}
+	elseif reference0 == 100 //default
+	{
+		"\0\s[4]Oof!\w8 \s[0]Well,\w4 that was fun,\w8 \s[2]but I prefer my original size,\w4 I think.\w8\e"
+	}
+	elseif reference0 < 100 //smaller
+	{
+		"\0\s[3]Oh!\w8 \s[2]It seems that I found the first step to fully become Harelock!\w8\e"
+	}
+	else
+	{
+		"\0\s[2]I'd love for you to tell me how the devil you even did this,\w4 %(user)!\w8\e"
+	}
+}
+
+
+
+//---- OnInstallBegin -------------------------------------------------------
+OnInstallBegin
+{
+	"\0\s[0]"
+	"\0\s[2]"
+	"\0\s[1]"
+	"\0\s[6]"
+	--
+	"Of course!\w8 "
+	--
+	"\s[2]"
+	"\s[3]"
+	"\s[6]"
+	"\s[1]"
+	--
+	"Let’s begin the 'Logic and Installing Spectacular'!\w8\e"
+}
+
+
+//---- OnInstallComplete -------------------------------------------------------
+//Reference1 here is the name of what's being installed
+OnInstallComplete
+{
+	if reference0 == "ghost"
+ 	{
+		//in case you want specific dialogue for installing specific ghosts, it uses the same name as you wrote it into descript.txt
+		if reference1 == "221B Baker Street" //heself
+		{
+			"\0\s[0]Is that...\w8me?\w8 \s[3]\n\n[half]The experiment was a success then!\w8 \s[1]\n\n[half]Ah!\w8 What a pleasure it will be to dance with someone of equally quick footing!\w8 \n\n[half]And I did not foresee this specific part,\w8 \s[2]but it is also a pleasure to lay my eyes on this beautiful face.\w8 \s[0]\n\n[half]You know what?\w8 \s[6]I look good,\w4 actually!\w8"
+		}
+		//elseif reference1 == "Defemce"
+		else //literally any other ghost
+		{
+			"\0\s[1]%(reference1)...?\w8 \s[3]\n\n[half]I’m excited to see some new fellows around here!\w8 \s[0]This will liven up the place.\w8"
+		}
+		--
+		"\1\![*]\q[Call %(reference1),CallGhost]\n\![*]\q[Change to %(reference1),ChangeToGhost]\n\n\![*]\q[No thanks,cancelnodialogue]\e"
+ 	}
+	elseif reference0 == "shell"
+ 	{
+		//if reference1 == "Hypothetical Shell that doesn't actually exist" //This is the name of your shell as you defined in descript.txt in the shell folder.
+		
+		"\0\s[6]A new meat suit!\w8 \s[1]\n\n[half]%(reference1)...\w8 \s[3]\n\n[half]Is it for me?\w8\e"
+ 	}
+	elseif reference0 == "balloon"
+ 	{
+		//Reference1 here would be the name of the balloon.
+		
+		"\0\s[3]%(reference1)!\w8 \n\n[half]Ooh!\w8 \s[1]I wonder what my speech will look like afterwards?\w8\e"
+ 	}
+	elseif reference0 == "plugin"
+ 	{
+		//Reference1 here would be the name of the plug-in. %(reference1)
+		
+		"\0\s[1]Huh?\w8 I’m not supposed to plug it in?\w8 \s[0]\n\n[half]Don’t be silly.\w8 \s[3]It’s a plugin,\w4 how else am I supposed to install it?\w8\e"
+ 	}
+	elseif reference0 == "calendar skin"
+	{
+		"\0\s[1]%(reference1)!\w8 \s[4]\n\n[half]Though I am infinitely disappointed to learn that despite the name,\w4 calendar skins are not,\w4 in fact,\w4 made of actual skin.\w8\e"
+	}
+	elseif reference0 == "headline" || reference0 == "rss"
+	{
+		"\0\s[1]%(reference1)!\w8 \s[2]\n\n[half]Staying up to date with local news is vital for detectives like me.\w8\e" 
+	}
+	else
+	{
+		"\0\s[1]%(reference1)!\w8 \s[6]\n\n[half]Behold my hard work!\w8\e"
+	}
+}
+
+//Calling the ghost that was just installed.
+Select.CallGhost
+{
+	"\![call,ghost,lastinstalled]\e"
+}
+
+//Opening the ghost that was just installed.
+Select.ChangeToGhost
+{
+	"\![change,ghost,lastinstalled]\e"
+}
+
+
+//---- OnInstallFailure -------------------------------------------------------
+OnInstallFailure
+{
+	if reference0 == "artificial" //If the user cancels by double clicking the balloon
+	{
+		"\0\s[3]Suppose you've decided against doing that!\w8\e"
+	}
+	else
+	{
+		"\0\s[4]Ah -\w8 it seems like something went wrong.\w8 \n\n[half]"
+		--
+		if reference0 == "unsupported" //This checks if the file was unsupported.
+		{
+			"\s[0]These files are unfortunately not supported.\w8 \s[6]Might I offer some caramel instead?"
+		}
+		elseif reference0 == "extraction" //This checks if the file didn't extract properly.
+		{
+			"\s[3]I threw my pickaxe as hard as I could,\w4 but the extraction still failed."
+		}
+		elseif reference0 == "invalid type" //install.txt isn't set up properly
+		{
+			"\s[1]I believe there is an error in the install.txt."
+		}
+		else
+		{
+			"\1\b[6]'%(reference0)'\0\s[3]No idea what it is,\w4 though!"
+		}
+		--
+		"\w8\e"
+	}
+}
+
+
+//--OnInstallRefuse
+//reference0 is the Sakura name of the ghost the item was meant for, reference1 (since SSP 2.4.85) is the type of item you tried to install
+OnInstallRefuse
+{
+	"\0\s[2]I’m flattered you think I can install this,\w4 but I’m afraid I must admit this is beyond my capabilities.\w8 \1\b[4](It looks like %(reference1) might be for %(reference0) instead...)\w8\e"
+}
+
+
+
+//**** Uninstallation ******************************************
+
+//--OnVanishSelecting
+//When you select the uninstall option in the menu.
+OnVanishSelecting
+{
+	"\0\s[1]Are you sure you want to uninstall me?\w8 \s[3]You’ll have to reinstall me if I prove useful to future investigations.\w8\e"
+	
+	"\0\s[0]Oh?\w8 \s[1]Getting tired of me already?\w8\e"
+}
+
+//OnVanishSelected
+//When you decide to uninstall them. 
+OnVanishSelected
+{
+	"\0\s[1]Alright,\w8 \s[2]let’s dispose of unnecessary evidence!"
+	
+	"\0\s[3]Fair enough!\w8 \s[0]And I do need to get going.\w8 \n\n[half]So long then,\w4 my dear fellow!\w8 \s[100]\n\n[half]I expect to have completely forgotten about you the next time we meet,\w4 but it'll be a pleasure to get to know you all over again!"
+	--
+	"\w8\w8\w8\e"
+}
+
+//--OnVanishCancel
+//If you select Uninstall from the menu, but decide not to do it.
+OnVanishCancel
+{
+	"\0\s[3]Understood!\w8 \s[2]I like to have many things laying on my desk top as well.\w8\e"
+	
+	"\0\s[1]Fine by me!\w8 \s[6]I don't mind hanging around with you.\w8\e"
+}
+
+//--OnVanishButtonHold
+//If you double click to cancel the balloon.
+OnVanishButtonHold
+{
+	"\0\s[1]Oh,\w4 changed your mind?\w8 \s[2]That’s fine!\w8 \s[0]I wasn’t done anyways.\w8\e"
+	
+	"\0\s[6]Haha!\w8 I knew you couldn't bear to send me away that easily.\w8 \s[1]I'm told I'm hard to get rid of!\w8\e"
+}
+
+//---- OnVanished -----------------------------------------
+//if they're called after you've uninstalled a different ghost. reference0 is the name of the uninstalled ghost.
+OnVanished
+{
+	"\0\s[0]\1\s[10]"
+	--
+	"\0\s[1]Is it me,\w4 or is this place quieter than before?\w8\e"
+	
+	"\0\s[1]Oh,\w4 is %(reference0) gone?\w8 \s[0]Maybe we'll cross paths again another time.\w8 \s[3]\n\n[half]In the meantime,\w4 I am here to keep you company,\w4 my dear fellow!\w8\e"
+}
+
+
+
+//**** Mail Checking *******************************************************************
+//just taking the code from Zi's stuff and not messing any further with it because /shrugs
+
+//---- OnBIFFBegin ---------------------------------------------------------------
+OnBIFFBegin
+{
+	"\0\s[1]Don’t mind me,\w4 just rummaging through your mailbox...\w8\e"
+}
+
+//---- OnBIFFComplete ---------------------------------------------------------------
+OnBIFFComplete
+{
+	if reference0 == 0 //If you have no new mail.
+	{
+		"\0\s[4]...It is empty.\w8 Like my lone,\w8 \s[5]cold heart after losing all hope of finding entertaining dirt on you.\w8\e"
+	}
+	elseif reference0 < 100 //less than 100 new emails
+	{
+		if reference7 != "" //Reference7 is the headers. If it's empty(if the user has headers off), no need to run this loop. I STRONGLY ENCOURAGE YOU not to run this loop for more than 100 headers, as it may cause severe amounts of lag/freezing. Also, that's a lot to scroll through.
+		{
+			_buff = reference7
+			_len = ARRAYSIZE(_buff)
+			headers = ""
+			_i = 0
+			while _i < _len //Runs through all the elements of the array
+			{
+				if "<" _in_ _buff[_i] && "@" _in_ _buff[_i] && "." _in_ _buff[_i] && ">" _in_ _buff[_i] //If it has an email address
+				{
+					if _i != 0; _display += "\n\n[half]" //Add line breaks
+					headers += "\![*]%(_buff[_i])" //Add a menu option and the header text
+				}
+				else //If it does not have an email address, it must be a particle
+				{
+					headers += ",%(_buff[_i])" //Add the text
+				}	
+				_i++
+			}
+		}
+		--
+		_s = ""; if reference0 != 1; _s = "s" //Plural check, adds an s if the number of emails is not 1
+		"\0\s[3]There's %(reference0) new mail%(_s)!\w8 \s[1]Fascinating.\w8"
+		--
+		if reference7 != "" //Same as above, no need to ask if there are no headers
+		{
+			"\0\s[3]\n\n[half]Ah,\w4 you’ve got some thrilling news!\w8 Hear this!\w8"
+			--
+			"\n\n\![*]\q[View Header%(_s),OnSeeHeaders]\n\*\![*]\q[All done for now,cancelnodialogue]"
+		}
+		--
+		"\e"
+	}
+	else //For any other number of emails.
+	{
+		// %(reference0) stores the number
+		"\0\s[7]Holy-!\w8\w8 \s[5]Do you ever empty your mailbox,\w4 %(user)?\w8 The last time I saw this many letters,\w4 I was eating alphabet soup!\w8\e"
+	}
+}
+
+//Displaying the headers. No need to touch this other than changing the surface, or if you want to make the buttons different or something. Reference0 is the list of headers
+OnSeeHeaders
+{
+	"\0\s[0]\b2\_q%(headers)\*\n\n\![*]\q[Done,cancelnodialogue]"
+	--
+	headers = NULL //This erases the variable so you're not storing all those headers and bloating your save. Also, privacy reasons.
+}
+
+//---- OnBIFFFailure ---------------------------------------------------------------
+//reference0 here stores the error message the email server would have given the ghost, hopefully.
+OnBIFFFailure
+{
+	"\0\s[4]Ah,\w4 it seems like something went wrong.\w8 \n\n[half]"
+	--
+	if reference0 == "timeout" //If the connection times out.
+ 	{
+		"\s[1]Did you check your internet connection?\w8 I can hardly look in your mailbox if there is no path to it."  
+	}
+ 	elseif reference0 == "kick" //If the account blocks the ghost from accessing it.
+	{
+		"\s[2]I believe your mailbox kicked me out!\w8 \s[0]Meaning I have no access to it.\w8 \1\b[4](Looks like you should check \_a[https://quiksilvear.home.blog/2017/11/27/how-do-you-set-up-your-email-on-ukagaka-could-you/#:~:text=You're%20going%20to%20want,to%20add%20your%20email%20account.]this reference\_a for help.)"
+ 	}
+	elseif reference0 == "defect" //If the information put into the POP menu is wrong.
+ 	{
+		"\s[0]I believe your email set-up is faulty.\w8 \s[1]Might I suggest going over it again?\w8"
+		--
+		"\![open,configurationdialog,biff]\e"
+	}
+	elseif reference0 == "artificial" //As far as I can tell, artificial is if the user double clicks on the balloon to stop it
+	{
+		"\s[1]Oh?\w8 You stopped me yourself?\w8 \s[2]All is fine,\w4 then!"
+	}
+ 	else //if there's some other kind of error.
+	{
+		"\s[1]What exactly happened...\w8\s[2]is a complete mystery to me,\w4 though!\w8 \1\b[4](Looks like the error that was returned was '%(reference[0])'.)"
+ 	}
+	--
+	"\w8\e"
+}
+
+
+
+//**** Network Update *****************************************************************
+
+
+//---- OnUpdateBegin -------------------------------------------------------------
+OnUpdateBegin
+{
+	"\0\s[2]Certainly!\w8 \s[1]Let me get up to date.\w8\e"
+}
+
+//---- OnUpdateReady ---------------------------------------------------------
+//reference0 here storing the number of new files.
+OnUpdateReady
+{
+	reference0++ //makes sure it starts at 1 instead of 0
+	
+	if reference0 == 1 //for setting up dialogue for 1 new file
+	{
+		"\0\s[2]Alright,\w4 I have one file to catch up on,\w8 \s[1]give me a moment...\w8\e"
+	}
+	else //any other number of files
+	{
+		"\0\s[2]Alright,\w4 I have %(reference0) files to catch up on,\w8 \s[1]give me a moment...\w8\e"
+	}
+}
+
+//---- Downloading the update ------------------------------------------------
+
+//ALL NOTES LEFT HERE ARE NOT BY ME SORRY
+//---- OnUpdate.OnDownloadBegin ------------------------------------------------
+//reference0 - file being downloaded
+//reference1 - number of file being downloaded, as in "this is file 1 out of 9"
+//reference2 - overall number of files to download, counting zero. so if there are ten files, it'll display as 9.
+//reference3 - what's being updated - ghost, shell, balloon, plugin, headline, baseware
+
+//Big thanks to Malakin for helping me figure it out.
+
+//okay, you can use the %(reference) envelope here to display the value, but you can't actually DO anything with it as is. You have to convert it into an integer using TOINT, THEN you can use it in functions and such. I should get back to that one person trying to do that whack a mole game with this info, this was the exact same problem they ran into.
+//+ 1 because otherwise the count starts at 0 and it looks weird. Basic format is variablename = TOINT(target you're turning into an integer, in this case the references)
+OnUpdate.OnDownloadBegin
+{
+	"\_q\b[2]Downloading %(reference0)...\n\n"
+	--
+	Update_Process = TOINT(reference1) + 1
+	Update_Total = TOINT(reference2) + 1
+	Update_Remaining = Update_Total - Update_Process
+	
+	//defining starting points
+	PointA = 1 
+	PointB = 1
+	
+	//defining text buffers beforehand, otherwise they don't display right
+	_txt = ""
+	
+	//loop calculates how many check boxes to display based on the variables above, the if check is for displaying the ascii border on the sides
+	while PointA <= Update_Process 
+	{
+		_txt += "☑" 
+		PointA++ 
+	} 
+	//see above except for blank boxes
+	while PointB <= Update_Remaining 
+	{
+		_txt += "☐" 
+		PointB++ 
+	}
+	--
+	//using the text buffers to display the correct number of boxes
+	"%(_txt)\n\n%(Update_Process) of %(Update_Total)"
+	--
+	//flavortext
+	//if "aitalk" _in_ reference0
+	//{
+		//"\n\n\_q\0\s[0]More dialogue!\w8\w8\e"
+	//}
+	//else //for files not specified above
+	//{
+		//""
+	//}
+	//--
+	"\w5\e"
+}
+
+//---- OnUpdate.OnMD5CompareBegin ---------------------------------------------------
+//okay note to self, these both have to be EMPTY in order for the balloon to not flash obnoxiously!!
+OnUpdate.OnMD5CompareBegin
+{
+	//"\1\s[10]Checking the MD5 value.\e"
+}
+
+//---- OnUpdate.OnMD5CompareComplete --------------------------------------------------
+OnUpdate.OnMD5CompareComplete
+{
+	//"\0\s[0]MD5 check good.\e"
+}
+
+//---- OnUpdate.OnMD5CompareFailure ---------------------------------------------------
+//_remaining should be the number of the file that's giving the error, in the order they're being downloaded. currentfile will be the file path.
+OnUpdate.OnMD5CompareFailure
+{
+	_remaining = Update_Remaining + 1
+	
+	"\0\s[4]\1\b[4](Looks like the MD5 values don't match.\w8 \n\n[half]%(_remaining) - '%(currentfile)'.)\w8\e"
+}
+
+//---- OnUpdateFailure -------------------------------------------------------------
+OnUpdateFailure
+{
+	"\0\s[5]Ah!\w8 Curses!\w8 I lost my updated files!!\w8 \n\n[half]"
+	--
+	if reference0 == "timeout" //if the connection times out
+ 	{
+		"\s[4]The timeout was too great...\w8 They flew into the wind..."
+	}
+ 	elseif reference0 == "md5 miss" //This is the final message displayed when you've run into an md5 error below at some point.
+	{
+		"\s[4]Wait...\w8 \s[5]These md5 are mismatched!\w8 These files are incomplete!"
+ 	}
+	elseif reference0 == "artificial" //If the user cancels the update by double clicking the balloon
+	{
+		"\s[4]I can’t believe you’d steal them away from me...\w8 \s[0]\n\n[half]Fine!\w8 \s[7]I’ll steal your pudding in revenge!"
+	}
+	else //for other errors
+ 	{
+		"\s[4]How could this happen?\w8 I didn’t see a thing.\w8 \1\b[4](Looks like the error reported is '%(reference0)'.)"
+	}
+	--
+	"\w8\e"
+}
+
+
+//---- OnUpdateComplete -------------------------------------------------------------
+OnUpdateComplete
+{
+	if reference0 == "none" //if the ghost had nothing to update with
+ 	{
+		"\0\s[3]There was nothing new in these files for me!\w8\e"
+	}
+ 	else //if the ghost has updated successfully
+	{
+		"\0\s[6]There we go!\w8 I am wholly up to date!\w8\e"
+ 	}
+}
+
+
+
+//**** Ghost Creation and Updating ******************************************************
+
+
+//---- OnUpdatedataCreating -----------------------------------------------------------
+OnUpdatedataCreating
+{
+	"\0\s[1]Please wait a bit more.\w8 I’m jotting down all the important bits.\w8\e"
+}
+
+
+//---- OnUpdatedataCreated -------------------------------------------------------------
+OnUpdatedataCreated
+{
+	"\0\s[2]And there we go!\w8 \s[3]I am now full of mischief and knowledge!\w8\e"
+}
+
+
+//---- OnNarCreating ------------------------------------------------------------------
+//reference0 is the name of what you're making a nar for (which is the name of your ghost as specified in install.txt), reference2 is what you're making (balloon/ghost/etc)
+OnNarCreating
+{
+	"\0\s[6]I've been preparing all my life for this moment!\w8 \s[1]\n\n[half]My partner always says that creating people is\w4 'unethical'\w8 and that I\w4 'really shouldn't be doing that casually'.\w8 \n\n[half]"
+	--
+	if reference0 == "221B Baker Street" //it he
+	{
+		"\s[3]But it can't possibly count if it's myself I am creating!\w8 \s[1]I am,\w4 after all,\w4 a willing and consenting party in this equation!"
+	}
+	//elseif reference0 == "Defence"
+	else //any other named thing
+	{
+		"\s[3]But you know the saying!\w8 They can't arrest us all if we all team up and commit felonies!"
+	}
+	--
+	"\w8\e \1\b[4](Now creating the .nar file for '%(reference0)', a %(reference2)...)\w8\e"
+}
+
+
+//---- OnNarCreated -------------------------------------------------------------------
+//reference0 here will be the filename of the nar you just created.
+OnNarCreated
+{
+	"\0\s[2]It is done.\w8 \n\n[half]"
+	--
+	if reference0 == "221B Baker Street" //the man himself
+	{
+		"\s[3]Do tell me what my clone looks like once you discover it yourself,\w4 my dear fellow!"
+	}
+	//elseif reference0 == "Defence"
+	else //all others
+	{
+		"\s[1]Do tell me if the experiment with '%(reference0)' was a success,\w4 my dear fellow."
+	}
+	--
+	"\w8\e"
+}
+
+
+
+//**** Headlines and RSS Feeds *********************************************************
+
+
+//---- OnHeadlinesenseBegin -----------------------------------------------------------
+OnHeadlinesenseBegin
+{
+	"\0\s[3]Hey!\w8 Check this out!\w8 \1\b[6]Pulling up %(reference0)...\w8\e"
+}
+
+//---- OnHeadlinesense.OnFind --------------------------------------------------------
+//reference0 is the site name, reference1 is the url, reference3 is the headlines
+OnHeadlinesense.OnFind
+{
+	//---- Headlines
+	"\0\b2%(reference0):\n\n%(reference3)\n"
+ 	--
+	//---- Pages
+ 	if reference2 == "First" || reference2 == "Next"
+	{
+ 		//---- Bottom buttons
+		"\![*]\q[Next,] - \![*]\q[Stop,Headline_Cancel]\e"
+ 	}
+	else
+ 	{
+		//---- Bottom buttons
+ 		"\![*]\q[Stop,Headline_Cancel]\e"
+ 	}
+	
+}
+
+//end of line.
+Select.Headline_Cancel
+{
+	"\0\s[2]You should add it to your court record!\w8 \s[0]You never know when it might come in handy.\w8\e"
+}
+
+//---- OnHeadlinesenseComplete -------------------------------------------------------
+//reference0 here supposedly always stores the value no update?
+OnHeadlinesenseComplete
+{
+	"\1\b[6]%(reference0)\w8 \0\s[0]There are no new headlines...\w8 \s[5]\n\n[half]Not even a single one about me,\w4 can you believe it?\w8\e"
+}
+
+//---- OnHeadlinesenseFailure ---------------------------------------------------------
+OnHeadlinesenseFailure
+{
+	"\0\s[4]Ah...\w8something went wrong with the headlines.\w8 \n\n[half]"
+ 	--
+	if reference0 == "can't download" //if they can't download the rss feed for some reason
+ 	{
+		"The downloading has failed...\w8 \s[1]Maybe I need to go get these updates in person?"
+ 	}
+	elseif reference0 == "can't analyze" //if they can't read the file for some reason
+ 	{
+		"This...is embarrassing,\w4 but I can’t seem to analyse these.\w8 \s[5]I have been rendered illiterate."
+ 	}
+	else //other errors
+ 	{
+		"I’m unsure of what the problem is,\w4 though.\w8 \s[1]Perhaps Toby chewed on them?"
+ 	}
+	--
+ 	"\w8\e"
+}
+
+
+
+//****　Clock Synchronization　**********************************************************
+//**** 미카 (http://homepage2.nifty.com/ko-ki/)의 사전을 참고했습니다．감사＞こ 나무 성
+//This set of functions was done by the above Korean coder, I think. I'll leave their comment there untouched. 
+
+
+//----OnSNTPBegin ------------------------------------------------------------------
+//%(reference0) here is the site they'll be using to check your clock.
+OnSNTPBegin
+{
+	"\0\s[6]It would be my pleasure to tinker with this odd clock of yours!\w8 \s[2]Gears,\w4 steam and leather hats are my trade.\w8 \1\b[6](Now connecting to %(reference0)...)\w8\e"
+}
+
+//----　OnSNTPCompare----------------------------------------------------------
+OnSNTPCompare
+{
+ 	"Retrieved Time: %reference1[1]/%reference1[2]/%reference1[0] %reference1[3]:%reference1[4]:%reference1[5]\w2\nYour Time: %reference2[1]/%reference2[2]/%reference2[0] %reference2[3]:%reference2[4]:%reference2[5]\w2\n\n"
+	--
+ 	if reference3 == 0 //if your clock is already accurate.
+	{
+		"\0\s[1]It is currently %(nowhour):%(nowmin) %(ap)!\w8 How ingenious to have actual numbers rather than clock hands to tell the time.\w8\e"
+	
+//Do you want me to change that?
+	}
+ 	else //if your clock doesn't match
+	{
+		"\0\s[1]Oh?\w8 \s[0]I believe your clock is off-course,\w4 %(user).\w8 \s[1]Did you forget to rewind it?\w8 \1\b[6](Ask him to fix it for you?)\w8"
+		--
+		"\n\n[half]\![*]\q[Fix it,OnSNTPEXECUTE] \n\![*]\q[Leave it alone,OnSNTPCANCEL]\e"
+	}
+}
+
+//----　OnSNTPEXECUTE ------------------------------------------------------------------
+//Note the \6 tag - that's what actually changes the clock.
+OnSNTPEXECUTE
+{
+	"\6"
+	--
+	"\0\s[3]Oh I have been waiting for this!\w8 \s[1]I ought to bring the blueprints to Iris,\w4 I’m sure she’d love it.\w8\e"
+}
+
+//----　OnSNTPCANCEL ------------------------------------------------------------------
+OnSNTPCANCEL
+{
+	"\0\s[0]Oh,\w4 well.\w8 \s[3]Less work for me!\w8\e"
+}
+
+//----　OnSNTPFailure ------------------------------------------------------------------
+OnSNTPFailure
+{
+	"\0\s[0]...\w8\w8\w8 \s[4]\n\n[half]I cannot believe I am saying this,\w4 but...\w8 \n\n[half]I am being bested by this clock.\w8 \s[5]I cannot figure how to change it.\w8 At all.\w8\e"
+}
+
+//--OnDisplayChange----------------------------------------------------------------
+OnDisplayChange
+{
+	displaybpp    = reference0
+ 	displaywidth  = reference1
+	displayheight = reference2
+}
+
+
+/*
+//---- OnScreenSaverStart -------------------------------------------------------
+OnScreenSaverStart
+{
+	"\0\s[0]The screensaver is starting.\w7\1\s[10]Wiggle your mouse!\e"
+}
+
+//---- OnScreenSaverEnd -------------------------------------------------------
+OnScreenSaverEnd
+{
+	"\0\s[0]The screensaver is gone.\e"
+}
+
+
+//---- OnApplicationBoot ---------------------------------------------------------------
+OnApplicationBoot
+{
+	"\0\s[0]%(reference0) just started.\e"
+}
+
+//---- OnApplicationClose --------------------------------------------------------------
+OnApplicationClose
+{
+	"\0\s[0]%(reference0) has closed.\e"
+}
+
+//---- OnApplicationFileOpen ----------------------------------------------------------
+OnApplicationFileOpen
+{
+	"\0\s[0]Opening %(reference1).\e"
+}
+
+
+//---- OnBatteryLow -----------------------------------------------------------------
+//reference0 here is the amount of battery power.
+OnBatteryLow
+{
+	"\1\s[10]The laptop's battery is low. \w8\0\s[0]There is %(reference0) power left.\e"
+}
+
+//--OnBatteryCritical-----------------------------------------------------------------
+OnBatteryCritical
+{
+	"\0\s[0]The laptop's battery is critically low.\e"
+}
+*/
+
+
+
+//---- OnGhostCalling ---------------------------------------------------------------
+//when you call another ghost. It activates immediately, so write dialogue accordingly.
+OnGhostCalling
+{
+	_ghost = reference0
+	--
+	{
+		case _ghost
+		{
+			when "Herlock Sholmes"
+			{
+				"\0\s[3]That's my evil twin over there!\w8\e"
+				
+				"\0\s[1]So the experiment was,\w4 indeed,\w4 a success...\w8\e"
+			}
+			//when ""
+			//{
+				//""
+			//}
+			others
+			{
+				"\0\s[0]Oh!\w8 \s[1]So that's %(reference0),\w4 then?\w8 \s[3]Come testify for this investigation!\w8\e"
+			}
+		}
+	}
+}
+
+//when you change another ghost. activates after they've finished swapping.
+//reloading a ghost doesn't trigger this I'm saddddddd
+//reference0 = ghost before switch; reference1 = ghost switched to; reference4 = name of previous ghost; reference5 = name of switched to ghost
+OnOtherGhostChanged
+{
+	_ghost = reference1
+	--
+	{
+		case _ghost
+		{
+			when "Herlock Sholmes"
+			{
+				"\0\s[1]Ah!\w8 I have lost sight of %(reference0)...\w8 \s[3]\n\n[half]But,\w4 the good news is,\w4 I have found %(reference1) instead!\w8\e"
+			}
+			//when ""
+			//{
+				//""
+			//}
+			others
+			{
+				"\0\s[1]Ah!\w8 I have lost sight of %(reference4)...\w8 \s[3]\n\n[half]But,\w4 the good news is,\w4 I have found %(reference5) instead!\w8\e"
+				
+				"\0\s[1]Ah!\w8 I have lost sight of %(reference0)...\w8 \s[3]\n\n[half]But,\w4 the good news is,\w4 I have found %(reference1) instead!\w8\e"
+			}
+		}
+	}
+}
+
+//when you close another ghost. Only activates after the other ghost is gone.
+OnOtherGhostClosed
+{
+	_ghost = reference0
+	--
+	{
+		case _ghost
+		{
+			when "Herlock Sholmes"
+			{
+				"\0\s[7]Let ua duel some other time,\w4 evil twin!\w8\e"
+				
+				"\0\s[7]Do you think I could win in a fight against myself,\w4 %(user)?\w8\e"
+			}
+			//when ""
+			//{
+				//""
+			//}
+			others
+			{
+				"\0\s[0]So long,\w4 %(reference0)!\w8 \s[2]I’m sure we’ll meet again!\w8\e"
+			}
+		}
+	}
+}
+
+
+//VERSE DIALOGUE AHEAD

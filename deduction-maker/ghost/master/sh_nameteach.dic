@@ -1,0 +1,555 @@
+﻿//---------------------------The User's Name--------------------------
+//This .dic file has to do with setting the user's name and suffix/prefix. 
+
+
+//--OnTeachName
+OnTeachName	
+{
+	if reference0 == "TEACHNAME" //ignore this
+	{
+		"\0\s[0]Ooh,\w4 looking for a new name?\w8 \s[1]Do you take suggestions?\w8"
+		
+		"\0\s[1]Looking for a new name,\w4 are you?\w8 \s[6]Do you take suggestions?\w8"
+		--
+		"\![open,inputbox,OnNameTeach,-1]\e"
+	}
+	else
+	{
+		//Empty.
+	}
+}
+
+
+//--OnNameTeach
+OnNameTeach
+{
+	tempname = reference0 //this stores the name value from reference0 in tempname
+	reference0 = TOLOWER(reference0) //changes it to lowercase
+	reference0 = REPLACE(reference0," ","") //removes spaces
+	reference0 = REPLACE(reference0,".","") //removes periods
+	reference0 = REPLACE(reference0,"-","") //removes dashes
+	reference0 = REPLACE(reference0,"'","") //removes apostrophes
+	
+	if tempname == user && firstboot != 1 //checking if user inputs same name after firstboot sequence
+	{
+		"\0\s[0]Ah,\w4 right!\w8 \s[3]I remember now!\w8 \s[5]\n\n[half]I look forward to rummaging through the garbage with you!\w8\w8\w8 \c\s[0]\b2Did you,\w4 by chance,\w4 have a title?\w8"
+		--
+		"\n\n[half]\_q\![*]\q[Nope,titlenone] \n\![*]\q[Mr.,titlemr] \n\![*]\q[Lord,titlelord] \n\![*]\q[Ms.,titlems] \n\![*]\q[Lady,titlelady]\e"
+	}
+	if tempname == user && firstboot == 1 //checking if the name is the same as Herlock's guess
+	{
+		"\0\s[0]...\w8\w8\w8\w8 \s[3]\n\n[half]Haha!\w8 I knew I must have misheard you.\w8 \s[1]\n\n[half]My Great Deductions are never wrong!\w8"
+		--
+		"\![open,inputbox,OnNameTeach,-1]"
+	}
+	elseif reference0 == "herlock" || reference0 == "sholmes" || reference0 == "herlocksholmes" || reference0 == "hurley"
+	{
+		user = "Herloss Sholmck"
+		
+		"\0\s[5]No no no,\w4 you can’t be Herlock,\w4 I’m Herlock!\w8 \s[0]\n\n[half]But if you truly share my name,\w4 we must find a way to tell the two of us apart...\w8 \s[2]\n\n[half]I know!\w8 \n\n[half]I’ll call you Herloss Sholmck!\w8 \s[3]I’m a genius!\w8"
+		--
+		if firstboot == 1
+		{
+			"\w8\w8\w8\c\s[0]\b2Anyway,\w4 how do you go by,\w4 my dear fellow?\w8"
+			--
+			"\n\n\_q\![*]\q[He/Him/His,OnPronouns,masc] \n\![*]\q[She/Her/Hers,OnPronouns,fem] \n\![*]\q[They/Them/Their,OnPronouns,undef] \n\![*]\q[I have my own,OnPronouns,own]\e"
+		}
+		else //end me pls
+		{
+			"\e"
+		}
+	}
+	elseif reference0 == "sherlock" || reference0 == "holmes" || reference0 == "sherlockholmes" || reference0 == "holmsie" 
+	{
+		user = "Sherlock Holmes"
+		
+		"\0\s[0]Ah!\w8 \s[7]\n\n[half]It’s you!\w8 My evil twin separated from me at birth!\w8 \s[3]\n\n[half]I knew our paths would cross once more!\w8"
+		--
+		if firstboot == 1
+		{
+			"\w8\w8\w8\c\s[0]\b2Anyway,\w4 how do you go by,\w4 my dear fellow?\w8"
+			--
+			"\n\n\_q\![*]\q[He/Him/His,OnPronouns,masc] \n\![*]\q[She/Her/Hers,OnPronouns,fem] \n\![*]\q[They/Them/Their,OnPronouns,undef] \n\![*]\q[I have my own,OnPronouns,own]\e"
+		}
+		else //end me pls
+		{
+			"\e"
+		}
+	}
+	elseif reference0 == "johnwatson" || reference0 == "johnwilson" || reference0 == "johnhwatson" || reference0 == "johnhwilson" //checking for full name, since "John" is common and all
+	{
+		user = "John Wilson"
+		
+		"\0\s[1]Wilson,\w4 huh?\w8 \s[0]\n\n[half]My roommate knows someone with that name.\w8 \s[1]She admires him a lot,\w4 you know?\w8 She even got a doctorate like him!\w8 \s[0]\n\n[half]But see,\w8 \s[4]the funny thing here,\w8 is that the man my roommate looks up to,\w8\w8\w8 \n\n[half]Is long dead.\w8 \n\n[half]...\w8\w8\w8 \c\s[6]That is simply how life is with such common names!\w8"
+		--
+		if firstboot == 1
+		{
+			"\w8\s[0]\n\n[half]\b2Anyway,\w4 how do you go by,\w4 my dear fellow?\w8"
+			--
+			"\n\n\_q\![*]\q[He/Him/His,OnPronouns,masc] \n\![*]\q[She/Her/Hers,OnPronouns,fem] \n\![*]\q[They/Them/Their,OnPronouns,undef] \n\![*]\q[I have my own,OnPronouns,own]\e"
+		}
+		else //end me pls
+		{
+			"\e"
+		}
+	}
+	elseif reference0 == "barok" || reference0 == "barokvanzieks" || reference0 == "barokzieks"
+	{
+		user = "''Barok''"
+		
+		"\0\s[0]He wouldn’t appreciate you stealing his name.\w8 \s[1]I know he certainly hated it when I did!\w8 \s[0]\n\n[half]But he’s not here right now,\w8 \s[6]so alright,\w4 I’ll humor you.\w8"
+		--
+		if firstboot == 1
+		{
+			"\w8\w8\w8\c\s[0]\b2Anyway,\w4 how do you go by,\w4 my dear fellow?\w8"
+			--
+			"\n\n\_q\![*]\q[He/Him/His,OnPronouns,masc] \n\![*]\q[She/Her/Hers,OnPronouns,fem] \n\![*]\q[They/Them/Their,OnPronouns,undef] \n\![*]\q[I have my own,OnPronouns,own]\e"
+		}
+		else //end me pls
+		{
+			"\e"
+		}
+	}
+	elseif reference0 == "vanzieks" || reference0 == "kimt" || reference0 == "kint" || reference0 == "kimtvanzieks" || reference0 == "kintvanzieks" || reference0 == "irisvanzieks" //added some misc checks here
+	{
+		"\0\s[0]Nice try.\w8 \s[1]But I happen to know the last of the Van Zieks,\w4 \s[4]and I know that is not a name you have any right to bear.\w8"
+		--
+		"\![open,inputbox,OnNameTeach,-1]"
+	}
+	elseif reference0 == "iris" || reference0 == "iriswilson"
+	{
+		user = "Iris"
+		
+		"\0\s[1]Iris?\w8 \s[3]An auspicious name!\w8 \s[6]\n\n[half]You are one lucky fellow,\w4 you know?\w8"
+		--
+		if firstboot == 1
+		{
+			"\w8\w8\w8\c\s[0]\b2Anyway,\w4 how do you go by,\w4 my dear fellow?\w8"
+			--
+			"\n\n\_q\![*]\q[He/Him/His,OnPronouns,masc] \n\![*]\q[She/Her/Hers,OnPronouns,fem] \n\![*]\q[They/Them/Their,OnPronouns,undef] \n\![*]\q[I have my own,OnPronouns,own]\e"
+		}
+		else //end me pls
+		{
+			"\e"
+		}
+	}
+	elseif reference0 == "yujin" || reference0 == "yuujin" || reference0 == "yujinmikotoba" || reference0 == "yuujinmikotoba"
+	{
+		user = "Yuujin" //listen I'm coding here I get to make it phonetically correct
+		
+		"\0\s[1]Yuujin?\w8 \s[2]An auspicious name!\w8 \s[6]\n\n[half]You are one lucky fellow,\w4 you know?\w8"
+		--
+		if firstboot == 1
+		{
+			"\w8\w8\w8\c\s[0]\b2Anyway,\w4 how do you go by,\w4 my dear fellow?\w8"
+			--
+			"\n\n\_q\![*]\q[He/Him/His,OnPronouns,masc] \n\![*]\q[She/Her/Hers,OnPronouns,fem] \n\![*]\q[They/Them/Their,OnPronouns,undef] \n\![*]\q[I have my own,OnPronouns,own]\e"
+		}
+		else //end me pls
+		{
+			"\e"
+		}
+	}
+	elseif reference0 == "baskerville" || reference0 == "baskervilles" || reference0 == "ladybaskerville" || reference0 == "ladybaskervilles" || reference0 == "baskervillehound" || reference0 == "thebaskervillehound" || reference0 == "theprofessor"
+	{
+		"\0\s[1]...\w8\w8\w8 \s[4]\n\n[half]\![set,balloonwait,5]You ought to have some respect for the dead.\![set,balloonwait,1]"
+        --
+		"\![open,inputbox,OnNameTeach,-1]"
+	}
+	elseif reference0 == "mikotoba" //I love the implication that if you just enter "Mikotoba" he thinks you're someone besides Yuujin hahaha
+	{
+		user = "Mikotoba"
+		
+		"\0\s[1]Another one?\w8 \n\n[half]Goodness,\w4 \s[3]I’m bound to meet this entire family,\w4 it seems!\w8"
+		--
+		if firstboot == 1
+		{
+			"\w8\w8\w8\c\s[0]\b2Anyway,\w4 how do you go by,\w4 my dear fellow?\w8"
+			--
+			"\n\n\_q\![*]\q[He/Him/His,OnPronouns,masc] \n\![*]\q[She/Her/Hers,OnPronouns,fem] \n\![*]\q[They/Them/Their,OnPronouns,undef] \n\![*]\q[I have my own,OnPronouns,own]\e"
+		}
+		else //end me pls
+		{
+			"\e"
+		}
+	}
+	elseif reference0 == "ryuunosuke" || reference0 == "ryuu" || reference0 == "runo" || reference0 == "ryunosuke" || reference0 == "ryuunosukenaruhodo" || reference0 == "ryuunosukenaruhodou" || reference0 == "ryunosukenaruhodo" || reference0 == "ryunosukenaruhodou" || reference0 == "naruhodou" || reference0 == "naruhodo" || reference0 == "misternaruhodo" || reference0 == "misternaruhodou"
+	{
+		user = "Mister Naruhodou" //see note above for Yuujin
+		
+		"\0\s[6]Ah so it’s you,\w4 my dear fellow!\w8 \s[0]\n\n[half]It’s good to see a familiar face around here.\w8 \s[1]I have to say,\w4 this exhibit is a lot of fun,\w4 \s[0]but it’s also a little confusing.\w8"
+		--
+		if firstboot == 1
+		{
+			"\w8\w8\w8\c\s[0]\b2Anyway,\w4 how do you go by,\w4 my dear fellow?\w8"
+			--
+			"\n\n\_q\![*]\q[He/Him/His,OnPronouns,masc] \n\![*]\q[She/Her/Hers,OnPronouns,fem] \n\![*]\q[They/Them/Their,OnPronouns,undef] \n\![*]\q[I have my own,OnPronouns,own]\e"
+		}
+		else //end me pls
+		{
+			"\e"
+		}
+	}
+	elseif reference0 == "susato" || reference0 == "susatomikotoba" || reference0 == "susie" || reference0 == "misssusato" //Susato thank you for having a more agreeable name than Ryuu
+	{
+		user = "Miss Susato"
+		
+		"\0\s[6]Ah so it's you,\w4 my dear fellow!\w8 \s[0]\n\n[half]It's good to see a familiar face around here.\w8 \s[1]I have to say,\w4 this exhibit is a lot of fun,\w4 but it's also a little confusing.\w8"
+		--
+		if firstboot == 1
+		{
+			"\w8\w8\w8\c\s[0]\b2Anyway,\w4 how do you go by,\w4 my dear fellow?\w8"
+			--
+			"\n\n\_q\![*]\q[He/Him/His,OnPronouns,masc] \n\![*]\q[She/Her/Hers,OnPronouns,fem] \n\![*]\q[They/Them/Their,OnPronouns,undef] \n\![*]\q[I have my own,OnPronouns,own]\e"
+		}
+		else //end me pls
+		{
+			"\e"
+		}
+	}
+	elseif reference0 == "gregson" || reference0 == "tobiasgregson" || reference0 == "tobias" || reference0 == "gregsy" || reference0 == "inspectorgregson" || reference0 == "inspectortobiasgregson"
+	{
+		user = "Inspector Gregson"
+		
+		"\0\s[1]Ah so it’s you,\w4 \s[2]Inspector!\w8 \s[0]\n\n[half]It’s good to see a familiar face around here.\w8 \s[1]I have to say,\w4 this exhibit is a lot of fun,\w4 \s[3]but it’s also a little confusing.\w8"
+		--
+		if firstboot == 1
+		{
+			"\w8\w8\w8\c\s[0]\b2Anyway,\w4 how do you go by,\w4 my dear fellow?\w8"
+			--
+			"\n\n\_q\![*]\q[He/Him/His,OnPronouns,masc] \n\![*]\q[She/Her/Hers,OnPronouns,fem] \n\![*]\q[They/Them/Their,OnPronouns,undef] \n\![*]\q[I have my own,OnPronouns,own]\e"
+		}
+		else //end me pls
+		{
+			"\e"
+		}
+	}
+	elseif reference0 == "wagahai" || reference0 == "waggy"
+	{
+		user = "Wagahai"
+		
+		"\0\s[1]Waga...\w4hai?\w8 That is a...\w8 \n\n[half]...\w8\w8\s[2]a perfectly normal name for a perfectly normal human!\w8 \s[1]\n\n[half]A perfectly normal human who enjoys perfectly human things,\w4 \s[0]such as having fingernails,\w4 \s[3]or not eating things off the floor.\w8 \s[1]\n\n[half]Also,\w4 completely unrelated,\w4 but do you think it is legal to make pets pay the rent?\w8"
+		--
+		if firstboot == 1
+		{
+			"\w8\w8\w8\c\s[0]\b2Anyway,\w4 how do you go by,\w4 my dear fellow?\w8"
+			--
+			"\n\n\_q\![*]\q[He/Him/His,OnPronouns,masc] \n\![*]\q[She/Her/Hers,OnPronouns,fem] \n\![*]\q[They/Them/Their,OnPronouns,undef] \n\![*]\q[I have my own,OnPronouns,own]\e"
+		}
+		else //end me pls
+		{
+			"\e"
+		}
+	}
+	//elseif reference0 == "" || reference0 == ""
+	elseif reference0 == ""
+	{
+		user = "Fan %(numb)"
+		
+		if firstboot == 1
+		{
+			"\0\s[1]Not feeling talkative,\w4 are you?\w8 \s[0]That is fine,\w4 I know just what to call you!\w8 \s[3]\n\n[half]Fan %(numb)!\w8"
+			--
+			"\x\s[0]\b2And what do you go by,\w4 my dear fellow?\w8"
+			--
+			"\n\n\_q\![*]\q[He/Him/His,OnPronouns,masc] \n\![*]\q[She/Her/Hers,OnPronouns,fem] \n\![*]\q[They/Them/Their,OnPronouns,undef] \n\![*]\q[I have my own,OnPronouns,own]\e"
+		}
+		else
+		{
+			"\0\s[1]Not feeling talkative,\w4 are you?\w8 \s[0]That is fine,\w4 I know just what to call you!\w8 \s[3]\n\n[half]Fan %(numb)!\w8\e"
+		}
+	}
+	else
+	{
+		//added some dialogue here for the titles; also I refuse to allow Sholmes to use honorfics
+		"\0\s[1]%(tempname),\w4 huh?\w8 \s[2]Doesn't ring a single bell!\w8\w8\w8 \c\s[0]\b2Would you,\w4 perchance,\w4 like me to use some sort of title while addressing you?\w8"
+		--
+		"\n\n[half]\![*]\q[Nope,titlenone] \n\![*]\q[Mr.,titlemr] \n\![*]\q[Lord,titlelord] \n\![*]\q[Ms.,titlems] \n\![*]\q[Lady,titlelady]\e"
+	}
+}
+
+Select.titlenone
+{
+	user = tempname
+	NameDone
+}
+
+Select.titlemr
+{
+	user = "Mister " + tempname
+	NameDone
+}
+
+Select.titlelord
+{
+	user = "Lord " + tempname
+	NameDone
+}
+		
+Select.titlems
+{
+	user = "Miss " + tempname
+	NameDone
+}
+
+Select.titlelady
+{
+	user = "Lady " + tempname
+	NameDone
+}
+
+
+
+//--NameDone
+NameDone
+{
+	if firstboot == 1
+	{
+		//added some preamble here because it's nice to have a little confirmation on what the user entered
+		"\0\s[1]%(user),\w4 is it?\w8 \s[2]\n\n[half]I shall do well to remember that.\w8\w8\w8 \s[3]\n\n[half]Now!\w8 \c\s[6]\b2What do you go by,\w4 my dear fellow?"
+		--
+		"\n\n\_q\![*]\q[He/Him/His,OnPronouns,masc] \n\![*]\q[She/Her/Hers,OnPronouns,fem] \n\![*]\q[They/Them/Their,OnPronouns,undef] \n\![*]\q[I have my own,OnPronouns,own]\e"
+	}
+	else
+	{
+		"\0\s[0]"
+		"\0\s[1]"
+		"\0\s[2]"
+		"\0\s[3]"
+		"\0\s[6]"
+		--
+		"So your name is %(user),\w4 correct?\w8\e"
+	}	
+}
+
+
+//Pronouns teach!
+OnPronouns
+{
+	if reference0 == "masc"
+	{
+		presuffix = "masculine"
+		them = "him"
+		they = "he"
+		their = "his"
+		theyre = "he's"
+	}
+	elseif reference0 == "fem"
+	{
+		presuffix = "feminine"
+		them = "her"
+		they = "she"
+		their = "her"
+		theyre = "she's"
+	}
+	elseif reference0 == "undef"
+	{
+		presuffix = "undefine"
+		them = "them"
+		they = "they"
+		their = "their"
+		theyre = "they're"
+	}
+	elseif reference0 == "own"
+	{
+		//I put dialogue here as placeholder. can replace later with Verse's dialogue.
+		"\0\s[3]Marvelous!\w8 \s[1]Now,\w4 tell me which one you use for they / he / she!\w8"
+		--
+		"\![open,inputbox,OntheyTeach,-1]"
+	}
+	else //cancel
+	{
+		"\0\s[1]Changed your mind?\w8 \s[0]Alright.\w8 They shall remain '%(they)', '%(them)', and '%(their)'.\w8 \s[3]\n\n[half]Just let me know if you feel like changing them later.\w8\e"
+	}
+	--
+	if firstboot == 1
+	{
+		firstboot = 0
+		
+		"\![leave,passivemode]\0\s[1]That's '%(they)', '%(them)', and '%(their)',\w4 then?\w8 \s[6]\n\n[half]Perfect!\w8 \s[0]Now that I know who you are,\w4 it is time for me to do what I do best.\w8 \s[3]\n\n[half]Stand over there and look pretty!\w8\e"
+	}
+	else
+	{
+		"\0\s[1]That's '%(they)', '%(them)', and '%(their)',\w4 then?\w8 \s[3]Understood!\w8 \s[1]\n\n[half]If a certain attorney comes by,\w4 \s[2]I’ll make sure to update your profile in his court record!\w8\e"
+	}
+}
+
+
+
+//custom pronouns stuff here
+//ALL THIS STUFF HAS PLACEHOLDER DIALOGUE FOR NOW WHOOOOO
+//begin with they!
+OntheyTeach
+{
+	they = reference0
+	reference0 = REPLACE(reference0," ","") //removes spaces
+	reference0 = REPLACE(reference0,".","") //removes periods
+	reference0 = REPLACE(reference0,"-","") //removes dashes
+	reference0 = REPLACE(reference0,"'","") //removes apostrophes
+	
+	if reference0 == "" //blank check
+	{
+		they = "they"
+	}
+	Onstep2
+}
+
+//preamble to next teach
+Onstep2
+{
+	"\0\s[1]So that's '%(they)'?\w8"
+	--
+	"\n\n\_q\![*]\q[Correct,proceed1] \n\![*]\q[That's not right,tryagain1]"
+}
+
+//this loops back up to the first input code
+Select.tryagain1
+{
+	"\0\s[0]Then let's try that again.\w8 \s[1]\n\n[half]Your personal pronouns for 'they / he / she',\w4 if you please.\w8"
+	--
+	"\![open,inputbox,OntheyTeach,-1]"
+}
+
+//next step!!
+Select.proceed1
+{
+	"\0\s[2]Sounds good!\w8 \s[1]\n\n[half]Now,\w4 what are the pronouns you use for 'them / him / her'?\w8"
+	--
+	"\![open,inputbox,OnthemTeach,-1]\e"
+}
+
+
+//onto them!
+OnthemTeach
+{
+	them = reference0
+	reference0 = REPLACE(reference0," ","") //removes spaces
+	reference0 = REPLACE(reference0,".","") //removes periods
+	reference0 = REPLACE(reference0,"-","") //removes dashes
+	reference0 = REPLACE(reference0,"'","") //removes apostrophes
+	
+	if reference0 == "" //blank check
+	{
+		them = "them"
+	}
+	Onstep3
+}
+
+//preamble to next teach
+Onstep3
+{
+	"\0\s[1]So that's '%(them)'?\w8"
+	--
+	"\n\n\_q\![*]\q[Correct,proceed2] \n\![*]\q[That's not right,tryagain2]"
+}
+
+//loops back to them input
+Select.tryagain2
+{
+	"\0\s[0]Then let's try that again.\w8 \s[1]\n\n[half]Tell me which pronouns you use for 'them / him / her'.\w8"
+	--
+	"\![open,inputbox,OnthemTeach,-1]\e"
+}
+
+//proceed!
+Select.proceed2
+{
+	"\0\s[1]Now,\w4 \s[0]which pronouns do you use for 'their / his / her'?\w8"
+	--
+	"\![open,inputbox,OntheirTeach,-1]"
+}
+
+
+//onto their!
+OntheirTeach
+{
+	their = reference0
+	reference0 = REPLACE(reference0," ","") //removes spaces
+	reference0 = REPLACE(reference0,".","") //removes periods
+	reference0 = REPLACE(reference0,"-","") //removes dashes
+	reference0 = REPLACE(reference0,"'","") //removes apostrophes
+	
+	if reference0 == "" //blank check
+	{
+		their = "their"
+	}
+	Onstep4
+}
+
+//preamble to next teach
+Onstep4
+{
+	"\0\s[1]So that's '%(their)'?\w8"
+	--
+	"\n\n\_q\![*]\q[Correct,proceed3] \n\![*]\q[That's not right,tryagain3]"
+}
+
+//loops back to their teach
+Select.tryagain3
+{
+	"\0\s[2]Then let's try that again.\w8 \s[1]\n\n[half]What pronouns do you use for 'their / his / her'?\w8"
+	--
+	"\![open,inputbox,OntheirTeach,-1]"
+}
+
+//proceed!
+Select.proceed3
+{
+	"\0\s[2]Onto the last step!\w8 \s[0]\n\n[half]Tell me which pronouns you use for 'they're / he's / she's'!\w8"
+	--
+	"\![open,inputbox,OntheyreTeach,-1]"
+}
+
+//teach teach!
+OntheyreTeach
+{
+	theyre = reference0
+	reference0 = REPLACE(reference0," ","") //removes spaces
+	reference0 = REPLACE(reference0,".","") //removes periods
+	reference0 = REPLACE(reference0,"-","") //removes dashes
+	reference0 = REPLACE(reference0,"'","") //removes apostrophes
+	
+	if reference0 == "" //blank check
+	{
+		theyre = "they're"
+	}
+	Onsteplast
+}
+
+//final preamble
+Onsteplast
+{
+	"\0\s[1]So that's '%(theyre)'?\w8"
+	--
+	"\n\n\_q\![*]\q[Correct,proceed4] \n\![*]\q[That's not right,tryagain4]"
+}
+
+//loops back to theyre teach
+Select.tryagain4
+{
+	"\0\s[0]Then let's try that again.\w8 \s[1]\n\n[half]Which pronoun do you use for 'they're / he's / she's'?\w8"
+	--
+	"\![open,inputbox,OntheyreTeach,-1]"
+}
+
+//final talks!!
+Select.proceed4
+{
+	"\0\s[3]Fantastic!\w8 \s[1]\n\n[half]If I've gathered all your input correctly,\w4 \s[2]then I'm to refer to you using '%(them)',\w4 '%(they)', and '%(their)'!\w8"
+	--
+	if firstboot == 1
+	{
+		firstboot = 0
+		
+		"\![leave,passivemode]\0\s[3]\n\n[half]Perfect!\w8 \s[0]Now that I know who you are,\w4 it is time for me to do what I do best.\w8 \s[6]\n\n[half]Stand over there and look pretty!\w8\e"
+	}
+	else //pls end
+	{
+		"\e"
+	}
+}
+
+
+//OKAY THAT'S ALL
+
+//YOU FOOL here's more shit
