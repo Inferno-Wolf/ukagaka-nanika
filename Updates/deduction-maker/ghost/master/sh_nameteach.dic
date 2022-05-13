@@ -355,7 +355,7 @@ OnPronouns
 		//I put dialogue here as placeholder. can replace later with Verse's dialogue.
 		"\0\s[3]Marvelous!\w8 \s[1]Now,\w4 tell me which one you use for they / he / she!\w8"
 		--
-		"\![open,inputbox,OntheyTeach,-1]"
+		"\![open,inputbox,OntheyTeach,-1]\e"
 	}
 	else //cancel
 	{
