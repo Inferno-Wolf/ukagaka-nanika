@@ -20,7 +20,7 @@ On_username
 //This is the URL where your ghost will look for updates.
 On_homeurl
 {
-	"https://raw.githubusercontent.com/Inferno-Wolf/ukagaka-nanika/master/Updates/deduction-maker/"
+	"https://raw.githubusercontent.com/Inferno-Wolf/ukagaka-nanika/main/Updates/deduction-maker/"
 	//"https://Inferno-Wolf.github.io/ukagaka-nanika/Updates/deduction-maker/"
 }
 
