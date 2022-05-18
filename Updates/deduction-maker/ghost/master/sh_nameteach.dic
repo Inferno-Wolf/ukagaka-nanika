@@ -38,7 +38,7 @@ OnNameTeach
 	}
 	if tempname == user && firstboot == 1 //checking if the name is the same as Herlock's guess
 	{
-		"\0\s[0]...\w8\w8\w8\w8 \s[3]\n\n[half]Haha!\w8 I knew I must have misheard you.\w8 \s[1]\n\n[half]My Great Deductions are never wrong!\w8"
+		"\0\s[0]...\w8\w8\w8\w8 \s[8]\n\n[half]Haha!\w8 \s[1]I knew I must have misheard you.\w8 \s[6]\n\n[half]My Great Deductions are never wrong!\w8"
 		--
 		"\![open,inputbox,OnNameTeach,-1]"
 	}
@@ -46,7 +46,7 @@ OnNameTeach
 	{
 		user = "Herloss Sholmck"
 		
-		"\0\s[5]No no no,\w4 you can’t be Herlock,\w4 I’m Herlock!\w8 \s[0]\n\n[half]But if you truly share my name,\w4 we must find a way to tell the two of us apart...\w8 \s[2]\n\n[half]I know!\w8 \n\n[half]I’ll call you Herloss Sholmck!\w8 \s[3]I’m a genius!\w8"
+		"\0\s[5]No no no,\w4 you can’t be Herlock,\w4 I’m Herlock!\w8 \s[0]\n\n[half]But if you truly share my name,\w4 we must find a way to tell the two of us apart...\w8 \s[2]\n\n[half]I know!\w8 \n\n[half]I’ll call you Herloss Sholmck!\w8 \s[8]I’m a genius!\w8"
 		--
 		if firstboot == 1
 		{
@@ -110,7 +110,7 @@ OnNameTeach
 			"\e"
 		}
 	}
-	elseif reference0 == "vanzieks" || reference0 == "kimt" || reference0 == "kint" || reference0 == "kimtvanzieks" || reference0 == "kintvanzieks" || reference0 == "irisvanzieks" //added some misc checks here
+	elseif reference0 == "vanzieks" || reference0 == "klimt" || reference0 == "klint" || reference0 == "klimtvanzieks" || reference0 == "klintvanzieks" || reference0 == "irisvanzieks" //added some misc checks here
 	{
 		"\0\s[0]Nice try.\w8 \s[1]But I happen to know the last of the Van Zieks,\w4 \s[4]and I know that is not a name you have any right to bear.\w8"
 		--
@@ -248,7 +248,7 @@ OnNameTeach
 		
 		if firstboot == 1
 		{
-			"\0\s[1]Not feeling talkative,\w4 are you?\w8 \s[0]That is fine,\w4 I know just what to call you!\w8 \s[3]\n\n[half]Fan %(numb)!\w8"
+			"\0\s[1]Not feeling talkative,\w4 are you?\w8 \s[0]That is fine,\w8 \s[2]I know just what to call you!\w8 \s[6]\n\n[half]Fan %(numb)!\w8"
 			--
 			"\x\s[0]\b2And what do you go by,\w4 my dear fellow?\w8"
 			--
@@ -352,8 +352,7 @@ OnPronouns
 	}
 	elseif reference0 == "own"
 	{
-		//I put dialogue here as placeholder. can replace later with Verse's dialogue.
-		"\0\s[3]Marvelous!\w8 \s[1]Now,\w4 tell me which one you use for they / he / she!\w8"
+		"\![leave,passivemode]\0\s[3]Marvelous!\w8 \s[1]Now,\w4 tell me which one you use for they / he / she!\w8"
 		--
 		"\![open,inputbox,OntheyTeach,-1]\e"
 	}
@@ -535,13 +534,13 @@ Select.tryagain4
 //final talks!!
 Select.proceed4
 {
-	"\0\s[3]Fantastic!\w8 \s[1]\n\n[half]If I've gathered all your input correctly,\w4 \s[2]then I'm to refer to you using '%(them)',\w4 '%(they)', and '%(their)'!\w8"
+	"\0\s[3]Fantastic!\w8 \s[1]\n\n[half]If I've gathered all your input correctly,\w4 \s[2]then I'm to refer to you using '%(them)',\w4 '%(they)', and '%(their)'!\w8 "
 	--
 	if firstboot == 1
 	{
 		firstboot = 0
 		
-		"\![leave,passivemode]\0\s[3]\n\n[half]Perfect!\w8 \s[0]Now that I know who you are,\w4 it is time for me to do what I do best.\w8 \s[6]\n\n[half]Stand over there and look pretty!\w8\e"
+		"\0\s[3]Perfect!\w8 \s[0]\n\n[half]Now that I know who you are,\w4 it is time for me to do what I do best.\w8 \s[6]\n\n[half]Stand over there and look pretty!\w8\e"
 	}
 	else //pls end
 	{

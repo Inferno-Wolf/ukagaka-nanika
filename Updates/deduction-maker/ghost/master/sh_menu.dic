@@ -6,7 +6,9 @@
 
 Select.testvariable
 {
-	"\1\s[10]Testing!\e"
+	"\0\s[0]Say,\w4 my dear fellow,\w4 \s[1]could you type something in upper case for me?\w8"
+	--
+	"\n\n\_q\![*]\q[Sure!,typeit] \n\![*]\q[Not right now.,nothks]\e:chain=end"
 }
 
 
@@ -260,6 +262,7 @@ OnTalkrate
 	{
 		talktime = "Silent"
 		aitalkinterval = 0
+		//poutyboi ++
 		
 		"\0\s[1]...\w8\w8\w8 \s[3]\n\n[half]Understood!\w8 I’ll be over there.\w8 \s[0]Discreet.\w8 Silent.\w8 \s[4]Absolutely not sulking.\w8 \n\n[half]Oh,\w4 my sweet sweet caramel friend,\w4 we’re really in it now.\w8\e"
 	}
@@ -282,14 +285,14 @@ Select.TEACHNAME
 //If the user selects cancel in a menu.
 Select.CANCEL
 {
-	"\0\s[0]Alright!\w8"
+	"\0\s[0]Alright!\w8 "
 	--
 	"\s[2]"
 	"\s[3]"
 	"\s[6]"
 	"\s[7]"
 	--
-	" Back to investigating we go!"
+	"Back to investigating we go!"
 }
 
 	
@@ -385,6 +388,8 @@ Select.MailCheck
 //---- OnChoiceTimeout ---------------------------------------------------------
 OnChoiceTimeout
 {
+	//poutyboi ++
+	
 	"\0\s[0]My dear fellow?\w8 \s[1]Did you fall asleep on me?\w8\e"
 	
 	"\0\s[0]My dear fellow?\w8 \s[1]Did you fall asleep on me?\w8 \s[0]\n\n[half]I can hardly blame you.\w8 \s[1]The same thing happened to me the other day.\w8 \n\n[half]I was having a chat with Inspector Gregson at the time.\w8 \n\n[half]He was...\w8\s[2]less than pleased.\w8\e"

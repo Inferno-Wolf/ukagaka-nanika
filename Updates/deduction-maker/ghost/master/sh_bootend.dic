@@ -36,7 +36,7 @@ OnFirstBoot
 		"\x\s[0]So?\w8 \s[6]How did I do?\w8\n\n\_q"
 		-- //yep answers
 		//\![*]\q[,correctsholmes]
-		"\![*]\q[That is absolutely correct. I am %(user).,correctsholmes]"
+		"\![*]\q[That is absolutely correct.,correctsholmes]"
 		"\![*]\q[Yup! You got it!,correctsholmes]"
 		"\![*]\q[Sure I can be %(user).,correctsholmes]"
 		"\![*]\q[Guess I'm %(user) now.,correctsholmes]"
@@ -76,7 +76,7 @@ OnFirstBoot
 		"\x\s[0]So?\w8 \s[6]How did I do?\w8\n\n\_q"
 		-- //yep answers
 		//\![*]\q[,correctsholmes]
-		"\![*]\q[That is absolutely correct. I am %(user).,correctsholmes]"
+		"\![*]\q[That is absolutely correct.,correctsholmes]"
 		"\![*]\q[Yup! You got it!,correctsholmes]"
 		"\![*]\q[Sure I can be %(user).,correctsholmes]"
 		"\![*]\q[Guess I'm %(user) now.,correctsholmes]"
@@ -111,6 +111,7 @@ FirstBootVars
 	//personal ghost variables
 	poutyboi = 0
 	Friends = 0
+	spoilers = 0
 }
 
 
@@ -225,7 +226,7 @@ normalboottalk
 		}
 		elseif weekday == 3 //Wednesday
 		{
-			"\0\s[2]Ah,\w4 my dear fellow!\w8 \s[0]It's good to see you again!\w8 \s[1]\n\n[half]Coincidentally,\w4 you are also under arrest for attempted murder.\w8 \n\n[half]Why,\w4 you ask?\w8 My,\w4 aren't you killing time right now?\w8\w8\w8 \s[6]\n\n[half]HAHAHAHAHA\w8\w8, \s[3]of course I'm kidding!\w8 \s[0]I have no authority to arrest people!\w8 \s[5]\n\n[half]You should have seen your face!\w8 \s[1]Hilarious,\w4 I tell you!\w8\e"
+			"\0\s[2]Ah,\w4 my dear fellow!\w8 \s[0]It's good to see you again!\w8 \s[1]\n\n[half]Coincidentally,\w4 you are also under arrest for attempted murder.\w8 \n\n[half]Why,\w4 you ask?\w8 My,\w4 aren't you killing time right now?\w8\w8\w8 \s[8]\n\n[half]HAHAHAHAHA\w8\w8, \s[6]of course I'm kidding!\w8 \s[0]I have no authority to arrest people!\w8 \s[8]\n\n[half]You should have seen your face!\w8 \s[1]Hilarious,\w4 I tell you!\w8\e"
 		}
 		else //any other time/day/month
 		{
@@ -254,7 +255,7 @@ OnClose
 			}
 			elseif user == "Mister Naruhodou" || user == "Miss Susato"
 			{
-				"\s[2]\n\n[half]I'll see you at home,\w4 then!\w8"
+				"\s[2]\n\n[half]I'll see you at home,\w4 then!\w8\w8\-\e"
 			}
 			elseif month == 12
 			{
@@ -277,7 +278,7 @@ OnClose
 		"\0\s[0]Leaving already,\w4 %(user)?\w8 \s[99]\n\n[half]Then I shall be on my way as well.\w8 \n\n[half]See you around,\w4 my dear fellow!\w8"
  	}
  	--
-	"\-\e"
+	"\w8\-\e"
 }
 
 

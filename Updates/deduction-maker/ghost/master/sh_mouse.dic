@@ -32,7 +32,7 @@ MouseMoveSakura
 				
 				"\0\s[1]Can't get your hands off me,\w4 can you,\w4 %(user)?\w8 \n\n[half]Am I correct in assuming that you are...\w8\w8\s[6]fond of me?\w8 \s[4]\n\n[half]I'm sorry,\w4 %(user).\w8 I only have one love in my life,\w4 and that is my work.\w8 \s[1]\n\n[half]Also science.\w8 And my partner.\w8 And my daughter.\w8 And...\w8\w8\w8 \n\n[half]...\w8\s[0]I actually have a lot of loves in my life,\w4 huh.\w8\e"
 				
-				"\0\s[0]You know,\w4 this actually feels really nice.\w8 \s[1]\n\n[half]I shall do that to my daughter when I get back.\w8\w8\w8\w8 \s[0]\n\n[half]...\s[4]Roommate.\w8 I meant to say roommate.\w8 \s[0]\n\n[half]Obviously.\w8\e"
+				"\0\s[0]You know,\w4 this actually feels really nice.\w8 \s[1]\n\n[half]I shall do that to my daughter when I get back.\w8\w8\w8\w8 \s[0]\n\n[half]...\s[9]Roommate.\w8 I meant to say roommate.\w8 \s[4]\n\n[half]Obviously.\w8\e"
 			}
  			//elseif reference4 == ""
  		}
@@ -97,7 +97,7 @@ MouseDoubleClickSakura
 		
 		"\0\s[2]It has been way too long since the last time I got to throw down for fun.\w8 \s[7]\n\n[half]Still,\w4 I would appreciate a warning next time!\w8\e"
 		
-		"\0\s[0]Ah!\w8 \s[3]Mercy,\w4 mercy!\w8 \s[2]\n\n[half]I've yet to find a way to hit you back,\w4 %(user).\w8 This is hardly fair!\w8 \s[7]\n\n[half]I'll gladly wrestle with you the moment I figure out how to reach you,\w4 but I'm afraid this is a rather compromised endeavor right now.\w8\e"
+		"\0\s[0]Ah!\w8 \s[8]Mercy,\w4 mercy!\w8 \n\n[half]I've yet to find a way to hit you back,\w4 %(user).\w8 \s[2]This is hardly fair!\w8 \s[7]\n\n[half]I'll gladly wrestle with you the moment I figure out how to reach you,\w4 but I'm afraid this is a rather compromised endeavor right now.\w8\e"
 	}
 	else
 	{

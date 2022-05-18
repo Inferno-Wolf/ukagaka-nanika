@@ -69,7 +69,7 @@ OnShellScaling
 {
 	if reference0 > 100 //bigger
 	{
-		"\0\s[3]\![set,balloonwait,4]Hahaha... yes... yes... YES!!!\![set,balloonwait,1]\w8\e"
+		"\0\s[8]\![set,balloonwait,4]Hahaha... \s[1]yes... \s[3]yes... \s[6]YES!!!\![set,balloonwait,1]\w8\e"
 	}
 	elseif reference0 == 100 //default
 	{
@@ -187,7 +187,7 @@ OnInstallFailure
 		}
 		elseif reference0 == "extraction" //This checks if the file didn't extract properly.
 		{
-			"\s[3]I threw my pickaxe as hard as I could,\w4 but the extraction still failed."
+			"\s[9]I threw my pickaxe as hard as I could,\w4 but the extraction still failed."
 		}
 		elseif reference0 == "invalid type" //install.txt isn't set up properly
 		{
@@ -249,7 +249,7 @@ OnVanishButtonHold
 {
 	"\0\s[1]Oh,\w4 changed your mind?\w8 \s[2]That’s fine!\w8 \s[0]I wasn’t done anyways.\w8\e"
 	
-	"\0\s[6]Haha!\w8 I knew you couldn't bear to send me away that easily.\w8 \s[1]I'm told I'm hard to get rid of!\w8\e"
+	"\0\s[8]Haha!\w8 \s[6]I knew you couldn't bear to send me away that easily.\w8 \s[1]I'm told I'm hard to get rid of!\w8\e"
 }
 
 //---- OnVanished -----------------------------------------
@@ -608,7 +608,7 @@ Select.Headline_Cancel
 //reference0 here supposedly always stores the value no update?
 OnHeadlinesenseComplete
 {
-	"\1\b[6]%(reference0)\w8 \0\s[0]There are no new headlines...\w8 \s[5]\n\n[half]Not even a single one about me,\w4 can you believe it?\w8\e"
+	"\1\b[6]%(reference0)\w8 \0\s[4]There are no new headlines...\w8 \s[5]\n\n[half]Not even a single one about me,\w4 can you believe it?\w8\e"
 }
 
 //---- OnHeadlinesenseFailure ---------------------------------------------------------
@@ -683,7 +683,7 @@ OnSNTPCANCEL
 //----　OnSNTPFailure ------------------------------------------------------------------
 OnSNTPFailure
 {
-	"\0\s[0]...\w8\w8\w8 \s[4]\n\n[half]I cannot believe I am saying this,\w4 but...\w8 \n\n[half]I am being bested by this clock.\w8 \s[5]I cannot figure how to change it.\w8 At all.\w8\e"
+	"\0\s[1]...\w8\w8\w8 \s[4]\n\n[half]I cannot believe I am saying this,\w4 but...\w8 \n\n[half]I am being bested by this clock.\w8 \s[9]I cannot figure how to change it.\w8 At all.\w8\e"
 }
 
 //--OnDisplayChange----------------------------------------------------------------

@@ -67,6 +67,9 @@ AiTalk
 // \s[5] -> ANGER
 // \s[6] -> Lean forward shrug / Smarmy
 // \s[7] -> FIGHT!!
+// \s[8] -> LAUGHIN
+// \s[9] -> pained...
+
 // \s[99] -> DLC Outfit Neutral
 // \s[100] -> Coat and Hat Neutral
 
@@ -78,6 +81,11 @@ RandomTalk : nonoverlap
 	
 	"\0\s[0]Barok would absolutely loathe this place.\w8 \s[1]He's much too straight-laced for this.\w8 \n\n[half]I don't believe he even knows morse code.\w8 \s[2]It's possible he'd only see the ones and zeros rather than the entire place.\w8 \s[6]\n\n[half]We must get him here at once,\w4 my dear fellow!\w8\e"
 	
+	"\0\s[0]My best friend lives on the other side of the world.\w8 \s[1]\n\n[half]Recently,\w4 he sent me this really pretty set of Nintendo cards.\w8 \n\n[half]Apparently,\w4 they're meant to be used to play a game called 'Hanafuda.'\w8 \s[0]\n\n[half]But my friend refused to elaborate on the rules in his letter.\w8 He said that I would just ignore them and make up my own,\w4 so he might as well save himself the trouble of writing them all down.\w8 \s[6]\n\n[half]As you can tell,\w4 he knows me very well!\w8\e"
+	//see, we can make this reference because the AA series is home on Nintendo systems XD
+	
+	"\0\s[0]Tell me,\w4 my dear fellow,\w4 \s[6]have you ever heard of a novel entitled 'Dracula'?\w8 \s[1]\n\n[half]It came out a couple years back.\w8 The story of a lawyer meeting a vampire.\w8 \s[2]\n\n[half]A page-turner,\w4 for sure.\w8 Doubly so that I happen to know a man who looks exactly like the vampire in the book!\w8 \s[3]\n\n[half]Pale-skinned!\w8 Straight from the aristocracy!\w8 Constantly seen around dubious red liquid!\w8 \s[1]\n\n[half]Naturally,\w8 \s[6]I had to send him that novel.\w8 \s[0]\n\n[half]Twelve whole copies.\w8 One delivered each month.\w8 \s[1]So even if he happened to misplace it,\w8 \s[6]he'd have no choice but to read it.\w8 \n\n[half]Isn't it thoughtful of me?\w8 \1\b[6]\_q\![*]\q[That's hilarious.,encourageidiot] \n\![*]\q[That's stalking.,tellhimno]\e"
+	
 	
 	//pic gags
 	"\0\s[1]My roommate often compares me to a hare,\w4 \s[3]because I am quick to think and even quicker to act.\w8 \s[0]\n\n[half]That is fine,\w4 \s[1]but I'd rather be something more noble...\w8 \1\_b[sherlock_fursona.png,20,20,centerxy]\0More cunning...\w8 \s[2]\n\n[half]You see what I mean?\w8\e"
@@ -86,7 +94,7 @@ RandomTalk : nonoverlap
 	
 	
 	//references
-	"\0\s[1]Irene Adler?\w8 \s[4]\n\n[half]Ah...\w8\w8 \s[0]\n\n[half]This is a bit of an embarassing story.\w8\w8\w8 \cSee,\w4 \s[2]I enjoy switching things up every once in a while.\w8 \s[1]Change clothes,\w4 and pronouns,\w4 and gender,\w4 and name.\w8 \s[0]\n\n[half]It's rather enjoyable \s[3]and I can only recommend that you try as well.\w8 \s[1]\n\n[half]''Irene Adler'' is a name I enjoyed wearing in such a fashion.\w8 \n\n[half]But there was a whole lot of trouble with the King of Bohemia,\w4 and,\w4 well...\w8\w8 \s[0]''Irene''\w4 had to disappear.\w8\w8 \s[4]\n\n[half]That is a shame.\w8 I'd grown attached to that name.\w8\w8\w8 \c\s[0]Hm?\w8 My relationship with the king?\w8 \s[3]\n\n[half]Why,\w4 my dear fellow,\w4 a lady doesn't kiss and tell!\w8\e"
+	"\0\s[1]Irene Adler?\w8 \s[4]\n\n[half]Ah...\w8\w8 \s[0]\n\n[half]This is a bit of an embarassing story.\w8\w8\w8 \cSee,\w4 \s[2]I enjoy switching things up every once in a while.\w8 \s[1]Change clothes,\w4 and pronouns,\w4 and gender,\w4 and name.\w8 \s[0]\n\n[half]It's rather enjoyable \s[3]and I can only recommend that you try as well.\w8 \s[1]\n\n[half]''Irene Adler'' is a name I enjoyed wearing in such a fashion.\w8 \n\n[half]But there was a whole lot of trouble with the King of Bohemia,\w4 and,\w4 well...\w8\w8 \s[0]''Irene''\w4 had to disappear.\w8\w8 \s[4]\n\n[half]That is a shame.\w8 I'd grown attached to that name.\w8\w8\w8 \c\s[0]Hm?\w8 My relationship with the king?\w8 \s[3]\n\n[half]Why,\w4 my dear fellow,\w4 a lady doesn't kiss and tell!\w8 \s[8]\e"
 	
 	"\0\s[0]Professor Moriarty?\w8 \s[1]You mean the man in Iris's stories?\w8 \n\n[half]As I recall,\w4 the man used to tutor Iris in maths,\w4 when she was younger.\w8 \n\n[half]I believe they had a...\w8 disagreement,\w4 regarding Fermat's theorem.\w8 \s[0]\n\n[half]It angered Iris so much she made him the villain in one of her stories.\w8 \s[2]\n\n[half]Good on her!\w8 \s[0]I wish I could earn money from my anger.\w8 \n\n[half]Oh!\w8 \s[1]Maybe I could make a machine that converts emotions to gold!\w8\e"
 	
@@ -106,7 +114,9 @@ RandomTalk : nonoverlap
 	
 	
 	//other user input
-	"\0\s[0]You know,\w4 \a[1]I have no idea what you actually look like behind that foggy screen.\w8 \n\n[half]For all I know,\w4 \s[2]you might not even be human,\w4 haha!\w8 \n\n[half]...\w8\w8\w8 \s[0]\n\n[half]No,\w4 seriously,\w4 are you?\w8 \1\_q\![*]\q[I am a human\, like you.,amhuman] \n\![*]\q[I am a human\, but in 3D.,3dhuman] \n\![*]\q[You got me. I'm not human.,nothuman]\e"
+	"\0\s[0]You know,\w4 \a[1]I have no idea what you actually look like behind that foggy screen.\w8 \n\n[half]For all I know,\w4 \s[8]you might not even be human,\w4 haha!\w8 \s[1]\n\n[half]...\w8\w8\w8 \s[0]\n\n[half]No,\w4 seriously,\w4 are you?\w8 \1\b[6]\_q\![*]\q[I am a human\, like you.,amhuman] \n\![*]\q[I am a human\, but in 3D.,3dhuman] \n\![*]\q[You got me. I'm not human.,nothuman]\e"
+	
+	"\0\s[1]Tell me,\w4 my dear fellow.\w8 \s[0]Do you believe in ghosts?\w8 \1\b[6]\_q\![*]\q[Yes.,woooospoopy] \n\![*]\q[No.,timetograverob] \n\![*]\q[YOU are a ghost.,hauntingiguess]\e"
 	
 	
 	/*
@@ -260,9 +270,9 @@ RandomTalk : nonoverlap
 	*/
 	if timeslot == "lunch"
 	{
-		"\0\s[4]Candles are so terribly disappointing.\w8 \s[1]\n\n[half]They smell so nice.\w8 They burn so bright.\w8 They feel so good to bite into.\w8 \n\n[half]But the taste?\w8 \s[5]Horrible.\w8 This is just soap all over again.\w8 \s[4]\n\n[half]When will I ever stop undergoing betrayal?\w8\e"
+		"\0\s[4]Candles are so terribly disappointing.\w8 \s[1]\n\n[half]They smell so nice.\w8 They burn so bright.\w8 \s[4]They feel so good to bite into.\w8 \n\n[half]But the taste?\w8 \s[5]Horrible.\w8 This is just soap all over again.\w8 \s[9]\n\n[half]When will I ever stop undergoing betrayal?\w8\e"
 		
-		"\0\s[4]Wine is the most treacherous friend there is on this Earth.\w8 \s[1]\n\n[half]It smells so sweet...\w8it looks so nice...\w8\s[6]hold it under the light and the liquid will reflect a thousand delicious promises.\w8 \s[3]\n\n[half]And then you drink it,\w4 and!\w8 \s[5]\n\n[half]Betrayal!\w8 Bitterness!\w8 \n\n[half]A taste so foul it curses your entire mouth!\w8 \s[0]\n\n[half]I guess this is why Barok only ever uses it as a drama prop in court.\w8\e"
+		"\0\s[4]Wine is the most treacherous friend there is on this Earth.\w8 \s[1]\n\n[half]It smells so sweet...\w8it looks so nice...\w8\s[6]hold it under the light and the liquid will reflect a thousand delicious promises.\w8 \s[3]\n\n[half]And then you drink it,\w4 and!\w8 \s[5]\n\n[half]Betrayal!\w8 Bitterness!\w8 \n\n[half]A taste so foul it curses your entire mouth!\w8 \s[9]\n\n[half]I guess this is why Barok only ever uses it as a drama prop in court.\w8\e"
 	}
 	/*
 	if timeslot == "afternoon"
@@ -386,7 +396,7 @@ capstest
 {{CHAIN
 	"\0\s[0]Say,\w4 my dear fellow,\w4 \s[1]could you type something in upper case for me?\w8"
 	--
-	"\n\n\b2\_q\![*]\q[Sure!,typeit] \n\![*]\q[Not right now.,nothks]\e:chain=end"
+	"\n\n\_q\![*]\q[Sure!,typeit] \n\![*]\q[Not right now.,nothks]\e:chain=end"
 }}CHAIN
 
 //not right now
@@ -413,10 +423,20 @@ OnCapsSherlock
 	reference0 = REPLACE(reference0,"-","") //removes dashes
 	reference0 = REPLACE(reference0,"'","") //removes apostrophes
 	
-	if reference0 == "BITCH" || reference0 == "SHIT" || reference0 == "FUCK" || reference0 == "GODDAMN" || reference0 == "BLOODYHELL" || reference0 == "BASTARD" || reference0 == "DAMN" || reference0 == "HELL" || reference0 == "BASTARDMAN" || reference0 == "PUNKASSBITCH"
+	if "BITCH" || "SHIT" || "FUCK" || "DAMN" || "BLOODY" || "HELL" || "BASTARD" || "ASS" || "BITCH" || "TWAT" || "STUPID" || "IDIOT" || "SHIROOTO" || "シロート" || "CUNT" _in_ reference0
 	{
 		"\0\s[0]Well,\w4 now.\w8 There's no need to be rude.\w8 \s[4]\n\n[half]A simple no would have suffised."
 	}
+	//elseif "RYUUNOSUKE" || "RYUNOSUKE" || "SUSATO" || "NARUHODOU" || "NARUHODO" || "MIKOTOBA" || "YUUJIN" || "YUJIN" || "IRIS" || "GREGSON" || "BAROK" || "VANZIEKS" _in_ reference0
+	//{
+		//if user == "Mister Naruhodou" || user == "Miss Susato" || user == "''Barok''" || user == "Inspector Gregson"
+	//}
+	//elseif "HERLOCK" || "SHOLMES" || "HERLOSS" || "SHOLMCK" || "SHERLOCK" || "HOLMES" _in_ reference0
+	//{
+		//if user == "Herloss Sholmck" || user == "Sherlock Holmes"
+	//}
+	//elseif "KLINT" || "KLIMT" || "BASKERVILLE" || "PROFESSOR" || "JOHN" || "WILSON" || "WATSON" _in_ reference0
+	//elseif "WAGAHAI" _in_ reference0
 	elseif reference0 == "" //blank check
 	{
 		"\0\s[0]...\w8 \s[4]\n\n[half]You are quite the contrarian,\w4 aren't you,\w4 %(user)?"
@@ -455,6 +475,45 @@ Select.nothuman
 		
 		"\0\s[3]I knew it!\w8 \s[0]You chose a different name at the start to confound me,\w4 but in truth...\w8 \s[6]\n\n[half]You are Wagahai,\w4 are you not?\w8 \n\n[half]Wonderful!\w8 \s[2]You are so much smarter than your previous owner!\w8 \s[1]Who would have guessed?\w8\e"
 	}
+}
+
+
+//continuation from Barok Vampire
+Select.encourageidiot
+{
+	"\0\s[6]Right?\w8 \s[2]You and I are like-minded fellows!\w8\e"
+}
+
+//thank you for hitting me with those feels, Verse
+Select.tellhimno
+{
+	"\0\s[8]It's not stalking if it's funny!\w8 \s[0]\n\n[half]...\w8\w8\w8 \s[4]\cBetween you and me...\w8 \n\n[half]The man could really use a distraction.\w8 Whether it's reading a novel or being angry at me,\w4 it doesn't matter.\w8 \n\n[half]If he's annoyed,\w4 he's not grieving.\w8 Maybe he might even remember to eat.\w8\e"
+}
+
+
+//continuation from ghosts ask
+Select.woooospoopy
+{
+	"\0\s[1]Really?\w8 Interesting.\w8"
+	--
+	if user == "Mister Naruhodou" || user == "Miss Susato" || user == "Mikotoba"
+	{
+		"\s[0]\n\n[half]Also,\w4 for no reason in particular,\w4 you might want to avoid going into the basement.\w8 \s[2]Just some friendly advice!\w8\e"
+	}
+	else //any other username
+	{
+		"\s[0]\n\n[half]Mostly though,\w4 I did not mean in a literal way.\w8 \s[1]\n\n[half]I recently met a girl,\w4 you see,\w4 who behaves a lot like my best friend.\w8 \s[4]\n\n[half]I can't really explain it.\w8 It's...\w8something in the way she speaks,\w4 perhaps?\w8 \s[0]\n\n[half]My best friend is still very much alive,\w4 mind you,\w4 but it's hard not to feel haunted when she walks into the room.\w8\e"
+	}
+}
+
+Select.timetograverob
+{
+	"\0\s[0]Really?\w8 \s[6]Marvelous!\w8 \s[1]\n\n[half]I'm in need of a helping hand for an investigation at the cemetery.\w8 \s[3]\n\n[half]Come on,\w4 get ready,\w8 \s[100]we must leave at once!\w8\e"
+}
+
+Select.hauntingiguess
+{
+	"\0\s[8]Hahaha,\w8 \s[2]I guess you're right!\w8 \s[6]Right now,\w4 I am the ghost!\w8 \s[1]\n\n[half]Should I thank you for letting me haunt this strange house of yours?\w8 I am sadly unaware of any spiritual etiquette.\w8 \n\n[half]Then again,\w4 even if I were,\w8 \s[3]I'd promptly toss it out a window!\w8\e"
 }
 
 
