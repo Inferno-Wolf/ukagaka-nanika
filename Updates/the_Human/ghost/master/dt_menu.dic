@@ -1,0 +1,879 @@
+﻿//---------------------------Menus--------------------------
+//The ACT Menu.
+
+
+//--OpenSakuraMenu
+OpenSakuraMenu
+{
+	"\0\s[5]\b2*Frisk is ready to help %(username)!"
+	
+	"\0\s[2]\b2*You have opened Frisk's ACT menu."
+	
+	"\0\s[6]\b2*Frisk awaits your choice, %(username)."
+	--
+	MenuRun
+}
+
+//--MenuRun
+MenuRun
+{
+	"\b2\n\n\_q"
+	--
+	if lastTalk != ""
+	{
+	  "\![*]\q[Repeat,OnLastTalk]\n"
+	}
+	--
+ 	"\![*]\q[Say something,OnAiTalk] \n\![*]\q[Talk to Someone,OnStartTalking] \n\n[half]\![*]\q[Read the Time,clocktime] \n\![*]\q[Help?,helpme] \n\![*]\q[I want Frisk to talk!,dontyoutalk] \n\![*]\q[Ask about Chara,charahere]  \n\n[half]\![*]\q[Configuration,configmenu] \n\![*]\q[Functions,dosomething]"
+	--
+	if username == "KFC"
+	{
+		"\n\n[half]\![*]\q[Test!,testvariable]"
+	}
+	--
+	"\n\n[half]\![*]\q[Cancel,CANCEL]\e"
+	
+	//\n\![*]\q[*Recommendations!,recommend]
+}
+
+//Leave this alone
+OnLastTalk 
+{
+	"%(lastTalk)\e"
+}
+
+
+//--Test Variable --------------------------------------------------------
+Select.testvariable
+{
+	"\0\s[5]*Frisk offers you some naisudesu with a big smile.\w8\e"
+	//"\0\s[0]*This is a test of the emergency broadcast system.\w8 \n*Just kidding.\w8\e"
+}
+
+
+
+//start of added options
+Select.helpme
+{
+	"\0\s[5]*Frisk would be happy to help you, %(username).\w8 \s[2]What do you need help with? \n\n[half]\![*]\q[A Pacifist Run,pacifisthelp] \n\![*]\q[A Murder Run,murderhelp] \n\![*]\q[Random Monster Spare,rndmnspare] \n\![*]\q[A Puzzle,puzzlehelp] \n\n[half]\![*]\q[Nevermind,BACKTOMENU]\e"
+}
+
+Select.pacifisthelp
+{
+	//yellow
+	"\0\s[5]*Frisk is overjoyed to hear that you're doing a pacifist run and would be glad to help you spare every monster in the Underground.\w8\w8 \c\0\s[2]\b2*Compliment \f[color,255,255,0]Froggit\f[color,default].\w8 \n*Terrorise \f[color,255,255,0]Whimsum\f[color,default],\w2 then Console it.\w8 \n*Flirt with \f[color,255,255,0]Moldsmal\f[color,default].\w8 \n*Don't pick on \f[color,255,255,0]Loox\f[color,default].\w8 \n*Talk to \f[color,255,255,0]Migosp\f[color,default] while it is the only Monster left in battle.\w8 \n*Choose 'Dinner' for \f[color,255,255,0]Vegetoid\f[color,default],\w2 then catch the green bullet.\w8 \n*Wait one turn,\w2 then Laugh at \f[color,255,255,0]Snowdrake\f[color,default]'s pun.\w8 \n*Ignore \f[color,255,255,0]Ice Cap\f[color,default] twice,\w2 then Steal its hat,\w2 then Compliment it.\w8 \n\s[5]*Wait one turn,\w2 then Pet \f[color,255,255,0]Doggo\f[color,default].\w8 \n*For \f[color,255,255,0]Dogamny and Dogaressa\f[color,default],\w2 first Roll,\w2 then let them Re-sniff you,\w2 then Pet both of them.\w8 \n*Beckon over \f[color,255,255,0]Greater Dog\f[color,default],\w2 Pet once,\w2 then Play,\w2 then Pet twice more.\w8 \n*Pet \f[color,255,255,0]Lesser Dog\f[color,default] five times or until its attacks cease.\w8 \n\s[2]*Undecorate \f[color,255,255,0]Gyftrot\f[color,default] three times.\w8 \n*For \f[color,255,255,0]Aaron\f[color,default],\w2 Flex three times.\w8 To get his yellow text during the credits,\w2 play one of Napstablook's tunes at their house,\w2 then walk around one screen down in the save area until you get into an encounter.\w8 \n*Choose 'Clean' for \f[color,255,255,0]Woshua\f[color,default],\w2 then catch the green bullet.\w8 \n*Unhug \f[color,255,255,0]Moldbygg\f[color,default].\w8 \n*Talk to \f[color,255,255,0]Temmie\f[color,default].\w8 \n*Hum with \f[color,255,255,0]Shyren\f[color,default] until the battle ends.\w8 \n*For \f[color,255,255,0]Mad Dummy\f[color,default],\w2 Talk to the \f[color,255,255,0]Training Dummy\f[color,default] in the Ruins,\w2 then Talk to \f[color,255,255,0]Mad Dummy\f[color,default] during its battle at least once.\w8 \n*Encourage \f[color,255,255,0]Vulkin\f[color,default].\w8 \n*Choose 'Approach' with \f[color,255,255,0]Tsunderplane\f[color,default],\w2 then touch the green part of at least four of its bullets.\w8 \n*Choose 'Heat Up' twice for \f[color,255,255,0]Pyrope\f[color,default].\w8 \n*For \f[color,255,255,0]Madjick\f[color,default],\w2 choose 'Clear Mind',\w2 then Talk to them.\w8 \n*Sing at \f[color,255,255,0]Knight Knight\f[color,default] until she falls asleep.\w8 \n*Mystify \f[color,255,255,0]Final Froggit\f[color,default].\w8 \n*Pray at \f[color,255,255,0]Whimsalot\f[color,default].\w8 \n*For \f[color,255,255,0]Astigmatism\f[color,default],\w2 wait one turn to see what it says,\w2 then choose the Act option it says.\w8\w8 \n\n[half]*These will all get them their yellow name for the credits as well.\w8\w8\w8\w8\w8\w8 \c\0\s[4]*Frisk hopes that helped!\w8\e"
+	
+	//pink
+	"\0\s[5]*Frisk is overjoyed to hear that you're doing a pacifist run and would be glad to help you spare every monster in the Underground.\w8\w8 \c\0\s[2]\b2*Compliment \f[color,255,204,229]Froggit\f[color,default].\w8 \n*Terrorise \f[color,255,204,229]Whimsum\f[color,default],\w2 then Console it.\w8 \n*Flirt with \f[color,255,204,229]Moldsmal\f[color,default].\w8 \n*Don't pick on \f[color,255,204,229]Loox\f[color,default].\w8 \n*Talk to \f[color,255,204,229]Migosp\f[color,default] while it is the only Monster left in battle.\w8 \n*Choose 'Dinner' for \f[color,255,204,229]Vegetoid\f[color,default],\w2 then catch the green bullet.\w8 \n*Wait one turn,\w2 then Laugh at \f[color,255,204,229]Snowdrake\f[color,default]'s pun.\w8 \n*Ignore \f[color,255,204,229]Ice Cap\f[color,default] twice,\w2 then Steal its hat,\w2 then Compliment it.\w8 \n\s[5]*Wait one turn,\w2 then Pet \f[color,255,204,229]Doggo\f[color,default].\w8 \n*For \f[color,255,204,229]Dogamny and Dogaressa\f[color,default],\w2 first Roll,\w2 then let them Re-sniff you,\w2 then Pet both of them.\w8 \n*Beckon over \f[color,255,204,229]Greater Dog\f[color,default],\w2 Pet once,\w2 then Play,\w2 then Pet twice more.\w8 \n*Pet \f[color,255,204,229]Lesser Dog\f[color,default] five times or until its attacks cease.\w8 \n\s[2]*Undecorate \f[color,255,204,229]Gyftrot\f[color,default] three times.\w8 \n*For \f[color,255,204,229]Aaron\f[color,default],\w2 Flex three times.\w8 To get his yellow text during the credits,\w2 play one of Napstablook's tunes at their house,\w2 then walk around one screen down in the save area until you get into an encounter.\w8 \n*Choose 'Clean' for \f[color,255,204,229]Woshua\f[color,default],\w2 then catch the green bullet.\w8 \n*Unhug \f[color,255,204,229]Moldbygg\f[color,default].\w8 \n*Talk to \f[color,255,204,229]Temmie\f[color,default].\w8 \n*Hum with \f[color,255,204,229]Shyren\f[color,default] until the battle ends.\w8 \n*For \f[color,255,204,229]Mad Dummy\f[color,default],\w2 Talk to the \f[color,255,204,229]Training Dummy\f[color,default] in the Ruins,\w2 then Talk to \f[color,255,204,229]Mad Dummy\f[color,default] during its battle at least once.\w8 \n*Encourage \f[color,255,204,229]Vulkin\f[color,default].\w8 \n*Choose 'Approach' with \f[color,255,204,229]Tsunderplane\f[color,default],\w2 then touch the green part of at least four of its bullets.\w8 \n*Choose 'Heat Up' twice for \f[color,255,204,229]Pyrope\f[color,default].\w8 \n*For \f[color,255,204,229]Madjick\f[color,default],\w2 choose 'Clear Mind',\w2 then Talk to them.\w8 \n*Sing at \f[color,255,204,229]Knight Knight\f[color,default] until she falls asleep.\w8 \n*Mystify \f[color,255,204,229]Final Froggit\f[color,default].\w8 \n*Pray at \f[color,255,204,229]Whimsalot\f[color,default].\w8 \n*For \f[color,255,204,229]Astigmatism\f[color,default],\w2 wait one turn to see what it says,\w2 then choose the Act option it says.\w8\w8 \n\n[half]*These will all get them their yellow name for the credits as well.\w8\w8\w8\w8\w8\w8 \c\0\s[4]*Frisk hopes that helped!\w8\e"
+}
+
+Select.rndmnspare
+{
+	_pacifist = pacifymonster
+	_monster = _pacifist[0]
+	_pacify = _pacifist[1]
+	
+	"\0\s[2]*Frisk is now thinking of a random Monster to help you pacify.\w2.\w2.\w2\w8\w8 \c\0\s[5]*\f[color,255,255,0]%(_monster)\f[color,default] can be spared by %(_pacify).\w8 \n*This will also get them their yellow name for the credits.\w8\w8\w8 \0\s[8]\n\n[half]*Frisk hopes that helped!\w8\e"
+	
+	"\0\s[2]*Frisk is now thinking of a random Monster to help you pacify.\w2.\w2.\w2\w8\w8 \c\0\s[5]*\f[color,255,204,229]%(_monster)\f[color,default] can be spared by %(_pacify).\w8 \n*This will also get them their yellow name for the credits.\w8\w8\w8 \0\s[8]\n\n[half]*Frisk hopes that helped!\w8\e"
+}
+
+Select.murderhelp
+{
+	//"\0\s[1]*I don't know why you clicked this option, %(username).\w8\e"
+	"\0\s[1]*Frisk isn't sure they should give that sort of help to terrible children and dirty brother killers...\w8 \0\s[15]\n\n[half]*But the narration continued.\w8\w8 \c\0\s[15]\b2\c\f[color,255,10,10]*Kill 20 monsters in the Ruins before the Toriel battle.\w8 Do this also before Napstablook to avoid having to battle them.\w8 \n\n[half]*Get the pie from Toriel and keep it.\w8\w8\w8\w8\w8\w8\w8 \c\f[color,255,10,10]*Kill 16 monsters in Snowdin woods before the Papyrus fight.\w8 Boss dogs do not count towards this,\w4 but still need to be killed.\w8 \n\n[half]*Don't miss or forget 'that comedian',\w4 Snowdrake.\w8 \n*Take the Snowman Pieces and save them.\w8 \n*Do not spare Jerry.\w8 Why would you?\w8\w8\w8\w8\w8\w8\w8 \c\f[color,255,10,10]*Kill 18 monsters in Waterfall before the confrontation with Monster Kid on the bridge.\w8 Shyren isn't a part of the counter,\w4 but still needs to be killed.\w8 \n\n[half]*Prepare for a true Heroine.\w8\w8\w8\w8\w8\w8\w8 \c\f[color,255,10,10]*Kill 40 monsters in Hotland and the Core before the Mettaton battle.\w8 Hotland and the Core count as the same area,\w4 so you can wait until the final bridge in the Core to grind if you so desire.\w8 \n\n[half]*Muffet,\w4 01,\w4 and 02 do not count,\w4 but the path of Strength encounters do.\w8 \n*Grab the Instant Noodles from Alphys' fridge and buy the expensive foods from Burgerpants.\w8 \n\n[half]*Stock them.\w8 You'll need it.\w8\w8\w8\w8\w8\w8\w8 \c\f[color,255,10,10]\n\n\n\n\n\n\n*Prepare for a bad time.\w8\w8\w8\w8\w8\w8\w8 \c\0\s[1]\b1*And that's all you need to know in order to permanently ruin your game!\w8 \s[31]I hope you're happy,\w4 %(username).\w8\e"
+}
+
+Select.puzzlehelp
+{
+	"\0\s[2]*Which area would you like help with?\w8 \n\n[half]\![*]\q[The Ruins,torihelp] \n\![*]\q[Snowdin,papshelp] \n\![*]\q[Waterfall,undynehelp] \n\![*]\q[Hotland,alphhelp] \n\![*]\q[The Human World,humehelp] \n\![*]\q[Flowey Locations,flowhelp] \n\n[half]\![*]\q[Nevermind,BACKTOMENU]\e"
+}
+
+//LISTEN I'll do all these LATER Frisk's never getting released if I iron it all out now =A=
+Select.torihelp
+{
+	if ghostexcount > 0 //another ghost is open
+	{
+		AlreadyResponded = 1
+		
+		if "Toriel" _in_ ghostexlist
+		{
+			res_reference0 = "Toriel"
+			
+			"\0\s[5]*Perhaps Toriel can elabourate on her favourite snail hunting spots!\w8\e snailpie1"
+			//snail puns snail puns snail puns!!
+		}
+		elseif "Sn" _in_ ghostexlist
+		{
+			res_reference0 = "Sn"
+			
+			"\0\s[1]*Frisk isn't sure Sans and Papyrus would know much about the Ruins,\w4 considering they've never been there...\w8 \s[2]\n\n[half]*But it might be worth a shot!\w8\e askskelruins1"
+			//why are you asking them they don't know anything about the ruins lol
+		}
+		elseif "Ralsei" _in_ ghostexlist
+		{
+			res_reference0 = "Ralsei"
+			
+			"\0\s[5]*Why do you think this fluffy boy prince will know anything about the Ruins??\w8\e ruinedcastle1"
+			//the Ruins are like the Castle, right?
+		}
+		//elseif "" _in_ ghostexlist
+		//res_reference0 = ""
+		else //other ghosts
+		{
+			"\0\s[1]*Frisk isn't sure anyone here would know enough about the Ruins to help,\w4 %(username).\w8\e"
+		}
+	}
+	else //no ghosts open
+	{
+		"\0\s[2]*Frisk can give you a random tip for navigating the Ruins!\w8\w8\c"
+		
+		"\0\s[1]*Even though Frisk isn't as familiar with the Ruins as Toriel is,\w4 \s[2]%(they) can do %(their) best to give you some good tips.\w8\w8\c"
+		--
+		"\s[5]*Toriel has kindly labelled all the switches you need to press.\w8 Make sure to read her comments!"
+		
+		"\s[0]*Brave ones.\w8 Fearful ones.\w8 \n*Both walk not the middle path.\w8\w8\w8\w8 \n\n[half]\s[2]*In other words,\w4 don't press the two buttons in the middle."
+		
+		"\s[2]*The blueprint of the first room marks the path you can take through the spikes.\w8 They will also nicely get out of your way as you walk across them.\w8 \n\n[half]\s[5]*Isn't that swell?"
+		
+		"\s[6]*The Blue Switch you need to press is behind the first pillar.\w8 \n\n[half]\s[2]*You may notice it if you keep walking past it..."
+		
+		"\s[6]*Backtracking all the way to the room you fell into may hold some surprise dialogues,\w4 \s[1]depending on when you decide to backtrack.\w8 \n\n[half]\s[21]*It is a long ways..."
+		
+		"\s[6]*No matter how long you wait,\w8 \s[1]the dog shall always steal Toriel's phone."
+		
+		"\s[2]*Pie is most delicious after it's cooled gently.\w8 \n\n[half]*Take a nap!\w8 \s[4]\n*Toriel will surely bring you a slice."
+		--
+		"\w8\e"
+	}
+}
+
+Select.papshelp
+{
+	/*
+	if ghostexcount > 0 //another ghost is open
+	{
+		AlreadyResponded = 1
+		
+		if "Toriel" _in_ ghostexlist
+		{
+			res_reference0 = "Toriel"
+			
+			//why are you asking her what sort of tips do you expect her to give??
+		}
+		elseif "Sn" _in_ ghostexlist
+		{
+			res_reference0 = "Sn"
+			
+			//TELL US MORE ABOUT YOUR HOME BROS XD
+		}
+		//elseif "" _in_ ghostexlist
+		else //other ghosts
+		{
+			"\0\s[1]*Frisk isn't sure anyone here would know enough about Snowdin to help,\w4 %(username).\w8\e"
+		}
+	}
+	else //no other ghosts open
+	*/
+	"\0\s[21]*Though Frisk may not be as knowledgeable on Snowdin as Papyrus or Sans,\w4 \s[2]%(theyre) happy to give you some tips!\w8\w8\w8\c"
+	
+	"\0\s[21]*Frisk may not know as much about Snowdin as Sans or Papyrus,\w4 \s[2]but %(theyre) happy to help anyway.\w8\w8\w8\c"
+	--
+	"\s[0]*Go ahead and walk right through the bars on the bridge leading from the Ruins to Snowdin.\w8 \s[2]\n\n[half]*Papyrus made them too wide to keep anyone from getting through."
+	
+	"\s[6]*There seems to be a fishing line just above the beginning areas of Snowdin.\w8 If you reel it in, you might even find a phone number attached to the hook.\w8 \s[2]\n\n[half]*It seems like someone is going to make out with a fish."
+	
+	"\s[6]*Make sure to keep the Snowman piece in your immediate inventory as you exit the Underground!\w8 \s[5]\n\n[half]*You might just make them very happy."
+	
+	"\s[6]*Make sure to keep the Snowman piece in your immediate inventory as you exit the Underground.\w8 \s[21]\n\n[half]*Otherwise,\w4 it might not recognise that you've taken them on your journey with you.\w8\e"
+	
+	"\s[0]*If you run into any dogs,\w8 \s[5]make sure you pet them!"
+	--
+	"\w8\e"
+	
+	//Golf dialogue
+}
+
+Select.undynehelp
+{
+	/*
+	if ghostexcount > 0 //another ghost is open
+	{
+		AlreadyResponded = 1
+		
+		if "Toriel" _in_ ghostexlist
+		{
+			res_reference0 = "Toriel"
+			
+			//why are you asking her what sort of tips do you expect her to give??
+		}
+		elseif "Sn" _in_ ghostexlist
+		{
+			res_reference0 = "Sn"
+			
+			//TELL US MORE ABOUT YOUR HOME BROS XD
+		}
+		//elseif "" _in_ ghostexlist
+		else //other ghosts
+		{
+			"\0\s[1]*Frisk isn't sure anyone here would know enough about Snowdin to help,\w4 %(username).\w8\e"
+		}
+	}
+	else //no other ghosts open
+	*/
+	"\0\s[0]*Frisk thinks Undyne may be better at giving help for this area.\w8\e"
+	
+	//Waterfall puzzles here
+}
+
+Select.alphhelp
+{
+	/*
+	if ghostexcount > 0 //another ghost is open
+	{
+		AlreadyResponded = 1
+		
+		if "Toriel" _in_ ghostexlist
+		{
+			res_reference0 = "Toriel"
+			
+			//why are you asking her what sort of tips do you expect her to give??
+		}
+		elseif "Sn" _in_ ghostexlist
+		{
+			res_reference0 = "Sn"
+			
+			//TELL US MORE ABOUT YOUR HOME BROS XD
+		}
+		//elseif "" _in_ ghostexlist
+		else //other ghosts
+		{
+			"\0\s[1]*Frisk isn't sure anyone here would know enough about Snowdin to help,\w4 %(username).\w8\e"
+		}
+	}
+	else //no other ghosts open
+	*/
+	"\0\s[0]*Frisk thinks Alphys or Mettaton may be more suited to giving help on this subject.\w8\e"
+	
+	//Hotland puzzles here
+}
+
+Select.humehelp
+{
+	/*
+	if ghostexcount > 0 //another ghost is open
+	{
+		AlreadyResponded = 1
+		
+		if "Toriel" _in_ ghostexlist
+		{
+			res_reference0 = "Toriel"
+			
+			//why are you asking her what sort of tips do you expect her to give??
+		}
+		elseif "Sn" _in_ ghostexlist
+		{
+			res_reference0 = "Sn"
+			
+			//TELL US MORE ABOUT YOUR HOME BROS XD
+		}
+		//elseif "" _in_ ghostexlist
+		else //other ghosts
+		{
+			"\0\s[1]*Frisk isn't sure anyone else would know enough about Snowdin to help,\w4 %(username).\w8\e"
+		}
+	}
+	else //no other ghosts open
+	*/
+	"\0\s[1]*Frisk can offer no help here.\w8 \s[7]\n\n[half]*After all,\w8 %(theyre) an ukagaka now.\w8\e"
+	
+	"\0\s[1]*Unfortunately,\w4 Frisk is a ghost.\w8 \s[21]\n\n[half]*%(Capitalize(they)) can only give advice on how to be a ghost now.\w8\e"
+	
+	//General life tips?? maybe I just keep it like this hahaha
+}
+
+Select.flowhelp
+{
+	/*
+	if ghostexcount > 0 //another ghost is open
+	{
+		AlreadyResponded = 1
+		
+		if "f_lowe_y" _in_ ghostexlist
+		{
+			res_reference0 = "f_lowe_y"
+			
+			//the only other logical option
+		}
+		//elseif "" _in_ ghostexlist
+		else //other ghosts
+		{
+			"\0\s[1]*Frisk isn't sure anyone here would know enough about Snowdin to help,\w4 %(username).\w8\e"
+		}
+	}
+	else //no other ghosts open
+	*/
+	"\0\s[6]\1*Oh?\w8 \0\s[5]\1\s[19]You want some advice from me?\w8 \s[12]\n\n[half]*Well,\w4 golly!\w8 \s[11]I don't really have any advice to give.\w8 \0\s[21]\1\s[19]\n\n[half]*You can't put me on the spot like that and expect me to perform.\w8 \0\s[2]*Hope this was helpful,\w4 %(username).\w8\e"
+	
+	"\0\s[6]*Help with Flowey?\w8 \s[1]\n*Frisk isn't quite sure what you mean by that.\w8 \s[21]\n\n[half]Maybe try again later.\w8\e"
+	
+	//SUMMON FLOWEY
+	//or maybe just Flowey locations
+}
+
+
+Select.dontyoutalk
+{
+	"\0\s[6]*But Frisk is speaking to you,\w4 %(username).\w8 \n*Can't you tell?\w8\e"
+	
+	"\0\s[2]*But Frisk is speaking to you,\w4 %(username).\w8 \n\s[7]*Can't you hear %(them)?\w8\e"
+	
+	"\0\s[7]*Frisk is speaking to you,\w4 %(username).\w8 \n*Haven't you noticed?\w8\e"
+	
+	"\0\s[1]*Are you saying you can't tell what Frisk is saying,\w4 %(username)?\w8\e"
+	
+	"\0\s[1]*Are you that interested in looking for all of my possible dialogue,\w5 %(username)?\w8\e"
+}
+
+Select.charahere
+{
+	"\0\s[6]"
+	"\0\s[3]"
+	"\0\s[7]"
+	--
+	"\1\s[15]*There is no Chara.\w8 Only Frisk.\w8\s[-1]"
+	--
+	"\0\s[0]\e"
+	"\0\s[7]\e"
+	"\0\s[1]\e"
+}
+
+
+//shamelessly took this out of the original Sans
+Select.clocktime
+{
+	wd = GetWeekDay
+	nowmin = Getnowmin
+	nowhour = Getnowhour
+	
+	if dayslot == userbirthday
+	{
+		"\0\s[6]*Frisk reads your clock.\w8 \s[2]\n*It says %(wd) %(nowhour):%(nowmin) %(ap), %(day)/%(month)/%(year).\w8 \n\n[half]\s[5]*That's %(bornmonthprint) %(borndayprint)!\w8 \n\n[half]*Happy Birthday,\w4 %(username)!\w8\e"
+		
+		"\0\s[6]*Frisk reads your clock.\w8 \s[5]\n*It's %(bornmonthprint) %(borndayprint)!\w8 \n\n[half]\s[2]*Happy Birthday,\w4 %(username)!\w8\e"
+	}
+	elseif dayslot == "9month 15day"
+	{
+		"\0\s[6]*Frisk reads your clock.\w8 \s[2]\n*It says %(wd) %(nowhour):%(nowmin) %(ap), %(day)/%(month)/%(year).\w8 \n\n[half]\s[5]*That's Undertale's Birthday!\w8\e"
+		
+		"\0\s[6]*Frisk reads your clock.\w8 \s[2]\n*It says %(wd) %(nowhour):%(nowmin) %(ap), %(day)/%(month)/%(year).\w8 \n\n[half]\s[5]*Happy Birthday to Undertale!\w8\e"
+	}
+	elseif dayslot == "10month 10day" //Art Club's today!
+	{
+		"\0\s[6]*Frisk reads your clock.\w8 \s[2]\n*It says %(wd) %(nowhour):%(nowmin) %(ap), %(day)/%(month)/%(year).\w8 \n\n[half]\s[5]*Today's the Art Club meeting in Hotland!\w8 \s[2]\n*Frisk hopes you can still make it.\w8\e"
+		
+		"\0\s[8]*Frisk reads your clock.\w8 \s[2]\n*It says %(wd) %(nowhour):%(nowmin) %(ap), %(day)/%(month)/%(year).\w8 \s[6]\n\n[half]*Today,\w4 the Art Club meets in Hotland!\w8 \s[2]\n*So sorry for the late reminder,\w4 %(username).\w8\e"
+	}
+	else
+	{
+		"\0\s[6]"
+		"\0\s[8]"
+		"\0\s[4]"
+		"\0\s[2]"
+		--
+		"*Frisk reads your clock.\w8"
+		--
+		"\s[2]"
+		"\s[8]"
+		"\s[5]"
+		"\s[4]"
+		--
+		"\n*It says %(wd) %(nowhour):%(nowmin) %(ap), %(day)/%(month)/%(year).\w8\e"
+	}
+	
+	//%(wd) %(nowhour):%(nowmin) %(ap), %(month)/%(day)/%(year)
+}
+
+
+//BACKTOMENU, MenuRun.
+Select.BACKTOMENU
+{
+	MenuRun
+}
+
+//configmenu, OnTalkConfig.
+Select.configmenu
+{
+	OnTalkConfig
+}
+
+
+//--TalkConfig
+OnTalkConfig
+{
+	"\0\b2\_q"
+	--
+	"\![*]\f[bold,1]Your name:\f[bold,0] %(username) \n(\q[Change it?,TEACHNAME])\n\n[half]"
+	--
+	"\![*]\f[bold,1]Your pronouns:\f[bold,0] %(heshe)/%(himher)/%(hisher) \n(\q[Change them?,TEACHPRONOUN])\n\n[half]"
+	--
+	"\![*]\f[bold,1]Your birthday:\f[bold,0] %(birthdayprint) \n(\q[Change it?,TEACHBDAY])\n\n[half]"
+	--
+	"\![*]\f[bold,1]Talk Rate:\f[bold,0] %(talktime) \n(\q[Change it,talkinter])\n\n[half]"
+	--
+	"\![*]\f[bold,1]Frisk's pronouns:\f[bold,0] %(they)/%(them)/%(their) \n(\q[Change them?,FriskPronouns])\n\n"
+	--
+	{
+		"\![*]Enable Uninstall? (NOW : %(deleteshitai))\n\q[ON,deleteon] \q[OFF,deleteoff]\n\n[half]\n"
+	}
+	--
+	"\![*]\q[Back to the menu,BACKTOMENU]\e"
+}
+
+
+//this shoots over to nameteach.dic
+Select.TEACHPRONOUN
+{
+	"\0\s[2]\b2*Frisk would like to hear which pronouns you use.\w5 \n*They are currently set to '%(heshe)',\w3 '%(himher)',\w3 and '%(hisher)'.\w5"
+	--
+	"\n\n[half]\_q\![*]\q[He-His-Him,OnPronoTeach,masc] \n\![*]\q[She-Her-Her,OnPronoTeach,femm] \n\![*]\q[They-Their-Them,OnPronoTeach,neit] \n\![*]\q[He-They Mix,OnPronoTeach,heth] \n\![*]\q[She-They Mix,OnPronoTeach,sheth] \n\![*]\q[He-She Mix,OnPronoTeach,undef] \n\![*]\q[It-Its-It,OnPronoTeach,itit] \n\n[half]\![*]\q[I have my own,OnPronoTeach,both] \n\n\![*]\q[No change,OnPronoTeach,cancel]\e"
+}
+
+
+//changing Frisk's pronouns!
+Select.FriskPronouns
+{
+	"\0\s[6]\b2*Frisk is interested to hear which pronouns you'll use for %(them).\w5 \s[2]\n*They are currently set to '%(they)',\w3 '%(them)',\w3 and '%(their)'.\w5"
+	--
+	"\n\n[half]\_q\![*]\q[He-His-Him,OnFriskProno,masc] \n\![*]\q[She-Her-Her,OnFriskProno,femm] \n\![*]\q[They-Their-Them,OnFriskProno,neit] \n\![*]\q[He-They Mix,OnFriskProno,heth] \n\![*]\q[She-They Mix,OnFriskProno,sheth] \n\![*]\q[He-She Mix,OnFriskProno,undef] \n\![*]\q[It-Its-It,OnFriskProno,itit] \n\n[half]\![*]\q[Create your own!,OnFriskProno,both] \n\n\![*]\q[No change,OnFriskProno,cancel]\e"
+}
+
+
+//Leave this alone.
+Select.deleteon
+{
+	deleteshitai = "ON"
+	OnTalkConfig
+}
+
+Select.deleteoff
+{
+	deleteshitai = "OFF"
+	OnTalkConfig
+}
+
+
+//This next set of functions handles inputting the user's birthday.
+Select.TEACHBDAY
+{
+	if birthdayprint == "????"
+	{
+		"\0\s[6]*Frisk would like to know your birthday and \s[5]is excited to see you're sharing it with %(them).\w8 \s[2]\n\n[half]*Write the month you were born in the input box.\w8"
+	}
+	elseif dayslot == userbirthday
+	{
+		"\0\s[5]*It's your birthday today!\w8 \n\s[6]*Unless it isn't.\w8 \n\n[half]\s[2]*Frisk is willing to hear your birthday again,\w4 just in case.\w8 \n*Please start with the month.\w8"
+	}
+	else //already input your bday
+	{
+		"\0\s[5]*Putting in a new birthday?\w8 \s[2]\n\n[half]*Frisk is excited to hear what it will be this time.\w8 Make sure you start with the month!\w8"
+	}
+	--
+	"\![open,inputbox,OnUserBornMonth,-1]\e"
+}
+
+//--OnUserBornMonth
+OnUserBornMonth
+{
+	_tempmonth = TOSTR(reference0) //this stores what the user put in as a variable called _tempmonth
+	_tempmonth = TOLOWER(_tempmonth) //changes it to lowercase
+	
+	//this is attaching the right value to the input from the user
+	if _tempmonth == "january" || _tempmonth == "1" {bornmonth = 1; bornmonthprint = "January"}
+	elseif _tempmonth == "february" || _tempmonth == "2" {bornmonth = 2; bornmonthprint = "February"}
+	elseif _tempmonth == "march" || _tempmonth == "3" {bornmonth = 3; bornmonthprint = "March"}
+	elseif _tempmonth == "april" || _tempmonth == "4" {bornmonth = 4; bornmonthprint = "April"}
+	elseif _tempmonth == "may" || _tempmonth == "5" {bornmonth = 5; bornmonthprint = "May"}
+	elseif _tempmonth == "june" || _tempmonth == "6" {bornmonth = 6; bornmonthprint = "June"}
+	elseif _tempmonth == "july" || _tempmonth == "7" {bornmonth = 7; bornmonthprint = "July"}
+	elseif _tempmonth == "august" || _tempmonth == "8" {bornmonth = 8; bornmonthprint = "August"}
+	elseif _tempmonth == "september" || _tempmonth == "9" {bornmonth = 9; bornmonthprint = "September"}
+	elseif _tempmonth == "october" || _tempmonth == "10" {bornmonth = 10; bornmonthprint = "October"}
+	elseif _tempmonth == "november" || _tempmonth == "11" {bornmonth = 11; bornmonthprint = "November"}
+	elseif _tempmonth == "december" || _tempmonth == "12" {bornmonth = 12; bornmonthprint = "December"}
+	
+	else //if the month isn't a valid month, like 32 or something.
+	{
+		"\0\s[5]"
+		"\0\s[7]"
+		"\0\s[1]"
+		"\0\s[8]"
+		--
+		"*That is not a valid month,\w4 %(username).\w8 Try again."
+		--
+		"\![open,inputbox,OnUserBornMonth,-1]\![set,balloontimeout,-1]\e"
+	}
+	--
+	//If it's a valid month
+	
+	"\0\s[6]*%(bornmonthprint)?\w8 \n\s[2]*Frisk eagerly commits it to memory.\w8 \n*What day was it?"
+	--
+	"\![open,inputbox,OnUserBornDay,-1]\![set,balloontimeout,-1]\e"
+}
+
+//This adds an appropriate suffix to the number for the day. No need to mess with this.
+Printday
+{
+	if bornday == 1 || bornday == 21 || bornday == 31
+	{	"%(bornday)st"	}
+	elseif bornday == 2 || bornday == 22
+	{	"%(bornday)nd"	}
+	elseif bornday == 3 || bornday == 23
+	{	"%(bornday)rd"	}
+	else
+	{	"%(bornday)th"	}
+}	
+
+//--OnUserBornDay
+OnUserBornDay
+{
+	_tempday = reference0 //storing the input in _tempday
+	_tempday = TOLOWER(_tempday) //changes it to lowercase
+	_tempday = REPLACE(_tempday,"st","")
+	_tempday = REPLACE(_tempday,"nd","")
+	_tempday = REPLACE(_tempday,"rd","")
+	_tempday = REPLACE(_tempday,"th","")
+	//if the user types something like 2nd, 3rd, etc, this will make it just the number. It'll just add the suffix back later on the one that actually shows.
+	_tempday = TOINT(_tempday) //Converts it to an integer
+	
+	//This ugly function checks if the day falls into a valid range.
+	if ((bornmonth == 1 || bornmonth == 3 || bornmonth == 5 || bornmonth == 7 || bornmonth == 8 || bornmonth == 10 || bornmonth == 12) && _tempday >= 1 && _tempday <= 31) || (bornmonth == 2 && _tempday >= 1 && _tempday <= 29) || ((bornmonth == 4 || bornmonth == 6 || bornmonth == 9 || bornmonth == 11) && _tempday >= 1 && _tempday <= 30)
+	{
+		bornday = _tempday
+		borndayprint = Printday
+		userbirthday = "%(bornmonth)month %(bornday)day"
+		birthdayprint = "%(bornmonthprint) %(borndayprint)"
+		
+		"%(birthchecked)"
+	}
+	else //If the day isn't valid,
+	{
+		"\0\s[5]"
+		"\0\s[1]"
+		"\0\s[7]"
+		"\0\s[8]"
+		--
+		"*There is no such date,\w4 %(username).\w8 Try again."
+		
+		"*That's not a valid date,\w4 %(username).\w8 Try again."
+		--
+		"\![open,inputbox,OnUserBornDay,-1]\e"
+	}	
+}
+
+//--birthchecked
+birthchecked
+{
+	if userbirthday == dayslot
+	{
+		"\0\s[6]*Frisk notices that it's your birthday today\w5 \s[5]and wishes you the happiest of birthdays.\w8 \n\n*Happy birthday,\w4 %(username)!\w8\e"
+	}
+	elseif dayslot == "9month 15day"
+	{
+		"\0\s[5]*That's the same as the anniversary of Undertale's release!\w8 \n\n[half]\s[2]*Frisk is happy to share a birthday with you.\w8\e"
+	}
+	elseif dayslot == "10month 10day"
+	{
+		"\0\s[2]*October 10th,\w4 huh?\w8 That's the same day as the Art Club in the Underground.\w8 \n\n[half]\s[8]*Frisk hopes to draw you something nice when the day comes.\w8\e"
+	}
+	else
+	{
+		"\0\s[2]*Frisk confirms that your birthday is %(bornmonthprint) %(borndayprint) \s[5]and makes a note of it on %(their) phone.\w8\e"
+	}
+}
+
+
+//--Talk Rate
+Select.talkinter
+{
+	"\0\s[0]\b2*How often would you like Frisk to speak?\w8 \n*The interval is currently set to %(talktime)."
+	--
+	"\n\n[half]\![*]\q[Every 30 seconds,OnTalkTime,thirty] \n\![*]\q[Every minute,OnTalkTime,one] \n\![*]\q[Every 3 minutes,OnTalkTime,three] \n\![*]\q[Every 5 minutes,OnTalkTime,five] \n\![*]\q[Don't speak,OnTalkTime,none] \n\n[half]\![*]\q[Don't change,OnTalkTime,cancel]\e"
+	// \n\![*]\q[Every 10 minutes,TalkSlow]
+}
+
+OnTalkTime
+{
+	if reference0 == "thirty"
+	{
+		talktime = "30 seconds"
+		aitalkinterval = 30
+		
+		"\0\s[1]*Every 30 seconds?\w8 Are you sure?\w8\e"
+		
+		"\0\s[1]*Every 30 seconds?\w8 \s[2]Isn't that going to get annoying?\w8\e"
+		
+		"\0\s[1]*You'll run Frisk out of dialogue very quickly at every 30 seconds,\w4 %(username).\w8\e"
+		
+		"\0\s[6]*Every 30 seconds?\w8 \n\s[2]*Frisk will chatter your ear off,\w4 then.\w8\e"
+		
+		"\0\s[6]*Every 30 seconds?\w8 \n\s[2]*It's your choice.\w8 \s[5]You have to live with it.\w8\e"
+	}
+	elseif reference0 == "one"
+	{
+		talktime = "A minute"
+		aitalkinterval = 60
+		
+		"\0\s[2]*Frisk will make sure to speak every minute on the minute.\w8\e"
+		
+		"\0\s[5]*Frisk would be happy to provide you with conversation every minute,\w4 %(username).\w8\e"
+		
+		"\0\s[6]*Every minute?\w8 \s[2]That's better.\w8\e"
+	}
+	elseif reference0 == "three"
+	{
+		talktime = "3 minutes"
+		aitalkinterval = 180
+		
+		"\0\s[0]*Three minutes it is.\w8\e"
+		
+		"\0\s[5]*Every three minutes?\w8 \s[1]Even that's far too often.\w8\e"
+		
+		"\0\s[6]*Every three minutes?\w8 \n*A moderate pace.\w8 \s[2]That's fine.\w8\e"
+	}
+	elseif reference0 == "five"
+	{
+		talktime = "5 minutes"
+		aitalkinterval = 300
+		
+		"\0\s[6]*Every five minutes?\w8 \s[2]That's much better.\w8\e"
+		
+		"\0\s[2]*Frisk will be patient and only talk every five minutes.\w8\e"
+		
+		"\0\s[2]*Frisk will speak up every five minutes.\w8\e"
+	}
+	elseif reference0 == "none"
+	{
+		talktime = "Silent"
+		aitalkinterval = 0
+		
+		"\0\s[1]*About time.\w8\e"
+		
+		"\0\s[0]*Nary a peep shall escape Frisk's lips.\w8\e"
+		
+		"\0\s[2]*Frisk will not speak unless spoken to.\w8\e"
+	}
+	else //cancel
+	{
+		"\0\s[2]*Frisk will keep up %(their) current pace.\w8\e"
+		
+		"\0\s[8]*Frisk will keep up %(their) current pace of %(talktime).\w8\e"
+		
+		"\0\s[0]*The talk time shall remain at %(talktime).\w8\e"
+	}
+}
+
+	
+//change name in nameteach.dic.
+Select.TEACHNAME
+{
+	OnTeachName	
+}
+
+
+//If the user selects cancel in a menu.
+Select.CANCEL
+{
+	"\0\s[0]*ACT aborted.\w8\e"
+	
+	"\0\s[2]*Frisk will be here when you remember what you were going to make %(them) do.\w8\e"
+	
+	"\0\s[2]*Frisk will be here for the next time you need something.\w8\e"
+	
+	"\0\s[1]*That's okay,\w4 %(username).\w8 \n\s[21]*Frisk will still be here.\w8\e"
+}
+
+
+//Do something!!
+Select.dosomething
+{
+ 	"\0\s[0]\b2*What do you want Frisk to do?\n\n"
+	
+ 	"\0\s[5]\b2*Frisk is ready to help!\n\n"
+	
+	"\0\s[2]\b2*What will you have Frisk do?\n\n"
+	--
+ 	"\![*]\q[Open Calendar,CALENDAR] \n\![*]\q[Check Email,MailCheck] \n\![*]\q[Open SSP Preferences,sspconfig] \n\![*]\q[Update,keroupdatecheck] \n\![*]\q[Empty Recycle Bin,areyousure] \n\![*]\q[System Information,ChoiceSystemInformation] \n\![*]\q[Bug report,bugreport] \n\n\![*]\q[Back to main menu,BACKTOMENU]\e"
+}
+
+
+//Open Calender.
+Select.CALENDAR
+{
+	"\0\s[6]*Frisk shall open the calendar for you.\w8"
+	
+	"\0\s[6]*Frisk wants to know what special events you've got lined up.\w8"
+	
+	"\0\s[5]*Frisk opens the calendar for an activity check.\w8"
+	
+	"\0\s[8]*Frisk asks that you spare %(them) a date as well.\w8"
+	--
+	"\![open,calendar]\e"
+}
+
+//SSP preferences.
+Select.sspconfig
+{
+	"\0\s[6]*Frisk opens the SSP config menu for you.\w8"
+	
+	"\0\s[6]*Frisk is interested in what setting you're planning on changing.\w8"
+	
+	"\0\s[2]*Take care when setting things up in there,\w3 %(username)!\w8"
+	
+	"\0\s[8]*Now opening the SSP config menu.\w8"
+	--
+	"\![open,configurationdialog]\e"
+}
+
+
+//garbage start!
+Select.areyousure
+{
+	"\0\s[1]*Are you sure,\w3 %(username)?\w8 \n*Once garbage has been banished from the bin,\w4 there's no getting it back.\w8"
+	--
+	"\n\n\![*]\q[Yes\, please,ChoiceGarbagecan] \n\![*]\q[Whoops no thanks,BACKTOMENU]\e"
+}
+
+//empty the recycle bin.
+Select.ChoiceGarbagecan
+{
+	_gomicheck = FUNCTIONEX("gomi.dll", "-n")
+	
+	if _gomicheck == 0 //If the recycle bin is empty.
+	{
+		"\0\s[8]*Frisk will now visit your trashcan.\w8"
+		
+		"\0\s[5]*Time to visit the trash!\w8"
+		
+		"\0\s[8]*Frisk will take care of that pesky garbage for you,\w3 %(username).\w8"
+		
+		"\0\s[8]*Frisk is off to take your trash out.\w8"
+		--
+		"\s[-1]\w8\n\n[half]\![set,balloonwait,3]*.......\w8 \![set,balloonwait,1]\c"
+		--
+		"\0\s[7]\w8*Frisk says it was empty.\w8\e"
+		
+		"\0\s[1]*It was already empty.\w8\e"
+		
+		"\0\s[7]*Frisk is upset %(they) didn't get a chance to look through your garbage.\w8 \n\n[half]*Because it was already empty.\w8\e"
+	}
+	elseif _gomicheck >= 1 //If the recycle bin is full.
+	{
+		"\![raise,OnGarbagecanEmpty]"
+		--
+		"\0\s[5]*Frisk is off to take out your trash.\w8"
+		
+		"\0\s[6]*What sort of trash will %(they) discover in your garbage bin today,\w4 %(username)?\w8"
+		
+		"\0\s[5]*Frisk seems eager to check out what sorts of things you keep in your trash.\w8"
+		
+		"\0\s[8]*Frisk can't wait to show you %(their) great find.\w8"
+		--
+		"\s[-1]\n\n[half]\![set,balloonwait,3]*.....\![set,balloonwait,1]\w8\c"
+		--
+		"\0\s[7]*Frisk doesn't seem too pleased by the bulk of %(their) discoveries.\w8\e"
+		
+		"\0\s[5]\w8\w8*Frisk seems to have found something Alphys might like.\w8\e"
+		
+		"\0\s[6]*It appears Frisk found something to chat about with %(callfriend) later.\w8\s[2]\e"
+		
+		"\0\s[5]*And return!\w8 \s[8]Feast your eyes on Frisk's handiwork,\w4 %(username).\w8\e"
+	}
+}
+
+
+//This is for the SAORI, don't touch it.
+OnGarbagecanEmpty
+{
+	_gomi = FUNCTIONEX("gomi.dll", "-f")
+}
+
+//System Information.
+Select.ChoiceSystemInformation
+{
+	os_name = FUNCTIONEX("saori_cpuid.dll","os.name")
+	os_version = FUNCTIONEX("saori_cpuid.dll","os.version")
+	cpu_name = FUNCTIONEX("saori_cpuid.dll","cpu.name")
+	cpu_clockex = FUNCTIONEX("saori_cpuid.dll","cpu.clockex")
+	"\0\s[0]\b[2]\_q\f[bold,1]OS:\f[bold,0] %(os_name) %(os_version)\n\f[bold,1]Memory Load:\f[bold,0] %(memoryload)%\n\f[bold,1]Physical Memory:\f[bold,0] %(memoryavailphys) KB\n\f[bold,1]CPU:\f[bold,0] %(cpu_name) %(cpu_clockex)MHz\n\f[bold,1]Ukagaka:\f[bold,0] %property[baseware.version]\e"
+}
+	
+//check email.
+Select.MailCheck
+{
+	"\![biff]\e"
+}
+
+
+	
+//---- OnChoiceTimeout ---------------------------------------------------------
+OnChoiceTimeout
+{
+	"\0\s[1]*The menu has timed out.\w8\e"
+	
+	"\0\s[91]\w8\w8\w8\w8\w8\s[9]*Frisk has fallen asleep while waiting for your input.\w8\e"
+	
+	"\0\s[7]*Fine.\w8 \s[0]\n*Perhaps later,\w4 then.\w8\e"
+	
+	"\0\s[21]*Frisk understands that you seem busy.\w8\e"
+}
+
+
+
+//---- Secondary Character Menu ---------------------------------------------------------
+OpenKeroMenu
+{
+	"\1\s[11]\b[2]"
+	"\1\s[12]\b[2]"
+	"\1\s[18]\b[2]"
+	"\1\s[17]\b[2]"
+	"\1\s[19]\b[2]"
+ 	--
+	"*What do you want?"
+	--
+	"\n\n[half]\![*]\q[Update,keroupdatecheck] \n\![*]\q[Bug report,bugreport] \n\n\![*]\q[Test variable,Floweytest] \n\n\![*]\q[Nothing,keroCANCEL]\e"
+}
+
+//If you click cancel.
+Select.keroCANCEL
+{
+	"\0\s[1]\1\s[17]*That's what I thought.\w8\e"
+	
+	"\0\s[1]\1\s[18]*That's what I thought.\w8\e"
+	
+	"\0\s[1]\1\s[19]*That's what I thought.\w8\e"
+}
+
+
+//This is when they select bug report.
+Select.bugreport
+{
+	"\0\s[1]*Oh no!\w8 That's not good!\w8 \n\n[half]\s[0]*You should report your bug to \_a[http://www.characteroulette.tumblr.com/]the maker at his tumblr\_a,\w4 \s[21]though there's no guarantee that he'll be able to help you.\w8 \n\s[1]*He doesn't know what he's doing at the best of times,\w4 after all.\w8\e"
+}
+
+//Updates!!!
+Select.keroupdatecheck
+{
+	"\1\s[10]\![updatebymyself]\e"
+}
+
+
+//test for flowers
+Select.Floweytest
+{
+	"\1\s[11]*This is a test of the emergency broadcast system.\w8 \0\s[1]\1\s[19]\n*Just kidding.\w8\e"
+}
+
+
+
+//ACT complete.

@@ -1,0 +1,389 @@
+//---------------------------Surfaces.txt--------------------------
+//Blegh alright here we go. Surfaces.txt is the backbone of the shell you make for your ghost. Making the images isn't enough, a ghost needs something to tell it where those images go and how to display them, and that's where surfaces.txt comes in.
+
+//Images are brought together into a thing I generally refer to as a pose, but what is defined in the shell and this text file as a Surface. Each Surface can contain any number of images in it doing any number of things. These Surfaces are what is being called when you use the \s[] tag when writing dialogue. For example, you could create a pose with three images under Surface5, and then in dialogue, you would call that pose made of three images with \s[5]. That's the basic jist of how this file works.
+//I wrote up some pages about making images and surfaces.txt on the walkthrough (http://www.ashido.com/ukagaka/walkthrough.html) so I highly recommend you read those as well.
+
+//I will reiterate that you should be editing these in Notepad++, and in particular, you should set the Language to C (or Java I guess) to properly highlight all the text. It will make things A LOT EASIER for you, trust me! It will also help you keep track of your brackets in case you forget some. If you click on a line with a bracket in Notepad++, it should highlight where the other bracket ends, or turn purple if there's no finishing bracket (which you should definitely fix!)
+//It will also highlight my commented lines in green, so you'll know where they are. Any line beginning with // is a commented line that the code will not read. It's just for your reference!
+
+//There are a lot of crazy tricks you can do with surfaces.txt if you're creative and determined, but you won't have to worry about any of them (although I will include some commented out examples for my own reference). The easiest, easiest way to do this file is simply to replace the images I've already made. There should be around 10 poses for each character defined in surfaces.txt. They break down like this.
+
+
+//If you look at the image files themselves, you'll see that all the images for Girl are in the 1000 range, and the images for Triangle are in the 2000. ALL YOU NEED TO DO is draw your character with whatever expression you want and save it over the appropriate file. That way, you won't have to adjust any of the coding in surfaces.txt itself, you'll just be replacing the images. You should read through this file anyway though to get an idea of how it works.
+
+//However, there is one snag here! Girl's default pose has blinking eyes and a moving mouth, and for that, you'll need to study the files for that pose very carefully. Note that the different eye frames and mouth frames are separate files and only have the eyes and the mouths in them. You'll have to do the same. All you have to do is select around your eyes, inverse, delete everything, and save it for each eye frame, and likewise for the mouth frames. I talk about this in a bit more detail in the making images section of the walkthrough page. Hopefully it won't be too hard. If worse comes to worse and you just can't get it to work, you can delete the blinking and talking sequences from surface0 if you have to.
+//(Basically, what surfaces.txt does is overlay the mouth or eye frames on top of your base image to make the animation. That's why all you want in that overlaid frame is the eyes or the mouth.)
+//Likewise, if you want to add blinking eyes and a moving mouth to your other poses, you'll have to do the same thing as with the default pose - make individual frames for the eyes and mouth, copy and paste the code for the blinking/mouth sections in surface0 to the other surface you want to add them to, and replace the file numbers where appropriate.
+
+//You can change the size of the images if you want to draw a much bigger character than I did! If you do that though, MAKE SURE ALL YOUR IMAGES FOR THAT CHARACTER ARE THE SAME SIZE. So if Girl's image dimensions are 400x400, and you draw a Main Character that's 800x800, MAKE SURE ALL the images for your main character are also 800x800! This applies to the side character too, ALL the images for your side character should be the same dimensions! If your side character is 250x250, all side character images should be 250x250!
+//The main character and the side character DON'T have to be the same size though, so you can have a tiny sidekick and a huge dude if you want, like... I dunno, Gillian Seed and Metal Gear Mk. II for example, or Torin and Boggle. The image dimensions just need to be consistent throughout for each character, because believe me, it will make things MUCH, MUCH easier for you from this point on if you do that.
+
+//SAVE ALL IMAGES FOR YOUR MAIN CHARACTER IN THE 1000-1999 RANGE, AND SAVE ALL IMAGES FOR YOUR SECOND CHARACTER IN THE 2000-2999 RANGE. Not to get into the exact reason why right now but just trust me, this will save you a headache in the long run. I'm looking at you, self reading this in the future. 
+
+//ONE MORE NOTE - If you are planning on doing a single person ghost without a sidekick character at all, all you have to do is save a blank png over all the files for the secondary character, ESPECIALLY Surface10.png. Then just don't write any dialogue for the secondary character in the .dic files. Problem solved.
+//More advanced users can even rewrite the poses in this file originally intended for the secondary character, 11-19, for their main character instead if you need to and save main character poses over the second character ones, AS LONG AS Surface10.png is blank.
+
+
+//Alright, now let's get into the coding.
+
+
+//--surface.append-------------------------------------------------------------------
+//This function is primarily for advanced users, so you can skip it if it seems too scary to you. Otherwise, read on. It may be useful.
+
+//Surface.append is a unique bit of surfaces.txt scripting that I haven't seen very often outside of cindysuke's ghost. Basically, what this does is apply the coding within the brackets to the poses specified in the number range. Specifically in this case it applies to collisions. If the collision areas for your ghost don't change very much from pose to pose, then you can set them here for multiple surfaces at once and save yourself some time.
+//I'm not actually going to use surface.append since Girl and Triangle move around too much for their collisions to be that consistent between poses, but it's something could potentially come in handy for advanced users or ghost makers who have very stationary ghosts, so I'll leave it here and just append it to surfaces that don't exist so it won't get in the way. If you want to use this, study this example and see how it can apply to your own ghost.
+
+surface.append500-590 //this is appending this code to Surface500 through Surface590.
+//There are actually a few special ways you can refine this! For example, surface.append500-590,205 would append the code to Surface500 to Surface590, as well as Surface205. 
+//surface.append500-590,205,!507-509 it would do the same, except it would skip Surfaces507 through 509.
+//you can have multiple surface.appends as well, if you want to append one set of code to one range of surfaces and another to another. For example, one set of collisions to your main character and one to your side character.
+{
+collision0,15,16,111,48,Face
+collision1,40,50,102,84,Point
+
+//I talk about collisions a bit more in detail just below when we go into surface0, so I won't get too much into the exact nature of a collision up here. Because this is under surface.append, that means that these collisions are being set for every surface between the number range specified, in this case every Surface from 500 to 590.
+
+//--bind-------------------------------------------------------------------------------
+
+//Bind is an interval function only used for dress-up items, therefore if your ghost has no dress-up items, you will not need to bind anything and can safely disregard this. I want to skip this and move on but I should probably explain some of the second line, bleh. If you are interested in this, I'd recommend reading the rest of the file and then coming back up here with a general understanding of how surfaces.txt coding works, since I'm just briefly going to cover it here.
+//As with most surfaces.txt coding you'll see below in more detail, it follows the same format. It starts with an interval, which is followed by a pattern. This pattern only has one frame, since it's a stationary image, so it's pattern0. Then it has the filename of the image you'll be using, in this case 999. 
+//Okay I've looked around and I cannot find any actual solid information on what the next number means. For most English FLELE shells, it's set to 0, and in Japanese shells it's set to 2. Both seem to work fine, so I'm going to guess it probably doesn't matter.
+//After that, you have bind, which tells it to bind the image to the ghost, and 0,0, which are the coordinates to bind it to. Since the clothing image and base image are the same size, the value is 0,0. (THIS IS WHY ALL YOUR IMAGES SHOULD BE THE SAME SIZE)
+//Those more interested in dress-up items should look up some FLELE shell tutorials, they'll have a lot more info than I want to get into here since again, I figure most ghosts will not have dress-up items since they do not work well with animations. I won't be using this, so I'll comment it out.
+
+//51interval,bind
+//51pattern0,999,2,bind,0,0
+
+//One final note on bind, note that it is also under surface.append along with the collisions up there. Meaning that this clothing would bind across those multiple surfaces just like the collisions. You can set up bind individually for a pose I think, but I honestly haven't messed around with it very much.
+}
+
+
+//--The Main Character's Poses---------------------------------------------------------
+
+surface0
+//surface0 is the basic default pose for your main character. I'll include a few examples of things you can do in this pose, but you won't have to use any of them if you don't want to. They're mostly for (my) reference and advanced users for the most part.
+{
+collision0,59,77,154,110,Head
+collision1,70,116,138,160,Face
+
+element0,overlay,surface0.png,0,0
+
+
+//--Blinking---------------------------------------------------------------------------
+//Here's the animation block to set up a random blink.
+//0interval,random,4
+//0pattern0,-1,10,overlay,0,0
+//0pattern1,1002,5,overlayfast,0,0
+//0pattern2,1001,10,overlayfast,0,0
+//0pattern3,-1,3,overlay,0,0
+
+
+//--Talking-----------------------------------------------------------------------------
+//This block deals with your ghost's mouth moving as it speaks to you. 
+//1interval,talk,4
+//1pattern0,0,0,alternativestart,[2.3.4]
+
+//2interval,never
+//2pattern0,1102,10,overlay,0,0
+//2pattern0,1101,13,overlay,0,0
+//2pattern1,-1,10,overlay,0,0
+
+//3interval,never
+//3pattern0,1101,14,overlay,0,0
+//3pattern1,-1,10,overlay,0,0
+
+//4interval,never
+//4pattern0,1102,14,overlay,0,0
+//4pattern1,-1,10,overlay,0,0
+}
+
+//Frisk Sad pose
+surface1
+{
+collision0,59,77,154,110,Head
+collision1,70,116,138,160,Face
+
+element0,overlay,surface1501.png,0,0
+}
+
+//Frisk Happy pose
+surface2
+{
+collision0,59,77,154,110,Head
+collision1,70,116,138,160,Face
+
+element0,overlay,surface1502.png,0,0
+}
+
+//Frisk sad happy pose
+surface21
+{
+collision0,59,77,154,110,Head
+collision1,70,116,138,160,Face
+
+element0,overlay,surface1512.png,0,0
+}
+
+//Frisk Cry pose
+surface3
+{
+collision0,61,75,149,107,Head
+collision1,71,113,139,154,Face
+
+element0,overlay,surface1503.png,0,0
+}
+
+//Frisk alt Cry pose
+surface31
+{
+collision0,64,80,149,109,Head
+collision1,73,111,134,154,Face
+
+element0,overlay,surface1513.png,0,0
+}
+
+//Frisk Blushy pose
+surface4
+{
+collision0,61,75,149,107,Head
+collision1,71,113,139,154,Face
+
+element0,overlay,surface1504.png,0,0
+}
+
+//Frisk Big Grin pose
+surface5
+{
+collision0,62,80,149,109,Head
+collision1,68,114,139,158,Face
+
+element0,overlay,surface1505.png,0,0
+}
+
+//Frisk Interested pose
+surface6
+{
+collision0,51,82,137,100,Head
+collision1,58,119,130,160,Face
+
+element0,overlay,surface1506.png,0,0
+}
+
+//Frisk Angry pose
+surface7
+{
+collision0,61,78,149,114,Head
+collision1,67,114,136,157,Face
+
+element0,overlay,surface1507.png,0,0
+}
+
+//Frisk Flirty Pose
+surface8
+{
+collision0,61,78,149,114,Head
+collision1,67,114,136,157,Face
+
+element0,overlay,surface1508.png,0,0
+element1,overlay,surface1518.png,0,0
+
+//shining
+0interval,always
+0pattern0,1528,80,replace,39,138
+0pattern,-1,80,replace,0,0
+
+//tbh I'm using replace here because I don't know how to segment my drawings, so.
+}
+
+//Frisk Sleepy pose
+surface9
+{
+collision0,53,81,136,115,Head
+collision1,58,119,138,162,Face
+
+element0,overlay,surface1509.png,0,0
+}
+
+//Frisk Yawn pose
+surface91
+{
+//no collision while yawning to make my life easier
+
+element0,overlay,surface1520.png,0,0
+
+//start of animations
+0interval,runonce
+0pattern0,0,0,alternativestart,[1.2.3.4.5.6]
+
+//all oval yawn
+1interval,never
+1pattern0,1520,30,replace,0,0
+1pattern1,1523,100,replace,0,0
+1pattern2,1519,70,replace,0,0
+
+//all teef yawn
+2interval,never
+2pattern0,1521,30,replace,0,0
+2pattern1,1522,100,replace,0,0
+2pattern2,1524,70,replace,0,0
+
+//start teef go oval
+3interval,never
+3pattern0,1521,30,replace,0,0
+3pattern1,1523,100,replace,0,0
+3pattern2,1519,70,replace,0,0
+
+//teef two then oval
+4interval,never
+4pattern0,1521,30,replace,0,0
+4pattern1,1522,100,replace,0,0
+4pattern,1519,70,replace,0,0
+
+//start oval go teef
+5interval,never
+5pattern0,1520,30,replace,0,0
+5pattern1,1522,100,replace,0,0
+5pattern,1524,70,replace,0,0
+
+//oval two then teef
+6interval,never
+6pattern0,1520,30,replace,0,0
+6pattern1,1523,100,replace,0,0
+6pattern2,1524,70,replace,0,0
+
+//1520 -> arm up oval (start)
+//1521 -> arm up teef
+//1522 -> arm out teef
+//1523 -> arm out oval
+//1524 -> arm down teef
+//1519 -> arm down oval
+}
+
+//Chara
+surface15
+{
+element0,overlay,surface1555.png,0,0
+}
+
+
+
+//here's a fun little extra you can do with your ghosts!! using your collision definitions, you can give your ghosts little hovertext that will appear if you hover the mouse over the collision area!
+sakura.tooltips
+{
+Head,CHECK
+Face,CHECK
+}
+
+
+
+
+//--The Side Character's poses------------------
+//Flowey doesn't have any animations but I left the chunks in for posterity.
+
+//this is blank! just an empty image that's the same size as your other surfaces!!
+surface10
+{
+element0,overlay,surface10.png,0,0
+}
+
+//Flowey grin
+surface11
+{
+collision0,72,253,140,322,Face
+
+element1,overlay,surface2501.png,0,0
+}
+//Blinking
+//0interval,random,4
+//0pattern0,-1,10,overlay,0,0
+//0pattern1,2002,5,overlayfast,0,0
+//0pattern2,2001,10,overlayfast,0,0
+//0pattern3,-1,3,overlay,0,0
+
+//--Talking
+//1interval,talk,4
+//1pattern0,0,0,alternativestart,[2.3.4]
+
+//2interval,never
+//2pattern0,2102,10,overlay,0,0
+//2pattern0,2101,13,overlay,0,0
+//2pattern1,-1,10,overlay,0,0
+
+//3interval,never
+//3pattern0,2101,14,overlay,0,0
+//3pattern1,-1,10,overlay,0,0
+
+//4interval,never
+//4pattern0,2102,14,overlay,0,0
+//4pattern1,-1,10,overlay,0,0
+
+
+//Flowey smile
+surface12
+{
+collision0,72,253,140,322,Face
+
+element1,overlay,surface2502.png,0,0
+}
+
+//Flowey scary
+surface17
+{
+collision0,72,253,140,322,Face
+
+element1,overlay,surface2507.png,0,0
+}
+
+//Flowey scary alt.
+surface18
+{
+collision0,72,253,140,322,Face
+
+element1,overlay,surface2508.png,0,0
+}
+
+//Flowey sassy
+surface19
+{
+collision0,72,253,140,322,Face
+
+element1,overlay,surface2509.png,0,0
+}
+
+
+
+//and, of course, the counterpart to sakura tooltips is
+kero.tooltips
+{
+Face,BOOP
+}
+
+
+
+//And that's it! We're done! You can move on to some other aspect of your ghost now. But before we go, I'll explain one more advanced trick.
+
+//*********************Advanced User Info*******************************
+//There is another function along the same lines of surface.append and it's surface.alias. What it does is assign a range of numbers to a single number or word that can be called using \s[]. So here's an example.
+
+//sakura.surface.alias
+//{
+//6666,[1229,1230,1231,1235]
+//}
+
+//What this means is that I could then go \s[6666] in dialogue and it would call any of these four Surfaces in the brackets. You can do words as well, like creepy,[1229,1230,1231,1235], and then you could call it with \s[creepy]. This may sound like a convenient shortcut to using words instead of numbers for your ghost's expressions, but I'd probably stick with numbers, really. It just feels like it'd backfire on you eventually.
+//You can do the same thing with the side character by using kero instead of sakura.
+
+//kero.surface.alias
+//{
+//6667,[1228,1232,1233]
+//6668,[1228,1232,1233,1234]
+//}
+//And as you can see, you can have multiple surface aliases set up at any point. In this example, kero has both 6667 and 6668 defined as a range of Surfaces. So \s[6667] would call one of those three Surfaces, and \s[6668] would call one of those four Surfaces.
+//***********************************************************************
+
+//Now, if you don't think this is enough Surfaces and want to add more, all you have to do is copy and paste a chunk of Surface code, give it a new number, and then do whatever you want with it. You can define Surfaces all the way up to 999 without running into problems, so go crazy with them if you want! Some of my ghosts have a ridiculous amount of Surfaces because I have no self-control.
+//Of course, to add new poses, you need to draw new frames for those poses. And I say again, make sure all your frames for a character are the same size if you can! It's so much easier to just put 0,0 than find specific coordinates. Unless you've run into the replace problem with mouths, in which case there's not much you can do about that.
+//Once you add a new pose, save your surfaces.txt file and reload your shell using the Development Panel Reload option, or by just reloading your ghost entirely via Utilities - Reload Ghost. You can use Surface Test in the Development Panel to check your new Surface and see if it works and looks right! I always recommend testing your Surfaces, and it's usually pretty easy and simple. If it doesn't look right, tweak surfaces.txt, save, and try again.
+
+//The length of this file is limited only by your imagination!

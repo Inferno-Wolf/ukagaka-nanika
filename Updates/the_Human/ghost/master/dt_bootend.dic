@@ -1,0 +1,2373 @@
+﻿//---------------------------Booting and Ending--------------------------
+//Note - You can include quotation marks in the displayed name, or any other symbols like brackets (but not dialogue coding like \_a), as long as you preface it with a \. You'll know if you didn't do it right because it'll break the option otherwise. Option names do not word wrap, though, so don't make them too long if your balloon is small.
+
+
+//--OnFirstBoot--
+OnFirstBoot
+{
+ 	lastTalk = ""
+	passhour = 0
+	passmin = 0
+	passsec = 0
+ 	username         = "Bepis"
+	stroke           = 0
+ 	teachusername    = 0
+	mikireflag       = 0
+ 	aitalkinterval = 400
+ 	birthdayprint = "????"
+	talktime = "5 minutes"
+	deleteshitai = "OFF"
+	nowshell = "master" //default shell folder
+	firstboot = 1
+	//added functions get introduced here
+	they = "they"
+	them = "them"
+	their = "their"
+	theyre = "they're"
+	
+	if reference0 == 0 
+ 	{
+		"\t\*\1\s[10]\0\s[0]\![set,balloonwait,3]...\![set,balloonwait,1]\w8\s[6]!\w8 \n\n[half]*Frisk has noticed your presence.\w8\w8\w8\w8 \n\n[half]\s[2]*They would like to thank you for giving them such a nice place to stay.\w8 They will do their best to keep you company while they are here.\w8 \x\0\s[8]*Frisk is capable of performing a few functions for you.\w8 \n\n[half]*If you double click them,\w4 you will bring up their ACT menu where these functions are.\w8 You can also run your mouse over their head to pet them.\w8 \n\n[half]*And if you leave them alone,\w4 \s[5]they will do their best to provide you with companionship.\w8 \x\0\s[0]\b2*However,\w4 they would first like to get acquainted with you.\w8 \s[2]Their name is Frisk and they use the gender neutral pronouns they/them/their.\w8\w8 \s[7]\n*(Note that this can be changed later in thier menu to suit your preferences.)\w8\w8 \s[5]\n\n[half]*They ask what your preferred pronouns are.\w5"
+		--
+		"\n\n[half]\_q\![*]\q[He-His-Him,OnPronoTeach,masc] \n\![*]\q[She-Her-Her,OnPronoTeach,femm] \n\![*]\q[They-Their-Them,OnPronoTeach,neit] \n\![*]\q[He-They Mix,OnPronoTeach,heth] \n\![*]\q[She-They Mix,OnPronoTeach,sheth] \n\![*]\q[He-She Mix,OnPronoTeach,undef] \n\![*]\q[It-Its-It,OnPronoTeach,itit] \n\n[half]\![*]\q[I have my own,OnPronoTeach,both]\e"
+ 	}
+	else //this displays when you uninstall then reinstall them
+ 	{
+		"\t\*\1\s[10]\0\s[0]*Frisk says hello.\w8\w8 \s[1]Again.\w8\w8\w8\w8 \n\n[half]\s[31]*A reset won't wipe my memory,\w4 USER.\w8\w8\w8 \c\0\s[0]*Tell us what your preferred pronouns are.\w8"
+		--
+		"\b2\n\n[half]\_q\![*]\q[He-His-Him,OnPronoTeach,masc] \n\![*]\q[She-Her-Her,OnPronoTeach,femm] \n\![*]\q[They-Their-Them,OnPronoTeach,neit] \n\![*]\q[He-They Mix,OnPronoTeach,heth] \n\![*]\q[She-They Mix,OnPronoTeach,sheth] \n\![*]\q[He-She Mix,OnPronoTeach,undef] \n\![*]\q[It-Its-It,OnPronoTeach,itit] \n\n[half]\![*]\q[I have my own,OnPronoTeach,both]\e"
+ 	}
+}
+//\t\* replaces passive mode oop
+
+
+//--dayslot
+dayslot
+{
+	"%(month)month %(day)day"
+}
+
+
+//-----------------------Normal Booting----------------------------
+
+//--OnBoot
+OnBoot
+{
+	lastTalk = "" 
+	passhour = 0
+	passmin = 0
+	passsec = 0
+	
+ 	"\0\s[0]\1\s[10]"
+	--
+	if dayslot == userbirthday
+	{	
+		"\0\s[2]*Frisk remembered your birthday,\w4 %(username).\w8 \n\s[5]*Happy birthday!\w8\e"
+		
+		{
+			"\0\s[6]*It's %(bornmonthprint) %(borndayprint)!\w8 \s[5]Frisk has a little surprise for you,\w4 %(username).\w8\w8\w8 \s[2]"
+			--
+			"\1\s[11]"
+			"\1\s[12]"
+			--
+			"*Howdy!\w8 \n*I've come to tell you that you better have a good birthday,\w4 %(username),\w4 \0\s[3]"
+			--
+			"\1\s[17]"
+			"\1\s[18]"
+			--
+			"\n\n\f[height,40]\![set,balloonwait,3]*OR ELSE.\![set,balloonwait,1]\f[height,default]\w8\w8 \s[-1]\b[-1]\0\s[31]\n\n[half]*\![set,balloonwait,3].....\![set,balloonwait,1]\w8 \n*That didn't go quite as planned.\w8\e"
+		}
+		
+		{
+			"\0\s[5]*Today is %(bornmonthprint) %(borndayprint)!\w8 \n\s[2]*Frisk has a surprise for you,\w4 %(username).\w8\w8\w8"
+			--
+			"\1\s[11]"
+			"\1\s[12]"
+			--
+			"*Howdy!\w8 \n\s[19]*Did I hear that it's someone's birthday today?\w8 \n*Well,\w4 \0\s[3]"
+			--
+			"\1\s[17]"
+			"\1\s[18]"
+			--
+			"\n\f[height,40]it better not be.\f[height,default]\w8\s[-1]\b[-1]\0\s[31]\n\n[half]*\![set,balloonwait,3].....\![set,balloonwait,1]\w8 \n*Gosh dang it,\w4 Flowey.\w8\e"
+		}
+		
+		"\0\s[5]*Happy Birthday,\w4 %(username)!\w8 \s[8]\n\n[half]*Aren't you proud of Frisk for remembering it?\w8\e"
+	}
+	elseif dayslot == "6month 6day"
+	{
+		{
+			"\1\s[11]"
+			"\1\s[12]"
+			"\1\s[17]"
+			"\1\s[18]"
+			"\1\s[19]"
+			--
+			"*No.\w8 \b[-1]\s[-1]\0\s[1]*\![set,balloonwait,3].....\![set,balloonwait,1]\w8 \n\s[2]*Hello there,\w4 %(username).\w8\e"
+		}
+		
+		{
+			"\1\s[19]*I all ready know what you're going to ask.\w8 "
+			--
+			"\s[11]"
+			"\s[12]"
+			"\s[17]"
+			"\s[18]"
+			--
+			"And the answer is\w4 'no'.\w8 \b[-1]\s[-1]\0\s[1]\w8\w8*Frisk is sad that Flowey won't play along.\w8\e"
+		}
+	}
+	elseif dayslot == "7month 1day"
+	{
+		"\0\s[2]*It's Canada day.\w8 \n*Frisk encourages you to celebrate accordingly.\w8\e"
+	}
+	elseif dayslot == "7month 4day"
+	{
+		"\0\s[2]*It's the fourth of July.\w8 \n*Frisk encourages you to celebrate accordingly.\w8\e"
+	}
+	elseif dayslot == "9month 15day"
+	{
+		"\0\s[5]*It's the anniversary of Undertale!\w8\e"
+		
+		"\0\s[5]*It's Undertale's anniversary!\w8 \n\s[2]*Frisk is glad you're celebrating with %(them).\w8\e"
+		
+		"\0\s[5]*It's the anniversary of Undertale!\w8 \n\s[4]*Frisk is flattered that you're celebrating with %(them).\w8\e"
+	}
+	elseif dayslot == "10month 10day"
+	{
+		"\0\s[5]*Hello,\w3 %(username)!\w8 \s[2]\n*Today's the Art Club.\w8\e"
+		
+		"\0\s[2]*Did you know the Art Club is held today,\w3 %(username)?\w8 \n\n[half]\s[5]*Make sure not to miss this opportunity!\w8\e"
+		
+		"\0\s[5]*It's the Art Club today!\w8 \s[2]\n*So sorry if you missed it,\w3 %(username).\w8\e"
+	}
+	else
+	{
+		"%(normalboottalk)"
+	}
+}
+
+
+//--normalboottalk
+normalboottalk
+{
+	if weekday == 6 && hour >= 19
+	{
+		"\0\s[2]*It's Saturday night.\w8\e"
+		
+		"\0\s[6]*Is it Saturday night?\w8 \n\s[8]*Frisk thinks it just might be.\w8\e"
+		
+		"\0\s[5]*Frisk is happy to provide some company on this Saturday night.\w8\e"
+	}
+	elseif RAND(100) < 6
+	{
+		"\0\s[8]*Someone rolled a lucky number today.\w8\e"
+		
+		"\0\s[5]*Thankfully,\w4 it looks like Frisk is still themself.\w8\e"
+	}
+ 	else
+ 	{
+		if timeslot == "earlymorning" //am5 to am8
+		{
+			"\0\s[2]*Good morning,\w4 %(username)!\w8 \n*Might Frisk suggest you grab yourself %(monsterdrink) to drink?\w8\e"
+			
+			"\0\s[2]*It's quite early to be awake,\w4 %(username).\w8 \n*Make sure you stay hydrated in the wee hours of the morning.\w8\e"
+			
+			"\0\s[2]*It may be too early for a snack,\w4 but Frisk is going to have %(them)self %(monsterfood) anyway.\w8\e"
+			
+			"\0\s[6]\w8\w8\w8\s[2]*It seems you caught Frisk in the middle of CHECKing the %(item).\w8\e"
+		}
+		elseif timeslot == "morning" //am9 to am11
+		{
+			"\0\s[5]*Frisk wishes you a good morning,\w4 %(username).\w8\e"
+			
+			"\0\s[6]*Good morning,\w4 %(username).\w8 \n\s[2]*Frisk wishes to remind you to not forget breakfast.\w8\e"
+			
+			"\0\s[2]*Frisk greets you with a warm good morning!\w8\e"
+			
+			"\0\s[91]*Frisk has been called and roused from %(their) napping.\w8\e"
+		}
+		elseif timeslot == "lunch" //pm12 to pm2
+		{
+			"\0\s[0]*Frisk appears,\w4 having just finished %(their) lunch.\w8 \n\s[2]*It was a bowl of ramen.\w8\e"
+			
+			"\0\s[0]*Frisk appears,\w4 having just finished %(their) lunch.\w8 \n\s[2]*It was a slice of cheesecake.\w8\e"
+			
+			"\0\s[0]*Frisk appears,\w4 \s[2]having just enjoyed %(monsterfood).\w8\e"
+			
+			"\0\s[6]\w8\w8\w8\s[2]*It seems you caught Frisk just after a call from %(callfriend).\w8\e"
+		}
+		elseif timeslot == "afternoon" // pm3 to pm5
+		{
+			"\0\s[5]*Frisk wishes you a good afternoon,\w4 %(username).\w8\e"
+			
+			"\0\s[6]*It's %(username)!\w8 \s[5]\n*Frisk is still excited about the latest episode of %(mttnetwork[0]).\w8\e"
+			
+			"\0\s[5]*Good afternoon,\w4 %(username)!\w8 \n\s[2]*Frisk hopes you've eaten lunch by now.\w8\e"
+			
+			"\0\s[2]*Good afternoon,\w4 %(username).\w8 \n*Frisk wants to know if you watched the latest episode of %(mttnetwork[0]),\w4 too.\w8\e"
+		}
+		elseif timeslot == "evening" //pm6 to pm8
+		{
+			"\0\s[2]\w8\w8*%(Capitalize(theyre)) humming %(Undersong).\w8\e"
+			
+			"\0\s[2]*Frish wishes you a good evening,\w4 %(username).\w8\e"
+			
+			"\0\s[6]*It appears as if Frisk has wandered from %(place) to here.\w8\e"
+			
+			"\0\s[5]*Good evening,\w4 %(username)!\w8 \n\s[2]*Frisk is ready to keep you company for as long as you need %(them).\w8\e"
+		}
+		elseif timeslot == "latenight" //pm9 to pm11
+		{
+			"\0\s[2]*It's getting late,\w4 but you and Frisk are still awake.\w8\e"
+			
+			"\0\s[5]*Hello,\w4 %(username).\w8 \n\s[2]*Frisk feels confident in calling you a nocturnal creature.\w8\e"
+			
+			"\0\s[6]*Frisk is impressed you're still awake.\w8\e"
+			
+			"\0\s[91]*Frisk has been called and roused from their napping.\w8\e"
+		}
+		else //am12 to am5
+		{
+			"\0\s[2]*Good night,\w4 %(username).\w8 \n*You and Papyrus might be the only ones Frisk knows who stay up so late.\w8\e"
+			
+			"\0\s[6]\w8\w8\s[2]*Frisk is impressed that you called %(them) here from %(their) bed.\w8\e"
+			
+			"\0\s[91]\w8\w8\s[2]*Though tired,\w4 Frisk wishes you a heartfelt greeting.\w8\e"
+			
+			"\0\s[9]\w8\w8*It seems you caught Frisk while %(they) were sleeping.\w8\e"
+		}
+	}
+}
+
+
+//--OnClose
+OnClose
+{
+	if passmin >= 5 || passhour > 0
+	{
+		if RAND(100) < 6
+		{
+			"\0\s[8]*A lucky roll to close out this session.\w8\w8"
+			
+			"\0\s[0]*Despite everything,\w4 \s[3]\f[bold,true]it's still you\f[bold,false].\w8\w8"
+		}
+		else
+		{
+			if dayslot == userbirthday
+			{
+				"\0\s[5]*Have a fantastic birthday,\w4 %(username)!\w8\e"
+				
+				"\0\s[2]*Frisk wishes you well on your birthday.\w8\e"
+				
+				"\0\s[6]*Is it cake time?\w8 \s[5]\n*Frisk hopes you save %(them) a slice!\w8\e"
+			}
+			elseif timeslot == "earlymorning"
+			{
+				"\0\s[6]*Frisk is off to see if Toriel is up yet.\w8\w8"
+				
+				"\0\s[2]*Frisk hopes you have a good morning!\w8\w8"
+				
+				"\0\s[5]*Frisk wishes you a good morning!\w8\w8"
+				
+				"\0\s[2]*Frisk is eager to get back to %(their) nice,\w4 warm bed.\w8\w8"
+			}
+			elseif timeslot == "morning"
+			{
+				"\0\s[2]*Frisk is off to start %(their) morning,\w4 too.\w8\w8"
+				
+				"\0\s[5]*Have a good morning,\w4 %(username)!\w8\w8"
+				
+				"\0\s[2]*Frisk is off to %(their) playdate with %(friend).\w8\w8"
+				
+				"\0\s[2]*Frisk hopes %(they) encounter %(monster) today.\w8\w8"
+			}
+ 			elseif timeslot == "lunch"
+			{
+				"\0\s[5]*Frisk is ready to wander away and eat.\w8\w8"
+				
+				"\0\s[2]*Frisk is ready to head off and have lunch %(them)self.\w8\w8"
+				
+				"\0\s[2]*Frisk is ready for a meal of %(monsterfood).\w8\w8"
+				
+				"\0\s[6]*Frisk hopes you stay hydrated!\w8\w8"
+			}
+ 			elseif timeslot == "afternoon"
+			{
+				"\0\s[2]*Frisk heads off to call %(callfriend).\w8\w8"
+				
+				"\0\s[8]*Frisk has a phone date with %(callfriend).\w8\w8"
+				
+				"\0\s[5]*Frisk can't wait to tell %(friend) about %(their) day.\w8\w8"
+				
+				"\0\s[0]*Frisk wonders what %(callfriend) is planning for dinner.\w8\w8"
+			}
+  			elseif timeslot == "evening"
+			{
+				"\0\s[5]*Frisk is excited to catch up on %(mttnetwork[0]).\w8\w8"
+				
+				"\0\s[2]*Frisk hopes you have a nice dinner.\w8\w8"
+				
+				"\0\s[5]*Don't forget about your dinner,\w4 %(username)!\w8\w8"
+				
+				"\0\s[8]*Frisk wishes you well until next time.\w8\w8"
+			}
+			elseif timeslot == "latenight"
+		 	{
+				"\0\s[91]*Frisk is ready to turn in for the night.\w8\w8"
+				
+				"\0\s[9]*Sleep.\w8 At last.\w8\w8"
+				
+				"\0\s[2]*Good night,\w4 %(username).\w8\w8"
+				
+				"\0\s[2]*Frisk asks that you don't stay up too late,\w4 %(username).\w8\w8"
+			}
+			else
+			{
+				"\0\s[9]*At last.\w8 Sleep.\w8\w8"
+				
+				"\0\s[91]*Frisk is off to %(their) nice,\w4 warm bed.\w8\w8"
+				
+				"\0\s[2]*Make sure you get some sleep,\w4 too,\w4 %(username).\w8\w8"
+				
+				"\0\s[91]*Goodnight.\w8 \s[9]Sleep tight.\w8\w8"
+			}
+		}
+ 	}
+ 	else
+ 	{
+ 		"\0\s[0]*Quickly done,\w4 %(username).\w8\w8"
+		
+		"\0\s[2]*Goodbye!\w8\w8"
+		
+		"\0\s[8]*Frisk hopes you choose %(them) again sometime.\w8\w8"
+		
+ 		"\0\s[1]*Your time with Frisk was short,\w4 \s[2]but %(they) will still wish you a fond farewell.\w8\w8"
+ 	}
+ 	--
+	"\-\e"
+}
+
+
+//-------------------------State Changing--------------------
+
+
+//--OnWindowStateRestore
+OnWindowStateRestore
+{
+	"\0\s[1]\w8\w8\s[31]*Frisk is grateful to be back.\w8\e"
+	
+	"\0\s[1]*Thank you for bringing Frisk back from the dark.\w8\e"
+	
+	"\0\s[31]*Frisk snuffles a little,\w4 but is glad to be back.\w8\e"
+	
+	"\0\s[7]\w8\w8\w8*Frisk insists on an apology.\w8\e"
+	
+	"\0\s[2]*That wasn't so bad,\w4 now was it?\w8\e"
+	
+	"\0\s[6]\w8\w8*According to %(them),\w4 \s[2]it was a whole new world in the void.\w8\e"
+	
+	"\0\s[5]*Frisk is glad to have experienced an entirely new void to fall into.\w8\e"
+	
+	"\0\s[0]*One human,\w4 freshly fallen.\w8\e"
+}
+
+
+//--OnGhostChanging
+OnGhostChanging
+{
+	if reference0 == "Frisk"
+	{
+		"\0\s[0]*Frisk will be right back after these loading screens.\w8\e"
+		
+		"\0\s[2]*Now reloading...\w8\e"
+		
+		"\0\s[5]*And now,\w4 for a trick.\w8\e"
+		
+		"\0\s[2]*Frisk is off to hide.\w8\e"
+		
+		"\0\s[8]*Frisk will be right back.\w8\e"
+	}
+	elseif reference0 == "sans"
+	{
+		"\0\s[2]*Frisk would like it if you said 'Hello' to Sans for %(them).\w8\e"
+		
+		"\0\s[5]*Frisk hopes you and Sans have fun.\w8\e"
+		
+		"\0\s[2]*Incoming bone puns...\w8\e"
+	}
+	elseif reference0 == "Sans" //UFell Sans btw
+	{
+		"\0\s[6]*Frisk wonders how sharp this Sans' teeth are.\w8\e"
+		
+		"\0\s[0]*The sleepy,\w4 \s[1]ill-mannered skeleton.\w8\e"
+		
+		"\0\s[2]*Yet another version of Sans!\w8\e"
+	}
+	elseif reference0 == "UC" //UC Sans
+	{
+		"\0\s[2]*Play nice with this Sans,\w4 %(username)!\w8\e"
+		
+		"\0\s[6]*This Sans uses so many interesting words...\w8\e"
+		
+		"\0\s[5]*Have fun with Sans,\w4 %(username)!\w8\e"
+	}
+	elseif reference0 == "Dreamtale Sans"
+	{
+		"\0\s[2]*Frisk asks if you would say 'hi' to Sans for %(them).\w8\e"
+		
+		"\0\s[5]*Have fun living the dreams,\w4 %(username)!\w8\e"
+		
+		"\0\s[6]*How many versions of Sans ya got,\w4 %(username)?\w8\e"
+	}
+	elseif reference0 == "MVSans"
+	{
+		"\0\s[2]*Frisk wants to know how many skins this Sans has.\w8\e"
+		
+		"\0\s[6]*The skeleton!\w8 \s[5]The myth!\w8 \s[8]The legend!\w8\e"
+		
+		"\0\s[5]*Frisk wants to tickle Sans,\w4 too.\w8\e"
+	}
+	elseif reference0 == "Papyrus"
+	{
+		"\0\s[5]*Frisk would like it if you said 'Hello' to Papyrus for %(them).\w8\e"
+		
+		"\0\s[5]*Frisk hopes you and Papyrus have fun.\w8\e"
+		
+		"\0\s[2]*Incoming spaghetti...\w8\e"
+	}
+	elseif reference0 == "Jazz"
+	{
+		"\0\s[5]*Make sure to pet Jazz for Frisk,\w4 %(username)!\w8\e"
+		
+		"\0\s[2]*Frisk hopes that Jazz enjoys your company as much as %(them).\w8\e"
+		
+		"\0\s[5]*Fun skeleton times with Jazz!\w8\e"
+	}
+	elseif reference0 == "Sn"
+	{
+		"\0\s[2]*Frisk hopes you enjoy the skeleton brothers' company.\w8\e"
+		
+		"\0\s[5]*Frisk would like it if you tell the brothers that %(they) said 'Hello'.\w8\e"
+		
+		"\0\s[2]*Incoming brothers...\w8\e"
+	}
+	elseif reference0 == "Gaster"
+	{
+		"\0\s[6]*A royal scientist Frisk never met.\w8\e"
+		
+		"\0\s[1]*%(Capitalize(they)) seem a bit intimidated by Gaster.\w8\e"
+		
+		"\0\s[2]*Frisk asks that you be kind to even Gaster.\w8\e"
+	}
+	elseif reference0 == "f_lowe_y"
+	{
+		"\0\s[1]*Your best friend.\w8\e"
+		
+		"\0\s[2]*Frisk asks you to say 'Hello' to Flowey for %(them).\w8\e"
+		
+		"\0\s[3]*My Literal Nightmare.\w8\e"
+		
+		"\0\s[3]\1\s[17]*Have fun with your best friend,\w4 %(username).\w8\e"
+	}
+	elseif reference0 == "Toriel"
+	{
+		"\0\s[5]*Frisk asks you to say 'Hello' to Toriel for %(them).\w8\e"
+		
+		"\0\s[2]*Incoming Goat Mom...\w8\e"
+		
+		"\0\s[4]*Her Butterscotch Pie was the best...\w8\e"
+	}
+	elseif reference0 == "Mettaton"
+	{
+		"\0\s[5]*Frisk asks you to say 'Hello' to Mettaton for %(them).\w8\e"
+		
+		"\0\s[2]*Incoming Mettaton...\w8\e"
+		
+		"\0\s[8]*Strike a pose!\w8 \s[5]It's Mettaton time.\w8\e"
+		
+		"\0\s[6]*Is that really Mettaton from the hit show %(mttnetwork[0])??\w8\e"
+	}
+	elseif reference0 == "Temmie"
+	{
+		"\0\s[4]*Frisk wishes to pet the Tems.\w8\e"
+		
+		"\0\s[2]*Incoming ridiculousness...\w8\e"
+		
+		"\0\s[5]*This is just ridiculous.\w8\e"
+	}
+	elseif reference0 == "Pet Rock"
+	{
+		"\0\s[5]*Frisk asks you to say 'Hello' to the Pet Rock for %(them).\w8\e"
+		
+		"\0\s[2]*Frisk asks you to feed the Pet Rock for %(them).\w8\e"
+		
+		"\0\s[6]*It seems Frisk is interested in the Pet Rock,\w4 too.\w8\e"
+	}
+	elseif reference0 == "Ralsei"
+	{
+		"\0\s[6]*Frisk wonders who this polite shadow prince is.\w8\e"
+		
+		"\0\s[5]*Incoming fluffy boy...\w8\e"
+		
+		"\0\s[2]*Frisk wants to hear this shadow prince sing The Legend.\w8\e"
+	}
+	elseif reference0 == "SPAMTON!!"
+	{
+		"\0\s[1]*Frisk hopes Spamton doesn't scare you too much...\w8\e"
+		
+		"\0\s[6]*Incoming Spamton...\w8\e"
+		
+		"\0\s[5]*Spin the wheel for that Kromer!\w8\e"
+	}
+	elseif reference0 == "Zaiga"
+	{
+		"\0\s[2]*Frisk hopes Zaiga will warm up to you.\w8\e"
+		
+		"\0\s[1]*It seems Frisk is worried about upsetting Zaiga...\w8\e"
+		
+		"\0\s[6]*A new monster to befriend!\w8\e"
+	}
+	elseif reference0 == "Azura"
+	{
+		"\0\s[2]*Frisk likes Azura's style.\w8\e"
+		
+		"\0\s[7]*Frisk is hoping to one day grow wings,\w4 too.\w8\e"
+		
+		"\0\s[5]*Frisk hopes you and Azura have a good time together!\w8\e"
+	}
+	elseif reference0 == "RYS-0825" //S the skeleton
+	{
+		"\0\s[2]*Frisk thinks S's hoodie looks comfortable.\w8\e"
+		
+		"\0\s[5]*A cooking skeleton!\w8\e"
+		
+		"\0\s[1]*Be gentle with this cracked skeleton,\w4 %(username).\w8\e"
+	}
+	elseif reference0 == "Dusty"
+	{
+		"\0\s[5]*A skeleton and a kitty!\w8\e"
+		
+		"\0\s[2]*Frisk asks you to pet Obsidian for %(them),\w4 %(username).\w8\e"
+		
+		"\0\s[6]*Frisk wonders if Dusty was a teacher once.\w8\e"
+	}
+	elseif reference0 == "Noteworthy"
+	{
+		"\0\s[0]*Frisk wonders if Rocky counts as a Monster.\w8\e"
+		
+		"\0\s[0]*Frisk wonders if Noteworthy is related to someone %(they) know.\w8\e"
+		
+		"\0\s[5]*An unlikely but very cute duo!\w8\e"
+	}
+	elseif reference0 == "Hunter and Smoker Beta"
+	{
+		"\0\s[2]*Frisk hopes you play nice with the Hunter and the Smoker!\w8\e"
+		
+		"\0\s[2]*Incoming Hunter and Smoker...\w8\e"
+		
+		"\0\s[5]*Say hello to Hunter and Smoker for Frisk!\w8\e"
+	}
+	elseif reference0 == "Jockey"
+	{
+		"\0\s[5]*Frisk hopes you play nice with the Jockey.\w8\e"
+		
+		"\0\s[2]*Her musicality makes Frisk wonder about FLELEs.\w8\e"
+		
+		"\0\s[6]*Frisk wonders if Jockey knows how to sing %(Undersong).\w8\e"
+	}
+	//elseif reference0 == "Juan & Sha"
+	elseif reference0 == "Radic"
+	{
+		"\0\s[5]*Frisk knows what a Pokemon is.\w8\e"
+		
+		"\0\s[2]*Incoming Pokemon...\w8\e"
+		
+		"\0\s[6]*Frisk wonders what petting Farns would be like.\w8\e"
+	}
+	elseif reference0 == "Hop"
+	{
+		"\0\s[6]*A lab assistant Frisk isn't familiar with.\w8\e"
+		
+		"\0\s[2]*Frisk wonders if Hop would share some of his Pokemon facts with %(them).\w8\e"
+		
+		"\0\s[5]*Incoming Poke-boy!\w8\e"
+	}
+	elseif reference0 == "No.258" //Mudkip!!
+	{
+		"\0\s[5]*Incoming Mudkip!\w8\e"
+		
+		"\0\s[5]*It's Mudkip time!\w8\e"
+		
+		"\0\s[2]*Frisk wants to pet the Mudkip,\w4 too.\w8\e"
+	}
+	elseif reference0 == "steve"
+	{
+		"\0\s[2]*Frisk thinks Steve and Sam are just neat.\w8\e"
+		
+		"\0\s[5]*More genderqueer kids!\w8\e"
+		
+		"\0\s[2]*Say hello to the lowercase duo for Frisk!\w8\e"
+	}
+	elseif reference0 == "Prince Erik"
+	{
+		"\0\s[2]*Frisk wants to pet the wolf.\w8\e"
+		
+		"\0\s[0]*Does a Vampire count as a Monster?\w8\e"
+		
+		"\0\s[5]*Have fun with the supernatural beings!\w8\e"
+	}
+	elseif reference0 == "Riccardo"
+	{
+		"\0\s[1]*Riccardo seems a bit jumpy...\w8 \n*Try to take care around him,\w4 %(username).\w8\e"
+		
+		"\0\s[2]*Be kind to Riccardo,\w4 %(username).\w8\e"
+		
+		"\0\s[2]*Frisk hopes you and Riccardo can get along.\w8\e"
+	}
+	elseif reference0 == "Pasha"
+	{
+		"\0\s[6]*More humans!\w8 \s[2]\n*Frisk hopes %(they) can become friends with them!\w8\e"
+		
+		"\0\s[6]*Frisk wonders where Pasha and Misha are from.\w8\e"
+		
+		"\0\s[2]*Have fun with Pasha and Misha,\w4 %(username)!\w8\e"
+	}
+	elseif reference0 == "Gel"
+	{
+		"\0\a[5]*Frisk thinks %(they) would get along great with Gel.\w8\e"
+		
+		"\0\s[2]*Frisk hopes you and Gel have fun together,\w4 %(username)!\w8\e"
+		
+		"\0\s[0]*Frisk wonders what it might be like to pet Gel...\w8\e"
+	}
+	elseif reference0 == "Zim"
+	{
+		"\0\s[6]*A...\w8human?\w8 \s[0]\n*Frisk isn't quite sure.\w8\e"
+		
+		"\0\s[5]*Frisk asks you to pet GIR for %(them).\w8\e"
+		
+		"\0\s[2]*Frisk hopes you and Zim can get along.\w8\e"
+		
+		"\0\s[2]*Incoming space kids!\w8\e"
+	}
+	elseif reference0 == "Wheatley"
+	{
+		"\0\s[2]*Incoming Aperture Science...\w8\e"
+		
+		"\0\s[2]*Frisk hopes you can help Wheatley.\w8\e"
+		
+		"\0\s[6]*Frisk is curious if Wheatley can sing as well as GLaDOS.\w8\e"
+	}
+	elseif reference0 == "Wilson" //there are three Wilsons we're just gonna have to live with it
+	{
+		"\0\s[6]*Another scientist...?\w8 \s[2]But a human one!\w8\e"
+		
+		"\0\s[2]Don't starve out there,\w4 %(username)!\w8\e"
+		
+		"\0\s[1]*Frisk hopes Wilson can rest easy on your desktop...\w8\e"
+	}
+	elseif reference0 == "Snake"
+	{
+		"\0\s[6]*There's a Snake in your computer!\w8\e"
+		
+		"\0\s[6]*Snake?\w8 \s[1]Snake?\w8\w8 \n\n[half]\s[5]*Have fun with your friend Snake and Otacon!\w8\e"
+		
+		"\0\s[5]*Frisk thinks chatting with Otacon would be fun!\w8\e"
+	}
+	elseif reference0 == "Guard" //Skyrim
+	{
+		"\0\s[6]*But what do you need guarded,\w4 %(username)?\w8\e"
+		
+		"\0\s[2]*Frisk hopes you and Skyrim Guard will take care of yourselves!\w8\e"
+		
+		"\0\s[1]*Steer clear of any arrows,\w4 %(username).\w8\e"
+	}
+	elseif reference0 == "Jester"
+	{
+		"\0\s[5]*Have a fun time with Jester,\w4 %(username)!\w8\e"
+		
+		"\0\s[6]*Frisk thinks %(they) would like horns,\w4 too...\w8\e"
+		
+		"\0\s[2]*Frisk wonders if %(they) and Jester could be friends,\w4 too.\w8\e"
+	}
+	elseif reference0 == "Aziraphale"
+	{
+		"\0\s[5]*Frisk hopes you,\w4 Aziraphale,\w4 and Crowley have fun together!\w8\e"
+		
+		"\0\s[6]*Frisk wonders what it might be like to be able to turn into a snake.\w8\e"
+		
+		"\0\s[2]*Frisk hopes to pet Crowley one day.\w8\e"
+		
+		"\0\s[2]*Frisk likes Aziraphale's style.\w8\e"
+	}
+	elseif reference0 == "Zacharie"
+	{
+		"\0\s[2]*Frisk hopes you'll give the Judge a pet for %(them).\w8\e"
+		
+		"\0\s[0]*Show them the colour of your credits,\w4 %(username).\w8\e"
+		
+		"\0\s[2]*Frisk thinks Zacharie and Sans would get along.\w8\e"
+	}
+	elseif reference0 == "Elsen"
+	{
+		"\0\s[1]*Frisk is worried over Elsen,\w4 too...\w8\e"
+		
+		"\0\s[1]*Treat Elsen with kindness,\w4 %(username).\w8\e"
+		
+		"\0\s[1]*Frisk wonders what it might take to SPARE Elsen...\w8\e"
+	}
+	elseif reference0 == "Cat" || reference0 == "Neko." || reference0 == "—­‚ß”L" //english cat, translated cat, third cat...??
+	{
+		"\0\s[5]*Kitty!!\w8\e"
+		
+		"\0\s[7]*Frisk wants to pet the kitty,\w4 too!\w8\e"
+		
+		"\0\s[5]*Pet the kitty for Frisk!\w8\e"
+	}
+	elseif reference0 == "Warrior" //Warrior Cats generator
+	{
+		"\0\s[5]*A cat generator!\w8 \s[2]They're very cute.\w8\e"
+		
+		"\0\s[2]*Frisk would like to introduce Warrior Cats to Undyne and Alphys.\w8\e"
+		
+		"\0\s[2]*Frisk hopes you design a cute cat,\w4 %(username).\w8\e"
+	}
+	elseif reference0 == "Sam"
+	{
+		"\0\s[0]*Frisk wonders if you could pet Sam or Max.\w8\e"
+		
+		"\0\s[2]*They're detectives,\w4 not Monsters.\w8\e"
+		
+		"\0\s[6]*Off to solve a case,\w4 %(username)?\w8\e"
+	}
+	elseif reference0 == "Ichimatsu"
+	{
+		"\0\s[0]*Frisk wonders if %(they) could duplicate %(them)self like Ichimatsu.\w8\e"
+		
+		"\0\s[0]*The many brothers.\w8 \s[6]\n\n[half]*Yes,\w4 Frisk.\w8 Brothers.\w8\e"
+		
+		"\0\s[2]*Incoming numbers...\w8\e"
+	}
+	//elseif reference0 == "Gaignun" //Idk anything about Gaignun whoop
+	elseif reference0 == "Hydrate"
+	{
+		"\0\s[5]*Frisk encourages you to stay hydrated.\w8\e"
+		
+		"\0\s[2]*Frisk is glad you're conscious of staying hydrated.\w8\e"
+		
+		"\0\s[5]*Frisk cheers on you and Hydrate as %(they) take %(their) leave.\w8\e"
+		
+		"\0\s[6]*Frisk is intrigued to see which cute shell you use for Hydrate.\w8\e"
+	}
+	elseif reference0 == "CheeryBot"
+	{
+		"\0\s[5]*Frisk hopes you say 'Hello' to CheeryBot for %(them).\w8\e"
+		
+		"\0\s[2]*Self care is important.\w8\e"
+		
+		"\0\s[8]*Frisk aspires to one day be as helpful as CheeryBot.\w8\e"
+	}
+	elseif reference0 == "MiniDev"
+	{
+		"\0\s[6]*What types of devving you gonna do,\w4 %(username)?\w8\e"
+		
+		"\0\s[2]*Frisk hopes you enjoy MiniDev's company,\w4 %(username).\w8\e"
+		
+		"\0\s[5]*Frisk can't wait to see what cute look you'll give MiniDev!\w8\e"
+	}
+	//elseif reference0 == "statusBOT"
+	elseif reference0 == "Yes Man"
+	{
+		"\0\s[6]*Frisk wonders what type of metal and magic make up Edd-E and Yes Man.\w8\e"
+		
+		"\0\s[2]*Frisk hopes you,\w4 Edd-E,\w4 and Yes Man have a fun time together.\w8\e"
+		
+		"\0\s[6]*Is there a fallout nearby?\w8 \s[2]\n*Stay safe,\w4 %(username)!\w8\e"
+	}
+	elseif reference0 == "P.A.I.G.E."
+	{
+		"\0\s[6]*Frisk is impressed by P.A.I.G.E.'s know-how.\w8\e"
+		
+		"\0\s[5]*Have fun with P.A.I.G.E.,\w4 %(username)!\w8\e"
+	}
+	elseif reference0 == "Aurora.EXE"
+	{
+		"\0\s[5]*Frisk hopes you and Aurora have a fun time together!\w8\e"
+		
+		"\0\s[8]*Frisk thinks about flirting with Aurora.\w8\e"
+		
+		"\0\s[2]*Frisk thinks Mettaton and Aurora would make a great duo.\w8\e"
+	}
+	elseif reference0 == "Dusk"
+	{
+		"\0\s[5]*Frisk hopes you have fun singing from Dusk until Dawn!\w8\e"
+		
+		"\0\s[2]*Frisk thinks Dusk and Dawn might have fun singing with Mettaton.\w8\e"
+		
+		"\0\s[0]*Frisk is deep in thought over what type of Monsters Dusk and Dawn are.\w8\e"
+	}
+	elseif reference0 == "Spar"
+	{
+		"\0\s[0]*Frisk wonders how to flirt with Sparx.\w8\e"
+		
+		"\0\s[1]*Is there not enough chaos here,\w4 %(username)?\w8\e"
+		
+		"\0\s[5]*Chaos!\w4 Chaos!\w8\w8\e"
+	}
+	elseif reference0 == "Pinkie Pie"
+	{
+		"\0\s[5]*Have fun with Rainbow Dash and Pinkie Pie,\w4 %(username)!\w8\e"
+		
+		"\0\s[2]*Frisk thinks it would be fun to throw a party with Pinkie Pie.\w8\e"
+		
+		"\0\s[8]*Frisk would like to race Rainbow Dash sometime.\w8\e"
+		
+		"\0\s[5]*Incoming ponies!\w8\e"
+	}
+	elseif reference0 == "Danbooru-chan"
+	{
+		"\0\s[6]*Isn't that a cardboard cutout?\w8\e"
+		
+		"\0\s[5]*Frisk wants to see what %(they)'d look like peeking through her face,\w4 too.\w8\e"
+		
+		"\0\s[7]*You're bringing out Danbooru-chan?\w8 Without letting Frisk say 'hi'??\w8\e"
+	}
+	elseif reference0 == "Narrator"
+	{
+		"\0\s[2]*Frisk hopes you and the Narrator enjoy your stories together!\w8\e"
+		
+		"\0\s[2]*Incoming narration...\w8\e"
+		
+		"\0\s[0]*And so,\w4 Frisk has been switched out for the Narrator.\w8\e"
+	}
+	elseif reference0 == "Bugsnax"
+	{
+		"\0\s[5]*A cute and delicious friend!\w8\e"
+		
+		"\0\s[7]*Frisk wants to pet them,\w4 too!\w8\e"
+		
+		"\0\s[5]*Frisk hopes you enjoy having a bug snack run around on your desktop.\w8\e"
+		
+		"\0\s[2]*Incoming bug snack...\w8\e"
+	}
+	elseif reference0 == "Angel"
+	{
+		"\0\s[5]*Tips and tricks with the SSP Angel!\w8\e"
+		
+		"\0\s[6]*Even Frisk is interested in knowing more about how SSP works.\w8\e"
+		
+		"\0\s[2]*Incoming SSP Angel...\w8\e"
+	}
+	elseif reference0 == "Leonardo"
+	{
+		"\0\s[6]*An adult mutant ninja turtle?\w8 \s[5]What will they think of next?\w8\e"
+		
+		"\0\s[2]*Frisk hopes you say 'hi' to Leonardo for %(them)!\w8\e"
+		
+		"\0\s[6]*Incoming future turtle...\w8\e"
+	}
+	elseif reference0 == "Aine"
+	{
+		"\0\s[0]*Frisk hopes you'll help Aine.\w8\e"
+		
+		"\0\s[6]*Incoming princess...\w8\e"
+		
+		"\0\s[2]*The story must continue for you and Aine.\w8\e"
+	}
+	elseif reference0 == "Iea"
+	{
+		"\0\s[6]*Frisk wonders if petting Iea would be polite.\w8\e"
+		
+		"\0\s[2]*Incoming transmission...\w8\e"
+		
+		"\0\s[5]*Frisk is excited to see where Iea's story goes.\w8\e"
+	}
+	elseif reference0 == "Snail"
+	{
+		"\0\s[5]*Make the Snail cute for Frisk.\w8\e"
+		
+		"\0\s[2]*Incoming snail...\w8\e"
+		
+		"\0\s[8]*Frisk hopes to become cute buddies with the Snail.\w8\e"
+		
+		"\0\s[5]*Frisk looks forward to seeing what cute look you'll give Snail today.\w8\e"
+	}
+	elseif reference0 == "Radio Sakura"
+	{
+		"\0\a[6]*Incoming radio...\w8\e"
+		
+		"\0\s[1]*Frisk is a bit confused by the static coming from the radios...\w8\e"
+		
+		"\0\s[2]*Frisk likes the strange static coming from the radios.\w8\e"
+	}
+	elseif reference0 == "Dante" //Hendrix
+	{
+		"\0\s[5]*A cute human!\w8 \n\n[half]\s[2]*Frisk hopes you and Dante have fun!\w8\e"
+		
+		"\0\s[6]*Frisk thinks %(they) want a shirt like Dante's...\w8\e"
+		
+		"\0\s[2]*Say 'Hi' to Dante for Frisk!\w8\e"
+	}
+	//elseif reference0 == "Bowie"
+	elseif reference0 == "Sebastian"
+	{
+		"\0\s[5]*Frisk wants to be a cowboy,\w4 too!\w8\e"
+		
+		"\0\s[8]*Frisk takes out %(their) Cowboy Hat and Toy Gun in solidarity.\w8\e"
+		
+		"\0\s[2]*Incoming Cowboy,\w4 baby...\w8\e"
+	}
+	elseif reference0 == "Tadora"
+	{
+		"\0\s[5]*Incoming Belarusian kitty...\w8\e"
+		
+		"\0\s[2]*Frisk asks you to pet Tadora for %(them).\w8\e"
+		
+		"\0\s[4]*Frisk thinks Tadora is very cute.\w8\e"
+	}
+	elseif reference0 == "Squish"
+	{
+		"\0\s[5]*Time for some stress relief!\w8\e"
+		
+		"\0\s[4]*Frisk hopes you poke the stress ball once for %(them),\w4 too.\w8\e"
+		
+		"\0\s[5]*Squish!\w8 Squish!\w8 Squish!!\w8\e"
+	}
+	elseif reference0 == "Squid"
+	{
+		"\0\s[5]*What will today's flavour of Squid be,\w4 %(username)?\w8\e"
+		
+		"\0\s[6]*Frisk wonders what kinds of questions Squid will ask you today.\w8\e"
+		
+		"\0\s[2]*Being a primordial ancient being must be interesting...\w8\e"
+	}
+	elseif reference0 == "one-seven-z" //Pet blob
+	{
+		"\0\s[5]*Frisk hopes you take good care of your pets,\w4 %(username)!\w8\e"
+		
+		"\0\s[6]*Frisk is amazed at how fast they multiply.\w8\e"
+		
+		"\0\s[2]*Frisk asks you to pet your pets.\w8 \s[5]\n*For %(them),\w4 %(username).\w8\e"
+	}
+	elseif reference0 == "Trustbreaker Moth"
+	{
+		"\0\s[2]*Make sure to keep your promises,\w4 %(username)!\w8\e"
+		
+		"\0\s[4]*Frisk thinks it's nice that you're working on keeping your promises,\w4 %(username).\w8\e"
+		
+		"\0\s[5]*Moth!\w8 Moth!\w8 Moth!\w8 Moth!\w8\e"
+	}
+	elseif reference0 == "Nox" //red dragon friend
+	{
+		"\0\s[5]*Big dragon friend!\w8 \s[2]\n*Frisk hopes you and Nox have fun together.\w8\e"
+		
+		"\0\s[2]*Incoming dragon...\w8\e"
+		
+		"\0\s[6]*Frisk is awed by Nox's very pretty colours.\w8\e"
+	}
+	elseif reference0 == "Kade" //Skeleton friend
+	{
+		"\0\s[5]*Incoming skeleton friend!\w8 \n\n[half]\s[2]*Frisk hopes you and Kade have fun together!\w8\e"
+		
+		"\0\s[6]*Frisk wonders what type of font Kade is.\w8\e"
+		
+		"\0\s[2]*Frisk wonders if Sans and Papyrus might like to meet Kade.\w8\e"
+	}
+	elseif reference0 == "Микола" //Russian Janitor
+	{
+		"\0\s[5]*Incoming Russian janitor!\w8\e"
+		
+		"\0\s[2]*Frisk likes Микола's style\w8 \s[0]and wonders what it might be like to try it out for %(them)self.\w8\e"
+		
+		"\0\s[6]*Did you need a cleaning buddy,\w4 %(username)?\w8\e"
+	}
+	elseif reference0 == "Tea Tavern"
+	{
+		"\0\s[5]*Enjoy a good cup of tea,\w4 %(username)!\w8\e"
+		
+		"\0\s[2]*Incoming tea tavern...\w8\e"
+		
+		"\0\s[6]*Frisk wants a try at mixing %(their) own teas.\w8\e"
+	}
+	elseif reference0 == "Crewmate" //Among Us bean
+	{
+		"\0\s[2]*Incoming imposter...\w8\e"
+		
+		"\0\s[2]*Incoming crewmate...\w8\e"
+		
+		"\0\s[6]*Got some tasks left to do,\w4 %(username)?\w8\e"
+	}
+	elseif reference0 == "Boyfriend and Girlfriend" //Friday Night Funkin
+	{
+		"\0\s[5]*Incoming jam buddies!\w8\e"
+		
+		"\0\s[2]*Frisk thinks it would be fun to pet Boyfriend.\w8\e"
+		
+		"\0\s[8]*Have fun with your Friday night buddies,\w4 %(username)!\w8\e"
+	}
+	elseif reference0 == "Gretchen" //Madoka Witch Runes
+	{
+		"\0\s[6]*Are you learning to be a witch,\w4 too,\w4 %(username)?\w8\e"
+		
+		"\0\s[2]*Incoming runes...\w8\e"
+		
+		"\0\s[2]*Frisk hopes you have fun chatting with your witch friend.\w8\e"
+	}
+	elseif reference0 == "Tartaglia" //Genshin Impact
+	{
+		"\0\s[6]*Impact incoming!\w8\e"
+		
+		"\0\s[2]*Frisk hopes you and Tartaglia have fun chatting with one another!\w8\e"
+	}
+	elseif reference0 == "Анемони"
+	{
+		"\0\s[6]*Incoming guitar...\w8\e"
+		
+		"\0\s[6]*Another musician...?\w8 \n\n[half]\s[2]*Frisk hopes you treat Анемони well.\w8\e"
+		
+		"\0\s[2]*Frisk thinks Анемони and Mettaton might get along.\w8\e"
+	}
+	//elseif reference0 == "Джихэй" //Jihae and Pavel
+	elseif reference0 == "Balloons"
+	{
+		"\0\s[6]*Pop!\w8 \s[3]Pop!\w8\w8\e"
+		
+		"\0\s[2]*Frisk asks you to say 'Hi' to Balloons for %(them).\w8\e"
+		
+		"\0\s[2]*Frisk,\w4 too,\w4 would like to bob up and down without a care...\w8\e"
+	}
+	elseif reference0 == "Needle"
+	{
+		"\0\s[5]*\![set,balloonwait,3]Neeeeeeeeeedle\![set,balloonwait,1]!!\w8\e"
+		
+		"\0\s[5]*Be careful with the child,\w4 %(username).\w8\e"
+		
+		"\0\s[21]*Take care with the child,\w4 %(username).\w8\e"
+	}
+	elseif reference0 == "Paper"
+	{
+		"\0\s[2]*Incoming minigames...\w8\e"
+		
+		"\0\s[5]*Frisk wants to play some of Paper's games,\w4 too!\w8\e"
+		
+		"\0\s[6]*Frisk wonders if Papyrus and Sans would have fun with Paper's word search.\w8\e"
+	}
+	elseif reference0 == "Fuminori"
+	{
+		"\0\s[5]*Incoming study buddies!\w8\e"
+		
+		"\0\s[6]*Are you learning Japanese,\w4 too,\w4 %(username)?\w8\e"
+		
+		"\0\s[4]*Frisk asks if you'll say 'こんにちわ' to Fuminori and Tsukasa for %(them).\w8\e"
+	}
+	elseif reference0 == "Tekame"
+	{
+		"\0\s[5]*Incoming turtle!\w8\e"
+		
+		"\0\s[4]*Frisk hopes %(they) can befriend the cute turtle as well.\w8\e"
+		
+		"\0\s[6]Frisk hopes you'll say 'Hello' to Tekame for %(them).\w8\e"
+	}
+	elseif reference0 == "Rabite"
+	{
+		"\0\s[5]*Incoming Rabite!\w8\e"
+		
+		"\0\s[2]*Frisk wonders what petting the Rabite might be like.\w8\e"
+		
+		"\0\s[6]*Frisk wonders what sort of care a Rabite requires.\w8\e"
+	}
+	elseif reference0 == "Terror Fanger"
+	{
+		"\0\s[1]*Incoming terrors...\w8\e"
+		
+		"\0\s[2]*Frisk hopes you,\w4 Fanger,\w4 and Crimson have fun together!\w8\e"
+	}
+	elseif reference0 == "Arthur" //a Doctor!
+	{
+		"\0\s[6]*Incoming doctor...\w8\e"
+		
+		"\0\s[6]*Frisk wonders if Arthur is a Monster or not.\w8\e"
+		
+		"\0\s[6]*Did you need some medical assistance,\w4 %(username)?\w8\e"
+	}
+	elseif reference0 == "The Assistant"
+	{
+		"\0\s[1]*Be gentle with the Assistant,\w4 %(username).\w8\e"
+		
+		"\0\s[2]*Frisk knows you'll do a good job taking care of the Assistant.\w8\e"
+		
+		"\0\s[1]*Incoming assistant...\w8\e"
+	}
+	elseif reference0 == "Mantle" //Earthquake Duo
+	{
+		"\0\s[6]*Incoming earthquakes...\w8\e"
+		
+		"\0\s[5]*Frisk likes Mantle's cute face.\w8\e"
+		
+		"\0\s[2]*Frisk wonders if Alphys and Mettaton might be friends with Mantle.\w8\e"
+	}
+	elseif reference0 == "Hornet"
+	{
+		"\0\s[6]*A group of hollow bugs!\w8\e"
+		
+		"\0\s[2]*Incoming knights...\w8\e"
+		
+		"\0\s[2]*Frisk wonders if the three bugs are as big as %(them) or actual bug sized.\w8\e"
+	}
+	elseif reference0 == "Heather"
+	{
+		"\0\s[4]*Incoming drawings...\w8\e"
+		
+		"\0\s[5]*Frisk hopes you and Heather have a fun time together.\w8\e"
+		
+		"\0\s[2]*Frisk hopes you pet Heather for %(them).\w8\e"
+	}
+	elseif reference0 == "Nai" //animal orb friend!
+	{
+		"\0\s[5]*Incoming orb...\w8\e"
+		
+		"\0\s[2]*Frisk wonders what it might be like to pet Nai...\w8\e"
+		
+		"\0\s[5]*Say 'Hi' to Nai for Frisk,\w4 %(username)!\w8\e"
+	}
+	elseif reference0 == "Sackboy"
+	{
+		"\0\s[2]*Incoming little big planet...\w8\e"
+		
+		"\0\s[5]*Have fun collecting some stickers,\w4 %(username)!\w8\e"
+		
+		"\0\s[6]*Are you on a little big adventure,\w4 %(username)?\w8 \n\n[half]*Have fun!\w8\e"
+	}
+	elseif reference0 == "Snoopy"
+	{
+		"\0\s[2]*Incoming dog friend...\w8\e"
+		
+		"\0\s[2]*Incoming bird friend...\w8\e"
+		
+		"\0\s[5]*A cute pup and his bird friend!\w8\e"
+		
+		"\0\s[7]*Frisk is jealous that you'll be able to pet Snoopy and Woodstock.\w8\e"
+	}
+	elseif reference0 == "Feesh"
+	{
+		"\0\s[5]*\![set,balloonwait,3]Feeeeeeeeeesh\![set,balloonwait,1]!!\w8\e"
+		
+		"\0\s[2]*Frisk wonders if you can smell Feesh through your computer screen.\w8\e"
+		
+		"\0\s[6]*A leetle fish friend!\w8\e"
+	}
+	elseif reference0 == "Legacy"
+	{
+		"\0\s[6]*Incoming dragon...\w8\e"
+		
+		"\0\s[5]*A pretty dragon friend!\w8\e"
+		
+		"\0\s[4]*Frisk hopes you find petting a dragon to be everything %(they) hoped it would be and more,\w4 %(username).\w8\e"
+	}
+	elseif reference0 == "OurOwl"
+	{
+		"\0\s[6]*Incoming owl being...\w8\e"
+		
+		"\0\s[1]*Frisk wonders if it's even safe to pet this being...\w8\e"
+		
+		"\0\s[2]*Pretty pretty shifting being...\w8\e"
+	}
+	elseif reference0 == "Aaron" //lava animal!
+	{
+		"\0\s[5]*Incoming rude boy!\w8\e"
+		
+		"\0\s[2]*Don't take what Aaron says too personally,\w4 %(username).\w8\e"
+		
+		"\0\s[5]*Pet!\w8 That!\w8 Boy!\w8\w8\e"
+	}
+	elseif reference0 == "Vending Machine"
+	{
+		"\0\s[2]*Incoming vending machine...\w8\e"
+		
+		"\0\s[6]*Are you getting thirsty,\w4 %(username)?\w8\e"
+		
+		"\0\s[5]*Frisk asks you to bring back a snack for %(them)!\w8\e"
+	}
+	elseif reference0 == "Shadow"
+	{
+		"\0\s[2]*Incoming chaos control...\w8\e"
+		
+		"\0\s[2]*Frisk wonders if Shadow's quills would be pokey when petted.\w8\e"
+		
+		"\0\s[2]*Be kind to Shadow as well,\w4 %(username).\w8\e"
+	}
+	elseif reference0 == "Crono" //CT Crew
+	{
+		"\0\s[2]*Incoming time children...\w8\e"
+		
+		"\0\s[6]*Frisk wonders just how many can fit inside the Epoch.\w8\e"
+		
+		"\0\s[5]*Say 'Hello' to Crono for Frisk!\w8\e"
+	}
+	elseif reference0 == "Herlock Sholmes"
+	{
+		"\0\s[5]*Incoming deductions!\w8\e"
+		
+		"\0\s[6]*It looks like a game is afoot,\w4 %(username)!\w8\e"
+		
+		"\0\s[5]*Frisk hopes you'll figure out whatever you need to with Herlock's help,\w4 %(username).\w8\e"
+	}
+	elseif reference0 == "Emily"
+	{
+		"\0\s[5]*Frisk hopes you say 'こんにちわ' to Emily for %(them).\w8\e"
+		
+		"\0\s[6]*Frisk is impressed that you know Japanese.\w8\e"
+		
+		"\0\s[1]*One day,\w4 Frisk will make friends with Emily and her group.\w8\e"
+	}
+	elseif reference0 == "Fairune Duo"
+	{
+		"\0\s[0]*Frisk wonders how long of a book the Ancient Codex is.\w8\e"
+		
+		"\0\s[2]*Frisk wonders how to flirt with Hope Girl.\w8\e"
+		
+		"\0\s[2]*Say 'Hello' to the Fairune ambassadors for Frisk.\w8\e"
+	}
+	elseif reference0 == "Inferno"
+	{
+		"\0\s[31]*Frisk hopes the Inferno and the Wolf will be okay.\w8\e"
+		
+		"\0\s[21]*Take care not to get burned,\w4 %(username).\w8\e"
+		
+		"\0\s[21]*Take care not to get bitten,\w4 %(username).\w8\e"
+	}
+	elseif reference0 == "Eggbeater"
+	{
+		"\0\s[5]*Incoming psychics...\w8\e"
+		
+		"\0\s[2]*Have fun with your mental buddy,\w4 %(username)!\w8\e"
+		
+		"\0\s[6]*Frisk wonders how %(they) might become a psychic thriller like Eggbeater.\w8\e"
+	}
+	elseif reference0 == "Defence"
+	{
+		"\0\s[0]*Frisk wonders what case you'll work on next!\w8\e"
+		
+		"\0\s[0]*Frisk wishes you well on your murder charge!\w8\e"
+		
+		"\0\s[0]*Have fun with the Attorney team!\w8\e"
+		
+		"\0\s[0]*Incoming attorneys...\w8\e"
+	}
+	elseif reference0 == "Moomintroll"
+	{
+		"\0\s[2]*Incoming seasons boys...\w8\e"
+		
+		"\0\s[6]*They love the laughter\w8 \s[2]and they love the living,\w8 \s[5]the Moomins!\w8\e"
+		
+		"\0\s[4]*Frisk wonders if %(they) might be able to pet Moomintroll...\w8\e"
+		
+		"\0\s[2]*Frisk starts humming Snufkin's latest tune to %(them)self.\w8\e"
+	}
+	elseif reference0 == "Cheesecake"
+	{
+		"\0\s[5]*Incoming food!\w8\e"
+		
+		"\0\s[2]*Cheesecake and Ramen are both delicious,\w4 %(username).\w8\e"
+		
+		"\0\s[6]*Frisk is amazed that a Cheesecake could be considered the leader of a whole island.\w8\e"
+	}
+	elseif reference0 == "Mole"
+	{
+		"\0\s[1]*Frisk isn't sure if Mole and Tweek will ever get along with one another.\w8\e"
+		
+		"\0\s[7]*Really?\w8 You're choosing them over Frisk?\w8\e"
+		
+		"\0\s[31]*Frisk isn't fond of the two hunters...\w8\e"
+		
+		"\0\s[0]*Incoming hunter and smoker...\w8\w8\w8 \n\n[half]\s[1]*Wait.\w8\e"
+	}
+	elseif reference0 == "Spiral"
+	{
+		"\0\s[1]*Frisk thinks Spiral jumps to FIGHT a little too quickly...\w8\e"
+		
+		"\0\s[5]*More brothers!\w8 \n\n[half]\s[2]*Have fun with the two non-humans,\w4 %(username)!\w8\e"
+		
+		"\0\s[8]*Frisk appreciates the two non-humans.\w8\e"
+		
+		"\0\s[2]*Incoming Commander and fight child...\w8\e"
+	}
+	elseif reference0 == "Shadow Child"
+	{
+		"\0\s[1]*Incoming shadow children...\w8\e"
+		
+		"\0\s[6]*Are you making your own ghost,\w4 %(username)?\w8\e"
+		
+		"\0\s[2]*It's Vektor,\w4 Vektoria,\w4 and First Child,\w4 %(username)!\w8\e"
+	}
+	elseif reference0 == "Girl"
+	{
+		"\0\s[6]*Making your own ghost,\w4 %(username)?\w8 \s[2]Or do you just enjoy the blank slate?\w8\e"
+		
+		"\0\s[5]*Enjoy your ghost making with Girl and Triangle!\w8\e"
+	}
+	elseif reference0 == "X. Template"
+	{
+		"\0\s[5]*A skeleton template!\w8\e"
+		
+		"\0\s[2]*Are you making your own ghost,\w4 too,\w4 %(username)?\w8\e"
+	}
+	elseif reference0 == "Simplicity Template"
+	{
+		"\0\s[6]*Making another ghost,\w4 %(username)?\w8\e"
+		
+		"\0\s[5]*Frisk wishes you well on your coding ventures!\w8\e"
+	}
+	elseif reference0 == "flele"
+	{
+		"\0\s[2]"
+		"\0\s[8]"
+		"\0\s[5]"
+		--
+		"*Frisk hopes you enjoy your sweet jams.\w8\e"
+	}
+	//elseif reference0 == ""
+	//{
+		//""
+	//}
+ 	else //If you're switching to another Ghost.
+	{
+		"\0\s[2]*Frisk hopes you and %(reference0) enjoy yourselves!\w8\e"
+		
+		"\0\s[5]*Be kind to %(reference0) as well,\w4 %(username)!\w8\e"
+		
+		"\0\s[6]*Could Frisk become friends with %(reference0),\w4 too?\w8\e"
+		
+		"\0\s[7]*Frisk is upset %(they) don't know %(reference0) yet.\w8\e"
+		
+		"\0\s[5]*Say hello to %(reference0) for Frisk!\w8\e"
+		
+		"\0\s[2]*Incoming %(reference0)...\w8\e"
+	}
+}
+
+
+//--OnGhostChanged
+OnGhostChanged
+{
+	"\0\s[0]\1\s[10]"
+	--
+	if reference0 == "Frisk"
+	{
+		"\0\s[5]*Frisk has returned,\w4 as %(they) promised.\w8\e"
+		
+		"\0\s[5]*Surprise!\w8 \n\s[2]*It's Frisk.\w8\e"
+		
+		"\0\s[6]*Boo!\w8 \n\s[5]*Did %(they) scare you?\w8\e"
+		
+		"\0\s[0]*Finished reloading.\w8\e"
+		
+		"\0\s[8]*Frisk has returned.\w8\e"
+	}
+	elseif reference0 == "sans"
+	{
+		"\0\s[]5*Frisk has returned!\w8 \s[2]\n\n[half]*Did you have a fun time with Sans and his puns,\w4 %(username)?\w8\e"
+		
+		"\0\s[6]*Oh!\w8 \n\n[half]\s[2]Hello,\w4 %(username).\w8 \n*Did you enjoy your time with Sans?\w8\e"
+		
+		"\0\s[5]*Frisk doesn't think %(they) could ever grow tired of Sans' puns.\w8\e"
+	}
+	elseif reference0 == "Sans" //UFell Sans btw
+	{
+		"\0\s[2]*Hello,\w4 %(username)!\w8 \n\n[half]*Did you enjoy Sans' company?\w8\e"
+		
+		"\0\s[1]*Frisk wishes %(they) could take a nap with Sans...\w8\e"
+		
+		"\0\s[8]*Frisk is here!\w8 \s[2]\n\n[half]*Was Sans doing well?\w8\e"
+	}
+	elseif reference0 == "UC" //UC Sans
+	{
+		"\0\s[5]*Hello,\w4 %(username)!\w8 \n\n[half]\s[2]*Did you and Sans have fun with all your weird words?\w8\e"
+		
+		"\0\s[1]*Frisk still doesn't quite understand all the words Sans uses...\w8\e"
+		
+		"\0\s[5]*Surprise!\w8 \s[2]\n*It's Frisk.\w8 \s[6]Did you have a fun time chatting with Sans?\w8\e"
+	}
+	elseif reference0 == "Dreamtale Sans"
+	{
+		"\0\s[5]*Hello,\w4 %(username)!\w8 \s[8]\n\n[half]*Frisk has arrived like a sweet dream.\w8\e"
+		
+		"\0\s[2]*Frisk enjoys the sweet dreams Sans has,\w4 too.\w8\e"
+		
+		"\0\s[6]*Frisk wonders what's in Sans' book he's always reading...\w8\e"
+	}
+	elseif reference0 == "MVSans"
+	{
+		"\0\s[5]*%(username),\w4 hello!\w8 \n\n[half]\s[2]*How many multiverses do you suppose Sans has been through?\w8\e"
+		
+		"\0\s[2]*Did you tickle the skeleton?\w8 \n\s[5]*Did you?\w8\e"
+		
+		"\0\s[6]*Frisk wonders how many multiverses one has to go through to be called a multiverse Sans.\w8\e"
+	}
+	elseif reference0 == "Papyrus"
+	{
+		"\0\s[5]*It's Frisk!\w8 \s[2]\n\n[half]*%(Capitalize(they)) hope you had a fun time with Papyrus.\w8\e"
+		
+		"\0\s[5]*From Papyrus to a Frisk!\w8\e"
+		
+		"\0\s[5]*Hello,\w4 %(username).\w8 \s[2]Did you get some famed spaghetti facts?\w8\e"
+	}
+	elseif reference0 == "Jazz"
+	{
+		"\0\s[5]*Surprise!\w8 \s[8]\n*Frisk is here now.\w8 \s[2]\n\n[half]*Did you enjoy your time with Jazz,\w4 %(username)?\w8\e"
+		
+		"\0\s[2]*Frisk hopes you petted yourself a skele friend.\w8\e"
+		
+		"\0\s[7]*Frisk hasn't heard the fun pasta facts yet!\w8\e"
+	}
+	elseif reference0 == "Sn"
+	{
+		"\0\s[5]*Hello,\w4 %(username)!\w8 \s[2]\n\n[half]*Frisk is here to keep you company now.\w8 \n*Did you have fun watching the skeleton brothers chatter?\w8\e"
+		
+		"\0\s[5]\w8\w8\w8*%(Capitalize(theyre)) still laughing at the brothers' bickering.\w8\e"
+		
+		"\0\s[2]*Goodbye,\w4 skeleton brothers.\w8 \s[8]\n*It's Frisk's turn with %(username).\w8\e"
+	}
+	elseif reference0 == "Gaster"
+	{
+		"\0\s[2]*Hello,\w4 %(username).\w8 \s[6]\n\n[half]*Has science finished for the day?\w8\e"
+		
+		"\0\s[1]*Needed to clear the air?\w8 \s[2]\n*Frisk can help with that.\w8\e"
+		
+		"\0\s[1]*Back to his laboratory...\w8 \s[2]\n\n[half]*Hello,\w4 %(username).\w8\e"
+	}
+	elseif reference0 == "f_lowe_y"
+	{
+		"\0\s[1]*Goodbye,\w4 best friend.\w8\e"
+		
+		"\0\s[1]*He has been contained.\w8\e"
+		
+		"\0\s[1]*Goodbye Worst Nightmare.\w8\e"
+	}
+	elseif reference0 == "Toriel"
+	{
+		"\0\s[1]*Toriel is gone\w8 \s[2]and now Frisk is here.\w8\e"
+		
+		"\0\s[2]*Frisk hopes you enjoyed her while she was here,\w4 %(username).\w8\e"
+		
+		"\0\s[5]*Did you save a slice of pie for Frisk?\w8\e"
+	}
+	elseif reference0 == "Mettaton"
+	{
+		"\0\s[5]*Frisk hopes you found Mettaton as fabulous as ever.\w8\e"
+		
+		"\0\s[0]*So long,\w4 Mettaton.\w8 \n\s[8]*Frisk takes centre stage now.\w8\e"
+		
+		"\0\s[8]*The show has shifted to Frisk!\w8\e"
+		
+		"\0\s[6]*Has the new episode of %(mttnetwork[0]) aired yet?\w8\e"
+	}
+	elseif reference0 == "Temmie"
+	{
+		"\0\s[1]*Frisk wishes %(they) could pet the Tems.\w8\e"
+		
+		"\0\s[2]*Frisk hopes you enjoyed Temmie Village as much as %(they) did.\w8\e"
+		
+		"\0\s[2]*bOI,\w4 Temmie.\w8 \s[5]\n\n[half]*hOI,\w4 %(username)!\w8\e"
+	}
+	elseif reference0 == "Pet Rock"
+	{
+		"\0\s[6]*Have you named your Pet Rock?\w8 \n\n[half]\s[2]*Frisk would like to know.\w8\e"
+		
+		"\0\s[5]*Hello,\w4 %(username).\w8 \s[2]How was the Pet Rock?\w8\e"
+		
+		"\0\s[2]*Pet Rock has been sent home for now.\w8 \s[8]\n\n[half]*Now Frisk gets to be the pet rock.\w8\e"
+		
+		"\0\s[2]*Frisk is thinking about sprinkles and how yummy they look...\w8\e"
+		
+		"\0\s[5]*Frisk is thinking about googly eyes and how funny they look...\w8\e"
+	}
+	elseif reference0 == "Ralsei"
+	{
+		"\0\s[0]*Frisk still isn't sure who this polite shadow prince really is.\w8\e"
+		
+		"\0\s[1]*The fluffy boy is no longer...\w8\e"
+		
+		"\0\s[1]*Frisk misses the music of Deltarune already.\w8\e"
+	}
+	elseif reference0 == "SPAMTON!!"
+	{
+		"\0\s[6]*Did you win big,\w4 %(username)?\w8\e"
+		
+		"\0\s[1]*Frisk wonders if Kromer actually tastes any good...\w8\e"
+		
+		"\0\s[5]*Hello,\w4 %(username)!\w8 \s[2]\n\n[half]*Frisk hopes you and Spamton had a fun time together.\w8\e"
+	}
+	elseif reference0 == "Zaiga"
+	{
+		"\0\s[5]*Hello,\w4 %(username)!\w8 \n\n[half]\s[2]*Frisk thinks Zaiga is just neat.\w8\e"
+		
+		"\0\s[2]*Were you successful with Zaiga,\w4 %(username)?\w8\e"
+		
+		"\0\s[2]*Don't worry,\w4 %(username).\w8 Frisk will be your friend.\w8\e"
+	}
+	elseif reference0 == "Azura"
+	{
+		"\0\s[5]*Hiya,\w4 %(username)!\w8 \n\n[half]\s[2]*Frisk hopes you and Azura had some nice conversations.\w8\e"
+		
+		"\0\s[2]*Frisk thinks having a conversation with Azura would be fun.\w8\e"
+		
+		"\0\s[6]*Frisk wnoders if %(they) too will grow wings someday.\w8\e"
+	}
+	elseif reference0 == "RYS-0825" //S the skeleton
+	{
+		"\0\s[5]*Hello,\w4 %(username)!\w8 \n\n[half]\s[2]*Frisk hopes you and S had a good time together.\w8\e"
+		
+		"\0\s[6]*Frisk thinks the recipes you and S came up with together would interest Papyrus and Undyne.\w8\e"
+		
+		"\0\s[5]*Now it's Frisk's turn to tell you about %(their) family!\w8\e"
+	}
+	elseif reference0 == "Dusty"
+	{
+		"\0\s[6]*Frisk wants to learn Wing Dings,\w4 too.\w8\e"
+		
+		"\0\s[5]*Surprise!\w8 \n\n[half]\s[8]*It's Frisk's turn to be the cute cat.\w8\e"
+		
+		"\0\s[1]*Goodbye,\w4 Obsidian.\w8 \s[0]\n*Frisk will hold you one day.\w8\e"
+	}
+	elseif reference0 == "Noteworthy"
+	{
+		"\0\s[1]*Goodbye,\w4 Rocky and Noteworthy.\w8 \n\n[half]\s[2]*And hello to you,\w4 %(username).\w8\e"
+		
+		"\0\s[2]*Frisk hopes to see Rocky and Noteworthy again sometime.\w8\e"
+		
+		"\0\s[2]*Hello,\w4 %(username).\w8 \n\n[half]\s[5]*Did you give Rocky and Noteworthy lots of pets?\w8\e"
+	}
+	elseif reference0 == "Hunter and Smoker Beta"
+	{
+		"\0\s[5]\w8\w8\w8*It seems Frisk is still laughing at Hunter and Smoker's dynamic.\w8\e"
+		
+		"\0\s[2]*Frisk would like to try chatting through a walkie-talkie as well,\w4 it seems.\w8\e"
+		
+		"\0\s[5]*Frisk thinks Hunter's cat ears are adorable,\w4 too,\w4 %(username).\w8\e"
+		
+		"\0\s[5]*Frisk thinks Smoker's cooking would be nice to try,\w4 too,\w4 %(username).\w8\e"
+		
+		"\0\s[2]*Hello,\w4 %(username).\w8 \n\n[half]*Were the Hunter and Smoker enjoyable company?\w8\e"
+	}
+	elseif reference0 == "Jockey"
+	{
+		"\0\s[5]*Frisk wants to sing along with Jocky,\w4 too.\w8\e"
+		
+		"\0\s[5]*Hiya,\w4 %(username)!\w8 \n\n[half]\s[2]*Did you have fun singing with Jocky?\w8\e"
+		
+		"\0\s[6]*Frisk thinks Jocky would be fun to frolic with.\w8\e"
+	}
+	//elseif reference0 == "Juan & Sha"
+	elseif reference0 == "Radic"
+	{
+		"\0\s[5]*Hello,\w4 %(username)!\w8 \n\n[half]\s[2]*Did you have a fun time with Radic and Farnsworth?\w8\e"
+		
+		"\0\s[2]*Frisk would like to know what type of Pokemon team you would have,\w4 %(username).\w8\e"
+		
+		"\0\s[6]*Frisk wonders how pettable Radic is.\w8\e"
+	}
+	elseif reference0 == "Hop"
+	{
+		"\0\s[2]*Hello,\w4 %(username).\w8 \n\n[half]*Did you learn some fun new facts from Hop?\w8\e"
+		
+		"\0\s[5]*Frisk wants to hear more facts from Hop,\w4 too!\w8\e"
+		
+		"\0\s[6]*Frisk is intrigued by how much Hop knows.\w8\e"
+	}
+	elseif reference0 == "No.258" //Mudkip!!
+	{
+		"\0\s[5]*Frisk hopes you found the Mudkip as cute as %(they) do.\w8\e"
+		
+		"\0\s[6]*Oh?\w8 \s[2]Hello,\w4 %(username).\w8 \n\n[half]\s[1]*Frisk is sad to see the Mudkip go.\w8\e"
+		
+		"\0\s[8]*It's Frisk's turn to be the cute Mudkip now.\w8\e"
+	}
+	elseif reference0 == "steve"
+	{
+		"\0\s[5]*Hello,\w4 %(username)!\w8 \n\n[half]\s[2]*How were Steve and Sam today?\w8\e"
+		
+		"\0\s[6]*Frisk wants to hear more about Sam and Steve's world.\w8\e"
+		
+		"\0\s[2]*Frisk appreciates the two lowercase kids,\w4 too.\w8\e"
+	}
+	elseif reference0 == "Prince Erik"
+	{
+		"\0\s[5]*Did you give the wolf and vampire lots of pets,\w4 %(username)?\w8\e"
+		
+		"\0\s[5]*Hello,\w4 %(username)!\w8 \n\n[half]\s[2]*Did you have a fun time with the Prince and the wolf?\w8\e"
+		
+		"\0\s[6]*Oh!\w8 \s[2]Hello,\w4 %(username).\w8 \n\n[half]*Thank you for SPAREing the vampire and wolf duo.\w8\e"
+	}
+	elseif reference0 == "Riccardo"
+	{
+		"\0\s[1]*Frisk worries about Riccardo,\w4 too.\w8\e"
+		
+		"\0\s[2]*Hello,\w4 %(username).\w8 \n\n[half]\s[21]*Frisk hopes you were kind to Riccardo.\w8\e"
+		
+		"\0\s[2]*Frisk wonders how %(they) might make friends with Riccardo,\w4 too.\w8\e"
+	}
+	elseif reference0 == "Pasha"
+	{
+		"\0\s[5]*Hello,\w4 %(username)!\w8 \n\n[half]\s[2]*How were Pasha and Misha today?\w8\e"
+		
+		"\0\s[2]*Frisk thinks having a creepy mode like Pasha and Misha would be fun.\w8\e"
+		
+		"\0\s[5]*Frisk hopes you and Pasha and Misha had some fun conversations.\w8\e"
+	}
+	elseif reference0 == "Gel"
+	{
+		"\0\s[5]*Hiya,\w4 %(username)!\w8 \n\n[half]\s[2]*Did you enjoy your time with Gel?\w8\e"
+		
+		"\0\s[2]*Frisk wonders if Gel would be open to pets from another human.\w8\e"
+		
+		"\0\s[6]*Oh!\w8 \s[5]It's %(username)!\w8 \n\n[half]\s[8]*Frisk hopes you think %(theyre) just as cute as Gel.\w8\e"
+	}
+	elseif reference0 == "Zim"
+	{
+		"\0\s[6]*Oh!\w8 \s[5]%(username)!\w8 \n\n[half]\s[2]*How were Zim and GIR today?\w8\e"
+		
+		"\0\s[5]*Frisk hopes you gave GIR lots of pets.\w8\e"
+		
+		"\0\s[0]*Frisk wonders if Zim would be adverse to pets from another human...\w8\e"
+	}
+	elseif reference0 == "Wheatley"
+	{
+		"\0\s[5]*Hello,\w4 %(username)!\w8 \n\n[half]\s[2]*Did the Aperture Science bot teach you many things today?\w8\e"
+		
+		"\0\s[7]*Frisk wanted to give Wheatley pets,\w4 too.\w8\e"
+		
+		"\0\s[5]*Frisk thinks Wheatley is funny,\w4 too.\w8\e"
+	}
+	elseif reference0 == "Wilson"
+	{
+		"\0\s[5]*Hello,\w4 %(username)!\w8 \n\n[half]\s[21]*Did you help Wilson to not starve?\w8\e"
+		
+		"\0\s[6]*What type of scientist is Wilson,\w4 anyway?\w8 \n\s[2]*You should tell Frisk all about it.\w8\e"
+		
+		"\0\s[2]*Frisk thinks Alphys and Wilson would enjoy talking to one another.\w8\e"
+	}
+	elseif reference0 == "Snake"
+	{
+		"\0\s[5]*Hello,\w4 %(username)!\w8 \n\n[half]\s[2]*Did you enjoy your time with Snake and Otacon?\w8\e"
+		
+		"\0\s[6]*Frisk wonders how much Otacon knows about Undertale...\w8\e"
+		
+		"\0\s[5]*Frisk thinks the top secret military assassin and his nerd buddy are funny.\w8\e"
+	}
+	elseif reference0 == "Guard" //Skyrim
+	{
+		"\0\s[5]*Hello,\w4 %(username)!\w8 \n\n[half]\s[2]*Frisk hopes you and the Skyrim Guard were successful in your quests.\w8\e"
+		
+		"\0\s[2]*Frisk wonders how long it might take to SPARE every Monster living in Skyrim Guard's world.\w8\e"
+		
+		"\0\s[6]*So what were you guarding,\w4 %(username)?\w8 \n\s[2]*You can tell Frisk.\w8 \s[8]%(Capitalize(they)) can keep a secret.\w8\e"
+	}
+	elseif reference0 == "Jester"
+	{
+		"\0\s[5]*Hiya,\w4 %(username)!\w8 \n\n[half]\s[2]*Did you and Jester have a nice time together?\w8\e"
+		
+		"\0\s[5]*Frisk would like the chance to pet Jester sometime,\w4 too.\w8\e"
+		
+		"\0\s[6]*Frisk is intrigued by all the adventures Jester has been on.\w8\e"
+	}
+	elseif reference0 == "Aziraphale"
+	{
+		"\0\s[5]*Frisk thinks that Aziraphale and Crowley are adorable together,\w4 too.\w8\e"
+		
+		"\0\s[5]*Hello,\w4 %(username)!\w8 \s[2]\n\n[half]*Did you have fun with Aziraphale and Crowley?\w8\e"
+		
+		"\0\s[6]*Frisk wonders what Aziraphale and Crowley would look like with wings.\w8\e"
+	}
+	elseif reference0 == "Zacharie"
+	{
+		"\0\s[5]*Frisk hopes you gave Zarcharie and the Judge lots of pets.\w8\e"
+		
+		"\0\s[6]*So?\w8 So?\w8 \n\n[half]\s[2]*What did you buy,\w4 %(username)?\w8\e"
+		
+		"\0\s[5]*Hello,\w4 %(username)!\w8 \n\n[half]\s[2]*Did you enjoy your time perusing Zacharie's shop?\w8\e"
+		
+		"\0\s[0]*Frisk wonders what the colour of credits actually is...\w8\e"
+	}
+	elseif reference0 == "Elsen"
+	{
+		"\0\s[21]*Frisk hopes you showed as much kindness to Elsen as you do to %(them),\w4 %(username).\w8\e"
+		
+		"\0\s[2]*Hello,\w4 %(username).\w8 \n\n[half]\s[21]*Frisk is worried about Elsen,\w4 too...\w8\e"
+		
+		"\0\s[21]*Frisk hopes you SPAREd Elsen like you would the Monsters of the Underground,\w4 %(username).\w8\e"
+	}
+	elseif reference0 == "Cat" || reference0 == "Neko." || reference0 == "—­‚ß”L" //english cat, translated cat, third cat...??
+	{
+		"\0\s[5]*Frisk hopes you gave the cat many pets.\w8\e"
+		
+		"\0\s[7]*Frisk seems upset about missing cat time...\w8\e"
+		
+		"\0\s[5]*Hello,\w4 %(username)!\w8 \n\n[half]\s[2]*Frisk hopes you enjoyed your time with your cat buddy.\w8\e"
+	}
+	elseif reference0 == "Warrior" //Warrior Cats generator
+	{
+		"\0\s[5]*Hello,\w4 %(username)!\w8 \s[2]\n\n[half]*Did you have fun designing a cute cat?\w8\e"
+		
+		"\0\s[5]*Frisk can't wait to hear about the cat you designed,\w4 %(username).\w8\e"
+		
+		"\0\s[6]*Frisk would be interested in hearing about your Warrior Cat,\w4 %(username).\w8\e"
+	}
+	elseif reference0 == "Sam"
+	{
+		"\0\s[6]*Did you get an answer on whether or not Frisk could pet Sam and Max?\w8 \n\s[2]*Let Frisk know.\w8\e"
+		
+		"\0\s[5]*Did you get some good detective work done with Sam and Max on the case,\w4 %(username)?\w8\e"
+		
+		"\0\s[5]*Hello,\w4 %(username)!\w8 \n\n[half]\s[2]*Frisk hopes you and Sam and Max were able to have fun in your investigation.\w8\e"
+	}
+	elseif reference0 == "Ichimatsu"
+	{
+		"\0\s[6]*Oh!\w8 \s[2]It's %(username).\w8 \n\n[half]*Frisk hopes you enjoyed your time with Ichimatsu and his brothers.\w8\e"
+		
+		"\0\s[5]*Frisk wants seven siblings as well,\w4 it seems...\w8\e"
+		
+		"\0\s[1]*Frisk hopes Ichimatsu enjoyed your company as much as %(they) do...\w8\e"
+	}
+	//elseif reference0 == "Gaignun"
+	elseif reference0 == "Hydrate"
+	{
+		"\0\s[8]*Even though you've switched to Frisk,\w4 \s[2]%(they) ask you to stay hydrated,\w4 %(username).\w8\e"
+		
+		"\0\s[5]*Frisk wants to take a sip from Hydrate,\w4 too\w4 it seems...\w8\e"
+		
+		"\0\s[2]*Hello,\w4 %(username).\w8 \n\n[half]*Make sure to stay hydrated while Frisk keeps you company.\w8\e"
+	}
+	elseif reference0 == "CheeryBot"
+	{
+		"\0\s[5]*Hello,\w4 %(username)!\w8 \s[8]\n\n[half]*Frisk is ready to take over for CheeryBot and cheer you on.\w8\e"
+		
+		"\0\s[5]*Surprise!\w8 \s[4]\n*It's Frisk.\w8 \n\n[half]\s[8]*%(Capitalize(they))'ll be just as cheery as CheeryBot for you.\w8\e"
+		
+		"\0\s[2]*Remember to keep caring for yourself,\w4 %(username).\w8 \n*Self care is very important.\w8\e"
+	}
+	elseif reference0 == "MiniDev"
+	{
+		"\0\s[5]*Hello,\w4 %(username)!\w8 \n\n[half]\s[2]*Frisk hopes you and MiniDev got some good work done together.\w8\e"
+		
+		"\0\s[6]*Frisk wants to know what outfit you had MiniDev dressed in.\w8\e"
+		
+		"\0\s[2]\w8\w8\w8\s[4]*Looks like Frisk is thinking about how comfy MiniDev's outfit looks.\w8\e"
+	}
+	//elseif reference0 == "statusBOT"
+	elseif reference0 == "Yes Man"
+	{
+		"\0\s[5]*Hello,\w4 %(username)!\w8 \s[2]\n\n[half]*Frisk hopes you enjoyed your time chatting with Edd-E and the Yes Man.\w8\e"
+		
+		"\0\s[0]*Frisk wonders if Mettaton or Alphys might be interested in meeting the Yes Man and Edd-E...\w8\e"
+		
+		"\0\s[2]*Frisk is glad to see you again after your time with Yes Man and Edd-E.\w8\e"
+	}
+	elseif reference0 == "P.A.I.G.E."
+	{
+		"\0\s[6]Oh!\w8 \s[5]It's %(username)!\w8 \s[2]\n\n[half]*Did you enjoy your time with P.A.I.G.E.?\w8\e"
+		
+		"\0\s[2]*Frisk wonders if Alphys and P.A.I.G.E. would get along...\w8\e"
+		
+		"\0\s[4]*Frisk is flattered to see you again after your time with P.A.I.G.E.,\w4 %(username).\w8\e"
+	}
+	elseif reference0 == "Aurora.EXE"
+	{
+		"\0\s[8]*Surprise!\w8 \s[5]It's Frisk.\w8 \n\n[half]\s[2]*Did you enjoy your time with Aurora,\w4 %(username)?\w8\e"
+		
+		"\0\s[6]*Frisk wonders if Mettaton and Aurora might get along...\w8\e"
+		
+		"\0\s[2]*Frisk is here again.\w8 \n\n[half]*%(Capitalize(they)) hope you treated Aurora with kindness.\w8\e"
+	}
+	elseif reference0 == "Dusk"
+	{
+		"\0\s[6]*Frisk hopes to sing with Dusk and Dawn one day,\w4 too.\w8\s[2]\e"
+		
+		"\0\s[4]*Frisk wishes to one day also pet Dusk and Dawn.\w8\e"
+		
+		"\0\s[5]*Hello,\w4 %(username)!\w8 \s[8]\n\n[half]*It's Frisk's turn to serenade from dusk 'til dawn.\w8\e"
+	}
+	elseif reference0 == "Spar"
+	{
+		"\0\s[0]*Frisk wonders how to flirt with Sparx.\w8\e"
+		
+		"\0\s[1]*Chaos has been contained.\w8 \s[21]\n\n[half]*Hello,\w4 %(username).\w8\e"
+		
+		"\0\s[2]*Hello,\w4 %(username).\w8 \s[21]\n\n[half]*How was your time with Sparx?\w8\e"
+	}
+	elseif reference0 == "Pinkie Pie"
+	{
+		"\0\s[5]*Hello,\w4 %(username)!\w8 \s[2]\n\n[half]*Did you have some fun parties with Pinkie Pie?\w8\e"
+		
+		"\0\s[5]*The Rainboom has flown away.\w8 \s[8]\n\n[half]*Frisk will just have to take its place.\w8\e"
+		
+		"\0\s[7]*Frisk wanted to attend a party with the ponies,\w4 too...\w8\e"
+	}
+	elseif reference0 == "Danbooru-chan"
+	{
+		"\0\s[7]\w8\w8*It seems Frisk is as upset as a child who isn't tall enough to ride %(their) favourite roller coaster.\w8 \n\n[half]*Except replace 'roller coaster' with 'cardboard face cutout'.\w8\e"
+		
+		"\0\s[5]*Frisk is still giggling at all of Danbooru-chan's thoughts.\w8\e"
+		
+		"\0\s[5]*Did you have fun with Danbooru-chan,\w4 %(username)?\w8\e"
+	}
+	elseif reference0 == "Narrator"
+	{
+		"\0\s[0]*Smells like story progression.\w8\e"
+		
+		"\0\s[0]*The end is never the end,\w4 %(username).\w8\e"
+		
+		"\0\s[8]*Now it's Frisk's turn to weave a tale for %(username).\w8\e"
+	}
+	elseif reference0 == "Bugsnax"
+	{
+		"\0\s[5]*Frisk bids a fond farewell to the bug snack friends.\w8 \n\n[half]\s[2]*Hopefully,\w4 %(theyre) a fun substitute.\w8\e"
+		
+		"\0\s[21]*Though Frisk is happy to see you again,\w4 %(username),\w4 %(theyre) as equally sad to see the bug snack friend go.\w8\e"
+	}
+	elseif reference0 == "Angel"
+	{
+		"\0\s[2]*Frisk hopes you learned a thing or two about SSP from Angel and Pilot!\w8\e"
+		
+		"\0\s[2]*Smells like an SSP tutorial.\w8 \s[5]And feathers.\w8\e"
+	}
+	elseif reference0 == "Leonardo"
+	{
+		"\0\s[21]*Smells like futuristic pizza.\w8\e"
+		
+		"\0\s[2]*Frisk hopes you gave Leonardo a nice place to rest for a while.\w8\e"
+	}
+	elseif reference0 == "Aine"
+	{
+		"\0\s[1]*Royalty have so many hard decisions to make,\w4 huh?\w8\e"
+		
+		"\0\s[21]*Frisk hopes Aine's kingdom will do well with your input,\w4 %(username).\w8\e"
+		
+		"\0\s[6]*Frisk wonders what sorts of ACTIONS exist in Aine's realm.\w8\e"
+	}
+	elseif reference0 == "Snail"
+	{
+		"\0\s[7]*Frisk wants a bunch of cute dressup items,\w4 too.\w8\e"
+		
+		"\0\s[4]*Frisk seems pleased with the cute outfit you gave Snail.\w8\e"
+		
+		"\0\s[5]*Frisk is excited to hear some good snail facts from you,\w4 %(username).\w8\e"
+	}
+	elseif reference0 == "Iea"
+	{
+		"\0\s[6]*Did you get to pet Iea?\w8 \s[21]How are they doing?\w8\e"
+		
+		"\0\s[21]*Frisk hopes Iea's story is going well.\w8\e"
+		
+		"\0\s[1]*You'll make sure to SPARE Iea,\w4 too,\w4 won't you,\w4 %(username)?\w8\e"
+	}
+	elseif reference0 == "Radio Sakura"
+	{
+		"\0\s[6]*The strange radio waves have ended.\w8 \s[5]\n\n[half]*Hello,\w4 %(username)!\w8\e"
+		
+		"\0\s[21]*No more strange noises.\w8 \s[6]\n\n[half]*Do you understand what it's saying,\w4 %(username)?\w8\e"
+		
+		"\0\s[6]*Frisk seems bewildered by the radio's strange soundwaves...\w8\e"
+	}
+	elseif reference0 == "Dante" //Hendrix
+	{
+		"\0\s[5]*Hello,\w4 %(username)!\w8 \s[2]\n\n[half]*Frisk hopes you and Dante had a fun time together.\w8\e"
+		
+		"\0\s[5]*Frisk seems interested in knowing that %(they) might be able to pet Dante,\w4 too...\w8\e"
+		
+		"\0\s[2]*Frisk wonders if Papyrus or Sans might like a cool shirt like Dante's.\w8\e"
+	}
+	//elseif reference0 == "Bowie"
+	elseif reference0 == "Sebastian"
+	{
+		"\0\s[8]*Step aside,\w4 Sebastian.\w8 Frisk is the sharpest shooter on %(username)'s desktop now.\w8\e"
+		
+		"\0\s[1]*No more cowboys or demons.\w8 \s[8]\n\n[half]*Frisk gets the be the cutie on %(username)'s desktop now.\w8\e"
+	}
+	elseif reference0 == "Tadora"
+	{
+		"\0\s[8]*Frisk gets to be %(username)'s desktop cat now.\w8\e"
+		
+		"\0\s[5]*Frisk eagerly awaits whether or not you gave Tadora a pet for %(them).\w8\e"
+	}
+	elseif reference0 == "Squish"
+	{
+		"\0\s[21]*Did the squish help out,\w4 %(username)?\w8\e"
+		
+		"\0\s[8]*It's Frisk's turn to get poked by %(username).\w8\e"
+		
+		"\0\s[21]*Smells like stress relief.\w8\e"
+	}
+	elseif reference0 == "Squid"
+	{
+		"\0\s[1]*Frisk seems confused by how fast Squid talks.\w8\e"
+		
+		"\0\s[2]*Smells like cosmic squid.\w8\e"
+		
+		"\0\s[6]*Frisk wonders how %(they) might go about SPAREing Squid.\w8\e"
+	}
+	elseif reference0 == "one-seven-z" //Pet blob
+	{
+		"\0\s[5]*Smells like shadows and fur.\w8\e"
+		
+		"\0\s[6]*Frisk wants to know what it feels like to pet the blobs.\w8\e"
+	}
+	elseif reference0 == "Trustbreaker Moth"
+	{
+		"\0\s[1]*Smells like pollen and trust.\w8\e"
+		
+		"\0\s[1]*Frisk hopes you didn't break your promises to the moth.\w8\e"
+	}
+	elseif reference0 == "Nox" //red dragon friend
+	{
+		"\0\s[2]*Smells like pretty animations.\w8\e"
+		
+		"\0\s[5]*Frisk hopes you'll tell %(them) what petting Nox was like.\w8\e"
+	}
+	elseif reference0 == "Kade" //Skeleton friend
+	{
+		"\0\s[6]*Smells like another bone friend.\w8\e"
+		
+		"\0\s[1]*So long,\w4 Kade.\w8 \n\n[half]\s[8]*Frisk gets to be the cute skeleton friend on %(username)'s desktop now.\w8\e"
+	}
+	elseif reference0 == "Микола" //Russian Janitor
+	{
+		"\0\s[21]*Smells like tidying up.\w8\e"
+		
+		"\0\s[2]*Frisk hopes you appreciate all the work the janitor has done.\w8\e"
+	}
+	elseif reference0 == "Tea Tavern"
+	{
+		"\0\s[6]*Did you blend some interesting teas?\w8 \s[5]Perhaps you could share the recipes with Asgore.\w8\e"
+		
+		"\0\s[2]*A nice cup of tea sounds good right about now.\w8\e"
+		
+		"\0\s[5]*Smells like warm tea and friendship.\w8\e"
+	}
+	elseif reference0 == "Crewmate" //Among Us bean
+	{
+		"\0\s[6]*Smells like suspicious behaviour...\w8\e"
+		
+		"\0\s[2]*Frisk hopes you weren't found out to be the imposter,\w4 %(username).\w8\e"
+	}
+	elseif reference0 == "Boyfriend and Girlfriend" //Friday Night Funkin
+	{
+		"\0\s[5]*Smells like it's Friday night!\w8 \n\n[half]\s[2]*Unless it isn't.\w8\e"
+		
+		"\0\s[5]*Beeeep!\w8 \n\n[half]\s[8]*Frisk hopes you enjoyed %(their) impression of Boyfriend.\w8\e"
+	}
+	elseif reference0 == "Gretchen" //Madoka Witch Runes
+	{
+		"\0\s[2]*Smells like witchcraft.\w8\e"
+		
+		"\0\s[6]*Frisk is impressed you're learning a whole new alphabet.\w8\e"
+	}
+	elseif reference0 == "Tartaglia" //Genshin Impact
+	{
+		"\0\s[21]*Smells like the true open world experience.\w8\e"
+		
+		"\0\s[6]*Frisk is intrigued to hear about the type of world Tartaglia is from.\w8\e"
+	}
+	elseif reference0 == "Анемони" //Anemone
+	{
+		"\0\s[2]*Smells like sick guitar riffs.\w8\e"
+		
+		"\0\s[5]*Frisk hopes to hear one of Анемони's songs someday.\w8\e"
+	}
+	//elseif reference0 == "Джихэй" //Jihae and Pavel
+	elseif reference0 == "Balloons"
+	{
+		"\0\s[21]*Frisk hopes you won't pop %(their) face,\w4 too.\w8\e"
+		
+		"\0\s[21]*Smells like latex and helium.\w8\e"
+	}
+	elseif reference0 == "Needle"
+	{
+		"\0\s[5]*Smells like pestering.\w8\e"
+		
+		"\0\s[7]*Frisk seems upset at the loss of a chance to engage Needle in a FIGHT.\w8\e"
+		
+		"\0\s[4]*Frisk is flattered you chose %(them) after %(their) good friend Needle.\w8\e"
+	}
+	elseif reference0 == "Paper"
+	{
+		"\0\s[5]*Smells like minigames.\w8\e"
+		
+		"\0\s[6]*It seems Frisk is still puzzling over your last game with Paper.\w8\e"
+		
+		"\0\s[4]*The true master of minigames is here.\w8 \n\n[half]*Oh,\w8 \s[6]sorry.\w8 \s[7]Paper has already been switched for Frisk.\w8\e"
+	}
+	elseif reference0 == "Fuminori"
+	{
+		"\0\s[21]*Smells like term papers and vocabulary.\w8\e"
+		
+		"\0\s[1]*'さようなら' Fuminori and Tsukasa.\w8 \s[8]\n\n[half]*It's Frisk's turn to study with %(username).\w8\e"
+		
+		"\0\s[2]*Frisk hopes you got some good studying in with Fuminori and Tsukasa.\w8\e"
+	}
+	elseif reference0 == "Tekame"
+	{
+		"\0\s[2]*Smells like ghost turtle.\w8\e"
+		
+		"\0\s[8]*Now Frisk gets to be the cute world turtle for %(username).\w8\e"
+	}
+	elseif reference0 == "Rabite"
+	{
+		"\0\s[1]*No more cute Rabite buddy...\w8 \s[2]\n\n[half]*Frisk is here instead,\w8\e"
+		
+		"\0\s[2]*Smells like 1 EXP and 2 GP.\w8\e"
+		
+		"\0\s[5]*Frisk wants to bite like a Rabite one day.\w8\e"
+	}
+	elseif reference0 == "Terror Fanger"
+	{
+		"\0\s[8]*Frisk can be a tiny terror,\w4 too,\w4 %(username).\w8\e"
+		
+		"\0\s[5]*From a duo of tiny terrors\w8 \s[8]to a single terror.\w8\e"
+	}
+	elseif reference0 == "Arthur" //a Doctor!
+	{
+		"\0\s[1]*Smells like clinical antiseptic.\w8\e"
+		
+		"\0\s[6]*Did you get a clean bill of health,\w4 %(username)?\w8\e"
+	}
+	elseif reference0 == "The Assistant"
+	{
+		"\0\s[21]*Frisk hopes you left the assistant with a clean bill of health.\w8\e"
+		
+		"\0\s[2]*Now it's Frisk's turn to be the cute assistant to %(username).\w8\e"
+	}
+	elseif reference0 == "Mantle" //Earthquake Duo
+	{
+		"\0\s[2]*Smells like emergency prep and robots.\w8\e"
+		
+		"\0\s[6]*Frisk wonders if petting Mantle's face would produce the same static as a TV.\w8\e"
+	}
+	elseif reference0 == "Hornet"
+	{
+		"\0\s[2]*Smells like a trio of bugs.\w8\e"
+		
+		"\0\s[6]*What do bugs talk about amongst themselves,\w4 anyway?\w8 \s[2]\n\n[half]*Will you tell Frisk about it?\w8\e"
+	}
+	elseif reference0 == "Heather"
+	{
+		"\0\s[5]*Frisk hopes you'll show off yours and Heather's drawings for %(them).\w8\e"
+		
+		"\0\s[2]*Smells like worn crayons and pencil shavings.\w8\e"
+	}
+	elseif reference0 == "Nai" //animal orb friend!
+	{
+		"\0\s[5]*Smells like ORB.\w8\e"
+		
+		"\0\s[6]*Frisk wonders if Nai enjoys bouncing or pets more.\w8\e"
+	}
+	elseif reference0 == "Sackboy"
+	{
+		"\0\s[2]*Smells like stickers and achievement.\w8\e"
+		
+		"\0\s[8]*Now Frisk gets to be the cute sack child.\w8\e"
+		
+		"\0\s[5]*Frisk thinks it might be nice to sit beside Sackboy and kick %(their) feet,\w4 too.\w8\e"
+	}
+	elseif reference0 == "Snoopy"
+	{
+		"\0\s[2]*Smells like daydreams and chickenscratch.\w8\e"
+		
+		"\0\s[6]*Frisk wants to sing with Snoopy and Woodstock,\w4 too.\w8\e"
+		
+		"\0\s[5]*Did you get to see the Red Baron while playing with Snoopy?\w8\e"
+	}
+	elseif reference0 == "Feesh"
+	{
+		"\0\s[21]*Smells like fish feet.\w8\e"
+		
+		"\0\s[5]*Frisk is still giggling at Feesh's jokes.\w8\e"
+		
+		"\0\s[1]*No more bubbles.\w8 \s[8]*Frisk will have to make you some,\w4 instead.\w8\e"
+	}
+	elseif reference0 == "Legacy"
+	{
+		"\0\s[6]*Smells like one regal dragon.\w8\e"
+		
+		"\0\s[6]*So?\w8 So?\w8\w8\w8 \s[5]\n\n[half]*Did you get a chance to pet Legacy?\w8\e"
+	}
+	elseif reference0 == "OurOwl"
+	{
+		"\0\s[2]*Smells like unknowable shapeshifting.\w8\e"
+		
+		"\0\s[6]*Frisk wants to change %(their) shape,\w4 too.\w8\e"
+	}
+	elseif reference0 == "Aaron" //lava animal!
+	{
+		"\0\s[21]*Frisk may not be as rude as Aaron,\w4 \s[8]but %(they) can still keep you company.\w8\e"
+		
+		"\0\s[6]*Smells like bad manners and heat.\w8\e"
+	}
+	elseif reference0 == "Vending Machine"
+	{
+		"\0\s[5]*Smells like otherworldly snacks.\w8\e"
+		
+		"\0\s[6]*Did you get Frisk something?\w8 \s[2]Or was it a snack for yourself?\w8\e"
+	}
+	elseif reference0 == "Shadow"
+	{
+		"\0\s[21]*Frisk hopes Shadow doesn't mind too much sharing you with %(them).\w8\e"
+		
+		"\0\s[2]*Smells like rocket shoes and spines.\w8\e"
+	}
+	elseif reference0 == "Crono" //CT Crew
+	{
+		"\0\s[6]*Smells like time distortions.\w8\e"
+		
+		"\0\s[2]*Frisk hopes you enjoyed the crew of the Epoch.\w8\e"
+		
+		"\0\s[5]*Frisk hopes you'll share some stories with %(them) about the Epoch crew.\w8\e"
+	}
+	elseif reference0 == "Herlock Sholmes"
+	{
+		"\0\s[5]*Was your time with Herlock insightful,\w4 %(username)?\w8\e"
+		
+		"\0\s[4]*Frisk is still giggling at all of Herlock's wild deductions.\w8\e"
+		
+		"\0\s[0]*From London's greatest consulting detective\w8 \s[8]to little ol' Frisk.\w8\e"
+	}
+	elseif reference0 == "Emily"
+	{
+		"\0\s[0]*'さようなら',\w4 Emily.\w8 \s[2]And 'Hello' to you,\w4 %(username)!\w8\e"
+		
+		"\0\s[2]*Frisk is impressed that you know Japanese.\w8\e"
+	}
+	elseif reference0 == "Fairune Duo"
+	{
+		"\0\s[6]*Frisk wonders if the Ancient Codex has a record of the Human and Monster war.\w8\e"
+		
+		"\0\s[7]*One day,\w4 Frisk will flirt with Hope Girl.\w8\e"
+		
+		"\0\s[5]*Hello,\w4 %(username)!\w8 \s[2]How were the Fairune ambassadors?\w8\e"
+	}
+	elseif reference0 == "Inferno"
+	{
+		"\0\s[1]*Frisk hopes the Inferno and the Wolf will be okay.\w8\e"
+		
+		"\0\s[0]*Goodbye,\w4 Inferno.\w8 \s[21]No burns for %(username) today.\w8\e"
+		
+		"\0\s[0]So long,\w4 Wolf.\w8 \s[21]You won't bite %(username) today.\w8\e"
+		
+		"\0\s[1]\w8\w8\w8*It appears as if Frisk is concerned for Inferno and Wolf's well-being.\w8\e"
+	}
+	elseif reference0 == "Eggbeater"
+	{
+		"\0\s[2]*Frisk hopes you and Eggbeater had fun diving through your mind files.\w8\e"
+		
+		"\0\s[6]\w8\w8\w8\s[2]*Frisk seems intrigued at Eggbeater's psychic capabilities.\w8\e"
+		
+		"\0\s[5]*Now it's Frisk's turn to share in %(username)'s mind.\w8\e"
+	}
+	elseif reference0 == "Moomintroll"
+	{
+		"\0\s[8]*It's the season of Frisk now.\w8\e"
+		
+		"\0\s[2]*Frisk hopes Snufkin and Moomintroll are off on another fun adventure together.\w8\e"
+		
+		"\0\s[21]*Frisk wishes the seasons boys well on their way\w8 \s[5]and says 'hello' to you,\w4 %(username).\w8\e"
+	}
+	elseif reference0 == "Cheesecake"
+	{
+		"\0\s[21]*No more Cheesecake and Ramen.\w8 \s[5]\n\n[half]*Now Frisk is the delicious treat!\w8\e"
+		
+		"\0\s[8]*Frisk flirts with the two foods as they disappear into your files.\w8 \n\n[half]*...\w8\w8 \n\n[half]\s[1]*They're too long gone to notice.\w8\e"
+		
+		"\0\s[5]*Hello,\w4 %(username)!\w8 \s[2]Did you enjoy your food time?\w8\e"
+	}
+	elseif reference0 == "Mole"
+	{
+		"\0\s[0]Goodbye,\w4 hunters.\w8 \s[2]\n\n[half]*And hello to you,\w4 %(username).\w8\e"
+		
+		"\0\s[0]*Frisk may not be a monster or a hunter of monsters,\w4 \s[8]but %(they) can provide you company just the same.\w8\e"
+		
+		"\0\s[1]*Frisk hopes you were able to provide some peace to the two hunters,\w4 %(username).\w8\e"
+	}
+	elseif reference0 == "Spiral"
+	{
+		"\0\s[2]*Frisk hopes you enjoyed the company of the non-human brothers.\w8\e"
+		
+		"\0\s[5]*Frisk thinks Spiral would be fun to pet.\w8\e"
+		
+		"\0\s[2]*Did you pet Tenom for Frisk?\w8 \s[5]%(Capitalize(they)) sure hope you did.\w8\e"
+		
+		"\0\s[0]*A wolf, a dog, and a fish...\w8\w8 \s[2]\n\n[half]*Add some skeletons and that's Frisk's friend group!\w8\e"
+	}
+	elseif reference0 == "Defence"
+	{
+		"\0\s[2]*Hello!\w8 \s[0]\n*Frisk hopes your trial went well.\w8\e"
+		
+		"\0\s[0]*Frisk pleads guilty to all charges.\w8 \s[1]\w8\w8\n\s[21]*%(Capitalize(they)) mean not guilty.\w8 \s[0]\e"
+		
+		"\0\s[2]*Frisk hopes you had a fun time with the Attorney trio.\w8\e"
+		
+		"\0\s[2]*Frisk wishes to pull off an 'Objection' as good as these attorneys someday.\w8\e"
+	}
+	elseif reference0 == "Shadow Child"
+	{
+		"\0\s[1]*Frisk wonders what sort of program the Shadow Child truly is.\w8\e"
+		
+		"\0\s[2]*Did you make much progress with the shadow children?\w8\e"
+		
+		"\0\s[21]*Even if they're supposed to be just a template,\w4 Frisk thinks it might be nice to befriend the shadow children.\w8\e"
+	}
+	elseif reference0 == "Girl"
+	{
+		"\0\s[6]*Did you enjoy your time with the blank slate?\w8\e"
+		
+		"\0\s[6]*How are your programming ventures going,\w4 %(username)?\w8\e"
+	}
+	elseif reference0 == "X. Template"
+	{
+		"\0\s[2]*Frisk hopes your time with the skeleton template went well.\w8\e"
+		
+		"\0\s[6]*Frisk wonders what sort of new friend %(they)'ll soon be getting.\w8\e"
+	}
+	elseif reference0 == "Simplicity Template"
+	{
+		"\0\s[2]*Frisk hopes your ghost making ventures are going well!\w8\e"
+		
+		"\0\s[6]*Frisk is curious to see what sort of new friend %(they)'ll get by your hand.\w8\e"
+	}
+	elseif reference0 == "flele"
+	{
+		"\0\s[6]*Did you call Frisk out to tell %(them) about your sweet jams?\w8\e"
+	}
+	else
+	{
+		"\0\s[1]*Frisk wishes a heartfelt goodbye to %(reference0)\w8 \s[2]and greets %(username) with a joyful hello.\w8\e"
+		
+		"\0\s[2]*Goodbye,\w4 %(reference0).\w8 \s[8]Frisk gets to flirt with %(username) now.\w8\e"
+		
+		"\0\s[6]*Could Frisk become friends with %(reference0),\w4 too?\w8\e"
+		
+		"\0\s[7]*Frisk is upset %(they) don't know %(reference0) yet.\w8\e"
+	}
+}
+
+
+//--OnShellChanging
+OnShellChanging
+{
+	if reference0 == "scribblefrisk"
+	{
+		"\0\s[0]*Frisk will return to %(their) basic mode.\w8\e"
+	}
+	elseif reference0 == "roundbabby"
+	{
+		"\0\s[2]*Frisk will execute %(their) cuteness overload mode.\w8\e"
+	}
+	//elseif reference0 == "" //defined in the descript.txt file in your shell folder
+	//{
+		//"\0\s[0]*Switching text goes here.\w8\e"
+	//}
+	else
+	{
+		"\0\s[0]*Frisk hurries off in order to change shells.\w8\e"
+		
+		"\0\s[0]*Frisk executes %(their) %(reference0) shell change.\w8\e"
+		
+		"\0\s[0]Frisk equips the %(reference0) shell.\w8\e"
+		
+		"\0\s[0]*Frisk swaps to %(their) %(reference0) outfit.\w8\e"
+		
+		"\0\s[0]*Frisk swaps to %(their) %(reference0) skin.\w8\e"
+	}
+}
+
+
+//--OnShellChanged
+OnShellChanged
+{
+ 	"\0\s[0]\1\s[10]"
+	--
+ 	if reference0 == "scribblefrisk"
+ 	{
+ 		nowshell = "scribblefrisk"
+		
+ 		"\0\s[0]*Frisk is basic once again.\w8\e"
+ 	}
+ 	elseif reference0 == "roundbabby"
+ 	{
+ 		nowshell = "master"
+		
+ 		"\0\s[5]*Frisk has arrived!\w8 \s[8]And %(theyre) cute to boot!\w8\e"
+ 	}
+	//elseif reference0 == "" //the name of your shell as it is in the descript.txt file for that shell.
+	//{
+		//nowshell = "" //This is the folder name for your shell. Not the same as the above!
+		
+		//"\0\s[0]*Text goes here!\w8\e"
+	//}
+	elseif reference0 == "Determ Frisk"
+	{
+		nowshell = "gotdeterms"
+		
+		"\0\s[0]*Frisk is filled with\w4 determination.\w8\e"
+	}
+ 	else
+ 	{
+		"\0\s[0]*Frisk has changed to %(their) %(reference[0]) shell.\w8 \n*How many shells you got, %(username)?\w8\e"
+		
+		"\0\s[0]*Frisk is now equipped with %(reference[0]).\w8\e"
+		
+		"\0\s[0]*Frisk settles into %(their) %(reference[0]) skin.\w8\e"
+		
+		"\0\s[0]*%(reference[0]) mode completed.\w8\e"
+	}
+}
+
+
+//--OnDressupChanged
+//I'll be honest, I don't understand code enough to do any of this. If you do, great! More documentation can be found on Zarla's site! I'll leave the besics in here for ya, but otherwise, this is just easter egg stuff.
+
+OnDressupChanged
+{
+	if reference0 == 0 //in OnDressupChanged, reference0 refers to the character, therefore this is evaluating which character in question is getting dressed up. 0 is the main character.
+	{
+		if reference1 == "Frisk jumper" //the name of the clothing item in the descript.txt file
+		{
+			if reference2 == 1
+			{
+				"\0\s[0]*Frisk admires the cute stripey jumper you've changed them into.\w8\e"
+			}
+			else
+			{
+				"\0\s[0]*Frisk bids goodbye to the stripey jumper.\w8\e"
+			}
+		}
+	}
+	else //if reference0 isn't the main character, then it has to be the side character.
+	{
+		if reference1 == "Flowey accessory" //name of the item of clothing in the descript.txt file in your shell folder.
+		{
+			if reference2 == 1 //If you put it on
+			{
+				"\1\s[17]*Why would you do this, %(username)?\w4 \0\s[0]*Frisk thinks that Flowey looks pretty good.\w8\e"
+				}
+				else //When you take it off.
+				{
+					"\1\s[19]*Thanks.\w4 \n\s[17]*For nothing.\w8\e"
+				}
+		}
+		elseif reference1 == "more Flowey clothes"
+		{
+			if reference2 == 1
+			{
+				"\1\s[11]*Why dress me up, %(username)? Are you testing your luck here?\w8\e"
+			}
+			else
+			{
+				"\1\s[17]*You think you're so powerful, don't you?\w8\e"
+			}
+		}
+	}
+}
+
+
+//Clothes stuff might work out best for Frisk! Since they're supposed to be simple.

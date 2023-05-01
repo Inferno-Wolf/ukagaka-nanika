@@ -1,0 +1,1138 @@
+﻿//---------------------------AI Talk--------------------------
+//Seeing this file fills you with... determination.
+
+
+//--AiTalk
+//Leave this alone.
+OnAiTalk
+ {
+	if RAND(100) < communicateratio
+ 	{
+ 		StartCommunicate
+	}
+ 	else
+	{
+ 		if mikireflag == 0
+		{
+			if CHAIN.IDName == "" {
+ 				lastTalk = RandomTalk
+			}
+			else {
+				lastTalk = ChainTalk
+			}
+			lastTalk
+		}
+ 		else
+		{ 
+		MikireTalk
+ 		}
+	}
+ }
+
+
+//--Rules (By Quonit)
+
+// \f[strike,true] makes the words struck out. \f[strike,defualt] resets the text to defualt.
+// \f[sub,true] makes text subscript. \f[sub,default] resets text to normal.
+// \f[sup,true] makes text superscript. \f[sup,false] makes the text normal again.
+// \f[underline,true] underlines text. \f[underline,default] removes the line from under the text.
+// \f[bold,true] makes your statement bold. \f[bold,false] makes the text not so bold.
+// \f[italic,true] makes text slanted. \f[italic,false] de-slants the text.
+
+// \f[height,(number, or the word default)] will change the size of the text
+// \f[color0-255,0-255,0-255] changes the color of the text.
+// \f[color,default] will return the color to default.
+// \f[default] returns everything back to normal.
+// \_a[[http://www.website.com/](put text here)\_a can link a website in dialogue.
+// \_v[filename.wav] will play a sound
+
+// \0\s[0]\1\s[0]\_s(put dialogue here)\_s has characters say dialogue at the same time.
+// \s[0-9,0-9]text here\_s is how to make characters besides the Sakura and Kero talk at the same time.
+// \![set,balloonwait,0.1] this controls the speed of the text!! default set at 1
+// \c[char,6] clears 6 characters; basically deleting specific things!!
+
+// %(username) %(heshe) %(himher) %(hisher) %(hesshes) %(userfolder)
+// %(they) %(them) %(their) %(theyre)
+// %(item) %(monsterfood) %(monsterdrink) %(friend) %(monster) %(callfriend) %(mttnetwork[0]) %(place) %(Undersong) %(animeplot) %(randnumb)
+
+
+
+//--RandomTalk 
+//Alright, here we go!
+RandomTalk : nonoverlap_pool
+{
+	"\0\s[0]*Frisk is unsure of what else to do.\w8\e"
+	
+	"\0\s[5]*Frisk enjoys being an ukagaka.\w8\e"
+	
+	"\0\s[2]\_v[new_message.wav]*Frisk taps %(their) finger against your computer screen.\w8\e"
+	
+	"\0\s[0]*Frisk enjoys the peace and quiet of your desktop.\w8\e"
+	
+	"\0\s[0]*Frisk watches you through the monitor.\w2.\w2.\w7 \s[5]and tells you to keep up the good work.\w8\e"
+	
+	"\0\s[2]*Frisk wishes you a good day.\w8\e"
+	
+	"\0\s[2]*Frisk hopes your day is going well.\w8\e"
+	
+	"\0\s[5]*Frisk gives you an encouraging smile.\w8 \n*Keep up the good work,\w4 %(username)!\w8\e"
+	
+	"\0\s[2]*Frisk reminds you to take care of yourself,\w4 %(username),\w4 because someone out there really cares about you.\w8\e"
+	
+	"\0\s[2]*Frisk wishes to remind you to take care of yourself,\w4 %(username).\w8 \n*Ater all,\w4 someone out there really cares about you.\w8\e"
+	
+	"\0\s[0]*.....\w8\w8\s[6]!\w6\s[-1]\w8\w8 \c*It seems that Frisk has spotted a Blue Switch behind your desktop screen.\w8 \w8\w8\w8\_v[kchak.wav]\w8\n\n\0\s[2]*%(Capitalize(they)) pressed it.\w8\e"
+	
+	//took the Froggit idea from Sans sorry
+	"\1\_b[frog,110,88,centerxy]\0\s[1]*Frisk seems to have found a stray Froggit on your desktop.\w8\w8\w8 \s[8]\n\n[half]*%(Capitalize(they)) flirt.\w8\w8\w8 \s[5]\n\n[half]*The Froggit is too flattered.\w8 \1\b[-1]\0\s[4]\_v[save_point.wav]\n*It has to leave.\w8\e"
+	
+	"\1\_b[yes.png,50,50,centerxy]\_v[dog_bark.wav]\w8\w8 \0\s[5]*It's Dog time!\w8\w8\e"
+	
+	"\1\_b[yes.png,50,50,centerxy]\_v[dog_yap.wav]\w8\w8 \0\s[5]*It's Dog time!\w8\w8\e"
+	
+	"\1\_b[HEISHERE.png,50,50,centerxy]\_v[dog_yap.wav]\w8\w8 \0\s[5]*It's Dog time!\w8\w8\e"
+	
+	"\1\_b[HEISHERE.png,50,50,centerxy]\_v[dog_bark.wav]\w8\w8 \0\s[5]*It's Dog time!\w8\w8\e"
+	
+	"\1\s[11]\0\s[1]*It appears Flowey is poking about %(usersfolder).\w2.\w2.\w2\w8\e"
+	
+	"\0\s[1]*Sans might take an interest in the contents of %(usersfolder).\w2.\w2.\w2\w8\e"
+	
+	"\0\s[6]*Frisk hums the tune of %(Undersong) to %(them)self.\w8\e"
+	
+	"\0\s[2]*Frisk hums the tune of %(Undersong) to %(them)self.\w8\e"
+	
+	"\0\s[2]\_v[slide_whistle.wav]\w8\w8\w8\s[5]*Looks like Frisk found a slide whistle.\w8\e"
+	
+	"\0\s[6]\w8\w8*Frisk notices it's about time for %(mttnetwork[0]) \s[2]\_v[open_phone.wav]and pulls out %(their) phone to watch it.\w8\e"
+	
+	"\0\s[6]*Frisk wonders if Papyrus or Alphys has caught the latest episode of %(mttnetwork[0]).\w8\e"
+	
+	"\0\s[0]\_v[open_phone.wav]*Frisk pulls out %(their) phone and clears out \s[1]%(randnumb) new status updates from Alphys.\w8\e"
+	
+	"\0\s[2]\_v[phone_call.wav]*Frisk calls %(callfriend) for a quick chat.\w8 \n*You're unsure of how %(they) do that without talking.\w8\e"
+	
+	"\0\s[2]\_v[phone_call.wav]*Frisk calls %(callfriend) \s[8]to flirt.\w8 \n*You're unsure of how %(they) do that without speaking.\w8\e"
+	
+	
+	//--Chains
+	
+	{
+	"\1\_b[snowpoff.png,50,50,centerxy]\w8 \0\s[6]*Frisk spots a snowpoff.\w8\e:chain=snowpoff1"
+	
+	"\1\_b[snowpoff.png,50,50,centerxy]\w8 \0\s[6]*Frisk spots a snowpoff.\w8\e:chain=snowpoff2"
+	}
+	
+	{
+	"\0\s[91]\w8\w8*Frisk yawns.\w8 \s[0]\w8\w8\w8 \s[91]\w8\w8 \s[0]\w8\w8\w8\w8\w8 \c\s[9]*And falls asleep.\w8\e:chain=naptime"
+	
+	"\0\s[91]\w8\w8\w8\s[9]*Frisk settles down to take a nap.\w8\e:chain=naptime"
+	}
+	
+	{
+	"\0\s[2]*Frisk seems to be thinking of a way to flirt with you...\w8"
+	--
+	"\e:chain=flirtychild1"
+	
+	"\e:chain=flirtychild2"
+	
+	"\e:chain=flirtychild3"
+	
+	"\e:chain=flirtychild4"
+	
+	"\e:chain=flirtychild5"
+	
+	"\e:chain=flirtychild6"
+	
+	"\e:chain=flirtychild7"
+	
+	"\e:chain=flirtychild8"
+	}
+	
+	
+	if nowshell == "scribblefrisk"
+	{
+		"\0\s[2]*Frisk enjoys %(their) sweater.\w8 \n\s[0]*Has it been colder than usual where you are,\w4 too,\w4 %(username)?\w8\e"
+		
+		"\0\s[4]\_v[select_blip.wav]*Frisk boops %(their) own nose.\w8\e"
+	}
+	if nowshell == "master"
+	{
+		"\0\s[2]*A round Frisk.\w8\e"
+		
+		"\0\s[8]\w8\w8*Frisk flirts.\w8 \n\s[1]*You are unimpressed.\w8\e"
+	}
+	if nowshell == "gotdeterms"
+	{
+		"\0\s[2]*Frisk is filled with\w8 \s[8]determination.\w8\e"
+		
+		"\0\s[5]*It took a long time to get here,\w4 %(username).\w8\e"
+	}
+	//if nowshell == "yourshellfoldername"
+	//{
+		//"\0\s[0]*Specific shell dialogue goes here.\w8\e"
+	//}
+	
+	if passmin >= 30
+	{
+		"\0\s[2]*Frisk reminds you to take a break every now and again,\w4 %(username).\w8 \n*Get up and stretch,\w4 drink a glass of water,\w4 and eat a snack if you have to.\w8\e"
+		
+		"\0\s[2]*Frisk reminds you to drink some water,\w4 %(username).\w8 \n*Don't let yourself get dehydrated from working too hard!\w8\e"
+		
+		"\0\s[2]*Frisk reminds you to eat something,\w4 %(username).\w8 \n*Don't get so drawn into your work that you let yourself go hungry!\w8\e"
+		
+		"\0\s[2]*Frisk reminds you to stretch,\w4 %(username).\w8 \n*Your legs and wrists especially need a break from being at the computer for extended periods of time.\w8\e"
+	}
+	if passmin >= 180
+	{
+		"\0\s[1]*Frisk would like to remind you to be kind to your electronics,\w4 %(username).\w8 \n*They work their hardest for you,\w4 after all.\w8\e"
+		
+		"\0\s[1]*Frisk would like to remind you to be kind to your electronics,\w4 %(username).\w8 \n\s[2]*They may not be as fabulous as Mettaton,\w4 but they're still pretty great.\w8\e"
+		
+		"\0\s[0]*Frisk is unsure of how to feel about the amount of tabs open on your browser.\w2.\w2.\w2\w8\e"
+		
+		"\0\s[6]*Frisk is curious as to what you could be doing for three hours that you'd leave %(them) open for three hours.\w8\e"
+	}
+	
+	//special
+	//this works I'm so happy aaaaaaaa
+	if dayslot == userbirthday //for special bday dialogues
+	{
+		"\0\s[0]*It's your bithday today!\w8 \n\n[half]*Frisk is still excited about this fact.\w8\e"
+		
+		"\0\s[6]*Frisk is curious about your plans for the day.\w8 \s[2]\n\n[half]*Perhaps you'll tell %(them)?\w8\e"
+		
+		"\0\s[2]*Frisk is happy to be your birthday companion \s[5]and offers you a big smile.\w8\e"
+		
+		"\0\s[2]\_v[phone_call.wav]\w8\w8\w8*Looks like Frisk is calling you,\w4 %(username).\w8 \n\n[half]\s[5]*Happy Birthday!\w8\e"
+		
+		"\0\s[4]*Frisk is pleased to be your friend today,\w4 %(username).\w8\e"
+	}
+	
+	//Months!
+	if month == 1
+	{
+		"\0\s[31]*Brr...\w8\w8 \s[1]\n\n[half]*It's as chilly as Snowdin outside for Frisk.\w8\e"
+		
+		"\0\s[5]*Frisk wishes you a happy new year!\w8\e"
+		
+		"\0\s[2]*Frisk is thinking of grabbing another slice of Toriel's fruitcake pie...\w8\e"
+	}
+	if month == 2
+	{
+		"\0\s[1]*Frisk hopes the Groundhog won't get spooked by its own shadow this year.\w8\e"
+		
+		"\0\s[5]*It's the month for giving chocolates!\w8 \s[8]\n\n[half]*Frisk flirts instead.\w8\e"
+		
+		"\0\s[8]*Frisk flirts with you.\w8\w8\w8\w8 \s[5]\n\n[half]*It's the month of giving chocolates,\w4 %(username)!\w8\e"
+	}
+	if month == 3
+	{
+		"\0\s[6]*Frisk can only ponder eggs this season.\w8\e"
+		
+		"\0\s[5]*Truly,\w4 spring has begun for Frisk!\w8\e"
+		
+		"\0\s[5]*%(username)!\w8 \s[8]\n\n[half]*Will you gift Frisk an egg in these trying times?\w8\e"
+		
+		"\0\s[5]*Frisk is laughing to %(them)self over all the egg-cellent puns Sans likes to make during this season.\w8 \s[2]\n\n[hal]*%(Capitalize(they)) hope Papyrus won't get too mad at the both of them.\w8\e"
+		
+		"\0\s[6]*Frisk wonders if you have green lemonade around this time,\w4 too.\w8\e"
+	}
+	if month == 4
+	{
+		"\0\s[6]*Sounds like it's raining somewhere else...\w8\e"
+		
+		"\0\s[2]*Frisk asks if you've taken your April showers yet.\w8 \s[5]\n\n[half]*Gotta bloom in May,\w4 %(username)!\w8\e"
+		
+		"\0\s[2]*Frisk is content with the anticipation for more flowers.\w8\e"
+	}
+	if month == 5
+	{
+		"\0\s[5]*One more month until Hotland season arrives!\w8 \s[2]\n\n[half]*It's already getting warmer where Frisk is.\w8\e"
+		
+		"\0\s[5]*May flowers are in bloom!\w8 \s[8]\n\n[half]*All those April showers really paid off,\w4 %(username).\w8\e"
+		
+		"\0\s[5]*Frisk wishes you plenty of bark boats for the season.\w8\e"
+	}
+	if month == 6
+	{
+		"\0\s[5]It's summertime!\w8 \s[2]\n\n[half]*Frisk thinks fondly of %(their) time in Hotland during this season.\w8\e"
+		
+		"\0\s[8]*Hot dog!\w8 \s[2]\n\n[half]*It's hot outside for Frisk.\w8\e"
+		
+		"\0\s[8]*Frisk thinks this is the perfect season for some hot dog balancing.\w8\e"
+		
+		"\0\s[2]\_v[hit_poodles_restored.wav]\w8\w8\w8\s[5]*Looks like Frisk is restoring some hit poodles.\w8\e"
+		
+		"\0\s[6]\_v[dog_meow.wav]\w8\w8\w8\s[21]*It seems Frisk was surprised by the hot cat.\w8\e"
+	}
+	if month == 7
+	{
+		"\0\s[5]*Time for fireworks!\w8 \s[2]\n\n[half]*Make sure you handle them responsibly,\w4 %(username).\w8\e"
+		
+		"\0\s[2]*Frisk thinks of the fun fireworks %(they) got to see with the skeleton brothers and giggles to %(them)self.\w8\e"
+		
+		"\0\s[0]*Rivers might as well be made of flowing CORE magma for how hot summer is,\w8 \s[2]right,\w4 %(username)?\w8\e"
+	}
+	if month == 8
+	{
+		"\0\s[1]*Sounds like summer's about to end for Frisk.\w8 \n\n[half]*The wistful whisps of the wind are beginning to pick up.\w8\e"
+		
+		"\0\s[0]*School time for both humans and monsters alike is coming up soon.\w8 \s[2]\n\n[half]*Frisk is prepared to face it with everything %(they) learned being with you,\w4 %(username).\w8\e"
+		
+		"\0\s[5]*Frisk thinks of Toriel's teaching rubrics and is determined to ace every one of them.\w8 \n\n[half]*...\w8\w8 \s[2]\n\n[half]*You decide not to mention that rubrics aren't really part of the assignments.\w8\e"
+	}
+	if month == 9
+	{
+		"\0\s[2]*Frisk reminisces over %(their) journey through the Underground.\w8 \n\n[half]*Fun times,\w4 %(username).\w8\e"
+		
+		"\0\s[2]*Frisk is nostalgic over %(their) trip through the Underground.\w8 \n\n[half]*Perhaps you should reminisce with %(them),\w4 %(username).\w8\e"
+		
+		"\0\s[1]*Frisk's journey through the Underground may have been a harrowing one,\w4 \s[2]but %(they) came out of it for the better.\w8 \n\n[half]*Perhaps you did,\w4 too,\w4 %(username).\w8\e"
+		
+		"\0\s[5]Autumn has arrived for Frisk!\w8 \s[2]\n\n[half]*The colourful leaves fill %(them) with determination.\w8\e"
+	}
+	if month == 10
+	{
+		if day < 10
+		{
+			"\0\s[6]*Oh!\w8 \s[2]\n\n[half]*Frisk just remembered that the Art Club will be happening soon.\w8\e"
+		}
+		if day == 10
+		{
+			"\0\s[5]*Frisk hopes you remembered to check out the Art Club in Hotland!\w8\e"
+		}
+		if day > 10
+		{
+			"\0\s[1]*Frisk laments that the Art Club won't happen again until next October.\w8\e"
+		}
+		
+		"\0\s[5]It's the season of spooky scary skeletons!\w8 \n\n[half]*Frisk can't wait for all the hijinks and japes Papyrus and Sans will get up to.\w8\e"
+		
+		"\0\s[6]*Boo!\w8 \s[8]\n\n[half]*Did Frisk startle you?\w8\e"
+		
+		"\0\s[1]*Be careful out there around this time,\w4 %(username).\w8 \n\n[half]*The days grow shorter and the nights grow longer.\w8 \s[2]Plenty of opportunity for some skeletons to cause mischief.\w8\e"
+	}
+	if month == 11
+	{
+		"\0\s[1]*Frisk wishes more leaves built up on your desktop,\w4 %(username).\w8 \s[5]\n\n[half]*Then %(they) could playfully crinkle through the piles while you work.\w8\e"
+		
+		"\0\s[2]*Frisk hums the theme of the Ruins to %(them)self.\w8 \n\n[half]*Once %(they) think of Toriel,\w4 %(they) transition into Home.\w8\e"
+		
+		"\0\s[1]*Autumn is drawing to an end for Frisk...\w8 \s[21]\n\n[half]*There are chills in the air.\w8\e"
+	}
+	if month == 12
+	{
+		"\0\s[5]*It's the season of present-giving!\w8 \s[2]\n\n[half]*Frisk can't wait to see how Papyrus and Toriel react to their gifts.\w8\e"
+		
+		"\0\s[5]*Winter has arrived for Frisk!\w8 \s[8]Along with a boatload of Snowdin.\w8\e"
+		
+		"\0\s[1]*Cold outside,\w8 \s[2]but warm inside Frisk.\w8\e"
+		
+		"\0\s[6]*Do you have anyone in mind for gifts this season,\w4 %(username)?\w8 \s[5]\n\n[half]*Frisk would love to share in your delight over this.\w8\e"
+	}
+	//Days!
+	if weekday == 1
+	{
+		"\0\s[1]*Mondays aren't so popular,\w4 are they?\w8\e"
+		
+		"\0\s[0]*Frisk ponders over the way Sans uses puns the most on Mondays.\w8 \s[1]Hopefully,\w4 Papyrus doesn't get too upset over them.\w8\e"
+		
+		"\0\s[0]*How has your Monday been going,\w4 %(username)?\w8 \s[2]\n\n[half]*Frisk will listen to whatever you have to say.\w8\e"
+	}
+	if weekday == 2
+	{
+		"\0\s[2]*Tuesdays are for Mettaton's hand washing specials.\w8 \s[5]\n\n[half]*Frisk hopes %(they) can catch the newest one later.\w8\e"
+		
+		"\0\s[0]*Frisk appears to be using %(their) phone.\w8 \n*...\w8\w8\w8 \s[5]\n\n[half]*%(Capitalize(theyre)) watching Mettaton's hand washing show.\w8\e"
+		
+		"\0\s[5]*Frisk invites you to enjoy this Tuesday with %(them) by watching the latest episode of Mettaton's hand washing spectacular.\w8\e"
+	}
+	if weekday == 3
+	{
+		"\0\s[5]Wednesdays are Papyrus' favourite!\w8 \s[2]He always has so much to say about them.\w8\e"
+		
+		"\0\s[2]*Frisk is thinking about one of Papyrus' famed Wednesday musings.\w8\e"
+		
+		"\0\s[2]*Frisk hopes your Wednesday is going well for you,\w4 %(username).\w8 \s[5]\n\n[half]Keep it up!\w8 \s[8]You can do it!\w8\e"
+	}
+	if weekday == 4
+	{
+		"\0\s[5]*A new episode of one of Alphys' shows comes out today!\w8 \s[2]\n\n[half]*Frisk likes to sit with her and Undyne as they watch it.\w8 Their passion gives Frisk determination.\w8\e"
+		
+		"\0\s[2]*Thursdays are for blanket burritos,\w4 popcorn munching,\w4 and watching anime.\w8 \n\n[half]*At least,\w4 they are according to Frisk.\w8\e"
+		
+		"\0\s[0]*Frisk is excited to see how the new episode of Alphys' anime will go.\w8 \s[2]\n\n[half]*Last time,\w4 %(animeplot).\w8\e"
+	}
+	if weekday == 5
+	{
+		"\0\s[2]*Fridays are Toriel's favourite.\w8 \s[5]She sure is a party animal!\w8\e"
+		
+		"\0\s[2]*While Toriel loves Fridays,\w8 \s[1]she is always a bit sad to leave her class for the weekend.\w8\e"
+		
+		"\0\s[5]*Frisk is excited to hear about what sort of party Toriel will attend this time.\w8\e"
+		
+		"\0\s[2]*Baking pies and sitting in are perfect Friday activities.\w8 \n\n[half]*At least,\w4 if you're not out there partying it up,\w4 that is.\w8\e"
+	}
+	if weekday == 6
+	{
+		"\0\s[5]*Saturdays are for training with Undyne!\w8 \s[8]\n\n[half]*Frisk shows off %(their) strengh building from %(their) yoga classes.\w8\e"
+		
+		"\0\s[2]*Undyne usually goes to work out on Saturdays.\w8 \n*When Frisk tags along,\w4 the two take a yoga class.\w8\e"
+		
+		"\0\s[2]*Frisk would like to know how your Saturday is going so far,\w4 %(username).\w8 \s[5]\n*Perhaps you'd like to join %(them) and Undyne for some yoga?\w8\e"
+	}
+	if weekday == 7
+	{
+		"\0\s[2]*Asgore usually sets up a nice tea party for everyone on Sundays.\w8 \n\n[half]*How do you spend yours,\w4 %(username)?\w8\e"
+		
+		"\0\s[5]*Frisk seems to be looking forward to hearing all about the gossip spilled at Asgore's Sunday tea party.\w8\e"
+		
+		"\0\s[2]*Nothing is more relaxing than a good cup of tea and a pleasantly warm greenhouse.\w8 \n\n[half]*Oh,\w4 and \s[5]listening to all the gossip that happened over the rest of the week.\w8\e"
+	}
+	//Time!
+	if timeslot == "earlymorning" //am5 to am8
+	{
+		"\0\s[91]\w8\w8\s[1]*It's still early for Frisk.\w8\e"
+		
+		"\0\s[9]\w8\w8\w8*Frisk seems to be half-asleep,\w4 %(username).\w8\e"
+		
+		"\0\s[1]*What could possibly drive you to be up at this hour,\w4 %(username)?\w8\e"
+		
+		"\0\s[91]\w8\w8\w8\s[9]*Frisk dozes off for a second.\w8 \n\n[half]*Zzz...\w8\w8\w8 \s[6]\n\n[half]*Then they wake up.\w8\w8\s[0]\e"
+	}
+	if timeslot == "morning" //am9 to am11
+	{
+		"\0\s[6]*Frisk wonders if you've eaten breakfast already.\w8\e"
+		
+		"\0\s[2]*Make sure not to forget your breakfast,\w4 %(username).\w8\e"
+		
+		"\0\s[2]\_v[hp_restore.wav]*Frisk enjoys %(them)self %(monsterfood) as a small snack.\w8\e"
+		
+		"\0\s[2]*Frisk sips at %(monsterdrink),\w4 \_v[gulp.wav]\s[8]hoping you'll take the hint.\w8\e"
+		
+		"\0\s[0]*Frisk takes a sip of %(their) %(monsterdrink),\w4 \_v[gulp.wav]\s[2]hoping you'll do the same.\w8\e"
+		
+		"\0\s[5]*Frisk hopes you're greeting the day with gusto,\w4 %(username)!\w8\e"
+	}
+	if timeslot == "lunch" //pm12 to pm2
+	{
+		"\0\s[2]\_v[hp_restore.wav]*Frisk snacks on %(monsterfood) as a treat.\w8 \n\n[half]*Did you have anything to eat yet,\w4 %(username)?\w8\e"
+		
+		"\0\s[2]*Frisk takes a sip of %(monsterdrink).\w8 \_v[gulp.wav]\n\n[half]*%(Capitalize(they)) hope you'll remember to take care of yourself,\w4 too,\w4 %(username).\w8\e"
+		
+		{
+			"\0\s[5]*It's lunch time!\w8 "
+			
+			"\0\s[5]*It's time for lunch!\w8"
+			--
+			"\s[2]\n\n[half]*Frisk gets %(them)self %(monsterfood).\w8 \s[6]What are you getting,\w4 %(username)?\w8\e"
+		}
+		
+		"\0\s[2]*Frisk reminds you to take care of yourself by making sure to eat something for lunch.\w8\e"
+	}
+	if timeslot == "afternoon" // pm3 to pm5
+	{
+		"\0\s[2]*Frisk thinks it's the perfect time for a nap.\w8 \n\n[half]*Make sure you take the time to rest,\w4 too,\w4 %(username).\w8\e"
+		
+		"\0\s[2]*Like a little cat,\w8 \s[9]Frisk curls up on your desktop to nap in the golden light of the afternoon.\w8\w8 \n\n[half]*You'll just have to imagine it,\w4 though,\w4 since Frisk doesn't come with those surfaces.\w8\e"
+		
+		"\0\s[6]*How is your afternoon going,\w4 %(username)?\w8 \s[2]\n\n[half]*Remember to pace yourself.\w8 Frisk cares very much for your wellbeing.\w8\e"
+		
+		"\0\s[2]*Remember to stay hydrated,\w4 %(username)!\w8 \n\n[half]*During a gloriously beautiful afternoon like this,\w4 it's important to take care of yourself.\w8\e"
+	}
+	if timeslot == "evening" //pm6 to pm8
+	{
+		"\0\s[0]*It's getting late...\w8 \s[5]\n\n[half]*Time for spooky scary skeletons!\w8 \s[2]Frisk thinks of how best to flirt with them.\w8\e"
+		
+		"\0\s[6]*What sorts of spooks do you think about at night,\w4 %(username)?\w8 \s[8]\n\n[half]*Perhaps some smoochable ghosts?\w8\e"
+		
+		"\0\s[91]\w8\w8\w8\s[9]*It's approaching bedtime for Frisk.\w8 \s[21]\n*When is your bedtime,\w4 %(username)?\w8\e"
+	}
+	if timeslot == "latenight" || timeslot == "midnight" //pm9 to pm11 //am12 to am5
+	{
+		"\0\s[9]*Frisk is starting to doze off...\w8 \n\n[half]*Zzz...\w8\e"
+		
+		"\0\s[91]*It's rather late for Frisk to still be up.\w8 \s[21]\n\n[half]*How late do you normally work,\w4 %(username)?\w8 Must be tiring.\w8 \s[2]\n*Frisk will be here to cheer you on if you need it.\w8\e"
+		
+		"\0\s[1]*Frisk apologises for not being a better late night companion.\w8 \s[91]%(Capitalize(theyre)) a sleepy little child,\w4 after all.\w8 \s[9]\e"
+	}
+	
+	
+	"\0\s[4]*Frisk reminisces about Toriel's pie.\w8\e"
+	
+	"\0\s[5]*Frisk giggles to %(them)self as %(they) remember the taste of Papyrus' spaghetti.\w8\e"
+	
+	"\0\s[2]*Frisk remembers cooking with Undyne \s[5]and looks ready to tackle any problem that comes %(their) way.\w8 \n\s[2]*\![set,balloonwait,3]........\![set,balloonwait,1]\w8 \n\s[1]*Until %(they) remember the part where Undyne's house burned down.\w8\e"
+	
+	"\0\s[6]*Frisk wonders what other foods are served at Grillbys.\w8\e"
+	
+	"\0\s[7]*Frisk realises %(they) never got a menu when at MTT Resort's restaurant with Sans.\w8\e"
+	
+	"\0\s[2]*Frisk hands you a flyer for the spider bake sale.\w8\w8\s[5]\w8\e"
+	
+	"\0\s[5]*Frisk offers you a Spider Donut,\w4 proudly reminding you that the spiders bake delicious pastries.\w8\e"
+	
+	"\0\s[2]*Frisk reminds you that the spider bake sale is for reuiniting the spiders of the Ruins with the spiders of Hotland.\w8\e"
+	
+	"\0\s[0]*You remind Frisk that the spiders use real spiders to bake their goods with.\w8 \s[2]\n*%(Capitalize(theyre)) undeterred from eating them...\w8\e"
+	
+	"\0\s[5]*Frisk offers you some naisudesu with a big smile.\w8\e"
+	
+	"\0\s[0]*Frisk takes out a package of instant noodles.\w8 \n*\![set,balloonwait,3].......\![set,balloonwait,1]\w8\w8 \n\s[1]*You can tell where this is going,\w4 %(username).\w8\e"
+	
+	
+	//--Multiple Responses
+	
+	{
+	"\0\s[0]*Frisk pulls out "
+	--
+	"%(monsterfood) and nibbles on it.\w8"
+	"\_v[gulp.wav]%(monsterdrink) and sips quietly.\w8"
+	--
+	"\n\n*\![set,balloonwait,3].......\![set,balloonwait,1]\w2\w8\w8"
+	--
+	"\_v[hp_restore.wav]\s[4]\n*HP fully restored!"
+	"\_v[hp_restore.wav]\s[5]\n*HP was maxed out!"
+	"\_v[hp_restore.wav]\s[2]\n*HP maxed out!"
+	--
+	"\w8\w8\e"
+	}
+	
+	{
+	"\0\s[0]*Frisk pulls out a ghost sandwich and...\w8"
+	--
+	"\n\s[1]*...phases right through it."
+	"\n\s[5]*...successfully takes a bite!"
+	"\n\s[6]*...manages a small nibble before it disappears."
+	--
+	"\w8\w8\e"
+	}
+	
+	{
+	"\0\s[0]*Frisk takes out a package of instant noodles"
+	--
+	"\t and a pot for boiling water.\w8 \s[2]%(Capitalize(they)) put the pot on a small burner and start the process.\w8 \n\n[half]\![set,balloonwait,8]*..........\![set,balloonwait,1]\w8\w8\w8 \n\n[half]\_v[slide_whistle.wav]*The water's boiling.\w8\w8 \c\0\s[0]*Frisk puts the noodles in the pot.\w8\w8\w8\w8 \c*Three minutes\w8\w8 until\w8\w8 the noodles\w8\w8 are ready.\w8\w8\w8 \c*Two minutes\w8\w8 until\w8\w8 the noodles\w8\w8 are ready.\w8\w8\w8 \c\0\s[1]*One minute\w8\w8 until\w8\w8 the noodles\w8\w8 are ready.\w8\w8\w8\w8 \c\0\s[5]*The noodles\w8\w8 are ready.\w8\w8\w8 \c\0\s[3]*They don't taste very good.\w2.\w2.\w2\w8 \n\s[0]*Frisk adds the flavour packet.\w8 \n\n[half]*That's better.\w8 \n\s[1]*Not great,\w8 \s[0]but better.\w8\w8\w8"
+	" and cooks them carefully in boiling water for three minutes.\w8\w8"
+	"\s[1] and it takes %(randnumb) minutes to cook them.\w8\w8"
+	".\w2.\w2.\w2and eats them.\w8\w8 \n*.\w2.\w2.\w2.\w2.\w2.\w2\w8\w8 \n\s[7]*They're better dry,\w4 anyway.\w8\w8"
+	--
+	"\c*\![set,balloonwait,3].......\![set,balloonwait,1]\w8"
+	--
+	"\n\n\_v[hp_restore.wav]\s[2]*HP maxed out!"
+	"\n\n\_v[hp_restore.wav]\s[5]*HP fully restored!"
+	"\n\n\_v[hp_restore.wav]\s[0]*Frisk recovered 3 HP."
+	"\n\n\_v[hp_restore.wav]\s[1]*Frisk recovered 4 HP."
+	"\n\n\_v[hp_restore.wav]\s[4]*Frisk recovered 7 HP."
+	"\n\n\_v[hp_restore.wav]\s[2]*Frisk recovered 8 HP."
+	--
+	"\w8\e"
+	}
+	
+	{
+	"\0\s[0]\_v[phone_call.wav]*Frisk calls up Papyrus"
+	--
+	" to ask for some puzzle help."
+	"\s[5] to say hi."
+	"\s[6] to ask if he knows anything about %(username)'s computer."
+	" to ask if he knows anything about being stuck in a computer."
+	"\s[2] to ask him about %(username)'s current desktop background."
+	"\s[2] to hear Papyrus' voice."
+	"\s[8] to flirt."
+	" and asks if he's seen the latest episode of %(mttnetwork[0]).\w8 \n*\![set,balloonwait,3]........\![set,balloonwait,1]\w8 \n\s[5]*It seems he has."
+	" to ask how his cooking is going.\w8 \n*\![set,balloonwait,3].........\![set,balloonwait,1]\w8 \n\s[1]*You hear the sound of flames..."
+	" to ask how his cooking is going.\w8 \n*\![set,balloonwait,3].........\![set,balloonwait,1]\w8 \n\s[3]*You hear Undyne screaming in the background to stir harder."
+	" to ask how his cooking is going.\w8 \n*\![set,balloonwait,3].........\![set,balloonwait,1]\w8 \n\s[5]*Looks like it's going good."
+	" to ask how his cooking is going.\w8 \n*\![set,balloonwait,3].........\![set,balloonwait,1]\w8 \n\s[31]*You hear the endless barrage of pasta puns in the background."
+	" to ask how his cooking is going.\w8 \n*\![set,balloonwait,3].........\![set,balloonwait,1]\w8 \n\s[5]*You hear the endless barrage of pasta puns in the background."
+	".\w8 \n*Smells like bones."
+	--
+	"\w8\w8\e"
+	}
+	
+	{
+	"\0\s[0]\_v[phone_call.wav]*Frisk calls up Toriel"
+	--
+	"\s[5] to say hi."
+	"\s[2] to say hello."
+	"\s[8] to say 'salutations'."
+	" to ask her more about herself."
+	"\s[4] to call her mom."
+	"\s[8] to flirt."
+	" and asks for some help with a puzzle."
+	"\s[2] and smiles fondly on hearing her voice."
+	" and asks about her pie.\w8 \n*\![set,balloonwait,3]........\![set,balloonwait,1]\w8 \n\s[6]*It seems the answer was a long one."
+	"\w8.\w8.\w8.\w8 \s[1]\n*There's no answer."
+	"\w8.\w8.\w8.\w8 \s[3]\n*But nobody came."
+	"\w8.\w8.\w8.\w8 \s[31]\n*But nobody came."
+	"\w8.\w8.\w8.\w8 \s[7]\n*All %(they) can hear is the gentle snoring of a dog."
+	"\w8.\w8.\w8.\w8 \s[7]\n\_v[dog_yap.wav]*Small barks are the only answer."
+	".\w8 \n*Smells like pie."
+	//".\w8 \n*Smells like DEAD GOAT MOM."
+	--
+	"\w8\w8\e"
+	}
+	
+	{
+	"\0\s[0]\_v[phone_call.wav]*Frisk calls up Undyne"
+	--
+	" to ask for information about Waterfall."
+	"\s[2] to ask how her letter writing is going."
+	"\s[2] to ask how Dr. Alphys is doing."
+	"\s[8] to flirt."
+	" to ask for some cooking tips.\w8 \n*\![set,balloonwait,3]........\![set,balloonwait,1]\w8 \n\s[1]*You hear the sound of spaghetti slapping against the receiver."
+	" to ask for some cooking tips.\w8 \n*\![set,balloonwait,3]........\![set,balloonwait,1]\w8 \n\s[5]*You hear the sound of spaghetti thwapping against the receiver."
+	" and asks if she could show %(their) friend %(username) how to suplex a boulder.\w8 \n*\![set,balloonwait,3].........\![set,balloonwait,1]\w8 \n\s[5]*You hear the sound of rocks being suplexed in the distance."
+	"\s[5] and laughs as she shouts excitedly about a small bird."
+	"\s[5] and agrees with her excitement over splashing in puddles."
+	".\w8 \n*Smells like sushi."
+	--
+	"\w8\w8\e"
+	}
+	
+	{
+	"\0\s[0]\_v[phone_call.wav]*Frisk gets a call from %(callfriend).\w8 \n*\![set,balloonwait,3].......\![set,balloonwait,1]\w8 \n"
+	--
+	"\s[2]*It makes %(them) smile."
+	"\s[5]*It makes %(them) laugh."
+	"\s[8]*%(Capitalize(they)) flirt."
+	--
+	"\w8\w8\e"
+	}
+	
+	{
+	"\0\s[0]*Frisk pulls out the %(item) to"
+	--
+	"\_v[select_click.wav] CHECK it."
+	"\_v[select_click.wav] quickly CHECK it."
+	"\_v[select_click.wav] get its INFO."
+	"\_v[select_click.wav] use it."
+	--
+	"\w8\w8\e"
+	}
+	
+	{
+	"\0\s[0]\_v[open_phone.wav]*Frisk opens up %(their) dimensional boxes to"
+	--
+	" shift around some items."
+	" shift around the %(item) and the %(item)."
+	" swap around the %(item) and the %(item)."
+	--
+	"\w8\w8\e"
+	}
+	
+	{
+	"\0\s[0]\_v[open_phone.wav]*Frisk accesses %(their) dimensional boxes using %(their) phone"
+	--
+	" to put away the %(item)."
+	" and removes the %(item)."
+	" and removes the %(item) to put in %(their) pocket."
+	--
+	"\w8\w8\e"
+	}
+	
+	{
+	"\0\s[0]\_v[open_phone.wav]*Frisk pulls the %(item) out of %(their) pocket and"
+	--
+	" places it into %(their) first dimensional box."
+	" places it into %(their) second dimensional box."
+	" puts it into one of %(their) dimensional boxes."
+	--
+	"\w8\w8\e"
+	}
+	
+	{
+	"\0\s[0]*Frisk takes out the %(item) and"
+	--
+	" drops it on your desktop."
+	" puts it down on the taskbar, giving it a little pat."
+	" places it in %(username)'s Recycling Bin."
+	" tosses it offscreen."
+	"\s[2] takes it for a visit to the trash can."
+	"\s[5] jumps into your Recycling Bin with it in hand."
+	"\s[-1] jumps into your Recycling Bin with it in hand.\w8\w8\w8\s[5]"
+	--
+	"\w8\w8\e"
+	}
+	
+	{
+	"\0\s[0]*Frisk finds a %(item) and"
+	--
+	"\_v[select_blip.wav] picks it up, placing it in %(their) pocket."
+	" picks it up."
+	" tries picking it up...\w8 \n\s[1]*But is carrying too many items."
+	" tries to pick it up...\w8 \n\s[7]\_v[dog_bark.wav]*But is carrying too many dogs."
+	"\s[7] kicks it into %(username)'s Recycling Bin."
+	"\s[5]\_v[hp_restore.wav] immediately shoves it into %(their) mouth."
+	"\s[2]\_v[slide_whistle.wav] uses it immediately."
+	--
+	"\w8\w8\e"
+	}
+	
+	{
+	"\0\s[0]*Frisk "
+	--
+	"\_v[select_click.wav]pulls out the %(item) to CHECK it."
+	"\_v[select_click.wav]pulls out the %(item) to quickly CHECK it."
+	"\_v[select_click.wav]pulls out the %(item) to get its INFO."
+	"\_v[open_phone.wav]opens up %(their) dimensional boxes to shift around some items."
+	"\_v[open_phone.wav]opens up %(their) dimensional boxes to shift around the %(item) and the %(item)."
+	"\_v[open_phone.wav]opens up %(their) dimensional boxes to swap around the %(item) and the %(item)."
+	"\_v[open_phone.wav]accesses %(their) dimensional boxes using %(their) phone to put away the %(item)."
+	"\_v[open_phone.wav]accesses %(their) dimensional boxes using %(their) phone and removes the %(item)."
+	"\_v[open_phone.wav]accesses %(their) dimensional boxes using %(their) phone and removes the %(item) to put in %(their) pocket."
+	"pulls the %(item) out of %(their) pocket and \_v[open phone.wav]places it into %(their) first dimensional box."
+	"pulls the %(item) out of %(their) pocket and \_v[open phone.wav]places it into %(their) second dimensional box."
+	"takes out the %(item) and drops it on your desktop."
+	"takes out the %(item) and puts it down on the taskbar, giving it a little pat."
+	"takes out the %(item) and places it in %(username)'s Recycling Bin."
+	"takes out the %(item) and tosses it offscreen."
+	"finds a %(item) and picks it up,\w4 \_v[select_blip.wav]placing it in %(their) pocket."
+	"finds a %(item) and picks it up."
+	"finds a %(item) and tries picking it up...\w8 \n\s[1]*But is carrying too many items."
+	"finds a %(item) and tries to pick it up...\w8 \n\s[7]\_v[dog_bark.wav]*But is carrying too many dogs."
+	--
+	"\w8\w8\e"
+	}
+	
+	
+	//--Double Envelope
+	{
+	_pacifist = pacifymonster
+	_monster = _pacifist[0]
+	_pacify = _pacifist[1]
+	
+	"\0\s[5]*Frisk would like to remind you that \f[color,255,255,0]%(_monster)\f[color,default] can be spared by %(_pacify).\w8 \n*This will also get them their yellow name for the credits.\w8 \n\n\s[2]*Frisk is satisfied that you've now been informed,\w4 %(username).\w8\e"
+	
+	"\0\s[5]*Frisk would like to remind you that \f[color,255,204,229]%(_monster)\f[color,default] can be spared by %(_pacify).\w8 \n*This will also get them their yellow name for the credits.\w8 \n\n\s[2]*Frisk is satisfied that you've now been informed,\w4 %(username).\w8\e"
+	}
+	
+	{
+	_pacifist = pacifymonster
+	_monster = _pacifist[0]
+	_pacify = _pacifist[1]
+	
+	"\0\s[0]*Frisk would like to inform you that \f[color,255,255,0]%(_monster)\f[color,default] can be spared by %(_pacify).\w8 \n\s[2]*Please treat all of the monsters of the Underground with kindness,\w4 %(username).\w8\e"
+	
+	"\0\s[0]*Frisk would like to inform you that \f[color,255,204,229]%(_monster)\f[color,default] can be spared by %(_pacify).\w8 \n\s[2]*Please treat all of the monsters of the Underground with kindness,\w4 %(username).\w8\e"
+	}
+	
+	{
+	_mettashows = mttnetwork
+	_show = _mettashows[0]
+	_descrip = _mettashows[1]
+	
+	"\0\s[6]*%(username),\w4 have you seen Mettaton's show,\w4 %(_show)?\w8 \n\n[half]\s[2]*It's the one where Mettaton %(_descrip).\w8\e"
+	
+	"\0\s[6]*%(username),\w4 have you seen Mettaton's show,\w4 %(_show)?\w8 \n\n[half]\s[5]*It's the one where Mettaton %(_descrip).\w8\e"
+	}
+	
+	{
+	_mettashows = mttnetwork
+	_show = _mettashows[0]
+	_descrip = _mettashows[1]
+	
+	"\0\s[6]*%(username)!\w8 \n\s[2]*Frisk would like to know if you have seen Mettaton's show,\w4 %(_show).\w8 \n\n[half]*It's the one where Mettaton %(_descrip).\w8\e"
+	
+	"\0\s[6]*%(username)!\w8 \n\s[2]*Frisk would like to know if you have seen Mettaton's show,\w4 %(_show).\w8 \n\n[half]\s[5]*It's the one where Mettaton %(_descrip).\w8\e"
+	}
+	
+	"\0\w8\w8\s[1]*Frisk can't recall the name of one of Mettaton's shows.\w8 \n\n[half]\s[2]*It's the one where he %(mttnetwork[1]),\w4 if that helps.\w8\e"
+	
+	"\0\s[2]*Frisk wonders if you know about Mettaton's show,\w4 %(mttnetwork[0]).\w8\e"
+	
+	
+	////Other ghost dialogue
+	if ghostexcount == 0
+	{
+		"\0\s[0]*Frisk is alone,\w4 %(username).\w8 \s[1]\n*So alone.\w2.\w2.\w2\w8\e"
+		
+		"\0\s[0]*There is nobody here besides Frisk.\w8\e"
+		
+		"\0\s[0]*Frisk is sitting here\w8 \s[2]on your desktop\w8 \s[1]alone.\w8\e"
+	}
+	if ghostexcount > 0
+	{
+		"\0\s[5]*Frisk giggles at the other ghost's antics.w8\e"
+		
+		"\0\s[6]*Frisk seems interested in those around %(them).\w8\e"
+		
+		"\0\s[0]*Frisk hopes %(their) presence isn't making anyone nervous.\w8 \s[5]\n*That would be a real shame.\w8\e"
+		
+		{
+		""
+		"\_v[battleinitiate.wav]"
+		--
+		"\![raise,OnStartTalking]\e"
+		}
+	}
+	//specific ghosts!
+	//if "sans" _in_ ghostexlist
+	//if "UC" _in_ ghostexlist
+	//if "Dreamtale Sans" _in_ ghostexlist
+	//if "MVSans" _in_ ghostexlist
+	//if "Papyrus" _in_ ghostexlist
+	//if "Jazz" _in_ ghostexlist
+	if "Sn" _in_ ghostexlist
+	{
+		"\0\s[2]*Frisk is happy to be in the brothers' company.\w8\e"
+		
+		"\0\s[6]*Frisk wonders if you've been petting Papyrus.\w8\e"
+		
+		"\0\s[5]*Frisk can't help but laugh at Sans' sense of humour.\w8\e"
+		
+		"\0\s[8]*Frisk winks at the brothers.\w8\e"
+	}
+	//if "Gaster" _in_ ghostexlist
+	//if "f_lowe_y" _in_ ghostexlist
+	//if "Toriel" _in_ ghostexlist
+	//if "Mettaton" _in_ ghostexlist
+	//if "Temmie" _in_ ghostexlist
+	//if "Pet Rock" _in_ ghostexlist
+	//if "Ralsei" _in_ ghostexlist
+	//if "Zaiga" _in_ ghostexlist
+	//if "Azura" _in_ ghostexlist
+	//if "RYS-0825" _in_ ghostexlist
+	//if "Dusty" _in_ ghostexlist
+	//if "Noteworthy" _in_ ghostexlist
+	//if "Zacharie" _in_ ghostexlist
+	//if "Hydrate" _in_ ghostexlist
+	//if "CheeryBot" _in_ ghostexlist
+	//if "Snail" _in_ ghostexlist
+	if "Needle" _in_ ghostexlist
+	{
+		"\0\s[8]*Frisk flirts at the Needle.\w8\e"
+		
+		"\0\s[5]*Frisk seems excited to see Needle with %(them).\w8\e"
+		
+		"\0\s[7]*Frisk hopes that everyone will SPARE Needle like %(them).\w8\e"
+		
+		{
+		"\0\s[8]"
+		"\0\s[2]"
+		"\0\s[5]"
+		"\0\s[4]"
+		"\0\s[7]"
+		--
+		"\_v[battleSTART.wav]"
+		"\_v[battleinitiate.wav]"
+		--
+		"*Frisk tries to start a battle with Needle.\w8\e"
+		}
+		
+		"\0\s[1]*Be careful where you set Needle down,\w4 %(username).\w8\e"
+		
+		"\0\s[21]*Even a Needle is deserving of MERCY,\w4 %(username).\w8\e"
+	}
+	if "Emily" _in_ ghostexlist
+	{
+		"\0\s[5]*こんにちわ,\w4 Emily!\w8\e"
+	}
+	//if "Fairune Duo" _in_ ghostexlist
+	//if "Inferno" _in_ ghostexlist
+	//if "Mole" _in_ ghostexlist
+	//if "Defence" _in_ ghostexlist
+	//if "Eggbeater" _in_ ghostexlist
+	//if "Moomintroll" _in_ ghostexlist
+	//if "Spiral" _in_ ghostexlist
+	//if "Cheesecake" _in_ ghostexlist
+	//if "Freddy Fazbear" _in_ ghostexlist
+	//if "Shadow Child" _in_ ghostexlist
+	//if "" _in_ ghostexlist
+	if "Frisk" _in_ ghostexlist
+	{
+		"\0\s[6]*Frisk wonders how you could have two of %(them) open.\w8\e"
+		
+		"\0\s[5]*Now this is just silly,\w4 %(username).\w8\e"
+	}
+	
+	
+	"\0\s[5]\w8\w8*Frisk wants you to hear %(their) impression of Sans.\w8 \s[2]\w8\w8\n*8Wait for it.\w8.\w8.\w8\w8 \c\s[5]\_v[sans.mp3]\w8*DDDDDDDD!\w8\w8\w8 \n\n[half]\s[4]*Frisk is satisfied.\w8\e"
+	
+	"\0\s[5]\w8\w8*Frisk wants you to hear %(their) impression of Papyrus.\w8 \s[2]\w8\n*Wait for it.\w8.\w8.\w8\w8 \c\s[5]\_v[paps.mp3]\w8*GAUGAUGAUGAU!\w8\w8\w8 \n\n[half]\s[4]*Frisk is satisfied.\w8\e"
+	
+	"\0\s[5]\w8\w8*Frisk wants you to hear %(their) impression of Flowey.\w8 \s[2]\n\n[half]*Wait for it...\w8\w8 \s[6]\1\s[17]\_v[floweylaugh.wav]\w8\w8\w8\w8\0\s[3]\1\w8\w8\w8\w8\w8\w8\s[-1]\0\s[31]\n\n[half]*...\w8\w8gosh dang it,\w4 Flowey.\w8\e"
+	
+	"\0\s[2]\w8\w8\w8\w8\s[5]*Frisk is waiting for your impression of a human.\w8\e"
+	
+	//Undyne
+	//Alphys
+	//Toriel
+	//Asgore
+	
+	//IT IS DONE.
+}
+
+
+//--Chains
+//Each chain function will go through each part of the chain in order even if it's in one function, until it goes to \e:chain=end which will end the chain. So you can put the entire chain dialogue into one place.
+//Pay careful attention to the CHAIN text and double brackets for these.
+//Note also it ends with \e:chain=end, basically ending the chain.
+snowpoff1
+{{CHAIN
+	"\1\_b[snowpoff.png,50,50,centerxy]\0\s[2]*Frisk is proud to show you that this is a snowpoff.\w8\e"
+	
+	"\1\_b[snowpoff.png,50,50,,centerxy]\0\s[8]*And this\w5 is a snowpoff.\w8\e"
+	
+	"\1\_b[snowpoff.png,50,50,centerxy]\0\s[2]*This,\w4 however,\w4 is a snowpoff.\w8\e"
+	
+	"\1\_b[snowpoff.png,50,50,centerxy]\0\s[0]*Snowpoff.\w2.\w2.\w2\w8\e"
+	
+	"\1\_b[snowpoff.png,50,50,centerxy]\0\s[1]*Is it really a snowpoff?\w8\e"
+	
+	"\1\_b[snowpoff.png,50,50,centerxy]\0\s[5]*Behold!\w8 \s[2]A snowpoff.\w8\e:chain=snowpoff7"
+}}CHAIN
+
+snowpoff2
+{{CHAIN
+	"\1\_b[snowpoff.png,50,50,centerxy]\0\s[2]*Frisk is proud to show you that this is a snowpoff.\w8\e"
+	
+	"\1\_b[snowpoff.png,50,50,,centerxy]\0\s[8]*And this\w5 is a snowpoff.\w8\e"
+	
+	"\1\_b[snowpoff.png,50,50,centerxy]\0\s[2]*This,\w4 however,\w4 is a snowpoff.\w8\e"
+	
+	"\1\_b[snowpoff.png,50,50,centerxy]\0\s[0]*Snowpoff.\w2.\w2.\w2\w8\e"
+	
+	"\1\_b[snowpoff.png,50,50,centerxy]\0\s[1]*Is it really a snowpoff?\w8\e"
+	
+	"\1\_b[snowpoff.png,50,50,centerxy]\0\s[5]*Behold!\w8 \s[2]A snowpoff.\w8\e:chain=snowpoff3"
+}}CHAIN
+
+snowpoff3
+{{CHAIN
+	"\1\_b[dogpoff.png,50,50,centerxy]\0\s[6]*\w5Huh?\w8 \_v[dog_boof.wav]\w8\w8 \n\s[5]*It's actually Greater Dog and not a snowpoff at all.\w8 \n\s[2]*Frisk seems relieved by this.\w8\e:chain=end"
+}}CHAIN
+
+snowpoff7
+{{CHAIN
+	"\1\_b[dogpoff.png,50,50,centerxy]\0\s[6]*\w5Huh?\w8\w3 \_v[dog_yap.wav]\w8\_v[dog_yap.wav]\w8 \n\s[5]*It's actually Greater Dog and not a snowpoff at all.\w8 \n\s[2]*Frisk seems relieved by this.\w8\e:chain=end"
+}}CHAIN
+
+
+naptime
+{{CHAIN
+	"\0\s[9]\![set,balloonwait,3]*ZZZ...\![set,balloonwait,1]\w8\e:chain=napover"
+}}CHAIN
+
+napover
+{{CHAIN
+	"\0\s[6]*Frisk wakes up,\w4 \s[5]feeling refreshed from %(their) nap.\w8\s[0]\e:chain=end"
+}}CHAIN
+
+
+flirtychild1
+{{CHAIN
+	"\0\s[2]*Frisk hands you a pie with the letters \nC - U - T - I - E \nwritten on it in frosting.\w8 \n\n[half]*...\w8\w8\s[8]%(Capitalize(they)) wink.\w8\w8\e:chain=end"
+}}CHAIN
+
+flirtychild2
+{{CHAIN
+	"\0\s[2]*Frisk hands you a periodic table with Copper and Tellerium circled.\w8 \n\n[half]*...\w8\w8\s[8]%(Capitalize(they)) wink.\w8\w8\e:chain=end"
+}}CHAIN
+
+flirtychild3
+{{CHAIN
+	"\0\s[2]*Frisk offers you a neatly-wrapped gift.\w8 \n*Inside the gift is a bone.\w8 \n\n[half]*...\w8\w8\s[8]%(Capitalize(they)) wink.\w8\w8\e:chain=end"
+}}CHAIN
+
+flirtychild4
+{{CHAIN
+	"\0\s[2]*Frisk hands you an unsigned letter.\w8 \n*It reads,\w5 'Let's go on a date!'\w8 \n\n[half]*...\w8\w8\s[8]%(Capitalize(they)) wink.\w8\w8\e:chain=end"
+}}CHAIN
+
+flirtychild5
+{{CHAIN
+	"\0\s[2]*Frisk holds up a DVD case,\w4 suggesting the two of you watch it together.\w8 \n*The DVD case is for an anime called\w4 'Mew Mew Kissy Cutie'.\w8 \n\n[half]*...\w8\w8\s[8]%(Capitalize(they)) wink.\w8\w8\e:chain=end"
+}}CHAIN
+
+flirtychild6
+{{CHAIN
+	"\0\s[2]*Frisk hands you a paper with the sentence,\w4 'Write what you like best about me!'\w4 at the top.\w8 \n*At the very bottom,\w4 in tiny script,\w4 are the words,\w8 \![set,balloonwait,3]'leg so hot you could fry an egg'.\![set,balloonwait,1]\w8 \n\n[half]*...\w8\w8\s[8]%(Capitalize(they)) wink.\w8\w8\e:chain=end"
+}}CHAIN
+
+flirtychild7
+{{CHAIN
+	"\0\s[2]*Frisk suggests the two of you go out for tea sometime.\w8 \n\n[half]*...\w8\w8\s[8]%(Capitalize(they)) wink.\w8\w8\e:chain=end"
+}}CHAIN
+
+flirtychild8
+{{CHAIN
+	"\0\s[2]*Frisk \s[8]wiggles %(their) hips.\w8 \n\n[half]*Do you wiggle back?\w8 \n\n\_q\![*]\q[Yes,wiggleyes] \n\![*]\q[Nope,wiggleno] \n\n[half]\![*]\q[Maybe later,BLANKCANCEL]\w8\w8\e:chain=end"
+}}CHAIN
+
+Select.wiggleyes
+{
+	"\0\s[5]*What a meaningful conversation!\w8\e"
+}
+
+Select.wiggleno
+{
+	"\0\s[21]*It's okay.\w8 Frisk understands.\w8\e"
+	
+	"\0\s[2]*Frisk doesn't mind the one-sided conversation.\w8\e"
+	
+	"\0\s[1]*You choose to leave %(them) hanging.\w8\e"
+}
+
+
+//Phew...
+//-OnMinuteChange
+
+//Keeps track of if an hour has passed. Just ignore this.
+HourCheck
+{
+	if passmin >= 59
+	{
+		passmin = 0
+		passhour = passhour + 1
+	}
+}
+
+//This is what will trigger time-based dialogue for your Ghost.
+OnMinuteChange
+{
+	HourCheck
+	--
+ 	if minute == 0
+	{
+		if hour == 12 //noon time
+		{
+			"\0*It's noon.\w8\e"
+			
+			"\0*It's 12'o clock,\w4 noon.\w8\e"
+		}
+ 		elseif hour == 0 //midnight time
+		{
+			"\0*It's midnight.\w8\e"
+			
+			"\0*It's 12'o clock,\w4 midnight.\w8\e"
+		}
+		else
+		{
+			"\0*It's %(hour12)'o clock.\e"
+		}
+	}
+	elseif mikireflag == 1
+ 	{
+ 		MikireTalk
+	}
+}
+
+//--OnSecondChange
+OnSecondChange
+{
+	if passsec == 59
+ 	{
+	 	passsec = 0
+ 		passmin = passmin + 1
+	}
+ 	else
+ 	{
+	 	passsec = passsec + 1
+	}
+	//Dialogue for putting them off the screen.
+	if mikireflag == 0 && reference1 == 1
+	{
+		"\0\s[3]*You've moved Frisk offscreen.\w8\e"
+		
+		MikireTalk
+	}
+	//Dialogue for coming back on the screen
+	if mikireflag == 1 && reference1 == 0
+	{
+		EndMikireTalk
+	}
+	
+	mikireflag = reference1 //reference1 is if the ghost is offscreen or not
+ 	
+	//This dialogue is for when the two characters are overlapping each other.
+	if reference2 == 1
+	{
+ 		"\0\s[1]*Frisk and Flowey are somehow overlapping.\w8\1\s[19]*Your resolution is %screenwidthx%screenheight,\w4 %(username). \4Shouldn't we have enough space?\w8\e"
+	}
+}
+	// %screenwidthx%screenheight
+	// \4 -> moves away; \5 -> moves towards (if they can; if too close, also moves away)
+
+//---- MikireTalk ---------------------------------------------------------------------
+//Note the hotkey combo Ctrl-Shift-F12. It brings the main character back onscreen.
+MikireTalk
+{
+	"\0\s[3]*Frisk is offscreen,\w4 %(username).\w8\e"
+	
+	"\0\s[31]*Frisk is offscreen,\w4 %(username).\w8\e"
+}
+
+//----EndMikireTalk--------------------------------------------------------------------
+EndMikireTalk
+{
+	"\0\s[6]*Frisk has returned from the void.\w8\e"
+	
+	"\0\s[7]*Frisk has been brought back into view.\w8\e"
+}
+
+
+//------- On Offscreen!! ------------------------------------------------------------
+//In case the Mikiretalk doesn't work out, we have this function instead.
+/*OnOffscreen
+{
+	if reference0 == 0
+	{
+		"\0\s[0]*You've moved Frisk offscreen.\w8\e"
+	}
+	elseif reference0 == 1
+	{
+		"\0\s[1]*It appears as if Flowey has wandered offscreen...\w8\e"
+	}
+	else //moving them back onscreen
+	{
+		"\0\s[6]*Frisk has returned from the void.\w8\e"
+		
+		"\0\s[7]*Frisk has been brought back into view.\w8\e"
+	}
+}*/
+
+
+//**** OnSurfaceRestore *****************************************************************
+OnSurfaceRestore
+{
+ 	if reference0 == 9
+ 	{
+		"\0\s[9]\e"
+ 	}
+	elseif reference1 == 15
+ 	{
+		"\1\s[10]\0\s[7]\e"
+ 	}
+ 	elseif reference1 == 11 || reference1 == 12 || reference1 == 17 || reference1 == 18 || reference1 == 19
+ 	{
+		"\1\s[19]\w8\s[-1]\0\s[0]\e"
+ 	}
+ 	else
+ 	{
+		"\0\s[0]\1\s[10]\e"
+	}
+}
+
+
+//--OnKeyPress
+OnKeyPress
+{
+	if reference0 == "t"
+	{
+	OnAiTalk
+	}
+	elseif reference0 == "r"
+	{
+	OnLastTalk
+	}
+	elseif reference0 == "f1"
+	{
+	"\![open,readme]"
+	}
+}
+
+//you used to call me on your bone phone
+//used to call me on your skull phone
+//used to call me on your phone bone
+//used to call me on my goat phone

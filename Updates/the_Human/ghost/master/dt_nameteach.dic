@@ -1,0 +1,765 @@
+﻿//---------------------------The User's Name--------------------------
+//What'cher naaaaaaaame??
+
+
+//--OnTeachName
+OnTeachName	
+{
+	if reference0 == "TEACHNAME" //ignore this
+	{
+		"\0\s[5]*Frisk is ready to hear your name change.\w4"
+		--
+		"\![open,inputbox,OnNameTeach,-1]\e"
+	}
+	else
+	{
+		//This else statement is empty. Carry on.
+	}
+}
+
+//this is straight from Zi because they are a gremlin who loves to breakproof the firstboot sequence as much as they can
+OnUserInputCancel
+{
+	"\C\![open,inputbox,%(reference0),-1]"
+}
+
+
+//--OnNameTeach
+OnNameTeach
+{
+	tempname = reference0 //this stores the name value from reference0 in tempname
+	reference0 = TOLOWER(reference0) //changes it to lowercase
+	reference0 = REPLACE(reference0," ","") //removes spaces
+	reference0 = REPLACE(reference0,".","") //removes periods
+	reference0 = REPLACE(reference0,"-","") //removes dashes
+	
+	if tempname == user && firstboot != 1
+	{
+		"\0\s[7]*Frisk isn't falling for your silliness this time,\w4 %(username).\w8\x"
+		
+		"\0\s[7]*That's the same thing!!\w8\x"
+		--
+		OnTalkConfig
+	}
+	elseif reference0 == "frisk" || reference0 == "thehuman"
+	{
+		"\0\s[7]*That is Frisk's name and it might get confusing in dialogue if you have it,\w4 too.\w8 \s[1]Wouldn't want to make your life a living hell,\w4 now would we?"
+		--
+		"\![open,inputbox,OnNameTeach,-1]"
+	}
+	elseif reference0 == "chara" || reference0 == "thefallenhuman"
+	{
+		"\0\s[15]*No."
+		--
+		"\![open,inputbox,OnNameTeach,-1]"
+	}
+	elseif reference0 == "mercy" || reference0 == "murder"
+	{
+		if firstboot == 1
+		{
+			"\t\*"
+		}
+		--
+		"\0\s[1]*A bit on the nose there,\w4 don't you think?\w8"
+		--
+		"\n\n\![*]\q[Nope,titlenone]\e"
+	}
+	elseif reference0 == "toriel"
+	{
+		"\0\s[2]*That is the name of Frisk's goat mother.\w8 \s[1]You cannot have that,\w4 my child."
+		--
+		"\![open,inputbox,OnNameTeach,-1]"
+	}
+	elseif reference0 == "sans"
+	{
+		"\0\s[2]*That is the name of Frisk's small skeleton friend.\w8 \s[1]I cannot allow it."
+		--
+		"\![open,inputbox,OnNameTeach,-1]"
+	}
+	elseif reference0 == "papyrus" || reference0 == "coolskeleton95"
+	{
+		"\0\s[5]*That is the name of Frisk's tall skeleton friend.\w8 \s[1]I cannot allow it."
+		--
+		"\![open,inputbox,OnNameTeach,-1]"
+	}
+	elseif reference0 == "pap" || reference0 == "papy" || reference0 == "paps" || reference0 == "papyru"
+	{
+		if firstboot == 1
+		{
+			"\t\*"
+		}
+		--
+		"\0\s[2]*I suppose I can allow it.\w8 \n*Want a title to go along with that?\w8"
+		--
+		"\n\n[half]\_q\![*]\q[Nope,titlenone] \n\![*]\q[Prefix,titleprefix] \n\![*]\q[Suffix,titlesuffix]\e"
+	}
+	elseif reference0 == "undyne" || reference0 == "strongfish91"
+	{
+		"\0\s[2]*That is the name of Frisk's fish lady friend.\w8 \s[1]You'll have to choose something else."
+		--
+		"\![open,inputbox,OnNameTeach,-1]"
+	}
+	elseif reference0 == "alphys" || reference0 == "dralphys" || reference0 == "doctoralphys"
+	{
+		"\0\s[2]*That is the name of Frisk's scientist lady friend.\w8 \s[1]You may not have it."
+		--
+		"\![open,inputbox,OnNameTeach,-1]"
+	}
+	elseif reference0 == "mettaton" || reference0 == "mettatonex"
+	{
+		"\0\s[2]*That is the name of Frisk's robot friend.\w8 They say it's too fabulous for you,\w3 \s[1]so you'll have to choose something a little more drab."
+		--
+		"\![open,inputbox,OnNameTeach,-1]"
+	}
+	elseif reference0 == "mtt" || reference0 == "metta"
+	{
+		if firstboot == 1
+		{
+			"\t\*"
+		}
+		--
+		"\0\s[6]*Are you promoting Mettaton's brand?\w8 \s[5]I suppose I shouldn't stop you,\w4 then.\w8 \n\s[2]*Do you need a title to go along with that?\w8"
+		--
+		"\n\n[half]\_q\![*]\q[Nope,titlenone] \n\![*]\q[Prefix,titleprefix] \n\![*]\q[Suffix,titlesuffix]\e"
+	}
+	elseif reference0 == "asgore" || reference0 == "mrdreemur" || reference0 == "fluffybuns" || reference0 == "kingfluffybuns" || reference0 == "fluffyboy" || reference0 == "kingasgore" || reference0 == "asgoredreemur" || reference0 == "kingasgoredreemur"
+	{
+		"\0\s[2]*That is the name of Frisk's goat father.\w8 \s[1]You cannot have that,\w4 young one."
+		--
+		"\![open,inputbox,OnNameTeach,-1]"
+	}
+	elseif reference0 == "asriel" || reference0 == "asrieldreemur"
+	{
+		"\0\s[31]\![set,balloonwait,3]*Y O U  A R E  N O T  A L L O W E D.\![set,balloonwait,1]"
+		--
+		"\![open,inputbox,OnNameTeach,-1]"
+	}
+	elseif reference0 == "flowey" || reference0 == "photoshopflowey" || reference0 == "omegaflowey" || reference0 == "flowery"
+	{
+		"\0\s[1]\1\s[19]*I all ready chose that name.\w8 \0\s[21]*Why don't you try again?"
+		--
+		"\![open,inputbox,OnNameTeach,-1]"
+	}
+	elseif reference0 == "gaster" || reference0 == "wdgaster"
+	{
+		username = "darker yet darker"
+		
+		"\0\s[3]*d̷͕̙̰͓͓̬͍̬̦̺̪̯̃́̈́́͂̓͌͛̑̌̀̊̕a̸̧̲̥͍͌͑̃̋̕ŕ̴̨̨͍̳̰̺̭͇̰̟̺̮͔͑̿̍̉ḵ̷̡̹̲̰̻͍͕͇̮̙͗̓̎̊͑̄e̶̜̪̻̤̋̿r̷̨̘̜͎̣͉̝͍̋̈́̽̓̓̐͗͑̀͌̃̚͠͝ ̸̛͉̜̩̙̼͂̓͗̒͒͑̓̉̅͋̈́͑͘͘s̶̙̼̲̳̤͙̣̲̩͕̈́͒̒̕͝t̷̹̜̳͕̬͚͉̲̟͈̱̭̯̋́̈́̃̾̊̎̽̚į̵̢̠̺̣̜̖͓̥̀̈́̈́̂͂̆̌͊ͅl̸̨̯̳̤̹̎̓͒l̵̫̬̲͈̦̳͖̼͕͋̽͂̔̅\-\e"
+	}
+	elseif reference0 == "napstablook" || reference0 == "napsta" || reference0 == "blook" || reference0 == "blooky" || reference0 == "napstablook22"
+	{
+		"\0\s[1]*They're powerless to stop you.\w8 \n*I,\w4 however,\w4 say pick again."
+		--
+		"\![open,inputbox,OnNameTeach,-1]"
+	}
+	elseif reference0 == "tobyfox" || reference0 == "toby" || reference0 == "radiation" || reference0 == "tobyradiationfox" || reference0 == "annoyingdog"
+	{
+		"\0\s[7]\_v[dog_yap.wav]*That is a dog's name."
+		--
+		"\![open,inputbox,OnNameTeach,-1]"
+	}
+	elseif reference0 == "temmie" || reference0 == "temmiye" || reference0 == "tem"
+	{
+		"\0\s[5]*hOI!!!"
+		--
+		"\![open,inputbox,OnNameTeach,-1]"
+	}
+	elseif reference0 == "monsterkid" || reference0 == "grillby" || reference0 == "burgerpants" || reference0 == "muffet" || reference0 == "bratty" || reference0 == "catty" || reference0 == "nicecreamguy" || reference0 == "maddummy" || reference0 == "shyren" || reference0 == "doggo" || reference0 == "dogamy" || reference0 == "dogaressa" || reference0 == "lesserdog" || reference0 == "greaterdog" || reference0 == "gerson" || reference0 == "madmewmew"
+	{
+		"\0\s[2]*That is the name of one of Frisk's friends.\w8 \s[1]Perhaps you should try being a bit more original?"
+		--
+		"\![open,inputbox,OnNameTeach,-1]"
+	}
+	elseif reference0 == "woshua" || reference0 == "aaron" || reference0 == "froggit" || reference0 == "whimsum" || reference0 == "moldsmal" || reference0 == "loox" || reference0 == "migosp" || reference0 == "vegetoid" || reference0 == "snowdrake" || reference0 == "chilldrake" || reference0 == "icecap" || reference0 == "gyftrot" || reference0 == "moldbygg" || reference0 == "vulkin" || reference0 == "tsunderplane" || reference0 == "pyrope" || reference0 == "madjick" || reference0 == "knightknight" || reference0 == "finalfroggit" || reference0 == "whimsalot" || reference0 == "astigmatism" || reference0 == "moldessa" || reference0 == "migospel" || reference0 == "parsnick"
+	{
+		"\0\s[2]*That is the name of a monster.\w8 \s[1]I'm pretty sure it doesn't belong to you."
+		--
+		"\![open,inputbox,OnNameTeach,-1]"
+	}
+	elseif reference0 == "redacted" || reference0 == "lemonbread" || reference0 == "snowy" || reference0 == "amalgamate" || reference0 == "endogeny" || reference0 == "reaperbird" || reference0 == "memoryhead"
+	{
+		"\0\s[31]* REDACTED."
+		--
+		"\![open,inputbox,OnNameTeach,-1]"
+	}
+	elseif reference0 == "jerry"
+	{
+		"\0\s[7]\f[height,20]*NOPE.\f[height,default]"
+		--
+		"\![open,inputbox,OnNameTeach,-1]"
+	}
+	elseif reference0 == "heatsflamesman"
+	{
+		username = "Ice Coolguy"
+		
+		if firstboot == 1
+		{
+			firstboot = 0
+		}
+		--
+		"\0\s[0]*So you're Ice Coolguy?\w8 \s[1]That seems like an odd name.\w8 \s[2]Still,\w4 Frisk will remember that.\w8\e"
+	}
+	elseif reference0 == "icecoolguy"
+	{
+		username = "Hotpants Firedude"
+		
+		if firstboot == 1
+		{
+			firstboot = 0
+		}
+		--
+		"\0\s[0]*So you're Hotpants Fireboy?\w8 \s[1]That seems like an odd name.\w8 \s[2]Still,\w4 Frisk will remember that.\w8\e"
+	}
+	elseif reference0 == "hotpantsfiredude"
+	{
+		username = "Heats Flamesman"
+		
+		if firstboot == 1
+		{
+			firstboot = 0
+		}
+		--
+		"\0\s[0]*So you're Heats Flamesman?\w8 \s[1]That seems like an odd name.\w8 \s[2]Still,\w4 Frisk will remember that.\w8\e"
+	}
+	elseif reference0 == ""
+	{
+		username = "Bepis"
+		
+		if firstboot == 1
+		{
+			firstboot = 0
+		}
+		--
+		"\0\s[0]*Are you unwilling to tell us?\w8 Then I will refer to you as \s[1]Bepis.\w8\e"
+	}
+	else
+	{
+		"\0\s[6]"
+		"\0\s[5]"
+		"\0\s[0]"
+		"\0\s[2]"
+		"\0\s[8]"
+		--
+		"*Do you want a title?\w4"
+		
+		"*Would you like a title?\w4"
+		--
+		"\n\n[half]\_q\![*]\q[Nope,titlenone] \n\![*]\q[Prefix,titleprefix] \n\![*]\q[Suffix,titlesuffix]\e"
+	}
+}
+
+	
+Select.titlenone
+{
+	username = tempname
+	NameDone
+}
+
+Select.titleprefix
+{
+	"\0\s[2]*Tell Frisk which prefix to use for your name.\w8 \n\s[0]*Make sure you put a space afterwards.\w4 \s[7]otherwise your name will be smashed together in one word.\w8"
+	--
+	"\![open,inputbox,OnPrefixTeach,-1]\e"
+}
+
+Select.titlesuffix
+{
+	"\0\s[5]*Tell Frisk which suffix to use for your name.\w8 \n\s[0]*Make sure to put a space or hyphen as your first character,\w4 \s[7]otherwise your name will be smashed together in one word.\w8"
+	--
+	"\![open,inputbox,OnSuffixTeach,-1]\e"
+}
+
+//for prefixes!!
+OnPrefixTeach
+{
+	_temptitle = reference0 //this stores the name value from reference0 in tempname
+	reference0 = TOLOWER(reference0) //changes it to lowercase
+	reference0 = REPLACE(reference0," ","") //removes spaces
+	//reference0 = REPLACE(reference0,".","") //removes periods
+	//reference0 = REPLACE(reference0,"-","") //removes dashes
+	//reference0 = REPLACE(reference0,"'","") //removes apostrophes
+	
+	if reference0 == ""
+	{
+		username = tempname
+		
+		"\0\s[1]*It seems you didn't put anything in.\w8 \s[0]\n*That's okay.\w8 \s[2]You can always decide later.\w8\w8\w8\w8\c"
+	}
+	else
+	{
+		username = _temptitle + tempname
+	}
+	--
+	NameDone
+}
+
+//for suffixes!!
+OnSuffixTeach
+{
+	_temptitle = reference0 //this stores the name value from reference0 in tempname
+	reference0 = TOLOWER(reference0) //changes it to lowercase
+	reference0 = REPLACE(reference0," ","") //removes spaces
+	//reference0 = REPLACE(reference0,".","") //removes periods
+	//reference0 = REPLACE(reference0,"-","") //removes dashes
+	//reference0 = REPLACE(reference0,"'","") //removes apostrophes
+	
+	if reference0 == ""
+	{
+		username = tempname
+		
+		"\0\s[1]*It seems you didn't put anything in.\w8 \s[0]\n*That's okay.\w8 \s[2]You can always decide later.\w8\w8\w8\w8\c"
+	}
+	else
+	{
+		username = tempname + _temptitle
+	}
+	--
+	NameDone
+}
+
+
+//--NameDone
+NameDone
+{
+	if firstboot == 1
+	{
+		firstboot = 0
+		
+		"\0\s[5]*%(username)!\w8 \s[2]Frisk is very excited to meet you.\w8 \s[0]\n*%(Capitalize(they)) hope you will enjoy %(them) as much as %(they) have had fun so far.\w8\e"
+		
+		"\0\s[0]*So that's %(username),\w4 then?\w8 \s[0]\n*Frisk has committed it to %(their) memory.\w8 \s[0]%(Capitalize(they)) will now stand around doing ukagaka things until you need %(them).\w8\e"
+	}
+	else
+	{
+		{
+		"\0\s[6]"
+		"\0\s[5]"
+		"\0\s[0]"
+		"\0\s[2]"
+		"\0\s[8]"
+		--
+		"*Frisk will refer to you as %(username).\w8\e"
+		}
+		
+		{
+		"\0\s[6]"
+		"\0\s[5]"
+		"\0\s[0]"
+		"\0\s[2]"
+		"\0\s[8]"
+		--
+		"*Your name is now %(username).\w8\e"
+		}
+		
+		{
+		"\0\s[6]"
+		"\0\s[5]"
+		"\0\s[0]"
+		"\0\s[2]"
+		"\0\s[8]"
+		--
+		"*%(username).\w8 "
+		--
+		"\s[6]"
+		"\s[5]"
+		"\s[0]"
+		"\s[2]"
+		"\s[8]"
+		--
+		"Got it.\w8\e"
+		}
+		
+		{
+		"\0\s[6]"
+		"\0\s[5]"
+		"\0\s[0]"
+		"\0\s[2]"
+		"\0\s[8]"
+		--
+		"*%(username)?\w8 "
+		--
+		"\n\s[6]"
+		"\n\s[5]"
+		"\n\s[0]"
+		"\n\s[2]"
+		"\n\s[8]"
+		--
+		"*Frisk will remember that.\w8\e"
+		}
+	}	
+}
+
+
+OnPronoTeach
+{
+	if reference0 == "masc"
+	{
+		presuffix = "masculine"
+		himher = "him"
+		heshe = "he"
+		hisher = "his"
+		hesshes = "he's"
+	}
+	elseif reference0 == "femm"
+	{
+		presuffix = "feminine"
+		himher = "her"
+		heshe = "she"
+		hisher = "her"
+		hesshes = "she's"
+	}
+	elseif reference0 == "neit"
+	{
+		presuffix = "undefine"
+		himher = "them"
+		heshe = "they"
+		hisher = "their"
+		hesshes = "they're"
+	}
+	elseif reference0 == "heth"
+	{
+		presuffix = "both"
+		himher = "%(himthem)"
+		heshe = "%(hethey)"
+		hisher = "%(histheir)"
+		hesshes = "%(hestheyre)"
+	}
+	elseif reference0 == "sheth"
+	{
+		presuffix = "both"
+		himher = "%(herthem)"
+		heshe = "%(shethey)"
+		hisher = "%(hertheir)"
+		hesshes = "%(shestheyre)"
+	}
+	elseif reference0 == "undef"
+	{
+		presuffix = "both"
+		himher = "%(herhim)"
+		heshe = "%(shehe)"
+		hisher = "%(herhis)"
+		hesshes = "%(sheshes)"
+	}
+	elseif reference0 == "itit"
+	{
+		presuffix = "undefine"
+		himher = "it"
+		heshe = "it"
+		hisher = "its"
+		hesshes = "it's"
+	}
+	elseif reference0 == "both"
+	{
+		"\0\s[5]*Frisk thinks that's super cool!\w8 \s[6]\n*Start with the pronouns you use for 'him / her / them'.\w8 \n\n[half]\s[2]*Frisk eagerly awaits your input.\w5"
+		
+		"\0\s[6]*What are your pronouns for 'him / her / them'?\w8 \n\s[5]*Frisk eagerly awaits your response.\w5"
+		--
+		"\![open,inputbox,OnhimherTeach,-1]\e"
+	}
+	else //cancel
+	{
+		"\0\s[0]*Okay.\w8 \s[2]Frisk will continue to use '%(heshe)',\w3 '%(himher)',\w3 and '%(hisher)' for you,\w4 %(username).\w8\e"
+	}
+	--
+	if firstboot == 1
+	{
+		"\0\s[2]\t\**Frisk will remember those.\w8 \n\n[half]*Now,\w4 \s[5]Frisk would like to know your name.\w4"
+		--
+		"\![open,inputbox,OnNameTeach,-1]\e"
+	}
+	else
+	{
+		"\0\s[5]*Frisk will use '%(heshe)',\w3 '%(himher)'\w3 and '%(hisher)' for you,\w3 %(username).\w8\w8"
+		--
+		if they == "they" && them == "them" && their == "their" && heshe == "they" && himher == "them" && hisher == "their"
+		{
+			"\n\n[half]\s[8]*Determination.\w8\w8"
+		}
+		--
+		if they == heshe && them == himher && their == hisher
+		{
+			"\n\n[half]\s[8]*Now you two match.\w8\w8"
+		}
+		--
+		if presuffix == "both"
+		{
+			"\s[2]\n\n[half]*If you want to re-roll your options,\w3 just choose this again.\w8\w8"
+		}
+		--
+		"\e"
+		
+	}
+}
+
+	
+OnhimherTeach
+{
+	himher = reference0
+	reference0 = REPLACE(reference0," ","") //removes spaces
+	reference0 = REPLACE(reference0,".","") //removes periods
+	reference0 = REPLACE(reference0,"-","") //removes dashes
+	reference0 = REPLACE(reference0,"'","") //removes apostrophes
+	
+	if reference0 == ""
+	{
+		himher = "hir"
+	}
+	OnPronounTeach2
+}
+
+OnPronounTeach2
+{
+	"\0\s[5]*That's '%(himher)'!\w8 \n\n[half]\s[2]*Now,\w3 what about for 'he / she / they'?\w8"
+	--
+	"\![open,inputbox,OnhesheTeach,-1]"
+}
+	
+OnhesheTeach
+{
+	heshe = reference0
+	reference0 = REPLACE(reference0," ","") //removes spaces
+	reference0 = REPLACE(reference0,".","") //removes periods
+	reference0 = REPLACE(reference0,"-","") //removes dashes
+	reference0 = REPLACE(reference0,"'","") //removes apostrophes
+	
+	if reference0 == ""
+	{
+		heshe = "zie"
+	}
+	OnPronounTeach3
+}
+	
+OnPronounTeach3
+{
+	"\0\s[6]*That's '%(heshe)',\w3 then.\w8 \n\n[half]\s[2]*Next,\w3 for 'his / her / their'?\w8"
+	--
+	"\![open,inputbox,OnhisherTeach,-1]"
+}
+
+OnhisherTeach
+{
+	hisher = reference0
+	reference0 = REPLACE(reference0," ","") //removes spaces
+	reference0 = REPLACE(reference0,".","") //removes periods
+	reference0 = REPLACE(reference0,"-","") //removes dashes
+	reference0 = REPLACE(reference0,"'","") //removes apostrophes
+	
+	if reference0 == ""
+	{
+		hisher = "hirs"
+	}
+	OnPronounTeach1
+}
+
+OnPronounTeach1
+{
+	"\0\s[5]*That's '%(hisher)'.\w8 \s[0]\n\n[half]*Lastly,\w4 for 'he's / she's / they're'?\w8"
+	--
+	"\![open,inputbox,OnhesshesTeach,-1]"
+}
+
+OnhesshesTeach
+{
+	hesshes = reference0
+	reference0 = REPLACE(reference0," ","") //removes spaces
+	reference0 = REPLACE(reference0," ","") //removes spaces
+	reference0 = REPLACE(reference0,".","") //removes periods
+	reference0 = REPLACE(reference0,"-","") //removes dashes
+	reference0 = REPLACE(reference0,"'","") //removes apostrophes
+	
+	if reference0 == ""
+	{
+		hesshes = "zie's"
+	}
+	OnPronounDone
+}
+
+OnPronounDone
+{
+	presuffix = "both"
+	--
+	if firstboot == 1
+	{
+		"\0\s[2]\t\**Your pronouns are now set to your personal '%(heshe)',\w3 '%(himher)',\w3 and '%(hisher)'.\w8 \s[5]\n*Frisk will remember those.\w8 \n\n[half]*Now,\w4 \s[2]Frisk would like to know your name.\w4"
+		--
+		"\![open,inputbox,OnNameTeach,-1]\e"
+	}
+	else
+	{
+		"\0\s[2]*Your pronouns are now set to your personal '%(heshe)',\w3 '%(himher)',\w3 and '%(hisher)'.\w8 \n\s[5]*Frisk seems excited by this fact.\w8\e"
+	}
+}
+
+
+//and Frisk's pronouns stuff
+OnFriskProno
+{
+	if reference0 == "masc"
+	{
+		they = "he"
+		them = "him"
+		their = "his"
+		theyre = "he's"
+	}
+	elseif reference0 == "femm"
+	{
+		they = "she"
+		them = "her"
+		their = "her"
+		theyre = "she's"
+	}
+	elseif reference0 == "neit"
+	{
+		they = "they"
+		them = "them"
+		their = "their"
+		theyre = "they're"
+	}
+	elseif reference0 == "heth"
+	{
+		they = "%(hethey)"
+		them = "%(himthem)"
+		their = "%(histheir)"
+		theyre = "%(hestheyre)"
+	}
+	elseif reference0 == "sheth"
+	{
+		they = "%(shethey)"
+		them = "%(herthem)"
+		their = "%(hertheir)"
+		theyre = "%(shestheyre)"
+	}
+	elseif reference0 == "undef"
+	{
+		they = "%(shehe)"
+		them = "%(herhim)"
+		their = "%(herhis)"
+		theyre = "%(sheshes)"
+	}
+	elseif reference0 == "itit"
+	{
+		they = "it"
+		them = "it"
+		their = "its"
+		theyre = "it's"
+	}
+	elseif reference0 == "both"
+	{
+		"\0\s[6]*What pronouns for 'him / her / them' would you like to use for Frisk?\w5"
+		--
+		"\![open,inputbox,OnthemTeach,-1]\e"
+	}
+	else //cancel
+	{
+		"\0\s[0]*Okay.\w8 \s[2]Frisk will continue to use '%(they)',\w3 '%(them)',\w3 and '%(their)'.\w8\e"
+	}
+	--
+	"\0\s[0]*Frisk will use '%(they)',\w3 '%(them)',\w3 and '%(their)' for %(them)self,\w3 %(username).\w8\w8"
+	--
+	if they == "they" && them == "them" && their == "their"
+	{
+		"\n\n[half]\s[8]*The default mode!\w8\w8"
+	}
+	--
+	if they == heshe && them == himher && their == hisher
+	{
+		"\n\n[half]\s[8]*Did you want Frisk to match with you?\w8\w8"
+	}
+	--
+	if reference0 == "heth" || reference0 == "sheth" || reference0 == "undef"
+	{
+		"\s[2]\n\n[half]*If you want to re-roll the picks,\w3 just choose this option again.\w8\w8"
+	}
+	--
+	"\e"
+}
+
+OnthemTeach
+{
+	them = reference0
+	reference0 = REPLACE(reference0," ","") //removes spaces
+	reference0 = REPLACE(reference0,".","") //removes periods
+	reference0 = REPLACE(reference0,"-","") //removes dashes
+	reference0 = REPLACE(reference0,"'","") //removes apostrophes
+	
+	if reference0 == ""
+	{
+		them = "them"
+	}
+	OnFriskTeach2
+}
+
+OnFriskTeach2
+{
+	"\0\s[2]*And for he / she / they?"
+	--
+	"\![open,inputbox,OntheyTeach,-1]"
+}
+	
+OntheyTeach
+{
+	they = reference0
+	reference0 = REPLACE(reference0," ","") //removes spaces
+	reference0 = REPLACE(reference0,".","") //removes periods
+	reference0 = REPLACE(reference0,"-","") //removes dashes
+	reference0 = REPLACE(reference0,"'","") //removes apostrophes
+	
+	if reference0 == ""
+	{
+		they = "they"
+	}
+	OnFriskTeach3
+}
+	
+OnFriskTeach3
+{
+	"\0\s[5]*Next,\w3 for his / her / their?"
+	--
+	"\![open,inputbox,OntheirTeach,-1]"
+}
+
+OntheirTeach
+{
+	their = reference0
+	reference0 = REPLACE(reference0," ","") //removes spaces
+	reference0 = REPLACE(reference0,".","") //removes periods
+	reference0 = REPLACE(reference0,"-","") //removes dashes
+	reference0 = REPLACE(reference0,"'","") //removes apostrophes
+	
+	if reference0 == ""
+	{
+		their = "their"
+	}
+	OnFriskTeach1
+}
+
+OnFriskTeach1
+{
+	"\0\s[0]*Lastly,\w4 for he's / she's / they're?"
+	--
+	"\![open,inputbox,OntheyreTeach,-1]"
+}
+
+OntheyreTeach
+{
+	theyre = reference0
+	reference0 = REPLACE(reference0," ","") //removes spaces
+	reference0 = REPLACE(reference0," ","") //removes spaces
+	reference0 = REPLACE(reference0,".","") //removes periods
+	reference0 = REPLACE(reference0,"-","") //removes dashes
+	reference0 = REPLACE(reference0,"'","") //removes apostrophes
+	
+	if reference0 == ""
+	{
+		theyre = "they're"
+	}
+	OnFriskDone
+}
+
+OnFriskDone
+{
+	"\0\s[2]*Frisk's pronouns are now set to your personal '%(they)',\w3 '%(them)',\w3 and '%(their)'.\w8 \n\s[5]*Have fun,\w3 %(username).\w8\e"
+}
+
+
+//That's it that's the file.

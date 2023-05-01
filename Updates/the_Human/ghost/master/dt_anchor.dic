@@ -1,0 +1,111 @@
+//---------------------------Anchors and OnTranslate--------------------------
+//this file is for one thing don't judge me XD
+
+
+//--OnTranslate
+//the first word is what you will write in your ghost's dialogue. the \_a sets up the link, then the [brackets] is the address that the link will lead to (in this case, used in the reference0 check below in OnAnchorSelect). Finally, the "text" is what will replace the first word so when the ghost reads it to the user, it will appear as "text" instead of that first word! and end with another \_a to close off that code. simple.
+OnTranslate
+	{
+	_talk = reference0
+ 	_talk = REPLACE(_talk, "naisudesu", "\_a[nicethings]Nice Cream\_a")
+ 	//_talk = REPLACE(_talk, "Anch2", "\_a[anchor2]Anchor 2\_a")
+ 	//_talk = REPLACE(_talk, "Anch3", "\_a[anchor3]Anchor 3\_a")
+	
+		if reference1 == "" && reference2 == "" { //send input box : no event (ref2) , no special flag (ref1)
+            EVAL('"' + REPLACE(_talk,'"','" + CHR(0x22) + "') + '"')
+        }
+        else { //event result from ghost
+            TOSTR(_talk)
+        }
+	}
+	
+	
+//--OnAnchorSelect
+// \j is a tag that will open a specified url in the user's browser of choice
+OnAnchorSelect
+{
+	if "http://" _in_ reference0 || "https://" _in_ reference0 //checking to see if the link is a web address
+	{
+	"\j[%(reference0)]\e"
+	}
+	else //if it's NOT a web address
+	{
+	case reference0 //case sets up reference0 for evaluation to see if matches any of the below criteria, which are all tagged with when.
+		{
+			when "nicethings"
+			{
+				"\0\s[5]"
+				"\0\s[8]"
+				"\0\s[2]"
+				"\0\s[4]"
+				"\0\s[6]"
+				--
+				{
+					"\1*(It reads:\w8 \n\n[half]"
+					--
+					"Have a nice day!)\w8\e"
+					
+					"You're a cool person!)\w8\e"
+					
+					"You're just too sweet!)\w8\e"
+					
+					"You're as cool as ice!)\w8\e"
+					
+					"You're a real n'ice' person!)\w8\e"
+					
+					" cool outside but warm inside you )\w8\e"
+					
+					"Hope your day is as cool as this treat!)\w8\e"
+					
+					"A cool treat for a cool person!)\w8\e"
+					
+					"Melts from your nice warm heart <3 )\w8\e"
+				}
+				
+				"\1*(It's a drawing of two characters hugging.)\w8\e"
+				
+				{
+					"\1*(It's a big smile.)\w8 \n\n[half]"
+					--
+					"\f[height,30]:3\f[height,default]\w8\e"
+					
+					"\f[height,30]:D\f[height,default]\w8\e"
+					
+					"\f[height,30]owo\f[height,default]\w8\e"
+					
+					"\f[height,30]ovo\f[height,default]\w8\e"
+					
+					"\f[height,30]uwu\f[height,default]\w8\e"
+					
+					"\f[height,30]uvu\f[height,default]\w8\e"
+					
+					"\f[height,30]nwn\f[height,default]\w8\e"
+					
+					"\f[height,30]nvn\f[height,default]\w8\e"
+					
+					"\f[height,30]^w^\f[height,default]\w8\e"
+					
+					"\f[height,30]^v^\f[height,default]\w8\e"
+					
+					"\f[height,30]^o^\f[height,default]\w8\e"
+					
+					"\f[height,30]:)\f[height,default]\w8\e"
+					
+					"\f[height,30]:-)\f[height,default]\w8\e"
+					
+					"\f[height,30]]:)\f[height,default]\w8\e"
+				}
+				
+				"\1*(It's a bunch of sparkles and snowflakes in the shape of a heart.)\w8\e"
+			}
+			when "anchor2"
+			{
+				"\0\s[0]This dialogue is for when Anchor 2 is clicked.\e"
+			}
+			when "anchor3"
+			{
+				"\0\s[0]This dialogue is for when Anchor 3 is clicked.\e"
+			}
+		}
+	}
+}

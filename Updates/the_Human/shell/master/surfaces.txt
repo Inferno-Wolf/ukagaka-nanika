@@ -1,0 +1,204 @@
+//---------------------------Surfaces.txt--------------------------
+
+//0 - Frisk Neutral
+//1 - Frisk sad
+//2 - Frisk happy
+//21 - Frisk sad happy
+//3 - Frisk cry
+//31 - Frisk blubber
+//4 - Frisk blushy
+//5 - Frisk big grin
+//6 - Frisk interested
+//7 - Frisk angery
+//8 - Frisk flirty
+//9 - Frisk sleepy
+//91 - Frisk yawn
+
+//15 - Chara
+
+//10 - NOBODY
+
+//11 - Flowey grin
+//12 - Flowey smile
+//17 - Flowey scary
+//18 - Flowey scary alt
+//19 - Flowey sassy
+
+
+//--The Main Character's Poses---------------------------------------------------------
+
+surface0
+{
+collision0,81,205,263,275,Head
+collision1,71,268,263,364,Face
+
+element0,overlay,surface0.png,0,0
+}
+
+//Frisk Sad pose
+surface1
+{
+collision0,81,205,263,275,Head
+collision1,71,268,263,364,Face
+
+element0,overlay,surface1501.png,0,0
+}
+
+//Frisk Happy pose
+surface2
+{
+collision0,81,205,263,275,Head
+collision1,71,268,263,364,Face
+
+element0,overlay,surface1502.png,0,0
+}
+
+//Frisk Happy Sad pose
+surface21
+{
+collision0,81,205,263,275,Head
+collision1,71,268,263,364,Face
+
+element0,overlay,surface1512.png,0,0
+}
+
+//Frisk Cry pose
+surface3
+{
+collision0,81,205,263,275,Head
+collision1,71,268,263,364,Face
+
+element0,overlay,surface1503.png,0,0
+}
+
+//Frisk alt Cry pose
+surface31
+{
+collision0,81,205,263,275,Head
+collision1,71,268,263,364,Face
+
+element0,overlay,surface1513.png,0,0
+}
+
+//Frisk Blushy pose
+surface4
+{
+collision0,81,205,263,275,Head
+collision1,71,268,263,364,Face
+
+element0,overlay,surface1504.png,0,0
+}
+
+//Frisk Big Grin pose
+surface5
+{
+collision0,81,205,263,275,Head
+collision1,71,268,263,364,Face
+
+element0,overlay,surface1505.png,0,0
+}
+
+//Frisk Interested pose
+surface6
+{
+collision0,35,210,248,272,Head
+collision1,34,273,241,364,Face
+
+element0,overlay,surface1506.png,0,0
+}
+
+//Frisk Angry pose
+surface7
+{
+collision0,81,205,263,275,Head
+collision1,71,268,263,364,Face
+
+element1,overlay,surface1507.png,0,0
+}
+
+//Frisk Flirty Pose
+surface8
+{
+collision0,72,209,293,282,Head
+collision1,78,283,286,376,Face
+
+element1,overlay,surface1508.png,0,0
+}
+
+//Frisk Sleepy pose
+surface9
+{
+collision0,44,191,264,262,Head
+collision1,41,263,261,365,Face
+
+element1,overlay,surface1509.png,0,0
+}
+
+//Frisk Yawn pose
+surface91
+{
+collision0,81,205,263,275,Head
+collision1,71,268,263,364,Face
+
+element1,overlay,surface1519.png,0,0
+}
+
+//Chara
+surface15
+{
+element1,overlay,surface1555.png,0,0
+}
+
+
+
+
+//--The Side Character's poses------------------
+
+//empty
+surface10
+{
+element0,overlay,surface10.png,0,0
+}
+
+//Flowey grin
+surface11
+{
+collision0,162,371,243,447,Face
+
+element1,overlay,surface2501.png,0,0
+}
+
+//Flowey smile
+surface12
+{
+collision0,162,371,243,447,Face
+
+element1,overlay,surface2502.png,0,0
+}
+
+//Flowey scary
+surface17
+{
+collision0,162,371,243,447,Face
+
+element1,overlay,surface2507.png,0,0
+}
+
+//Flowey scary alt.
+surface18
+{
+collision0,162,371,243,447,Face
+
+element1,overlay,surface2508.png,0,0
+}
+
+//Flowey sassy
+surface19
+{
+collision0,162,371,243,447,Face
+
+element1,overlay,surface2509.png,0,0
+}
+
+
+//The length of this file is limited only by your imagination!

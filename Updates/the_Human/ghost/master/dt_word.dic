@@ -1,0 +1,624 @@
+﻿//---------------------------Envelopes--------------------------
+//So many options.
+
+item // %(item)
+{
+	"Bandage"
+	"Stick"
+	"Faded Ribbon"
+	"Toy Knife"
+	"Manly Bandanna"
+	//"Mandanna"
+	"Tough Glove"
+	"Old Tutu"
+	//"Dusty Tutu"
+	"Ballet Shoes"
+	"Cloudy Glasses"
+	"Torn Notebook"
+	"Stained Apron"
+	"Burnt Pan"
+	"Cowboy Hat"
+	"Empty Gun"
+	"Heart Locket"
+	"Worn Dagger"
+	"Locket"
+	"Real Knife"
+	"Temmie Armour"
+	"Punch Card"
+	"Dog Residue"
+	"Snowman Piece"
+	"Mystery Key"
+	"Bad Memory"
+	"Last Dream"
+}
+
+monsterfood // %(monsterfood)
+{
+	"some Monster Candy"
+	"a Spider Donut"
+	"a Spider Croissant"
+	"some Pumpkin Rings"
+	"some Rock Candy"
+	"a slice of Butterscotch Cinnamon Pie"
+	"a slice of ButtsPie"
+	"a slice of Snail Pie"
+	"a slice of Pie"
+	"a Nice Cream"
+	"some Puppydough Ice Cream"
+	"a box of pomeraisins"
+	"a box of non dog related raisins"
+	"a Bisicle"
+	"a Unisicle"
+	"a Popsicle"
+	"a Cinnamon Bunny"
+	"a Cinnabun"
+	"a plate of Papyrus' spaghetti"
+	"a bowl of Undyne's spaghetti"
+	"a plate of fries"
+	"a burger"
+	"a double order of burg"
+	"a plate of fries that has been tragically drowned in ketchup"
+	"the Abandoned Quiche"
+	"a quiche"
+	"a psychologically damaged quiche"
+	"a Ghost Fruit"
+	"a Stoic Onion"
+	"a Crab Apple"
+	"some Temmie Flakes"
+	"some Tem Flakes"
+	"a package of Astronaut Food"
+	"the Astronaut Food"
+	"a Dog Salad"
+	"a Dog Salad made of literal garbage"
+	"a Hotdog"
+	"a Hotcat"
+	"a 'dog"
+	"a Hush Puppy"
+	"some Junk Food"
+	"a Croquet Roll"
+	"a Glamburger"
+	"a Legendary Hero sandwich"
+	"a steak in the shape of Mettaton's face"
+	"a Fsteak"
+	"a bag of Popato Chisps"
+	"a brand name chocolate bar"
+	"some konpeito"
+}
+
+monsterdrink // %(monsterdrink)
+{
+	"a glass of Spider Cider"
+	"the whole Spider Cider jug"
+	"Sea Tea"
+	"a Starfait"
+	"a cup of Golden Flower Tea"
+	"a can of Hot Chocolate"
+	"a bottle Soda"
+	"a bottle of Ketchup"
+	"a glass of milk"
+	"a cup of MTT brand water"
+	"a cup of water cooler water"
+}
+
+friend // %(friend)
+{
+	"Monster Kid"
+	"Napstablook"
+	"Grillby"
+	"Gerson"
+	"Muffet"
+	"Catty"
+	"Bratty"
+	"Burgerpants"
+	"Nice Cream Guy"
+	"Toriel"
+	"Sans"
+	"Papyrus"
+	"Undyne"
+	"Alphys"
+	"Mettaton"
+	"Asgore"
+	"Flowey"
+	"Asriel"
+	"Mad Dummy"
+	"Shyren"
+	"River Person"
+	"Doggo"
+	"Dogamy"
+	"Dogaressa"
+	"Greater Dog"
+	"Lesser Dog"
+	"Toby"
+	"the Annoying Dog"
+	"Temmie"
+	"Bob"
+	"Heats Flamesman"
+	"Ice Coolguy"
+	"Hotpants Fireboy"
+}
+
+monster // %(monster)
+{
+	"Froggit"
+	"Whimsum"
+	"Moldsmal"
+	"Loox"
+	"Migosp"
+	"Vegetoid"
+	"Snowdrake"
+	"Chilldrake"
+	"Ice Cap"
+	"Doggo"
+	"Dogamy"
+	"Dogaressa"
+	"Greater Dog"
+	"Lesser Dog"
+	"Gyftrot"
+	"Jerry"
+	"Glyde"
+	"Aaron"
+	"Woshua"
+	"Moldbygg"
+	"Temmie"
+	"Shyren"
+	"Mad Dummy"
+	"Vulkin"
+	"Tsunderplane"
+	"Pyrope"
+	"So Sorry"
+	"Madjick"
+	"Knight Knight"
+	"Final Froggit"
+	"Whimsalot"
+	"Astigmatism"
+	"Moldessa"
+	"Migospel"
+	"Parsnick"
+	"Memory Head"
+	"Lemon Bread"
+	"Snowy"
+	"Endogeny"
+	"Reaper Bird"
+}
+
+callfriend // %(callfriend)
+{
+	"Toriel"
+	"Papyrus"
+	"Undyne"
+	"Alphys"
+}
+
+//mttshow -> %(mttnetwork[0])
+
+place // %(place)
+{
+	"the Ruins"
+	"Home"
+	"Snowdin Woods"
+	"Snowdin"
+	"Waterfall"
+	"Hotland"
+	"the Core"
+	"New Home"
+	"the Castle"
+	"the Barrier"
+	"the Underground"
+	"a human city"
+	"a human town"
+}
+
+Undersong // %(Undersong)
+{
+	"Once Upon A Time"
+	"Start Menu"
+	"Your Best Friend"
+	"Fallen Down"
+	"Ruins"
+	"Uwa!! So Temperate"
+	"Anticipation"
+	"Unnecessary Tension"
+	"Enemy Approaching"
+	"Ghost Fight"
+	"Determination"
+	"Home"
+	"Heartache"
+	"sans"
+	"Nyeh Heh Heh!"
+	"Snowy"
+	"Uwa!! So Holiday"
+	"Dogbass"
+	"Mysterious Place"
+	"Dogsong"
+	"Snowdin Town"
+	"Shop"
+	"Bonetrousle"
+	"Dating Start!"
+	"Dating Tense!"
+	"Dating Fight!"
+	"Premonition"
+	"Danger Mystery"
+	"Undyne"
+	"Waterfall"
+	"Run!"
+	"Quiet Water"
+	"Memory"
+	"Bird That Carries You Over A Disproportionately Small Gap"
+	"Dummy!"
+	"Pathetic House"
+	"Spooktune"
+	"Spookwave"
+	"Ghouliday"
+	"Chill"
+	"Thundersnail"
+	"Temmie Village"
+	"Tem Shop"
+	"NGAHHH!!"
+	"Spear of Justice"
+	"Ooo"
+	"Alphys"
+	"It's Showtime!"
+	"Metal Crusher"
+	"Another Medium"
+	"Uwa!! So HEATS!!"
+	"Stronger Monsters"
+	"Hotel"
+	"Can You Really Call This A Hotel I Didn't Recieve A Mint On My Pillow Or Anything"
+	"Confession"
+	"Live Report"
+	"Death Report"
+	"Spider Dance"
+	"Wrong Enemy !?"
+	"Oh! One True Love"
+	"Oh! Dungeon"
+	"It's Raining Somewhere Else"
+	"CORE Approach"
+	"CORE"
+	"Last Episode!"
+	"Oh My..."
+	"Death By Glamour"
+	"For the Fans"
+	"Long Elevator"
+	"Undertale"
+	"Song That Might Play When You Fight Sans"
+	"The Choice"
+	"Small Shock"
+	"Barrier"
+	"Bergentrückung"
+	"ASGORE"
+	"You Idiot"
+	"Your Best Nightmare"
+	"Finale"
+	"An Ending"
+	"She's Playing Piano"
+	"Here We Are"
+	"Amalgam"
+	"Fallen Down Reprise"
+	"Don't Give Up"
+	"Hopes and Dreams"
+	"Burn in Despair!"
+	"SAVE the World"
+	"His Theme"
+	"Final Power"
+	"Reunited"
+	"Full Menu"
+	"Respite"
+	"Bring It In Guys!"
+	"Last Goodbye"
+	"But the Earth Refused to Die"
+	"Battle Against a True Hero"
+	"Power of NEO"
+	"MEGALOVANIA"
+	"Good Night"
+}
+
+animeplot // %(animeplot)
+{
+	"it left off on a cliffhanger"
+	"it ended with the heroine and her love interest confessing their mutual love"
+	"the villain got away yet again from the robot hero"
+	"it was revealed that the villain is actually the heroine's twin brother"
+	"the heroine and her love interest were trapped in a garden maze together"
+	"there was a stress relief episode in which the heroine and her friends went to a theme park together"
+	"the AI helper was revealed to be the heroine's love interest's true sibling"
+	"there was a siege on the heroine group's stronghold that nearly ended in disaster"
+	"the heroine had to reveal her true identity to all of her friends"
+	"the villain and the heroine's love interest had a real heart-to-heart about what makes them human"
+	"the heroine was musing with her friends over the true strength of their bonds"
+	"there was a pleasant beach episode that ended in campfires and ice cream"
+	"the heroine and her love interest had to babysit a pet together"
+	"the true nature of the heroine's powers were shown off against the villain"
+	"the heroine's best friend played wingman for her and her love interest in a series of increasingly comedic scenarios"
+	"there was a spark of interest between the heroine's best friend and the AI helper"
+	"there was some intrigue over the AI helper being not as inhuman as it first seemed"
+	"the wise mentor left on their journey since the seasons turned yet again"
+	"there was a ponderous sort of episode on the nature of yearning and long distance relationships"
+	"the wise mentor and their husband baked a cake with the heroine and her love interest"
+}
+
+
+randnumb // %(randnumb)
+{
+	"%(hundreds)"
+	"%(hundreds)"
+	"%(hundreds)"
+	"%(hundreds)"
+	"%(thousands)"
+	"%(morenumbs)"
+}
+
+hundreds
+{
+	_rand = RAND(600)
+	_rand += 200
+	--
+	"%(_rand)"
+}
+
+thousands
+{
+	_rand = RAND(5000)
+	_rand += 1000
+	--
+	"%(_rand)"
+}
+
+morenumbs
+{
+	_rand = RAND(70000)
+	_rand += 10000
+	--
+	"%(_rand)"
+}
+
+
+blanklist // %()
+{
+	""
+}
+
+
+//inside folders
+
+usersfolder // %(userfolder)
+{
+	"%(username)'s Recycle Bin"
+	"%(username)'s Document folder"
+	"%(username)'s secret folder"
+	"%(username)'s Pictures folder"
+	"%(username)'s Undertale folder"
+	"%(username)'s Computer"
+	"%(username)'s Music folder"
+	"%(username)'s Games folder"
+	"%(username)'s Downloads folder"
+	"%(username)'s Screenshot folder"
+	"%(username)'s Instant Messenger"
+	"%(username)'s Ghost Folder"
+}
+
+
+//I've called it a double envelope at times, but this is actually technically an array. Note that it has a word, a comma, then another word. This is essentially a list being stored in this envelope. You can call one of the values by using brackets around the number of the list entry. So, the first value (the Korean word) would be %(lessonkor[0]) since all arrays start at 0. The second value (the definition) would be %(lessonkor[1]). If you have a longer array, like "word,word,word,word,word", you can keep calling values by changing the numbers, like %(lessonkor[5]) or %(lessonkor[10]). An example of pulling information from this array can be seen in aitalk.dic.
+
+pacifymonster // %(pacifymonster[0]) %(pacifymonster[1])
+{
+	"Froggit,Complimenting it"
+	"Whimsum,Terrorizing then Consoling it"
+	"Moldsmal,Flirting with it"
+	"Loox,choosing Not to pick on them"
+	"Migosp,Talking to them when they are the only monster left in battle"
+	"Vegetoid,choosing the Dinner act choice and catching the green bullet"
+	"Snowdrake,waiting one turn then Laughing at its pun"
+	"Ice Cap,Ignoring twice then Stealing its hat then Complimenting it"
+	"Doggo,waiting one turn then Petting him"
+	"Dogamy and Dogaressa,Rolling around then letting them Re-sniff you then Petting both of them"
+	"Greater Dog,Beckoning him over then Petting him once then Playing with him then Petting him twice more"
+	"Lesser Dog,Petting it five times or until its attacks cease"
+	"Gyftrot,Undecorating it three times"
+	"Aaron,Flexing three times.\w8 To get his yellow text during the credits you should play one of Napstablook's house songs then leaving south to the save area and walking around until you get into an encounter"
+	"Woshua,choosing the Clean act choice and catching a green bullet"
+	"Moldbygg,choosing to Unhug it"
+	"Temmie,Talking to it"
+	"Shyren,Humming until battle ends"
+	"Mad Dummy,Talking to Training Dummy in the Ruins and then Talking to the Mad Dummy"
+	"Vulkin,Encouraging them"
+	"Tsunderplane,choosing the Approach act choice and touching the green of at least four of its bullets"
+	"Pyrope,choosing the Heat Up act choice twice"
+	"Madjick,choosing the Clear Mind act choice then Talking to them"
+	"Knight Knight,Singing until she falls asleep"
+	"Final Froggit,Mystifying it"
+	"Whimsalot,Praying and reminding it of its conscious"
+	"Astigmatism,waiting one turn to see what it says then choosing that act option"
+}
+
+mttnetwork // %(mttnetwork[0]) %(mttnetwork[1])
+{
+	"Sparktacular Quiz,quizzes you on all the Underground facts"
+	"MTT's Quiz Show,quizzes you on all your own life facts"
+	"MTT Quiz Show,quizzes you on everything Mettaton"
+	"the Sparktacular Quiz Show: All About MTT,lies on his desk as you frantically shower him in flower petals and there are no actual questions to answer"
+	"Cooking with a Killer Robot,bakes spectacular pastries and meals while putting you through life endangering minigames"
+	"Cooking with MTT,strikes a pose every time you guess an answer wrong during his quiz"
+	"Washing Your Hands with MTT,teaches you the proper handwashing techniques while also delivering some great facts about the Underground"
+	"MTT's Hand Washing Wednesday Special,washes his hands for the whole show while soothing music plays in the background"
+	"MTT News,interviews on-the-spot witnesses about things like dogs and bombs"
+	"Evening News with host MTT,reports on the intricacies of the interpersonal relationships between %(monster) and %(monster)"
+	"Morning News with host MTT,bakes breakfast goods while the til in the background reports facts about Mettaton"
+	"Afternoon News with host MTT,has tea with a random guest and interviews them about handwashing facts"
+	"Sparktacular News with the Majestic MTT,lies on his desk in a seductive manner for two hours while flower petals shower his body and he sometimes reads off news reports"
+	"MTT: Mettaton tNews tNetwork,isn't even there while a til scrolls along the bottom of the screen with actual news reports"
+	"MTT Reveals All! Special News Broadcast,brings on guests and has them interview him about things like baking and his flower petal routine"
+	"Undernet News hosted by MTT,threatens you with bombs while interviewing each and every bomb about which ghost is the most smoochable"
+	"MTT Reloaded: Extended Cut,lies in a bed of flowers for four hours while music from MTT the Musical plays in the background"
+	"MTT Reloaded: Special Edition,lies in a bed of flowers as flower petals shower his body for five hours and nothing else"
+	"MTT Reloaded: Director's Cut,lies in a bed of bombs as news facts shower his body for seven hours while baking facts play in the background"
+	"MTT the Musical,sings a ballad about his beloved who is a human as they run through the gauntlet of the coloured tile puzzle"
+	"Killer Robot Workout,sings about human souls while doing a workout routine"
+	"How to Dance Like MTT,does dramatic posing and has easy to follow directions for baking cakes playing as the music the whole time"
+	"How to Dance On-Brand with MTT,helps you represent the MTT brand to the letter.\w8 Literally"
+}
+
+
+//---------------------Pronoun Envelopes!!------------------------
+himthem //%(himthem)
+{
+	"him"; "them"
+}
+
+hethey //%(hethey)
+{
+	"he"; "they"
+}
+
+histheir //%(histheir)
+{
+	"his"; "their"
+}
+
+hestheyre //%(hestheyre)
+{
+	"he's"; "they're"
+}
+
+
+herthem //%(herthem)
+{
+	"her"; "them"
+}
+
+shethey //%(shethey)
+{
+	"she"; "they"
+}
+
+hertheir //%(hertheir)
+{
+	"her"; "their"
+}
+
+shestheyre //%(shestheyre)
+{
+	"she's"; "they're"
+}
+
+
+herhim //%(herhim)
+{
+	"her"; "him"
+}
+
+shehe //%(shehe)
+{
+	"she"; "he"
+}
+
+herhis //%(herhis)
+{
+	"her"; "his"
+}
+
+sheshes //%(sheshes)
+{
+	"she's"; "he's"
+}
+
+
+
+//---------------------Capiotalisation-----------------------------
+//%(Capitalize(envelope))
+Capitalize
+{
+  _word = _argv[0] //Sets _word to the word the user sent
+  _buffer = SUBSTR(_word,0,1) //Stores the first character in _buffer
+  _word = ERASE(_word,0,1) //Erases the first character from _word
+  _word = INSERT(_word,0,TOUPPER(_buffer)) //Inserts the character in _buffer back into _word after capitalizing it
+  _word //Returns the capitalized word
+}
+
+//%(Lowercase(envelope))
+Lowercase
+{
+  _word = _argv[0] //Sets _word to the word the user sent
+  _buffer = SUBSTR(_word,0,1) //Stores the first character in _buffer
+  _word = ERASE(_word,0,1) //Erases the first character from _word
+  _word = INSERT(_word,0,TOLOWER(_buffer)) //Inserts the character in _buffer back into _word after capitalizing it
+  _word //Returns the capitalized word
+}
+
+
+
+//--timeslot
+timeslot
+{
+	if hour >= 5 && hour <= 8
+	{	"earlymorning"	}
+	elseif hour >= 9 && hour <= 11
+	{	"morning"	}
+	elseif hour >= 12 && hour <= 14
+	{	"lunch"	}
+	elseif hour >= 15 && hour <= 17
+	{	"afternoon"	}
+	elseif hour >= 18 && hour <= 20
+	{	"evening"	}
+	elseif hour >= 21 && hour <= 24
+	{ "latenight"	}
+	else
+	{ "midnight" }
+}
+
+
+//This is figuring out what day of the week it is. Leave it alone.
+GetWeekDay
+{
+	if weekday == 0
+	{"Sun"}
+	elseif weekday == 1
+	{"Mon"}
+	elseif weekday == 2
+	{"Tue"}
+	elseif weekday == 3
+	{"Wed"}
+	elseif weekday == 4
+	{"Thu"}
+	elseif weekday == 5
+	{"Fri"}
+	else //6
+	{"Sat"}
+}
+
+//This is finding out whether it's AM or PM. Leave it alone.
+ap
+{
+	if hour >= 0 && hour <= 11
+	{"AM"}
+	else
+	{"PM"}
+}
+
+//This is figuring out the minute. Leave it alone.
+Getnowmin
+{
+	if minute >= 0 && minute <=9
+	{"0%(minute)"}
+	else
+	{"%(minute)"}
+}
+
+//This is figuring out the hour. Leave it alone.
+Getnowhour
+{
+	if hour12 >= 0 && hour12 <=9
+	{"0%(hour12)"}
+	else
+	{"%(hour12)"}
+}
+
+
+//**** Don't touch this ***************************************************************
+//This bit of code is what makes menu options that don't start with On direct to Select.options instead. Remove or comment it if you prefer!
+OnChoiceSelect
+{
+    EVAL("Select.%(reference0)")
+}
+
+
+// :D

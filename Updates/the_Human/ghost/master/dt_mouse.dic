@@ -1,0 +1,238 @@
+﻿//---------------------------Mouse Functions--------------------------
+//PET THE BABY
+
+
+//--OnMouseMove
+//This is a bunch of code determining who the mouse is over. Don't touch any of it.
+
+OnMouseMove
+{
+	if reference3 == 0
+	{
+		MouseMoveSakura
+	}
+	else
+	{
+		MouseMoveKero
+	}
+}
+
+
+
+//--MouseMoveSakura
+MouseMoveSakura
+{
+	if reference4 != ""
+	{
+		stroke++
+		if stroke >= 40
+		{
+			stroke = 0 //resetting the stroke count
+			if reference4 == "Head"
+			{
+				"\0\s[2]*Frisk is pet.\w8"
+				
+				"\0\s[0]*You pet the Frisk.\w8"
+				
+				"\0\s[2]*You pet Frisk.\w8"
+				--
+				"\s[2]%(Capitalize(they)) seem not to mind it.\w8\e"
+				
+				"\s[5]\n*Wow!\w8 Pet by another human!\w8\e"
+				
+				"\s[5]\n\n[half]*Pet \n*Pet \n*Pet \n*Pet \n*Pet \n*Pet \n*Pet\w8\e"
+				
+				"\s[5]\n*There's no end to this madness.\w2.\w2.\w8\e"
+				
+				"\s[2]\n*It appears as if you may have a problem.\w8\e"
+				
+				"\s[7]\n*%(Capitalize(theyre)) upset that %(their) neck won't stretch to infinity like Lesser Dog's would.\w8\e"
+				
+				"\s[2]\n*You've reached a level of ridiculousness,\w4 %(username).\w8\e"
+				
+				"\s[1]\n*You feel as if you should stop.\w8\e"
+				
+				"\s[5]\n*Is there no way to stop this madness?\w8\e"
+				
+				"\s[8]\n*Really.\w8\e"
+				
+				"\s[2]\n*But to no avail.\w8 \n\n[half]*It seems petting will not escalate this interaction.\w8\e"
+				
+				"\s[4]\n*Ironically,\w4 petting doesn't seem to be the correct ACT choice.\w8\e"
+				
+				"\s[5]\n*Strangely,\w4 petting Frisk doesn't seem to be the answer here,\w4 %(username).\w8\e"
+				
+				"\s[8]\n*Don't you have anything better to do,\w4 %(username)?\w8\e"
+				
+				"\s[5]\n*Don't you have anything better to do?\w8\e"
+			}
+			elseif reference4 == "Face"
+			{
+				"\0\s[0]*You pet Frisk's face.\w8\e"
+				
+				"\0\s[7]*You rub your mouse over Frisk's face.\w8\e"
+				
+				"\0\s[2]*You stroke Frisk's face.\w8\e"
+				
+				"\0\s[5]*You stroke your mouse over Frisk's face.\w8\e"
+				
+				"\0\s[0]*You run your mouse over Frisk's face.\w8\e"
+				
+				"\0\s[6]*Frisk makes a muffled noise of surprise.\w8\e"
+				
+				"\0\s[4]*Yes.\w8 Smoosh the babby's face.\w8 Smoosh it.\w8\e"
+				
+				"\0\s[1]*It might sound crazy,\w4 but petting Frisk's face doesn't seem to be the answer.\w8\e"
+				
+				"\0\s[2]*Funnily enough,\w4 petting Frisk's face doesn't seem to be the answer.\w8\e"
+				
+				"\0\s[5]*Don't you have anything better to do besides petting Frisk's face,\w4 %(username)?\w8\e"
+				
+				"\0\s[2]*You pet Frisk's face.\w8 \n\n[half]*Don't you have anything better to do?\w8\e"
+			}
+		}
+	}
+	else
+	{
+		stroke = 0
+	}
+}
+
+//---- MouseMoveKero -----------------------------------------------------------------
+//MouseMoveKero is exactly like the above, except set up for your second character. 
+
+MouseMoveKero
+{
+	if reference4 != ""
+	{
+		stroke++
+		if stroke >= 40
+		{
+			stroke = 0
+			if reference4 == "Face"
+			{
+				"\0\s[1]\1\s[19]\_v[sound_of_running.wav]\4*Don't touch me.\w8\e"
+				
+				"\0\s[1]\1\s[19]*%(username).\_v[sound_of_running.wav]\4 Kindly knock it off.\w8\e"
+				
+				"\0\s[1]\1\s[17]\_v[sound_of_running.wav]\4\e"
+				
+				"\0\s[1]\1\s[19]\_v[sound_of_running.wav]\4\e"
+				
+				"\0\s[1]\1\s[11]\_v[sound_of_running.wav]\4\e"
+				
+				"\0\s[1]\1\s[18]\_v[sound_of_running.wav]\4\e"
+				
+				"\0\s[1]\1\s[17]\_v[sound_of_running.wav]\4\e"
+				
+				"\0\s[1]\1\s[12]\_v[sound_of_running.wav]\4\e"
+				
+				"\0\s[1]\1\s[17]\_v[sound_of_running.wav]\4\f[height,40]*STOP.\f[height,default]\w8\e"
+				
+				"\0\s[1]\1\s[18]\_v[sound_of_running.wav]\4\f[height,40]*STOP.\f[height,default]\w8\e"
+			}
+		}
+	}
+	else
+	{
+		stroke = 0
+	}
+}
+
+
+//---- OnMouseDoubleClick -------------------------------------------------------
+//---- like with the OnMouseMove function above, this determines who the user is clicking on.
+OnMouseDoubleClick
+{
+	if reference5 == 0
+	{
+		if reference3 == 0
+		{
+			MouseDoubleClickSakura
+		}
+		else
+		{
+			MouseDoubleClickKero
+		}
+	}
+}
+
+//---- MouseDoubleClickSakura ----------------------------------------------------------
+MouseDoubleClickSakura
+{
+	if reference4 == "Head" || reference4 == "Face"
+	{
+		"\0\s[0]\_v[select_click.wav]*CHECK: Frisk. \nLV 1  HP 20  ATK 1  DEF 1 \w8\n\n*%(Capitalize(theyre)) currently hanging out on %(username)'s computer.\w8\e"
+		
+		"\0\s[0]\_v[select_click.wav]*CHECK: Frisk. \nLV 1  HP 20  ATK 1  DEF 1 \w8\n\n\s[2]*%(Capitalize(they)) must be happy with you.\w8\e"
+		
+		"\0\s[0]\_v[select_click.wav]*CHECK: Frisk. \nLV 1  HP 20  ATK 1  DEF 1 \w8\n\n\s[2]*%(Capitalize(they)) may not have any LOVE,\w4 but %(their) love knows no bounds.\w8\e"
+		
+		"\0\s[0]\_v[select_click.wav]*CHECK: Frisk. \nLV 1  HP 20  ATK 1  DEF 1 \w8\n\n\s[6]*%(Capitalize(theyre)) currently being checked by %(username).\w8\e"
+		
+		"\0\s[0]\_v[select_click.wav]*CHECK: Frisk. \nLV 1  HP 20  ATK 1  DEF 1 \w8\n\n*A fallen human child.\w8 \n*Hobbies include:\w8\w8\w8 \s[8]Flirting.\w8\e"
+		
+		"\0\s[0]\_v[select_click.wav]*CHECK: Frisk. \nLV 1  HP 20  ATK 1  DEF 1 \w8\n\n*A fallen human child currently stuck on your computer.\w8\e"
+		
+		"\0\s[0]\_v[select_click.wav]*CHECK: Frisk. \nLV 1  HP 1  ATK 0  DEF 0 \w8\n\n\s[5]*One human,\w4 freshly fallen.\w8\e"
+		
+		"\0\s[0]\_v[select_click.wav]*CHECK: Frisk. \nLV 1  HP 20  ATK 0  DEF 0 \w8\n\n*%(Capitalize(theyre)) full of love.\w8\e"
+		
+		"\0\s[0]\_v[LOVE_up.wav]*CHECK: Frisk. \nLV 20  HP 99  ATK 99  DEF 99 \n\n*............\w8\w8 \n\s[1]*That can't be right.\w8\e"
+		
+		"\0\s[0]\_v[LOVE_up.wav]*CHECK: Frisk. \nLV 20  HP 99  ATK 99  DEF 99 \w8\n\n\s[15]*%(Capitalize(theyre)) full of LOVE.\w8\s[0]\e"
+		
+		"\0\s[4]\_v[select_blip.wav]*You give Frisk a boop on the nose.\w8\e"
+		
+		"\0\s[5]\_v[select_blip.wav]*You give Frisk a boop on the nose.\w8\e"
+	}
+	else
+	{
+		OpenSakuraMenu
+	}
+}
+
+
+//---- MouseDoubleClickKero -----------------------------------------------------------
+MouseDoubleClickKero
+{
+	if reference4 == "Face"
+	{
+		"\0\s[1]\1\s[19]*You better knock that off,\w4 %(username).\w8\e"
+		
+		"\0\s[1]\1\s[17]*You think that's funny,\w4 don't you?\w8\e"
+		
+		"\0\s[1]\1\s[11]*I hope you're happy about this.\w8\e"
+		
+		"\0\s[1]\1\s[18]*You think that's funny,\w4 don't you?\w8\e"
+		
+		"\0\s[1]\1\s[12]*I hope you're happy about this.\w8\e"
+		
+		"\0\s[1]\1\s[19]*You think you're real clever,\w4 don't you?\w8\e"
+		
+		"\0\s[1]\1\s[17]\f[height,40]*STOP.\f[height,default]\w8\e"
+		
+		"\0\s[1]\1\s[18]\f[height,40]*STOP.\f[height,default]\w8\e"
+		
+		"\0\s[1]\1\s[17]\_v[sound_of_running.wav]\4*%(username).\w8 Knock it off.\w8\e"
+		
+		"\0\s[1]\1\s[18]\_v[sound_of_running.wav]\4*%(username).\w8 Knock it off.\w8\e"
+		
+		"\0\s[1]\1\s[11]\_v[sound_of_running.wav]\4*%(username).\w8 \s[17]Knock it off.\w8\e"
+		
+		"\0\s[1]\1\s[12]\_v[sound_of_running.wav]\4*%(username).\w8 \s[18]Knock it off.\w8\e"
+		
+		"\0\s[1]\1\s[19]\_v[sound_of_running.wav]\4*%(username).\w8 \s[17]Knock it off.\w8\e"
+		
+		"\0\s[1]\1\s[19]\_v[sound_of_running.wav]\4*%(username).\w8 \s[18]Knock it off.\w8\e"
+	}
+	else
+	{
+		OpenKeroMenu
+	}
+}
+
+
+ //*********************Advanced User Info*******************************
+ //There are other mouse related functions you could set up much like the above, such as OnMouseDragStart, OnMouseDragEnd, OnMouseWheel, and others which correspond to various things you can do with your mouse. You can probably guess what those functions do just by their names - OnMouseWheel would be if someone spun their mouse wheel over a certain area, for example. If you're interested in these, I'd recommend doing some reading at the CROW-SSP Encyclopedia to get a better idea of them and settle down for some trial and error learning as you try to put them in.
+ //***********************************************************************

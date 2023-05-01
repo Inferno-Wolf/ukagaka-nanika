@@ -1,0 +1,220 @@
+//---------------------------Communication--------------------------
+//OKAY HERE WE GO MAJOR CODING BIG BRAINS TIME
+
+
+//--OnCommunicate
+//OnCommunicate is called when your ghost is either targeted by another ghost for a conversation, or when your ghost is targeting another ghost for conversation.
+OnCommunicate
+{
+	if reference0 == "user" || reference0 == "User"
+	{
+		//---- answering the user
+		ReplyToUser
+	}
+	else
+	{
+		//---- answering another ghost
+		ReplyToGhost
+	}
+}
+
+//Just ignore this.
+ReplyToUser
+{
+	TalkToUser
+}
+
+
+//This is your ghost starting a conversation with another ghost. It will choose a random one from the currently open ghosts.
+OnStartTalking
+{
+	AlreadyResponded = 1
+	if ghostexcount > 0
+	{
+		_num = RAND(ghostexcount)
+		_randghost = "%(ghostexlist[_num])"
+		--
+		//Checks for the Sakura name
+		case _randghost
+		{
+			when "Sn" //Known ghosts, add as many whens as needed.
+			{
+				res_reference0 = "Sn"
+				
+				"\0\s[0]*Frisk happily greets the skeleton bros.\w8\n\n[half]\e happyhello"
+			}
+			when "Fairune Duo"
+			{
+				res_reference0 = "Fairune Duo"
+				
+				"\0\s[0]*Frisk wishes a heartfelt 'hello' to the Fairune Ambassadors.\w8\n\n[half]\e itfrisk"
+			}
+			others //Ghosts there is no specific response to.
+			{
+				res_reference0 = _randghost
+				
+				"\0\s[5]*Hello %(_randghost)!\w8\w8\e"
+			}
+		}
+	}
+	else //If no ghosts are open.
+	{
+		"\0\s[0]*Nobody else is here.\e"
+	}
+}
+
+
+//--ReplyToGhost
+
+//There are a few different ways you can refine this dialogue, depending on what ghost is speaking to yours and what they're saying. The things you can check for are reference0 and reference1, being the ghost's sakuraname (in their descript.txt) and what they're saying.
+
+ReplyToGhost
+{
+	_Speech = SPLIT(reference1,"\e")[0] //Everything the ghost said that the user can see
+	ConvoTag = SPLIT(reference1,"\e")[1] //Everything after the \e, which will be the invisible tags that track the conversation
+	_Last = SPLIT(reference1,"::")[1] //Ghosts using the reflect system send ":%(_Speech)" at the end of every communication, so _Last is what THIS ghost last said. See below.
+	
+	_Last = REPLACE(_Last,"\![quicksection,true]","") //Removing the quicksection tags or they overlap and break...
+	_Last = REPLACE(_Last,"\![quicksection,false]","")
+	_Last = REPLACE(_Last,"\w1","")
+	_Last = REPLACE(_Last,"\w2","")
+	_Last = REPLACE(_Last,"\w3","")
+	_Last = REPLACE(_Last,"\w4","")
+	_Last = REPLACE(_Last,"\w5","")
+	_Last = REPLACE(_Last,"\w6","")
+	_Last = REPLACE(_Last,"\w7","")
+	_Last = REPLACE(_Last,"\w8","")
+	//You'll need to add any wait tags that you use in dialogue here so they'll be removed. TO BE SAFE, just putting every number 1 to 8 ;;;;
+	
+	case reference0
+	{
+		when "Sn"
+		{
+			"\![quicksection,true]%(_Last)\![quicksection,false]" //Only add this for ghosts that use the reflect system
+			--
+			"%(SansPapschat)"
+			--
+			"::%(_Speech)" //Reflects back what the other ghost said, only put it here if you're talking to a ghost that uses the same system or things may break
+		}
+		when "Fairune Duo"
+		{
+			"\![quicksection,true]%(_Last)\![quicksection,false]"
+			--
+			"%(fairbooktalks)"
+			--
+			"::%(_Speech)"
+		}
+		others //Responses to unknown ghosts. AlreadyResponded keeps them from getting stuck in a loop.
+		{
+			if AlreadyResponded == 0 //didn't start the conversation
+			{
+				AlreadyResponded = 1
+				res_reference0 = reference0
+				
+				"\0\s[0]*Hey there,\w4 %(reference0)!\w8\e"
+			}
+			else //did start the conversation
+			{
+				AlreadyResponded = 0
+				res_reference0 = ""
+				
+				"\0\s[0]*Hope you're doing well.\e"
+			}
+		}
+	}
+}
+
+
+//For S+P!
+SansPapschat
+{
+	if "hallofrisk" _in_ ConvoTag
+	{
+		res_reference0 = "Sn"
+		
+		"\0\s[0]*It's those famous skelebros, Sans and Papyrus!\w8 \n*Frisk is delighted to see them.\w8\n\n[half]\e hallobros"
+	}
+	elseif "wellFrisk" _in_ ConvoTag
+	{
+		res_reference0 = ""
+		
+		"\0\s[0]*Well,\w4 well,\w4 well.\w8 \n*The skeleton brothers.\w8\e"
+	}
+	elseif "chillFrisk" _in_ ConvoTag
+	{
+		res_reference0 = "Sn"
+		
+		"\0\s[0]*Frisk has indeed been chilling with %(username)\w4 \s[0]and very much enjoying it.\w8\n\n[half]\e chillbros"
+	}
+	elseif "askskelruins2" _in_ ConvoTag
+	{
+		res_reference0 = ""
+		
+		"\0\s[2]\n\n[half]*See?\w8 They can't help you,\w4 %(username).\w8\e"
+	}
+	else //You should have an else just in case the other ghost isn't updated with responses
+	{
+		res_reference0 = ""
+		
+		"\0\s[0]*Frisk flirts at the bros.\w8 \n*Were you really expecting anything else...?\w8\e"
+	}
+}
+
+//For Hinome and Book-san!
+fairbooktalks
+{
+	if "humetalks" _in_ ConvoTag
+	{
+		res_reference0 = "Fairune Duo"
+		
+		"\0\s[0]*It's the Fairune Ambassadors!\w8 \n*Frisk wishes them a hearty 'hello' in return.\w8\n\n[half]\e friskhello"
+	}
+	elseif "treatwell" _in_ ConvoTag
+	{
+		res_reference0 = "Fairune Duo"
+		
+		"\0\s[0]*%(username) treats Frisk exactly as well as you'd think.\w8 \n*...\w8 \n\n[half]\s[0]*%(Capitalize(they)) flirt.\w8\n\n[half]\e flirtyfrisk"
+	}
+	elseif "smallhume" _in_ ConvoTag
+	{
+		res_reference0 = ""
+		
+		"\0\s[0]*Frisk is happy to see the Fairune Ambassadors are well.\w8\e"
+	}
+	else //You should have an else just in case the other ghost isn't updated with responses
+	{
+		res_reference0 = ""
+		
+		"\0\s[0]*Frisk flirts at the Fairune Ambassadors.\w8 \n*Were you really expecting anything else...?\w8\e"
+	}
+}
+
+
+//and, of course, Needle! reference1 is the name of Needle's current shell
+OnNeedlePoke
+{
+	if reference0 == 1 //Flowey aka the Kero
+	{
+		"\1\s[17]\_v[bigdamage.wav]*Hey!\4 Watch it!!\w8\e"
+		
+		"\1\s[17]\_v[bigdamage.wav]\w8\w8\s[19]*Do you mind?\4\e"
+		
+		"\1\s[19]\_v[slash.wav]\4*Nice try,\w4 %(username).\w8\e"
+	}
+	else //0 aka Sakura / Frisk
+	{
+		"\0\s[4]\_v[pings.wav]*Frisk is flattered to be targetted by Needle.\w8\e"
+		
+		"\0\s[1]\_v[pings.wav]*...\w8\w8 \n\n[half]\s[8]*Frisk attempts to flirt with Needle.\w8\e"
+		
+		"\0\s[3]\_v[damage.wav]*!!\w8\w8 \s[31]\n\n[half]*You needled Frisk.\w8\e"
+		
+		"\0\s[3]\_v[damage.wav]\w8\w8\s[7]*Hey!\w8 Watch where you're pointing Needle,\w4 %(username)!\w8\e"
+		
+		"\0\s[6]\_v[slash.wav]\w8\_v[pings.wav]\w8\w8\s[5]*Looks like a clash of swords.\w8\e"
+	}
+}
+
+
+
+//TO BE CONTINUED...

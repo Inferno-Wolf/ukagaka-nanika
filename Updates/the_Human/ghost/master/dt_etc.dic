@@ -1,0 +1,1773 @@
+﻿//---------------------------Miscellaneous Functions--------------------------
+//hooray this is awful ;;;
+
+
+//--OnFileDrop2
+OnFileDrop2
+{
+	_filepath = SPLITPATH(reference0)
+	_filename = _filepath[2]
+	_fileext = TOLOWER(_filepath[3])
+	case _fileext
+	{
+		when ".jpg", ".jpeg", ".bmp", ".png"
+		{
+			Wallpaperfile = reference0
+			
+			"\0\s[6]*Frisk accepts %(_filename)%(_fileext)\w8 \s[2]and asks if you would like %(them) to set it as your wallpaper.\w9"
+			
+			"\0\s[6]*You've handed Frisk %(_filename)%(_fileext).\w8 \n\s[5]*Would you like %(them) to set it as your wallpaper?"
+			--
+			"\n\n\![*]\q[Centered,OnWallpaper,center] \n\![*]\q[Tiled,OnWallpaper,tile] \n\![*]\q[Stretched,OnWallpaper,stretch] \n\n[half]\![*]\q[No thanks,OnWallpaper,cancel]\e"
+		}
+		when ".mid", ".wav", ".mp3", ".wma", ".au"
+		{
+			"\0\s[6]*Frisk isn't sure how you handed %(them) a music file,\w4 %(username),\w4 \s[5]but this one is %(_filename)%(_fileext).\w8\e"
+			
+			"\0\s[6]*You've handed Frisk %(_filename)%(_fileext).\w8 \n\s[2]*This is a music file.\w8\e"
+			
+			"\0\s[0]*This is %(_filename)%(_fileext).\w8 \n\s[1]*Sadly,\w4 Frisk cannot sing it for you,\w4 %(username).\w9\e"
+			
+			"\0\s[7]*Frisk is not a FLELE,\w4 %(username),\w4 and therefore cannot play %(_filename)%(_fileext) for you.\w8\e"
+		}
+		others
+		{
+			if _fileext == "" //If it's a folder. Using \_? lets you display the slashes and such in dialogue, but you have to toggle it off after you no longer need it
+			{
+				"\0\s[6]*This is \_?%(_filepath[1])\_?, a folder.\w8\e"
+				
+				"\0\s[0]*Frisk isn't sure what you expected %(them) to do with \_?%(_filepath[1])\_?.\w8\e"
+				
+				"\0\s[6]*You've handed Frisk \_?%(_filepath[1])\_?.\w8 \n\s[5]*A whole folder.\w8\e"
+			}
+			else
+			{
+				"\0\s[6]*You've handed Frisk %(_filename)%(_fileext).\w8 \n\s[1]*%(Capitalize(theyre)) unsure of what to do with it.\w8\e"
+				
+				"\0\s[6]*You've handed Frisk %(_filename)%(_fileext)\w8 \s[2]\_v[open_phone.wav]and %(they) put a copy of it into %(their) phone's dimensional box.\w8\e"
+				
+				"\0\s[6]*You've handed Frisk %(_filename)%(_fileext)\w8 \s[2]\_v[select_blip.wav]and %(they) slip a copy of it surreptitiously into %(their) pocket.\w8\e"
+				
+				"\0\s[6]*Frisk accepts %(_filename)%(_fileext)\w8 \s[2]\_v[open_phone.wav]and places a copy of it into %(their) phone's dimensional item box.\w8\e"
+			}
+		}
+	}
+}
+
+//This set of options sets the wallpaper up.
+OnWallpaper
+{
+	if reference0 == "center"
+	{
+		"\![set,wallpaper,%(Wallpaperfile),center]"
+		--
+		"\0\s[5]*There!\w8 \n\s[2]*Frisk has centered it for you on your screen.\w8\e"
+		
+		"\0\s[5]*Frisk centers it for you.\w8 \n*%(Capitalize(theyre)) happy to help!\w8\e"
+		
+		"\0\s[5]*Frisk centered the image for you.\w8 \n\s[2]*Hopefully,\w4 you like %(their) work.\w8\e"
+	}
+	elseif reference0 == "tile"
+	{
+		"\![set,wallpaper,%(Wallpaperfile),tile]"
+		--
+		"\0\s[5]*There!\w8 \n\s[2]*Frisk has tiled it for you across your desktop.\w8\e"
+		
+		"\0\s[5]*Frisk tiled it for you across your desktop.\w8 \n*%(Capitalize(theyre)) happy to help!\w8\e"
+		
+		"\0\s[5]*Frisk tiled the image for you across your desktop.\w8 \n\s[2]*Hopefully,\w4 you like %(their) work.\w8\e"
+	}
+	elseif reference0 == "stretch"
+	{
+		"\![set,wallpaper,%(Wallpaperfile),stretch]"
+		--
+		"\0\s[5]*There!\w8 \n\s[2]*Frisk has stretched it for you across your screen.\w8\e"
+		
+		"\0\s[5]*Frisk stretched it for you on your desktop.\w8 \n*%(Capitalize(theyre)) happy to help!\w8\e"
+		
+		"\0\s[5]*Frisk stretched the image for you on your screen.\w8 \n\s[2]*Hopefully,\w4 you like %(their) work.\w8\e"
+	}
+	else //cancel
+	{
+		"\0\s[2]*Frisk will simply admire the image you handed %(them).\w8\e"
+		
+		"\0\s[2]\_v[select_blip.wav]*Frisk slips a copy of the image into %(their) pocket instead.\w8\e"
+		
+		"\0\s[2]\_v[open_phone.wav]*Frisk slips a copy of the image into %(their) phone's dimensional box instead.\w8\e"
+		
+		"\0\s[6]*Changed your mind?\w8 \n\s[2]*That's fine.\w8 \n*Frisk will simply admire the image you've handed %(them).\w8\e"
+	}
+}
+
+
+//--OnShellScaling
+OnShellScaling
+{
+	if reference0 > 100
+	{
+		"\0\s[8]\![set,balloonwait,3]*B I G  F R I S K.\![set,balloonwait,1]\w8\w8 \s[5]\e"
+		
+		"\0\s[0]*Wow,\w4 %(username).\w8 \n\s[5]*Wasn't Frisk big enough all ready?\w8\e"
+		
+		"\0\s[6]*It's still Frisk.\w8 \n\s[2]*Just a big one.\w8\e"
+	}
+	elseif reference0 < 100
+	{
+		"\0\s[4]*Cute things come in small packages.\w8\e"
+		
+		"\0\s[31]*Frisk is a bit concerned about being so small...\w8\e"
+		
+		"\0\s[1]*Smaller yet smaller still...\w8\e"
+	}
+	else //reference0 == 100
+	{
+		"\0\s[0]*Back to normal size.\w8\e"
+		
+		"\0\s[2]*Frisk is,\w4 once again,\w4 %(their) normal size.\w8\e"
+		
+		"\0\s[0]*You have returned Frisk to %(their) normal size.\w8\e"
+	}
+}
+
+
+//---- OnInstallBegin -------------------------------------------------------
+OnInstallBegin
+{
+	"\0\s[6]*Something to install?\w8 \n\s[2]*Frisk will get right on that.\w8\e"
+	
+	"\0\s[6]\_v[open_phone.wav]*Frisk will start the installation process...\w8\e"
+	
+	"\0\s[6]\_v[select_blip.wav]*Frisk will start the installation process...\w8\e"
+	
+	"\0\s[5]*Time to install something!\w8\e"
+}
+
+//---- OnInstallComplete -------------------------------------------------------
+OnInstallComplete
+{
+	if reference0 == "ghost"
+ 	{
+		"\0\s[5]*It's %(reference1),\w4 \s[5]a new friend!\w8 \n\s[2]*Would you like Frisk to call or switch to %(reference1),\w4 %(username)?\w8"
+		
+		"\0\s[6]*Looks like it was %(reference1).\w8 \n\s[2]*What would you like Frisk to do,\w4 %(username)?\w8"
+		
+		"\0\s[5]*%(reference1)!\w8 \n\s[2]*Would you like Frisk to call or switch to %(reference1),\w4 %(username)?\w8"
+		--
+		"\n\n\![*]\q[Call %(reference1),CallGhost] \n\![*]\q[Change to %(reference1),ChangeToGhost] \n\n[half]\![*]\q[No thanks,cancelnodialogue]\e"
+ 	}
+	elseif reference0 == "shell"
+ 	{
+		"\0\s[6]*Looks like it was a shell.\w8 \n\s[2]*The name of it is %(reference1).\w8\e"
+		
+		"\0\s[6]*A shell!\w8 \n\s[2]*It's called %(reference1).\w8\e"
+		
+		"\0\s[6]*%(reference1)!\w8 \n\s[2]*Frisk makes sure this shell is tucked away for later use.\w8\e"
+ 	}
+	elseif reference0 == "balloon" //if the type of file is a balloon
+ 	{
+		"\0\s[6]*A new balloon.\w8 \n\s[0]*It's called %(reference1).\w8\e"
+		
+		"\0\s[2]*Frisk has finished installing the %(reference1) balloon.\w8\e"
+		
+		"\0\s[0]*A %(reference1) balloon?\w8 \n*Frisk is very interested in it.\w8\e"
+ 	}
+	elseif reference0 == "plugin"
+ 	{
+		"\0\s[6]*A plug in of sorts?\w8 \n\s[0]*It's called %(reference1).\w8\e"
+		
+		"\0\s[2]*Frisk has finished installing the %(reference1) plug in.\w8\e"
+ 	}
+	elseif reference0 == "calendar skin"
+	{
+		"\0\s[6]*A new calendar skin?\w8 \s[0]\n*It's called %(reference1).\w8\e"
+		
+		"\0\s[2]*Frisk has finished installing the %(reference1) calendar skin.\w8\e"
+	}
+	elseif reference0 == "headline"
+	{
+		"\0\s[6]*Headlines for %(reference1)?\w8 \n\s[9]*Frisk has set them up all nice and neat.\w8\e"
+		
+		"\0\s[2]*Frisk has finished installing the headlines for %(reference1).\w8\e"
+	}
+	elseif reference0 == "rss"
+	{
+		"\0\s[6]*RSS feed for %(reference1)?\w8 \s[0]\n*Frisk has finished installing them.\w8\e"
+		
+		"\0\s[2]*Frisk has finished installing the RSS feed for %(reference1).\w8\e"
+	}
+	else
+	{
+		"\0\s[6]*Whatever %(reference1) is,\w4 \s[2]Frisk has finished installing it.\w8\e"
+	}
+}
+
+//Calling the ghost that was just installed.
+Select.CallGhost
+{
+	"\![call,ghost,lastinstalled]\e"
+}
+
+//Opening the ghost that was just installed.
+Select.ChangeToGhost
+{
+	"\![change,ghost,lastinstalled]\e"
+}
+
+//---- OnInstallFailure -------------------------------------------------------
+OnInstallFailure
+{
+	if reference0 == "artificial" //If the user cancels by double clicking the balloon
+	{
+		"\0\s[1]*You cancelled the process.\w8\e"
+		
+		"\0\s[1]*Did you change your mind,\w4 %(username)?\w8\e"
+		
+		"\0\s[1]*You interrupted Frisk.\w8 \n\s[0]*%(Capitalize(they)) will resume %(their) previous antics.\w8\e"
+	}
+	else
+	{
+		"\0\s[1]*Something went wrong.\w8 \n\n[half]"
+		
+		"\0\s[1]*The installation failed.\w8 \n\n[half]"
+		
+		"\0\s[1]*Frisk couldn't do it,\w4 %(username).\w8 \n\n[half]"
+		--
+		if reference0 == "unsupported"
+		{
+			"*The file is unsupported.\w8\e"
+			
+			"*It's an unsupported file.\w8\e"
+		}
+		elseif reference0 == "extraction"
+		{
+			"*The file couldn't properly extract.\w8\e"
+			
+			"*The file refused to be extracted properly.\w8\e"
+			
+			"\s[31]*Frisk wasn't able to properly extract it.\w8\e"
+		}
+		elseif reference0 == "invalid type" //install.txt isn't set up properly
+		{
+			"*Something is wrong in the install.txt.\w8\e"
+			
+			"*There appears to be an error within the install.txt.\w8\e"
+		}
+		else
+		{
+			"*The error given was '%(reference0)'.\w8\e"
+			
+			"*All Frisk can tell you is that the error came up as '%(reference0)'.\w8\e"
+		}
+	}
+}
+
+//--OnInstallRefuse
+//reference0 is the Sakura name of the ghost the item was meant for, reference1 (since SSP 2.4.85) is the type of item you tried to install
+OnInstallRefuse
+{
+	"\0\s[1]*But it refused.\w8\w8\w8 \s[0]\n\n[half]*It might be for %(reference0) instead.\w8\e"
+	
+	"\0\s[31]*But it refused.\w8\w8\w8 \s[0]\n\n[half]*It's probably for %(reference0),\w4 %(username).\w8\e"
+	
+	"\0\s[3]*But it refused.\w8\w8\w8 \s[6]\n\n[half]*Because it wasn't for Frisk.\w8 \s[0]\n*This might be for %(reference0),\w4 %(username).\w8\e"
+}
+
+
+//**** Uninstallation ******************************************
+
+//--OnVanishSelecting
+//When you select the uninstall option in the menu.
+OnVanishSelecting
+{
+	"\0\s[1]*Frisk awaits your decision.\w8\e"
+	
+	"\0\s[31]*Decide carefully,\w4 %(username).\w8\e"
+	
+	"\0\s[1]*To uninstall or to not...\w8\e"
+}
+
+//OnVanishSelected
+OnVanishSelected
+{
+	"\0\s[1]*Goodbye,\w4 %(username).\w8\w8\e"
+	
+	"\0\s[1]*Frisk assures you that %(they) understand.\w8\w8\e"
+	
+	"\0\s[2]*Frisk bawls like a baby.\w8 %(Capitalize(they))'ll miss you.\w8\w8\e"
+	
+	"\0\s[31]*%(username)'s LOVE increased!\w8\w8\e"
+}
+
+//--OnVanishButtonHold
+//This should trigger if you double click the ghost's balloon in the middle of OnVanishSelected above.
+OnVanishButtonHold
+{
+	"\0\s[31]*...\w8\w8\s[1]?\w8 \n*Did you decide not to do it?\w8\e"
+	
+	"\0\s[3]*Your clicking startled Frisk.\w8\e"
+	
+	"\0\s[7]*Frisk asks you to make up your mind.\w8\e"
+	
+	"\0\s[6]*The suspense is killing %(them).\w8\e"
+}
+
+//--OnVanishCancel
+OnVanishCancel
+{
+	"\0\s[0]*Frisk is relieved.\w8 \s[5]*That %(they) get to spend more time with you!\w8\e"
+	
+	"\0\s[7]*You're stuck here with Frisk,\w4 %(username).\w8\e"
+	
+	"\0\s[1]*A shame,\w4 really.\w8 \n*%(Capitalize(they)) might have said something interesting if you'd gone through with it.\w8\e"
+}
+
+//---- OnVanished -----------------------------------------
+//reference0 here is the name of the other ghost.
+OnVanished
+{
+	"\0\s[0]\1\s[10]"
+	--
+	"\0\s[1]*Goodbye,\w4 %(reference0).\w8 \n*And hello, %(username)!\w8\e"
+	
+	"\0\s[1]*Frisk wonders if you and %(reference0) could have talked things out.\w8\e"
+	
+	"\0\s[1]\1\s[13]*That's right,\w4 %(username).\w8 \0*Flowey's mantra hangs heavy in the air.\w8\e"
+}
+
+
+//**** Mail Checking *******************************************************************
+
+//---- OnBIFFBegin ---------------------------------------------------------------
+OnBIFFBegin
+{
+	"\0\s[0]\_v[open_phone.wav]*Frisk opens up %(their) phone to check your email.\w8\e"
+	
+	"\0\s[0]\_v[open_phone.wav]*Now checking your emails...\w8\e"
+	
+	"\0\s[6]\_v[open_phone.wav]*Frisk is excited to see how many messages you've got.\w8\e"
+}
+
+//---- OnBIFFComplete ---------------------------------------------------------------
+//leaving most of Zi's comments in here because I don't understand it.
+//reference0 here stores the amount of new email it finds.
+OnBIFFComplete
+{
+	if reference0 == 0
+ 	{
+		"\0\s[0]*Nothing new this time,\w4 %(username).\w8\e"
+		
+		"\0\s[0]*Nothing new.\w8 \s[1]Maybe next time.\w8\e"
+		
+		"\0\s[0]*Behold!\w8 \n*It's the exact same as when you last left it.\w8\e"
+	}
+	elseif reference0 < 100 //less than 100 new emails
+	{
+		if reference7 != "" //Reference7 is the headers. If it's empty (if the user has headers off), no need to run this loop. I STRONGLY ENCOURAGE YOU not to run this loop for more than 100 headers, as it may cause severe amounts of lag/freezing. Also, that's a lot to scroll through.
+		{
+			_buff = reference7
+			_len = ARRAYSIZE(_buff)
+			headers = ""
+			if reference7 != "" && reference0 <= 500 //max number of headers
+			{
+				headers = SPLIT(reference.raw[7],C_BYTE1)
+			}
+		}
+		--
+		_s = ""; if reference0 != 1; _s = "s" //Plural check, adds an s if the number of emails is not 1
+		
+		"\0\s[6]*Looks like there are %(reference0) new emails.\w8"
+		--
+		if reference7 != "" //Same as above, no need to ask if there are no headers
+		{
+			"\s[2]\n*Would you like to see the header%(_s)?"
+			--
+			"\n\n\![*]\q[Yes,OnSeeHeaders,yes]\n\*\![*]\q[No,OnSeeHeaders,no]"
+		}
+		--
+		"\e"
+	}
+ 	else //For any other number of emails.
+	{
+		"\0\s[5]*There are %(reference0) new emails.\w8 \n*Frisk is impressed with your popularity.\w8\e"
+		
+		"\0\s[6]*You have %(reference0) new emails.\w8 \s[1]\n*Frisk worries %(their) phone might overload trying to process all of them.\w8\e"
+		
+		"\0\s[6]*There are %(reference0) new emails.\w8 \s[7]\n*Frisk will make sure to tell Alphys that your inbox isn't limitless.\w8\e"
+		
+		"\0\s[6]*There are %(reference0) new emails.\w8 \s[5]*Frisk can't wait to let Papyrus know about this.\w8\e"
+ 	}
+}
+
+//Displaying the headers. Reference0 is the list of headers
+OnSeeHeaders
+{
+	if reference0 == "yes" //It's set up this way so that the headers variable will still be erased if the user says no. If they say no, it'll just erase the headers and say nothing
+	{
+		_display = ""
+		foreach headers; _header
+		{
+			_display += "\![*]"
+			_display += SHIORI3FW.EscapeAllTags(_header)
+			_display += "\n\n[half]"
+		}
+		
+		"\0\s[6]\b2\![set,autoscroll,disable]\*\_q"
+		--
+		"\![*]\q[Done,cancelnodialogue]\n\n"
+		--
+		"%(_display)"
+		--
+		"\n\n\![*]\q[Done,cancelnodialogue]"
+	}
+	
+	ERASEVAR("headers") //This erases the variable so you're not storing all those headers and bloating your save. Also, privacy reasons.
+}
+
+//---- OnBIFFFailure ---------------------------------------------------------------
+//reference0 is the error returned
+OnBIFFFailure
+{
+	if reference0 == "timeout"
+ 	{
+		"\0\s[1]*Connection timed out.\w8 \n*Please try again later.\w8\e"
+		
+		"\0\s[31]*The connection timed out.\w8 \n*Perhaps try again later.\w8\e"
+	}
+ 	elseif reference0 == "kick"
+	{
+		"\0\s[1]*Your account won't let us in.\w8 \s[0]\n*\_a[https://quiksilvear.home.blog/2017/11/27/how-do-you-set-up-your-email-on-ukagaka-could-you/#:~:text=You're%20going%20to%20want,to%20add%20your%20email%20account.]Here's a reference\_a that might explain how to fix that.\w8\e"
+		
+		"\0\s[7]*Your email has kicked Frisk out.\w8 \s[0]\n*\_a[https://quiksilvear.home.blog/2017/11/27/how-do-you-set-up-your-email-on-ukagaka-could-you/#:~:text=You're%20going%20to%20want,to%20add%20your%20email%20account.]Here's a reference\_a that might explain how to fix that.\w8\e"
+ 	}
+	elseif reference0 == "defect"
+ 	{
+		"\0\s[1]*It doesn't look like everything was set up properly, %(username).\w8 \s[2]\n*Frisk encourages you to check your details in the POP menu.\w8"
+		
+		"\0\s[1]*Looks like something's wrong in the POP menu.\w8 \s[2]\n*Frisk will open it for you so you can check.\w8"
+		--
+		"\![open,configurationdialog,biff]\e"
+	}
+	elseif reference0 == "artificial"
+	{
+		"\0\s[0]*Frisk has been interrupted.\w8\e"
+		
+		"\0\s[6]\w8\w8\s[1]*Frisk will resume %(their) previous ukagaka antics.\w8\e"
+		
+		"\0\s[1]*Another time,\w4 then?\w8\e"
+	}
+ 	else
+	{
+		"\0\s[1]*Frisk is getting an '%(reference[0])' error.\w8 \s[0]\n*%(Capitalize(they))'ll wait for you to deal with that.\w8\e"
+		
+		"\0\s[1]*Something went wrong.\w8 \n*The error %(they) got is '%(reference[0])'.\w8\e"
+ 	}
+}
+
+
+//**** Network Update *****************************************************************
+
+//---- OnUpdateBegin -------------------------------------------------------------
+OnUpdateBegin
+{
+	"\0\s[8]*Frisk will now begin the update procedure.\w8\e"
+	
+	"\0\s[6]*Now checking for updates.\w8\e"
+	
+	"\0\s[5]*Frisk is excited to see if there have been any updates.\w8\e"
+	
+	"\0\s[5]*Frisk can't wait for the next patch to %(their) system.\w8\e"
+}
+
+//---- OnUpdateReady ---------------------------------------------------------
+//reference0 here storing the number of new files.
+OnUpdateReady
+{
+	reference0++ //makes sure it starts at 1 instead of 0
+	
+	if reference0 == 1 //For a single file
+	{
+		"\0\s[6]*Frisk found one new file.\w8\e"
+		
+		"\0\s[6]*There's only one new file.\w8\e"
+	}
+	else
+	{
+		"\0\s[6]*Looks like there are %(reference0) new files.\w8\e"
+		
+		"\0\s[5]*Frisk found %(reference0) new files for download.\w8\e"
+		
+		"\0\s[6]*%(reference0) files for download.\w8\e"
+	}
+}
+
+//---- OnUpdate.OnDownloadBegin ------------------------------------------------
+//reference0 - file being downloaded
+//reference1 - number of file being downloaded, as in "this is file 1 out of 9"
+//reference2 - overall number of files to download, counting zero. so if there are ten files, it'll display as 9.
+//reference3 - what's being updated - ghost, shell, balloon, plugin, headline, baseware
+
+//Big thanks to Malakin for helping me figure it out.
+
+//---- Downloading the update ------------------------------------------------
+OnUpdate.OnDownloadBegin
+{
+	"\_q\b[2]*Downloading %(reference0)...\n\n"
+	--
+		//okay, you can use the %(reference) envelope here to display the value, but you can't actually DO anything with it as is. You have to convert it into an integer using TOINT, THEN you can use it in functions and such. I should get back to that one person trying to do that whack a mole game with this info, this was the exact same problem they ran into.
+		//+ 1 because otherwise the count starts at 0 and it looks weird. Basic format is variablename = TOINT(target you're turning into an integer, in this case the references)
+		 
+		Update_Process = TOINT(reference1) + 1
+		Update_Total = TOINT(reference2) + 1
+		Update_Remaining = Update_Total - Update_Process
+		
+		//defining starting points
+		PointA = 1 
+		PointB = 1
+		
+		//defining text buffers beforehand, otherwise they don't display right
+		_txt = ""
+		
+		//loop calculates how many check boxes to display based on the variables above, the if check is for displaying the ascii border on the sides
+		while PointA <= Update_Process 
+		{
+		_txt += "☑"
+		PointA++ 
+		} 
+		//see above except for blank boxes
+		while PointB <= Update_Remaining 
+		{
+		_txt += "☐"
+		PointB++ 
+		}
+		--
+		//using the text buffers to display the correct number of boxes
+		"%(_txt)\n\n%(Update_Process) of %(Update_Total)"
+		//--
+		//flavortext
+		
+		 //if "aitalk" _in_ reference0
+		//{
+			//"\n\n\_q"
+			//--
+			//"\0\s[5]*More things for Frisk to say!\w8\e"
+		//}
+		//else
+		//{
+			//""
+		//}
+		--
+		"\w5\e"
+}
+
+//---- OnUpdate.OnMD5CompareBegin ---------------------------------------------------
+//LEAVE THESE BLANK.
+OnUpdate.OnMD5CompareBegin
+{
+	//"\1\s[10]Checking the MD5 value.\e"
+}
+
+//---- OnUpdate.OnMD5CompareComplete --------------------------------------------------
+OnUpdate.OnMD5CompareComplete
+{
+	//"\0\s[0]MD5 check good.\e"
+}
+
+//---- OnUpdate.OnMD5CompareFailure ---------------------------------------------------
+//_remaining should be the number of the file that's giving the error, in the order they're being downloaded. currentfile will be the file path.
+OnUpdate.OnMD5CompareFailure
+{
+	_remaining = Update_Remaining + 1
+	
+	"\0\s[1]*Oh dear.\w8 \n\n[half]*Looks like something's wrong in %(_remaining) - '%(currentfile)'.\w8\e"
+}
+
+//---- OnUpdateFailure -------------------------------------------------------------
+//Error messages if the update process fails in some way.
+OnUpdateFailure
+{
+	if reference0 == "timeout" //if the connection times out
+	{
+		"\0\s[1]*Your connection timed out.\w8 \n\n[half]*Either the site is down or your internet glitched.\w8 \s[0]You should try again later.\w8\e"
+		
+		"\0\s[1]*Frisk was timed out.\w8 \n\n[half]*Either your internet hiccupped or the site is down.\w8 \n\s[0]*You should wait a while and try again later,\w4 %(username).\w8\e"
+	}
+	elseif reference0 == "md5 miss" //This is the final message displayed when you've run into an md5 error below at some point.
+	{
+		"\0\s[1]*Looks like the MD5 hash of the files don't match up.\w8 \s[0]\n\n[half]*You should let the creator know that '%(currentfile)' is causing the issue.\w8\e"
+		
+		"\0\s[1]*Seems like the MD5 hash on '%(currentfile)' doesn't match up.\w8 \s[0]\n\n[half]You should send an error report to the writer so that can get fixed.\w8\e"
+	}
+	elseif reference0 == "artificial" //If the user cancels the update by double clicking the balloon
+	{
+		"\0\s[6]\w8\w8\w8\w8\s[7]*You stopped Frisk from updating.\w8\e"
+		
+		"\0\s[6]\w8\w8\w8\w8\s[1]*Is there a reason you decided to stop Frisk in the middle of the update?\w8\e"
+	}
+	else //for other errors
+	{
+		"\0\s[1]*Frisk is getting the error '%(reference0)'.\w8 \n\n[half]*%(Capitalize(theyre)) sorry %(they) can't help you much more than that...\w8\e"
+		
+		"\0\s[31]*'%(reference0)'?\w8 \nThat's the error Frisk is getting.\w8 \n\n[half]*Hopefully,\w3 you know what to do with that,\w3 %(username).\w8\e"
+	}
+}
+
+//---- OnUpdateComplete -------------------------------------------------------------
+OnUpdateComplete
+{
+	if reference0 == "none" //if the ghost had nothing to update with
+ 	{
+		"\0\s[0]*Nothing new to report.\w8 \n\s[2]*Frisk will resume %(their) previous ukagaka antics.\w8\e"
+		
+		"\0\s[1]*Nothing new this time.\w8 \n\s[2]*Frisk is up to date!\w8\e"
+		
+		"\0\s[5]*Frisk is already completely up to date,\w3 %(username).\w8\e"
+		
+		"\0\s[2]*No new content yet.\w8 \n\s[8]*Undertale 2 is just a pie in the sky,\w3 %(username).\w8\e"
+	}
+ 	else //if the ghost has updated successfully
+	{
+		"\0\s[2]*Frisk's update has been successful.\w8 \n\s[5]*You should see the changes in as little as fourteen days,\w3 %(username).\w8 \n\n[half]\s[6]*Or sooner,\w8 \s[8]if you keep %(them) open.\w8\e"
+		
+		"\0\s[5]*Frisk is now up to date!\w8\e"
+		
+		"\0\s[0]\w8\w8\w8\s[2]*Frisk's new save was successful.\w8 \n\s[8]*As was yours,\w4 %(username).\w8\e"
+		
+		"\0\s[6]*New content has been added.\w8 \n\s[2]*Frisk is just as excited as you are,\w3 %(username).\w8\e"
+	}
+}
+
+
+//**** Ghost Creation and Updating ******************************************************
+//These next few are related to creating updates2.dau and .nar files for your ghosts.
+
+
+//---- OnUpdatedataCreating -----------------------------------------------------------
+//This will begin the creation of the updates2.dau file.
+OnUpdatedataCreating
+{
+	"\0\s[0]*Updates being created...\w8\e"
+	
+	"\0\s[2]*Now creating your updates.\w8\e"
+	
+	"\0\s[6]*Please hold while updates are being created.\w8\e"
+}
+
+//---- OnUpdatedataCreated -------------------------------------------------------------
+//After the updates2.dau file has been successfully created.
+OnUpdatedataCreated
+{
+	"\0\s[5]*Success!\w8 \s[2]\n*Your updates2.dau has been created.\w8\e"
+	
+	"\0\s[5]*Successfully created the updates2.dau file.\w8 \n\n[half]\s[8]*Have fun with that.\w8\e"
+	
+	"\0\s[8]*The update2.dau have been created successfully.\w8\e"
+}
+
+
+//---- OnNarCreating ------------------------------------------------------------------
+//reference0 here is the name of the ghost as specified in Installl.txt
+OnNarCreating
+{
+	if reference0 == "Frisk"
+	{
+		"\0\s[5]*Another Frisk!\w8\e"
+		
+		"\0\s[6]*Frisk is intrigued to be going on another adventure.\w8\e"
+		
+		"\0\s[0]*One freshly-fallen human,\w8 \s[2]coming right up.\w8\e"
+	}
+	//elseif reference0 == ""
+	else
+	{
+		"\0\s[6]*Frisk wonders what you're going to do with '%(reference0)'...\w8\e"
+		
+		"\0\s[8]*Now creating '%(reference0)'s .ner...\w8\e"
+		
+		"\0\s[5]*Frisk is excited to send '%(reference0)' off into the internet.\w8\e"
+	}
+}
+
+//---- OnNarCreated -------------------------------------------------------------------
+//reference0 here will be the filename of the nar you just created.
+OnNarCreated
+{
+	if reference0 == "Frisk"
+	{
+		"\0\s[5]*Frisk's .ner has been successfully created!\w8\e"
+		
+		"\0\s[6]*Where is Frisk going?\w8 \s[5]This is so exciting.\w8\e"
+		
+		"\0\s[2]*Be careful where you drop Frisk's .nar,\w4 %(username).\w8\e"
+	}
+	//elseif reference0 == ""
+	else
+	{
+		"\0\s[0]*Successfully created the .nar for '%(reference0)'.\w8 \n\n[half]\s[5]*Where are you sending them,\w3 %(username)?\w8\e"
+		
+		"\0\s[5]*Success!\w8 \n\s[2]*Frisk hopes you'll be kind to '%(reference0)' as well.\w8\e"
+		
+		"\0\s[6]*Frisk is intrigued by '%(reference0)'s new .nar...\w8\e"
+	}
+}
+
+
+
+//**** Headlines and RSS Feeds *********************************************************
+//This section has to do with the RSS feeds option on your ghost. If you drag and drop a url on them, they'll add it to a list you can access via the right-click menu, and they'll tell you the last set of updates for the site. This works best with RSS feeds I think, but you can experiment with other sites to see how it works.
+//The headlines you see under the tab are in the headline folder under your base SSP install. So it'd be SSP\headlines. You should see the folders for each linked headline in there. Likewise, your RSS feeds you've added will be under SSP\rss and I don't think that option will appear in the headlines/RSS tab until you add an RSS feed to a ghost. If you want to clear your RSS feeds or headlines, just delete either of those two folders.
+//tbh I don't really understand a lot of this, so I took Zi's mods and left it at that.
+
+
+//---- OnHeadlinesenseBegin -----------------------------------------------------------
+//This dialogue comes up when you select something in your RSS feed as an intro, like the other On[Thing]Begin things we've seen so far.
+OnHeadlinesenseBegin
+{
+	"\0\s[6]*Has the %(reference0) updated?\w8 \s[2]Frisk will grab those for you now.\w8\e"
+	
+	"\0\s[0]*Now running the %(reference0)...\w8\e"
+	
+	"\0\s[6]*You've selected %(reference0).\w8 \n\n[half]\s[2]*Frisk will get those for you.\w8\e"
+}
+
+//---- OnHeadlinesense.OnFind --------------------------------------------------------
+//reference0 is the site name, reference1 is the url, reference3 is the headlines
+OnHeadlinesense.OnFind
+{
+	//---- Headlines
+	"\0\b2%(reference0):\n\n%(reference3)\n"
+ 	--
+	//---- Pages
+ 	if reference2 == "First" || reference2 == "Next"
+	{
+ 		//---- Bottom buttons
+		"\![*]\q[Next,] - \![*]\q[Stop,Headline_Cancel]\e"
+ 	}
+	else
+ 	{
+		//---- Bottom buttons
+ 		"\![*]\q[Stop,Headline_Cancel]\e"
+ 	}
+}
+
+
+Select.Headline_Cancel
+{
+	"\0\s[2]*Thank you for viewing these headlines with Frisk.\w8\e"
+	
+	"\0\s[8]*This ends Frisk's special reports.\w8\e"
+	
+	"\0\s[2]*That was fun,\w3 now wasn't it?\w8\e"
+}
+
+//---- OnHeadlinesenseComplete -------------------------------------------------------
+//This is if the headline information gathering was successful, but there's no new information to report. Possibly if none of the feeds have updated?
+//reference0 here supposedly always stores the value no update?
+OnHeadlinesenseComplete
+{
+	"\0\s[1]*It seems there's nothing new.\w8 \n\n[half]\s[0]*%(reference0).\w8\e"
+	
+	"\0\s[0]*No updates at this time.\w8 \n\n[half]*%(reference0).\w8\e"
+	
+	"\0\s[0]*Nothing new to report.\w8 \n\n[half]*%(reference0).\w8\e"
+}
+
+//---- OnHeadlinesenseFailure ---------------------------------------------------------
+//This one is for when the ghost can't get the information it needs about the RSS feed.
+OnHeadlinesenseFailure
+{
+	"\0\s[1]*Frisk can't update the feed,\w4 %(username).\w8 \n\n[half]*"
+ 	--
+	if reference0 == "can't download" //if they can't download the rss feed for some reason
+ 	{
+		"%(Capitalize(they)) can't download it."
+ 	}
+	elseif reference0 == "can't analyze" //if they can't read the file for some reason
+ 	{
+		"%(Capitalize(they)) can't read it."
+ 	}
+	else //other errors
+ 	{
+		"And %(they) have no idea why."
+ 	}
+	--
+ 	"\s[31]\w8\e"
+}
+
+
+
+//****　Clock Synchronization　**********************************************************
+//**** 미카 (http://homepage2.nifty.com/ko-ki/)의 사전을 참고했습니다．감사＞こ 나무 성
+//This set of functions was done by the above Korean coder, I think. I'll leave their comment there untouched. 
+
+//----OnSNTPBegin ------------------------------------------------------------------
+//%(reference0) here is the site they'll be using to check your clock.
+OnSNTPBegin
+{
+	"\0\s[6]*Now checking with %(reference0) to see if your clock is right...\w8\e"
+	
+	"\0\s[7]*Frisk doesn't understand how this could happen.\w8 \n*It's only 8pm on October 10th once,\w3 after all.\w8\e"
+	
+	"\0\s[0]*Finished playing your tricks?\w8 \s[2]Then Frisk will help correct the clock for you.\w8\e"
+}
+
+
+//----　OnSNTPCompare----------------------------------------------------------
+//Now the ghost is going to compare the current time of your computer's system to the time of the site they connected to.
+OnSNTPCompare
+{
+	"Retrieved Time: %reference1[1]/%reference1[2]/%reference1[0] %reference1[3]:%reference1[4]:%reference1[5]\w2\nYour Time: %reference2[1]/%reference2[2]/%reference2[0] %reference2[3]:%reference2[4]:%reference2[5]\w2\n\n"
+	--
+	if reference3 == 0 //if your clock is already accurate.
+	{
+		"\0\s[7]*Your clock is already accurate.\w8\e"
+		
+		"\0\s[7]*This was a strange trick to play on Frisk,\w4 %(username).\w8\e"
+		
+		"\0\s[2]*All good!\w8\e"
+	}
+	else //if your clock doesn't match
+	{
+		"\0\s[1]*They don't match...\w8 \n\s[0]*Want to fix that?\w8"
+		
+		"\0\s[1]*It seems the times are off...\w8 \n\s[2]*Frisk can fix it for you,\w3 if you'd like.\w8"
+		--
+		"\n\n[half]\_q\![*]\q[Fix it,OnSNTPEXECUTE] \n\![*]\q[Leave it alone,OnSNTPCANCEL]\e"
+	}
+}
+
+//----　OnSNTPEXECUTE ------------------------------------------------------------------
+//Note the \6 tag - that's what actually changes the clock.
+OnSNTPEXECUTE
+{
+	"\6"
+	--
+	"\0\s[2]*Your clock has been fixed.\w8\e"
+	
+	"\0\s[5]*Time has been righted on your computer.\w8\e"
+	
+	"\0\s[2]*Everything's back up to date!\w8 \n\n[half]\s[8]*No longer is it 8pm on October 10th.\w8\w8\w8\w8 \n\s[0]*Unless it is.\w8\e"
+}
+
+//----　OnSNTPCANCEL ------------------------------------------------------------------
+//If you decide not to change your clock when they tell you it doesn't match.
+OnSNTPCANCEL
+{
+	"\0\s[7]*Well why not??\w8\e"
+	
+	"\0\s[7]*You shall remain in unfixed time purgatory,\w3 then.\w8\e"
+	
+	"\0\s[0]*Frisk may not understand it,\w8 \s[2]but %(they) will respect your wishes to remain in your time bubble.\w8\e"
+}
+
+//----　OnSNTPFailure ------------------------------------------------------------------
+//If they can't change the clock for some reason.
+OnSNTPFailure
+{
+	"\0\s[1]*Something went wrong.\w8 \s[31]Time will remain unchanged.\w8\e"
+	
+	"\0\s[1]*Frisk couldn't change the clock.\w8 \s[31]\n*So sorry,\w4 %(username).\w8\e"
+}
+
+
+//--OnDisplayChange----------------------------------------------------------------
+//This is when you change the resolution of your monitor while your ghost is running.
+OnDisplayChange
+{
+	displaybpp    = reference0
+ 	displaywidth  = reference1
+	displayheight = reference2
+}
+
+
+
+//---- OnGhostCalling ---------------------------------------------------------------
+//when you call another ghost. It activates immediately, so write dialogue accordingly.
+OnGhostCalling
+{
+	case reference0
+	{
+		when "sans"
+		{
+			"\0\s[5]*Sounds like it's time for some bone puns!\w8\e"
+			
+			"\0\s[2]*Smells like puns are approaching...\w8\e"
+			
+			"\0\s[2]*Frisk is happy to see %(their) skeleton friend again.\w8\e"
+		}
+		when "Sans"
+		{
+			"\0\s[6]*Sounds like it's time for things to fall.\w8\e"
+			
+			"\0\s[1]*Frisk hopes Sans is able to get enough sleep...\w8\e"
+			
+			"\0\s[6]*Smells like the fallen down is approaching...\w8\e"
+		}
+		when "UC"
+		{
+			"\0\s[6]*Sounds like it's time for the rating to go up.\w8\e"
+			
+			"\0\s[1]*Smells like curses and bad times approaching...\w8\e"
+			
+			"\0\s[2]*Frisk hopes %(they) can still be friends with this Sans.\w8\e"
+		}
+		when "Dreamtale Sans"
+		{
+			"\0\s[6]*Sounds like it's time to be a serial dreamer!\w8\e"
+			
+			"\0\s[2]*Smells like hopes and dreams approaching.\w8\e"
+			
+			"\0\s[1]*Smells like nightmares and goop approaching.\w8\e"
+			
+			"\0\s[5]*Frisk is happy to see the dreamer!\w8\e"
+		}
+		when "MVSans"
+		{
+			"\0\s[6]*Sounds like it's time for the multiverse to open.\w8\e"
+			
+			"\0\s[2]*Smells like tickling and phone calls approaching.\w8\e"
+			
+			"\0\s[5]*Frisk can't wait to see what Sans has planned this time.\w8\e"
+		}
+		when "Papyrus"
+		{
+			"\0\s[5]*Sounds like it's time for spaghetti and puzzles!\w8\e"
+			
+			"\0\s[2]*Smells like MTT-brand bone cream is appraoching...\w8\e"
+			
+			"\0\s[5]*Frisk is delighted to see %(their) skeleton friend again.\w8\e"
+		}
+		when "Jazz"
+		{
+			"\0\s[6]*Seems like it's time for some good and wholesome fun.\w8\e"
+			
+			"\0\s[2]*Smells like friendship and bones approaching.\w8\e"
+			
+			"\0\s[5]*Frisk also wants to pet the skeleton.\w8\e"
+		}
+		when "Gaster"
+		{
+			"\0\s[6]*Sounds like it's time to get scientific.\w8\e"
+			
+			"\0\s[1]*Smells like cigarettes and chocolate milk approaching...\w8\e"
+			
+			"\0\s[1]*Frisk is worried for the skeleton family.\w8\e"
+		}
+		when "f_lowe_y"
+		{
+			"\0\s[5]*Sounds like it's time for a flower friend!\w8\e"
+			
+			"\0\s[6]*Smells like your best friend is approaching.\w8\e"
+			
+			"\0\s[6]\1\s[19]*Hey.\w8 \0\s[1]\1\n*Aren't I enough for you,\w3 %(username)?\w8\e"
+		}
+		when "Toriel"
+		{
+			"\0\s[5]*Sounds like it's time to be mommed.\w8\e"
+			
+			"\0\s[2]*Smells like butterscotch and cinnamon approaching.\w8\e"
+			
+			"\0\s[5]*Frisk is delighted to see Toriel again.\w8\e"
+		}
+		when "Mettaton"
+		{
+			"\0\s[5]*Sounds like it's time for some fabulous music.\w8\e"
+			
+			"\0\s[2]*Smells like metal and magic approaching.\w8\e"
+			
+			"\0\s[6]*Could it be?\w8 Is it truly?\w8 \s[5]It is!\w8 \n\n[half]\s[8]*It's time for %(mttnetwork[0])!\w8\e"
+		}
+		when "Temmie"
+		{
+			"\0\s[5]*hOI!!\w8 \n*It's Temmie time!\w8\e"
+			
+			"\0\s[6]*Smells like a village is approaching.\w8\e"
+			
+			"\0\s[5]*Frisk can't wait to say,\w2 'hOI!!'\w4 to Temmie.\w8\e"
+		}
+		when "Pet Rock"
+		{
+			"\0\s[6]*Looks like it's time to care for a pet.\w8\e"
+			
+			"\0\s[2]*Smells like sprinkles and responsibility approaching.\w8\e"
+			
+			"\0\s[5]*Frisk hopes you give %(them) some sprinkles,\w4 too.\w8\e"
+		}
+		when "Ralsei"
+		{
+			"\0\s[6]*Sounds like it's time for some fluffy boys.\w8\e"
+			
+			"\0\s[2]*Smells like a dark prince approaching.\w8\e"
+			
+			"\0\s[1]*Frisk is confused by Ralsei's name.\w8\e"
+		}
+		when "SPAMTON!!"
+		{
+			"\0\s[5]*Here comes that funny little man!\w8\e"
+			
+			"\0\s[6]*Smells like spam.\w8\e"
+			
+			"\0\s[1]*Smells like chain mail and scratch cards...\w8\e"
+			
+			"\0\s[2]*Frisk thinks it's funny that Spamton calls you 'Kris'.\w8\e"
+		}
+		when "Zaiga"
+		{
+			"\0\s[6]*Sounds like it's time for ornery friends.\w8\e"
+			
+			"\0\s[1]*Smells like space and monsters approaching.\w8\e"
+			
+			"\0\s[2]*Frisk hopes %(they) can become friends with Zaiga,\w3 too.\w8\e"
+		}
+		when "Azura"
+		{
+			"\0\s[6]*Sounds like it's time for another fallen human.\w8\e"
+			
+			"\0\s[2]*Smells like artificial intelligence approaching.\w8\e"
+			
+			"\0\s[5]*Frisk can't wait to see what types of conversations you'll have with Azura.\w8\e"
+		}
+		when "RYS-0825"
+		{
+			"\0\s[2]*Sounds like it's time for domestic skeletons.\w8\e"
+			
+			"\0\s[6]*Smells like family and a kitchen approaching.\w8\e"
+			
+			"\0\s[5]*Frisk hopes you'll treat S nicely,\w3 too.\w8\e"
+		}
+		when "Dusty"
+		{
+			"\0\s[6]*Sounds like its time for cat shenanigans.\w8\e"
+			
+			"\0\s[5]*Smells like the void and learning approaching.\w8\e"
+			
+			"\0\s[2]*Frisk hopes to one day hold Obsidian as well.\w8\e"
+		}
+		when "Noteworthy"
+		{
+			"\0\s[5]*Sounds like it's time for an unlikely duo!\w8\e"
+			
+			"\0\s[2]*Smells like a cat and a skeleton approaching.\w8\e"
+			
+			"\0\s[6]*Frisk wonders what sort of bullets Noteworthy and Rocky would use for a greeting.\w8\e"
+		}
+		when "Sn"
+		{
+			"\0\s[5]*Time to greet the brothers!\w8\e"
+			
+			"\0\s[6]*Smells like skeleton brothers approaching.\w8\e"
+			
+			"\0\s[5]*Frisk is delighted to get to see the skeleton brothers.\w8\e"
+		}
+		when "Fairune Duo"
+		{
+			"\0\s[6]*Is it time for the ambassadors of Fairune?\w8\e"
+			
+			"\0\s[2]*Smells like the ambassadors of Fairune are approaching.\w8\e"
+			
+			"\0\s[5]*Frisk welcomes the ambassadors of Fairune for you,\w3 %(username).\w8\e"
+		}
+		when "Inferno"
+		{
+			"\0\s[6]*Looks like it's Inferno and Wolf time.\w8\e"
+			
+			"\0\s[1]*Smells like charcoal and fur are approaching...\w8\e"
+			
+			"\0\s[2]*Frisk is happy to see the Inferno and Wolf.\w8\e"
+		}
+		when "Eggbeater"
+		{
+			"\0\s[6]*Is it time for some desktop therapy,\w4 %(username)?\w8\e"
+			
+			"\0\s[2]*Smells like a secret agent is approaching.\w8\e"
+			
+			"\0\s[5]*Frisk would love to chat up the psychic thriller himself!\w8\e"
+		}
+		when "Defence"
+		{
+			"\0\s[6]*But who's being put on trial,\w4 %(username)?\w8\e"
+			
+			"\0\s[2]*Smells like the court is approaching.\w8\e"
+			
+			"\0\s[5]*Frisk would love to watch the Justice trio solve another case!\w8\e"
+		}
+		when "Mole"
+		{
+			"\0\s[2]*Time for some hunters to make your desktop safe from the supernatural,\w3 %(username).\w8\e"
+			
+			"\0\s[6]*Smells like some supernatural hunters are approaching.\w8\e"
+			
+			"\0\s[7]*Here comes those arguing hunter boys!\w8\e"
+		}
+		when "Moomintroll"
+		{
+			"\0\s[2]*Are the seasons changing,\w4 %(username)?\w8\e"
+			
+			"\0\s[5]*Frisk smells the changing of the seasons approaching.\w8\e"
+			
+			"\0\s[6]*Time for love and laughter.\w8 \s[5]The Moomins!\w8\e"
+		}
+		when "Cheesecake"
+		{
+			"\0\s[2]*Sounds like it's time for lunch.\w8\e"
+			
+			"\0\s[5]*Smells like cheesecake and ramen are approaching...\w8\e"
+			
+			"\0\s[6]*Frisk wonders how a cheesecake and ramen dish might taste.\w8\e"
+		}
+		when "Spiral"
+		{
+			"\0\s[7]*Are you ready to start a fight,\w4 %(username)?\w8\e"
+			
+			"\0\s[6]*Smells like commanders and tea are approaching...\w8\e"
+			
+			"\0\s[6]*Smells like triumph and spirals are approaching...\w8\e"
+			
+			"\0\s[5]*Frisk is happy to watch the funny non-humans do their thing.\w8\e"
+		}
+		//when ""
+		//{
+			//""
+		//}
+		when "Frisk"
+		{
+			"\0\s[6]\w8\w8\w8\s[1]*Frisk is unsure how to feel about this.\w8\e"
+			
+			"\0\s[6]*Another Frisk??\w8\e"
+			
+			"\0\s[1]*Frisk isn't sure how this is going to affect the timelines...\w8\e"
+		}
+		others
+		{
+			"\0\s[5]\_v[phone_call.wav]*It's time to call up %(reference0)!\w8\e"
+			
+			"\0\s[6]*Smells like %(reference0) approaching...\w8\e"
+			
+			"\0\s[2]*Frisk hopes %(they) can be friends with %(reference0).\w8\e"
+			
+			"\0\s[6]*Frisk wonders how you're planning on sparing %(reference0).\w8\e"
+		}
+	}
+}
+
+//when you change another ghost. activates after they've finished swapping.
+//reloading a ghost doesn't trigger this I'm saddddddd
+//reference0 = ghost before switch; reference1 = ghost switched to; reference4 = name of previous ghost; reference5 = name of switched to ghost
+//if you want to go DEEPER into these refs, then you could do an if reference0 == "ghost name" check for each when case but GOD I DON'T HAVE THE BRAIN FOR THAT
+OnOtherGhostChanged
+{
+	case reference1
+	{
+		when "sans"
+		{
+			"\0\s[5]*Hello,\w3 Sans!\w8 \n\s[2]*Frisk hopes %(reference0) isn't bothered about the swap.\w8\e"
+			
+			"\0\s[6]*Sans is here now!\w8 \n\s[1]*Frisk is a little sad about %(reference0) leaving,\w4 \s[2]but is happy to see %(their) skeleton friend.\w8\e"
+			
+			"\0\s[1]*So long,\w4 %(reference4).\w8 \n\s[2]*And hello,\w4 Sans!\w8\e"
+		}
+		when "Sans"
+		{
+			"\0\s[1]*Goodbye,\w4 %(reference0).\w8 \n\s[2]*But hello,\w4 Sans!\w8\e"
+			
+			"\0\s[6]*Oh!\w8 \s[2]A wild Sans has appeared from %(reference4)'s departure.\w8\e"
+			
+			"\0\s[2]*Swapping %(reference0) for Sans is a-okay in Frisk's book.\w8\e"
+		}
+		when "UC"
+		{
+			"\0\s[6]*%(reference4) has been swapped for Sans!\w8 \n\n[half]\s[5]*Frisk gives a hearty greeting to Sans.\w8\e"
+			
+			"\0\s[1]*No more %(reference0).\w8 \n\s[2]*We get a Sans instead.\w8\e"
+			
+			"\0\s[5]*Hello,\w4 Sans!\w8 \s[2]\n*Frisk wonders if maybe he knows he stepped in for %(reference0).\w8\e"
+		}
+		when "Dreamtale Sans"
+		{
+			"\0\s[1]*So long,\w4 %(reference0).\w8 \s[2]\n*Frisk is happy to see the Dreamy Sans,\w4 though.\w8\e"
+			
+			"\0\s[5]*Dreamy Sans!\w8 \s[2]\n*Frisk wonders if %(reference0) will be in his dreams later.\w8\e"
+			
+			"\0\s[6]*%(reference4) has been swapped for Dreamy Sans.\w8 \n\n[half]\s[2]*Hello,\w4 Sans!\w8\e"
+		}
+		when "MVSans"
+		{
+			"\0\s[6]*Oh!\w8 \s[2]Sans from the Multiverse has taken %(reference0)'s place.\w8\e"
+			
+			"\0\s[1]*So long,\w4 %(reference4).\w8 \n\s[2]*But hello,\w4 Sans from the Multiverse!\w8\e"
+			
+			"\0\s[5]*It's the Multiverse Sans!\w8 \s[2]\n*Frisk wonders if he's acquainted with %(reference0) at all.\w8\e"
+		}
+		when "Papyrus"
+		{
+			"\0\s[5]*Hello,\w4 Papyrus!\w8 \s[2]\n*Frisk wonders if he and %(reference0) are friends.\w8\e"
+			
+			"\0\s[6]*Oh,\w4 %(reference0) was swapped for Papyrus!\w8 \n\s[2]*Hello,\w4 Papyrus!\w8\e"
+			
+			"\0\s[1]*%(reference4) has left the room.\w8 \s[5]\n*Now the Great Papyrus is here!\w8\e"
+		}
+		when "Jazz"
+		{
+			"\0\s[6]*It's Jazz time!\w8 \s[2]\n*Frisk wonders if %(reference0) and Jazz are acquainted.\w8\e"
+			
+			"\0\s[5]*Hello,\w4 Jazz!\w8 \s[2]\n*Frisk thinks %(reference0) would be happy to know such a positive skeleton is taking their place.\w8\e"
+			
+			"\0\s[1]*So long,\w4 %(reference0).\w8 \s[5]\n*But hello,\w4 Jazz!\w8\e"
+		}
+		when "Gaster"
+		{
+			"\0\s[1]*Gaster is here now instead of %(reference0)...\w8 \n\s[0]*Frisk hopes you two can play nice.\w8\e"
+			
+			"\0\s[2]*Goodbye,]w3 %(reference4).\w8 \n\s[0]*Frisk wonders if Gaster has ever studied them.\w8\e"
+			
+			"\0\s[5]*Baby bones,\w4 baby bones!\w8 \n\s[2]*And Gaster,\w3 too,\w3 Frisk supposes.\w8\e"
+		}
+		when "f_lowe_y"
+		{
+			"\0\s[6]*No more %(reference4).\w8 \n\s[5]*Now Frisk's best friend is here!\w8\e"
+			
+			"\0\s[6]*So long,\w4 %(reference0).\w8 \1\s[19]*Hello,\w3 best friend.\w8 \0\s[2]\e"
+			
+			"\0\s[5]*Flowey!\w8 \1\s[19]*As if I'm not right here,\w4 %(username).\w8\e"
+		}
+		when "Toriel"
+		{
+			"\0\s[2]*So long,\w3 %(reference4).\w8 \s[5]\n*Make way for goat mom!\w8\e"
+			
+			"\0\s[5]*Toriel is here now!\w8 \s[2]\n*Farewell,\w3 %(reference0).\w8\e"
+			
+			"\0\s[5]*Goat mother time!\w8 \s[2]\n*Frisk is sure %(reference0) would understand.\w8\e"
+		}
+		when "Mettaton"
+		{
+			"\0\s[5]*Make way,\w4 %(reference0)!\w8 \n\s[8]*It's Mettaton's turn to shine.\w8\e"
+			
+			"\0\s[8]\w8\w8\w8*Frisk is striking a pose.\w8 \n\n[half]*Unfortunately,\w3 \s[1]%(reference4) is no longer around to see it.\w8\e"
+			
+			"\0\s[5]*That's Mettaton!\w8 Of %(mttnetwork[0]) fame!\w8 \n\n[half]\s[2]*%(reference0) is really missing out.\w8\e"
+		}
+		when "Temmie"
+		{
+			"\0\s[2]*bOI,\w3 %(reference0).\w8 \s[5]\n\n[half]*hOI,\w3 Temmie!!\w8\e"
+			
+			"\0\s[5]*It's Temmie time!\w8 \s[2]\n*Frisk knows that %(reference0) would have only gotten lost in the village.\w8\e"
+			
+			"\0\s[6]*Did %(reference0) leave in order to pay for Temmie's college?\w8\e"
+		}
+		when "Pet Rock"
+		{
+			"\0\s[2]*So long,\w3 %(reference0).\w8 \s[5]\n*It's time to care for Pet Rock!\w8\e"
+			
+			"\0\s[6]*Frisk wonders if %(reference0) went off to get food for Pet Rock.\w8\e"
+			
+			"\0\s[2]*Time to care for Pet Rock.\w8 \n*Perhaps %(reference0) couldn't handle the responsibility.\w8\e"
+		}
+		when "Ralsei"
+		{
+			"\0\s[2]*No more %(reference4).\w8 \s[5]\n*It's fluffy boy time!\w8\e"
+			
+			"\0\s[6]*Off goes %(reference0)\w8 \s[5]and here comes the fluffy boy!\w8\e"
+			
+			"\0\s[2]*Frisk wonders if %(reference0) would know what kingdom Ralsei is prince over.\w8\e"
+		}
+		when "SPAMTON!!"
+		{
+			"\0\s[1]*Looks like %(reference0) couldn't afford the Kromer.\w8 \s[2]\n*Can you,\w3 %(username)?\w8\e"
+			
+			"\0\s[2]*No more %(reference0).\w8 \n\s[5]*It's Spamton time!\w8\e"
+			
+			"\0\s[6]*Did %(reference0) leave in order to spin the wheel of Kromer?\w8\e"
+		}
+		when "Zaiga"
+		{
+			"\0\s[2]*Farewell,\w3 %(reference0).\w8 \n*And hello to Zaiga!\w8\e"
+			
+			"\0\s[5]*It's Zaiga!\w8 \s[1]\n*Frisk hopes %(reference0) didn't leave because of her...\w8\e"
+			
+			"\0\s[0]*Frisk wonders if %(reference0) and Zaiga could be friends.\w8\e"
+		}
+		when "Azura"
+		{
+			"\0\s[2]*Farewell,\w4 %(reference0).\w8 \s[5]\n*Now Frisk can play with Azura!\w8\e"
+			
+			"\0\s[0]*Frisk hopes %(reference0) wasn't jealous of Azura's wings.\w8\w8\w8 \s[6]\n\n[half]*Unless they left to put on their own.\w8\e"
+			
+			"\0\s[5]*Hello,\w4 Azura!\w8 \s[2]\n*Frisk hopes %(reference0) won't mind the switch.\w8\e"
+		}
+		when "RYS-0825"
+		{
+			"\0\s[2]*Farewell,\w3 %(reference0).\w8 \s[5]\n*Frisk gets to hang out with S now!\w8\e"
+			
+			"\0\s[6]*Frisk wonders if S knows anything about %(reference4)...\w8\e"
+			
+			"\0\s[5]*Family time!\w8 \s[2]\n*Frisk wonders if %(reference0) knows how large S's family is.\w8\e"
+		}
+		when "Dusty"
+		{
+			"\0\s[5]*Kitty!\w8\e"
+			
+			"\0\s[6]*Frisk wonders if %(reference0) would be able to hold Obsidian.\w8\e"
+			
+			"\0\s[7]*Frisk knows %(reference0) went away because they can hold Obsidian,\w4 too.\w8\e"
+		}
+		when "Noteworthy"
+		{
+			"\0\s[2]*Good partings to %(reference0).\w8 \n\s[5]*Now Frisk can watch Rocky and Noteworthy chatter!\w8\e"
+			
+			"\0\s[5]*Frisk hopes %(reference0) won't mind being swapped for Rocky and Noteworthy.\w8\e"
+			
+			"\0\s[6]*Perhaps Rocky and Noteworthy could know %(reference4)...?\w8 \n\s[2]*It's possible.\w8\e"
+		}
+		when "Sn"
+		{
+			"\0\s[2]*Goodbye,\w3 %(reference0).\w8 \s[5]\n*Frisk is happy to see the brothers again.\w8\e"
+			
+			"\0\s[5]*Skeleton bros!\w8 \s[2]\n*Frisk wonders if the two of them know %(reference4) at all.\w8\e"
+			
+			"\0\s[2]*Frisk knows %(reference0) had to leave because the brothers are too funny together.\w8\e"
+		}
+		when "Fairune Duo"
+		{
+			"\0\s[2]*%(reference4) has been recalled.\w8 \s[5]\n*Now the Fairune ambassadors are here!\w8\e"
+			
+			"\0\s[6]*Frisk wonders if the Fairune ambassadors have ever encountered %(reference0) before...\w8\e"
+			
+			"\0\s[2]*Frisk wishes %(reference0) well\w8 \s[5]and the Fairune ambassadors a hearty 'hello'!\w8\e"
+		}
+		when "Inferno"
+		{
+			"\0\s[2]*Farewell,\w3 %(reference0).\w8 \n*The Inferno and the Wolf have been called.\w8\e"
+			
+			"\0\s[6]*Inferno and Wolf have arrived!\w8 \s[2]\n*Frisk wonders if they know about %(reference4) at all.\w8\e"
+			
+			"\0\s[1]*Frisk knows %(reference4) would get burned if they had stayed...\w8\e"
+			
+			"\0\s[21]*Frisk hopes Wolf didn't bite %(reference0) during their swap.\w8\e"
+		}
+		when "Eggbeater"
+		{
+			"\0\s[6]*Oh!\w8 \s[2]Eggbeater is here to take %(reference0)'s place.\w8\e"
+			
+			"\0\s[5]*It's Eggbeater!\w8 \s[2]\n*Frisk wonders if he's just finished diving through %(reference0)'s mind.\w8\e"
+			
+			"\0\s[2]*Frisk hopes %(they),\w3 too,\w3 shall one day get the full Eggbeater experience.\w8 \n\s[5]*Just like %(reference0)!\w8\e"
+		}
+		when "Defence"
+		{
+			"\0\s[6]*The Trial Simulation Buddies have replaced %(reference4)!\w8 \s[1]\n*Frisk wonders if that means %(reference0) was guilty.\w8\e"
+			
+			"\0\s[5]*It's the Trial Simulation Buddies!\w8 \s[2]\n*Frisk hopes they didn't accuse %(reference0) of being guilty.\w8\e"
+		}
+		when "Mole"
+		{
+			"\0\s[3]*The Hunters!\w8 \s[31]They're here to replace %(reference4)...\w8\e"
+			
+			"\0\s[6]*The Hunters!\w8 \s[1]\n*Frisk hopes they weren't after %(reference0)...\w8\e"
+		}
+		when "Moomintroll"
+		{
+			"\0\s[5]*The Moomins are here!\w8 \s[2]\n*Frisk hopes they sent %(reference4) off with some delicious pancakes.\w8\e"
+			
+			"\0\s[6]*It's the Moomins!\w8 \s[2]\n*Frisk wonders if they passed by %(reference4) on their way here.\w8\e"
+		}
+		when "Cheesecake"
+		{
+			"\0\s[5]*Cheesecake and Ramen have been swapped with %(reference4)!\w8 \s[2]\n*Frisk knows you're in for a delicious time,\w3 %(username).\w8\e"
+			
+			"\0\s[1]*Frisk wonders if %(reference4) had to leave because they didn't like Cheesecake or Ramen...\w8\e"
+			
+			"\0\s[6]*Could it be?\w8 \n*%(reference0) was actually Cheesecake and Ramen the whole time??\w8\e"
+		}
+		when "Spiral"
+		{
+			"\0\s[1]*Frisk hopes Spiral didn't fight %(reference0) on their way in...\w8\e"
+			
+			"\0\s[6]*Frisk wonders if %(reference4) gave a proper salute to Tenom as they swapped.\w8\e"
+		}
+		//when ""
+		//{
+			//""
+		//}
+		when "Frisk"
+		{
+			"\0\s[0]*%(reference4) has been swapped for...\w8\s[6]another Frisk?\w8\e"
+			
+			"\0\s[2]*Frisk thinks you're silly for swapping out %(reference4) for another Frisk,\w4 %(username).\w8\e"
+			
+			"\0\s[0]*Hopefully,\w4 this other Frisk at least SPAREd %(reference4) before arriving.\w8\e"
+		}
+		others
+		{
+			"\0\s[2]*So long,\w3 %(reference0).\w8"
+			
+			"\0\s[1]*%(reference4) has departed.\w8"
+			
+			"\0\s[2]*Goodbye,\w4 %(reference0).\w8"
+			
+			"\0\s[2]*That's it for %(reference4).\w8"
+			--
+			"\s[5]\n\n[half]"
+			--
+			"*And hello to %(reference1)!\w8\e"
+			
+			"*Now %(reference5) is here!\w8\e"
+			
+			"*And hello to %(reference5)!\w8\e"
+			
+			"*Now %(reference1) is here!\w8\e"
+		}
+	}
+}
+
+//when you close another ghost. Only activates after the other ghost is gone.
+OnOtherGhostClosed
+{
+	case reference0
+	{
+		when "sans"
+		{
+			"\0\s[1]*No more skeleton puns.\w8\e"
+			
+			"\0\s[2]*Bye bye,\w3 Sans!\w8\e"
+			
+			"\0\s[1]*Frisk will miss Sans.\w8\e"
+		}
+		when "Sans"
+		{
+			"\0\s[1]*Frisk hopes Sans can get some much-needed rest...\w8\e"
+			
+			"\0\s[1]*Goodbye,\w4 Sans.\w8 Rest well.\w8\e"
+			
+			"\0\s[2]*Frisk hopes Sans gets a nice nap while he's gone.\w8\e"
+		}
+		when "UC"
+		{
+			"\0\s[2]*Goodbye,\w3 Sans!\w8\e"
+			
+			"\0\s[1]*Frisk will miss Sans...\w8\e"
+			
+			"\0\s[6]*Frisk wants to ask you about all the new words they heard Sans using.\w8\e"
+		}
+		when "Dreamtale Sans"
+		{
+			"\0\s[2]*Rest well,\w3 Dreamy Sans!\w8\e"
+			
+			"\0\s[2]*Frisk hopes Sans can get some much-needed sleep.\w8\e"
+			
+			"\0\s[2]*Sweet dreams,\w3 Sans!\w8\e"
+		}
+		when "MVSans"
+		{
+			"\0\s[2]*Seems Sans went back to the multiverse.\w8\e"
+			
+			"\0\s[2]*Frisk hopes Sans will come back with some new stories.\w8\e"
+			
+			"\0\s[6]*Off he goes\w8 \s[2]into the multiverse.\w8\e"
+		}
+		when "Papyrus"
+		{
+			"\0\s[5]*Bye bye,\w3 Papyrus!\w8\e"
+			
+			"\0\s[2]*Frisk thinks fondly of Papyrus' spaghetti and puzzles.\w8\e"
+			
+			"\0\s[1]*Frisk will miss Papyrus...\w8\e"
+		}
+		when "Jazz"
+		{
+			"\0\s[5]*Bye bye,\w3 Jazz!\w8\e"
+			
+			"\0\s[1]*Frisk wanted to pet Jazz,\w4 too...\w8\e"
+			
+			"\0\s[2]*Frisk hopes Jazz gets to have a good meal while he's away.\w8\e"
+		}
+		when "Gaster"
+		{
+			"\0\s[1]*No more scientist.\w8\e"
+			
+			"\0\s[1]*Frisk hopes Gaster will get something to eat...\w8\e"
+			
+			"\0\s[1]*Frisk hopes Gaster will get some rest...\w8\e"
+		}
+		when "f_lowe_y"
+		{
+			"\0\s[1]*Goodbye,\w3 best friend...\w8\e"
+			
+			"\0\s[1]\w8\w8\w8\1\s[19]*I'm still here,\w4 \0\s[6]\1you know.\w8\e"
+			
+			"\1\s[12]\0\s[2]*Bye bye,\w3 Flowey!\w8\e"
+		}
+		when "Toriel"
+		{
+			"\0\s[1]*No more goat mom.\w8\e"
+			
+			"\0\s[31]*Frisk will miss Toriel.\w8\e"
+			
+			"\0\s[0]*Frisk can't help but think of Toriel's pie...\w8\e"
+		}
+		when "Mettaton"
+		{
+			"\0\s[1]*No more Mettaton...\w8\e"
+			
+			"\0\s[2]*Frisk hopes the next episode of %(mttnetwork[0]) will air soon.\w8\e"
+			
+			"\0\s[8]*Frisk poses to see off Mettaton.\w8\e"
+		}
+		when "Temmie"
+		{
+			"\0\s[5]*bOI!!\w8\e"
+			
+			"\0\s[5]*Bye bye,\w3 Temmie!\w8\e"
+			
+			"\0\s[1]*Frisk will miss the Temmies and their village...\w8\e"
+		}
+		when "Pet Rock"
+		{
+			"\0\s[2]*Frisk hopes the Pet Rock will be cared for back home as well.\w8\e"
+			
+			"\0\s[7]*Now Frisk is hungry for some sprinkles.\w8\e"
+			
+			"\0\s[5]*Frisk wants a pair of googly eyes for %(them)self.\w8\e"
+		}
+		when "Ralsei"
+		{
+			"\0\s[0]*The fluffy prince has returned to his dark castle...\w8\e"
+			
+			"\0\s[1]*No more fluffy boy...\w8\e"
+			
+			"\0\s[6]*Frisk wants to enter the dark world,\w3 too!\w8\e"
+		}
+		when "SPAMTON!!"
+		{
+			"\0\s[5]*No more lottery wheels!\w8\e"
+			
+			"\0\s[1]*Frisk isn't sure Kromer tastes that good...\w8\e"
+			
+			"\0\s[0]*One day,\w4 Frisk will ask who this 'Kris' is.\w8\e"
+		}
+		when "Zaiga"
+		{
+			"\0\s[1]*Frisk still has a long way to go to become friends with Zaiga...\w8\e"
+			
+			"\0\s[2]*Frisk hopes Zaiga can get some much-needed alone time.\w8\e"
+			
+			"\0\s[0]*Frisk wonders what sorts of friends Zaiga keeps.\w8\e"
+		}
+		when "Azura"
+		{
+			"\0\s[2]*Frisk hopes to one day have wings like Azura.\w8\e"
+			
+			"\0\s[4]*Frisk hopes Azura notices %(them) next time.\w8\e"
+			
+			"\0\s[2]*Bye bye,\w3 Azura!\w8\e"
+		}
+		when "RYS-0825"
+		{
+			"\0\s[2]*Bye bye,\w3 S!\w8\e"
+			
+			"\0\s[2]*Frisk hopes S tells his family nice things about you,\w3 %(username).\w8\e"
+			
+			"\0\s[6]*Frisk wonders what meeting all of S's family would be like.\w8\e"
+		}
+		when "Dusty"
+		{
+			"\0\s[1]*No more kitty cat.\w8\e"
+			
+			"\0\s[2]*Bye bye,\w3 Dusty and Obsidian!\w8\e"
+			
+			"\0\s[7]*Frisk is still upset about being unable to hold Obsidian.\w8\e"
+		}
+		when "Noteworthy"
+		{
+			"\0\s[5]*Farewell,\w8 Rocky and Noteworthy!\w8\e"
+			
+			"\0\s[6]*Frisk wonders if Rocky and Noteworthy share a home.\w8\e"
+			
+			"\0\s[2]*Until next time,\w8 Rocky and Noteworthy!\w8\e"
+		}
+		when "Sn"
+		{
+			"\0\s[1]*No more bone bros...\w8\e"
+			
+			"\0\s[5]*Frisk is still laughing at the brothers' antics.\w8\e"
+			
+			"\0\s[2]*Frisk hopes %(they) can see the brothers once %(they) return.\w8\e"
+		}
+		when "Fairune Duo"
+		{
+			"\0\s[2]*Farewell,\w3 Fairune ambassadors.\w8\e"
+			
+			"\0\s[2]*Frisk wishes Hope Girl well in her next run through Fairune.\w8\e"
+			
+			"\0\s[1]*Frisk hopes Fairune will allow Hope Girl to rest a while...\w8\e"
+		}
+		when "Inferno"
+		{
+			"\0\s[1]*Frisk hopes Inferno and Wolf can rest while they're out...\w8\e"
+			
+			"\0\s[1]*Phew.\w8 \n\s[0]*No one got burned this time.\w8\e"
+			
+			"\0\s[1]*Phew.\w8 \n\s[0]*No one got bitten this time.\w8\e"
+			
+			"\0\s[2]\w8\w8\w8*It's nice seeing two who care about each other so much.\w8\e"
+		}
+		when "Eggbeater"
+		{
+			"\0\s[5]*Off he goes!\w8 \s[2]\n*Frisk wishes him well on his spy work.\w8\e"
+			
+			"\0\s[2]*Frisk hopes Eggbeater will do well in his psychology work.\w8\e"
+			
+			"\0\s[1]*No more doodle buddy...\w8\e"
+		}
+		when "Defence"
+		{
+			"\0\s[2]*Frisk hopes they find the truth in their investigations.\w8\e"
+			
+			"\0\s[5]*Frisk will miss Klavier's jams.\w8\e"
+			
+			"\0\s[5]*Frisk will miss Apollo's Chords of Steel.\w8\e"
+			
+			"\0\s[5]*Frisk will miss Trucy's magic acts.\w8\e"
+		}
+		when "Mole"
+		{
+			"\0\s[1]*Phew.\w8 \s[0]No more hunters.\w8\e"
+			
+			"\0\s[1]*Frisk hopes they find whatever supernatural being they're hunting.\w8\e"
+			
+			"\0\s[7]*Frisk wonders why Mole and Tweek can't show mercy to the monsters they hunt.\w8\e"
+		}
+		when "Moomintroll"
+		{
+			"\0\s[1]*No more seasons boys...\w8\e"
+			
+			"\0\s[5]*Bye bye,\w3 Moomins!\w8\e"
+			
+			"\0\s[1]*Frisk will miss Snufkin's cool tunes...\w8\e"
+			
+			"\0\s[1]*Frisk will miss Moomin's soft words...\w8\e"
+			
+			"\0\s[2]*Frisk will miss Little My's fiestiness!\w8\e"
+			
+			//"\0\s[2]*Frisk will miss Snork Maiden's bubbliness.\w8\e"
+		}
+		when "Cheesecake"
+		{
+			"\0\s[1]*Now Frisk is just hungry...\w8\e"
+			
+			"\0\s[5]*Frisk wants some cheesecake now!\w8\e"
+			
+			"\0\s[5]*Frisk wants some ramen now!\w8\e"
+			
+			"\0\s[2]*Frisk hopes the pair of foods can work out their differences.\w8\e"
+		}
+		when "Spiral"
+		{
+			"\0\s[5]*Bye bye,\w3 Spiral and Tenom!\w8\e"
+			
+			"\0\s[0]*Phew.\w8 \s[2]No one broke out into a fight this time.\w8\e"
+			
+			"\0\s[8]*Frisk hopes %(they)'ll be able to salute Tenom properly next time.\w8\e"
+		}
+		//when ""
+		//{
+			//""
+		//}
+		when "Frisk"
+		{
+			"\0\s[5]*Bye bye,\w3 other Frisk!\w8\e"
+			
+			"\0\s[2]*Frisk still thinks it's funny that you have two of %(them),\w3 %(username).\w8\e"
+			
+			"\0\s[4]*The other Frisk has been SPAREd.\w8\e"
+		}
+		others
+		{
+			"\0\s[5]*Bye bye,\w3 %(reference0)!\w8\e"
+			
+			"\0\s[2]*Farewell,\w3 %(reference0).\w8\e"
+			
+			"\0\s[2]*Goodbye,\w3 %(reference0).\w8\e"
+			
+			"\0\s[5]*Seeya later,\w3 %(reference0)!\w8\e"
+			
+			"\0\s[2]*Take care,\w3 %(reference0)!\w8\e"
+			
+			"\0\s[2]*Seeya,\w3 %(reference0)!\w8\e"
+			
+			"\0\s[2]*Frisk hopes to see %(reference0) again sometime.\w8\e"
+		}
+	}
+}
+
+
+
+//none of this gets used BUT I WROTE DIALOGUE ANYWAY so here it is >T
+/*
+//---- OnScreenSaverEnd -------------------------------------------------------
+//even if this never plays I like these lines I'm keeping them
+OnScreenSaverEnd
+{
+	"\0\s[7]*No more screensaver.\w8\e"
+	
+	"\0\s[6]*Frisk has returned from the void.\w8\e"
+	
+	"\0\s[5]*Frisk had fun falling into another unknown depth.\w8\e"
+}
+
+
+//---- OnApplicationBoot ---------------------------------------------------------------
+//This supposedly is for when a program starts.
+OnApplicationBoot
+{
+	"\0\s[6]*Looks like %(reference0) is starting.\w8\e"
+	
+	"\0\s[7]*Frisk wants to know what %(reference0) is,\w4 too.\w8\e"
+	
+	"\0\s[2]*Will you tell Frisk what %(reference0) is once it's finished?\w8\e"
+}
+
+//---- OnApplicationClose --------------------------------------------------------------
+//See above, but for the program closing.
+OnApplicationClose
+{
+	"\0\s[2]*No more %(reference0).\w8\e"
+	
+	"\0\s[5]*And that's the end of %(reference0).\w8\e"
+	
+	"\0\s[6]*So?\w8 So?\w8 \n\n[half]\s[5]*Are you gonna tell us what %(reference0) was?\w8\e"
+}
+
+//---- OnApplicationFileOpen ----------------------------------------------------------
+//I believe this is for when the program detailed above opens a document file of some kind.
+OnApplicationFileOpen
+{
+	"\0\s[2]*Frisk will open %(reference1) for you.\w8\e"
+	
+	"\0\s[6]*Frisk will get %(reference1) up and ready for you.\w8\e"
+	
+	"\0\s[8]*Just watch while Frisk gets %(reference1) open for you.\w8\e"
+}
+
+
+//---- OnBatteryLow -----------------------------------------------------------------
+//This is for when your laptop's battery is low.
+	//reference0 here is the amount of battery power.
+OnBatteryLow
+{
+	"\0\s[1]*Looks like you battery is running low...\w8 \n*About %(reference0) left.\w8\e"
+	
+	"\0\s[31]*Your computer is getting tired,\w4 %(username).\w8 \n*So is Frisk.\w8\e"
+	
+	"\0\s[9]*Both Frisk and your laptop batter are running at %(reference0) left...\w8\e"
+}
+
+//--OnBatteryCritical-----------------------------------------------------------------
+//Likewise, this is for if your battery is REALLY low.
+OnBatteryCritical
+{
+	"\0\s[3]*Not much time left before shut down.\w8\e"
+	
+	"\0\s[91]*Frisk and your computer both are about ready to shut down.\w8\s[9]\e"
+}
+*/
+
+//UGH this file takes me forever....
