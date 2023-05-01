@@ -828,7 +828,10 @@ RandomTalk : nonoverlap_pool
 	{
 		"\0\s[5]*こんにちわ,\w4 Emily!\w8\e"
 	}
-	//if "Fairune Duo" _in_ ghostexlist
+	if "Fairune Duo" _in_ ghostexlist
+	{
+		"\0\s[6]*Ambassadors from another world...\w8 \s[2]\n\n[half]*Frisk feels a certain kinship with them.\w8\e"
+	}
 	//if "Inferno" _in_ ghostexlist
 	//if "Mole" _in_ ghostexlist
 	//if "Defence" _in_ ghostexlist
