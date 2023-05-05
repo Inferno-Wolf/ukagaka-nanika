@@ -41,4 +41,4 @@ icon,determination.ico
 
 //If you have a special balloon for your ghost, you can set it here with balloon, which will highlight it in the Change Balloon menu so it'll be easier to find.
 
-balloon,z_undertale
+balloon,Z - Undertale
