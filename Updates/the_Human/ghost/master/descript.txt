@@ -24,7 +24,7 @@ kero.name,other
 
 craftman,KFC
 craftmanw,KFC
-craftmanurl,http://www.ashido.com/ukagaka/walkthrough.html
+craftmanurl,http://www.characteroulette.tumblr.com/
 
 
 //This is coding stuff, don't touch it.

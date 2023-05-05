@@ -24,10 +24,14 @@ OnFirstBoot
 	them = "them"
 	their = "their"
 	theyre = "they're"
+	noisybab = 0
+	timepref = 0
+	hourchecks = 0
+	guests = 1
 	
 	if reference0 == 0 
  	{
-		"\t\*\1\s[10]\0\s[0]\![set,balloonwait,3]...\![set,balloonwait,1]\w8\s[6]!\w8 \n\n[half]*Frisk has noticed your presence.\w8\w8\w8\w8 \n\n[half]\s[2]*They would like to thank you for giving them such a nice place to stay.\w8 They will do their best to keep you company while they are here.\w8 \x\0\s[8]*Frisk is capable of performing a few functions for you.\w8 \n\n[half]*If you double click them,\w4 you will bring up their ACT menu where these functions are.\w8 You can also run your mouse over their head to pet them.\w8 \n\n[half]*And if you leave them alone,\w4 \s[5]they will do their best to provide you with companionship.\w8 \x\0\s[0]\b2*However,\w4 they would first like to get acquainted with you.\w8 \s[2]Their name is Frisk and they use the gender neutral pronouns they/them/their.\w8\w8 \s[7]\n*(Note that this can be changed later in thier menu to suit your preferences.)\w8\w8 \s[5]\n\n[half]*They ask what your preferred pronouns are.\w5"
+		"\t\*\1\s[10]\0\s[0]\![set,balloonwait,3]...\![set,balloonwait,1]\w8\s[6]!\w8 \n\n[half]*Frisk has noticed your presence.\w8\w8\w8\w8 \n\n[half]\s[2]*They would like to thank you for giving them such a nice place to stay.\w8 They will do their best to keep you company while they are here.\w8 \x\0\s[0]\b2*However,\w4 they would first like to get acquainted with you.\w8 \s[2]Their name is Frisk and they use the gender neutral pronouns they/them/their.\w8\w8 \s[7]\n*(Note that this can be changed later in thier menu to suit your preferences.)\w8\w8 \s[5]\n\n[half]*They ask what your preferred pronouns are.\w5"
 		--
 		"\n\n[half]\_q\![*]\q[He-His-Him,OnPronoTeach,masc] \n\![*]\q[She-Her-Her,OnPronoTeach,femm] \n\![*]\q[They-Their-Them,OnPronoTeach,neit] \n\![*]\q[He-They Mix,OnPronoTeach,heth] \n\![*]\q[She-They Mix,OnPronoTeach,sheth] \n\![*]\q[He-She Mix,OnPronoTeach,undef] \n\![*]\q[It-Its-It,OnPronoTeach,itit] \n\n[half]\![*]\q[I have my own,OnPronoTeach,both]\e"
  	}
@@ -64,7 +68,9 @@ OnBoot
 	{	
 		"\0\s[2]*Frisk remembered your birthday,\w4 %(username).\w8 \n\s[5]*Happy birthday!\w8\e"
 		
+		if guests == 1 //on
 		{
+			{
 			"\0\s[6]*It's %(bornmonthprint) %(borndayprint)!\w8 \s[5]Frisk has a little surprise for you,\w4 %(username).\w8\w8\w8 \s[2]"
 			--
 			"\1\s[11]"
@@ -76,9 +82,9 @@ OnBoot
 			"\1\s[18]"
 			--
 			"\n\n\f[height,40]\![set,balloonwait,3]*OR ELSE.\![set,balloonwait,1]\f[height,default]\w8\w8 \s[-1]\b[-1]\0\s[31]\n\n[half]*\![set,balloonwait,3].....\![set,balloonwait,1]\w8 \n*That didn't go quite as planned.\w8\e"
-		}
-		
-		{
+			}
+			
+			{
 			"\0\s[5]*Today is %(bornmonthprint) %(borndayprint)!\w8 \n\s[2]*Frisk has a surprise for you,\w4 %(username).\w8\w8\w8"
 			--
 			"\1\s[11]"
@@ -90,13 +96,16 @@ OnBoot
 			"\1\s[18]"
 			--
 			"\n\f[height,40]it better not be.\f[height,default]\w8\s[-1]\b[-1]\0\s[31]\n\n[half]*\![set,balloonwait,3].....\![set,balloonwait,1]\w8 \n*Gosh dang it,\w4 Flowey.\w8\e"
+			}
 		}
 		
 		"\0\s[5]*Happy Birthday,\w4 %(username)!\w8 \s[8]\n\n[half]*Aren't you proud of Frisk for remembering it?\w8\e"
 	}
 	elseif dayslot == "6month 6day"
 	{
+		if guests == 1 //on
 		{
+			{
 			"\1\s[11]"
 			"\1\s[12]"
 			"\1\s[17]"
@@ -104,9 +113,9 @@ OnBoot
 			"\1\s[19]"
 			--
 			"*No.\w8 \b[-1]\s[-1]\0\s[1]*\![set,balloonwait,3].....\![set,balloonwait,1]\w8 \n\s[2]*Hello there,\w4 %(username).\w8\e"
-		}
+			}
 		
-		{
+			{
 			"\1\s[19]*I all ready know what you're going to ask.\w8 "
 			--
 			"\s[11]"
@@ -115,6 +124,13 @@ OnBoot
 			"\s[18]"
 			--
 			"And the answer is\w4 'no'.\w8 \b[-1]\s[-1]\0\s[1]\w8\w8*Frisk is sad that Flowey won't play along.\w8\e"
+			}
+		}
+		else //0; off
+		{
+			"\0\s[2]*Hello,\w4 %(username)!\w8 \n\n[half]*Today is June sixth.\w8 Seems like a day for tricks,\w4 if you ask Frisk.\w8\e"
+			
+			"\0\s[5]*%(username)!\w8 \s[2]\n\n[half]*It seems like you called Frisk on a rather unlucky day.\w8\e"
 		}
 	}
 	elseif dayslot == "7month 1day"
@@ -359,11 +375,11 @@ OnWindowStateRestore
 	
 	"\0\s[1]*Thank you for bringing Frisk back from the dark.\w8\e"
 	
-	"\0\s[31]*Frisk snuffles a little,\w4 but is glad to be back.\w8\e"
+	"\0\s[31]*Frisk snuffles a little,\w4 \s[21]but is glad to be back.\w8\e"
 	
-	"\0\s[7]\w8\w8\w8*Frisk insists on an apology.\w8\e"
+	"\0\s[7]\w8\w8\w8*It seems Frisk wants to go back.\w8\e"
 	
-	"\0\s[2]*That wasn't so bad,\w4 now was it?\w8\e"
+	"\0\s[21]*That wasn't so bad,\w4 now was it?\w8\e"
 	
 	"\0\s[6]\w8\w8*According to %(them),\w4 \s[2]it was a whole new world in the void.\w8\e"
 	

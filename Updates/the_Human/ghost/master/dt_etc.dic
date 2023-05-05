@@ -18,7 +18,7 @@ OnFileDrop2
 			
 			"\0\s[6]*You've handed Frisk %(_filename)%(_fileext).\w8 \n\s[5]*Would you like %(them) to set it as your wallpaper?"
 			--
-			"\n\n\![*]\q[Centered,OnWallpaper,center] \n\![*]\q[Tiled,OnWallpaper,tile] \n\![*]\q[Stretched,OnWallpaper,stretch] \n\n[half]\![*]\q[No thanks,OnWallpaper,cancel]\e"
+			"\*\n\n\![*]\q[Centered,OnWallpaper,center] \n\![*]\q[Tiled,OnWallpaper,tile] \n\![*]\q[Stretched,OnWallpaper,stretch] \n\n[half]\![*]\q[No thanks,OnWallpaper,cancel]\e"
 		}
 		when ".mid", ".wav", ".mp3", ".wma", ".au"
 		{
@@ -44,11 +44,11 @@ OnFileDrop2
 			{
 				"\0\s[6]*You've handed Frisk %(_filename)%(_fileext).\w8 \n\s[1]*%(Capitalize(theyre)) unsure of what to do with it.\w8\e"
 				
-				"\0\s[6]*You've handed Frisk %(_filename)%(_fileext)\w8 \s[2]\_v[open_phone.wav]and %(they) put a copy of it into %(their) phone's dimensional box.\w8\e"
+				"\0\s[6]*You've handed Frisk %(_filename)%(_fileext)\w8 \s[2]%(phoneopen)and %(they) put a copy of it into %(their) phone's dimensional box.\w8\e"
 				
-				"\0\s[6]*You've handed Frisk %(_filename)%(_fileext)\w8 \s[2]\_v[select_blip.wav]and %(they) slip a copy of it surreptitiously into %(their) pocket.\w8\e"
+				"\0\s[6]*You've handed Frisk %(_filename)%(_fileext)\w8 \s[2]%(selectblip)and %(they) slip a copy of it surreptitiously into %(their) pocket.\w8\e"
 				
-				"\0\s[6]*Frisk accepts %(_filename)%(_fileext)\w8 \s[2]\_v[open_phone.wav]and places a copy of it into %(their) phone's dimensional item box.\w8\e"
+				"\0\s[6]*Frisk accepts %(_filename)%(_fileext)\w8 \s[2]%(phoneopen)and places a copy of it into %(their) phone's dimensional item box.\w8\e"
 			}
 		}
 	}
@@ -91,9 +91,9 @@ OnWallpaper
 	{
 		"\0\s[2]*Frisk will simply admire the image you handed %(them).\w8\e"
 		
-		"\0\s[2]\_v[select_blip.wav]*Frisk slips a copy of the image into %(their) pocket instead.\w8\e"
+		"\0\s[2]%(selectblip)*Frisk slips a copy of the image into %(their) pocket instead.\w8\e"
 		
-		"\0\s[2]\_v[open_phone.wav]*Frisk slips a copy of the image into %(their) phone's dimensional box instead.\w8\e"
+		"\0\s[2]%(phoneopen)*Frisk slips a copy of the image into %(their) phone's dimensional box instead.\w8\e"
 		
 		"\0\s[6]*Changed your mind?\w8 \n\s[2]*That's fine.\w8 \n*Frisk will simply admire the image you've handed %(them).\w8\e"
 	}
@@ -135,9 +135,9 @@ OnInstallBegin
 {
 	"\0\s[6]*Something to install?\w8 \n\s[2]*Frisk will get right on that.\w8\e"
 	
-	"\0\s[6]\_v[open_phone.wav]*Frisk will start the installation process...\w8\e"
+	"\0\s[6]%(phoneopen)*Frisk will start the installation process...\w8\e"
 	
-	"\0\s[6]\_v[select_blip.wav]*Frisk will start the installation process...\w8\e"
+	"\0\s[6]%(selectblip)*Frisk will start the installation process...\w8\e"
 	
 	"\0\s[5]*Time to install something!\w8\e"
 }
@@ -153,7 +153,7 @@ OnInstallComplete
 		
 		"\0\s[5]*%(reference1)!\w8 \n\s[2]*Would you like Frisk to call or switch to %(reference1),\w4 %(username)?\w8"
 		--
-		"\n\n\![*]\q[Call %(reference1),CallGhost] \n\![*]\q[Change to %(reference1),ChangeToGhost] \n\n[half]\![*]\q[No thanks,cancelnodialogue]\e"
+		"\*\n\n\![*]\q[Call %(reference1),CallGhost] \n\![*]\q[Change to %(reference1),ChangeToGhost] \n\n[half]\![*]\q[No thanks,cancelnodialogue]\e"
  	}
 	elseif reference0 == "shell"
  	{
@@ -265,11 +265,13 @@ OnInstallFailure
 //reference0 is the Sakura name of the ghost the item was meant for, reference1 (since SSP 2.4.85) is the type of item you tried to install
 OnInstallRefuse
 {
-	"\0\s[1]*But it refused.\w8\w8\w8 \s[0]\n\n[half]*It might be for %(reference0) instead.\w8\e"
+	"\0\s[1]*But it refused.\w8\w8\w8 \s[0]\n\n[half]*It might be for %(reference0) instead."
 	
-	"\0\s[31]*But it refused.\w8\w8\w8 \s[0]\n\n[half]*It's probably for %(reference0),\w4 %(username).\w8\e"
+	"\0\s[31]*But it refused.\w8\w8\w8 \s[0]\n\n[half]*It's probably for %(reference0),\w4 %(username)."
 	
-	"\0\s[3]*But it refused.\w8\w8\w8 \s[6]\n\n[half]*Because it wasn't for Frisk.\w8 \s[0]\n*This might be for %(reference0),\w4 %(username).\w8\e"
+	"\0\s[3]*But it refused.\w8\w8\w8 \s[6]\n\n[half]*Because it wasn't for Frisk.\w8 \s[0]\n*This might be for %(reference0),\w4 %(username)."
+	--
+	"\w8\w8\w8\w8\e"
 }
 
 
@@ -327,11 +329,14 @@ OnVanished
 {
 	"\0\s[0]\1\s[10]"
 	--
+	if guests == 1 //on
+	{
+		"\0\s[1]\1\s[13]*That's right,\w4 %(username).\w8 \0*Flowey's mantra hangs heavy in the air.\w8\e"
+	}
+	
 	"\0\s[1]*Goodbye,\w4 %(reference0).\w8 \n*And hello, %(username)!\w8\e"
 	
 	"\0\s[1]*Frisk wonders if you and %(reference0) could have talked things out.\w8\e"
-	
-	"\0\s[1]\1\s[13]*That's right,\w4 %(username).\w8 \0*Flowey's mantra hangs heavy in the air.\w8\e"
 }
 
 
@@ -340,11 +345,16 @@ OnVanished
 //---- OnBIFFBegin ---------------------------------------------------------------
 OnBIFFBegin
 {
-	"\0\s[0]\_v[open_phone.wav]*Frisk opens up %(their) phone to check your email.\w8\e"
+	"\0\s[0]"
+	"\0\s[6]"
+	--
+	"%(phoneopen)"
+	--
+	"*Frisk opens up %(their) phone to check your email.\w8\e"
 	
-	"\0\s[0]\_v[open_phone.wav]*Now checking your emails...\w8\e"
+	"*Now checking your emails...\w8\e"
 	
-	"\0\s[6]\_v[open_phone.wav]*Frisk is excited to see how many messages you've got.\w8\e"
+	"*Frisk is excited to see how many messages you've got.\w8\e"
 }
 
 //---- OnBIFFComplete ---------------------------------------------------------------
@@ -441,7 +451,7 @@ OnBIFFFailure
  	}
 	elseif reference0 == "defect"
  	{
-		"\0\s[1]*It doesn't look like everything was set up properly, %(username).\w8 \s[2]\n*Frisk encourages you to check your details in the POP menu.\w8"
+		"\0\s[1]*It doesn't look like everything was set up properly,\w4 %(username).\w8 \s[2]\n*Frisk encourages you to check your details in the POP menu.\w8"
 		
 		"\0\s[1]*Looks like something's wrong in the POP menu.\w8 \s[2]\n*Frisk will open it for you so you can check.\w8"
 		--
@@ -869,16 +879,6 @@ OnSNTPFailure
 }
 
 
-//--OnDisplayChange----------------------------------------------------------------
-//This is when you change the resolution of your monitor while your ghost is running.
-OnDisplayChange
-{
-	displaybpp    = reference0
- 	displaywidth  = reference1
-	displayheight = reference2
-}
-
-
 
 //---- OnGhostCalling ---------------------------------------------------------------
 //when you call another ghost. It activates immediately, so write dialogue accordingly.
@@ -954,11 +954,14 @@ OnGhostCalling
 		}
 		when "f_lowe_y"
 		{
+			if guests == 1 //on
+			{
+				"\0\s[6]\1\s[19]*Hey.\w8 \0\s[1]\1\n*Aren't I enough for you,\w3 %(username)?\w8\e"
+			}
+			
 			"\0\s[5]*Sounds like it's time for a flower friend!\w8\e"
 			
 			"\0\s[6]*Smells like your best friend is approaching.\w8\e"
-			
-			"\0\s[6]\1\s[19]*Hey.\w8 \0\s[1]\1\n*Aren't I enough for you,\w3 %(username)?\w8\e"
 		}
 		when "Toriel"
 		{
@@ -1138,7 +1141,7 @@ OnGhostCalling
 		}
 		others
 		{
-			"\0\s[5]\_v[phone_call.wav]*It's time to call up %(reference0)!\w8\e"
+			"\0\s[5]%(phonecall)*It's time to call up %(reference0)!\w8\e"
 			
 			"\0\s[6]*Smells like %(reference0) approaching...\w8\e"
 			
@@ -1217,17 +1220,20 @@ OnOtherGhostChanged
 		{
 			"\0\s[1]*Gaster is here now instead of %(reference0)...\w8 \n\s[0]*Frisk hopes you two can play nice.\w8\e"
 			
-			"\0\s[2]*Goodbye,]w3 %(reference4).\w8 \n\s[0]*Frisk wonders if Gaster has ever studied them.\w8\e"
+			"\0\s[2]*Goodbye,\w4 %(reference4).\w8 \n\s[0]*Frisk wonders if Gaster has ever studied them.\w8\e"
 			
 			"\0\s[5]*Baby bones,\w4 baby bones!\w8 \n\s[2]*And Gaster,\w3 too,\w3 Frisk supposes.\w8\e"
 		}
 		when "f_lowe_y"
 		{
+			if guests == 1 //on
+			{
+				"\0\s[6]*So long,\w4 %(reference0).\w8 \1\s[19]*Hello,\w4 best friend.\w8 \0\s[2]\e"
+				
+				"\0\s[5]*Flowey!\w8 \1\s[19]*As if I'm not right here,\w4 %(username).\w8\e"
+			}
+			
 			"\0\s[6]*No more %(reference4).\w8 \n\s[5]*Now Frisk's best friend is here!\w8\e"
-			
-			"\0\s[6]*So long,\w4 %(reference0).\w8 \1\s[19]*Hello,\w3 best friend.\w8 \0\s[2]\e"
-			
-			"\0\s[5]*Flowey!\w8 \1\s[19]*As if I'm not right here,\w4 %(username).\w8\e"
 		}
 		when "Toriel"
 		{
@@ -1489,11 +1495,14 @@ OnOtherGhostClosed
 		}
 		when "f_lowe_y"
 		{
-			"\0\s[1]*Goodbye,\w3 best friend...\w8\e"
+			if guests == 1 //on
+			{
+				"\0\s[1]\w8\w8\w8\1\s[19]*I'm still here,\w4 \0\s[6]\1you know.\w8\e"
+				
+				"\1\s[12]\0\s[2]*Bye bye,\w4 Flowey!\w8\e"
+			}
 			
-			"\0\s[1]\w8\w8\w8\1\s[19]*I'm still here,\w4 \0\s[6]\1you know.\w8\e"
-			
-			"\1\s[12]\0\s[2]*Bye bye,\w3 Flowey!\w8\e"
+			"\0\s[1]*Goodbye,\w4 best friend...\w8\e"
 		}
 		when "Toriel"
 		{
@@ -1607,7 +1616,7 @@ OnOtherGhostClosed
 			
 			"\0\s[1]*Phew.\w8 \n\s[0]*No one got bitten this time.\w8\e"
 			
-			"\0\s[2]\w8\w8\w8*It's nice seeing two who care about each other so much.\w8\e"
+			"\0\s[2]\w8\w8\w8\s[4]*It's nice seeing two who care about each other so much.\w8\e"
 		}
 		when "Eggbeater"
 		{
@@ -1625,7 +1634,7 @@ OnOtherGhostClosed
 			
 			"\0\s[5]*Frisk will miss Apollo's Chords of Steel.\w8\e"
 			
-			"\0\s[5]*Frisk will miss Trucy's magic acts.\w8\e"
+			"\0\s[5]*Frisk will miss Trucy's magic tricks.\w8\e"
 		}
 		when "Mole"
 		{

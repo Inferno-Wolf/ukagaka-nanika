@@ -36,7 +36,7 @@ MouseMoveSakura
 				
 				"\0\s[2]*You pet Frisk.\w8"
 				--
-				"\s[2]%(Capitalize(they)) seem not to mind it.\w8\e"
+				"\s[2]\n*%(Capitalize(they)) seem not to mind it.\w8\e"
 				
 				"\s[5]\n*Wow!\w8 Pet by another human!\w8\e"
 				
@@ -111,25 +111,25 @@ MouseMoveKero
 			stroke = 0
 			if reference4 == "Face"
 			{
-				"\0\s[1]\1\s[19]\_v[sound_of_running.wav]\4*Don't touch me.\w8\e"
+				"\0\s[1]\1\s[19]%(runsaway)\4*Don't touch me.\w8\e"
 				
-				"\0\s[1]\1\s[19]*%(username).\_v[sound_of_running.wav]\4 Kindly knock it off.\w8\e"
+				"\0\s[1]\1\s[19]*%(username).%(runsaway)\4 Kindly knock it off.\w8\e"
 				
-				"\0\s[1]\1\s[17]\_v[sound_of_running.wav]\4\e"
+				"\0\s[1]\1\s[17]%(runsaway)\4\e"
 				
-				"\0\s[1]\1\s[19]\_v[sound_of_running.wav]\4\e"
+				"\0\s[1]\1\s[19]%(runsaway)\4\e"
 				
-				"\0\s[1]\1\s[11]\_v[sound_of_running.wav]\4\e"
+				"\0\s[1]\1\s[11]%(runsaway)\4\e"
 				
-				"\0\s[1]\1\s[18]\_v[sound_of_running.wav]\4\e"
+				"\0\s[1]\1\s[18]%(runsaway)\4\e"
 				
-				"\0\s[1]\1\s[17]\_v[sound_of_running.wav]\4\e"
+				"\0\s[1]\1\s[17]%(runsaway)\4\e"
 				
-				"\0\s[1]\1\s[12]\_v[sound_of_running.wav]\4\e"
+				"\0\s[1]\1\s[12]%(runsaway)\4\e"
 				
-				"\0\s[1]\1\s[17]\_v[sound_of_running.wav]\4\f[height,40]*STOP.\f[height,default]\w8\e"
+				"\0\s[1]\1\s[17]%(runsaway)\4\f[height,40]*STOP.\f[height,default]\w8\e"
 				
-				"\0\s[1]\1\s[18]\_v[sound_of_running.wav]\4\f[height,40]*STOP.\f[height,default]\w8\e"
+				"\0\s[1]\1\s[18]%(runsaway)\4\f[height,40]*STOP.\f[height,default]\w8\e"
 			}
 		}
 	}
@@ -162,29 +162,29 @@ MouseDoubleClickSakura
 {
 	if reference4 == "Head" || reference4 == "Face"
 	{
-		"\0\s[0]\_v[select_click.wav]*CHECK: Frisk. \nLV 1  HP 20  ATK 1  DEF 1 \w8\n\n*%(Capitalize(theyre)) currently hanging out on %(username)'s computer.\w8\e"
+		"\0\s[0]%(selectclick)*CHECK: Frisk. \nLV 1  HP 20  ATK 1  DEF 1 \w8\n\n*%(Capitalize(theyre)) currently hanging out on %(username)'s computer.\w8\e"
 		
-		"\0\s[0]\_v[select_click.wav]*CHECK: Frisk. \nLV 1  HP 20  ATK 1  DEF 1 \w8\n\n\s[2]*%(Capitalize(they)) must be happy with you.\w8\e"
+		"\0\s[0]%(selectclick)*CHECK: Frisk. \nLV 1  HP 20  ATK 1  DEF 1 \w8\n\n\s[2]*%(Capitalize(they)) must be happy with you.\w8\e"
 		
-		"\0\s[0]\_v[select_click.wav]*CHECK: Frisk. \nLV 1  HP 20  ATK 1  DEF 1 \w8\n\n\s[2]*%(Capitalize(they)) may not have any LOVE,\w4 but %(their) love knows no bounds.\w8\e"
+		"\0\s[0]%(selectclick)*CHECK: Frisk. \nLV 1  HP 20  ATK 1  DEF 1 \w8\n\n\s[2]*%(Capitalize(they)) may not have any LOVE,\w4 but %(their) love knows no bounds.\w8\e"
 		
-		"\0\s[0]\_v[select_click.wav]*CHECK: Frisk. \nLV 1  HP 20  ATK 1  DEF 1 \w8\n\n\s[6]*%(Capitalize(theyre)) currently being checked by %(username).\w8\e"
+		"\0\s[0]%(selectclick)*CHECK: Frisk. \nLV 1  HP 20  ATK 1  DEF 1 \w8\n\n\s[6]*%(Capitalize(theyre)) currently being checked by %(username).\w8\e"
 		
-		"\0\s[0]\_v[select_click.wav]*CHECK: Frisk. \nLV 1  HP 20  ATK 1  DEF 1 \w8\n\n*A fallen human child.\w8 \n*Hobbies include:\w8\w8\w8 \s[8]Flirting.\w8\e"
+		"\0\s[0]%(selectclick)*CHECK: Frisk. \nLV 1  HP 20  ATK 1  DEF 1 \w8\n\n*A fallen human child.\w8 \n*Hobbies include:\w8\w8\w8 \s[8]Flirting.\w8\e"
 		
-		"\0\s[0]\_v[select_click.wav]*CHECK: Frisk. \nLV 1  HP 20  ATK 1  DEF 1 \w8\n\n*A fallen human child currently stuck on your computer.\w8\e"
+		"\0\s[0]%(selectclick)*CHECK: Frisk. \nLV 1  HP 20  ATK 1  DEF 1 \w8\n\n*A fallen human child currently stuck on your computer.\w8\e"
 		
-		"\0\s[0]\_v[select_click.wav]*CHECK: Frisk. \nLV 1  HP 1  ATK 0  DEF 0 \w8\n\n\s[5]*One human,\w4 freshly fallen.\w8\e"
+		"\0\s[0]%(selectclick)*CHECK: Frisk. \nLV 1  HP 1  ATK 0  DEF 0 \w8\n\n\s[5]*One human,\w4 freshly fallen.\w8\e"
 		
-		"\0\s[0]\_v[select_click.wav]*CHECK: Frisk. \nLV 1  HP 20  ATK 0  DEF 0 \w8\n\n*%(Capitalize(theyre)) full of love.\w8\e"
+		"\0\s[0]%(selectclick)*CHECK: Frisk. \nLV 1  HP 20  ATK 0  DEF 0 \w8\n\n*%(Capitalize(theyre)) full of love.\w8\e"
 		
-		"\0\s[0]\_v[LOVE_up.wav]*CHECK: Frisk. \nLV 20  HP 99  ATK 99  DEF 99 \n\n*............\w8\w8 \n\s[1]*That can't be right.\w8\e"
+		"\0\s[0]%(loveup)*CHECK: Frisk. \nLV 20  HP 99  ATK 99  DEF 99 \n\n*............\w8\w8 \n\s[1]*That can't be right.\w8\e"
 		
-		"\0\s[0]\_v[LOVE_up.wav]*CHECK: Frisk. \nLV 20  HP 99  ATK 99  DEF 99 \w8\n\n\s[15]*%(Capitalize(theyre)) full of LOVE.\w8\s[0]\e"
+		"\0\s[0]%(loveup)*CHECK: Frisk. \nLV 20  HP 99  ATK 99  DEF 99 \w8\n\n\s[15]*%(Capitalize(theyre)) full of LOVE.\w8\s[0]\e"
 		
-		"\0\s[4]\_v[select_blip.wav]*You give Frisk a boop on the nose.\w8\e"
+		"\0\s[4]%(selectblip)*You give Frisk a boop on the nose.\w8\e"
 		
-		"\0\s[5]\_v[select_blip.wav]*You give Frisk a boop on the nose.\w8\e"
+		"\0\s[5]%(selectblip)*You give Frisk a boop on the nose.\w8\e"
 	}
 	else
 	{
@@ -214,17 +214,17 @@ MouseDoubleClickKero
 		
 		"\0\s[1]\1\s[18]\f[height,40]*STOP.\f[height,default]\w8\e"
 		
-		"\0\s[1]\1\s[17]\_v[sound_of_running.wav]\4*%(username).\w8 Knock it off.\w8\e"
+		"\0\s[1]\1\s[17]%(runsaway)\4*%(username).\w8 Knock it off.\w8\e"
 		
-		"\0\s[1]\1\s[18]\_v[sound_of_running.wav]\4*%(username).\w8 Knock it off.\w8\e"
+		"\0\s[1]\1\s[18]%(runsaway)\4*%(username).\w8 Knock it off.\w8\e"
 		
-		"\0\s[1]\1\s[11]\_v[sound_of_running.wav]\4*%(username).\w8 \s[17]Knock it off.\w8\e"
+		"\0\s[1]\1\s[11]%(runsaway)\4*%(username).\w8 \s[17]Knock it off.\w8\e"
 		
-		"\0\s[1]\1\s[12]\_v[sound_of_running.wav]\4*%(username).\w8 \s[18]Knock it off.\w8\e"
+		"\0\s[1]\1\s[12]%(runsaway)\4*%(username).\w8 \s[18]Knock it off.\w8\e"
 		
-		"\0\s[1]\1\s[19]\_v[sound_of_running.wav]\4*%(username).\w8 \s[17]Knock it off.\w8\e"
+		"\0\s[1]\1\s[19]%(runsaway)\4*%(username).\w8 \s[17]Knock it off.\w8\e"
 		
-		"\0\s[1]\1\s[19]\_v[sound_of_running.wav]\4*%(username).\w8 \s[18]Knock it off.\w8\e"
+		"\0\s[1]\1\s[19]%(runsaway)\4*%(username).\w8 \s[18]Knock it off.\w8\e"
 	}
 	else
 	{

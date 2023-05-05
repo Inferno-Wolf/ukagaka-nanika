@@ -47,4 +47,5 @@ If you're interested in making your own Ghost, check out the Dream Team over on 
 
 -----/Versions & Updates/------
 
+(v.1.1) - General QOL fixes
 (v.1.0) - Initial Release

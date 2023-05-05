@@ -18,7 +18,7 @@ charset,UTF-8
 type,shell
 name,scribblefrisk
 craftman,KFC
-craftmanurl,http://www.ashido.com/ukagaka/walkthrough.html
+craftmanurl,http://www.characteroulette.tumblr.com/
 
 
 //Balloon Co-ordinates

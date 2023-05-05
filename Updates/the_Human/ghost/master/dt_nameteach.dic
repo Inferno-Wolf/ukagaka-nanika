@@ -456,6 +456,14 @@ OnPronoTeach
 		--
 		"\![open,inputbox,OnhimherTeach,-1]\e"
 	}
+	elseif reference0 == "menu"
+	{
+		OnMenuRun
+	}
+	elseif reference0 == "config"
+	{
+		OnTalkConfig
+	}
 	else //cancel
 	{
 		"\0\s[0]*Okay.\w8 \s[2]Frisk will continue to use '%(heshe)',\w3 '%(himher)',\w3 and '%(hisher)' for you,\w4 %(username).\w8\e"
@@ -648,6 +656,14 @@ OnFriskProno
 		"\0\s[6]*What pronouns for 'him / her / them' would you like to use for Frisk?\w5"
 		--
 		"\![open,inputbox,OnthemTeach,-1]\e"
+	}
+	elseif reference0 == "menu"
+	{
+		OnMenuRun
+	}
+	elseif reference0 == "config"
+	{
+		OnTalkConfig
 	}
 	else //cancel
 	{

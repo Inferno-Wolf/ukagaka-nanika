@@ -1,4 +1,4 @@
-﻿//There's a lot more going on in the descript.txt for a shell than for your ghost in general, as you can probably tell. I'll try to break it down.
+﻿//THANKS TO STEM FOR THIS SHELL I COMMISSIONED!!! It is super cute you should go support them as well!!
 
 
 //Free or Bound

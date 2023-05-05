@@ -11,11 +11,11 @@ OpenSakuraMenu
 	
 	"\0\s[6]\b2*Frisk awaits your choice, %(username)."
 	--
-	MenuRun
+	OnMenuRun
 }
 
 //--MenuRun
-MenuRun
+OnMenuRun
 {
 	"\b2\n\n\_q"
 	--
@@ -55,16 +55,22 @@ Select.testvariable
 //start of added options
 Select.helpme
 {
-	"\0\s[5]*Frisk would be happy to help you, %(username).\w8 \s[2]What do you need help with? \n\n[half]\![*]\q[A Pacifist Run,pacifisthelp] \n\![*]\q[A Murder Run,murderhelp] \n\![*]\q[Random Monster Spare,rndmnspare] \n\![*]\q[A Puzzle,puzzlehelp] \n\n[half]\![*]\q[Nevermind,BACKTOMENU]\e"
+	"\0\s[5]*Frisk would be happy to help you, %(username).\w8 \s[2]What do you need help with?"
+	--
+	"\n\n[half]\_q\![*]\q[A Pacifist Run,pacifisthelp] \n\![*]\q[A Murder Run,murderhelp] \n\![*]\q[Random Monster Spare,rndmnspare] \n\![*]\q[A Puzzle,puzzlehelp] \n\n[half]\![*]\q[Nevermind,BACKTOMENU] \n\![*]\q[Cancel,CANCEL]\w8\w8\w8\w8\e"
 }
 
 Select.pacifisthelp
 {
+	"\t\0\s[5]*Frisk is overjoyed to hear that you're doing a pacifist run and would be glad to help you spare every monster in the Underground.\w8\w8\c"
+	--
 	//yellow
-	"\0\s[5]*Frisk is overjoyed to hear that you're doing a pacifist run and would be glad to help you spare every monster in the Underground.\w8\w8 \c\0\s[2]\b2*Compliment \f[color,255,255,0]Froggit\f[color,default].\w8 \n*Terrorise \f[color,255,255,0]Whimsum\f[color,default],\w2 then Console it.\w8 \n*Flirt with \f[color,255,255,0]Moldsmal\f[color,default].\w8 \n*Don't pick on \f[color,255,255,0]Loox\f[color,default].\w8 \n*Talk to \f[color,255,255,0]Migosp\f[color,default] while it is the only Monster left in battle.\w8 \n*Choose 'Dinner' for \f[color,255,255,0]Vegetoid\f[color,default],\w2 then catch the green bullet.\w8 \n*Wait one turn,\w2 then Laugh at \f[color,255,255,0]Snowdrake\f[color,default]'s pun.\w8 \n*Ignore \f[color,255,255,0]Ice Cap\f[color,default] twice,\w2 then Steal its hat,\w2 then Compliment it.\w8 \n\s[5]*Wait one turn,\w2 then Pet \f[color,255,255,0]Doggo\f[color,default].\w8 \n*For \f[color,255,255,0]Dogamny and Dogaressa\f[color,default],\w2 first Roll,\w2 then let them Re-sniff you,\w2 then Pet both of them.\w8 \n*Beckon over \f[color,255,255,0]Greater Dog\f[color,default],\w2 Pet once,\w2 then Play,\w2 then Pet twice more.\w8 \n*Pet \f[color,255,255,0]Lesser Dog\f[color,default] five times or until its attacks cease.\w8 \n\s[2]*Undecorate \f[color,255,255,0]Gyftrot\f[color,default] three times.\w8 \n*For \f[color,255,255,0]Aaron\f[color,default],\w2 Flex three times.\w8 To get his yellow text during the credits,\w2 play one of Napstablook's tunes at their house,\w2 then walk around one screen down in the save area until you get into an encounter.\w8 \n*Choose 'Clean' for \f[color,255,255,0]Woshua\f[color,default],\w2 then catch the green bullet.\w8 \n*Unhug \f[color,255,255,0]Moldbygg\f[color,default].\w8 \n*Talk to \f[color,255,255,0]Temmie\f[color,default].\w8 \n*Hum with \f[color,255,255,0]Shyren\f[color,default] until the battle ends.\w8 \n*For \f[color,255,255,0]Mad Dummy\f[color,default],\w2 Talk to the \f[color,255,255,0]Training Dummy\f[color,default] in the Ruins,\w2 then Talk to \f[color,255,255,0]Mad Dummy\f[color,default] during its battle at least once.\w8 \n*Encourage \f[color,255,255,0]Vulkin\f[color,default].\w8 \n*Choose 'Approach' with \f[color,255,255,0]Tsunderplane\f[color,default],\w2 then touch the green part of at least four of its bullets.\w8 \n*Choose 'Heat Up' twice for \f[color,255,255,0]Pyrope\f[color,default].\w8 \n*For \f[color,255,255,0]Madjick\f[color,default],\w2 choose 'Clear Mind',\w2 then Talk to them.\w8 \n*Sing at \f[color,255,255,0]Knight Knight\f[color,default] until she falls asleep.\w8 \n*Mystify \f[color,255,255,0]Final Froggit\f[color,default].\w8 \n*Pray at \f[color,255,255,0]Whimsalot\f[color,default].\w8 \n*For \f[color,255,255,0]Astigmatism\f[color,default],\w2 wait one turn to see what it says,\w2 then choose the Act option it says.\w8\w8 \n\n[half]*These will all get them their yellow name for the credits as well.\w8\w8\w8\w8\w8\w8 \c\0\s[4]*Frisk hopes that helped!\w8\e"
+	"\s[2]\b2*Compliment \f[color,255,255,0]Froggit\f[color,default].\w8 \n*Terrorise \f[color,255,255,0]Whimsum\f[color,default],\w2 then Console it.\w8 \n*Flirt with \f[color,255,255,0]Moldsmal\f[color,default].\w8 \n*Don't pick on \f[color,255,255,0]Loox\f[color,default].\w8 \n*Talk to \f[color,255,255,0]Migosp\f[color,default] while it is the only Monster left in battle.\w8 \n*Choose 'Dinner' for \f[color,255,255,0]Vegetoid\f[color,default],\w2 then catch the green bullet.\w8 \x\b2*Wait one turn,\w2 then Laugh at \f[color,255,255,0]Snowdrake\f[color,default]'s pun.\w8 \n*Ignore \f[color,255,255,0]Ice Cap\f[color,default] twice,\w2 then Steal its hat,\w2 then Compliment it.\w8 \n\s[5]*Wait one turn,\w2 then Pet \f[color,255,255,0]Doggo\f[color,default].\w8 \n*For \f[color,255,255,0]Dogamny and Dogaressa\f[color,default],\w2 first Roll,\w2 then let them Re-sniff you,\w2 then Pet both of them.\w8 \n*Beckon over \f[color,255,255,0]Greater Dog\f[color,default],\w2 Pet once,\w2 then Play,\w2 then Pet twice more.\w8 \n*Pet \f[color,255,255,0]Lesser Dog\f[color,default] five times or until its attacks cease.\w8 \n\s[2]*Undecorate \f[color,255,255,0]Gyftrot\f[color,default] three times.\w8 \x\b2*For \f[color,255,255,0]Aaron\f[color,default],\w2 Flex three times.\w8 To get his yellow text during the credits,\w2 play one of Napstablook's tunes at their house,\w2 then walk around one screen down in the save area until you get into an encounter.\w8 \n*Choose 'Clean' for \f[color,255,255,0]Woshua\f[color,default],\w2 then catch the green bullet.\w8 \n*Unhug \f[color,255,255,0]Moldbygg\f[color,default].\w8 \n*Talk to \f[color,255,255,0]Temmie\f[color,default].\w8 \n*Hum with \f[color,255,255,0]Shyren\f[color,default] until the battle ends.\w8 \n*For \f[color,255,255,0]Mad Dummy\f[color,default],\w2 Talk to the \f[color,255,255,0]Training Dummy\f[color,default] in the Ruins,\w2 then Talk to \f[color,255,255,0]Mad Dummy\f[color,default] during its battle at least once.\w8 \x\b2*Encourage \f[color,255,255,0]Vulkin\f[color,default].\w8 \n*Choose 'Approach' with \f[color,255,255,0]Tsunderplane\f[color,default],\w2 then touch the green part of at least four of its bullets.\w8 \n*Choose 'Heat Up' twice for \f[color,255,255,0]Pyrope\f[color,default].\w8 \n*For \f[color,255,255,0]Madjick\f[color,default],\w2 choose 'Clear Mind',\w2 then Talk to them.\w8 \n*Sing at \f[color,255,255,0]Knight Knight\f[color,default] until she falls asleep.\w8 \n*Mystify \f[color,255,255,0]Final Froggit\f[color,default].\w8 \n*Pray at \f[color,255,255,0]Whimsalot\f[color,default].\w8 \n*For \f[color,255,255,0]Astigmatism\f[color,default],\w2 wait one turn to see what it says,\w2 then choose the Act option it says.\w8\x"
 	
 	//pink
-	"\0\s[5]*Frisk is overjoyed to hear that you're doing a pacifist run and would be glad to help you spare every monster in the Underground.\w8\w8 \c\0\s[2]\b2*Compliment \f[color,255,204,229]Froggit\f[color,default].\w8 \n*Terrorise \f[color,255,204,229]Whimsum\f[color,default],\w2 then Console it.\w8 \n*Flirt with \f[color,255,204,229]Moldsmal\f[color,default].\w8 \n*Don't pick on \f[color,255,204,229]Loox\f[color,default].\w8 \n*Talk to \f[color,255,204,229]Migosp\f[color,default] while it is the only Monster left in battle.\w8 \n*Choose 'Dinner' for \f[color,255,204,229]Vegetoid\f[color,default],\w2 then catch the green bullet.\w8 \n*Wait one turn,\w2 then Laugh at \f[color,255,204,229]Snowdrake\f[color,default]'s pun.\w8 \n*Ignore \f[color,255,204,229]Ice Cap\f[color,default] twice,\w2 then Steal its hat,\w2 then Compliment it.\w8 \n\s[5]*Wait one turn,\w2 then Pet \f[color,255,204,229]Doggo\f[color,default].\w8 \n*For \f[color,255,204,229]Dogamny and Dogaressa\f[color,default],\w2 first Roll,\w2 then let them Re-sniff you,\w2 then Pet both of them.\w8 \n*Beckon over \f[color,255,204,229]Greater Dog\f[color,default],\w2 Pet once,\w2 then Play,\w2 then Pet twice more.\w8 \n*Pet \f[color,255,204,229]Lesser Dog\f[color,default] five times or until its attacks cease.\w8 \n\s[2]*Undecorate \f[color,255,204,229]Gyftrot\f[color,default] three times.\w8 \n*For \f[color,255,204,229]Aaron\f[color,default],\w2 Flex three times.\w8 To get his yellow text during the credits,\w2 play one of Napstablook's tunes at their house,\w2 then walk around one screen down in the save area until you get into an encounter.\w8 \n*Choose 'Clean' for \f[color,255,204,229]Woshua\f[color,default],\w2 then catch the green bullet.\w8 \n*Unhug \f[color,255,204,229]Moldbygg\f[color,default].\w8 \n*Talk to \f[color,255,204,229]Temmie\f[color,default].\w8 \n*Hum with \f[color,255,204,229]Shyren\f[color,default] until the battle ends.\w8 \n*For \f[color,255,204,229]Mad Dummy\f[color,default],\w2 Talk to the \f[color,255,204,229]Training Dummy\f[color,default] in the Ruins,\w2 then Talk to \f[color,255,204,229]Mad Dummy\f[color,default] during its battle at least once.\w8 \n*Encourage \f[color,255,204,229]Vulkin\f[color,default].\w8 \n*Choose 'Approach' with \f[color,255,204,229]Tsunderplane\f[color,default],\w2 then touch the green part of at least four of its bullets.\w8 \n*Choose 'Heat Up' twice for \f[color,255,204,229]Pyrope\f[color,default].\w8 \n*For \f[color,255,204,229]Madjick\f[color,default],\w2 choose 'Clear Mind',\w2 then Talk to them.\w8 \n*Sing at \f[color,255,204,229]Knight Knight\f[color,default] until she falls asleep.\w8 \n*Mystify \f[color,255,204,229]Final Froggit\f[color,default].\w8 \n*Pray at \f[color,255,204,229]Whimsalot\f[color,default].\w8 \n*For \f[color,255,204,229]Astigmatism\f[color,default],\w2 wait one turn to see what it says,\w2 then choose the Act option it says.\w8\w8 \n\n[half]*These will all get them their yellow name for the credits as well.\w8\w8\w8\w8\w8\w8 \c\0\s[4]*Frisk hopes that helped!\w8\e"
+	"\s[2]\b2*Compliment \f[color,255,204,229]Froggit\f[color,default].\w8 \n*Terrorise \f[color,255,204,229]Whimsum\f[color,default],\w2 then Console it.\w8 \n*Flirt with \f[color,255,204,229]Moldsmal\f[color,default].\w8 \n*Don't pick on \f[color,255,204,229]Loox\f[color,default].\w8 \n*Talk to \f[color,255,204,229]Migosp\f[color,default] while it is the only Monster left in battle.\w8 \n*Choose 'Dinner' for \f[color,255,204,229]Vegetoid\f[color,default],\w2 then catch the green bullet.\w8 \x\b2*Wait one turn,\w2 then Laugh at \f[color,255,204,229]Snowdrake\f[color,default]'s pun.\w8 \n*Ignore \f[color,255,204,229]Ice Cap\f[color,default] twice,\w2 then Steal its hat,\w2 then Compliment it.\w8 \n\s[5]*Wait one turn,\w2 then Pet \f[color,255,204,229]Doggo\f[color,default].\w8 \n*For \f[color,255,204,229]Dogamny and Dogaressa\f[color,default],\w2 first Roll,\w2 then let them Re-sniff you,\w2 then Pet both of them.\w8 \n*Beckon over \f[color,255,204,229]Greater Dog\f[color,default],\w2 Pet once,\w2 then Play,\w2 then Pet twice more.\w8 \n*Pet \f[color,255,204,229]Lesser Dog\f[color,default] five times or until its attacks cease.\w8 \n\s[2]*Undecorate \f[color,255,204,229]Gyftrot\f[color,default] three times.\w8 \x\b2*For \f[color,255,204,229]Aaron\f[color,default],\w2 Flex three times.\w8 To get his yellow text during the credits,\w2 play one of Napstablook's tunes at their house,\w2 then walk around one screen down in the save area until you get into an encounter.\w8 \n*Choose 'Clean' for \f[color,255,204,229]Woshua\f[color,default],\w2 then catch the green bullet.\w8 \n*Unhug \f[color,255,204,229]Moldbygg\f[color,default].\w8 \n*Talk to \f[color,255,204,229]Temmie\f[color,default].\w8 \n*Hum with \f[color,255,204,229]Shyren\f[color,default] until the battle ends.\w8 \n*For \f[color,255,204,229]Mad Dummy\f[color,default],\w2 Talk to the \f[color,255,204,229]Training Dummy\f[color,default] in the Ruins,\w2 then Talk to \f[color,255,204,229]Mad Dummy\f[color,default] during its battle at least once.\w8 \x\b2*Encourage \f[color,255,204,229]Vulkin\f[color,default].\w8 \n*Choose 'Approach' with \f[color,255,204,229]Tsunderplane\f[color,default],\w2 then touch the green part of at least four of its bullets.\w8 \n*Choose 'Heat Up' twice for \f[color,255,204,229]Pyrope\f[color,default].\w8 \n*For \f[color,255,204,229]Madjick\f[color,default],\w2 choose 'Clear Mind',\w2 then Talk to them.\w8 \n*Sing at \f[color,255,204,229]Knight Knight\f[color,default] until she falls asleep.\w8 \n*Mystify \f[color,255,204,229]Final Froggit\f[color,default].\w8 \n*Pray at \f[color,255,204,229]Whimsalot\f[color,default].\w8 \n*For \f[color,255,204,229]Astigmatism\f[color,default],\w2 wait one turn to see what it says,\w2 then choose the Act option it says.\w8\w8\x"
+	--
+	"*These will get everyone their yellow name for the credits as well.\w8 \s[4]\n\n[half]*Frisk hopes that helped!\w8\w8\w8\w8\e"
 }
 
 Select.rndmnspare
@@ -73,20 +79,43 @@ Select.rndmnspare
 	_monster = _pacifist[0]
 	_pacify = _pacifist[1]
 	
-	"\0\s[2]*Frisk is now thinking of a random Monster to help you pacify.\w2.\w2.\w2\w8\w8 \c\0\s[5]*\f[color,255,255,0]%(_monster)\f[color,default] can be spared by %(_pacify).\w8 \n*This will also get them their yellow name for the credits.\w8\w8\w8 \0\s[8]\n\n[half]*Frisk hopes that helped!\w8\e"
+	"\0\s[2]*Frisk is now thinking of a random Monster to help you pacify...\w8\w8\c"
 	
-	"\0\s[2]*Frisk is now thinking of a random Monster to help you pacify.\w2.\w2.\w2\w8\w8 \c\0\s[5]*\f[color,255,204,229]%(_monster)\f[color,default] can be spared by %(_pacify).\w8 \n*This will also get them their yellow name for the credits.\w8\w8\w8 \0\s[8]\n\n[half]*Frisk hopes that helped!\w8\e"
+	"\0\s[6]*A random monster?\w8 \s[2]\n\n[half]*Frisk can do that for you!\w8\w8\c"
+	--
+	//yellow
+	"\s[5]*\f[color,255,255,0]%(_monster)\f[color,default] can be spared by %(_pacify).\w8 \n*This will also get them their yellow name for the credits.\w8\w8\w8"
+	
+	//pink
+	"\s[5]*\f[color,255,204,229]%(_monster)\f[color,default] can be spared by %(_pacify).\w8 \n*This will also get them their yellow name for the credits.\w8\w8\w8"
+	--
+	"\s[8]\n\n[half]*Frisk hopes that helped!\w8\w8\w8\e"
+	
+	"\s[8]*Hope that helped,\w4 %(username)!\w8\w8\w8\e"
 }
 
 Select.murderhelp
 {
 	//"\0\s[1]*I don't know why you clicked this option, %(username).\w8\e"
-	"\0\s[1]*Frisk isn't sure they should give that sort of help to terrible children and dirty brother killers...\w8 \0\s[15]\n\n[half]*But the narration continued.\w8\w8 \c\0\s[15]\b2\c\f[color,255,10,10]*Kill 20 monsters in the Ruins before the Toriel battle.\w8 Do this also before Napstablook to avoid having to battle them.\w8 \n\n[half]*Get the pie from Toriel and keep it.\w8\w8\w8\w8\w8\w8\w8 \c\f[color,255,10,10]*Kill 16 monsters in Snowdin woods before the Papyrus fight.\w8 Boss dogs do not count towards this,\w4 but still need to be killed.\w8 \n\n[half]*Don't miss or forget 'that comedian',\w4 Snowdrake.\w8 \n*Take the Snowman Pieces and save them.\w8 \n*Do not spare Jerry.\w8 Why would you?\w8\w8\w8\w8\w8\w8\w8 \c\f[color,255,10,10]*Kill 18 monsters in Waterfall before the confrontation with Monster Kid on the bridge.\w8 Shyren isn't a part of the counter,\w4 but still needs to be killed.\w8 \n\n[half]*Prepare for a true Heroine.\w8\w8\w8\w8\w8\w8\w8 \c\f[color,255,10,10]*Kill 40 monsters in Hotland and the Core before the Mettaton battle.\w8 Hotland and the Core count as the same area,\w4 so you can wait until the final bridge in the Core to grind if you so desire.\w8 \n\n[half]*Muffet,\w4 01,\w4 and 02 do not count,\w4 but the path of Strength encounters do.\w8 \n*Grab the Instant Noodles from Alphys' fridge and buy the expensive foods from Burgerpants.\w8 \n\n[half]*Stock them.\w8 You'll need it.\w8\w8\w8\w8\w8\w8\w8 \c\f[color,255,10,10]\n\n\n\n\n\n\n*Prepare for a bad time.\w8\w8\w8\w8\w8\w8\w8 \c\0\s[1]\b1*And that's all you need to know in order to permanently ruin your game!\w8 \s[31]I hope you're happy,\w4 %(username).\w8\e"
+	"\t\0\s[1]*Frisk isn't sure they should give that sort of help to terrible children and dirty brother killers...\w8"
+	--
+	if guests == 1 //on
+	{
+		"\s[15]\n\n[half]*But the narration continued.\w8\w8 \c\f[color,255,10,10]*Kill 20 monsters in the Ruins before the Toriel battle.\w8 \n*Do this also before Napstablook to avoid having to battle them.\w8 \n\n[half]*Get the pie from Toriel and keep it.\w8 \x\f[color,255,10,10]*Kill 16 monsters in Snowdin woods before the Papyrus fight.\w8 \n*Boss dogs do not count towards this,\w4 but still need to be killed.\w8 \n*Don't miss or forget 'that comedian',\w4 Snowdrake.\w8 \n\n[half]*Take the Snowman Pieces and save them.\w8 \n\n[half]*Do not spare Jerry.\w8 Why would you?\w8 \x\f[color,255,10,10]*Kill 18 monsters in Waterfall before the confrontation with Monster Kid on the bridge.\w8 \n*Shyren isn't a part of the counter,\w4 but still needs to be killed.\w8 \n\n*Prepare for a true Heroine.\w8 \x\f[color,255,10,10]*Kill 40 monsters in Hotland and the Core before the Mettaton battle.\w8 Hotland and the Core count as the same area,\w4 so you can wait until the final bridge in the Core to grind if you so desire.\w8 \n\n[half]*Muffet,\w4 01,\w4 and 02 do not count,\w4 but the path of Strength encounters do.\w8 \n\n[half]*Grab the Instant Noodles from Alphys' fridge and buy the expensive foods from Burgerpants.\w8 \n*Stock them.\w8 You'll need it.\w8 \x\f[color,255,10,10]*Prepare for a bad time.\w8\x"
+	}
+	else //0; off
+	{
+		"\s[-1]\n\n[half]*But the narration continued.\w8\w8 \c\f[color,255,10,10]*Kill 20 monsters in the Ruins before the Toriel battle.\w8 \n*Do this also before Napstablook to avoid having to battle them.\w8 \n\n[half]*Get the pie from Toriel and keep it.\w8 \x\f[color,255,10,10]*Kill 16 monsters in Snowdin woods before the Papyrus fight.\w8 \n*Boss dogs do not count towards this,\w4 but still need to be killed.\w8 \n*Don't miss or forget 'that comedian',\w4 Snowdrake.\w8 \n\n[half]*Take the Snowman Pieces and save them.\w8 \n\n[half]*Do not spare Jerry.\w8 Why would you?\w8 \x\f[color,255,10,10]*Kill 18 monsters in Waterfall before the confrontation with Monster Kid on the bridge.\w8 \n*Shyren isn't a part of the counter,\w4 but still needs to be killed.\w8 \n\n*Prepare for a true Heroine.\w8 \x\f[color,255,10,10]*Kill 40 monsters in Hotland and the Core before the Mettaton battle.\w8 Hotland and the Core count as the same area,\w4 so you can wait until the final bridge in the Core to grind if you so desire.\w8 \n\n[half]*Muffet,\w4 01,\w4 and 02 do not count,\w4 but the path of Strength encounters do.\w8 \n\n[half]*Grab the Instant Noodles from Alphys' fridge and buy the expensive foods from Burgerpants.\w8 \n*Stock them.\w8 You'll need it.\w8 \x\f[color,255,10,10]*Prepare for a bad time.\w8\x"
+	}
+	--
+	"\c\s[1]\b1*And that's all you need to know in order to permanently ruin your game!\w8 \s[31]I hope you're happy,\w4 %(username).\w8\w8\w8\w8\e"
 }
 
 Select.puzzlehelp
 {
-	"\0\s[2]*Which area would you like help with?\w8 \n\n[half]\![*]\q[The Ruins,torihelp] \n\![*]\q[Snowdin,papshelp] \n\![*]\q[Waterfall,undynehelp] \n\![*]\q[Hotland,alphhelp] \n\![*]\q[The Human World,humehelp] \n\![*]\q[Flowey Locations,flowhelp] \n\n[half]\![*]\q[Nevermind,BACKTOMENU]\e"
+	"\0\s[2]*Which area would you like help with?\w8"
+	--
+	"\n\n[half]\_q\![*]\q[The Ruins,torihelp] \n\![*]\q[Snowdin,papshelp] \n\![*]\q[Waterfall,undynehelp] \n\![*]\q[Hotland,alphhelp] \n\![*]\q[The Human World,humehelp] \n\![*]\q[Flowey Locations,flowhelp] \n\n[half]\![*]\q[Nevermind,BACKTOMENU] \n\![*]\q[Cancel,CANCEL]\w8\w8\w8\w8\e"
 }
 
 //LISTEN I'll do all these LATER Frisk's never getting released if I iron it all out now =A=
@@ -313,9 +342,14 @@ Select.flowhelp
 	}
 	else //no other ghosts open
 	*/
-	"\0\s[6]\1*Oh?\w8 \0\s[5]\1\s[19]You want some advice from me?\w8 \s[12]\n\n[half]*Well,\w4 golly!\w8 \s[11]I don't really have any advice to give.\w8 \0\s[21]\1\s[19]\n\n[half]*You can't put me on the spot like that and expect me to perform.\w8 \0\s[2]*Hope this was helpful,\w4 %(username).\w8\e"
-	
-	"\0\s[6]*Help with Flowey?\w8 \s[1]\n*Frisk isn't quite sure what you mean by that.\w8 \s[21]\n\n[half]Maybe try again later.\w8\e"
+	if guests == 1 //on
+	{
+		"\0\s[6]\1*Oh?\w8 \0\s[5]\1\s[19]You want some advice from me?\w8 \s[12]\n\n[half]*Well,\w4 golly!\w8 \s[11]I don't really have any advice to give.\w8 \0\s[21]\1\s[19]\n\n[half]*You can't put me on the spot like that and expect me to perform.\w8 \0\s[2]*Hope this was helpful,\w4 %(username).\w8\e"
+	}
+	else //0; off
+	{
+		"\0\s[6]*Help with Flowey?\w8 \s[1]\n*Frisk isn't quite sure what you mean by that.\w8 \s[21]\n\n[half]Maybe try again later.\w8\e"
+	}
 	
 	//SUMMON FLOWEY
 	//or maybe just Flowey locations
@@ -337,68 +371,168 @@ Select.dontyoutalk
 
 Select.charahere
 {
-	"\0\s[6]"
-	"\0\s[3]"
-	"\0\s[7]"
-	--
-	"\1\s[15]*There is no Chara.\w8 Only Frisk.\w8\s[-1]"
-	--
-	"\0\s[0]\e"
-	"\0\s[7]\e"
-	"\0\s[1]\e"
+	if guests == 1 //on
+	{
+		"\0\s[6]"
+		"\0\s[3]"
+		"\0\s[7]"
+		--
+		"\1\s[15]*There is no Chara.\w8 Only Frisk.\w8\s[-1]"
+		--
+		"\0\s[0]\e"
+		"\0\s[7]\e"
+		"\0\s[1]\e"
+	}
+	else //0; off
+	{
+		"\0\s[0]*There is no Chara.\w8 \s[8]Only Frisk.\w8\w8\w8\w8\e"
+	}
 }
 
 
 //shamelessly took this out of the original Sans
 Select.clocktime
 {
-	wd = GetWeekDay
-	nowmin = Getnowmin
-	nowhour = Getnowhour
-	
+	"\0\s[6]"
+	"\0\s[8]"
+	"\0\s[4]"
+	"\0\s[2]"
+	--
+	"*Frisk reads your clock.\w8"
+	--
+	"\s[2]"
+	"\s[5]"
+	"\s[8]"
+	"\s[4]"
+	--
+	if timepref == 1 //simplified
+	{
+		"\n*It says %(GetWeekDay) %(Getnowhour):%(Getnowmin) %(ap), %(day)/%(month)/%(year).\w8\n\n[half]"
+	}
+	else //0; naturalistic
+	{
+		//let's hope I understood this well enough...
+		_th = "th"
+		if day == 1 || day == 21 || day == 31; {_th = "st"}
+		elseif day == 2 || day == 22; (_th = "nd")
+		elseif day == 3 || day == 23; {_th = "rd"}
+		
+		_moth = "December"
+		if month == 1; {_moth = "January"}
+		elseif month == 2; {_moth = "February"}
+		elseif month == 3; {_moth = "March"}
+		elseif month == 4; {_moth = "April"}
+		elseif month == 5; {_moth = "May"}
+		elseif month == 6; {_moth = "June"}
+		elseif month == 7; {_moth = "July"}
+		elseif month == 8; {_moth = "August"}
+		elseif month == 9; {_moth = "September"}
+		elseif month == 10; {_moth = "October"}
+		elseif month == 11; {_moth = "Novemmber"}
+		
+		"\n*It says %(GetWeekDay),\w4 %(_moth) %(day)%(_th),\w4 %(Getnowhour):%(Getnowmin) %(ap).\w8\n\n[half]"
+	}
+	--
 	if dayslot == userbirthday
 	{
-		"\0\s[6]*Frisk reads your clock.\w8 \s[2]\n*It says %(wd) %(nowhour):%(nowmin) %(ap), %(day)/%(month)/%(year).\w8 \n\n[half]\s[5]*That's %(bornmonthprint) %(borndayprint)!\w8 \n\n[half]*Happy Birthday,\w4 %(username)!\w8\e"
+		"\s[5]*That's %(bornmonthprint) %(borndayprint)!\w8 \n\n[half]*Happy Birthday,\w4 %(username)!\w8"
 		
-		"\0\s[6]*Frisk reads your clock.\w8 \s[5]\n*It's %(bornmonthprint) %(borndayprint)!\w8 \n\n[half]\s[2]*Happy Birthday,\w4 %(username)!\w8\e"
+		"\s[6]*It's %(bornmonthprint) %(borndayprint)!\w8 \n\n[half]\s[2]*Happy Birthday,\w4 %(username)!\w8"
 	}
 	elseif dayslot == "9month 15day"
 	{
-		"\0\s[6]*Frisk reads your clock.\w8 \s[2]\n*It says %(wd) %(nowhour):%(nowmin) %(ap), %(day)/%(month)/%(year).\w8 \n\n[half]\s[5]*That's Undertale's Birthday!\w8\e"
+		"\s[5]*That's Undertale's Birthday!\w8"
 		
-		"\0\s[6]*Frisk reads your clock.\w8 \s[2]\n*It says %(wd) %(nowhour):%(nowmin) %(ap), %(day)/%(month)/%(year).\w8 \n\n[half]\s[5]*Happy Birthday to Undertale!\w8\e"
+		"\s[5]*Happy Birthday to Undertale!\w8"
 	}
 	elseif dayslot == "10month 10day" //Art Club's today!
 	{
-		"\0\s[6]*Frisk reads your clock.\w8 \s[2]\n*It says %(wd) %(nowhour):%(nowmin) %(ap), %(day)/%(month)/%(year).\w8 \n\n[half]\s[5]*Today's the Art Club meeting in Hotland!\w8 \s[2]\n*Frisk hopes you can still make it.\w8\e"
+		"\s[5]*Today's the Art Club meeting in Hotland!\w8 \s[2]\n*Frisk hopes you can still make it.\w8"
 		
-		"\0\s[8]*Frisk reads your clock.\w8 \s[2]\n*It says %(wd) %(nowhour):%(nowmin) %(ap), %(day)/%(month)/%(year).\w8 \s[6]\n\n[half]*Today,\w4 the Art Club meets in Hotland!\w8 \s[2]\n*So sorry for the late reminder,\w4 %(username).\w8\e"
+		"\s[6]*Today,\w4 the Art Club meets in Hotland!\w8 \s[2]\n*So sorry for the late reminder,\w4 %(username).\w8"
 	}
 	else
 	{
-		"\0\s[6]"
-		"\0\s[8]"
-		"\0\s[4]"
-		"\0\s[2]"
+		if weekday == 0
+		{
+			"\s[2]*Asgore usually sets up a nice tea party for everyone today.\w8 \n*What's your favourite kind of tea,\w4 %(username)?\w8"
+			
+			"\s[5]*Frisk is looking forward to hearing all the gossip spilled at Asgore's tea party today.\w8"
+			
+			"\s[2]*Nothing is more relaxing than a good cup of tea and a pleasantly warm greenhouse.\w8 \n*Oh,\w4 and \s[5]listening to all the gossip that happened over the rest of the week.\w8"
+		}
+		elseif weekday == 1
+		{
+			"\s[2]*Seems like it's time for %(Undersong).\w8"
+			
+			"\s[0]*Sans makes most of his puns today.\w8 \s[1]Hopefully,\w4 Papyrus doesn't get too upset about them.\w8"
+			
+			{
+				"\s[0]"
+				"\s[2]"
+				"\s[5]"
+				"\s[6]"
+				"\s[8]"
+				--
+				"*Frisk hums a bit of %(Undersong) for you.\w8"
+			}
+			
+			"\s[8]*The perfect time for a bit of %(Undersong),\w4 if Frisk can say so %(them)self.\w8"
+		}
+		elseif weekday == 2
+		{
+			"\s[2]*Today's Mettaton's hand washing special.\w8 \s[5]\n*Frisk hopes %(they) can catch the newest one later.\w8"
+			
+			"\s[5]*Frisk pulls out %(their) phone to see if Mettaton's hand washing spectacular has aired yet.\w8"
+			
+			"\s[2]*Frisk invites you to enjoy the latest episode of Mettaton's hand washing spectacular with %(them).\w8"
+		}
+		elseif weekday == 3
+		{
+			"\s[5]Wednesdays are Papyrus' favourite!\w8 \s[2]He always has so much to say about them.\w8"
+			
+			"\s[2]*Frisk thinks about one of Papyrus' famed Wednesday musings.\w8"
+			
+			"\s[2]*Frisk hopes your day is going well for you,\w4 %(username).\w8 \s[5]\n*Keep it up!\w8 \s[8]You can do it!\w8"
+		}
+		elseif weekday == 4
+		{
+			"\s[5]*A new episode of one of Alphys' shows comes out today!\w8 \s[2]\n*Last time,\w4 %(animeplot).\w8"
+			
+			"\s[2]*Thursdays are for blanket burritos,\w4 popcorn munching,\w4 and watching anime.\w8 \n*Frisk just saw an episode where %(animeplot).\w8"
+			
+			"\s[5]*Frisk is excited to see how the new episode of Alphys' anime will go.\w8 \s[2]\n\n[half]*Last time,\w4 %(animeplot).\w8"
+			
+			"\s[5]*Frisk likes to watch the latest episode of Alphys and Undyne's favourite anime on Thursdays.\w8 \s[2]\n*They just got to the part where %(animeplot).\w8"
+		}
+		elseif weekday == 5
+		{
+			"\s[2]*Fridays are Toriel's favourite.\w8 \s[5]She sure is a party animal!\w8"
+			
+			"\s[2]*It's the start of the weekend!\w8 \s[21]\n*Frisk hopes you're as happy as Toriel to get to partying,\w4 though perhaps without the part where you miss your class.\w8"
+			
+			"\s[5]*Frisk is excited to hear about what sort of party Toriel will attend today.\w8"
+			
+			"\s[2]*Baking pies and sitting in are perfect activities for today.\w8 \n*At least,\w4 \s[5]if you're not out there partying it up.\w8"
+		}
+		else //6
+		{
+			"\s[5]*Frisk has yoga today with Undyne!\w8"
+			
+			"\s[2]*Undyne usually goes to work out today.\w8 \n*When Frisk tags along,\w4 the two take a yoga class.\w8"
+			
+			"\s[2]*Frisk would like to know how your day is going so far,\w4 %(username).\w8 \s[8]\n*Perhaps you'd like to join %(them) for some yoga?\w8"
+		}
 		--
-		"*Frisk reads your clock.\w8"
-		--
-		"\s[2]"
-		"\s[8]"
-		"\s[5]"
-		"\s[4]"
-		--
-		"\n*It says %(wd) %(nowhour):%(nowmin) %(ap), %(day)/%(month)/%(year).\w8\e"
+		"\w8\w8\w8\e"
 	}
-	
-	//%(wd) %(nowhour):%(nowmin) %(ap), %(month)/%(day)/%(year)
 }
 
 
 //BACKTOMENU, MenuRun.
 Select.BACKTOMENU
 {
-	MenuRun
+	OnMenuRun
 }
 
 //configmenu, OnTalkConfig.
@@ -411,7 +545,7 @@ Select.configmenu
 //--TalkConfig
 OnTalkConfig
 {
-	"\0\b2\_q"
+	"\0\b2\![set,autoscroll,disable]\_q"
 	--
 	"\![*]\f[bold,1]Your name:\f[bold,0] %(username) \n(\q[Change it?,TEACHNAME])\n\n[half]"
 	--
@@ -421,13 +555,47 @@ OnTalkConfig
 	--
 	"\![*]\f[bold,1]Talk Rate:\f[bold,0] %(talktime) \n(\q[Change it,talkinter])\n\n[half]"
 	--
-	"\![*]\f[bold,1]Frisk's pronouns:\f[bold,0] %(they)/%(them)/%(their) \n(\q[Change them?,FriskPronouns])\n\n"
+	"\![*]\f[bold,1]Frisk's pronouns:\f[bold,0] %(they)/%(them)/%(their) \n(\q[Change them?,FriskPronouns])\n\n[half]"
 	--
+	if noisybab == 1 //on
 	{
-		"\![*]Enable Uninstall? (NOW : %(deleteshitai))\n\q[ON,deleteon] \q[OFF,deleteoff]\n\n[half]\n"
+		"\![*]\f[bold,1]Sounds:\f[bold,0] On \n(\q[Change it?,soundprefs])\n\n[half]"
+	}
+	else //0; off
+	{
+		"\![*]\f[bold,1]Sounds:\f[bold,0] Off \n(\q[Change it?,soundprefs])\n\n[half]"
 	}
 	--
-	"\![*]\q[Back to the menu,BACKTOMENU]\e"
+	if timepref == 1 //simplified
+	{
+		"\![*]\f[bold,1]Clock reading:\f[bold,0] Simplified \n(\q[Change it?,timeprefs])\n\n[half]"
+	}
+	else //0; naturalistic
+	{
+		"\![*]\f[bold,1]Clock reading:\f[bold,0] Naturalistic \n(\q[Change it?,timeprefs])\n\n[half]"
+	}
+	--
+	if hourchecks == 1 //on
+	{
+		"\![*]\f[bold,1]Hourly Notifications:\f[bold,0] On \n(\q[Change it?,hournotify])\n\n[half]"
+	}
+	else //0; off
+	{
+		"\![*]\f[bold,1]Hourly Notifications:\f[bold,0] Off \n(\q[Change it?,hournotify])\n\n[half]"
+	}
+	--
+	if guests == 1 //on
+	{
+		"\![*]\f[bold,1]Surprise guests:\f[bold,0] Enabled \n(\q[Change it?,kerochara])\n\n[half]"
+	}
+	else //0; off
+	{
+		"\![*]\f[bold,1]Surprise guests:\f[bold,0] Disabled \n(\q[Change it?,kerochara])\n\n[half]"
+	}
+	--
+	"\![*]Enable Uninstall? (NOW : %(deleteshitai))\n\q[ON,deleteon] \q[OFF,deleteoff]\n\n[half]\n"
+	--
+	"\![*]\q[Back to Main menu,BACKTOMENU] \n\![*]\q[Cancel,CANCEL]\e"
 }
 
 
@@ -436,7 +604,7 @@ Select.TEACHPRONOUN
 {
 	"\0\s[2]\b2*Frisk would like to hear which pronouns you use.\w5 \n*They are currently set to '%(heshe)',\w3 '%(himher)',\w3 and '%(hisher)'.\w5"
 	--
-	"\n\n[half]\_q\![*]\q[He-His-Him,OnPronoTeach,masc] \n\![*]\q[She-Her-Her,OnPronoTeach,femm] \n\![*]\q[They-Their-Them,OnPronoTeach,neit] \n\![*]\q[He-They Mix,OnPronoTeach,heth] \n\![*]\q[She-They Mix,OnPronoTeach,sheth] \n\![*]\q[He-She Mix,OnPronoTeach,undef] \n\![*]\q[It-Its-It,OnPronoTeach,itit] \n\n[half]\![*]\q[I have my own,OnPronoTeach,both] \n\n\![*]\q[No change,OnPronoTeach,cancel]\e"
+	"\n\n[half]\_q\![*]\q[He-His-Him,OnPronoTeach,masc] \n\![*]\q[She-Her-Her,OnPronoTeach,femm] \n\![*]\q[They-Their-Them,OnPronoTeach,neit] \n\![*]\q[He-They Mix,OnPronoTeach,heth] \n\![*]\q[She-They Mix,OnPronoTeach,sheth] \n\![*]\q[He-She Mix,OnPronoTeach,undef] \n\![*]\q[It-Its-It,OnPronoTeach,itit] \n\n[half]\![*]\q[I have my own,OnPronoTeach,both] \n\n\![*]\q[No change,OnPronoTeach,cancel] \n\n\![*]\q[Back to Menu,OnPronoTeach,menu] \n\![*]\q[Back to Config Menu,OnPronoTeach,config]\e"
 }
 
 
@@ -445,7 +613,79 @@ Select.FriskPronouns
 {
 	"\0\s[6]\b2*Frisk is interested to hear which pronouns you'll use for %(them).\w5 \s[2]\n*They are currently set to '%(they)',\w3 '%(them)',\w3 and '%(their)'.\w5"
 	--
-	"\n\n[half]\_q\![*]\q[He-His-Him,OnFriskProno,masc] \n\![*]\q[She-Her-Her,OnFriskProno,femm] \n\![*]\q[They-Their-Them,OnFriskProno,neit] \n\![*]\q[He-They Mix,OnFriskProno,heth] \n\![*]\q[She-They Mix,OnFriskProno,sheth] \n\![*]\q[He-She Mix,OnFriskProno,undef] \n\![*]\q[It-Its-It,OnFriskProno,itit] \n\n[half]\![*]\q[Create your own!,OnFriskProno,both] \n\n\![*]\q[No change,OnFriskProno,cancel]\e"
+	"\n\n[half]\_q\![*]\q[He-His-Him,OnFriskProno,masc] \n\![*]\q[She-Her-Her,OnFriskProno,femm] \n\![*]\q[They-Their-Them,OnFriskProno,neit] \n\![*]\q[He-They Mix,OnFriskProno,heth] \n\![*]\q[She-They Mix,OnFriskProno,sheth] \n\![*]\q[He-She Mix,OnFriskProno,undef] \n\![*]\q[It-Its-It,OnFriskProno,itit] \n\n[half]\![*]\q[Create your own!,OnFriskProno,both] \n\n\![*]\q[No change,OnFriskProno,cancel] \n\n\![*]\q[Back to Menu,OnFriskProno,menu] \n\![*]\q[Back to Config Menu,OnFriskProno,config]\e"
+}
+
+
+
+//sounds on/off
+Select.soundprefs
+{
+	if noisybab == 0 //off
+	{
+		noisybab = 1
+	}
+	else //1; on
+	{
+		noisybab = 0
+	}
+	--
+	OnTalkConfig
+}
+
+//time read prefs
+Select.timeprefs
+{
+	if timepref == 0 //naturalistic
+	{
+		timepref = 1
+		
+		"\0\s[2]*Frisk will read the time as it appears on your taskbar,\w4 then.\w8\w8\w8\c"
+	}
+	else //1; simplified
+	{
+		timepref = 0
+		
+		"\0\s[2]*Frisk will read the time in a more naturalistic way for you,\w4 then.\w8\w8\w8\c"
+	}
+	--
+	OnTalkConfig
+}
+
+//hourchecks options
+Select.hournotify
+{
+	if hourchecks == 0 //off
+	{
+		hourchecks = 1
+	}
+	else //1; on
+	{
+		hourchecks = 0
+	}
+	--
+	OnTalkConfig
+}
+
+//special guests
+Select.kerochara
+{
+	if guests == 0 //off
+	{
+		guests = 1
+		
+		"\0\s[5]*Looks like some special guests may appear!\w8\w8\w8\c"
+	}
+	else //1; on
+	{
+		guests = 0
+		
+		"\0\s[1]*Nobody except for Frisk will be here.\w8\w8\w8\c"
+		
+		"\0\s[21]*It will just be Frisk here.\w8\w8\w8\c"
+	}
+	--
+	OnTalkConfig
 }
 
 
@@ -472,12 +712,21 @@ Select.TEACHBDAY
 	}
 	elseif dayslot == userbirthday
 	{
-		"\0\s[5]*It's your birthday today!\w8 \n\s[6]*Unless it isn't.\w8 \n\n[half]\s[2]*Frisk is willing to hear your birthday again,\w4 just in case.\w8 \n*Please start with the month.\w8"
+		"\*\0\s[5]*It's your birthday today!\w8 \n\s[6]*Unless it isn't.\w8 \n\n[half]\s[2]*Frisk is willing to hear your birthday again,\w4 just in case.\w8 \n*Would you like to tell it again to Frisk?\w8"
+		--
+		"\n\n\![*]\q[Yes please!,teachagain] \![*]\q[Nope!,CANCEL] \n\n[half]\![*]\q[Back to Main menu,BACKTOMENU] \n\![*]\q[Back to Config menu,configmenu]\e"
 	}
 	else //already input your bday
 	{
 		"\0\s[5]*Putting in a new birthday?\w8 \s[2]\n\n[half]*Frisk is excited to hear what it will be this time.\w8 Make sure you start with the month!\w8"
 	}
+	--
+	"\![open,inputbox,OnUserBornMonth,-1]\e"
+}
+
+Select.teachagain
+{
+	"\0\s[2]*Please start with the month.\w8"
 	--
 	"\![open,inputbox,OnUserBornMonth,-1]\e"
 }
@@ -598,7 +847,7 @@ Select.talkinter
 {
 	"\0\s[0]\b2*How often would you like Frisk to speak?\w8 \n*The interval is currently set to %(talktime)."
 	--
-	"\n\n[half]\![*]\q[Every 30 seconds,OnTalkTime,thirty] \n\![*]\q[Every minute,OnTalkTime,one] \n\![*]\q[Every 3 minutes,OnTalkTime,three] \n\![*]\q[Every 5 minutes,OnTalkTime,five] \n\![*]\q[Don't speak,OnTalkTime,none] \n\n[half]\![*]\q[Don't change,OnTalkTime,cancel]\e"
+	"\n\n[half]\![*]\q[Every 30 seconds,OnTalkTime,thirty] \n\![*]\q[Every minute,OnTalkTime,one] \n\![*]\q[Every 3 minutes,OnTalkTime,three] \n\![*]\q[Every 5 minutes,OnTalkTime,five] \n\![*]\q[Don't speak,OnTalkTime,none] \n\n[half]\![*]\q[Don't change,OnTalkTime,cancel] \n\![*]\q[Back to Menu,OnTalkTime,menu] \n\![*]\q[Back to Config Menu,OnTalkTime,config]\e"
 	// \n\![*]\q[Every 10 minutes,TalkSlow]
 }
 
@@ -663,6 +912,14 @@ OnTalkTime
 		
 		"\0\s[2]*Frisk will not speak unless spoken to.\w8\e"
 	}
+	elseif reference0 == "menu"
+	{
+		OnMenuRun
+	}
+	elseif reference0 == "config"
+	{
+		OnTalkConfig
+	}
 	else //cancel
 	{
 		"\0\s[2]*Frisk will keep up %(their) current pace.\w8\e"
@@ -703,7 +960,7 @@ Select.dosomething
 	
 	"\0\s[2]\b2*What will you have Frisk do?\n\n"
 	--
- 	"\![*]\q[Open Calendar,CALENDAR] \n\![*]\q[Check Email,MailCheck] \n\![*]\q[Open SSP Preferences,sspconfig] \n\![*]\q[Update,keroupdatecheck] \n\![*]\q[Empty Recycle Bin,areyousure] \n\![*]\q[System Information,ChoiceSystemInformation] \n\![*]\q[Bug report,bugreport] \n\n\![*]\q[Back to main menu,BACKTOMENU]\e"
+ 	"\![*]\q[Open Calendar,CALENDAR] \n\![*]\q[Check Email,MailCheck] \n\![*]\q[Open SSP Preferences,sspconfig] \n\![*]\q[Update,keroupdatecheck] \n\![*]\q[Empty Recycle Bin,areyousure] \n\![*]\q[System Information,ChoiceSystemInformation] \n\![*]\q[Bug report,bugreport] \n\n\![*]\q[Back to main menu,BACKTOMENU] \n\![*]\q[Cancel,CANCEL]\e"
 }
 
 
@@ -741,7 +998,7 @@ Select.areyousure
 {
 	"\0\s[1]*Are you sure,\w3 %(username)?\w8 \n*Once garbage has been banished from the bin,\w4 there's no getting it back.\w8"
 	--
-	"\n\n\![*]\q[Yes\, please,ChoiceGarbagecan] \n\![*]\q[Whoops no thanks,BACKTOMENU]\e"
+	"\n\n\![*]\q[Yes\, please,ChoiceGarbagecan] \n\![*]\q[Whoops no thanks,BACKTOMENU]\w8\w8\w8\w8\w8\e"
 }
 
 //empty the recycle bin.
@@ -805,7 +1062,7 @@ Select.ChoiceSystemInformation
 	os_version = FUNCTIONEX("saori_cpuid.dll","os.version")
 	cpu_name = FUNCTIONEX("saori_cpuid.dll","cpu.name")
 	cpu_clockex = FUNCTIONEX("saori_cpuid.dll","cpu.clockex")
-	"\0\s[0]\b[2]\_q\f[bold,1]OS:\f[bold,0] %(os_name) %(os_version)\n\f[bold,1]Memory Load:\f[bold,0] %(memoryload)%\n\f[bold,1]Physical Memory:\f[bold,0] %(memoryavailphys) KB\n\f[bold,1]CPU:\f[bold,0] %(cpu_name) %(cpu_clockex)MHz\n\f[bold,1]Ukagaka:\f[bold,0] %property[baseware.version]\e"
+	"\0\s[0]\_q\f[bold,1]OS:\f[bold,0] %(os_name) %(os_version)\n\f[bold,1]Memory Load:\f[bold,0] %(memoryload)%\n\f[bold,1]Physical Memory:\f[bold,0] %(memoryavailphys) KB\n\f[bold,1]CPU:\f[bold,0] %(cpu_name) %(cpu_clockex)MHz\n\f[bold,1]Ukagaka:\f[bold,0] %property[baseware.version]\w8\w8\w8\w8\e"
 }
 	
 //check email.
@@ -858,7 +1115,7 @@ Select.keroCANCEL
 //This is when they select bug report.
 Select.bugreport
 {
-	"\0\s[1]*Oh no!\w8 That's not good!\w8 \n\n[half]\s[0]*You should report your bug to \_a[http://www.characteroulette.tumblr.com/]the maker at his tumblr\_a,\w4 \s[21]though there's no guarantee that he'll be able to help you.\w8 \n\s[1]*He doesn't know what he's doing at the best of times,\w4 after all.\w8\e"
+	"\0\s[1]*Oh no!\w8 That's not good!\w8 \n\n[half]\s[0]*You should report your bug to \_a[http://www.characteroulette.tumblr.com/]the maker at his tumblr\_a,\w4 \s[21]though there's no guarantee that he'll be able to help you.\w8 \n\s[1]*He doesn't know what he's doing at the best of times,\w4 after all.\w8\w8\w8\w8\w8\w8\e"
 }
 
 //Updates!!!

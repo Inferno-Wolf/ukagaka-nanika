@@ -195,23 +195,23 @@ OnNeedlePoke
 {
 	if reference0 == 1 //Flowey aka the Kero
 	{
-		"\1\s[17]\_v[bigdamage.wav]*Hey!\4 Watch it!!\w8\e"
+		"\1\s[17]%(bigdamage)*Hey!\4 Watch it!!\w8\e"
 		
-		"\1\s[17]\_v[bigdamage.wav]\w8\w8\s[19]*Do you mind?\4\e"
+		"\1\s[17]%(bigdamage)\w8\w8\s[19]*Do you mind?\4\e"
 		
-		"\1\s[19]\_v[slash.wav]\4*Nice try,\w4 %(username).\w8\e"
+		"\1\s[19]%(slashes)\4*Nice try,\w4 %(username).\w8\e"
 	}
 	else //0 aka Sakura / Frisk
 	{
-		"\0\s[4]\_v[pings.wav]*Frisk is flattered to be targetted by Needle.\w8\e"
+		"\0\s[4]%(pings)*Frisk is flattered to be targetted by Needle.\w8\e"
 		
-		"\0\s[1]\_v[pings.wav]*...\w8\w8 \n\n[half]\s[8]*Frisk attempts to flirt with Needle.\w8\e"
+		"\0\s[1]%(pings)*...\w8\w8 \n\n[half]\s[8]*Frisk attempts to flirt with Needle.\w8\e"
 		
-		"\0\s[3]\_v[damage.wav]*!!\w8\w8 \s[31]\n\n[half]*You needled Frisk.\w8\e"
+		"\0\s[3]%(regdamage)*!!\w8\w8 \s[31]\n\n[half]*You needled Frisk.\w8\e"
 		
-		"\0\s[3]\_v[damage.wav]\w8\w8\s[7]*Hey!\w8 Watch where you're pointing Needle,\w4 %(username)!\w8\e"
+		"\0\s[3]%(regdamage)\w8\w8\s[7]*Hey!\w8 Watch where you're pointing Needle,\w4 %(username)!\w8\e"
 		
-		"\0\s[6]\_v[slash.wav]\w8\_v[pings.wav]\w8\w8\s[5]*Looks like a clash of swords.\w8\e"
+		"\0\s[6]%(slashes)\w8%(pings)\w8\w8\s[5]*Looks like a clash of swords.\w8\e"
 	}
 }
 

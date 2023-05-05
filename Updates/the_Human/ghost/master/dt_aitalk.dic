@@ -65,7 +65,7 @@ RandomTalk : nonoverlap_pool
 	
 	"\0\s[5]*Frisk enjoys being an ukagaka.\w8\e"
 	
-	"\0\s[2]\_v[new_message.wav]*Frisk taps %(their) finger against your computer screen.\w8\e"
+	"\0\s[2]%(phoneping)*Frisk taps %(their) finger against your computer screen.\w8\e"
 	
 	"\0\s[0]*Frisk enjoys the peace and quiet of your desktop.\w8\e"
 	
@@ -81,20 +81,18 @@ RandomTalk : nonoverlap_pool
 	
 	"\0\s[2]*Frisk wishes to remind you to take care of yourself,\w4 %(username).\w8 \n*Ater all,\w4 someone out there really cares about you.\w8\e"
 	
-	"\0\s[0]*.....\w8\w8\s[6]!\w6\s[-1]\w8\w8 \c*It seems that Frisk has spotted a Blue Switch behind your desktop screen.\w8 \w8\w8\w8\_v[kchak.wav]\w8\n\n\0\s[2]*%(Capitalize(they)) pressed it.\w8\e"
+	"\0\s[0]*.....\w8\w8\s[6]!\w6\s[-1]\w8\w8 \c*It seems that Frisk has spotted a Blue Switch behind your desktop screen.\w8 \w8\w8\w8%(clickbutton)\w8\n\n\0\s[2]*%(Capitalize(they)) pressed it.\w8\e"
 	
 	//took the Froggit idea from Sans sorry
-	"\1\_b[frog,110,88,centerxy]\0\s[1]*Frisk seems to have found a stray Froggit on your desktop.\w8\w8\w8 \s[8]\n\n[half]*%(Capitalize(they)) flirt.\w8\w8\w8 \s[5]\n\n[half]*The Froggit is too flattered.\w8 \1\b[-1]\0\s[4]\_v[save_point.wav]\n*It has to leave.\w8\e"
+	"\1\_b[frog,110,88,centerxy]\0\s[1]*Frisk seems to have found a stray Froggit on your desktop.\w8\w8\w8 \s[8]\n\n[half]*%(Capitalize(they)) flirt.\w8\w8\w8 \s[5]\n\n[half]*The Froggit is too flattered.\w8 \1\b[-1]\0\s[4]%(savebling)\n*It has to leave.\w8\e"
 	
-	"\1\_b[yes.png,50,50,centerxy]\_v[dog_bark.wav]\w8\w8 \0\s[5]*It's Dog time!\w8\w8\e"
+	"\1\_b[yes.png,50,50,centerxy]%(dogbark)\w8\w8 \0\s[5]*It's Dog time!\w8\w8\e"
 	
-	"\1\_b[yes.png,50,50,centerxy]\_v[dog_yap.wav]\w8\w8 \0\s[5]*It's Dog time!\w8\w8\e"
+	"\1\_b[yes.png,50,50,centerxy]%(dogyap)\w8\w8 \0\s[5]*It's Dog time!\w8\w8\e"
 	
-	"\1\_b[HEISHERE.png,50,50,centerxy]\_v[dog_yap.wav]\w8\w8 \0\s[5]*It's Dog time!\w8\w8\e"
+	"\1\_b[HEISHERE.png,50,50,centerxy]%(dogyap)\w8\w8 \0\s[5]*It's Dog time!\w8\w8\e"
 	
-	"\1\_b[HEISHERE.png,50,50,centerxy]\_v[dog_bark.wav]\w8\w8 \0\s[5]*It's Dog time!\w8\w8\e"
-	
-	"\1\s[11]\0\s[1]*It appears Flowey is poking about %(usersfolder).\w2.\w2.\w2\w8\e"
+	"\1\_b[HEISHERE.png,50,50,centerxy]%(dogbark)\w8\w8 \0\s[5]*It's Dog time!\w8\w8\e"
 	
 	"\0\s[1]*Sans might take an interest in the contents of %(usersfolder).\w2.\w2.\w2\w8\e"
 	
@@ -104,15 +102,15 @@ RandomTalk : nonoverlap_pool
 	
 	"\0\s[2]\_v[slide_whistle.wav]\w8\w8\w8\s[5]*Looks like Frisk found a slide whistle.\w8\e"
 	
-	"\0\s[6]\w8\w8*Frisk notices it's about time for %(mttnetwork[0]) \s[2]\_v[open_phone.wav]and pulls out %(their) phone to watch it.\w8\e"
+	"\0\s[6]\w8\w8*Frisk notices it's about time for %(mttnetwork[0]) \s[2]%(phoneopen)and pulls out %(their) phone to watch it.\w8\e"
 	
 	"\0\s[6]*Frisk wonders if Papyrus or Alphys has caught the latest episode of %(mttnetwork[0]).\w8\e"
 	
-	"\0\s[0]\_v[open_phone.wav]*Frisk pulls out %(their) phone and clears out \s[1]%(randnumb) new status updates from Alphys.\w8\e"
+	"\0\s[0]%(phoneopen)*Frisk pulls out %(their) phone and clears out \s[1]%(randnumb) new status updates from Alphys.\w8\e"
 	
-	"\0\s[2]\_v[phone_call.wav]*Frisk calls %(callfriend) for a quick chat.\w8 \n*You're unsure of how %(they) do that without talking.\w8\e"
+	"\0\s[2]%(phonecall)*Frisk calls %(callfriend) for a quick chat.\w8 \n*You're unsure of how %(they) do that without talking.\w8\e"
 	
-	"\0\s[2]\_v[phone_call.wav]*Frisk calls %(callfriend) \s[8]to flirt.\w8 \n*You're unsure of how %(they) do that without speaking.\w8\e"
+	"\0\s[2]%(phonecall)*Frisk calls %(callfriend) \s[8]to flirt.\w8 \n*You're unsure of how %(they) do that without speaking.\w8\e"
 	
 	
 	//--Chains
@@ -150,11 +148,26 @@ RandomTalk : nonoverlap_pool
 	}
 	
 	
+	//FLOWEY APPEARANCES
+	if guests == 1 //on
+	{
+		"\1\s[11]\0\s[1]*It appears Flowey is poking about %(usersfolder)...\w8\e"
+		
+		if noisybab == 1
+		{
+			"\0\s[5]\w8\w8*Frisk wants you to hear %(their) impression of Flowey.\w8 \s[2]\n\n[half]*Wait for it...\w8\w8 \s[6]\1\s[17]\![sound,play,floweylaugh.wav]\w8\w8\w8\w8\0\s[3]\1\w8\w8\w8\w8\w8\w8\s[-1]\0\s[31]\n\n[half]*...\w8\w8gosh dang it,\w4 Flowey.\w8\e"
+		}
+		
+		//""
+	}
+	
+	
+	//SHELL TALK
 	if nowshell == "scribblefrisk"
 	{
 		"\0\s[2]*Frisk enjoys %(their) sweater.\w8 \n\s[0]*Has it been colder than usual where you are,\w4 too,\w4 %(username)?\w8\e"
 		
-		"\0\s[4]\_v[select_blip.wav]*Frisk boops %(their) own nose.\w8\e"
+		"\0\s[4]%(selectblip)*Frisk boops %(their) own nose.\w8\e"
 	}
 	if nowshell == "master"
 	{
@@ -173,6 +186,8 @@ RandomTalk : nonoverlap_pool
 		//"\0\s[0]*Specific shell dialogue goes here.\w8\e"
 	//}
 	
+	
+	//TIME ELAPSED
 	if passmin >= 30
 	{
 		"\0\s[2]*Frisk reminds you to take a break every now and again,\w4 %(username).\w8 \n*Get up and stretch,\w4 drink a glass of water,\w4 and eat a snack if you have to.\w8\e"
@@ -189,7 +204,7 @@ RandomTalk : nonoverlap_pool
 		
 		"\0\s[1]*Frisk would like to remind you to be kind to your electronics,\w4 %(username).\w8 \n\s[2]*They may not be as fabulous as Mettaton,\w4 but they're still pretty great.\w8\e"
 		
-		"\0\s[0]*Frisk is unsure of how to feel about the amount of tabs open on your browser.\w2.\w2.\w2\w8\e"
+		"\0\s[0]*Frisk is unsure of how to feel about the amount of tabs open on your browser...\w8\e"
 		
 		"\0\s[6]*Frisk is curious as to what you could be doing for three hours that you'd leave %(them) open for three hours.\w8\e"
 	}
@@ -204,7 +219,7 @@ RandomTalk : nonoverlap_pool
 		
 		"\0\s[2]*Frisk is happy to be your birthday companion \s[5]and offers you a big smile.\w8\e"
 		
-		"\0\s[2]\_v[phone_call.wav]\w8\w8\w8*Looks like Frisk is calling you,\w4 %(username).\w8 \n\n[half]\s[5]*Happy Birthday!\w8\e"
+		"\0\s[2]%(phonecall)\w8\w8\w8*Looks like Frisk is calling you,\w4 %(username).\w8 \n\n[half]\s[5]*Happy Birthday!\w8\e"
 		
 		"\0\s[4]*Frisk is pleased to be your friend today,\w4 %(username).\w8\e"
 	}
@@ -262,9 +277,9 @@ RandomTalk : nonoverlap_pool
 		
 		"\0\s[8]*Frisk thinks this is the perfect season for some hot dog balancing.\w8\e"
 		
-		"\0\s[2]\_v[hit_poodles_restored.wav]\w8\w8\w8\s[5]*Looks like Frisk is restoring some hit poodles.\w8\e"
+		"\0\s[2]%(hitpoodles)\w8\w8\w8\s[5]*Looks like Frisk is restoring some hit poodles.\w8\e"
 		
-		"\0\s[6]\_v[dog_meow.wav]\w8\w8\w8\s[21]*It seems Frisk was surprised by the hot cat.\w8\e"
+		"\0\s[6]%(meowpoints)\w8\w8\w8\s[21]*It seems Frisk was surprised by the hot cat.\w8\e"
 	}
 	if month == 7
 	{
@@ -354,7 +369,7 @@ RandomTalk : nonoverlap_pool
 		
 		"\0\s[2]*Frisk is thinking about one of Papyrus' famed Wednesday musings.\w8\e"
 		
-		"\0\s[2]*Frisk hopes your Wednesday is going well for you,\w4 %(username).\w8 \s[5]\n\n[half]Keep it up!\w8 \s[8]You can do it!\w8\e"
+		"\0\s[2]*Frisk hopes your Wednesday is going well for you,\w4 %(username).\w8 \s[5]\n\n[half]*Keep it up!\w8 \s[8]You can do it!\w8\e"
 	}
 	if weekday == 4
 	{
@@ -370,7 +385,7 @@ RandomTalk : nonoverlap_pool
 		
 		"\0\s[2]*While Toriel loves Fridays,\w8 \s[1]she is always a bit sad to leave her class for the weekend.\w8\e"
 		
-		"\0\s[5]*Frisk is excited to hear about what sort of party Toriel will attend this time.\w8\e"
+		"\0\s[5]*Frisk is excited to hear about what sort of party Toriel will attend this Friday.\w8\e"
 		
 		"\0\s[2]*Baking pies and sitting in are perfect Friday activities.\w8 \n\n[half]*At least,\w4 if you're not out there partying it up,\w4 that is.\w8\e"
 	}
@@ -382,7 +397,7 @@ RandomTalk : nonoverlap_pool
 		
 		"\0\s[2]*Frisk would like to know how your Saturday is going so far,\w4 %(username).\w8 \s[5]\n*Perhaps you'd like to join %(them) and Undyne for some yoga?\w8\e"
 	}
-	if weekday == 7
+	if weekday == 0
 	{
 		"\0\s[2]*Asgore usually sets up a nice tea party for everyone on Sundays.\w8 \n\n[half]*How do you spend yours,\w4 %(username)?\w8\e"
 		
@@ -407,19 +422,19 @@ RandomTalk : nonoverlap_pool
 		
 		"\0\s[2]*Make sure not to forget your breakfast,\w4 %(username).\w8\e"
 		
-		"\0\s[2]\_v[hp_restore.wav]*Frisk enjoys %(them)self %(monsterfood) as a small snack.\w8\e"
+		"\0\s[2]%(hprestore)*Frisk enjoys %(them)self %(monsterfood) as a small snack.\w8\e"
 		
-		"\0\s[2]*Frisk sips at %(monsterdrink),\w4 \_v[gulp.wav]\s[8]hoping you'll take the hint.\w8\e"
+		"\0\s[2]*Frisk sips at %(monsterdrink),\w4 %(gulps)\s[8]hoping you'll take the hint.\w8\e"
 		
-		"\0\s[0]*Frisk takes a sip of %(their) %(monsterdrink),\w4 \_v[gulp.wav]\s[2]hoping you'll do the same.\w8\e"
+		"\0\s[0]*Frisk takes a sip of %(their) %(monsterdrink),\w4 %(gulps)\s[2]hoping you'll do the same.\w8\e"
 		
 		"\0\s[5]*Frisk hopes you're greeting the day with gusto,\w4 %(username)!\w8\e"
 	}
 	if timeslot == "lunch" //pm12 to pm2
 	{
-		"\0\s[2]\_v[hp_restore.wav]*Frisk snacks on %(monsterfood) as a treat.\w8 \n\n[half]*Did you have anything to eat yet,\w4 %(username)?\w8\e"
+		"\0\s[2]%(hprestore)*Frisk snacks on %(monsterfood) as a treat.\w8 \n\n[half]*Did you have anything to eat yet,\w4 %(username)?\w8\e"
 		
-		"\0\s[2]*Frisk takes a sip of %(monsterdrink).\w8 \_v[gulp.wav]\n\n[half]*%(Capitalize(they)) hope you'll remember to take care of yourself,\w4 too,\w4 %(username).\w8\e"
+		"\0\s[2]*Frisk takes a sip of %(monsterdrink).\w8 %(gulps)\n\n[half]*%(Capitalize(they)) hope you'll remember to take care of yourself,\w4 too,\w4 %(username).\w8\e"
 		
 		{
 			"\0\s[5]*It's lunch time!\w8 "
@@ -488,13 +503,13 @@ RandomTalk : nonoverlap_pool
 	"\0\s[0]*Frisk pulls out "
 	--
 	"%(monsterfood) and nibbles on it.\w8"
-	"\_v[gulp.wav]%(monsterdrink) and sips quietly.\w8"
+	"%(gulps)%(monsterdrink) and sips quietly.\w8"
 	--
-	"\n\n*\![set,balloonwait,3].......\![set,balloonwait,1]\w2\w8\w8"
+	"\n\n*\![set,balloonwait,3].......\![set,balloonwait,1]\w2\w8\w8%(hprestore)"
 	--
-	"\_v[hp_restore.wav]\s[4]\n*HP fully restored!"
-	"\_v[hp_restore.wav]\s[5]\n*HP was maxed out!"
-	"\_v[hp_restore.wav]\s[2]\n*HP maxed out!"
+	"\s[4]\n*HP fully restored!"
+	"\s[5]\n*HP was maxed out!"
+	"\s[2]\n*HP maxed out!"
 	--
 	"\w8\w8\e"
 	}
@@ -512,25 +527,25 @@ RandomTalk : nonoverlap_pool
 	{
 	"\0\s[0]*Frisk takes out a package of instant noodles"
 	--
-	"\t and a pot for boiling water.\w8 \s[2]%(Capitalize(they)) put the pot on a small burner and start the process.\w8 \n\n[half]\![set,balloonwait,8]*..........\![set,balloonwait,1]\w8\w8\w8 \n\n[half]\_v[slide_whistle.wav]*The water's boiling.\w8\w8 \c\0\s[0]*Frisk puts the noodles in the pot.\w8\w8\w8\w8 \c*Three minutes\w8\w8 until\w8\w8 the noodles\w8\w8 are ready.\w8\w8\w8 \c*Two minutes\w8\w8 until\w8\w8 the noodles\w8\w8 are ready.\w8\w8\w8 \c\0\s[1]*One minute\w8\w8 until\w8\w8 the noodles\w8\w8 are ready.\w8\w8\w8\w8 \c\0\s[5]*The noodles\w8\w8 are ready.\w8\w8\w8 \c\0\s[3]*They don't taste very good.\w2.\w2.\w2\w8 \n\s[0]*Frisk adds the flavour packet.\w8 \n\n[half]*That's better.\w8 \n\s[1]*Not great,\w8 \s[0]but better.\w8\w8\w8"
+	"\t and a pot for boiling water.\w8 \s[2]%(Capitalize(they)) put the pot on a small burner and start the process.\w8 \n\n[half]\![set,balloonwait,8]*..........\![set,balloonwait,1]\w8\w8\w8 \n\n[half]%(slidewhistle)*The water's boiling.\w8\w8 \c\0\s[0]*Frisk puts the noodles in the pot.\w8\w8\w8\w8 \c*Three minutes\w8\w8 until\w8\w8 the noodles\w8\w8 are ready.\w8\w8\w8 \c*Two minutes\w8\w8 until\w8\w8 the noodles\w8\w8 are ready.\w8\w8\w8 \c\0\s[1]*One minute\w8\w8 until\w8\w8 the noodles\w8\w8 are ready.\w8\w8\w8\w8 \c\0\s[5]*The noodles\w8\w8 are ready.\w8\w8\w8 \c\0\s[3]*They don't taste very good.\w2.\w2.\w2\w8 \n\s[0]*Frisk adds the flavour packet.\w8 \n\n[half]*That's better.\w8 \n\s[1]*Not great,\w8 \s[0]but better.\w8\w8\w8"
 	" and cooks them carefully in boiling water for three minutes.\w8\w8"
 	"\s[1] and it takes %(randnumb) minutes to cook them.\w8\w8"
 	".\w2.\w2.\w2and eats them.\w8\w8 \n*.\w2.\w2.\w2.\w2.\w2.\w2\w8\w8 \n\s[7]*They're better dry,\w4 anyway.\w8\w8"
 	--
-	"\c*\![set,balloonwait,3].......\![set,balloonwait,1]\w8"
+	"\c*\![set,balloonwait,3].......\![set,balloonwait,1]\w8%(hprestore)"
 	--
-	"\n\n\_v[hp_restore.wav]\s[2]*HP maxed out!"
-	"\n\n\_v[hp_restore.wav]\s[5]*HP fully restored!"
-	"\n\n\_v[hp_restore.wav]\s[0]*Frisk recovered 3 HP."
-	"\n\n\_v[hp_restore.wav]\s[1]*Frisk recovered 4 HP."
-	"\n\n\_v[hp_restore.wav]\s[4]*Frisk recovered 7 HP."
-	"\n\n\_v[hp_restore.wav]\s[2]*Frisk recovered 8 HP."
+	"\n\n\s[2]*HP maxed out!"
+	"\n\n\s[5]*HP fully restored!"
+	"\n\n\s[0]*Frisk recovered 3 HP."
+	"\n\n\s[1]*Frisk recovered 4 HP."
+	"\n\n\s[4]*Frisk recovered 7 HP."
+	"\n\n\s[2]*Frisk recovered 8 HP."
 	--
 	"\w8\e"
 	}
 	
 	{
-	"\0\s[0]\_v[phone_call.wav]*Frisk calls up Papyrus"
+	"\0\s[0]%(phonecall)*Frisk calls up Papyrus"
 	--
 	" to ask for some puzzle help."
 	"\s[5] to say hi."
@@ -551,7 +566,7 @@ RandomTalk : nonoverlap_pool
 	}
 	
 	{
-	"\0\s[0]\_v[phone_call.wav]*Frisk calls up Toriel"
+	"\0\s[0]%(phonecall)*Frisk calls up Toriel"
 	--
 	"\s[5] to say hi."
 	"\s[2] to say hello."
@@ -566,7 +581,7 @@ RandomTalk : nonoverlap_pool
 	"\w8.\w8.\w8.\w8 \s[3]\n*But nobody came."
 	"\w8.\w8.\w8.\w8 \s[31]\n*But nobody came."
 	"\w8.\w8.\w8.\w8 \s[7]\n*All %(they) can hear is the gentle snoring of a dog."
-	"\w8.\w8.\w8.\w8 \s[7]\n\_v[dog_yap.wav]*Small barks are the only answer."
+	"\w8.\w8.\w8.\w8 \s[7]\n%(dogyap)*Small barks are the only answer."
 	".\w8 \n*Smells like pie."
 	//".\w8 \n*Smells like DEAD GOAT MOM."
 	--
@@ -574,7 +589,7 @@ RandomTalk : nonoverlap_pool
 	}
 	
 	{
-	"\0\s[0]\_v[phone_call.wav]*Frisk calls up Undyne"
+	"\0\s[0]%(phonecall)*Frisk calls up Undyne"
 	--
 	" to ask for information about Waterfall."
 	"\s[2] to ask how her letter writing is going."
@@ -591,7 +606,7 @@ RandomTalk : nonoverlap_pool
 	}
 	
 	{
-	"\0\s[0]\_v[phone_call.wav]*Frisk gets a call from %(callfriend).\w8 \n*\![set,balloonwait,3].......\![set,balloonwait,1]\w8 \n"
+	"\0\s[0]%(phonecall)*Frisk gets a call from %(callfriend).\w8 \n*\![set,balloonwait,3].......\![set,balloonwait,1]\w8 \n"
 	--
 	"\s[2]*It makes %(them) smile."
 	"\s[5]*It makes %(them) laugh."
@@ -601,18 +616,18 @@ RandomTalk : nonoverlap_pool
 	}
 	
 	{
-	"\0\s[0]*Frisk pulls out the %(item) to"
+	"\0\s[0]*Frisk pulls out the %(item) to %(selectclick)"
 	--
-	"\_v[select_click.wav] CHECK it."
-	"\_v[select_click.wav] quickly CHECK it."
-	"\_v[select_click.wav] get its INFO."
-	"\_v[select_click.wav] use it."
+	"CHECK it."
+	"quickly CHECK it."
+	"get its INFO."
+	"use it."
 	--
 	"\w8\w8\e"
 	}
 	
 	{
-	"\0\s[0]\_v[open_phone.wav]*Frisk opens up %(their) dimensional boxes to"
+	"\0\s[0]%(phoneopen)*Frisk opens up %(their) dimensional boxes to"
 	--
 	" shift around some items."
 	" shift around the %(item) and the %(item)."
@@ -622,7 +637,7 @@ RandomTalk : nonoverlap_pool
 	}
 	
 	{
-	"\0\s[0]\_v[open_phone.wav]*Frisk accesses %(their) dimensional boxes using %(their) phone"
+	"\0\s[0]%(phoneopen)*Frisk accesses %(their) dimensional boxes using %(their) phone"
 	--
 	" to put away the %(item)."
 	" and removes the %(item)."
@@ -632,7 +647,7 @@ RandomTalk : nonoverlap_pool
 	}
 	
 	{
-	"\0\s[0]\_v[open_phone.wav]*Frisk pulls the %(item) out of %(their) pocket and"
+	"\0\s[0]%(phoneopen)*Frisk pulls the %(item) out of %(their) pocket and"
 	--
 	" places it into %(their) first dimensional box."
 	" places it into %(their) second dimensional box."
@@ -658,13 +673,13 @@ RandomTalk : nonoverlap_pool
 	{
 	"\0\s[0]*Frisk finds a %(item) and"
 	--
-	"\_v[select_blip.wav] picks it up, placing it in %(their) pocket."
+	"%(selectblip) picks it up, placing it in %(their) pocket."
 	" picks it up."
 	" tries picking it up...\w8 \n\s[1]*But is carrying too many items."
-	" tries to pick it up...\w8 \n\s[7]\_v[dog_bark.wav]*But is carrying too many dogs."
+	" tries to pick it up...\w8 \n\s[7]%(dogbark)*But is carrying too many dogs."
 	"\s[7] kicks it into %(username)'s Recycling Bin."
-	"\s[5]\_v[hp_restore.wav] immediately shoves it into %(their) mouth."
-	"\s[2]\_v[slide_whistle.wav] uses it immediately."
+	"\s[5]%(hprestore) immediately shoves it into %(their) mouth."
+	"\s[2]%(slidewhistle) uses it immediately."
 	--
 	"\w8\w8\e"
 	}
@@ -672,25 +687,25 @@ RandomTalk : nonoverlap_pool
 	{
 	"\0\s[0]*Frisk "
 	--
-	"\_v[select_click.wav]pulls out the %(item) to CHECK it."
-	"\_v[select_click.wav]pulls out the %(item) to quickly CHECK it."
-	"\_v[select_click.wav]pulls out the %(item) to get its INFO."
-	"\_v[open_phone.wav]opens up %(their) dimensional boxes to shift around some items."
-	"\_v[open_phone.wav]opens up %(their) dimensional boxes to shift around the %(item) and the %(item)."
-	"\_v[open_phone.wav]opens up %(their) dimensional boxes to swap around the %(item) and the %(item)."
-	"\_v[open_phone.wav]accesses %(their) dimensional boxes using %(their) phone to put away the %(item)."
-	"\_v[open_phone.wav]accesses %(their) dimensional boxes using %(their) phone and removes the %(item)."
-	"\_v[open_phone.wav]accesses %(their) dimensional boxes using %(their) phone and removes the %(item) to put in %(their) pocket."
-	"pulls the %(item) out of %(their) pocket and \_v[open phone.wav]places it into %(their) first dimensional box."
-	"pulls the %(item) out of %(their) pocket and \_v[open phone.wav]places it into %(their) second dimensional box."
+	"%(selectclick)pulls out the %(item) to CHECK it."
+	"%(selectclick)pulls out the %(item) to quickly CHECK it."
+	"%(selectclick)pulls out the %(item) to get its INFO."
+	"%(phoneopen)opens up %(their) dimensional boxes to shift around some items."
+	"%(phoneopen)opens up %(their) dimensional boxes to shift around the %(item) and the %(item)."
+	"%(phoneopen)opens up %(their) dimensional boxes to swap around the %(item) and the %(item)."
+	"%(phoneopen)accesses %(their) dimensional boxes using %(their) phone to put away the %(item)."
+	"%(phoneopen)accesses %(their) dimensional boxes using %(their) phone and removes the %(item)."
+	"%(phoneopen)accesses %(their) dimensional boxes using %(their) phone and removes the %(item) to put in %(their) pocket."
+	"pulls the %(item) out of %(their) pocket and %(phoneopen)places it into %(their) first dimensional box."
+	"pulls the %(item) out of %(their) pocket and %(phoneopen)places it into %(their) second dimensional box."
 	"takes out the %(item) and drops it on your desktop."
 	"takes out the %(item) and puts it down on the taskbar, giving it a little pat."
 	"takes out the %(item) and places it in %(username)'s Recycling Bin."
 	"takes out the %(item) and tosses it offscreen."
-	"finds a %(item) and picks it up,\w4 \_v[select_blip.wav]placing it in %(their) pocket."
+	"finds a %(item) and picks it up,\w4 %(selectblip)placing it in %(their) pocket."
 	"finds a %(item) and picks it up."
 	"finds a %(item) and tries picking it up...\w8 \n\s[1]*But is carrying too many items."
-	"finds a %(item) and tries to pick it up...\w8 \n\s[7]\_v[dog_bark.wav]*But is carrying too many dogs."
+	"finds a %(item) and tries to pick it up...\w8 \n\s[7]%(dogbark)*But is carrying too many dogs."
 	--
 	"\w8\w8\e"
 	}
@@ -759,12 +774,7 @@ RandomTalk : nonoverlap_pool
 		
 		"\0\s[0]*Frisk hopes %(their) presence isn't making anyone nervous.\w8 \s[5]\n*That would be a real shame.\w8\e"
 		
-		{
-		""
-		"\_v[battleinitiate.wav]"
-		--
-		"\![raise,OnStartTalking]\e"
-		}
+		"%(startbattle)\![raise,OnStartTalking]\e"
 	}
 	//specific ghosts!
 	//if "sans" _in_ ghostexlist
@@ -814,8 +824,8 @@ RandomTalk : nonoverlap_pool
 		"\0\s[4]"
 		"\0\s[7]"
 		--
-		"\_v[battleSTART.wav]"
-		"\_v[battleinitiate.wav]"
+		"%(battleSTART)"
+		"%(startbattle)"
 		--
 		"*Frisk tries to start a battle with Needle.\w8\e"
 		}
@@ -850,18 +860,21 @@ RandomTalk : nonoverlap_pool
 	}
 	
 	
-	"\0\s[5]\w8\w8*Frisk wants you to hear %(their) impression of Sans.\w8 \s[2]\w8\w8\n*8Wait for it.\w8.\w8.\w8\w8 \c\s[5]\_v[sans.mp3]\w8*DDDDDDDD!\w8\w8\w8 \n\n[half]\s[4]*Frisk is satisfied.\w8\e"
-	
-	"\0\s[5]\w8\w8*Frisk wants you to hear %(their) impression of Papyrus.\w8 \s[2]\w8\n*Wait for it.\w8.\w8.\w8\w8 \c\s[5]\_v[paps.mp3]\w8*GAUGAUGAUGAU!\w8\w8\w8 \n\n[half]\s[4]*Frisk is satisfied.\w8\e"
-	
-	"\0\s[5]\w8\w8*Frisk wants you to hear %(their) impression of Flowey.\w8 \s[2]\n\n[half]*Wait for it...\w8\w8 \s[6]\1\s[17]\_v[floweylaugh.wav]\w8\w8\w8\w8\0\s[3]\1\w8\w8\w8\w8\w8\w8\s[-1]\0\s[31]\n\n[half]*...\w8\w8gosh dang it,\w4 Flowey.\w8\e"
+	if noisybab == 1
+	{
+		"\0\s[5]\w8\w8*Frisk wants you to hear %(their) impression of Sans.\w8 \s[2]\w8\w8\n*8Wait for it.\w8.\w8.\w8\w8 \c\s[5]\![sound,play,sans.mp3]\w8*DDDDDDDD!\w8\w8\w8 \n\n[half]\s[4]*Frisk is satisfied.\w8\e"
+		
+		"\0\s[5]\w8\w8*Frisk wants you to hear %(their) impression of Papyrus.\w8 \s[2]\w8\n*Wait for it.\w8.\w8.\w8\w8 \c\s[5]\![sound,play,paps.mp3]\w8*GAUGAUGAUGAU!\w8\w8\w8 \n\n[half]\s[4]*Frisk is satisfied.\w8\e"
+		
+		//Flowey here
+		
+		//Undyne
+		//Alphys
+		//Toriel
+		//Asgore
+	}
 	
 	"\0\s[2]\w8\w8\w8\w8\s[5]*Frisk is waiting for your impression of a human.\w8\e"
-	
-	//Undyne
-	//Alphys
-	//Toriel
-	//Asgore
 	
 	//IT IS DONE.
 }
@@ -903,12 +916,12 @@ snowpoff2
 
 snowpoff3
 {{CHAIN
-	"\1\_b[dogpoff.png,50,50,centerxy]\0\s[6]*\w5Huh?\w8 \_v[dog_boof.wav]\w8\w8 \n\s[5]*It's actually Greater Dog and not a snowpoff at all.\w8 \n\s[2]*Frisk seems relieved by this.\w8\e:chain=end"
+	"\1\_b[dogpoff.png,50,50,centerxy]\0\s[6]*\w5Huh?\w8 %(dogboof)\w8\w8 \n\s[5]*It's actually Greater Dog and not a snowpoff at all.\w8 \n\s[2]*Frisk seems relieved by this.\w8\e:chain=end"
 }}CHAIN
 
 snowpoff7
 {{CHAIN
-	"\1\_b[dogpoff.png,50,50,centerxy]\0\s[6]*\w5Huh?\w8\w3 \_v[dog_yap.wav]\w8\_v[dog_yap.wav]\w8 \n\s[5]*It's actually Greater Dog and not a snowpoff at all.\w8 \n\s[2]*Frisk seems relieved by this.\w8\e:chain=end"
+	"\1\_b[dogpoff.png,50,50,centerxy]\0\s[6]*\w5Huh?\w8\w3 %(dogyap)\w8%(dogyap)\w8 \n\s[5]*It's actually Greater Dog and not a snowpoff at all.\w8 \n\s[2]*Frisk seems relieved by this.\w8\e:chain=end"
 }}CHAIN
 
 
@@ -998,26 +1011,37 @@ OnMinuteChange
 	--
  	if minute == 0
 	{
-		if hour == 12 //noon time
+		if hourchecks == 1 //on
 		{
-			"\0*It's noon.\w8\e"
-			
-			"\0*It's 12'o clock,\w4 noon.\w8\e"
+			if hour == 12 //noon time
+			{
+				"\0*It's noon.\w8\e"
+				
+				"\0*It's 12'o clock,\w4 noon.\w8\e"
+				
+				"\0*It's noon'o clock.\w8\e"
+			}
+			elseif hour == 0 //midnight time
+			{
+				"\0*It's midnight.\w8\e"
+				
+				"\0*It's 12'o clock,\w4 midnight.\w8\e"
+				
+				"\0*It's midnight'o clock.\w8\e"
+			}
+			else
+			{
+				"\0*It's %(hour12)'o clock.\e"
+			}
 		}
- 		elseif hour == 0 //midnight time
+		else //0; off
 		{
-			"\0*It's midnight.\w8\e"
-			
-			"\0*It's 12'o clock,\w4 midnight.\w8\e"
-		}
-		else
-		{
-			"\0*It's %(hour12)'o clock.\e"
+			""
 		}
 	}
 	elseif mikireflag == 1
- 	{
- 		MikireTalk
+	{
+		MikireTalk
 	}
 }
 
