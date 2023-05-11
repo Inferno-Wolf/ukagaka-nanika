@@ -153,7 +153,7 @@ OnInstallComplete
 		
 		"\0\s[5]*%(reference1)!\w8 \n\s[2]*Would you like Frisk to call or switch to %(reference1),\w4 %(username)?\w8"
 		--
-		"\*\n\n\![*]\q[Call %(reference1),CallGhost] \n\![*]\q[Change to %(reference1),ChangeToGhost] \n\n[half]\![*]\q[No thanks,cancelnodialogue]\e"
+		"\*\n\n\![*]\q[Call %(reference1),CallGhost] \n\![*]\q[Change to %(reference1),ChangeToGhost] \n\n[half]\![*]\q[No action needed,cancelnodialogue]\e"
  	}
 	elseif reference0 == "shell"
  	{

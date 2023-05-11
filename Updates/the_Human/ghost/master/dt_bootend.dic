@@ -31,7 +31,7 @@ OnFirstBoot
 	
 	if reference0 == 0 
  	{
-		"\t\*\1\s[10]\0\s[0]\![set,balloonwait,3]...\![set,balloonwait,1]\w8\s[6]!\w8 \n\n[half]*Frisk has noticed your presence.\w8\w8\w8\w8 \n\n[half]\s[2]*They would like to thank you for giving them such a nice place to stay.\w8 They will do their best to keep you company while they are here.\w8 \x\0\s[0]\b2*However,\w4 they would first like to get acquainted with you.\w8 \s[2]Their name is Frisk and they use the gender neutral pronouns they/them/their.\w8\w8 \s[7]\n*(Note that this can be changed later in thier menu to suit your preferences.)\w8\w8 \s[5]\n\n[half]*They ask what your preferred pronouns are.\w5"
+		"\t\*\1\s[10]\0\s[0]*\![set,balloonwait,3]...\![set,balloonwait,1]\w8\s[6]!\w8 \n\n[half]*Frisk has noticed your presence.\w8\w8\w8\w8 \n\n[half]\s[2]*They would like to thank you for giving them such a nice place to stay.\w8 They will do their best to keep you company while they are here.\w8 \x\0\s[0]\b2*However,\w4 they would first like to get acquainted with you.\w8 \s[2]Their name is Frisk and they use the gender neutral pronouns they/them/their.\w8\w8 \s[7]\n*(Note that this can be changed later in thier menu to suit your preferences.)\w8\w8 \s[5]\n\n[half]*They ask what your preferred pronouns are.\w5"
 		--
 		"\n\n[half]\_q\![*]\q[He-His-Him,OnPronoTeach,masc] \n\![*]\q[She-Her-Her,OnPronoTeach,femm] \n\![*]\q[They-Their-Them,OnPronoTeach,neit] \n\![*]\q[He-They Mix,OnPronoTeach,heth] \n\![*]\q[She-They Mix,OnPronoTeach,sheth] \n\![*]\q[He-She Mix,OnPronoTeach,undef] \n\![*]\q[It-Its-It,OnPronoTeach,itit] \n\n[half]\![*]\q[I have my own,OnPronoTeach,both]\e"
  	}
@@ -679,7 +679,7 @@ OnGhostChanging
 	{
 		"\0\s[6]*Another scientist...?\w8 \s[2]But a human one!\w8\e"
 		
-		"\0\s[2]Don't starve out there,\w4 %(username)!\w8\e"
+		"\0\s[2]*Don't starve out there,\w4 %(username)!\w8\e"
 		
 		"\0\s[1]*Frisk hopes Wilson can rest easy on your desktop...\w8\e"
 	}
@@ -1383,7 +1383,7 @@ OnGhostChanged
 	}
 	elseif reference0 == "sans"
 	{
-		"\0\s[]5*Frisk has returned!\w8 \s[2]\n\n[half]*Did you have a fun time with Sans and his puns,\w4 %(username)?\w8\e"
+		"\0\s[5]*Frisk has returned!\w8 \s[2]\n\n[half]*Did you have a fun time with Sans and his puns,\w4 %(username)?\w8\e"
 		
 		"\0\s[6]*Oh!\w8 \n\n[half]\s[2]Hello,\w4 %(username).\w8 \n*Did you enjoy your time with Sans?\w8\e"
 		
@@ -2198,7 +2198,7 @@ OnGhostChanged
 	}
 	elseif reference0 == "Mole"
 	{
-		"\0\s[0]Goodbye,\w4 hunters.\w8 \s[2]\n\n[half]*And hello to you,\w4 %(username).\w8\e"
+		"\0\s[0]*Goodbye,\w4 hunters.\w8 \s[2]\n\n[half]*And hello to you,\w4 %(username).\w8\e"
 		
 		"\0\s[0]*Frisk may not be a monster or a hunter of monsters,\w4 \s[8]but %(they) can provide you company just the same.\w8\e"
 		
