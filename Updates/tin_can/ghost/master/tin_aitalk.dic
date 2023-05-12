@@ -1,0 +1,151 @@
+OnAiTalk
+{
+	if CHAIN.IDName == ""
+	{
+		LastTalk = RandomTalk
+	}
+	else
+	{
+		LastTalk = ChainTalk
+	}
+	LastTalk
+}
+
+RandomTalk : nonoverlap_pool
+{
+	""
+	
+	if timeslot == "earlymorning" //hour >= 5 && hour <= 8
+	{
+		"(Mystery can...)"
+		
+		"(Wondering what it holds.)"
+		
+		"(There's no knowing what's inside.)"
+		
+		"(Too dark to see.)"
+	}
+	if timeslot == "morning" //hour >= 9 && hour <= 11
+	{
+		"(Can to start the day?)"
+		
+		"(Need some %(canfood) for the day.)"
+		
+		"(Holding something.)"
+		
+		"(Can't tell what's inside.)"
+	}
+	if timeslot == "lunch" //hour >= 12 && hour <= 14
+	{
+		"(Holding %(canfood).)"
+		
+		"(Desires %(canfood).)"
+		
+		"(Starving.)"
+		
+		"(It's %(canfood) again.)"
+	}
+	if timeslot == "afternoon" //hour >= 15 && hour <= 17
+	{
+		"(Past time for %(canfood).)"
+		
+		"(No longer holds %(canfood).)"
+		
+		"(Empty.)"
+		
+		"(Contents may surprise you.)"
+	}
+	if timeslot == "evening" //hour >= 18 && hour <= 20
+	{
+		"(Tapping out a tune.)"
+		
+		"(Contains traces of %(canfood).)"
+		
+		"(Produced in the same factory as %(canfood).)"
+		
+		"(Should not be consumed.)"
+	}
+	if timeslot == "night" //hour >= 21 && hour <= 24
+	{
+		"(Sounds of a glockenspiel.)"
+		
+		"(Goodnight.)"
+		
+		"(Out of time.)"
+		
+		"(Holding out a little longer.)"
+	}
+	if timeslot == "latenight" //hour >=0 && hour <=4
+	{
+		"(Past curfew.)"
+		
+		"(Ring ring ring.)"
+		
+		"(No games for you.)"
+		
+		"(No more surprises.)"
+	}
+	
+	""
+}
+
+
+//time keeping
+HourCheck
+{
+	if passmin >= 59
+	{
+		passmin = 0
+		passhour = passhour + 1
+	}
+}
+
+OnMinuteChange
+{
+	HourCheck
+	--
+ 	if minute == 0
+	{
+		if hour == 12 //noon time
+		{
+			"\0\s[0]"
+			--
+			"(Could be %(canfood).)"
+			
+			"(Could it be %(canfood)?)"
+			
+			"(Might be %(canfood).)"
+			
+			"(Want some %(canfood)?)"
+			--
+			"\w8\e"
+		}
+		elseif hour == 0 //midnight time
+		{
+			"\0\s[0]"
+			--
+			"(Can't open.)"
+			
+			"(Can't have it.)"
+			
+			"(Not allowed.)"
+			
+			"(There's no opening.)"
+			--
+			"\w8\e"
+		}
+	}
+}
+
+OnSecondChange
+{
+	if passsec == 59
+ 	{
+	 	passsec = 0
+ 		passmin = passmin + 1
+	}
+ 	else
+ 	{
+	 	passsec = passsec + 1
+	}
+}

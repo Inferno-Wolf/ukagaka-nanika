@@ -1,0 +1,18 @@
+charset,UTF-8
+
+name,Presentable Can
+type,ghost
+
+shiori,yaya.dll
+
+craftman,KFC
+craftmanurl,http://www.characteroulette.tumblr.com/
+
+sakura.name,Tin Can
+kero.name,Money
+
+icon,icon.ico
+
+sstp.allowunspecifiedsend,0
+
+balloon,Presentable Balloon

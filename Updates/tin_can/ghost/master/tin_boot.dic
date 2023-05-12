@@ -1,0 +1,212 @@
+//--Bootend--
+// \![raise,OnFirstBoot]
+
+
+OnFirstBoot
+{
+	passhour = 0
+	passmin = 0
+	passsec = 0
+	aitalkinterval = 600
+	stroke = 0
+	LastTalk = ""
+	ting = 0
+	mode = 0
+	
+	"\1\s[10]\0\s[0](...)\w8\w8\w8\w8 \n\n(It's a tin can.)\w8\w8\w8\w8\e"
+}
+
+OnInitialize
+{
+	//If you want some variables to reset on boot, put them here. This event will happen even if you add other events like OnGhostChanged
+	//OnInitialize is a NOTIFY event! That means it cannot return scripts. This event is only meant for things like variable changes. See this page on Ukadoc for more info: https://ukagakadreamteam.github.io/ukadoc/manual/spec_shiori3.html
+	
+	//If you add new variables in updates, I recommend initializing them like so:
+	//if !ISVAR("NewVariable"); NewVariable = 0
+	//This means that it will only set the new variable if the user doesn't already have it, so that their variables don't get overwritten
+	
+	if reference0 != "reload" //For things you want to reset EXCEPT when just reloading; a convenience for you the dev, basically
+	{
+		LastTalk = ""
+	}
+}
+
+OnBoot
+{
+	_temp = SPLIT(SHIORI3FW.UserBirthday,":")
+	_user_birthday = "%(_temp[2])/%(_temp)[1]" // D/M 
+	_today = "%(_day)/%(_month)"
+	
+	"\1\s[10]\0\s[0]"
+	--
+	if _today == _user_birthday
+	{
+		"(Looks like %(canfood) today.)"
+		
+		"(Lucky %(canfood).)"
+	}
+	/*
+	elseif _today == "1/1" //You can add whatever cool dates you want with more elseifs here
+	{
+		"\0\s[0]It's new year's day.\w8 Happy %(year),\w4 %(username)."
+	}
+	*/
+	else //Normal boot
+	{
+		"(Can here.)"
+		
+		"(It's a tin can.)"
+		
+		"(Wish you had a can opener.)"
+		
+		"(Tin can for you.)"
+		
+		"(It's out of your pantry.)"
+		
+		"(It's out of your cupboard.)"
+		
+		"(It's out.)"
+	}
+	--
+	"\w8\e"
+}
+
+OnClose
+{
+	"\0\s[0]"
+	--
+	"(Placed back in the pantry.)"
+	
+	"(Back to the money machine with you.)"
+	
+	"(Back to the pantry,\w4 then.)"
+	
+	"(No more can.)"
+	
+	"(Placed back in the cupboard.)"
+	
+	"(Back to the cupboard.)"
+	
+	"(Unopened.)"
+	
+	"(Canned can.)"
+	--
+	"\w8\w8\-"
+}
+
+
+// %(reference0) ; Sakura name of ghost (or full name of ghost if no Sakura defined)
+OnGhostChanging
+{
+	"\0\s[0]"
+	--
+	if reference0 == "Tin Can"
+	{
+		"(In and out.)"
+		
+		"(Shining up.)"
+		
+		"(Holding out for a change.)"
+		
+		"(Renewing expiration dates.)"
+		
+		"(Stuffing more in.)"
+	}
+	//elseif reference0 == ""
+	else
+	{
+		"(Thrown to %(reference0).)"
+		
+		"(Heads up,\w4 %(reference0).)"
+		
+		"(Rolls to %(reference0).)"
+		
+		"(Can to %(reference0).)"
+		
+		"(Taken by %(reference0).)"
+	}
+	--
+	"\w8\w8\e"
+}
+
+// %(reference0) ; Sakura name of ghost (or full name of ghost if no Sakura defined)
+OnGhostChanged
+{
+	"\0\s[0]"
+	--
+	if reference0 == "Tin Can"
+	{
+		"(Present.)"
+		
+		"(Renewed.)"
+		
+		"(Back from the factory.)"
+		
+		"(Stuffed full.)"
+		
+		"(Holding more %(canfood).)"
+	}
+	//elseif reference0 == ""
+	else
+	{
+		"(Left by %(reference0).)"
+		
+		"(Returned from %(reference0).)"
+		
+		"(Given back.)"
+		
+		"(Returned by %(reference0).)"
+		
+		"(%(reference0) forgot something.)"
+	}
+	--
+	"\w8\e"
+}
+
+
+// %(reference0) ; defined in descript.txt of shell
+OnShellChanging
+{
+	"\0\s[0]"
+	--
+	if reference0 == "Presentable Default"
+	{
+		"(Ripping label off.)"
+	}
+	//elseif reference0 == ""
+	else
+	{
+		"(Swapping labels.)"
+	}
+	--
+	"\w8\w8\e"
+}
+
+// %(reference[0])
+OnShellChanged
+{
+	"\0\s[0]"
+	--
+	if reference0 == "Presentable Default"
+	{
+		"(Tin can once more.)"
+		
+		"(It's a tin can.)"
+	}
+	//elseif reference0 == ""
+	else
+	{
+		"(New label.)"
+		
+		"(Still a tin can.)"
+	}
+	--
+	"\w8\e"
+}
+
+
+//Happens when the ghost is unminimized.
+OnWindowStateRestore
+{
+	"\1\s[10]\0\s[0]"
+}

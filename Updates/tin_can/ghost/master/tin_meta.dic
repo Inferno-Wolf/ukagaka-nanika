@@ -1,0 +1,265 @@
+//This file handles a couple little QOL functions you may want. But these are not necessary! If you don't care for them just erase them. If you don't want to set up network updates, you can comment or remove the update functions too. If you're not interested in any of these, just remove the whole file!
+
+//—————————————————————————————— Installing something ——————————————————————————————
+OnInstallComplete
+{
+	"\0\s[0]"
+	--
+	"(%(reference0): %(reference1).)\n\n"
+	--
+	if "ghost" _in_ reference0 //A little menu to open or change to the ghost that was installed immediately
+	{
+		"\*\t\_q"
+		--
+		"\![*]\__q[OnInstallComplete.Action,call]Call %(reference0)\__q  \![*]\__q[OnInstallComplete.Action,change]Change to %(reference0)\__q\n\n"
+		--
+		"\![*]\q[No action needed,blank]\e"
+	}
+	--
+	"(Looks tasty.)"
+	--
+	"\w8\w8\w8\w8\e"
+}
+
+OnInstallComplete.Action
+{
+	if reference0 == "change"
+	{
+		"\![change,ghost,lastinstalled]"
+	}
+	else //call
+	{
+		"\![call,ghost,lastinstalled]"
+	}
+}
+
+
+//—————————————————————————————— Creating a .nar file ——————————————————————————————
+//reference0 here will be the filename of the nar you just created.
+OnNarCreated
+{
+	_nar = "\_a[OnNarLocation,""%(reference1)""]%(reference0)\_a" //Makes a clickable link that'll open the location of the file they just made
+	
+	"\0\s[0]"
+	--
+	if reference0 == "Presentable Can"
+	{
+		"(New can.)"
+		
+		"(Fresh can.)"
+		
+		"(All shiny.)"
+		
+		"(Fresh can.)"
+	}
+	else
+	{
+		"(%(_nar) canned.)"
+		
+		"(Canned %(_nar).)"
+		
+		"(Labelled %(_nar).)"
+		
+		"(%(_nar) labelled.)"
+	}
+	--
+	"\w8\w8\w8\w8\e"
+}
+
+OnNarLocation
+{	
+	_path = SPLITPATH(reference0)[0] + SPLITPATH(reference0)[1]
+	
+	"\![open,file,""%(_path)""]"
+}
+
+
+//—————————————————————————————— Network Update ——————————————————————————————
+//Creating the updates
+OnUpdatedataCreating
+{
+	"\0\s[0]"
+	--
+	"(Sloshing things around.)"
+	
+	"(Slosh slosh.)"
+	--
+	"\w8\e"
+}
+
+//updates created
+OnUpdatedataCreated
+{
+	"\0\s[0]"
+	--
+	"(All settled.)"
+	
+	"(Settled now.)"
+	--
+	"\w8\e"
+}
+
+
+//Starting an update
+OnUpdateBegin
+{
+	"\0\s[0]"
+	--
+	"(...)"
+	--
+	"w8\e"
+}
+
+//reference0 is the number of new files, starting from 0
+OnUpdateReady
+{
+	reference0++ //Number of files starts from 0, so this displays the correct amount
+	
+	//plural checks, adds an s and changes is to are if there's more than 1 file
+	_s = ""; _are = "is"; if reference0 != 1; _s = "s"; _are = "are"
+	
+	"\0\s[0]"
+	--
+	"(It's not %(canfood).)\w8"
+	--
+	"\w8\e"
+	//"\0\s[0]There %(_are) %(reference0) new file%(_s).\w8"
+}
+
+//reference0 is 'none' if there were no new files to update with, reference1 is a list of new file names, separated by commas
+OnUpdateComplete
+{
+	"\0\s[0]"
+	--
+	if reference0 == "none"
+	{
+		"(Still a can.)"
+		
+		"(Tin can stands.)"
+		
+		"(No new cans.)"
+	}
+	else
+	{
+		"(Something added.)"
+		
+		"(Changes made.)"
+		
+		"(Still a can.\w8 But different.)"
+	}
+	--
+	"\w8\e"
+}
+
+//reference0 is the reason the update failed
+OnUpdateFailure //If the update fails
+{
+	"\0\s[0]"
+	--
+	"(Can't change a can.)"
+	
+	"(Just a can.\w8 Nothing new.)"
+	
+	"(Can't add %(canfood) while sealed.)"
+	--
+	"\w8\w8\w8\e"
+	/*
+	if reference0 == "timeout" //If it timed out
+	{
+		"\0\s[0]Connection timed out."
+	}
+	elseif reference0 == "md5 miss" //If the update files have not been uploaded correctly and don't match the updates2.dau
+	{
+		_file = SPLITPATH(reference1)[2] + SPLITPATH(reference1)[3] //This gets the name and extension of the offending file
+		
+		"\0\s[0]The MD5 values don't match.\w8 Contact the ghost author and let them know that '%(_file)' is giving an MD5 error."
+	}
+	elseif reference0 == "artificial" //If the user cancels the update by double clicking the balloon
+	{
+		"\0\s[0]Update cancelled."
+	}
+	else //Any other errors
+	{
+		"\0\s[0]Error while updating:\w4 ""%(reference0)""."
+	}
+	*/
+}
+
+
+
+//inter-ghost activities
+/*
+//when you call another ghost. activates immediately
+OnGhostCalling
+{
+	case reference0
+	{
+		when "" //Sakura name
+		{
+			""
+		}
+		when ""
+		{
+			""
+		}
+		others
+		{
+			"%(reference0)"
+		}
+	}
+}
+
+//when you change another ghost. activates after they've finished swapping.
+//reference0 = ghost before switch; reference1 = ghost switched to; reference4 = name of previous ghost; reference5 = name of switched to ghost
+OnOtherGhostChanged
+{
+	if reference0 == ""
+	{
+		if reference4 == ""
+		{
+			""
+		}
+		else
+		{
+			"%(reference4)"
+		}
+	}
+	elseif reference0 == ""
+	{
+		if reference4 == ""
+		{
+			""
+		}
+		else
+		{
+			"$(reference4)"
+		}
+	}
+	else
+	{
+		"Swapped %(reference0) for %(reference4)."
+		
+		"Swapped %(reference1) for %(reference5)."
+	}
+}
+
+//when you close another ghost. Only activates after the other ghost is gone.
+OnOtherGhostClosed
+{
+	case reference0
+	{
+		when "" //Sakura name
+		{
+			""
+		}
+		when ""
+		{
+			""
+		}
+		others
+		{
+			"%(reference0)"
+		}
+	}
+}
+*/

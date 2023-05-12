@@ -1,0 +1,7 @@
+charset,UTF-8
+type,ghost
+
+name,Presentable Can
+directory,tin_can
+
+balloon.directory,canloon

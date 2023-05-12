@@ -1,0 +1,70 @@
+//Envelopes/word lists can be so much more than a simple basic list! Here's an example to make you think outside the box a little. To be used with dialogues like:
+
+// %(canfood)
+canfood
+{
+	"beans"
+	"lima beans"
+	"green beans"
+	"black beans"
+	"red beans"
+	"kidney beans"
+	"garbanzo beans"
+	"corn"
+	"asparagus"
+	"mixed vegetables"
+	"spinach"
+	"artichokes"
+	"water chestnuts"
+	"mushrooms"
+	"beets"
+	"carrots"
+	"pumpkin"
+	"peas"
+	"olives"
+	
+	"pineapple"
+	"peaches"
+	"tomatoes"
+	"jackfruit"
+	"green chile"
+	
+	"condensed milk"
+	"coconut milk"
+	"linguine"
+	"chili"
+	"soup"
+	"stew"
+	"broth"
+	"sauce"
+	
+	"tuna"
+	"chicken"
+	"salmon"
+	"mackerel"
+	"trout"
+	"mussels"
+	"clams"
+	"oysters"
+	"caviar"
+}
+
+
+// timeslot
+timeslot
+{
+	if hour >= 5 && hour <= 8
+	{ "earlymorning" }
+	elseif hour >= 9 && hour <= 11
+	{ "morning" }
+	elseif hour >= 12 && hour <= 14
+	{ "lunch" }
+	elseif hour >= 15 && hour <= 17
+	{ "afternoon" }
+	elseif hour >= 18 && hour <= 20
+	{ "evening" }
+	elseif hour >= 21 && hour <= 24
+	{ "night" }
+	else
+	{ "latenight" }
+}
