@@ -1,6 +1,17 @@
 //This file handles a couple little QOL functions you may want. But these are not necessary! If you don't care for them just erase them. If you don't want to set up network updates, you can comment or remove the update functions too. If you're not interested in any of these, just remove the whole file!
 
 //—————————————————————————————— Installing something ——————————————————————————————
+OnInstallBegin
+{
+	"\0\s[0]"
+	--
+	"(Mixing contents of can.)"
+	
+	"(Shaking things up.)"
+	
+	"(Adding to the pantry.)"
+}
+
 OnInstallComplete
 {
 	"\0\s[0]"
@@ -35,6 +46,31 @@ OnInstallComplete.Action
 
 
 //—————————————————————————————— Creating a .nar file ——————————————————————————————
+//reference0 here is the name of the ghost as specified in Installl.txt
+OnNarCreating
+{
+	"\0\s[0]"
+	--
+	if reference0 == "Presentable Can"
+	{
+		"(Mints new can.)"
+		
+		"(Rolling out.)"
+		
+		"(Print new can.)"
+	}
+	else
+	{
+		"(Printing label for %(reference0).)"
+		
+		"(Mints new %(reference0).)"
+		
+		"(Rolling %(reference0) out.)"
+	}
+	--
+	"\w8\e"
+}
+
 //reference0 here will be the filename of the nar you just created.
 OnNarCreated
 {
@@ -107,7 +143,7 @@ OnUpdateBegin
 	--
 	"(...)"
 	--
-	"w8\e"
+	"\w8\e"
 }
 
 //reference0 is the number of new files, starting from 0

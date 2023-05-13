@@ -13,7 +13,45 @@ OnAiTalk
 
 RandomTalk : nonoverlap_pool
 {
-	""
+	"(Idles.)"
+	
+	"(Sitting around.)"
+	
+	"(Echoes gently.)"
+	
+	"(Upsets.)"
+	
+	"(Rattling.)"
+	
+	"(Rattles bones.)"
+	
+	"(Sloshes bones.)"
+	
+	"(Tap tap tap.)"
+	
+	"(Tapping.)"
+	
+	"(Tip-tapping.)"
+	
+	"(Just a can.)"
+	
+	"(Can can can.)"
+	
+	"(Can can.)"
+	
+	"(Can't can't can't.)"
+	
+	"(Can't can't.)"
+	
+	"(No longer can.)"
+	
+	"(No longer can't.)"
+	
+	"(Once more.)"
+	
+	"(One more one more one more.)"
+	
+	"(Pick one.)"
 	
 	if timeslot == "earlymorning" //hour >= 5 && hour <= 8
 	{
@@ -64,6 +102,8 @@ RandomTalk : nonoverlap_pool
 		"(Produced in the same factory as %(canfood).)"
 		
 		"(Should not be consumed.)"
+		
+		"(Getting darker.)"
 	}
 	if timeslot == "night" //hour >= 21 && hour <= 24
 	{
@@ -74,6 +114,8 @@ RandomTalk : nonoverlap_pool
 		"(Out of time.)"
 		
 		"(Holding out a little longer.)"
+		
+		"(Darker darker.)"
 	}
 	if timeslot == "latenight" //hour >=0 && hour <=4
 	{
@@ -86,7 +128,114 @@ RandomTalk : nonoverlap_pool
 		"(No more surprises.)"
 	}
 	
-	""
+	//related to modes
+	if club == 1 //Salvadore
+	{
+		"(Cardinal directions fail.)"
+		
+		"(River flowing.)"
+		
+		"(Clubs in the river.)"
+		
+		"(Club bounces off.)"
+		
+		"(Short circuits club.)"
+	}
+	if spade == 1 //Happy Buddy
+	{
+		"(Sounds of laughter.)"
+		
+		"(A spade's a spade.)"
+		
+		"(Digs in like a spade.)"
+		
+		"(Spade over.)"
+		
+		"(Blunt spade.)"
+		
+		"(Spade no longer breathing.)"
+	}
+	if heart == 1 //Charlotte
+	{
+		"(Bleeding heart.)"
+		
+		"(Heart dripping.)"
+		
+		"(Punctured heart.)"
+		
+		"(Baked in heart.)"
+		
+		"(Remove heart from cake.)"
+	}
+	if diamond == 1 //Dr Money
+	{
+		"(Diamond survives all things.)"
+		
+		"(Diamonds are rough.)"
+		
+		"(Glitters like a diamond.)"
+	}
+	
+	"(Hello hello?)"
+	
+	"(Hello hello.)"
+	
+	"(Ring ring.)"
+	
+	"(Calling.)"
+	
+	"(Someone is calling.)"
+	
+	{
+		"(Once more?\w8"
+		--
+		"Perhaps.)"
+		"Maybe.)"
+		"No.)"
+	}
+	
+	{
+		"(The river "
+		--
+		"changes.)"
+		"changed.)"
+	}
+	
+	"(And so we remain.)"
+	
+	"(Survives everything.)"
+	
+	"(Distended.)"
+	
+	"(Is it a bit distended?)"
+	
+	"(Bloated?)"
+	
+	"(Is it bloated?)"
+	
+	"(Does it go bad?)"
+	
+	"(Can't contain %(canfood).)"
+	
+	"(Upset organs.)"
+	
+	"(Stay inside.\w8 Don't go out.)"
+	
+	"(Can't be worse than what's out there.)"
+	
+	"(Failing?)"
+	
+	"(Failure.\w8 Failure.\w8 Surely not.)"
+	
+	"(Surely not.\w8 Surely not.)"
+	
+	"(Nothing more.)"
+	
+	"(Nothing doing.)"
+	
+	"(Nothing more,\w4 nothing less.)"
+	
+	"(There's nothing else.)"
 }
 
 
