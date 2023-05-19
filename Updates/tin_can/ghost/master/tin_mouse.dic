@@ -42,21 +42,72 @@ OnMouseMove.Sakura
 	{
 		"\0\s[0]"
 		--
+		if ting < 50
+		{
+			"(Won't open.)"
+			
+			"(Refuses.)"
+			
+			"(Refuses to open.)"
+			
+			"(Can't have.)"
+			
+			"(Can't open.)"
+		}
+		if ting > 100 && ting < 500
+		{
+			"(You can not have.)"
+			
+			"(You cannot have.)"
+			
+			"(Can't take it.)"
+			
+			"(No opening.)"
+			
+			"(Not even a drop.)"
+			
+			"(Not even a sip.)"
+		}
+		if ting > 500
+		{
+			"(Desperation.)"
+			
+			"(Starving.)"
+			
+			"(Clawing.)"
+			
+			"(Scraping.)"
+			
+			"(Desperate.)"
+			
+			"(Starvation.)"
+			
+			"(Failing.)"
+			
+			"(Starvation taking hold.)"
+			
+			"(Crying sobbing desperation.)"
+		}
+		
 		"(Stroke stroke.)"
 		
 		"(Gleam gleam.)"
 		
 		"(Shine shine.)"
 		
-		"(Refuses to open.)"
-		
-		"(Can't have.)"
-		
 		"(Contents unknown.)"
 		
 		"(It is a mystery.)"
 		
 		"(It's a mystery.)"
+		
+		"(A mystery.)"
+		
+		"(Remains a mystery.)"
+		
+		"(Polishing.)"
+		
+		"(Shining.)"
 	}
 }
 

@@ -109,6 +109,11 @@ RandomTalk : nonoverlap_pool
 	{
 		"(Sounds of a glockenspiel.)"
 		
+		"(Sounds of phonograph.)"
+		
+		//actual song lol
+		"(Sounds of Sonatina.)"
+		
 		"(Goodnight.)"
 		
 		"(Out of time.)"
@@ -119,6 +124,19 @@ RandomTalk : nonoverlap_pool
 	}
 	if timeslot == "latenight" //hour >=0 && hour <=4
 	{
+		//songs that fit the vibes
+		"(Sounds of Duet Musette.)"
+		
+		"(Sounds of Moonlight Hall.)"
+		
+		"(Sounds of Seven March.)"
+		
+		"(Sounds of One-eyed Maestro.)"
+		
+		"(Sounds of Lithium.)"
+		
+		"(Sounds of Dance of Questionable Tuning.)"
+		
 		"(Past curfew.)"
 		
 		"(Ring ring ring.)"
@@ -140,6 +158,10 @@ RandomTalk : nonoverlap_pool
 		"(Club bounces off.)"
 		
 		"(Short circuits club.)"
+		
+		"(He's gone.)"
+		
+		"(Club can't be saved.)"
 	}
 	if spade == 1 //Happy Buddy
 	{
@@ -153,7 +175,11 @@ RandomTalk : nonoverlap_pool
 		
 		"(Blunt spade.)"
 		
+		"(Terrible games.)"
+		
 		"(Spade no longer breathing.)"
+		
+		"(Removes spade lungs.)"
 	}
 	if heart == 1 //Charlotte
 	{
@@ -165,7 +191,13 @@ RandomTalk : nonoverlap_pool
 		
 		"(Baked in heart.)"
 		
-		"(Remove heart from cake.)"
+		"(Removes heart from cake.)"
+		
+		"(Failing heart.)"
+		
+		"(Can't save her.)"
+		
+		"(She's dead.)"
 	}
 	if diamond == 1 //Dr Money
 	{
@@ -174,6 +206,12 @@ RandomTalk : nonoverlap_pool
 		"(Diamonds are rough.)"
 		
 		"(Glitters like a diamond.)"
+		
+		"(Hard as diamond.)"
+		
+		"(Worthless diamonds.)"
+		
+		"(Diamond still bleeds.)"
 	}
 	
 	"(Hello hello?)"
@@ -297,4 +335,26 @@ OnSecondChange
  	{
 	 	passsec = passsec + 1
 	}
+}
+
+
+//and Needle, of course. reference1 is the name of Needle's current shell
+//reference0 is which character; 0 for Sakura, 1 for Kero
+OnNeedlePoke
+{
+	"\0\s[0]%(tinging)"
+	--
+	"(Ting ting.)"
+	
+	"(Clangs off.)"
+	
+	"(Needled.)"
+	
+	"(Clang clang.)"
+	
+	"(Tink tink.)"
+	
+	"(Doesn't count.)"
+	--
+	"\w8\e"
 }
