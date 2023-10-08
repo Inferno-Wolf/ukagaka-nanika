@@ -27,12 +27,6 @@ RandomTalk : nonoverlap_pool
 	
 	"(Sloshes bones.)"
 	
-	"(Tap tap tap.)"
-	
-	"(Tapping.)"
-	
-	"(Tip-tapping.)"
-	
 	"(Just a can.)"
 	
 	"(Can can can.)"
@@ -47,11 +41,6 @@ RandomTalk : nonoverlap_pool
 	
 	"(No longer can't.)"
 	
-	"(Once more.)"
-	
-	"(One more one more one more.)"
-	
-	"(Pick one.)"
 	
 	if timeslot == "earlymorning" //hour >= 5 && hour <= 8
 	{
@@ -225,7 +214,7 @@ RandomTalk : nonoverlap_pool
 	"(Someone is calling.)"
 	
 	{
-		"(Once more?\w8"
+		"(Once more?\w8 "
 		--
 		"Perhaps.)"
 		"Maybe.)"
@@ -239,19 +228,116 @@ RandomTalk : nonoverlap_pool
 		"changed.)"
 	}
 	
+	"\w8\w8\w8\w8\w8\w8\w8(Forgot to say anything.)"
+	
+	
+	//ting counts
+	if ting < 50
+	{
+		"(Tap tap tap.)"
+		
+		"(Tapping.)"
+		
+		"(Tip-tapping.)"
+		
+		"(Once more.)"
+		
+		"(One more one more one more.)"
+		
+		"(Pick one.)"
+		
+		"(Dent dent.)"
+	}
+	if ting > 100 && ting < 500
+	{
+		"(Distended.)"
+		
+		"(Is it a bit distended?)"
+		
+		"(Bloated?)"
+		
+		"(Is it bloated?)"
+		
+		"(Does it go bad?)"
+		
+		"(Is it sloshing?)"
+		
+		"(Sloshing...)"
+		
+		"(Sloshes...)"
+		
+		"(Can't sloshing.)"
+		
+		"(Can sloshing.)"
+		
+		"(Is there anything inside?)"
+	}
+	if ting > 500
+	{
+		"(Lots of fun,\w4 fun,\w4 fun,\w4 fun,\w8 \![set,balloonwait,0.4]fun fun fun fun fun fun fun fun fun fun fun fun fun fun fun fun fun fun fun fun fun fun fun fun fun fun fun fun fun fun fun fun fun fun fun fun fun fun fun fun fun fun fun fun fun fun fun fun fun fun fun fun fun fun fun fun fun fun fun fun fun fun fun fun fun fun\![set,balloonwait,1]\w6 fun.)"
+		
+		"(Desperate.)"
+		
+		"(Desperation.)"
+		
+		"(Scrape scrape.)"
+		
+		"(Claw claw.)"
+		
+		"(Open.\w8 Open.)"
+		
+		"(Refuses to budge.)"
+		
+		"(Starving.)"
+		
+		"(No thoughts.\w8 Only hunger.)"
+		
+		"(Begging.)"
+		
+		"(Begging for survival.)"
+		
+		"(Begging for an opening.)"
+		
+		"(Licking.)"
+		
+		"(No sustenance.)"
+		
+		"(Crunch crunch.)"
+		
+		"(Tastes like can.)"
+		
+		"(Tastes like can't.)"
+		
+		"(Sounds like can't.)"
+		
+		"(Sounds like can.)"
+		
+		"(Refusing.)"
+		
+		"(Sounds hollow.)"
+		
+		"(Gnaw gnaw.)"
+		
+		"(Tastes metallic.)"
+		
+		"(Taste of your own failure.)"
+		
+		"(Clang clang.)"
+		
+		"(Agony.)"
+		
+		"(Rotten inside.)"
+		
+		"(Nothing.)"
+		
+		"(There's nothing.)"
+		
+		"(Can't help you now.)"
+	}
+	
 	"(And so we remain.)"
 	
 	"(Survives everything.)"
-	
-	"(Distended.)"
-	
-	"(Is it a bit distended?)"
-	
-	"(Bloated?)"
-	
-	"(Is it bloated?)"
-	
-	"(Does it go bad?)"
 	
 	"(Can't contain %(canfood).)"
 	

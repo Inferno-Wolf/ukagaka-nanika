@@ -31,10 +31,12 @@ OnInitialize
 	}
 }
 
+
+
 OnBoot
 {
-	_temp = SPLIT(SHIORI3FW.UserBirthday,":")
-	_user_birthday = "%(_temp[2])/%(_temp)[1]" // D/M 
+	_temp = SHIORI3FW.UserBirthday
+	_user_birthday = "%(_temp[2])/%(_temp[1])" // D/M
 	_today = "%(_day)/%(_month)"
 	
 	"\1\s[10]\0\s[0]"
