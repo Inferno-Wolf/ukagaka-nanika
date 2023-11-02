@@ -42,6 +42,74 @@ RandomTalk : nonoverlap_pool
 	"(No longer can't.)"
 	
 	
+	//if SHIORI3FW.ShellName == "" // ???
+	if SHIORI3FW.ShellName == "Gourmet Ravioli"
+	{
+		"(More splack than slosh.)"
+		
+		"(Slop slop.)"
+		
+		"(Can't have these pockets.)"
+		
+		"(Stuffed pockets of can't.)"
+		
+		"(Stuffed pockets of can.)"
+		
+		"(Can hear singing.)"
+		
+		"(Can't hear singing.)"
+		
+		"(Can here singing.)"
+		
+		"(Can't here singing.)"
+		
+		"(Humming some sort of song.)"
+		
+		"(Rings with a song.)"
+	}
+	if SHIORI3FW.ShellName == "Old Beans"
+	{
+		"(Sloshes with knowledge.)"
+		
+		"(Food?\w8 Nope,\w4 beans.)"
+		
+		"(Is it really beans?)"
+		
+		"(Worst kind of beans.)"
+		
+		"(Looks delicious.)"
+		
+		"(Can't have those beans.)"
+		
+		"(Can't spill these beans.)"
+		
+		"(Can't be eating these beans.)"
+	}
+	if SHIORI3FW.ShellName != "Presentable Default" //for ANYTHING BESIDES the default
+	{
+		"(Label's wrong.)"
+		
+		"(Incorrect label.)"
+		
+		"(Rip it off.)"
+		
+		"(Tear tear tear.)"
+		
+		"(Rip,\w4 tear.)"
+		
+		"(Rip and tear.)"
+		
+		"(Get it off get it off get it off.)"
+		
+		"(Can't know.\w8 Can't know.)"
+		
+		"(Can know.\w8 Can't know.)"
+		
+		"(Can't have that truth.)"
+		
+		"(Not %(canfood) at all.)"
+	}
+	
 	if timeslot == "earlymorning" //hour >= 5 && hour <= 8
 	{
 		"(Mystery can...)"

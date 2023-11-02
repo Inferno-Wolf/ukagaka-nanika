@@ -7,6 +7,7 @@ This ghost uses similar themes to both Exoptable Money / Presentable Liberty, th
 	- Hopelessness
 	- Despair
 	- Lies and Deceit (towards you specifically)
+	- General unease and unsettling statements
 	- A global pandemic / plague
 	- Death and Suicide
 	- Capitalism and unchecked greed
@@ -27,5 +28,6 @@ Dev who wrote this: KFC (http://www.characteroulette.tumblr.com/)
 
 -----/Versions & Updates/------
 
+(v.1.2) - Added reactions to Ravioli and Beans shells
 (v.1.1) - Dialogue additions and readme update
 (v.1.0) - Initial Release

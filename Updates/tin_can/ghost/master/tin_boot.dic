@@ -195,6 +195,66 @@ OnShellChanged
 		
 		"(It's a tin can.)"
 	}
+	elseif reference0 == "Gourmet Ravioli"
+	{
+		mode = 0
+		
+		"(Ravioli ravioli.)"
+		
+		"(Give the formuoli.)"
+		
+		"(Pockets full of pasta.)"
+		
+		"(Can full of pasta.)"
+		
+		"(Can't full of pasta.)"
+		
+		"(Can of pasta.)"
+		
+		"(Can't of pasta.)"
+		
+		"(Stuffed pockets.)"
+		
+		"(Stuffed into pockets.)"
+		
+		"(Sauce and meat.\w8 Not glitter and treasure.)"
+		
+		"(Tap tap.\w8 It's ravioli.)"
+		
+		"(Some sort of ravioli song.)"
+		
+		"(Some sort of ravioli art.)"
+	}
+	elseif reference0 == "Old Beans"
+	{
+		mode = 0
+		
+		"(Can't be eating those beans.)"
+		
+		"(This is beans.)"
+		
+		"(This is beans!)"
+		
+		"(More beans.)"
+		
+		"(Are they good?)"
+		
+		"(Baked can.)"
+		
+		"(Time for beans.)"
+		
+		"(Unambiguously beans.)"
+		
+		"(Need a spoon to scoop it all out.)"
+		
+		"(Slorp slorp.)"
+		
+		"(Clang clang.\w8 It's beans.)"
+		
+		"(Slorp it all up.)"
+		
+		"(Beans beans beans.)"
+	}
 	//elseif reference0 == ""
 	else
 	{

@@ -1,8 +1,8 @@
 ghost/master/descript.txt742c2f4b2c1541586afe8306b8f2549esize=256date=2023-05-12T00:59:23charset=OSNative
 ghost/master/emerg.dicc7cb6eacd3262003fef909c382a6fefesize=351date=2023-04-14T12:45:50
 ghost/master/icon.ico67a2771b90d4f1594144d5d480606c06size=15086date=2023-05-12T01:01:49
-ghost/master/tin_aitalk.dicdaf23d7314ba7475afbacf4187c73457size=6670date=2023-10-04T23:16:56
-ghost/master/tin_boot.dic5835bb9e75bc8539d57e9aeda6acd274size=3757date=2023-05-20T18:25:36
+ghost/master/tin_aitalk.dic64b9eafe5328efa654481c331a880c36size=7864date=2023-11-02T12:44:28
+ghost/master/tin_boot.dicd81dfc9a512d758ca6daef2e051f294csize=4696date=2023-11-02T12:26:25
 ghost/master/tin_meta.dicf899009d66f1262f95e0be32528d85e4size=5896date=2023-05-12T19:37:23
 ghost/master/tin_mouse.dic341a1d782aadb6635851757e43bc935asize=1889date=2023-08-01T21:37:12
 ghost/master/tin_other.dic52f37257201b1823db1469539c169244size=5222date=2023-05-11T22:52:56
@@ -16,7 +16,7 @@ ghost/master/yaya_base/optional.dicff4da728a656a8aa6a38939e654c51f2size=9953d
 ghost/master/yaya_base/shiori3.dic1020638d5e3881c23cc9baabc366e730size=52209date=2023-04-02T07:34:13
 ghost/master/yaya_emerg.txt9e43b4696366a536ecc69e45d80e392csize=607date=2023-04-14T12:44:19
 install.txtf361dabc6d3ea2b675ff621d4c8c06ebsize=97date=2023-05-12T00:58:32
-readme.txtbc3b80c242ec536de336e3d757da9d03size=1376date=2023-11-02T12:00:26
+readme.txt74932d550c5625da6da635e7ee1da7cesize=1476date=2023-11-02T12:42:44
 shell/master/descript.txtafd257a0892605c02f5deaa5601e79aesize=334date=2023-05-12T01:37:29
 shell/master/menu_background.pngbe7743366d19d3abe9a30e182261b567size=3554date=2023-05-12T01:38:13
 shell/master/menu_foreground.png9d6065a6bb58242db7748b5ec008646fsize=3554date=2023-05-12T01:39:16
