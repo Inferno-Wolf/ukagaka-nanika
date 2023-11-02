@@ -2,10 +2,10 @@ charset,OSNative
 file,ghost/master/descript.txt742c2f4b2c1541586afe8306b8f2549esize=256date=2023-05-12T00:59:23
 file,ghost/master/emerg.dicc7cb6eacd3262003fef909c382a6fefesize=351date=2023-04-14T12:45:50
 file,ghost/master/icon.ico67a2771b90d4f1594144d5d480606c06size=15086date=2023-05-12T01:01:49
-file,ghost/master/tin_aitalk.dice2a33d3bb41cd1013a385311e59345desize=2221date=2023-05-12T02:03:37
-file,ghost/master/tin_boot.dica78f0a653671ac55561edc1e73e719fbsize=3765date=2023-05-12T02:04:27
-file,ghost/master/tin_meta.dic650d833523cc8f9c8151d06fdac07153size=5390date=2023-05-11T22:40:06
-file,ghost/master/tin_mouse.dic844de40096a2c978965c8b94255a6810size=1098date=2023-05-12T01:58:54
+file,ghost/master/tin_aitalk.dicdaf23d7314ba7475afbacf4187c73457size=6670date=2023-10-04T23:16:56
+file,ghost/master/tin_boot.dic5835bb9e75bc8539d57e9aeda6acd274size=3757date=2023-05-20T18:25:36
+file,ghost/master/tin_meta.dicf899009d66f1262f95e0be32528d85e4size=5896date=2023-05-12T19:37:23
+file,ghost/master/tin_mouse.dic341a1d782aadb6635851757e43bc935asize=1889date=2023-08-01T21:37:12
 file,ghost/master/tin_other.dic52f37257201b1823db1469539c169244size=5222date=2023-05-11T22:52:56
 file,ghost/master/tin_sakura_menu.dic2cb9b3d276786180613627a77acb046esize=1678date=2023-05-11T22:57:33
 file,ghost/master/tin_word.dicc1af9b43d5c3299dd81b7a2d71872957size=1089date=2023-05-12T01:44:59
@@ -17,7 +17,7 @@ file,ghost/master/yaya_base/optional.dicff4da728a656a8aa6a38939e654c51f2size=9
 file,ghost/master/yaya_base/shiori3.dic1020638d5e3881c23cc9baabc366e730size=52209date=2023-04-02T07:34:13
 file,ghost/master/yaya_emerg.txt9e43b4696366a536ecc69e45d80e392csize=607date=2023-04-14T12:44:19
 file,install.txtf361dabc6d3ea2b675ff621d4c8c06ebsize=97date=2023-05-12T00:58:32
-file,readme.txte6ff1f6847b4425da50c2747fe3e59e3size=1198date=2023-05-12T02:14:27
+file,readme.txtbc3b80c242ec536de336e3d757da9d03size=1376date=2023-11-02T12:00:26
 file,shell/master/descript.txtafd257a0892605c02f5deaa5601e79aesize=334date=2023-05-12T01:37:29
 file,shell/master/menu_background.pngbe7743366d19d3abe9a30e182261b567size=3554date=2023-05-12T01:38:13
 file,shell/master/menu_foreground.png9d6065a6bb58242db7748b5ec008646fsize=3554date=2023-05-12T01:39:16

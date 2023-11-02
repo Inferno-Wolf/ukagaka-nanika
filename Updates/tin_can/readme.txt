@@ -2,11 +2,20 @@ Seems like you were able to find the last tin can you could in this pandemic of 
 Unfortunately, you don't have a can opener, so all you can really do with it is tap it and stare at it, wondering what mysteries it holds for you.
 (This is a Presentable Liberty / Exoptable Money reference.)
 
+========== Content Warning =============
+This ghost uses similar themes to both Exoptable Money / Presentable Liberty, those being:
+	- Hopelessness
+	- Despair
+	- Lies and Deceit (towards you specifically)
+	- A global pandemic / plague
+	- Death and Suicide
+	- Capitalism and unchecked greed
+	- Parasocial relationships
+=======================================
 
 
 ——— Important note ———
- This template has a simple Emergency Mode set up. This means that if there is an error in your dic files, it will load *just* the files in yaya_base and emerg.dic, and nothing else. This is so that errors can be output to the error log without necessarily needing the debugger Tama! I do recommend Tama, but this makes life a little easier. If you want to customize which files load, you can do that in yaya_emerg.txt
-I left it in there because I wasn't sure how exactly to delete it.
+This template has a simple Emergency Mode set up. This means that if there is an error in your dic files, it will load *just* the files in yaya_base and emerg.dic, and nothing else. I left it in there because I wasn't sure how exactly to delete it.
 
 
 --- Credits ---
@@ -18,4 +27,5 @@ Dev who wrote this: KFC (http://www.characteroulette.tumblr.com/)
 
 -----/Versions & Updates/------
 
+(v.1.1) - Dialogue additions and readme update
 (v.1.0) - Initial Release
