@@ -9,21 +9,15 @@ OnFirstBoot
 	passhour = 0
 	passmin = 0
 	passsec = 0
- 	username         = "Bepis"
-	stroke           = 0
- 	teachusername    = 0
-	mikireflag       = 0
- 	aitalkinterval = 400
+ 	username = "Bepis"
  	birthdayprint = "????"
+	stroke = 0
+	mikireflag = 0
+ 	aitalkinterval = 300
 	talktime = "5 minutes"
 	deleteshitai = "OFF"
-	nowshell = "master" //default shell folder
 	firstboot = 1
 	//added functions get introduced here
-	they = "they"
-	them = "them"
-	their = "their"
-	theyre = "they're"
 	noisybab = 0
 	timepref = 0
 	hourchecks = 0
@@ -31,16 +25,14 @@ OnFirstBoot
 	
 	if reference0 == 0 
  	{
-		"\t\*\1\s[10]\0\s[0]*\![set,balloonwait,3]...\![set,balloonwait,1]\w8\s[6]!\w8 \n\n[half]*Frisk has noticed your presence.\w8\w8\w8\w8 \n\n[half]\s[2]*They would like to thank you for giving them such a nice place to stay.\w8 They will do their best to keep you company while they are here.\w8 \x\0\s[0]\b2*However,\w4 they would first like to get acquainted with you.\w8 \s[2]Their name is Frisk and they use the gender neutral pronouns they/them/their.\w8\w8 \s[7]\n*(Note that this can be changed later in thier menu to suit your preferences.)\w8\w8 \s[5]\n\n[half]*They ask what your preferred pronouns are.\w5"
-		--
-		"\n\n[half]\_q\![*]\q[He-His-Him,OnPronoTeach,masc] \n\![*]\q[She-Her-Her,OnPronoTeach,femm] \n\![*]\q[They-Their-Them,OnPronoTeach,neit] \n\![*]\q[He-They Mix,OnPronoTeach,heth] \n\![*]\q[She-They Mix,OnPronoTeach,sheth] \n\![*]\q[He-She Mix,OnPronoTeach,undef] \n\![*]\q[It-Its-It,OnPronoTeach,itit] \n\n[half]\![*]\q[I have my own,OnPronoTeach,both]\e"
+		"\t\*\1\s[10]\0\s[0]*\![set,balloonwait,3]...\![set,balloonwait,1]\w8\s[6]!\w8 \n\n[half]*Frisk has noticed your presence.\w8\w8\w8\w8 \n\n[half]\s[2]*They would like to thank you for giving them such a nice place to stay.\w8 They will do their best to keep you company while they are here.\w8 \x\0\s[0]\b2*However,\w4 they would first like to get acquainted with you.\w8 \s[2]Their name is Frisk and they use the gender neutral pronouns they/them/their.\w8\w8 \s[7]\n*(Note that this can be changed later in thier menu to suit your preferences.)\w8\w8 \s[5]\n\n[half]*They ask what your name is.\w5"
  	}
 	else //this displays when you uninstall then reinstall them
  	{
-		"\t\*\1\s[10]\0\s[0]*Frisk says hello.\w8\w8 \s[1]Again.\w8\w8\w8\w8 \n\n[half]\s[31]*A reset won't wipe my memory,\w4 USER.\w8\w8\w8 \c\0\s[0]*Tell us what your preferred pronouns are.\w8"
-		--
-		"\b2\n\n[half]\_q\![*]\q[He-His-Him,OnPronoTeach,masc] \n\![*]\q[She-Her-Her,OnPronoTeach,femm] \n\![*]\q[They-Their-Them,OnPronoTeach,neit] \n\![*]\q[He-They Mix,OnPronoTeach,heth] \n\![*]\q[She-They Mix,OnPronoTeach,sheth] \n\![*]\q[He-She Mix,OnPronoTeach,undef] \n\![*]\q[It-Its-It,OnPronoTeach,itit] \n\n[half]\![*]\q[I have my own,OnPronoTeach,both]\e"
+		"\t\*\1\s[10]\0\s[0]*Frisk says hello.\w8\w8 \s[1]Again.\w8\w8\w8\w8 \n\n[half]\s[31]*A reset won't wipe my memory,\w4 USER.\w8\w8\w8 \c\0\s[0]*Tell us what you'd like Frisk to call you.\w8"
  	}
+	--
+	"\![open,inputbox,OnNameTeach,-1]\e"
 }
 //\t\* replaces passive mode oop
 
@@ -677,6 +669,7 @@ OnGhostChanging
 	}
 	elseif reference0 == "Wilson" //there are three Wilsons we're just gonna have to live with it
 	{
+		//if reference2 == "The Wretched Scientist" //for specific Wilson
 		"\0\s[6]*Another scientist...?\w8 \s[2]But a human one!\w8\e"
 		
 		"\0\s[2]*Don't starve out there,\w4 %(username)!\w8\e"
@@ -1191,6 +1184,7 @@ OnGhostChanging
 	}
 	elseif reference0 == "Aaron" //lava animal!
 	{
+		//if reference2 == "Maximus The Cat" //since they both Aaron lol
 		"\0\s[5]*Incoming rude boy!\w8\e"
 		
 		"\0\s[2]*Don't take what Aaron says too personally,\w4 %(username).\w8\e"
@@ -1213,6 +1207,28 @@ OnGhostChanging
 		
 		"\0\s[2]*Be kind to Shadow as well,\w4 %(username).\w8\e"
 	}
+	//elseif reference0 == "Team Snakemouth" //Bug Fables friends
+	//elseif reference0 == "Captain" //Risk of Rain dude
+	//elseif reference0 == "Rainometer"
+	//elseif reference0 == "Painting"
+	//elseif reference0 == "Čalaviek" //Kafe Kareopsis Hutarkam
+	//elseif reference0 == "Toad" //Kick Toad
+	//elseif reference0 == "Macaque" //Lego Monkey Kid
+	//elseif reference0 == "ButtonToy"
+	//elseif reference0 == "Faeia"
+	//elseif reference0 == "Lumi"
+	//elseif reference0 == "Boss"
+	//elseif reference0 == " Azalea"
+	//elseif reference0 == "Rock Blue"
+	//elseif reference0 == "Slugcat"
+	//elseif reference0 == "Ashe" //Shigure
+	//elseif reference0 == "Skrunkly"
+	//elseif reference0 == "Dungeon!!!!!!!!"
+	//elseif reference0 == "Styrmir"
+	//elseif reference0 == "Wally Darling" //or just "Wally"???
+	//elseif reference0 == "Witch Apprentice"
+	//elseif reference0 == "Cricket" //Kawari Neko Atsume!
+	//elseif reference0 == "@hikarikitsune" //a Satori ghost!
 	elseif reference0 == "Crono" //CT Crew
 	{
 		"\0\s[2]*Incoming time children...\w8\e"
@@ -1229,6 +1245,7 @@ OnGhostChanging
 		
 		"\0\s[5]*Frisk hopes you'll figure out whatever you need to with Herlock's help,\w4 %(username).\w8\e"
 	}
+	//elseif reference0 == "David" //Camp Camp
 	elseif reference0 == "Emily"
 	{
 		"\0\s[5]*Frisk hopes you say 'こんにちわ' to Emily for %(them).\w8\e"
@@ -1245,6 +1262,8 @@ OnGhostChanging
 		
 		"\0\s[2]*Say 'Hello' to the Fairune ambassadors for Frisk.\w8\e"
 	}
+	//elseif reference0 == "Tin Can"
+	//elseif reference0 == "Songstress"
 	elseif reference0 == "Inferno"
 	{
 		"\0\s[31]*Frisk hopes the Inferno and the Wolf will be okay.\w8\e"
@@ -1263,7 +1282,7 @@ OnGhostChanging
 	}
 	elseif reference0 == "Defence"
 	{
-		"\0\s[0]*Frisk wonders what case you'll work on next!\w8\e"
+		"\0\s[2]*Frisk wonders what case you'll work on next!\w8\e"
 		
 		"\0\s[0]*Frisk wishes you well on your murder charge!\w8\e"
 		
@@ -1281,6 +1300,12 @@ OnGhostChanging
 		
 		"\0\s[2]*Frisk starts humming Snufkin's latest tune to %(them)self.\w8\e"
 	}
+	//elseif reference0 == "Moomins" //Moominhousehold
+	//elseif reference0 == "RGB Puzzlers"
+	//elseif reference0 == "Layton"
+	//elseif reference0 == "Freddy Fazbear"
+	//elseif reference0 == "Wirt" //OTGW
+	//elseif reference0 == "P4tagonist"
 	elseif reference0 == "Cheesecake"
 	{
 		"\0\s[5]*Incoming food!\w8\e"
@@ -2116,6 +2141,7 @@ OnGhostChanged
 	}
 	elseif reference0 == "Aaron" //lava animal!
 	{
+		//if reference2 == "Maximus The Cat" //since they both Aaron lol
 		"\0\s[21]*Frisk may not be as rude as Aaron,\w4 \s[8]but %(they) can still keep you company.\w8\e"
 		
 		"\0\s[6]*Smells like bad manners and heat.\w8\e"
@@ -2132,6 +2158,28 @@ OnGhostChanged
 		
 		"\0\s[2]*Smells like rocket shoes and spines.\w8\e"
 	}
+	//elseif reference0 == "Team Snakemouth" //Bug Fables friends
+	//elseif reference0 == "Captain" //Risk of Rain dude
+	//elseif reference0 == "Rainometer"
+	//elseif reference0 == "Painting"
+	//elseif reference0 == "Čalaviek" //Kafe Kareopsis Hutarkam
+	//elseif reference0 == "Toad" //Kick Toad
+	//elseif reference0 == "Macaque" //Lego Monkey Kid
+	//elseif reference0 == "ButtonToy"
+	//elseif reference0 == "Faeia"
+	//elseif reference0 == "Lumi"
+	//elseif reference0 == "Boss"
+	//elseif reference0 == " Azalea"
+	//elseif reference0 == "Rock Blue"
+	//elseif reference0 == "Slugcat"
+	//elseif reference0 == "Ashe" //Shigure
+	//elseif reference0 == "Skrunkly"
+	//elseif reference0 == "Dungeon!!!!!!!!"
+	//elseif reference0 == "Styrmir"
+	//elseif reference0 == "Wally Darling" //or just "Wally"???
+	//elseif reference0 == "Witch Apprentice"
+	//elseif reference0 == "Cricket" //Kawari Neko Atsume!
+	//elseif reference0 == "@hikarikitsune" //a Satori ghost!
 	elseif reference0 == "Crono" //CT Crew
 	{
 		"\0\s[6]*Smells like time distortions.\w8\e"
@@ -2148,6 +2196,7 @@ OnGhostChanged
 		
 		"\0\s[0]*From London's greatest consulting detective\w8 \s[8]to little ol' Frisk.\w8\e"
 	}
+	//elseif reference0 == "David" //Camp Camp
 	elseif reference0 == "Emily"
 	{
 		"\0\s[0]*'さようなら',\w4 Emily.\w8 \s[2]And 'Hello' to you,\w4 %(username)!\w8\e"
@@ -2162,6 +2211,8 @@ OnGhostChanged
 		
 		"\0\s[5]*Hello,\w4 %(username)!\w8 \s[2]How were the Fairune ambassadors?\w8\e"
 	}
+	//elseif reference0 == "Tin Can"
+	//elseif reference0 == "Songstress"
 	elseif reference0 == "Inferno"
 	{
 		"\0\s[1]*Frisk hopes the Inferno and the Wolf will be okay.\w8\e"
@@ -2188,6 +2239,12 @@ OnGhostChanged
 		
 		"\0\s[21]*Frisk wishes the seasons boys well on their way\w8 \s[5]and says 'hello' to you,\w4 %(username).\w8\e"
 	}
+	//elseif reference0 == "Moomins" //Moominhousehold
+	//elseif reference0 == "RGB Puzzlers"
+	//elseif reference0 == "Layton"
+	//elseif reference0 == "Freddy Fazbear"
+	//elseif reference0 == "Wirt" //OTGW
+	//elseif reference0 == "P4tagonist"
 	elseif reference0 == "Cheesecake"
 	{
 		"\0\s[21]*No more Cheesecake and Ramen.\w8 \s[5]\n\n[half]*Now Frisk is the delicious treat!\w8\e"
@@ -2302,32 +2359,24 @@ OnShellChanged
 {
  	"\0\s[0]\1\s[10]"
 	--
- 	if reference0 == "scribblefrisk"
- 	{
- 		nowshell = "scribblefrisk"
-		
- 		"\0\s[0]*Frisk is basic once again.\w8\e"
- 	}
- 	elseif reference0 == "roundbabby"
- 	{
- 		nowshell = "master"
-		
- 		"\0\s[5]*Frisk has arrived!\w8 \s[8]And %(theyre) cute to boot!\w8\e"
- 	}
+	if reference0 == "scribblefrisk"
+	{
+		"\0\s[0]*Frisk is basic once again.\w8\e"
+	}
+	elseif reference0 == "roundbabby"
+	{
+		"\0\s[5]*Frisk has arrived!\w8 \s[8]And %(theyre) cute to boot!\w8\e"
+	}
 	//elseif reference0 == "" //the name of your shell as it is in the descript.txt file for that shell.
 	//{
-		//nowshell = "" //This is the folder name for your shell. Not the same as the above!
-		
 		//"\0\s[0]*Text goes here!\w8\e"
 	//}
 	elseif reference0 == "Determ Frisk"
 	{
-		nowshell = "gotdeterms"
-		
 		"\0\s[0]*Frisk is filled with\w4 determination.\w8\e"
 	}
- 	else
- 	{
+	else
+	{
 		"\0\s[0]*Frisk has changed to %(their) %(reference[0]) shell.\w8 \n*How many shells you got, %(username)?\w8\e"
 		
 		"\0\s[0]*Frisk is now equipped with %(reference[0]).\w8\e"
@@ -2341,7 +2390,6 @@ OnShellChanged
 
 //--OnDressupChanged
 //I'll be honest, I don't understand code enough to do any of this. If you do, great! More documentation can be found on Zarla's site! I'll leave the besics in here for ya, but otherwise, this is just easter egg stuff.
-
 OnDressupChanged
 {
 	if reference0 == 0 //in OnDressupChanged, reference0 refers to the character, therefore this is evaluating which character in question is getting dressed up. 0 is the main character.

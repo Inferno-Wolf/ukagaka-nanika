@@ -385,7 +385,7 @@ OnBIFFComplete
 		--
 		_s = ""; if reference0 != 1; _s = "s" //Plural check, adds an s if the number of emails is not 1
 		
-		"\0\s[6]*Looks like there are %(reference0) new emails.\w8"
+		"\0\s[6]*Looks like there are %(reference0) new email%(_s).\w8"
 		--
 		if reference7 != "" //Same as above, no need to ask if there are no headers
 		{
@@ -552,35 +552,12 @@ OnUpdate.OnDownloadBegin
 		--
 		//using the text buffers to display the correct number of boxes
 		"%(_txt)\n\n%(Update_Process) of %(Update_Total)"
-		//--
-		//flavortext
-		
-		 //if "aitalk" _in_ reference0
-		//{
-			//"\n\n\_q"
-			//--
-			//"\0\s[5]*More things for Frisk to say!\w8\e"
-		//}
-		//else
-		//{
-			//""
-		//}
 		--
 		"\w5\e"
 }
 
 //---- OnUpdate.OnMD5CompareBegin ---------------------------------------------------
-//LEAVE THESE BLANK.
-OnUpdate.OnMD5CompareBegin
-{
-	//"\1\s[10]Checking the MD5 value.\e"
-}
-
-//---- OnUpdate.OnMD5CompareComplete --------------------------------------------------
-OnUpdate.OnMD5CompareComplete
-{
-	//"\0\s[0]MD5 check good.\e"
-}
+//Cut for obnoxious crimes.
 
 //---- OnUpdate.OnMD5CompareFailure ---------------------------------------------------
 //_remaining should be the number of the file that's giving the error, in the order they're being downloaded. currentfile will be the file path.
@@ -805,9 +782,9 @@ OnHeadlinesenseFailure
 
 
 
-//****　Clock Synchronization　**********************************************************
+//****Clock Synchronization**********************************************************
 //**** 미카 (http://homepage2.nifty.com/ko-ki/)의 사전을 참고했습니다．감사＞こ 나무 성
-//This set of functions was done by the above Korean coder, I think. I'll leave their comment there untouched. 
+//This set of functions was done by the above Korean coder, I think. Their comment is left untouched there. 
 
 //----OnSNTPBegin ------------------------------------------------------------------
 //%(reference0) here is the site they'll be using to check your clock.
@@ -821,7 +798,7 @@ OnSNTPBegin
 }
 
 
-//----　OnSNTPCompare----------------------------------------------------------
+//----OnSNTPCompare----------------------------------------------------------
 //Now the ghost is going to compare the current time of your computer's system to the time of the site they connected to.
 OnSNTPCompare
 {
@@ -845,7 +822,7 @@ OnSNTPCompare
 	}
 }
 
-//----　OnSNTPEXECUTE ------------------------------------------------------------------
+//----OnSNTPEXECUTE ------------------------------------------------------------------
 //Note the \6 tag - that's what actually changes the clock.
 OnSNTPEXECUTE
 {
@@ -858,7 +835,7 @@ OnSNTPEXECUTE
 	"\0\s[2]*Everything's back up to date!\w8 \n\n[half]\s[8]*No longer is it 8pm on October 10th.\w8\w8\w8\w8 \n\s[0]*Unless it is.\w8\e"
 }
 
-//----　OnSNTPCANCEL ------------------------------------------------------------------
+//----OnSNTPCANCEL ------------------------------------------------------------------
 //If you decide not to change your clock when they tell you it doesn't match.
 OnSNTPCANCEL
 {
@@ -869,7 +846,7 @@ OnSNTPCANCEL
 	"\0\s[0]*Frisk may not understand it,\w8 \s[2]but %(they) will respect your wishes to remain in your time bubble.\w8\e"
 }
 
-//----　OnSNTPFailure ------------------------------------------------------------------
+//----OnSNTPFailure ------------------------------------------------------------------
 //If they can't change the clock for some reason.
 OnSNTPFailure
 {

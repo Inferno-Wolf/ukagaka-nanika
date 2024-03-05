@@ -5,32 +5,29 @@
 //--OnTranslate
 //the first word is what you will write in your ghost's dialogue. the \_a sets up the link, then the [brackets] is the address that the link will lead to (in this case, used in the reference0 check below in OnAnchorSelect). Finally, the "text" is what will replace the first word so when the ghost reads it to the user, it will appear as "text" instead of that first word! and end with another \_a to close off that code. simple.
 OnTranslate
-	{
+{
 	_talk = reference0
  	_talk = REPLACE(_talk, "naisudesu", "\_a[nicethings]Nice Cream\_a")
  	//_talk = REPLACE(_talk, "Anch2", "\_a[anchor2]Anchor 2\_a")
  	//_talk = REPLACE(_talk, "Anch3", "\_a[anchor3]Anchor 3\_a")
 	
-		if reference1 == "" && reference2 == "" { //send input box : no event (ref2) , no special flag (ref1)
-            EVAL('"' + REPLACE(_talk,'"','" + CHR(0x22) + "') + '"')
-        }
-        else { //event result from ghost
-            TOSTR(_talk)
-        }
-	}
-	
-	
+	//send input box : no event (ref2) , no special flag (ref1)
+	if reference1 == "" && reference2 == ""
+	{ EVAL('"' + REPLACE(_talk,'"','" + CHR(0x22) + "') + '"') }
+	//event result from ghost
+	else { TOSTR(_talk) }
+}
+
+
 //--OnAnchorSelect
 // \j is a tag that will open a specified url in the user's browser of choice
 OnAnchorSelect
 {
 	if "http://" _in_ reference0 || "https://" _in_ reference0 //checking to see if the link is a web address
-	{
-	"\j[%(reference0)]\e"
-	}
+	{"\j[%(reference0)]\e"}
 	else //if it's NOT a web address
 	{
-	case reference0 //case sets up reference0 for evaluation to see if matches any of the below criteria, which are all tagged with when.
+		case reference0
 		{
 			when "nicethings"
 			{

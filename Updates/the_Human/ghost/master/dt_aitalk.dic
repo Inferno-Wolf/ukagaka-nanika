@@ -5,39 +5,18 @@
 //--AiTalk
 //Leave this alone.
 OnAiTalk
- {
-	if RAND(100) < communicateratio
- 	{
- 		StartCommunicate
-	}
- 	else
+{
+	if mikireflag == 0
 	{
- 		if mikireflag == 0
-		{
-			if CHAIN.IDName == "" {
- 				lastTalk = RandomTalk
-			}
-			else {
-				lastTalk = ChainTalk
-			}
-			lastTalk
-		}
- 		else
-		{ 
-		MikireTalk
- 		}
+		if CHAIN.IDName == "" {lastTalk = RandomTalk}
+		else {lastTalk = ChainTalk}
+		lastTalk
 	}
- }
+	else {MikireTalk}
+}
 
 
 //--Rules (By Quonit)
-
-// \f[strike,true] makes the words struck out. \f[strike,defualt] resets the text to defualt.
-// \f[sub,true] makes text subscript. \f[sub,default] resets text to normal.
-// \f[sup,true] makes text superscript. \f[sup,false] makes the text normal again.
-// \f[underline,true] underlines text. \f[underline,default] removes the line from under the text.
-// \f[bold,true] makes your statement bold. \f[bold,false] makes the text not so bold.
-// \f[italic,true] makes text slanted. \f[italic,false] de-slants the text.
 
 // \f[height,(number, or the word default)] will change the size of the text
 // \f[color0-255,0-255,0-255] changes the color of the text.
@@ -69,7 +48,7 @@ RandomTalk : nonoverlap_pool
 	
 	"\0\s[0]*Frisk enjoys the peace and quiet of your desktop.\w8\e"
 	
-	"\0\s[0]*Frisk watches you through the monitor.\w2.\w2.\w7 \s[5]and tells you to keep up the good work.\w8\e"
+	"\0\s[0]*Frisk watches you through the monitor...\w8 \s[5]and tells you to keep up the good work.\w8\e"
 	
 	"\0\s[2]*Frisk wishes you a good day.\w8\e"
 	
@@ -94,7 +73,7 @@ RandomTalk : nonoverlap_pool
 	
 	"\1\_b[HEISHERE.png,50,50,centerxy]%(dogbark)\w8\w8 \0\s[5]*It's Dog time!\w8\w8\e"
 	
-	"\0\s[1]*Sans might take an interest in the contents of %(usersfolder).\w2.\w2.\w2\w8\e"
+	"\0\s[1]*Sans might take an interest in the contents of %(usersfolder)...\w8\e"
 	
 	"\0\s[6]*Frisk hums the tune of %(Undersong) to %(them)self.\w8\e"
 	
@@ -163,25 +142,25 @@ RandomTalk : nonoverlap_pool
 	
 	
 	//SHELL TALK
-	if nowshell == "scribblefrisk"
+	if SHIORI3FW.ShellName == "scribblefrisk"
 	{
 		"\0\s[2]*Frisk enjoys %(their) sweater.\w8 \n\s[0]*Has it been colder than usual where you are,\w4 too,\w4 %(username)?\w8\e"
 		
 		"\0\s[4]%(selectblip)*Frisk boops %(their) own nose.\w8\e"
 	}
-	if nowshell == "master"
+	if SHIORI3FW.ShellName == "roundbabby"
 	{
 		"\0\s[2]*A round Frisk.\w8\e"
 		
 		"\0\s[8]\w8\w8*Frisk flirts.\w8 \n\s[1]*You are unimpressed.\w8\e"
 	}
-	if nowshell == "gotdeterms"
+	if SHIORI3FW.ShellName == "Determination"
 	{
 		"\0\s[2]*Frisk is filled with\w8 \s[8]determination.\w8\e"
 		
 		"\0\s[5]*It took a long time to get here,\w4 %(username).\w8\e"
 	}
-	//if nowshell == "yourshellfoldername"
+	//if SHIORI3FW.ShellName == "" //your shell name as listed in its descript.txt
 	//{
 		//"\0\s[0]*Specific shell dialogue goes here.\w8\e"
 	//}
@@ -527,10 +506,10 @@ RandomTalk : nonoverlap_pool
 	{
 	"\0\s[0]*Frisk takes out a package of instant noodles"
 	--
-	"\t and a pot for boiling water.\w8 \s[2]%(Capitalize(they)) put the pot on a small burner and start the process.\w8 \n\n[half]\![set,balloonwait,8]*..........\![set,balloonwait,1]\w8\w8\w8 \n\n[half]%(slidewhistle)*The water's boiling.\w8\w8 \c\0\s[0]*Frisk puts the noodles in the pot.\w8\w8\w8\w8 \c*Three minutes\w8\w8 until\w8\w8 the noodles\w8\w8 are ready.\w8\w8\w8 \c*Two minutes\w8\w8 until\w8\w8 the noodles\w8\w8 are ready.\w8\w8\w8 \c\0\s[1]*One minute\w8\w8 until\w8\w8 the noodles\w8\w8 are ready.\w8\w8\w8\w8 \c\0\s[5]*The noodles\w8\w8 are ready.\w8\w8\w8 \c\0\s[3]*They don't taste very good.\w2.\w2.\w2\w8 \n\s[0]*Frisk adds the flavour packet.\w8 \n\n[half]*That's better.\w8 \n\s[1]*Not great,\w8 \s[0]but better.\w8\w8\w8"
+	"\t and a pot for boiling water.\w8 \s[2]%(Capitalize(they)) put the pot on a small burner and start the process.\w8 \n\n[half]\![set,balloonwait,8]*..........\![set,balloonwait,1]\w8\w8\w8 \n\n[half]%(slidewhistle)*The water's boiling.\w8\w8 \c\0\s[0]*Frisk puts the noodles in the pot.\w8\w8\w8\w8 \c*Three minutes\w8\w8 until\w8\w8 the noodles\w8\w8 are ready.\w8\w8\w8 \c*Two minutes\w8\w8 until\w8\w8 the noodles\w8\w8 are ready.\w8\w8\w8 \c\0\s[1]*One minute\w8\w8 until\w8\w8 the noodles\w8\w8 are ready.\w8\w8\w8\w8 \c\0\s[5]*The noodles\w8\w8 are ready.\w8\w8\w8 \c\0\s[3]*They don't taste very good...\w8\w8 \n\s[0]*Frisk adds the flavour packet.\w8 \n\n[half]*That's better.\w8 \n\s[1]*Not great,\w8 \s[0]but better.\w8\w8\w8"
 	" and cooks them carefully in boiling water for three minutes.\w8\w8"
 	"\s[1] and it takes %(randnumb) minutes to cook them.\w8\w8"
-	".\w2.\w2.\w2and eats them.\w8\w8 \n*.\w2.\w2.\w2.\w2.\w2.\w2\w8\w8 \n\s[7]*They're better dry,\w4 anyway.\w8\w8"
+	"...\w8and eats them.\w8\w8 \n*......\w8\w8\w8 \n\s[7]*They're better dry,\w4 anyway.\w8\w8"
 	--
 	"\c*\![set,balloonwait,3].......\![set,balloonwait,1]\w8%(hprestore)"
 	--
@@ -760,7 +739,7 @@ RandomTalk : nonoverlap_pool
 	////Other ghost dialogue
 	if ghostexcount == 0
 	{
-		"\0\s[0]*Frisk is alone,\w4 %(username).\w8 \s[1]\n*So alone.\w2.\w2.\w2\w8\e"
+		"\0\s[0]*Frisk is alone,\w4 %(username).\w8 \s[1]\n*So alone...\w8\e"
 		
 		"\0\s[0]*There is nobody here besides Frisk.\w8\e"
 		
@@ -865,8 +844,6 @@ RandomTalk : nonoverlap_pool
 		"\0\s[5]\w8\w8*Frisk wants you to hear %(their) impression of Sans.\w8 \s[2]\w8\w8\n*8Wait for it.\w8.\w8.\w8\w8 \c\s[5]\![sound,play,sans.mp3]\w8*DDDDDDDD!\w8\w8\w8 \n\n[half]\s[4]*Frisk is satisfied.\w8\e"
 		
 		"\0\s[5]\w8\w8*Frisk wants you to hear %(their) impression of Papyrus.\w8 \s[2]\w8\n*Wait for it.\w8.\w8.\w8\w8 \c\s[5]\![sound,play,paps.mp3]\w8*GAUGAUGAUGAU!\w8\w8\w8 \n\n[half]\s[4]*Frisk is satisfied.\w8\e"
-		
-		//Flowey here
 		
 		//Undyne
 		//Alphys
@@ -1146,17 +1123,11 @@ OnSurfaceRestore
 OnKeyPress
 {
 	if reference0 == "t"
-	{
-	OnAiTalk
-	}
+	{OnAiTalk}
 	elseif reference0 == "r"
-	{
-	OnLastTalk
-	}
+	{OnLastTalk}
 	elseif reference0 == "f1"
-	{
-	"\![open,readme]"
-	}
+	{"\![open,readme]"}
 }
 
 //you used to call me on your bone phone

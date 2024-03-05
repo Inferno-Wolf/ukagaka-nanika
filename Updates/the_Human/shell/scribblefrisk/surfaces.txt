@@ -191,7 +191,7 @@ element1,overlay,surface1518.png,0,0
 //shining
 0interval,always
 0pattern0,1528,80,replace,39,138
-0pattern,-1,80,replace,0,0
+0pattern1,-1,80,replace,0,0
 
 //tbh I'm using replace here because I don't know how to segment my drawings, so.
 }
@@ -238,13 +238,13 @@ element0,overlay,surface1520.png,0,0
 4interval,never
 4pattern0,1521,30,replace,0,0
 4pattern1,1522,100,replace,0,0
-4pattern,1519,70,replace,0,0
+4pattern2,1519,70,replace,0,0
 
 //start oval go teef
 5interval,never
 5pattern0,1520,30,replace,0,0
 5pattern1,1522,100,replace,0,0
-5pattern,1524,70,replace,0,0
+5pattern2,1524,70,replace,0,0
 
 //oval two then teef
 6interval,never

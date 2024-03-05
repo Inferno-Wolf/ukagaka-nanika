@@ -5,16 +5,9 @@
 //--OnTeachName
 OnTeachName	
 {
-	if reference0 == "TEACHNAME" //ignore this
-	{
-		"\0\s[5]*Frisk is ready to hear your name change.\w4"
-		--
-		"\![open,inputbox,OnNameTeach,-1]\e"
-	}
-	else
-	{
-		//This else statement is empty. Carry on.
-	}
+	"\0\s[5]*Frisk is ready to hear your name change.\w4"
+	--
+	"\![open,inputbox,OnNameTeach,-1]\e"
 }
 
 //this is straight from Zi because they are a gremlin who loves to breakproof the firstboot sequence as much as they can
@@ -338,7 +331,7 @@ NameDone
 		"\0\s[2]"
 		"\0\s[8]"
 		--
-		"*Frisk will refer to you as %(username).\w8\e"
+		"*Frisk will refer to you as %(username).\w8"
 		}
 		
 		{
@@ -348,7 +341,7 @@ NameDone
 		"\0\s[2]"
 		"\0\s[8]"
 		--
-		"*Your name is now %(username).\w8\e"
+		"*Your name is now %(username).\w8"
 		}
 		
 		{
@@ -366,7 +359,7 @@ NameDone
 		"\s[2]"
 		"\s[8]"
 		--
-		"Got it.\w8\e"
+		"Got it.\w8"
 		}
 		
 		{
@@ -384,8 +377,10 @@ NameDone
 		"\n\s[2]"
 		"\n\s[8]"
 		--
-		"*Frisk will remember that.\w8\e"
+		"*Frisk will remember that.\w8"
 		}
+		--
+		"\_q\n\n[half]\![*]\q[Back to Main menu,BACKTOMENU]   \![*]\q[Back to Config menu,configmenu] \n\![*]\q[Cancel,CANCEL]\e"
 	}	
 }
 
@@ -394,59 +389,31 @@ OnPronoTeach
 {
 	if reference0 == "masc"
 	{
-		presuffix = "masculine"
-		himher = "him"
-		heshe = "he"
-		hisher = "his"
-		hesshes = "he's"
+		selfpresuffix = "masculine"
 	}
 	elseif reference0 == "femm"
 	{
-		presuffix = "feminine"
-		himher = "her"
-		heshe = "she"
-		hisher = "her"
-		hesshes = "she's"
+		selfpresuffix = "feminine"
 	}
 	elseif reference0 == "neit"
 	{
-		presuffix = "undefine"
-		himher = "them"
-		heshe = "they"
-		hisher = "their"
-		hesshes = "they're"
+		selfpresuffix = "undefined"
 	}
 	elseif reference0 == "heth"
 	{
-		presuffix = "both"
-		himher = "%(himthem)"
-		heshe = "%(hethey)"
-		hisher = "%(histheir)"
-		hesshes = "%(hestheyre)"
+		selfpresuffix = "hethey"
 	}
 	elseif reference0 == "sheth"
 	{
-		presuffix = "both"
-		himher = "%(herthem)"
-		heshe = "%(shethey)"
-		hisher = "%(hertheir)"
-		hesshes = "%(shestheyre)"
+		selfpresuffix = "shethey"
 	}
 	elseif reference0 == "undef"
 	{
-		presuffix = "both"
-		himher = "%(herhim)"
-		heshe = "%(shehe)"
-		hisher = "%(herhis)"
-		hesshes = "%(sheshes)"
+		selfpresuffix = "shehe"
 	}
 	elseif reference0 == "itit"
 	{
-		presuffix = "undefine"
-		himher = "it"
-		heshe = "it"
-		hisher = "its"
-		hesshes = "it's"
+		selfpresuffix = "itundef"
 	}
 	elseif reference0 == "both"
 	{
@@ -466,136 +433,106 @@ OnPronoTeach
 	}
 	else //cancel
 	{
-		"\0\s[0]*Okay.\w8 \s[2]Frisk will continue to use '%(heshe)',\w3 '%(himher)',\w3 and '%(hisher)' for you,\w4 %(username).\w8\e"
+		"\0\s[0]*Okay.\w8 \s[2]Frisk will continue to use '%(heshe)',\w3 '%(himher)',\w3 and '%(hisher)' for you,\w4 %(username).\w8"
+		--
+		"\_q\n\n[half]\![*]\q[Back to Main menu,BACKTOMENU]   \![*]\q[Back to Config menu,configmenu] \n\![*]\q[Cancel,CANCEL]\e"
 	}
 	--
-	if firstboot == 1
+	"\0\s[5]*Frisk will use '%(heshe)',\w3 '%(himher)'\w3 and '%(hisher)' for you,\w3 %(username).\w8\w8"
+	--
+	if selfpresuffix == "undefined" && presuffix == "undefined"
 	{
-		"\0\s[2]\t\**Frisk will remember those.\w8 \n\n[half]*Now,\w4 \s[5]Frisk would like to know your name.\w4"
-		--
-		"\![open,inputbox,OnNameTeach,-1]\e"
+		"\n\n[half]\s[8]*Determination.\w8\w8"
 	}
-	else
+	--
+	if selfpresuffix == presuffix
 	{
-		"\0\s[5]*Frisk will use '%(heshe)',\w3 '%(himher)'\w3 and '%(hisher)' for you,\w3 %(username).\w8\w8"
-		--
-		if they == "they" && them == "them" && their == "their" && heshe == "they" && himher == "them" && hisher == "their"
-		{
-			"\n\n[half]\s[8]*Determination.\w8\w8"
-		}
-		--
-		if they == heshe && them == himher && their == hisher
-		{
-			"\n\n[half]\s[8]*Now you two match.\w8\w8"
-		}
-		--
-		if presuffix == "both"
-		{
-			"\s[2]\n\n[half]*If you want to re-roll your options,\w3 just choose this again.\w8\w8"
-		}
-		--
-		"\e"
-		
+		"\n\n[half]\s[8]*Now you two match.\w8\w8"
 	}
+	--
+	if selfpresuffix == "hethey" || selfpresuffix == "shethey" || selfpresuffix == "shehe"
+	{
+		"\s[8]\n\n[half]*Enjoy some true randomisation!\w8\w8"
+	}
+	--
+	"\_q\n\n[half]\![*]\q[Back to Main menu,BACKTOMENU]   \![*]\q[Back to Config menu,configmenu] \n\![*]\q[Cancel,CANCEL]\e"
 }
 
 	
 OnhimherTeach
 {
-	himher = reference0
-	reference0 = REPLACE(reference0," ","") //removes spaces
-	reference0 = REPLACE(reference0,".","") //removes periods
-	reference0 = REPLACE(reference0,"-","") //removes dashes
-	reference0 = REPLACE(reference0,"'","") //removes apostrophes
+	xhimher = reference0
 	
 	if reference0 == ""
 	{
-		himher = "hir"
+		xhimher = "hir"
 	}
 	OnPronounTeach2
 }
 
 OnPronounTeach2
 {
-	"\0\s[5]*That's '%(himher)'!\w8 \n\n[half]\s[2]*Now,\w3 what about for 'he / she / they'?\w8"
+	"\0\s[5]*That's '%(xhimher)'!\w8 \n\n[half]\s[2]*Now,\w3 what about for 'he / she / they'?\w8"
 	--
 	"\![open,inputbox,OnhesheTeach,-1]"
 }
 	
 OnhesheTeach
 {
-	heshe = reference0
-	reference0 = REPLACE(reference0," ","") //removes spaces
-	reference0 = REPLACE(reference0,".","") //removes periods
-	reference0 = REPLACE(reference0,"-","") //removes dashes
-	reference0 = REPLACE(reference0,"'","") //removes apostrophes
+	xheshe = reference0
 	
 	if reference0 == ""
 	{
-		heshe = "zie"
+		xheshe = "zie"
 	}
 	OnPronounTeach3
 }
 	
 OnPronounTeach3
 {
-	"\0\s[6]*That's '%(heshe)',\w3 then.\w8 \n\n[half]\s[2]*Next,\w3 for 'his / her / their'?\w8"
+	"\0\s[6]*That's '%(xheshe)',\w3 then.\w8 \n\n[half]\s[2]*Next,\w3 for 'his / her / their'?\w8"
 	--
 	"\![open,inputbox,OnhisherTeach,-1]"
 }
 
 OnhisherTeach
 {
-	hisher = reference0
-	reference0 = REPLACE(reference0," ","") //removes spaces
-	reference0 = REPLACE(reference0,".","") //removes periods
-	reference0 = REPLACE(reference0,"-","") //removes dashes
-	reference0 = REPLACE(reference0,"'","") //removes apostrophes
+	xhisher = reference0
 	
 	if reference0 == ""
 	{
-		hisher = "hirs"
+		xhisher = "hirs"
 	}
 	OnPronounTeach1
 }
 
 OnPronounTeach1
 {
-	"\0\s[5]*That's '%(hisher)'.\w8 \s[0]\n\n[half]*Lastly,\w4 for 'he's / she's / they're'?\w8"
+	"\0\s[5]*That's '%(xhisher)'.\w8 \s[0]\n\n[half]*Lastly,\w4 for 'he's / she's / they're'?\w8"
 	--
 	"\![open,inputbox,OnhesshesTeach,-1]"
 }
 
 OnhesshesTeach
 {
-	hesshes = reference0
-	reference0 = REPLACE(reference0," ","") //removes spaces
-	reference0 = REPLACE(reference0," ","") //removes spaces
-	reference0 = REPLACE(reference0,".","") //removes periods
-	reference0 = REPLACE(reference0,"-","") //removes dashes
-	reference0 = REPLACE(reference0,"'","") //removes apostrophes
+	xhesshes = reference0
+	//reference0 = REPLACE(reference0," ","") //removes spaces
+	//reference0 = REPLACE(reference0,"'","") //removes apostrophes
 	
 	if reference0 == ""
 	{
-		hesshes = "zie's"
+		xhesshes = "zie's"
 	}
 	OnPronounDone
 }
 
 OnPronounDone
 {
-	presuffix = "both"
+	selfpresuffix = "own"
+	
+	"\0\s[2]*Your pronouns are now set to your personal '%(heshe)',\w3 '%(himher)',\w3 and '%(hisher)'.\w8 \n\s[5]*Frisk seems excited by this fact.\w8"
 	--
-	if firstboot == 1
-	{
-		"\0\s[2]\t\**Your pronouns are now set to your personal '%(heshe)',\w3 '%(himher)',\w3 and '%(hisher)'.\w8 \s[5]\n*Frisk will remember those.\w8 \n\n[half]*Now,\w4 \s[2]Frisk would like to know your name.\w4"
-		--
-		"\![open,inputbox,OnNameTeach,-1]\e"
-	}
-	else
-	{
-		"\0\s[2]*Your pronouns are now set to your personal '%(heshe)',\w3 '%(himher)',\w3 and '%(hisher)'.\w8 \n\s[5]*Frisk seems excited by this fact.\w8\e"
-	}
+	"\_q\n\n[half]\![*]\q[Back to Main menu,BACKTOMENU]   \![*]\q[Back to Config menu,configmenu] \n\![*]\q[Cancel,CANCEL]\e"
 }
 
 
@@ -604,52 +541,31 @@ OnFriskProno
 {
 	if reference0 == "masc"
 	{
-		they = "he"
-		them = "him"
-		their = "his"
-		theyre = "he's"
+		presuffix = "masculine"
 	}
 	elseif reference0 == "femm"
 	{
-		they = "she"
-		them = "her"
-		their = "her"
-		theyre = "she's"
+		presuffix = "feminine"
 	}
 	elseif reference0 == "neit"
 	{
-		they = "they"
-		them = "them"
-		their = "their"
-		theyre = "they're"
+		presuffix = "undefined"
 	}
 	elseif reference0 == "heth"
 	{
-		they = "%(hethey)"
-		them = "%(himthem)"
-		their = "%(histheir)"
-		theyre = "%(hestheyre)"
+		presuffix = "hethey"
 	}
 	elseif reference0 == "sheth"
 	{
-		they = "%(shethey)"
-		them = "%(herthem)"
-		their = "%(hertheir)"
-		theyre = "%(shestheyre)"
+		presuffix = "shethey"
 	}
 	elseif reference0 == "undef"
 	{
-		they = "%(shehe)"
-		them = "%(herhim)"
-		their = "%(herhis)"
-		theyre = "%(sheshes)"
+		presuffix = "shehe"
 	}
 	elseif reference0 == "itit"
 	{
-		they = "it"
-		them = "it"
-		their = "its"
-		theyre = "it's"
+		presuffix = "itundef"
 	}
 	elseif reference0 == "both"
 	{
@@ -667,32 +583,34 @@ OnFriskProno
 	}
 	else //cancel
 	{
-		"\0\s[0]*Okay.\w8 \s[2]Frisk will continue to use '%(they)',\w3 '%(them)',\w3 and '%(their)'.\w8\e"
+		"\0\s[0]*Okay.\w8 \s[2]Frisk will continue to use '%(they)',\w3 '%(them)',\w3 and '%(their)'.\w8"
+		--
+		"\_q\n\n[half]\![*]\q[Back to Main menu,BACKTOMENU]   \![*]\q[Back to Config menu,configmenu] \n\![*]\q[Cancel,CANCEL]\e"
 	}
 	--
 	"\0\s[0]*Frisk will use '%(they)',\w3 '%(them)',\w3 and '%(their)' for %(them)self,\w3 %(username).\w8\w8"
 	--
-	if they == "they" && them == "them" && their == "their"
+	if presuffix == "undefined"
 	{
 		"\n\n[half]\s[8]*The default mode!\w8\w8"
 	}
 	--
-	if they == heshe && them == himher && their == hisher
+	if presuffix == selfpresuffix
 	{
 		"\n\n[half]\s[8]*Did you want Frisk to match with you?\w8\w8"
 	}
 	--
 	if reference0 == "heth" || reference0 == "sheth" || reference0 == "undef"
 	{
-		"\s[2]\n\n[half]*If you want to re-roll the picks,\w3 just choose this option again.\w8\w8"
+		"\s[8]\n\n[half]*Watch in awe as %(they) effortlessly choose randomly every time.\w8\w8"
 	}
 	--
-	"\e"
+	"\_q\n\n[half]\![*]\q[Back to Main menu,BACKTOMENU]   \![*]\q[Back to Config menu,configmenu] \n\![*]\q[Cancel,CANCEL]\e"
 }
 
 OnthemTeach
 {
-	them = reference0
+	xthem = reference0
 	reference0 = REPLACE(reference0," ","") //removes spaces
 	reference0 = REPLACE(reference0,".","") //removes periods
 	reference0 = REPLACE(reference0,"-","") //removes dashes
@@ -700,7 +618,7 @@ OnthemTeach
 	
 	if reference0 == ""
 	{
-		them = "them"
+		xthem = "them"
 	}
 	OnFriskTeach2
 }
@@ -714,7 +632,7 @@ OnFriskTeach2
 	
 OntheyTeach
 {
-	they = reference0
+	xthey = reference0
 	reference0 = REPLACE(reference0," ","") //removes spaces
 	reference0 = REPLACE(reference0,".","") //removes periods
 	reference0 = REPLACE(reference0,"-","") //removes dashes
@@ -722,7 +640,7 @@ OntheyTeach
 	
 	if reference0 == ""
 	{
-		they = "they"
+		xthey = "they"
 	}
 	OnFriskTeach3
 }
@@ -736,7 +654,7 @@ OnFriskTeach3
 
 OntheirTeach
 {
-	their = reference0
+	xtheir = reference0
 	reference0 = REPLACE(reference0," ","") //removes spaces
 	reference0 = REPLACE(reference0,".","") //removes periods
 	reference0 = REPLACE(reference0,"-","") //removes dashes
@@ -744,7 +662,7 @@ OntheirTeach
 	
 	if reference0 == ""
 	{
-		their = "their"
+		xtheir = "their"
 	}
 	OnFriskTeach1
 }
@@ -758,7 +676,7 @@ OnFriskTeach1
 
 OntheyreTeach
 {
-	theyre = reference0
+	xtheyre = reference0
 	reference0 = REPLACE(reference0," ","") //removes spaces
 	reference0 = REPLACE(reference0," ","") //removes spaces
 	reference0 = REPLACE(reference0,".","") //removes periods
@@ -767,14 +685,18 @@ OntheyreTeach
 	
 	if reference0 == ""
 	{
-		theyre = "they're"
+		xtheyre = "they're"
 	}
 	OnFriskDone
 }
 
 OnFriskDone
 {
-	"\0\s[2]*Frisk's pronouns are now set to your personal '%(they)',\w3 '%(them)',\w3 and '%(their)'.\w8 \n\s[5]*Have fun,\w3 %(username).\w8\e"
+	presuffix = "own"
+	
+	"\0\s[2]*Frisk's pronouns are now set to your personal '%(they)',\w3 '%(them)',\w3 and '%(their)'.\w8 \n\s[5]*Have fun,\w3 %(username).\w8"
+	--
+	"\_q\n\n[half]\![*]\q[Back to Main menu,BACKTOMENU]   \![*]\q[Back to Config menu,configmenu] \n\![*]\q[Cancel,CANCEL]\e"
 }
 
 
