@@ -1,0 +1,72 @@
+//surface table let's goooooo
+
+
+//You don't need to touch this part.
+charset,UTF-8
+version,1
+option,DisableNoDefineSurfaces
+
+
+group,C
+{
+scope,0
+
+0,Neutral
+1,Angy mouth open
+2,Angy mouth closed
+3,happies
+4,smiles
+5,ANGERY blush teefs
+6,ANGERY
+7,glares
+8,Huffs and glares
+9,angy SHOUTS
+11,angies open mouth
+12,angies closed mouth
+13,annoyed open mouth
+14,annoyed
+15,concern open mouth
+16,concerned
+17,concerned sighs
+18,disgust ugh
+19,judging you
+20,ehehe...
+21,eheh blush
+22,eheh grits teeth
+23,overloaded blush
+24,grimaces grits teeth
+25,fed-up user open mouth
+26,fed-up
+27,nervous blush
+28,nervous
+29,horrified open mouth
+30,horrified closed mouth
+31,horrified shout
+32,phew...
+33,Thinking
+34,sad smile
+35,PAIN
+36,startled shout
+37,startled blush
+38,shocked blush
+39,shocked
+40,startled woah!
+41,oh! open mouth
+42,SHOUT blush
+43,blank shock
+44,surprised
+45,wince smiles
+46,wistful smile
+47,mischief
+48,:D
+}
+
+
+//Kero
+group,__disabled
+{
+10,Kero
+}
+
+
+//all right that's it!

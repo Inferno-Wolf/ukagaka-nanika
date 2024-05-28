@@ -1,0 +1,202 @@
+﻿//--Envelopes go here--
+//moved a bunch of the backend code stuff here whooooop
+
+anobject // %(anobject)
+{
+	"a tuna can"; "a key"; "a pair of shoes"; "a tooth"; "a tin can"; "a can of beans"; "a toothpick"; "a lawn flamingo"; "a pair of keys"; "a padlock"; "a vial labelled 'DO NOT SHAKE'"; "a used-up tube of toothpaste"
+}
+
+
+//you could also use this as a place to store some code to raise variables, like affection and stuff. it would look something like --
+
+//OnRankUp
+//{
+	//affection ++ //for one point; if you wanted to raise more, then you'd use "affection += #" (replace # with a number value)
+//}
+
+//and then place it into a dialogue like so --
+
+//"\![raise,OnRankUp]You ranked up!\w8 Thanks,\w4 %(user)!\w8\e"
+
+//or something like that. the important bit here being the "\![raise,OnRankUp]" code.
+//apparently, placing variable changes inside envelopes that then go into aitalk will call them regardless of if the actual dialogue it was placed in was called or not, making your variables go out of wack. this method can be called within aitalk because it's its own function that gets called and not a dialogue envelope. at least, I assume as such.
+
+
+
+//and that's the gist of it!
+
+
+
+// %(userfolder)
+userfolder
+{
+	"%(user)'s Recycle Bin"
+	"%(user)'s Document folder"
+	"%(user)'s secret folder"
+}
+
+
+//double envelopes are actually arrays. technically. each segment is separated by a comma and is a list being stored in an envelope. you can call this without setting up intricate definitions (as seen in that segment of aitalk) by using %(doubleenvelope[0]) for the first segment, then %(doubleenvelope[1]) for the next, and so on.
+//remember! it starts at 0 always.
+
+
+
+//----------Balloon mode
+// %(talkb)
+talkb
+{
+	if SHIORI3FW.BalloonName == "FGO Text"
+	{
+		if choicet == 1 //b4
+		{"\b[4]"}
+		elseif choicet == 2 //b10
+		{"\b[10]"}
+		elseif choicet == 3 //b12
+		{"\b[12]"}
+		elseif choicet == 4 //b14
+		{"\b[14]"}
+		else //0; default
+		{""}
+	}
+	else //is not the actual balloon
+	{""}
+}
+
+// %(bigb)
+bigb
+{
+	if SHIORI3FW.BalloonName == "FGO Text"
+	{
+		if choiceb == 1 //b6
+		{"\b[6]"}
+		elseif choiceb == 2 //b8
+		{"\b[8]"}
+		else //0; default
+		{"\b[2]"}
+	}
+	else //is not the actual balloon
+	{"\b[2]"}
+}
+
+
+//---------------------Capitalisation-----------------------------
+//this will capitalise the first letter of a word in an envelope!! very useful for the pronouns. (this was written by Zi also!)
+//%(Capitalize(envelope))
+Capitalize
+{
+  _word = _argv[0] //Sets _word to the word the user sent
+  _buffer = SUBSTR(_word,0,1) //Stores the first character in _buffer
+  _word = ERASE(_word,0,1) //Erases the first character from _word
+  _word = INSERT(_word,0,TOUPPER(_buffer)) //Inserts the character in _buffer back into _word after capitalizing it
+  _word //Returns the capitalized word
+}
+
+//%(Lowercase(envelope))
+Lowercase
+{
+  _word = _argv[0] //Sets _word to the word the user sent
+  _buffer = SUBSTR(_word,0,1) //Stores the first character in _buffer
+  _word = ERASE(_word,0,1) //Erases the first character from _word
+  _word = INSERT(_word,0,TOLOWER(_buffer)) //Inserts the character in _buffer back into _word after capitalizing it
+  _word //Returns the capitalized word
+}
+
+
+//%(timeslot)
+timeslot
+{
+	if hour >= 5 && hour <=8
+	{ "earlymorning" } //from am5 to am8
+	elseif hour >= 9 && hour <= 11
+	{ "morning" } //from am9 to am11
+	elseif hour >= 12 && hour <= 14
+	{ "lunch" } //from pm12 to pm2
+	elseif hour >= 15 && hour <= 17
+	{ "afternoon" } //from pm3 to pm5
+	elseif hour >= 18 && hour <= 20
+	{ "evening" } //from pm6 to pm8
+	elseif hour >= 21 && hour <= 24
+	{ "night" } //from pm9 to am12
+	else
+	{ "latenight" } //am12 to am5
+}
+
+//%(dayslot)
+dayslot
+{
+	"%(month)month %(day)day"
+}
+
+//%(nowhour)
+nowhour
+{
+	if hour12 == 0
+	{ "1" }
+	else
+	{ "%(hour12)" }
+}
+
+//%(nowmin)
+nowmin
+{
+	if minute >= 0 && minute <= 9
+	{ "0%(minute)" }
+	else
+	{ "%(minute)" }
+}
+
+
+//Pronouns stuff
+they
+{
+	if presuffix == "masculine" {"he"}
+	elseif presuffix == "feminine" {"she"}
+	elseif presuffix == "own" {xthey}
+	else //undefined
+	{"they"}
+}
+
+
+them
+{
+	if presuffix == "masculine" {"him"}
+	elseif presuffix == "feminine" {"her"}
+	elseif presuffix == "own" {xthem}
+	else //undefined
+	{"them"}
+}
+
+their
+{
+	if presuffix == "masculine" {"his"}
+	elseif presuffix == "feminine" {"her"}
+	elseif presuffix == "own" {xtheir}
+	else //undefined
+	{"their"}
+}
+
+theyre
+{
+	if presuffix == "masculine" {"he's"}
+	elseif presuffix == "feminine" {"she's"}
+	elseif presuffix == "own" {xtheyre}
+	else //undefined
+	{"they're"}
+}
+
+
+
+
+//this is because we changed the ghostexlist thing
+GhostIsOpen
+{
+	if ASEARCH(_argv[0],ghostexlist) != -1; 1
+	else; 0
+}
+
+//**** Don't touch this ***************************************************************
+//This bit of code is what makes menu options that don't start with On direct to Select.options instead. Remove or comment it out if you prefer!
+OnChoiceSelect
+{
+    EVAL("Select.%(reference0)")
+}

@@ -1,0 +1,1 @@
+Castoria Farmer outfit!! Also drawn by KFC for the Ghost Jam 2024

@@ -1,0 +1,1 @@
+whoooo it's Castioria!! KFC drew all of this during Ghost Jam 2024

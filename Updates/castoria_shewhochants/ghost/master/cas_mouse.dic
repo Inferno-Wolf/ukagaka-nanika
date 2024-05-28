@@ -1,0 +1,165 @@
+﻿//---------------------------Mouse Functions--------------------------
+//this file is for setting up petting on your ghost, hitting, and other clicking stuff.
+
+
+//--OnMouseMove
+//---- reference3 determines the character in question.
+OnMouseMove
+{
+	if reference3 == 0 // 0, aka the Sakura
+	{
+		MouseMoveSakura
+	}
+	else // not 0, so the Kero
+	{
+		MouseMoveKero
+	}
+}
+
+
+//--MouseMoveSakura
+// reference4 uses the defined hitboxes you made for your characters in surfaces.txt.
+MouseMoveSakura
+{
+	if reference4 != ""
+	{
+		stroke++
+		if stroke >= 40
+		{
+			stroke = 0
+			if reference4 == "CasHat"
+			{
+				{
+					"\0%(talkb)"
+					--
+					"\s[41]"
+					"\s[43]"
+					"\s[39]"
+					"\s[44]"
+					--
+					"Oh!\w8 ...\w8\w8\w8 \s[3]This feels nice,\w4 actually.\w8\e"
+				}
+				
+				"\0%(talkb)\s[3]Hehe...\w8 keep doing that...\w8\e"
+			}
+			elseif reference4 == "CasFace"
+			{
+				"\0%(talkb)\s[47]Ah-hah!\w8 Careful,\w4 %(user),\w4 or I'll catch your hand!\w8\e"
+			}
+		}
+	}
+	else
+	{
+		stroke = 0
+	}
+}
+
+
+//---- MouseMoveKero -----------------------------------------------------------------
+//same basic premise for the Kero. I'm commenting all this out, but adding the mode details in.
+/*
+MouseMoveKero
+{
+	if reference4 != ""
+	{
+		stroke++
+		if stroke >= 40
+		{
+			stroke = 0
+			if reference4 == "Head"
+			{
+				"\1\s[10]Pet pet.\w8\e"
+			}
+			elseif reference4 == "Face"
+			{
+				"\1\s[10]Smoosh smoosh.\w8\e"
+			}	
+		}
+	}
+	else
+	{
+		stroke = 0
+	}
+}
+*/
+
+
+//---- OnMouseDoubleClick -------------------------------------------------------
+//reference5 checks which button is being used for the click, reference3 for which character
+OnMouseDoubleClick
+{
+	if reference5 == 0
+	{
+	 	if reference3 == 0 //for the Sakura
+		{
+			MouseDoubleClickSakura
+		}
+		else //for the Kero / others
+		{
+			MouseDoubleClickKero
+		}
+	}
+}
+
+
+//---- MouseDoubleClickSakura ----------------------------------------------------------
+// reference4 is the name of the hitbox as defined in surface.txt
+MouseDoubleClickSakura
+{
+ 	if reference4 == "CasHat"
+	{
+		"\0%(talkb)\s[35]\w8\e"
+ 	}
+	elseif reference4 == "CasFace"
+	{
+		"\0%(talkb)\s[19]\w8\e"
+		
+		"\0%(talkb)\s[26]\w8\e"
+	}
+	else
+ 	{
+ 		OpenSakuraMenu
+	}
+}
+
+
+//---- MouseDoubleClickKero -----------------------------------------------------------
+// reference4 is the name of the hitbox as defined in surface.txt
+//same as before! though I'm combining the two hitboxes just to show you can.
+/*
+MouseDoubleClickKero
+{
+ 	if reference4 == "Head" || reference4 == "Face"
+	{
+		"\1\s[10]Bap bap.\w8\e"
+ 	}
+	else
+ 	{
+		OpenKeroMenu
+	}
+}
+*/
+
+
+//dragging her around the screen
+//reference0 is mouse cursor x coordinates (horizontal), reference1 is the y coordinates (vertical); reference2 is the amount the mouse wheel has scrolled and what direction
+//reference3 is which character (0 for Sakura, 1 for Kero, 2 and up for more); reference4 recognises collisions; reference5 notices which click (0 for left, 1 for right); reference6 is "touch" for mouse pad, "mouse" for mouse
+//OnMouseDragStart
+//{
+	//""
+//}
+
+//same refs as above (except ref2 and ref5 which are always 0)
+OnMouseDragEnd
+{
+	if firstboot != 1
+	{
+		if reference4 == "CasHat"
+		{
+			"\0%(talkb)\s[1]Hey!\w8 \s[2]That's MY hat!\w8\e"
+		}
+		"\0%(talkb)\s[47]Ooh,\w4 what's over here?\w8\e"
+		
+		"\0%(talkb)\s[26]Alright,\w4 alright,\w4 I'm moving aside.\w8\e"
+	}
+}

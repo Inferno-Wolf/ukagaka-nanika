@@ -1,0 +1,169 @@
+//---------------------------Communication--------------------------
+//inter-ghost connectivity!! aka press the button to make your ghost speak to other ghosts.
+
+
+//--OnCommunicate
+//OnCommunicate is called when your ghost is either targeted by another ghost for a conversation, or when your ghost is targeting another ghost for conversation.
+OnCommunicate
+{
+	if reference0 == "user" || reference0 == "User"
+	{
+		//blank because it is defunct, very sadly.
+	}
+	else //---- answering another ghost
+	{ReplyToGhost}
+}
+
+
+
+//this is when you start the conversation with another ghost. you may notice it's the function called from that option in the Sakura's menu!
+OnStartTalking
+{
+	if ghostexcount > 0
+	{
+		_randghost = ANY(ghostexlist)
+		//this simplifies the process!! thanks again, Zi!!
+		--
+		//Checks for the Sakura name; make sure you change the res_reference0 value as well!
+		case _randghost
+		{
+			//known ghosts
+			/*
+			when "Inferno"
+			{
+				res_reference0 = "Inferno"
+				
+				""
+			}*/
+			//when ""
+			//{
+				//res_reference0 = ""
+				
+				//""
+			//}
+			when "Castoria"
+			{
+				res_reference0 = "Castoria"
+				
+				"\0%(talkb)\s[18]Oh.\w8 Another me.\w8\e first"
+			}
+			others //Ghosts there is no specific response to. %(_randghost)
+			{
+				res_reference0 = _randghost
+				
+				"\0%(talkb)\s[35]H-\w4hello!\w8 I'm Artoria.\w8 Caster,\w4 she who chants.\w8 \s[24]Long story.\w8\e"
+				
+				"\0%(talkb)\s[35]Did you know that the melting point of iron is around 1200 celcius?\w8 \s[27]Haha...\w8\w8 what kind of conversation starter is that...\w8\e"
+			}
+		}
+	}
+	else //If no ghosts are open.
+	{
+		"\0%(talkb)\s[41]Oh...\w8\w8 there's no one else.\w8\e"
+	}
+}
+
+
+//--ReplyToGhost
+//for when they're replying after the conversation has been started.
+//reference0 is the ghost's Sakura name and reference1 is their dialogue
+ReplyToGhost
+{
+	_Speech = SPLIT(reference1,"\e")[0] //Everything the ghost said that the user can see
+	ConvoTag = SPLIT(reference1,"\e")[1] //Everything after the \e, which will be the invisible tags that track the conversation
+	_Last = SPLIT(reference1,"::")[1] //Ghosts using the reflect system send ":%(_Speech)" at the end of every communication, so _Last is what THIS ghost last said. See below.
+	
+	_Last = RemovePauses(_Last) //Removes pauses and quicksection tags so it can display properly
+	"\![commu-%(reference0)]" //This isn't a real sakurascript tag, but structuring it like one means it wont show in dialogue. This is for loop prevention (aka replacing the AlreadyResponded flag which used to be here)
+	//this reflect system was written by Zi!
+	--
+	case reference0
+	{
+		/*when "Inferno"
+		{
+			"\![quicksection,true]%(_Last)\![quicksection,false]"
+			--
+			"%(gamekidtalk)"
+			--
+			"::%(_Speech)"
+			//Only add this for ghosts that use the reflect system
+			//::%(_Speech) Reflects back what the other ghost said. only put it here if the ghost you're talking to uses the same system or things may break
+		}
+		*/
+		//when ""
+		//{
+			//
+		//}
+		when "Castoria"
+		{
+			"\![quicksection,true]%(_Last)\![quicksection,false]"
+			--
+			"%(selftalk)"
+			--
+			"::%(_Speech)"
+		}
+		others //Responses to unknown ghosts
+		{
+			if "\![commu-%(reference0)]" !_in_ SHIORI3FW.LastTalk //This checks for that commu tag up above! checking if they didn't start the conversation! (again, pretty sure Zi figured this out)
+			{
+				res_reference0 = reference0 //you add this so they can respond again
+				
+				{
+					"\0%(talkb)"
+					--
+					"\s[27]"
+					"\s[28]"
+					"\s[36]"
+					"\s[38]"
+					"\s[40]"
+					"\s[42]"
+					"\s[43]"
+					--
+					"%(user),\w4 help me,\w4 I don't know what to say!\w8\e"
+				}
+				
+				"\0%(talkb)\s[36]Aaah,\w4 I don't know what to say!\w8 \s[17]I don't deal well with crowds!\w8\e"
+			}
+			else //started the conversation
+			{
+				res_reference0 = "" //leaving this blank ends the conversation
+				
+				"\0%(talkb)\s[35]I see,\w4 I see!\w8\e"
+			}
+		}
+	}
+}
+
+//Removes pauses and quicksections; this is a part of that mirroring Zi wrote!
+RemovePauses
+{
+	_argv[0] = RE_REPLACE(_argv[0],"\\!\[quicksection,(true|false|1|0)\]","")
+	_argv[0] = REPLACE(_argv[0],"\_q","")
+	_argv[0] = RE_REPLACE(_argv[0],"\\w\d","") //\w
+	_argv[0] = RE_REPLACE(_argv[0],"\\_w\[\d+\]","") //\_w[]
+	_argv[0]
+}
+
+
+//space for continuing ghost dialogues down here
+selftalk
+{
+	if "first" _in_ ConvoTag
+	{
+		res_reference0 = "Shadow Child"
+		
+		"\0%(talkb)\s[8]Hey,\w4 you're me,\w4 too!\w8\e disagree1"
+	}
+	//elseif "selfchild2" _in_ ConvoTag
+	//{
+		//res_reference0 = ""
+		
+		//"\0%(talkb)\s[0]\n\n[half]\w8\e"
+	//}
+	else //these should be used for at least a few of the above...
+	{
+		res_reference0 = ""
+		
+		"\0%(talkb)\s[14]\cUgh.\w8 Whatever.\w8\e"
+	}
+}

@@ -1,0 +1,139 @@
+﻿//---------------------------AI Talk--------------------------
+//ALL CHOICES LEAD OVER TO HERE
+
+
+//sleeping dreamin
+Select.cassleep
+{
+	"\0%(talkb)\s[20]Ah...\w8 yes.\w8 I suppose I don't really look the part,\w4 but I am...\w8\w8 \s[28]kind of dead right now!\w8 Burnt to a crisp,\w4 in fact!\w8 \s[18]\n\n[half]Terrible way to die,\w4 by the way.\w8 0/10.\w8 Do not reccommend.\w8 \s[33]\n\n[half]...\w8\w8\w8 \s[34]\n\n[half]I would do it again,\w4 though.\w8 \s[46]\n\n[half]The one thing I ever got to choose for myself was what I would die for.\w8 I don't regret it.\w8\e"
+}
+
+Select.casdream
+{
+	"\0%(talkb)\s[46]Sometimes I dream of a hill of swords,\w4 and the stubborn king who held onto her ideals until the very end.\w8 \s[45]\n\n[half]Sometimes I dream of a busy beach,\w4 a summer with friends that could never happen.\w8 \s[0]\n\n[half]And sometimes I dream of being inside your computer.\w8 \s[4]\n\n[half]It's not a terrible dream.\w8\e"
+}
+
+
+//fairy types
+Select.earthfairy
+{
+	"\0%(talkb)\s[3]I see,\w4 I see!\w8 \s[4]\n\n[half]I've always wanted to get a beard like an Earth clan fairy,\w4 but I can't seem to get it to grow...\w8 \s[28]best I ever got was sideburns.\w8\e"
+}
+
+Select.windfairy
+{
+	"\0%(talkb)\s[4]I see,\w4 I see!\w8 \n\n[half]I wish I was as tall as a wind clan fairy...\w8 \s[24]or even just a couple centimeters taller...\w8\e"
+}
+
+Select.fangfairy
+{
+	"\0%(talkb)\s[0]I see,\w4 I see!\w8 \s[20]\n\n[half]Honestly,\w4 all that fur seems pretty hard to take care of.\w8 Best of luck to you!\w8\e"
+}
+
+Select.wingfairy
+{
+	"\0%(talkb)\s[4]I see,\w4 I see!\w8 \s[0]\n\n[half]Wings sound so convenient...\w8 I wonder if I could figure out how to float with magecraft...?\w8\e"
+}
+
+
+//on heroes
+Select.admirehero
+{
+	"\0%(talkb)\s[35]...\w8\w8 Aren't they!\w8"
+	--
+	"\e"
+	
+	"\w8\w8\w8\s[22]\n\n[half]Grand and admirable and so fucking miserable.\w8\e"
+}
+
+Select.mehero
+{
+	"\0%(talkb)\s[35]...\w8\w8 Do you now!\w8 \n\n[half]That's pretty admirable of you.\w8"
+	--
+	"\e"
+	
+	"\w8\w8\w8\s[22]\n\n[half]And so fucking stupid.\w8 \n\n[half]I don't get it.\w8 Who would willingly inflict that upon themselves...?\w8\e"
+}
+
+Select.nohero
+{
+	"\0%(talkb)\s[4]...\w8\w8 \s[3]Pfft!\w8 Hah!\w8 Fair enough!\w8 \s[34]\n\n[half]Not like they're useful in a normal life,\w4 am I right?\w8\e"
+}
+
+
+//pets!
+Select.dogdog
+{
+	"\0%(talkb)\s[3]Dogs are great!\w8 \s[4]They can warn you against threats,\w8 defend you if things go sour...\w8 \s[3]A good choice!\w8\e"
+}
+
+Select.catcat
+{
+	"\0%(talkb)\s[41]A cat?\w8 \s[0]\n\n[half]I didn't know those could be kept as pets...\w8\w8 \s[44]I thought they just walked around and did whatever they wanted,\w4 honestly.\w8\e"
+}
+
+Select.ratrat
+{
+	"\0%(talkb)\s[43]A rodent?\w8 Like, a rat?\w8 \s[0]\n\n[half]I didn't know those could be kept as pets.\w8 \s[44]\n\n[half]...\w8\w8 Maybe I could have befriended those mice as a kid?\w8\e"
+}
+
+Select.lizliz
+{
+	"\0%(talkb)\s[39]A reptile?\w8 Like,\w4 a snake?\w8 \s[0]\n\n[half]I didn't know those could be kept as pets. \s[44]\n\n[half]Maybe I would look more intimidating with a python around my shoulders...?\w8 \s[20]Though it could get pretty heavy...\w8\e"
+}
+
+Select.hooorse
+{
+	"\0%(talkb)\s[3]Horses are great!\w8 They're big and strong and sooo warm!\w8\e"
+}
+
+Select.nopets
+{
+	"\0%(talkb)\s[0]No pet,\w4 huh?\w8 \n\n[half]Fair enough.\w8 I figure it takes quite a lot of resources to take care of one.\w8\e"
+}
+
+Select.petplay
+{
+	"\0%(talkb)\s[40]Eh?\w8 If I had any pets?\w8 \s[0]\n\n[half]...\w8\w8\w8 \s[38]\n\n[half]...\w8 I-\w8 I guess I owned,\w4 uh...\w8\w8 \s[27]\n\n[half]Y-\w4You know.\w8 \s[21]\n\n[half]A h-\w4human.\w8 \s[5]\n\n[half]Th-\w4They agreed to it!\w8 It was a life-threatening situation and...\w8 \s[23]\n\n[half]\w8\w8\w8pleasestopstaringatmelikethat\w8\e"
+}
+
+
+//explains!
+Select.whyfairy
+{
+	"\0%(talkb)\s[0]Fairy Britain is a land of fairies.\w8 Faes,\w4 fair folks,\w4 you know the likes.\w8 \n\n[half]Naturally,\w4 the land is named after them!\w8\e"
+}
+
+Select.whybrit
+{
+	"\0%(talkb)\s[43]...\w8\w8\w8 \s[0]That's actually a very good question.\w8 As far as I know,\w4 it's always been the name of the island?\w8 \n\n[half]Ritsuka told me that in their world,\w4 there were plenty of countries with a lot of other names.\w8 \s[3]\n\n[half]To be honest,\w4 the concept is pretty hard for me to imagine!\w8\e"
+}
+
+Select.whatlike
+{
+	"\0%(talkb)\s[35]...\w8\w8\w8 \n\n[half]It's pretty great!\w8 Good food,\w4 kind people,\w4 great scenery...\w8 what's not to like?"
+	--
+	"\w8\e"
+	
+	"\n\n[half]...\w8\w8\w8 \s[22]Didn't believe me,\w4 huh.\w8 \n\n[half]...\w8\w8\w8 \s[19]There were things worth saving here.\w8 \n\n[half]If you want to know more,\w4 ask someone who actually liked this place.\w8\e"
+}
+
+
+//glamours!
+Select.huhglamour
+{
+	"\0%(talkb)\s[35]I wouldn't want to freak people out!\w8 I want to be friends with everyone.\w8"
+	--
+	"\w8\e"
+	
+	"\n\n[half]...\w8\w8\w8 \s[22]\n\n[half]Look,\w4 if you look small and harmless,\w4 people will use you,\w4 will belittle you,\w4 will step on you,\w8 but they won't kill you.\w8\e"
+}
+
+Select.huhhuman
+{
+	"\0%(talkb)\s[44]You thought I was?\w8 \s[0]\n\n[half]Good to know my glamour holds up that well.\w8 \n\n[half]But no,\w4 I'm not a human.\w8\e"
+}
+
+
+
+//that's it that's the end!

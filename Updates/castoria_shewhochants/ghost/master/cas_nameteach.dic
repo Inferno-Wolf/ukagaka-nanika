@@ -1,0 +1,259 @@
+﻿//--Nameteach & Title Teach & Pronouns--
+//I like putting most of the User input in here if not in its own Config.dic
+
+
+//OnTeachName
+OnTeachName
+{
+	"\0%(talkb)\s[0]Oh,\w4 changing name?\w8 \s[20]Wish I could do that.\w8 \s[0]What will it be then?\w8"
+	--
+	"\![open,inputbox,OnNameTeach,-1]\![set,balloontimeout,-1]"
+}
+
+//this is straight from Zi because they are a gremlin who loves to breakproof the firstboot sequence as much as they can
+OnUserInputCancel
+{
+	"\C\![open,inputbox,%(reference0),-1]"
+}
+
+
+//OnNameTeach
+// %(tempname)
+OnNameTeach
+{
+	tempname = reference0 //this stores the name value from reference0 in _tempname
+	reference0 = TOUPPER(reference0) //changes it to uppercase
+	reference0 = REPLACE(reference0," ","") //removes spaces
+	reference0 = REPLACE(reference0,".","") //removes periods
+	reference0 = REPLACE(reference0,"-","") //removes dashes
+	reference0 = REPLACE(reference0,"'","") //removes apostrophes
+	
+	if tempname == user && firstboot != 1 //this checks if the username is the same as before AND if the firstboot has finished! thanks Zi for putting this in here I love it
+	{
+		"\0%(talkb)\s[26]Um.\w8 That's the same thing as before...?\w8 \s[20]\n\n[half]Guess you're really attached to that one,\w4 huh?\x"
+		--
+		OnTalkConfig
+	}
+	elseif reference0 == "ARTHUR" || reference0 == "ARTORIA" || reference0 == "ARTURIA" || reference0 == "ALTRIA"
+	{
+		"\0%(talkb)\s[35]Seems like a pretty common name these days,\w4 huh?\w8"
+	}
+	elseif reference0 == "MORGAN" || reference0 == "TONELICO" || reference0 == "AESC" || reference0 == "LANCELOT" || reference0 == "GAWAIN" || reference0 == "TRISTAN"
+	{
+		"\0%(talkb)\s[34]...\w8\w8 \nThat's quite the heavy name.\w8 Be careful with it.\w8"
+	}
+	elseif reference0 == "ECTOR" || reference0 == "MURAMASA" || reference0 == "SENGO" || reference0 == "RITSUKA" || reference0 == "FUJIMARU" || reference0 == "GUDA" || reference0 == "GUDAO" || reference0 == "GUDAKO" || reference0 == "GARETH" || reference0 == "FUJIMARURITSUKA" || reference0 == "RITSUKAFUJIMARU"
+	{
+		"\0%(talkb)\s[34]...\w8\w8 \nThat's a wonderful name.\w8 Carry it with pride.\w8"
+	}
+	elseif reference0 == "MASH" || reference0 == "MASHU" || reference0 == "MATHEW" || reference0 == "KYRIELIGHT"
+	{
+		"\0%(talkb)\s[41]Eh,\w4 really?\w8 I had a name like that once...\w8 \s[20]Well,\w8 I guess it wasn't really mine.\w8 \s[0]It's a long story.\w8"
+	}
+	elseif reference0 == "KNOCKNAREA" || reference0 == "KNOCK" || reference0 == "CNOC" || reference0 == "CNOCNARIABH"
+	{
+		"\0%(talkb)\s[35]...\w8\w8 \s[3]HahahaHAHAHAHAHA!\w8 Oh she's gonna haaaate that!\w8 \s[47]Go for it!\w8 Use her name,\w4 do it do it!\w8"
+	}
+	elseif reference0 == "OBERON" || reference0 == "VORTIGERN" || reference0 == "OBERONVORTIGERN"
+	{
+		"\0%(talkb)\s[35]...\w8\w8 \s[3]HahahaHAHAHAHAHA!\w8 \s[28]I guess there WOULD be a real one out there,\w4 huh!\w8"
+	}
+	elseif reference0 == "MERLIN"
+	{
+		"\0%(talkb)\s[18]...\w8\w8 Are you,\w4 now...?\w8\w8"
+	}
+	elseif reference0 == "VERSE" || reference0 == "MOMO" || reference0 == "KFC"
+	{
+		"\0%(talkb)\s[44]Huh?\w8 Weird,\w4 this name is familiar to me...\w8 \nWonder why.\w8"
+	}
+	//elseif reference0 == "" || reference0 == ""
+	//"\![open,inputbox,OnNameTeach,-1]\![set,balloontimeout,-1]\e"
+	elseif reference0 == "" //blank check
+	{
+		"\0%(talkb)\s[39]I...\w8\w8 \s[20]wouldn't know how to pronounce that.\w8"
+		--
+		if firstboot == 1
+		{
+			"\![open,inputbox,OnNameTeach,-1]\![set,balloontimeout,-1]\e"
+		}
+		else
+		{
+			"\w8\s[0]\n\n[half]I'll just stick to your old name then,\w4 if you don't mind.\x"
+			--
+			OnTalkConfig
+		}
+	}
+	else //usable name
+	{
+		user = tempname
+		NameDone
+	}
+	--
+	user = tempname
+	"\x[noclear]\n\n[half]"
+	--
+	NameDone
+}
+
+
+//NameDone
+NameDone
+{
+	if firstboot == 1
+	{
+		"\t\*\0%(talkb)\s[3]Alright!\w8 Thank you,\w4 %(user)!\w8 \s[0]\n\n[half]I'm Artoria,\w8 though some people call me Caster,\w4 she who chants.\x[noclear] \0%(bigb)\n\n[half]I might stay here for a bit then.\w8 \s[28]I...\w8 don't know if I can go back to Fairy Britain,\w4 anyways.\w8 \s[0]\n\n[half]Since we're gonna be together for a while,\w4 how should I refer to you?\w8"
+		--
+		"\n\n\_q\![*]\q[He/Him/His,OnPronouns,masc] \n\![*]\q[She/Her/Hers,OnPronouns,fem] \n\![*]\q[They/Them/Their,OnPronouns,undef] \n\![*]\q[I have my own,OnPronouns,own] \n\n[half]\![*]\q[I'll tell you later,OnPronouns,later] \n\![*]\q[I'm not telling you,OnPronouns,refuse]\e"
+	}
+	else
+	{
+		"\0%(talkb)\s[0]So,\w4 %(user) it is?\w8"
+		--
+		"\n\n[half]\![*]\q[Back to Config menu,configmenu] \n\![*]\q[Back to Main menu,BACKTOMENU] \n\![*]\q[Cancel,CANCEL]\e"
+	}
+}
+
+
+
+//leads here from the menu option
+OnPronouns
+{
+	if reference0 == "masc"
+	{
+		presuffix = "masculine"
+	}
+	elseif reference0 == "fem"
+	{
+		presuffix = "feminine"
+	}
+	elseif reference0 == "undef"
+	{
+		presuffix = "undefined"
+	}
+	elseif reference0 == "own"
+	{
+		"\0%(talkb)\s[0]Which pronoun do you prefer for them / him / her?\w8"
+		--
+		"\![open,inputbox,OnthemTeach,-1]\![set,balloontimeout,-1]\e"
+	}
+	elseif reference0 == "later" || reference0 == "refuse" //firstboot option
+	{
+		"\![raise,Onbootcomplete]"
+		--
+		"\0%(talkb)\s[20]Don't want to give too much information to the fae,\w4 huh?\w8 \s[28]\n\n[half]Fair enough.\w8 I can understand that.\w8\w8 \s[0]\n\n[half]Either way,\w8\w8 \s[3]\nThanks for having me here!\w8\e"
+	}
+	elseif reference0 == "menu" {OnMenuRun}
+	elseif reference0 == "config" {OnTalkConfig}
+	else //cancel
+	{
+		"\0%(talkb)\s[0]Okay.\w8 Sticking with '%(they)',\w4 '%(them)',\w4 and '%(their)',\w4 got it.\w8"
+		--
+		"\n\n[half]\![*]\q[Back to Preferences,configmenu] \n\![*]\q[Back to Main Menu,BACKTOMENU] \n\![*]\q[Cancel,CANCEL]\e"
+	}
+	--
+	if firstboot == 1
+	{
+		"\![raise,Onbootcomplete]"
+		--
+		"\0%(talkb)\s[3]Noted!\w8 \s[4]Most people use she/her for me.\w8 \s[3]\n\n[half]Thanks for having me here!\w8\e"
+	}
+	else //not firstboot
+	{OnTalkConfig}
+}
+
+//to solve the own pronouns issue
+Onbootcomplete {firstboot = 0}
+
+
+//Teaching Pronouns!!
+OnthemTeach
+{
+	xthem = reference0
+	
+	if reference0 == "" //blank check!
+	{
+		xthem = "them"
+	}
+	PronounThey
+}
+
+//inputbox selection
+PronounThey
+{
+	"\0%(talkb)\s[0]Received:\w8 '%(xthem)'.\w8 \n\n[half]Please provide next the pronoun you use for they / he / she.\w8"
+	--
+	"\![open,inputbox,OntheyTeach,-1]\![set,balloontimeout,-1]\e"
+}
+
+OntheyTeach
+{
+	xthey = reference0
+	
+	if reference0 == "" //blank check!
+	{
+		xthey = "they"
+	}
+	PronounTheir
+}
+
+//inputbox selection
+PronounTheir
+{
+	"\0%(talkb)\s[0]Confirmed:\w8 '%(xthey)'.\w8 \n\n[half]Now input your preferred pronoun for their / his / her.\w8"
+	--
+	"\![open,inputbox,OntheirTeach,-1]\![set,balloontimeout,-1]\e"
+}
+
+OntheirTeach
+{
+	xtheir = reference0
+	
+	if reference0 == "" //blank check!
+	{
+		xtheir = "their"
+	}
+	PronounTheyre
+}
+
+//inputbox selection
+PronounTheyre
+{
+	"\0%(talkb)\s[0]Confirmed:\w8 '%(xtheir)'.\w8 \n\n[half]Finally,\w4 please input your preferred pronoun for they're / he's / she's.\w8"
+	--
+	"\![open,inputbox,OntheyreTeach,-1]\![set,balloontimeout,-1]\e"
+}
+
+OntheyreTeach
+{
+	xtheyre = reference0
+	
+	if reference0 == "" //blank check!
+	{
+		xtheyre = "they're"
+	}
+	PronounsFinish
+}
+
+//Finished!!
+PronounsFinish
+{
+	presuffix = "own"
+	
+	if firstboot == 1
+	{
+		firstboot = 0
+		
+		"\0%(talkb)\s[0]'%(Capitalize(they))',\w4 '%(them)',\w4 and '%(their)',\w4 huh?\w8 \s[0]Noted!\w8 \s[0]Most people use she/her for me.\w8 \s[0]\n\n[half]Thanks for having me here!\w8\e"
+	}
+	else //not firstboot
+	{
+		"\0%(talkb)\s[0]'%(Capitalize(they))',\w4 '%(them)',\w4 and '%(their)',\w4 huh?\w8 \s[0]Noted!\w8"
+		
+		"\0%(talkb)\s[0]Alright,\w4 '%(they)',\w4 '%(them)',\w4 and '%(their)' it is!\w8"
+	}
+	--
+	"\n\n[half]\![*]\q[Back to Preferences,configmenu] \n\![*]\q[Back to Main Menu,BACKTOMENU] \n\![*]\q[Cancel,CANCEL]\e"
+}
+
+
+//The personal pronouns teaching came from either Dusk and Dawn or MiniDev, I think...

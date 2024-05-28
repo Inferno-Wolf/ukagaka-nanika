@@ -1,0 +1,64 @@
+//---------------------------Anchors and OnTranslate--------------------------
+//yaaaaaaay!!
+
+
+
+//--OnTranslate
+OnTranslate
+{
+	_talk = reference0
+ 	_talk = REPLACE(_talk, "morganlefey", "\_a[Morgan]Queen Morgan\_a")
+ 	_talk = REPLACE(_talk, "fknightgawain", "\_a[Gawain]Fairy Knight Gawain\_a")
+ 	_talk = REPLACE(_talk, "fknightlance", "\_a[Lancelot]Fairy Knight Lancelot\_a")
+	_talk = REPLACE(_talk, "fknighttrist", "\_a[Tristan]Fairy Knight Tristan\_a")
+	
+	//_talk = REPLACE(_talk, "", "\_a[]\_a")
+	
+	//send input box : no event (ref2) , no special flag (ref1)
+	if reference1 == "" && reference2 == ""
+	{
+		EVAL('"' + REPLACE(_talk,'"','" + CHR(0x22) + "') + '"')
+	}
+	//event result from ghost
+	else
+	{
+		TOSTR(_talk)
+	}
+}
+
+
+//--OnAnchorSelect
+// \j is a tag that will open a specified url in the user's browser of choice.
+OnAnchorSelect
+{
+	if "http://" _in_ reference0 || "https://" _in_ reference0 //checking to see if the link is a web address
+	{
+		"\j[%(reference0)]\e"
+	}
+	else //if it's NOT a web address
+	{
+		case reference0
+		{
+			when "Morgan"
+			{
+				"\0%(talkb)\s[0]A ruthless tyrant who conquered Fairy Britain all on her own.\w8 \n\n[half]Many were those who wanted her gone.\w8 The Queen had no mercy for fairies that did not pull their weight."
+				--
+				"\w8\e"
+				
+				"\s[17]\n\n[half]...\w8\w8\w8 \s[33]\n\n[half]I've always envied her drive.\w8 She knew what she wanted,\w4 and she knew exactly what she was willing to do to get it.\w8 \s[34]\n\n[half]I wish we could have spoken,\w4 just once more.\w8\e"
+			}
+			when "Gawain"
+			{
+				"\0%(talkb)\s[1]A rude,\w4 entitled customer who doesn't look where she's stepping.\w8 \s[13]\n\n[half]Seriously,\w4 who steps into a shop and completely ignores the workers there?\w8\e"
+			}
+			when "Lancelot"
+			{
+				"\0%(talkb)\s[0]Don't underestimate her just because she's small!\w8 She's the most powerful and handsome member of the Fairy Round Table!\w8\e"
+			}
+			when "Tristan"
+			{
+				"\0%(talkb)\s[4]A rude,\w4 entitled brat who collects bloodsoaked shoes.\w8 \s[0]\n\n[half]Mh?\w8 It's an odd thing to smile about?\w8 \s[4]\n\n[half]Haha,\w4 I can't help it.\w8 \s[46]I can't hate her.\w8 \s[3]I like straightforward people!\w8\e"
+			}
+		}
+	}
+}

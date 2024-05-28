@@ -1,0 +1,435 @@
+﻿//---------------------------AI Talk--------------------------
+//This is where all their random conversations are stored.
+
+
+
+//--AiTalk
+OnAiTalk
+{
+	if mikireflag == 1
+	{ MikireTalk }
+	else
+	{
+		if CHAIN.IDName == "" { lastTalk = RandomTalk }
+		else { lastTalk = ChainTalk }
+		lastTalk
+	}
+}
+
+
+//--RandomTalk 
+
+
+//--Rules (By Quonit)
+
+// \f[strike,true] makes the words struck out. \f[strike,defualt] resets the text to defualt.
+// \f[sub,true] makes text subscript. \f[sub,default] resets text to normal.
+// \f[sup,true] makes text superscript. \f[sup,false] makes the text normal again.
+// \f[underline,true] underlines text. \f[underline,default] removes the line from under the text.
+// \f[bold,true] makes your statement bold. \f[bold,false] makes the text not so bold.
+// \f[italic,true] makes text slanted. \f[italic,false] de-slants the text.
+// for all of these, you can also activate them by replacing "true" with 1, and deactivate them by replacing "default/false" with 0
+
+// \f[height,(number, or the word default)] will change the size of your text
+// \f[color0-255,0-255,0-255] changes the color of the text. \f[color,default] will return the color to default.
+/// \f[color,default.anchor] will change the colour of the text to the one set as the anchor for the balloon!
+// \f[default] returns everything back to normal.
+
+// \![sound,play,file,option] -> regular play. options include: --volume=0~100
+// \![sound,loop,file] -> loops track. (needs to be stopped with stop)
+// \![sound,wait] -> everything after waits until the playback ends
+// \![sound,pause,file] -> pauses playback. omit file name to pause all sounds.
+// \![sound,resume,file] -> resumes playback; same rules as pause
+// \![sound,stop,file] -> stops playback entirely. same rules as pause
+
+// \_a[[http://www.website.com/](put text here)\_a can link a website in dialogue.
+// \0\s[0]\1\s[0]\_s(put dialogue here)\_s has characters say dialogue at the same time. Using \_s[0,1](text here)\_s specifies which characters are speaking at the same time (in this case, the Sakura, 0, and the Kero, 1).
+// \_b[name.png,50,50,centerxy] displays an image in the balloon.
+// \![set,balloontimeout,-1] makes it so the balloon doesn't disappear / time out. helpful for input choices like nameteach!
+// \![set,autoscroll,disable] exactly as it says, disables autoscroll. helpful for long menus!
+// \![set,balloonwait,0.1] controls the speed of the text. default set at 1, 0.1 is faster, 2+ are slower
+// \c[char,6] clears the previous 6 characters; basically deleting specific things!!
+
+
+//Envelopes
+// %(user) // %(they) // %(them) // %(their) // %(theyre)
+// %(userfolder)
+// %(talkb) / %(bigb)
+
+
+RandomTalk : nonoverlap_pool
+{
+	/*
+	//--Chains
+	//\e:chain=achain0
+	
+	//Weekday checks
+	if weekday == 1 //Monday
+	if weekday == 2 //Tuesday
+	if weekday == 3 //Wednesday
+	if weekday == 4 //Thursday
+	if weekday == 5 //Friday
+	if weekday == 6 //Saturday
+	if weekday == 0 //Sunday
+	
+	//Time of day checks!
+	if timeslot == "earlymorning" //am5 to am9
+	if timeslot == "morning" //am9 to am12
+	if timeslot == "lunch" //pm12 to pm3
+	if timeslot == "afternoon" //pm3 to pm6
+	if timeslot == "evening" //pm6 to pm9
+	if timeslot == "night" //pm9 to pm11
+	if timeslot == "latenight" //am12 to am5
+	*/
+	
+	"\0%(talkb)\s[0]So your name is %(user)?\w8 Did you pick it yourself?\w8 \s[24]\n\n[half]For fairies,\w8 name,\w4 duty\w4 and destiny are the same thing.\w8 To lose your name is to lose your purpose,\w4 and thus your life.\w8 \s[34]\n\n[half]I wonder what weight comes with your name...?\w8\e"
+	
+	"\0%(talkb)\s[44]Mh?\w8 Why people call me Caster?\w8 \s[0]\n\n[half]That's my job title!\w8 Caster,\w4 Mage,\w4 Spellweaver,\w8 you get it.\w8 My one talent is magecraft.\w8 \s[47]\n\n[half]If you ever need help to make a fire,\w4 cast a protective ward,\w4 lockpick a door,\w4 craft a bomb,\w4 or sneak inside a house,\w8 \s[3]leave it to me!\w8\e"
+	
+	"\0%(talkb)\s[44]Mh?\w8 The reason why you can't drag me up your screen?\w8 \s[15]\n\n[half]\![set,balloonwait,3]... Because... I... can't...\![set,balloonwait,1]\w8 fly?\w8\e"
+	
+	"\0%(talkb)\s[0]I would have loved to be a blacksmith.\w8 \n\n[half]There's something incredible in the act of smithing,\w4 you know?\w8 In bringing something completely new to this world.\w8 \s[47]\n\n[half]It's also VERY satisfying to slam that hammer down as hard as possible.\w8 \s[3]\n\n[half]If you ever get to try your hand at smithing,\w4 I really recommend it!\w8 \s[4]\n\n[half]Ector never let me do the hard stuff,\w4 but small blades are easy enough to make!\w8\e"
+	
+	"\0%(talkb)\s[4]Say,\w4 do you have blue skies where you're from?\w8 \s[0]\n\n[half]The sky was never pure blue in Fairy Britain.\w8 But I'm told it's a beautiful color.\w8 \s[4]\n\n[half]You shouldn't change your wallpaper to the sky, so I can see it!\w8\e"
+	
+	
+	//some Anchors
+	"\0%(talkb)\s[0]Fairy Britain was ruled by morganlefey and her iron fist.\w8 \s[17]\n\n[half]Well,\w8 ''fist.''\w8 Her rule was enforced by the Fairy Knights.\w8 \s[0]fknightgawain,\w4 fknightlance,\w4 and fknighttrist.\w8\e"
+	
+	
+	//shell specific dialogues
+	//if SHIORI3FW.ShellName == "Official Caster" //the name of your shell as defined in its descript.txt
+	//{
+		//"\0%(talkb)\s[]"
+	//}
+	//if SHIORI3FW.ShellName == "Farmer Caster"
+	//if SHIORI3FW.ShellName == "Summer Berserker"
+	//if SHIORI3FW.ShellName == ""
+	//if SHIORI3FW.ShellName != "Official Caster"
+	//{
+		//"\0%(talkb)\s[0]Incorrect shell.\w8\e"
+	//}
+	
+	
+	//special
+	//if dayslot == userbirthday
+	//{
+		//"\0\s[0]Today is the user's birthday.\w8 \n\n[half]A reminder:\w8 Happy Birthday,\w4 %(user).\w8\e"
+	//}
+	
+	//Month dialogue
+	if month == 1 || month == 2 || month == 12 //January, February, December; Winter
+	{
+		"\0%(talkb)\s[4]The underside of your task bar is really warm.\w8 It's like a kotatsu...\w8\w8 \s[27]Ah...\w8\w8 This is great...\w8\w8 I'd hate to lose another toe in the cold...\w8\e"
+	}
+	//if month == 3 || month == 4 || month == 5 //March, April, May; Spring
+	//{
+		//""
+	//}
+	if month == 6 || month == 7 || month == 8 //June, July, August; Summer
+	{
+		"\0%(talkb)\s[15]It's so hot...\w8\w8 I'm glad this stream is running under your task bar.\w8 \s[3]It's perfect to cool off.\w8\e"
+	}
+	//if month == 9 || month == 10 || month == 11 //September, October, November; Autumn
+	//{
+		//""
+	//}
+	if month == 2 //February
+	{
+		{
+			"\0%(talkb)\s[0]It's chocolate day soon,\w4 isn't it?\w8 \s[17]\n\n[half]Making chocolate is hard...\w8\w8 I wasn't made for that...\w8\w8"
+			--
+			"\s[25]"
+			"\s[26]"
+			--
+			"\n\n[half]But!\w8 Perhaps with effort,\w4 it is possible to overcome one's own nature.\w8 \s[12]\n\n[half]So I must try!\w8 I will defy fate,\w4 my purpose,\w4 my duty!\w8 For chocolate!\w8\e" //hell yeah, girlie
+		}
+	}
+	
+	//Time of day checks!
+	if timeslot == "night" || timeslot == "latenight" || timeslot == "earlymorning" //sleepies Castoria...
+	{
+		"\0%(talkb)\s[33]I'm sleepy...\w8\e"
+	}
+	
+	
+	//--Double Envelopes
+	//{
+		//_terms = doubleenvelope //making a temp variable for the envelope
+		//_first = _terms[0] //defining the first value in that temporary envelope
+		//_second = _terms[1] //defining the next value in that temporary envelope
+		
+		//"\0\s[0]The %(_first) is the %(_second) of the game.\w8\e"
+		
+		//"\0\s[0]Inquiry:\w8 What is the %(_first)?\w8 \n\n[half]Answer:\w8 It is the %(_second) of the game.\w8\e"
+	//}
+	//"\0\s[0]%(doubleenvelope[0]).\w8 The %(doubleenvelope[1]).\w8 \n\n[half]Error Error Error\w8\e"
+	
+	{
+		"\0%(talkb)"
+		--
+		"\s[43]"
+		"\s[44]"
+		--
+		"...\w8\w8 You know,\w4 I can't remember if I ever got to wind down like this.\w8 \n\n[half]It feels like I've spent my entire life fighting to survive.\w8 \n\n[half]Now that I'm here,\w4 I could try out some stuff I never got to do in Fairy Britain.\w8 \s[40]\n\n[half]Like...\w8\w8 picnics!\w8 I've always wanted to have a picnic.\w8 \n\n[half]Or being a boy!\w8 \s[0]\n\n[half]Though,\w4 maybe it would be easier to start by being a boy and a girl at once?\w8 I'll have to think on it.\w8\e"
+	}
+	
+	{
+		"\0%(talkb)\s[29]E-\w4eh?\w8 Am I dating anyone?\w8"
+		--
+		"\s[0]I'm not,\w4 but I have a...\w8\w8 childhood friend,\w4 I guess.\w8 \s[46]\n\n[half]He was there during the hardest time of my life.\w8 He saved me,\w4 in all the ways that matter.\w8 \s[45]\n\n[half]...\w8\w8\w8 \s[34]\n\n[half]I miss him."
+		
+		"\s[0]I'm not,\w4 but I have a...\w8\w8 friend,\w4 I guess.\w8 \s[46]\n\n[half]Being with them is the happiest I ever remember being.\w8 \s[45]\n\n[half]...\w8\w8\w8 \s[34]\n\n[half]I hope their life brought them to happier paths than mine."
+		--
+		"\w8\e"
+	}
+	
+	{
+		"\0%(talkb)\s[0]Mh?\w8 Humans?\w8 \n\n[half]I don't have much to say about them.\w8 Human or fairy,\w4 it doesn't make much difference to me.\w8 \s[41]\n\n[half]Ah,\w4 I did have a human friend though!\w8 \s[4]They're my kindred spirit,\w4 in a way.\w8 They're very important to me.\w8"
+		--
+		"\s[22]They're a pathetic idiot who has been asked to carry the weight of the world.\w8 \s[33]\n\n[half]And yet...\w8 \s[34]\n\n[half]Though they already had so much to deal with,\w4 they decided to stand by my side.\w8 \s[45]\n\n[half]...\w8\w8\w8 \n\n[half]I could not save anyone.\w8 I couldn't even save myself.\w8 \s[34]\n\n[half]But I could save them,\w4 just this once.\w8 \s[45]\n\n[half]People like us...\w8 we don't get happy endings.\w8 \n\n[half]But maybe their death will be kinder than mine.\w8\w8"
+		
+		""
+		--
+		"\s[3]\n\n[half]Perhaps we will meet again someday!\w8\e"
+	}
+	
+	{
+		"\0%(talkb)\s[0]Mh?\w8 King Arthur?\w8 \s[35]\n\n[half]Haha,\w4 we do have the same face,\w4 don't we?\w8 \n\n[half]We don't have much in common,\w4 though.\w8 She's quite the admirable hero,\w4 isn't she?\w8 Dedicating her entire life to Britain,\w4 sacrificing herself so her people could be happy.\w8 She's a model of selflessness.\w8"
+		--
+		"\n\n[half]...\w8\w8\w8 \s[22]That's what you guys say about her,\w4 don't you?\w8 \s[18]\n\n[half]This is disgusting.\w8 \s[13]\n\n[half]You can call this sacrifice noble all you want,\w4 someone dooming themself to abject misery for some nebulous greater good is nothing virtuous.\w8 It's just incredibly sad.\w8 \s[7]\n\n[half]I won't praise it a good thing.\w8 And you shouldn't either.\w8 \s[9]\n\n[half]It isn't right,\w4 it's just fucked up!"
+		
+		"\n\n[half]..."
+		--
+		"\w8\e"
+	}
+	
+	{
+		"\0%(talkb)\s[0]Oberon?\w8 The King of Fairy?\w8 \s[3]\n\n[half]He's my terrible friend!\w8 He's a conman,\w4 an egocentric,\w4 and the most broke prince in history.\w8 \s[4]\n\n[half]He sucks,\w4 but unfortunately,\w4 I am indeed fond of him.\w8 \s[3]That's just how friendship is,\w4 I suppose!\w8"
+		--
+		"\n\n[half]...\w8\w8\w8 \s[17]\n\n[half]You didn't believe a word of it,\w4 did you.\w8 \s[24]\n\n[half]What do you want me to tell you?\w8 \s[25]\n\n[half]He's one of the only people in this world who could ever come close to understanding me.\w8 \n\n[half]I know exactly the kind of monster he is,\w4 and he knows exactly the kind of animal I am.\w8 \n\n[half]He has helped me when no one else would.\w8 He has hurt me like no one else could.\w8 \n\n[half]He has killed me,\w4 and I have killed him.\w8 \n\n[half]If there is such a thing as a red string of fate,\w4 then it's a noose around both our necks."
+		
+		"\n\n[half]..."
+		--
+		"\w8\e"
+	}
+	
+	
+	//--Choices / Questions! //\![*]\q[,]
+	"\0%(talkb)\s[44]Hm?\w8 What I do when I'm not here?\w8 \s[0]\n\n[half]I sleep,\w4 mostly.\w8 Sometimes I dream.\w8 \s[4]It's quite nice.\w8 \n\n\![*]\q[You sleep?,cassleep]    \![*]\q[You dream?,casdream]\w8\w8\w8\e"
+	
+	{
+		"\0%(talkb)\s[0]Earth clan fairies are short and stout.\w8 Wind clan fairies are tall and lithe.\w8 Fang clan fairies and strong and furry.\w8 \s[20]\n\n[half]I hear wing clan fairies are short and winged?\w8 I've only seen the one,\w4 so I'm not sure.\w8 \s[35]\n\n[half]As for mirror clan fairies and king clan fairies...\w8 \n\n[half]..."
+		--
+		"\w8\w8\w8 \s[0]\n\n[half]Anyways,\w4 what do you look like?\w8 I only ever see your hand waving around,\w4 and it's,\w4 uh.\w8 Pointy and sharp.\w8 \n\n\![*]\q[Earth clan fairy,earthfairy]   \![*]\q[Wind clan fairy,windfairy] \n\![*]\q[Fang clan fairy,fangfairy]   \![*]\q[Wing chan fairy,wingfairy]\w8\w8\w8\e"
+		
+		"\w8\e"
+	}
+	
+	"\0%(talkb)\s[0]Say,\w4 what do you think of heroes?\w8 \n\n\![*]\q[They're admirable,admirehero] \n\![*]\q[I want to be a hero,mehero] \n\![*]\q[I do not think of heroes,nohero]\w8\w8\w8\e"
+	
+	"\0%(talkb)\s[0]Say,\w4 do you have any pets?\w8 \n\n\![*]\q[Dog,dogdog]   \![*]\q[Cat,catcat]   \![*]\q[Rodent,ratrat] \n\![*]\q[Reptile,lizliz]   \![*]\q[Horse,hooorse]   \![*]\q[None,nopets] \n\![*]\q[What about you?,petplay]\w8\w8\w8\e"
+	
+	"\0%(talkb)\s[0]Mh?\w8 You have questions about Fairy Britain?\w8 \s[4]\n\n[half]Go right ahead! I'll tell you all I know!\w8 \n\n\![*]\q[Why Fairy?,whyfairy]    \![*]\q[Why Britain?,whybrit] \n\![*]\q[What is Fairy Britain like?,whatlike]\w8\w8\w8\e"
+	
+	"\0%(talkb)\s[13]I will never forgive rude customers.\w8 \s[8]\n\n[half]Oh?\w8 You're ignoring the store clerk?\w8 You think you're better just because you're not behind the counter?\w8 \s[6]\n\n[half]Jail!\w8 Jail to the customer for a thousand years!\w8 \n\n[half]...\w8\w8\w8 \s[0]Eh?\w8 My teeth?\w8 They're quite sharp?\w8 \s[20]\n\n[half]Oh...\w8 sorry.\w8 I thought I had a better grasp on my glamour...\w8 \n\n\![*]\q[You wear a glamour?,huhglamour] \n\![*]\q[You're not human?,huhhuman]\w8\w8\w8\e"
+	
+	
+	////Other ghost dialogue
+	/*
+	//there are no other ghosts open
+	if ghostexcount == 0
+	{
+		"\0\s[0]The only ghost open on this desktop is us.\w8\e"
+	}
+	//if there are more ghosts open
+	if ghostexcount > 0
+	{
+		"\![raise,OnStartTalking]\e"
+	}
+	//specific ghosts
+	if GhostIsOpen("Inferno")
+	{
+		"\0\s[0]Hee hee hee.\w8 \n\n[half]Tick\w8 tock\w8 tick\w8 tock.\w8\e"
+	}
+	if GhostIsOpen("Shadow Child")
+	{
+		"\0\s[0]Duplicate program open.\w8 Reccomendation:\w8 Force close.\w8\w8\-\e"
+	}
+	//if GhostIsOpen("")
+	*/
+	
+	
+	"\0%(talkb)\s[0]I wonder if there's a way to get sweets around here...?\w8 \n\n[half]Sugar is a luxury in Fairy Britain,\w8 \s[28]so I haven't gotten to eat much of it.\w8\e"
+}
+
+
+//--Chains
+/*
+achain1
+{{CHAIN
+	"\0\s[1]This is the second part of the chain.\w8 \n\n[half]Anch1,\w4 Anch2,\w4 Anch3.\w8\e"
+	
+	"\0\s[1]I'm out of things to say again.\w8 So sad.\w8\e:chain=end"
+}}CHAIN
+*/
+
+
+
+//-OnMinuteChange
+
+//Keeps track of if an hour has passed.
+HourCheck
+{
+	if passmin >= 59
+	{
+		passmin = 0
+		passhour = passhour + 1
+	}
+}
+
+//This is what will trigger time-based dialogue for your Ghost.
+OnMinuteChange
+{
+	HourCheck
+	
+	if minute == 0
+	{
+		if timenotif == 1 //on
+		{
+			if hour == 12 //noon
+			{
+				"\0%(talkb)\s[0]Noon now.\w8\e"
+			}
+			elseif hour == 0 //midnight
+			{
+				"\0%(talkb)\s[0]Midnight...\w8 \s[32]Is it even possible to get tired in a dream?\w8\e"
+			}
+			else //other times
+			{
+				"\0%(talkb)\s[0]It's %(hour12)'o clock.\w8\e"
+			}
+		}
+	}
+	if offscreen == 1 //on
+	{
+		if mikireflag == 1
+		{
+			MikireTalk
+		}
+	}
+}
+
+
+//--OnSecondChange
+//reference1 is if the ghost is offscreen or not
+OnSecondChange
+{
+	if passsec == 59
+	{
+	 	passsec = 0
+ 		passmin = passmin + 1
+	}
+ 	else
+	{
+	 	passsec = passsec + 1
+	}
+	if offscreen == 1 //on
+	{
+		mikireflag = reference1
+		
+		if mikireflag == 0 && reference1 == 1 //Dialogue for putting them off the screen.
+		{
+			MikireTalk
+		}
+	}
+	
+	if overlap == 1 //on
+	{
+		if reference2 == 1
+		{
+			"\0%(talkb)\s[39]Huh?!\w8 Something's touching me?!\w8\e"
+		}
+	}
+}
+// %screenwidthx%screenheight
+// \4 -> moves away; \5 -> moves towards (if they can; if too close, also moves away)
+
+//OR!! You can use \![move], as seen below!
+//\![move,--base=1,--x=-80,--time=2000]
+
+// --base=1 moves the character in reference to character 1, the kero. if you want it the other way around, change base to 0 and make sure that the move command happens while a \1 tag is active.
+//if you want them to just move relative to themselves, use --base=me
+
+// --x=-80 this will take the character 80 to pixels left of the reference above.  Left is negative numbers, right is positive numbers.
+
+// --time=2000 the time it will take to move, in milliseconds. they may dart across the screen; no matter how far apart they are, it will always take the amount of time specified here
+
+
+
+//---- MikireTalk ---------------------------------------------------------------------
+//Note the hotkey combo Ctrl-Shift-F12
+MikireTalk
+{
+	if offscreen == 1 //on
+	{
+		"\0%(talkb)\s[47]Ooh,\w4 is that %(anobject) I spy?\w8\e"
+		
+		"\0%(talkb)\s[3]You should see all these neat things back here,\w4 %(user)!\w8\e"
+	}
+}
+
+
+//------- On Offscreen!! ------------------------------------------------------------
+OnOffscreen
+{
+	if offscreen == 1 //on
+	{
+		if reference0 == 0 //the Sakura
+		{
+			"\0%(talkb)\s[0]Want me to sit out here?\w8 You got it.\w8\e"
+		}
+		elseif reference0 == 1 //the Kero
+		{
+			"\0%(talkb)\s[35]???\w8\e"
+		}
+		else //moving them back onscreen; this plays for both Sakura and Kero
+		{
+			"\0%(talkb)\s[3]Hey!\w8 \s[4]I'm back!\w8\e"
+		}
+	}
+}
+
+
+//**** OnSurfaceRestore *****************************************************************
+//Sakura is reference0, Kero is reference1.
+OnSurfaceRestore
+{
+	//if reference0 == 1 //checking Sakura
+	//elseif reference1 == 10 //checking Kero for default pose
+	
+	"\1\s[10]\0"
+	--
+	"\s[0]"
+	"\s[4]"
+	"\s[47]"
+	"\s[44]"
+	"\s[32]"
+	"\s[33]"
+	"\s[35]"
+}
+
+
+//--OnKeyPress
+OnKeyPress
+{
+	if reference0 == "t"
+	{ OnAiTalk }
+	elseif reference0 == "r"
+	{ OnLastTalk }
+	elseif reference0 == "f1"
+	{ "\![open,readme]" }
+}
+
+
+//that's the end of aitalk!

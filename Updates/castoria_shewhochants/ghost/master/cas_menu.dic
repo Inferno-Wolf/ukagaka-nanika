@@ -1,0 +1,573 @@
+﻿//---------------------------Menus--------------------------
+//Okay! menu time.
+
+
+//--Test Variable --------------------------------------------------------
+Select.testvariable
+{
+	"\0%(talkb)\s[0]Testing!\e"
+}
+
+
+//--OpenSakuraMenu
+OpenSakuraMenu
+{
+	"\0%(bigb)"
+	--
+	"\s[0]"
+	"\s[4]"
+	"\s[44]"
+	"\s[47]"
+	--
+	"Do you need anything?\w8"
+	
+	"Artoria Caster,\w4 reporting for duty!\w8"
+	
+	"I'm here,\w4 I'm here.\w8 What's up?\w8"
+	--
+	OnMenuRun
+}
+
+//--MenuRun
+OnMenuRun
+{	
+	"\0%(bigb)\n\n\_q"
+	--
+	if user == "KFC"
+	{
+		"\![*] \q[Test variable,testvariable]\n\n[half]"
+	}
+	--
+	if lastTalk != ""
+	{
+		"\![*] \q[Say that again?,OnLastTalk]"
+		"\![*] \q[Can you repeat that?,OnLastTalk]"
+		"\![*] \q[What did you just say?,OnLastTalk]"
+		//\![*] \q[,OnLastTalk]
+		--
+		"\n\n[half]"
+	}
+	--
+ 	"\![*] \q[Talk to me,OnAiTalk]"
+	"\![*] \q[What's on your mind?,OnAiTalk]"
+	"\![*] \q[Got anything to say?,OnAiTalk]"
+	//"\![*] \q[,OnAiTalk]"
+	--
+	if ghostexcount > 0 //this makes it so this option only appears when other ghosts are open!!
+	{
+		"\n\![*] "
+		--
+		"\q[Say hello to the company!,OnStartTalking]"
+		"\q[Say something to the company,OnStartTalking]"
+	}
+	//--
+	//"\n\n[half]\![*]\q[,]"
+	--
+	"\n\n[half]\![*] \q[Preferences Menu,configmenu] \n\![*] \q[Functions,dosomething] \n\n[half]\![*] \q[Nevermind,CANCEL]\e"
+}
+
+//\![*]\q[,]
+
+
+//Leave this alone
+OnLastTalk
+{
+	"%(lastTalk)\e"
+}
+
+
+
+//the back to the menu option which runs the menurun
+Select.BACKTOMENU
+{
+	OnMenuRun
+}
+
+//to the config menu!
+Select.configmenu
+{
+	OnTalkConfig
+}
+
+
+//--TalkConfig
+OnTalkConfig : all
+{
+	"\0%(bigb)\![set,autoscroll,disable]\_q"
+	
+	"-- %(user) Preferences --"
+	"\n\n[half]\![*]\q[Your name,TEACHNAME]: %(user)"
+	
+	"\n\![*]\q[Your pronouns,TEACHPRONOUN]: %(they)/%(them)/%(their)"
+	
+	"\n\![*]\q[Your birthday,TEACHBDAY]: %(birthdayprint)"
+	
+	"\n\n[half]Talk Rate: %(talktime) \n(\![*]\q[30sec,OnTalkrate,max]  /  \![*]\q[1min,OnTalkrate,high]  /  \![*]\q[3min,OnTalkrate,norm]  /  \![*]\q[5min,OnTalkrate,poor]  /  \![*]\q[Silent,OnTalkrate,none])"
+	
+	if SHIORI3FW.BalloonName == "FGO Text"
+	{
+		"\n\n-- Balloon Preference --"
+		"\n\n[half]Small Balloon: \![*]\q[Default,OnTBalloonChange,def] \![*]\q[Alternate,OnTBalloonChange,alt] \![*]\q[Pink,OnTBalloonChange,pink] \n\![*]\q[Long Default,OnTBalloonChange,longd] \![*]\q[Long Alternate,OnTBalloonChange,longalt]"
+		"\n\n[half]Big Balloon: \![*]\q[Default,OnBBalloonChange,def] \![*]\q[Alternate,OnBBalloonChange,alt] \![*]\q[Big Small Default,OnBBalloonChange,bigsmall]"
+	}
+	
+	"\n\n-- Toggles --"
+	"\n\n[half]\![*]\q[Hourly Notifications,timetoggle]: "
+	if timenotif == 1 {"On"}
+	else {"Off"}
+	
+	"\n\![*]\q[Offscreen Notifications,offscreentoggle]: "
+	if offscreen == 1 {"On"}
+	else {"Off"}
+	
+	"\n\![*]\q[Overlap Notifications,overlaptoggle]: "
+	if overlap == 1 {"On"}
+	else {"Off"}
+	
+	"\n\![*]\q[Toggle Uninstall,deleteon]?  (NOW : %(deleteshitai))"
+	
+	"\n\n\n[half]\![*]\q[Back to Main Menu,BACKTOMENU]    \![*]\q[Cancel,CANCEL]\e"
+}
+
+
+//this is the start of the pronoun options, which shoots over to nameteach.dic
+Select.TEACHPRONOUN
+{
+	"\0%(bigb)\s[0]Change of pronoun today?\w8 I heard it's quite common in Gloucester!\w8"
+	--
+	"\n\n\_q\![*]\q[He/Him/His,OnPronouns,masc] \n\![*]\q[She/Her/Hers,OnPronouns,fem] \n\![*]\q[They/Them/Their,OnPronouns,undef] \n\![*]\q[I have my own,OnPronouns,own] \n\n[half]\![*]\q[No change,OnPronouns,cancel] \n\![*]\q[Back to Main menu,OnPronouns,menu] \n\![*]\q[Back to Config menu,OnPronouns,config]\e"
+}
+
+
+//hourly notifs toggle
+Select.timetoggle
+{
+	if timenotif == 0 //off
+	{timenotif = 1}
+	else //1; on
+	{timenotif = 0}
+	OnTalkConfig
+}
+
+//offscreen toggle
+Select.offscreentoggle
+{
+	if offscreen == 0 //off
+	{offscreen = 1}
+	else //1; on
+	{offscreen = 0}
+	OnTalkConfig
+}
+
+//overlap toggle
+Select.overlaptoggle
+{
+	if overlap == 0 //off
+	{overlap = 1}
+	else //1; on
+	{overlap = 0}
+	OnTalkConfig
+}
+
+//delete toggle
+Select.deleteon
+{
+	if deleteshitai == "ON"
+	{deleteshitai = "OFF"}
+	else //OFF
+	{deleteshitai = "ON"}
+	OnTalkConfig
+}
+
+
+//--Talk Rate
+OnTalkrate
+{
+	if reference0 == "max"
+	{
+		talktime = "30 seconds"
+		aitalkinterval = 30
+		
+		"\0%(talkb)\s[44]Feeling talkative?\w8 \s[0]That's fine by me.\w8 \s[28]I don't get to talk to people much,\w4 nowadays.\x"
+	}
+	elseif reference0 == "high"
+	{
+		talktime = "1 minute"
+		aitalkinterval = 60
+	}
+	elseif reference0 == "norm"
+	{
+		talktime = "3 minutes"
+		aitalkinterval = 180
+	}
+	elseif reference0 == "poor"
+	{
+		talktime = "5 minutes"
+		aitalkinterval = 300
+	}
+	elseif reference0 == "none"
+	{
+		talktime = "Silent"
+		aitalkinterval = 0
+		
+		"\0%(talkb)\s[22]Ah,\w4 I should be quiet?\w8 \s[0]Got it.\w8 Tell me when it's safe to be loud again.\x"
+	}
+	--
+	OnTalkConfig
+}
+
+
+//small balloon changer
+OnTBalloonChange
+{
+	if reference0 == "alt" {choicet = 1}
+	elseif reference0 == "pink" {choicet = 2}
+	elseif reference0 == "longd" {choicet = 3}
+	elseif reference0 == "longalt" {choicet = 4}
+	else //default
+	{choicet = 0}
+	--
+	OnTalkConfig
+}
+
+//big balloon changer
+OnBBalloonChange
+{
+	if reference0 == "alt" {choiceb = 1}
+	elseif reference0 == "bigsmall" {choiceb = 2}
+	else //default
+	{choiceb = 0}
+	--
+	OnTalkConfig
+}
+
+
+//birthday time!!
+Select.TEACHBDAY
+{
+	if birthdayprint == "????"
+	{
+		"\0%(talkb)\s[41]Oh,\w4 Ritsuka taught me about birthdays!\w8 It's the day you were born,\w4 correct?\w8 \s[0]\n\n[half]I'm afraid I don't know mine,\w4 but do tell me yours.\w8 \n\n[half]On what month were you born?\w8"
+	}
+	elseif dayslot == userbirthday //this checks if you're inputting your birthday again on your birthday!
+	{
+		"\0%(talkb)\s[40]...\w8\w8 Wait,\w4 is it today?\w8 \s[3]\n\n[half]Merry birthday,\w4 then!\w8 \s[48]That's the saying,\w4 right?\w8"
+		--
+		"\n\n\![*]\q[Teach again,teachagain] \![*]\q[Cancel,CANCEL] \n\n[half]\![*]\q[Back to Main Menu,BACKTOMENU] \n\![*]\q[Back to Preferences,configmenu]\w8\w8\w8\w8\w8\e"
+	}
+	else //already input your birthday
+	{
+		"\0%(talkb)\s[41]Oh,\w4 I didn't know one could change birthday date.\w8 \s[47]\n\n[half]Do tell me!\w8 On what month were you born this time?\w8"
+	}
+	--
+	"\![open,inputbox,OnUserBornMonth,-1]\![set,balloontimeout,-1]\e"
+}
+
+//here's to teach again
+Select.teachagain
+{
+	"\0%(talkb)\s[35]\_qStart with the month.\_q\w8"
+	--
+	"\![open,inputbox,OnUserBornMonth,-1]\![set,balloontimeout,-1]\e"
+}
+
+//--OnUserBornMonth
+OnUserBornMonth
+{
+	_tempmonth = TOSTR(reference0) //this stores what the user put in as a variable called _tempmonth
+	_tempmonth = TOLOWER(_tempmonth) //changes it to lowercase
+	
+	//this is attaching the right value to the input from the user
+	if _tempmonth == "january" || _tempmonth == "1" {bornmonth = 1; bornmonthprint = "January"}
+	elseif _tempmonth == "february" || _tempmonth == "2" {bornmonth = 2; bornmonthprint = "February"}
+	elseif _tempmonth == "march" || _tempmonth == "3" {bornmonth = 3; bornmonthprint = "March"}
+	elseif _tempmonth == "april" || _tempmonth == "4" {bornmonth = 4; bornmonthprint = "April"}
+	elseif _tempmonth == "may" || _tempmonth == "5" {bornmonth = 5; bornmonthprint = "May"}
+	elseif _tempmonth == "june" || _tempmonth == "6" {bornmonth = 6; bornmonthprint = "June"}
+	elseif _tempmonth == "july" || _tempmonth == "7" {bornmonth = 7; bornmonthprint = "July"}
+	elseif _tempmonth == "august" || _tempmonth == "8" {bornmonth = 8; bornmonthprint = "August"}
+	elseif _tempmonth == "september" || _tempmonth == "9" {bornmonth = 9; bornmonthprint = "September"}
+	elseif _tempmonth == "october" || _tempmonth == "10" {bornmonth = 10; bornmonthprint = "October"}
+	elseif _tempmonth == "november" || _tempmonth == "11" {bornmonth = 11; bornmonthprint = "November"}
+	elseif _tempmonth == "december" || _tempmonth == "12" {bornmonth = 12; bornmonthprint = "December"}
+	
+	else //if the month isn't a valid month
+	{
+		"\0%(talkb)\s[20]I...\w8\w8 don't know how to convert that to the fairy calendar.\w8 \s[0]\n\n[half]You sure you did your calculations correctly?\w8"
+		--
+		"\![open,inputbox,OnUserBornMonth,-1]\![set,balloontimeout,-1]\e"
+	}
+	--
+	//If it's a valid month; %(bornmonthprint)
+	"\0%(talkb)\s[3]I see,\w4 I see!\w8 \s[4]What about the day?\w8"
+	--
+	"\![open,inputbox,OnUserBornDay,-1]\![set,balloontimeout,-1]\e"
+}
+
+//This adds an appropriate suffix to the number for the day. No need to mess with this.
+Printday
+{
+	if bornday == 1 || bornday == 21 || bornday == 31
+	{	"%(bornday)st"	}
+	elseif bornday == 2 || bornday == 22
+	{	"%(bornday)nd"	}
+	elseif bornday == 3 || bornday == 23
+	{	"%(bornday)rd"	}
+	else
+	{	"%(bornday)th"	}
+}	
+
+//--OnUserBornDay
+OnUserBornDay
+{
+	_tempday = reference0 //storing the input in _tempday
+	_tempday = TOLOWER(_tempday) //changes it to lowercase
+	_tempday = REPLACE(_tempday,"st","")
+	_tempday = REPLACE(_tempday,"nd","")
+	_tempday = REPLACE(_tempday,"rd","")
+	_tempday = REPLACE(_tempday,"th","")
+	//if the user types something like 2nd, 3rd, etc, this will make it just the number. It'll just add the suffix back later on the one that actually shows.
+	_tempday = TOINT(_tempday) //Converts it to an integer
+	
+	if ((bornmonth == 1 || bornmonth == 3 || bornmonth == 5 || bornmonth == 7 || bornmonth == 8 || bornmonth == 10 || bornmonth == 12) && _tempday >= 1 && _tempday <= 31) || (bornmonth == 2 && _tempday >= 1 && _tempday <= 29) || ((bornmonth == 4 || bornmonth == 6 || bornmonth == 9 || bornmonth == 11) && _tempday >= 1 && _tempday <= 30)
+	//This ugly function checks if the day falls into a valid range. If it does, we set some variables and continue down.
+	{
+		bornday = _tempday
+		borndayprint = Printday
+		userbirthday = "%(bornmonth)month %(bornday)day"
+		birthdayprint = "%(bornmonthprint) %(borndayprint)"
+		
+		"%(birthchecked)"
+	}
+	else //If the day isn't valid
+	{
+		"\0%(talkb)\s[20]You guys have that many days in a month...?\w8\w8 \s[0]I think you made a mistake.\w8"
+		--
+		"\![open,inputbox,OnUserBornDay,-1]\e"
+	}	
+}
+
+//--birthchecked
+birthchecked
+{
+	if userbirthday == dayslot //if today is the user's birthday
+	{
+		"\0%(talkb)\s[0]Happy birthday,\w4 %(user).\w8"
+	}
+	elseif userbirthday == "9month 10day" || userbirthday == "6month 7day" //dev bdays
+	{
+		"\0%(talkb)\s[41]Huh!\w8\w8 \s[4]That's quite the important date.\w8"
+	}
+	else //and for any other possible combo
+	{
+		"\0%(talkb)\s[0]%(bornmonthprint) %(borndayprint).\w8 Got it.\w8"
+	}
+	--
+	"\n\n[half]\![*]\q[Back to Preferences,configmenu] \n\![*]\q[Back to Main Menu,BACKTOMENU] \n\![*]\q[Cancel,CANCEL]\e"
+}
+
+
+
+//this leads to the function in nameteach.dic
+Select.TEACHNAME
+{
+	OnTeachName	
+}
+
+
+//Cancel messages!
+Select.CANCEL
+{
+	"\0%(talkb)\s[35]...\w8\w8 Hope I was of use!\w8\e"
+}
+
+
+//Functions menu!
+Select.dosomething
+{
+	"\0%(bigb)\s[0]Do you need anything?\w8"
+	--
+	"\_q\n\n\![*]\q[Open Calendar,CALENDAR] \n\![*]\q[Check Email,MailCheck] \n\![*]\q[Open SSP Preferences,sspconfig] \n\![*]\q[Empty Recycle Bin,areyousure] \n\![*]\q[Update,keroupdatecheck] \n\![*]\q[Bug report,bugreport] \n\![*]\q[System Information,ChoiceSystemInformation] \n\n\![*]\q[Back to Main Menu,BACKTOMENU] \n\n\![*]\q[Cancel,CANCEL]\e"
+}
+
+
+//the built-in ssp calendar function.
+Select.CALENDAR
+{
+	"\0%(talkb)\s[48]Check this out!\w8 We're in a week!\w8"
+	--
+	"\![open,calendar]\e"
+}
+
+//the ssp preferences menu. in case navigating the right click menu isn't in your spoons at the moment.
+Select.sspconfig
+{
+	"\0%(talkb)\s[0]Oh,\w4 do you need to adjust anything?\w8"
+	--
+	"\![open,configurationdialog]\e"
+}
+
+
+//garbage check
+Select.areyousure
+{
+	"\0%(talkb)\s[44]Oh,\w4 you want to get rid of this?\w8\n\n"
+	--
+	"\![*]\q[Out with the trash!,ChoiceGarbagecan]"
+	"\![*]\q[Yes\, get rid of it.,ChoiceGarbagecan]"
+	"\![*]\q[Yup. Dump it all.,ChoiceGarbagecan]"
+	//"\![*]\q[,ChoiceGarbagecan]"
+	--
+	"\n\![*]\q[Don't do it!,garbagecancel]"
+	"\n\![*]\q[On second thought...,garbagecancel]"
+	"\n\![*]\q[Actually\, no,garbagecancel]"
+	//"\n\![*]\q[,garbagecancel]"
+	--
+	"\n\n[half]\![*]\q[Back to Functions Menu,dosomething] \n\![*]\q[Back to Main Menu,BACKTOMENU]\e"
+}
+
+//cancel messages
+Select.garbagecancel
+{
+	"\0%(talkb)\s[0]You're right.\w8 You wouldn't want to delete anything important.\w8\e"
+}
+
+//this uses a SAORI, gomi.dll, which is included in the template.
+Select.ChoiceGarbagecan
+{
+	_gomicheck = FUNCTIONEX("gomi.dll", "-n") //SAORI stuff, don't touch
+	
+	"\0%(talkb)\s[4]Alright!\w8 I'm taking it to Avalon with me.\w8 \s[47]I'm sure I can tinker with all that stuff.\w8\w8\n\n[half]"
+	--
+	if _gomicheck == 0 //If the recycle bin is empty.
+	{
+		"\0\s[-1]\w8\w8\b[-1]\w8\w8\w8\s[0]%(talkb)...\w8\w8 Oh...\w8\w8 \s[17]There's nothing in here.\w8\e"
+	}
+	elseif _gomicheck >= 1 //If the recycle bin is full.
+	{
+		"\![raise,OnGarbagecanEmpty]"
+		--
+		"\0\s[-1]\w8\w8\b[-1]\w8\w8\w8\s[3]Hehe...\w8 you're coming home with me,\w8 .txt file!\w8\e"
+	}
+}
+
+//This is for the SAORI, don't touch it.
+OnGarbagecanEmpty
+{
+	_gomi = FUNCTIONEX("gomi.dll", "-f")
+}
+
+
+//System Information. this is done using another SAORI, saori_cpuid.dll.
+Select.ChoiceSystemInformation
+{
+	os_name = FUNCTIONEX("saori_cpuid.dll","os.name")
+	os_version = FUNCTIONEX("saori_cpuid.dll","os.version")
+	cpu_name = FUNCTIONEX("saori_cpuid.dll","cpu.name")
+	cpu_clockex = FUNCTIONEX("saori_cpuid.dll","cpu.clockex")
+	"\*\0%(bigb)\_q\f[bold,1]OS:\f[bold,0] %(os_name) %(os_version)\n\f[bold,1]Memory Load:\f[bold,0] %(memoryload)%\n\f[bold,1]Physical Memory:\f[bold,0] %(memoryavailphys) KB\n\f[bold,1]CPU:\f[bold,0] %(cpu_name) %(cpu_clockex)MHz\n\f[bold,1]Ukagaka:\f[bold,0] %property[baseware.version]"
+	--
+	"\n\n[half]\![*]\q[Back to Functions Menu,dosomething] \n\![*]\q[Back to Main Menu,BACKTOMENU] \n\![*]\q[Cancel,CANCEL]\e"
+}
+
+
+//mail time! the rest of this is in etc.dic
+Select.MailCheck
+{
+	"\![biff]\e"
+}
+
+
+
+//---- OnChoiceTimeout ---------------------------------------------------------
+OnChoiceTimeout
+{
+	"\0%(talkb)\s[28]I...\w8\w8 assume that long silence was a no...?\w8\e"
+}
+
+
+ 
+//---- Secondary Character Menu ---------------------------------------------------------
+//OKAY, TIME FOR SOME FUN!
+/*
+OpenKeroMenu
+{
+	if mode == 1 //first mode
+	{
+		"\1\s[10]It's sleepy time.\w8 No menu for you.\w8\e"
+	}
+	elseif mode == 2 //second
+	{
+		"\1\s[10]Now opening special menu.\w8"
+		--
+		OnKeroSpecialMenuRun
+	}
+	else //default
+	{
+		"\1\s[10]Now opening menu.\w8"
+		--
+		OnKeroMenuRun
+	}
+}
+
+//here's the usual menu stuff
+OnKeroMenuRun : all
+{
+	"\1%(bigb)\_q\n\n[half]"
+	
+	"\![*]\q[Update,keroupdatecheck]\n"
+	
+	"\![*]\q[Bug report,bugreport]\n\n"
+	
+	"\![*]\q[Test variable,testvariable]\n\n"
+	
+	"\![*]\q[Nothing,keroCANCEL]\e"
+}
+
+//also, as a note, if you want a comma to appear in your clickable option, you NEED to use that slash (\) as seen below! otherwise it will completely break the option.
+OnKeroSpecialMenuRun
+{
+	"\1%(bigb)\_q\n\n[half]"
+	--
+	"\![*]\q[Let's go to the beach!,beachdate]\n"
+	"\![*]\q[Time for a beach date!,beachdate]\n"
+	"\![*]\q[Beach! Beach! Beach!,beachdate]\n"
+	--
+	"\![*]\q[I have a thing to say to you!,saythings]\n\n"
+	"\![*]\q[Let me say something to you,saythings]\n\n"
+	"\![*]\q[Listen to this...,saythings]\n\n"
+	--
+	"\![*]\q[Testing\, testing!,testvariable]\n\n"
+	--
+	"\![*]\q[Nevermind actually,keroCANCEL]\e"
+}
+
+//Kero cancel dialogue also separated by mode
+Select.keroCANCEL
+{
+	if mode == 1 //Vektoria
+	elseif mode == 2 //Vektor
+	else //0; First
+	{
+		"\1\s[10]Cancel message.\w8\e"
+	}
+}
+*/
+
+
+//bug report!
+Select.bugreport
+{
+	"\*\0%(talkb)\s[40]Oh,\w4 did you find any bug to report?\w8 \s[43]\n\n[half]\_q\f[name,system]**Dev note: Please contact KFC \_a[http://www.characteroulette.tumblr.com/]at his tumblr\_a or on the Ukagaka Discord to resolve this issue. Thank you.\f[name,default]\_q\w8"
+	--
+	"\n\n[half]\![*]\q[Back to Functions Menu,dosomething] \n\![*]\q[Back to Main Menu,BACKTOMENU] \n\![*]\q[Cancel,CANCEL]\e"
+}
+
+//this shoots over to etc.dic
+Select.keroupdatecheck
+{
+	"\0\s[0]\![updatebymyself]\e"
+}
+
+
+//and that's menu complete!

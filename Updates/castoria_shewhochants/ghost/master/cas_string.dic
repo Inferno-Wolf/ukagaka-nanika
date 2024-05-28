@@ -1,0 +1,256 @@
+﻿//---------------------------Strings--------------------------
+//This file was written by umeici
+
+
+//---- Username -----------------------------------------------------------------------
+On_username
+{
+	user
+}
+
+//---- Network Update URL ----------------------------------------------
+//put your own directory here!
+On_homeurl
+{
+	"https://raw.githubusercontent.com/Inferno-Wolf/ukagaka-nanika/main/Updates/castoria_shewhochants/"
+}
+
+
+
+//---- Top Menu Option Caption -----------------------------------------
+On_recommendrootbutton.caption
+{
+	"Reference Sites"
+	"More Ghost Information"
+}
+
+
+//---- Top Menu Option Websites -----------------------------------------------------
+//This first line is the name that will display in the menu for your site. (ex. "Ghost Template Walkthrough")
+//the next is the site that it links to. (it starts with %ASC(1) and ends with %ASC(2).)
+On_sakura.recommendsites
+{
+	"Ghost Template Walkthrough"
+	--
+	"%ASC(1)http://www.ashido.com/ukagaka/%ASC(2)"
+	--
+	
+	"SSP"
+	--
+	"%ASC(1)http://ssp.shillest.net/%ASC(2)"
+	--
+	
+	"Ukagaka Dream Team Wiki"
+	--
+	"%ASC(1)https://ukagakadreamteam.com/wiki/home%ASC(2)"
+	--
+	
+	"Ukagaka Dream Team"
+	--
+	"%ASC(1)https://ukagakadreamteam.tumblr.com/%ASC(2)"
+	--
+	
+	"UKADOC Project Wiki (J)"
+	--
+	"%ASC(1)http://ssp.shillest.net/ukadoc/manual/index.html/%ASC(2)"
+	--
+	
+	"Ukadoc Project (English Translation)"
+	--
+	"%ASC(1)https://ukagakadreamteam.github.io/ukadoc/manual/index.html%ASC(2)"
+}
+
+//---- The second option from the top's caption -----------------------------------------
+On_portalrootbutton.caption
+{
+	"Reach Out to Devs"
+	"Devs Personal Sites"
+}
+
+//---- Websites in the Second Option --------------------------------------------------
+//%ASC(1)%ASC(2)
+On_sakura.portalsites
+{
+	"Verse's Website"
+	--
+	"%ASC(1)https://versegm.neocities.org/%ASC(2)"
+	--
+	
+	//"Verse's Pillowfort"
+	//--
+	//"%ASC(1)%ASC(2)"
+	//--
+	
+	"KFC's Github"
+	--
+	"%ASC(1)https://github.com/Inferno-Wolf/ukagaka-nanika%ASC(2)"
+	--
+	
+	"KFC's Tumblr"
+	--
+	"%ASC(1)http://www.characteroulette.tumblr.com/%ASC(2)"
+	--
+	
+	"FGO Official Site"
+	--
+	"%ASC(1)https://fate-go.us/%ASC(2)"
+}
+
+
+//---- Update Menu Caption ------------------------------------------------------------
+On_updatebutton.caption
+{
+	"Update the Ghost"
+	"Press to Update"
+}
+
+//---- Dress-up Menu Caption ----------------------------------------------------------
+On_dressuprootbutton.caption
+{
+	"Press for Dress-Ups"
+	"Dress-Ups Here"
+}
+
+//---- Headlines and RSS Feeds ---------------------------------------------------------
+On_headlinesenserootbutton.caption
+{
+	"Headlines + RSS Feeds"
+	"RSS Feeds + Headlines"
+}
+
+//---- Readme Caption -------------------------------------------------------
+On_readmebutton.caption
+{
+	"READ ME"
+	"readme.txt"
+	"Press F1"
+}
+
+//---- Uninstall Caption -----------------------------------------------------
+On_vanishbutton.caption
+{
+	"Uninstall"
+}
+
+//---- Shell Caption -----------------------------------------------------
+//if you want to hide a shell from the menu/user, you have to put that into the descript.txt of your shell! it would be "menu,hidden" and then it won't show up in this menu!
+On_shellrootbutton.caption
+{
+	"Change Shell"
+	"Swap Shells"
+}
+
+//---- Change Ghost Caption -----------------------------------------------------
+On_ghostrootbutton.caption
+{
+	"Change Ghost"
+	"Swap Ghosts"
+}
+
+//---- Call Ghosts Caption -----------------------------------------------------
+On_callghostrootbutton.caption
+{
+	"Call Ghost"
+	"Open Another Ghost"
+}
+
+//---- Quit Caption -----------------------------------------------------
+On_quitbutton.caption
+{
+	"Quit"
+}
+
+
+
+//---- Top Menu Option in the Second Character -----------------------------------------
+//The Kero has their own right click menu unique from the Sakura! It's tiny and most of us use it for silly things.
+On_kero.recommendbuttoncaption
+{
+	"TYPE-MOON stuff"
+	"FGO stuff"
+}
+
+//---- Top Menu Websites for the Second Character --------------------------------------
+//%ASC(1)%ASC(2)
+On_kero.recommendsites
+{
+	"Official Site"
+	--
+	"%ASC(1)https://fate-go.us/%ASC(2)"
+	//--
+	
+	//""
+	//--
+	//"%ASC(1)%ASC(2)"
+	//--
+	
+	//""
+	//--
+	//"%ASC(1)%ASC(2)"
+}
+
+
+
+//----------------------------------End of Line------------------------------------
+//the rest of this is calculating other code stuff, like determining whether the unintall button is visible and the knowledge on other ghosts in your directory and stuff. don't mess with this unless you know what you're doing.
+
+
+
+//---- 소멸 지시 버튼 표시 교체 -------------------------------------------------------
+On_vanishbutton.visible
+{
+	if deleteshitai == "ON"; { "1" }
+	else; { "0" }
+}
+
+//---- 딳벍뭷궻뫜궻긕?긚긣뼹롦벦 -------------------------------------------------------
+//wellp okay Zi rewrote this to be an array, so. it's an array now
+On_otherghostname
+{
+	ghostexlist = IARRAY
+	foreach reference; _ref
+	{
+		ghostexlist ,= _ref[0,C_BYTE1]
+	}
+}
+
+ghostexcount
+{
+	ARRAYSIZE(ghostexlist)
+}
+
+//---- SHIORI 듫쁀륃뺪 ------------------------------------------------------------------
+On_version
+{
+	GETSETTING(AYAINFO_VERSION)
+}
+
+On_craftman
+{
+	"umeici"
+}
+
+On_craftmanw
+{
+	"梅市"
+}
+
+On_name
+{
+	"AYA"
+}
+
+//---- Owned SSTP 뾭 uniqueid 롦벦 ------------------------------------------------------
+On_uniqueid
+{
+	uniqueid = reference0
+}
+
+//---- hwnd 롦벦 ------------------------------------------------------------------------
+On_hwnd
+{
+	sakurahwnd    = reference0[0]
+	kerohwnd      = reference0[1]
+	sakurablnhwnd = reference1[0]
+	keroblnhwnd   = reference1[1]
+}

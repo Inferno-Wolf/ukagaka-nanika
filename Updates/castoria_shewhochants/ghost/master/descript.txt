@@ -1,0 +1,32 @@
+﻿//file for giving the system and other ghosts all the info on your ghost that they need.
+//charset is for language, pretty sure, so no need to touch it.
+//name is the official name of your ghost, what will be displayed in the "Switch Ghost" option of the right-click menu. make sure this matches the name you gave it in the install.txt
+//type is what type of program it is, which is a ghost. (this gets used during the installation process, as seen in the etc.dic stuff)
+//sakura.name is the main character's name. when filled, it will be the shorthand most ghosts use when checking for your ghost's name (through OnGhostChanged and other such functions). if you want the ghost to use the full name only, you can leave it blank.
+//kero.name is the name of the secondary character. it hardly gets called but can be seen through the manual Switch Ghost menu that ssp can pull up when booted.
+//icon is the desktop tray icon that your ghost will be using and is located inside the ghost -> master folder.
+//balloon will highlight your specific balloon in the "Change Balloon" right-click menu. use it if you have a specific balloon but if you don't nothing will be broken. It uses the name of the balloon (not the directory, which can be different)
+
+
+charset,UTF-8
+
+name,Artoria Caster
+type,ghost
+
+sakura.name,Castoria
+kero.name,other
+
+icon,caster.ico
+
+balloon,FGO Text
+
+
+//craftman is your name (you, the creator) and craftmanw is for non-alphanumeric characters. craftmanurl is whatever site you use / want to link to and can be deleted if so desired.
+
+craftman,Verse - KFC
+craftmanw,Verse - KFC
+craftmanurl,https://versegm.neocities.org/
+
+
+sstp.allowunspecifiedsend,0
+shiori,yaya.dll
