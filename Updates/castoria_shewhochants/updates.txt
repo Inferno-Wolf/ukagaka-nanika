@@ -1,11 +1,11 @@
 charset,OSNative
-file,ghost/master/cas_aitalk.dic39df5901acb61b4e02e1e10bba2a722dsize=18004date=2024-05-28T14:47:20
-file,ghost/master/cas_aitalkchoices.dic58dc9fbbf50924fb1e46a92ad3dce9edsize=5391date=2024-05-28T09:57:15
-file,ghost/master/cas_anchor.dic1a3e098b01b6c8c7539210cb0d3720b3size=2283date=2024-05-26T17:34:24
+file,ghost/master/cas_aitalk.dic6b7211d1236d077b40b16d231a7e4f25size=18021date=2024-05-29T09:42:29
+file,ghost/master/cas_aitalkchoices.dic44ae6908db6564e023c5292a85884cdcsize=5394date=2024-05-29T09:21:10
+file,ghost/master/cas_anchor.dic3e734dace6f085f1d7eaf2d94585dca6size=2289date=2024-05-29T09:28:55
 file,ghost/master/cas_bootend.dicf60fe80faffdc4b69bb2eff125aa7dd2size=10020date=2024-05-28T14:35:46
 file,ghost/master/cas_commu.dicaead28aea521957b2abeb62152f1756asize=4862date=2024-05-28T14:58:43
-file,ghost/master/cas_etc.dic9dadddfd0e1bcbf03258eec774708e93size=18550date=2024-05-28T14:54:34
-file,ghost/master/cas_menu.dic86fd9151e1bb2edf93958edb6675c9desize=16374date=2024-05-28T14:39:33
+file,ghost/master/cas_etc.dicbffd3d1b12b50a01e7f6af9613f31dcbsize=18540date=2024-05-29T09:29:22
+file,ghost/master/cas_menu.dic670c9ba599ed7411fc76d63003c781c1size=16375date=2024-05-29T09:10:20
 file,ghost/master/cas_mouse.dicb5015b7c194ff2654b4b391faa53f565size=3507date=2024-05-28T14:49:40
 file,ghost/master/cas_nameteach.dicc74c2dcdafddebea8a0ec379ff129d34size=8092date=2024-05-26T11:56:48
 file,ghost/master/cas_string.dic67a0d963217d3a4c09a977372b4160efsize=5796date=2024-05-28T12:20:14

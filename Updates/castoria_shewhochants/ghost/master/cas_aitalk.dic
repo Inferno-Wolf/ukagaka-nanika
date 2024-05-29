@@ -90,7 +90,7 @@ RandomTalk : nonoverlap_pool
 	
 	"\0%(talkb)\s[0]I would have loved to be a blacksmith.\w8 \n\n[half]There's something incredible in the act of smithing,\w4 you know?\w8 In bringing something completely new to this world.\w8 \s[47]\n\n[half]It's also VERY satisfying to slam that hammer down as hard as possible.\w8 \s[3]\n\n[half]If you ever get to try your hand at smithing,\w4 I really recommend it!\w8 \s[4]\n\n[half]Ector never let me do the hard stuff,\w4 but small blades are easy enough to make!\w8\e"
 	
-	"\0%(talkb)\s[4]Say,\w4 do you have blue skies where you're from?\w8 \s[0]\n\n[half]The sky was never pure blue in Fairy Britain.\w8 But I'm told it's a beautiful color.\w8 \s[4]\n\n[half]You shouldn't change your wallpaper to the sky, so I can see it!\w8\e"
+	"\0%(talkb)\s[4]Say,\w4 do you have blue skies where you're from?\w8 \s[0]\n\n[half]The sky was never pure blue in Fairy Britain.\w8 But I'm told it's a beautiful color.\w8 \s[4]\n\n[half]You should change your wallpaper to the sky, so I can see it!\w8\e"
 	
 	
 	//some Anchors
@@ -175,7 +175,7 @@ RandomTalk : nonoverlap_pool
 	}
 	
 	{
-		"\0%(talkb)\s[29]E-\w4eh?\w8 Am I dating anyone?\w8"
+		"\0%(talkb)\s[29]E-\w4eh?\w8 Am I dating anyone?\w8 "
 		--
 		"\s[0]I'm not,\w4 but I have a...\w8\w8 childhood friend,\w4 I guess.\w8 \s[46]\n\n[half]He was there during the hardest time of my life.\w8 He saved me,\w4 in all the ways that matter.\w8 \s[45]\n\n[half]...\w8\w8\w8 \s[34]\n\n[half]I miss him."
 		
@@ -187,7 +187,7 @@ RandomTalk : nonoverlap_pool
 	{
 		"\0%(talkb)\s[0]Mh?\w8 Humans?\w8 \n\n[half]I don't have much to say about them.\w8 Human or fairy,\w4 it doesn't make much difference to me.\w8 \s[41]\n\n[half]Ah,\w4 I did have a human friend though!\w8 \s[4]They're my kindred spirit,\w4 in a way.\w8 They're very important to me.\w8"
 		--
-		"\s[22]They're a pathetic idiot who has been asked to carry the weight of the world.\w8 \s[33]\n\n[half]And yet...\w8 \s[34]\n\n[half]Though they already had so much to deal with,\w4 they decided to stand by my side.\w8 \s[45]\n\n[half]...\w8\w8\w8 \n\n[half]I could not save anyone.\w8 I couldn't even save myself.\w8 \s[34]\n\n[half]But I could save them,\w4 just this once.\w8 \s[45]\n\n[half]People like us...\w8 we don't get happy endings.\w8 \n\n[half]But maybe their death will be kinder than mine.\w8\w8"
+		"\w8\w8\s[22]\n\n[half]They're a pathetic idiot who has been asked to carry the weight of the world.\w8 \s[33]\n\n[half]And yet...\w8 \s[34]\n\n[half]Though they already had so much to deal with,\w4 they decided to stand by my side.\w8 \s[45]\n\n[half]...\w8\w8\w8 \n\n[half]I could not save anyone.\w8 I couldn't even save myself.\w8 \s[34]\n\n[half]But I could save them,\w4 just this once.\w8 \s[45]\n\n[half]People like us...\w8 we don't get happy endings.\w8 \n\n[half]But maybe their death will be kinder than mine.\w8\w8"
 		
 		""
 		--
@@ -228,7 +228,7 @@ RandomTalk : nonoverlap_pool
 	
 	"\0%(talkb)\s[0]Say,\w4 what do you think of heroes?\w8 \n\n\![*]\q[They're admirable,admirehero] \n\![*]\q[I want to be a hero,mehero] \n\![*]\q[I do not think of heroes,nohero]\w8\w8\w8\e"
 	
-	"\0%(talkb)\s[0]Say,\w4 do you have any pets?\w8 \n\n\![*]\q[Dog,dogdog]   \![*]\q[Cat,catcat]   \![*]\q[Rodent,ratrat] \n\![*]\q[Reptile,lizliz]   \![*]\q[Horse,hooorse]   \![*]\q[None,nopets] \n\![*]\q[What about you?,petplay]\w8\w8\w8\e"
+	"\0%(talkb)\s[0]Say,\w4 do you have any pets?\w8 \n\n\_q\![*]\q[Dog,dogdog]   \![*]\q[Cat,catcat]   \![*]\q[Rodent,ratrat] \n\![*]\q[Reptile,lizliz]   \![*]\q[Horse,hooorse]   \![*]\q[None,nopets] \n\![*]\q[What about you?,petplay]\w8\w8\w8\e"
 	
 	"\0%(talkb)\s[0]Mh?\w8 You have questions about Fairy Britain?\w8 \s[4]\n\n[half]Go right ahead! I'll tell you all I know!\w8 \n\n\![*]\q[Why Fairy?,whyfairy]    \![*]\q[Why Britain?,whybrit] \n\![*]\q[What is Fairy Britain like?,whatlike]\w8\w8\w8\e"
 	

@@ -237,9 +237,7 @@ OnUpdateReady
 	_s = ""; if reference0 != 1; _s = "s"
 	_are = "is"; if reference0 != 1; _are = "are" //Plural checks
 	
-	"\0%(talkb)\s[47]Time to get stronger!\w8 \s[4]There %(_are) %(reference0) file%(_s) to download for this update.\w8"
-	--
-	"\e"
+	"\0%(talkb)\s[47]Time to get stronger!\w8 \s[4]There %(_are) %(reference0) file%(_s) to download for this update.\w8\e"
 }
 
 

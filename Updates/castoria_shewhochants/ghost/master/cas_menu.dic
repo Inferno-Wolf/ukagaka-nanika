@@ -558,7 +558,7 @@ Select.keroCANCEL
 //bug report!
 Select.bugreport
 {
-	"\*\0%(talkb)\s[40]Oh,\w4 did you find any bug to report?\w8 \s[43]\n\n[half]\_q\f[name,system]**Dev note: Please contact KFC \_a[http://www.characteroulette.tumblr.com/]at his tumblr\_a or on the Ukagaka Discord to resolve this issue. Thank you.\f[name,default]\_q\w8"
+	"\*\0%(talkb)\s[40]Oh,\w4 did you find any bugs to report?\w8 \s[43]\n\n[half]\_q\f[name,system]**Dev note: Please contact KFC \_a[http://www.characteroulette.tumblr.com/]at his tumblr\_a or on the Ukagaka Discord to resolve this issue. Thank you.\f[name,default]\_q\w8"
 	--
 	"\n\n[half]\![*]\q[Back to Functions Menu,dosomething] \n\![*]\q[Back to Main Menu,BACKTOMENU] \n\![*]\q[Cancel,CANCEL]\e"
 }

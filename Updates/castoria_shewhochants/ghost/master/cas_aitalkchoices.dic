@@ -79,7 +79,7 @@ Select.ratrat
 
 Select.lizliz
 {
-	"\0%(talkb)\s[39]A reptile?\w8 Like,\w4 a snake?\w8 \s[0]\n\n[half]I didn't know those could be kept as pets. \s[44]\n\n[half]Maybe I would look more intimidating with a python around my shoulders...?\w8 \s[20]Though it could get pretty heavy...\w8\e"
+	"\0%(talkb)\s[39]A reptile?\w8 Like,\w4 a snake?\w8 \s[0]\n\n[half]I didn't know those could be kept as pets.\w8 \s[44]\n\n[half]Maybe I would look more intimidating with a python around my shoulders...?\w8 \s[20]Though it could get pretty heavy...\w8\e"
 }
 
 Select.hooorse

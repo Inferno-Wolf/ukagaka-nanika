@@ -57,7 +57,7 @@ OnAnchorSelect
 			}
 			when "Tristan"
 			{
-				"\0%(talkb)\s[4]A rude,\w4 entitled brat who collects bloodsoaked shoes.\w8 \s[0]\n\n[half]Mh?\w8 It's an odd thing to smile about?\w8 \s[4]\n\n[half]Haha,\w4 I can't help it.\w8 \s[46]I can't hate her.\w8 \s[3]I like straightforward people!\w8\e"
+				"\0%(talkb)\s[4]A rude,\w4 entitled brat who collects bloodsoaked shoes.\w8\w8\w8 \s[0]\n\n[half]Mh?\w8 It's an odd thing to smile about?\w8 \s[4]\n\n[half]Haha,\w4 I can't help it.\w8 \s[46]I can't hate her.\w8 \s[3]I like straightforward people!\w8\e"
 			}
 		}
 	}
