@@ -1,0 +1,17 @@
+charset,UTF-8
+
+name,Credit where Credit is Due
+type,ghost
+
+shiori,yaya.dll
+
+craftman,KFC
+craftmanw,KFC
+craftmanurl,http://www.characteroulette.tumblr.com/
+
+sakura.name,Credit
+kero.name,Video Games
+
+icon,icon.ico
+
+sstp.allowunspecifiedsend,0

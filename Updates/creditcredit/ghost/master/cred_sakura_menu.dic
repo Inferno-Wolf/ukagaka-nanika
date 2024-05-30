@@ -1,0 +1,49 @@
+//-----------Menu time!
+//menu.
+
+
+//Because there is an all modifier here, you don't need to write -- between menu options
+OnSakuraMenu : all
+{
+	"\0\s[0]\b2\![set,autoscroll,disable]\_q"
+	
+	"\![*]\q[Talk to me,OnAiTalk]"
+	if LastTalk != ""; "  \![*]\q[Say that again,OnLastTalk]"
+	"\n\n"
+	
+	_talkrate = "Off"
+	if aitalkinterval == 180; _talkrate = "3 minutes"
+	elseif aitalkinterval == 300; _talkrate = "5 minutes"
+	elseif aitalkinterval == 600; _talkrate = "10 minutes"
+	
+	"--Talk Rate Options--"
+	"\nCurrently: %(_talkrate)"
+	"\n\![*]\q[3min,OnTalkRateMenu,norm]  /  \![*]\q[5min,OnTalkRateMenu,poor]  /  \![*]\q[Silent,OnTalkRateMenu,none]"
+	
+	"\n\n\![*]\q[Nevermind,blank]"	
+}
+
+OnLastTalk
+{
+	LastTalk
+}
+
+OnTalkRateMenu
+{	
+	if reference0 == "norm"
+	{
+		talktime = "3 minutes"
+		aitalkinterval = 180
+	}
+	elseif reference0 == "poor"
+	{
+		talktime = "5 minutes"
+		aitalkinterval = 300
+	}
+	elseif reference0 == "none"
+	{
+		talktime = "Silent"
+		aitalkinterval = 0
+	}
+	OnSakuraMenu
+}

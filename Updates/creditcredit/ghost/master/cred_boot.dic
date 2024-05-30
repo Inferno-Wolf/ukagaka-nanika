@@ -1,0 +1,186 @@
+//-----------------Boots!
+//chat chatting here
+
+
+OnFirstBoot
+{
+	stroke = 0
+	LastTalk = ""
+	
+	"\1\s[10]\t\0\s[4]Mm...\w8\w8\w8 \s[2]Huh?\w8 Why'd you wake me?\w8 \s[0]\w8\w8\w8\n\n[half]Oh,\w4 I fell asleep.\w8 Sorry.\w8 Guess I got too comfortable...\w8\w8 \n\n[half]Anyway.\w8 What are you playing now?\w8\e"
+}
+
+//If you want some variables to reset on boot, put them here. This event will happen even if you add other events like OnGhostChanged
+//OnInitialize is a NOTIFY event! That means it cannot return scripts. This event is only meant for things like variable changes.
+//If you add new variables in updates, I recommend initializing them like so:
+	//if !ISVAR("NewVariable"); NewVariable = 0
+//This means that it will only set the new variable if the user doesn't already have it, so that their variables don't get overwritten
+OnInitialize
+{
+	if reference0 != "reload" //For things you want to reset EXCEPT when just reloading
+	{
+		LastTalk = ""
+	}
+}
+
+
+//regular boots go here
+OnBoot
+{
+	_temp = SHIORI3FW.UserBirthday
+	_user_birthday = "%(_temp[2])/%(_temp[1])" //D/M
+	_today = "%(day)/%(month)" //Again, switch this around if using D/M
+	
+	"\1\s[10]\0\s[0]"
+	--
+	if _today == _user_birthday
+	{
+		"\s[2]Yeah,\w4 yeah,\w8 I know.\w8 Birthday kid gets to choose the games.\w8 \s[0]\n\n[half]So,\w4 which is it this time?\w8\e"
+		
+		"\0\s[4]I know...\w8 Your birthday...\w8\w8 \n\n[half]Sleepy...\w8\e"
+	}
+	//elseif _today == "1/1" //You can add whatever cool dates you want with more elseifs here
+	else //Normal boot
+	{
+		"\0\s[4]Mm...\w8\w8 \s[2]Did I doze off again?\w8\e"
+		
+		"\0\s[4]Comfy...\w8\w8 \s[2]Oh,\w4 sorry.\w8 \s[0]Must've dozed off again...\w8\e"
+		
+		"\0\s[2]Excuse me,\w4 Majora's Mask is a classic for a reason.\w8\w8\w8 \s[0]\n\n[half]Oh,\w4 sorry.\w8 Looks like I fell asleep again.\w8\e"
+		
+		"\0\s[0]Are you sure you tried that solution?\w8\w8\w8 \s[2]\n\n[half]Yes,\w4 I'm still awake.\w8\e"
+		
+		"\0\s[4]Hmmn...\w8\w8 \s[0]Is it my turn,\w4 yet?\w8\w8\w8 \s[2]Good.\w8\e"
+		
+		"\0\s[4]I'm watching,\w4 I promise,\w4 I promise...\w8\e"
+		
+		"\0\s[0]See,\w4 that's the thing about %(types)...\w8\w8 \s[2]\n\n[half]Oh,\w4 sorry.\w8 Must've dozed off in the middle of our conversation.\w8\e"
+		
+		"\0\s[0]Can never get enough of %(types),\w4 huh?\w8\e"
+		
+		"\0\s[0]Oh,\w4 uh.\w8 Where were we?\w8\e"
+		
+		"\0\s[4]Hmm...\w8\w8 \s[0]Oh,\w4 sorry.\w8 Where were we going again?\w8\e"
+		
+		"\0\s[4]Is it raining somewhere else,\w4 though...?\w8\w8\w8 \s[0]\n\n[half]Oh,\w4 you moved on.\w8 Whoops.\w8\e"
+		
+		"\0\s[4]I'm listening,\w4 I'm here...\w8\e"
+		
+		"\0\s[4]Mm...\w8\w8\w8 Still sleepy...\w8\e"
+	}
+}
+
+
+//all closes go here
+OnClose
+{
+	"\0\s[4]Mm...\w8 In the Earthen Womb is my favourite...\w8"
+	
+	"\0\s[4]Ah,\w4 the save room music.\w8 Best part about the Resident Evil remake...\w8"
+	
+	"\0\s[4]Bad Opinions song my beloved...\w8"
+	
+	"\0\s[3]Oh,\w4 A Wish...\w8 \s[4]I love that one...\w8"
+	
+	"\0\s[4]Still of the Night...\w8\w8 It sure is...\w8"
+	
+	"\0\s[4]Brush on through the night,\w4 it is still,\w4 it is calm,\w8 relaxing...\w8"
+	
+	"\0\s[0]Riddle me this,\w4 huh?\w8 \s[4]That's a good one...\w8\e"
+	
+	"\0\s[4]Mm,\w4 Monday Bossa Nova...\w8\w8 Them's the vibes...\w8"
+	
+	"\0\s[4]Tree Pub...\w8\w8 Puts me right in the mood for a quiet drink...\w8"
+	
+	"\0\s[4]Yeah,\w4 Tree Pub...\w8\w8 That's the stuff...\w8"
+	
+	"\0\s[4]Mm...\w8 Most people find the puzzle music to be anxiety inducing,\w4 but...\w8"
+	
+	"\0\s[4]Professor Layton theme my beloved...\w8"
+	
+	"\0\s[4]Gotta find a centre and heal...\w8"
+	
+	"\0\s[4]No one appreciates you,\w4 Colosseum Waiting Room theme,\w4 like I do...\w8"
+	
+	"\0\s[4]Colosseum Waiting Room theme...\w8\w8 I get you...\w8"
+	
+	"\0\s[4]Only six more hours...\w8 Until the moon falls...\w8"
+	
+	"\0\s[4]Gotta save Termina,\w4 but...\w8\w8 First,\w4 Clock Town Day 2...\w8"
+	
+	"\0\s[4]Astral Observatory,\w4 how I love you...\w8"
+	
+	"\0\s[4]It's Always Raining Somewhere Else...\w8"
+	
+	"\0\s[4]It's the Great Revival,\w4 Miles Edgeworth...\w8"
+	
+	"\0\s[4]That's Tinnitus Dance for ya...\w8"
+	
+	"\0\s[4]Frogs ARE your friends,\w4 you right...\w8"
+	
+	"\0\s[0]But Vampires Invading Heaven is such a jam...\w8"
+	
+	"\0\s[4]Why oh you are...\w8\w8 Ell oh vee ee...\w8"
+	
+	"\0\s[4]Flower Shop...\w8\w8 Get ready for some Feisty Flowers...\w8"
+	
+	"\0\s[4]Keep going...\w8\w8 Maybe you'll get past Seeing Red for Psychedelic Breakdown eventually...\w8"
+	
+	"\0\s[4]Revenge...\w8\w8 Frog's no longer your friend,\w4 awh...\w8"
+	
+	"\0\s[4]I think I would like to Die Anywhere Else,\w4 Mae...\w8"
+	
+	"\0\s[4]Pumpkin Head Guy...\w8\w8 Yeah...\w8"
+	
+	"\0\s[4]Mm,\w4 it has been a Weird Autumn,\w4 hasn't it...?\w8"
+	
+	"\0\s[4]Tick.\w8 Tock.\w8 Tick.\w8 Tock.\w8 Bearity Bear...\w8"
+	
+	"\0\s[4]The immortal Space Dragon has some good jams...\w8"
+	
+	"\0\s[4]Sims shop mode music my beloved...\w8"
+	
+	"\0\s[4]Save me,\w4 Stardew Autumn music...\w8"
+	
+	"\0\s[4]A rainy day Beneath the Mask...\w8"
+	
+	"\0\s[4]I am a shapeshifter at Poe's masquerade...\w8"
+	
+	"\0\s[4]I guess we never did really see it coming...\w8"
+	
+	"\0\s[4]Time to Make History,\w4 my Investigation Team kiddos...\w8"
+	
+	"\0\s[4]Those kids really do be Pursuing My True Self...\w8"
+	
+	"\0\s[4]When that Kimi no Kioku just right...\w8"
+	
+	"\0\s[4]Yeah,\w4 I am Deep Inside My Mind...\w8"
+	
+	"\0\s[4]Ooh,\w4 yeah.\w8 That Mass Destruction really hitting...\w8"
+	
+	"\0\s[4]I will Burn My Dread,\w4 you right...\w8"
+	
+	"\0\s[4]Owl Forest...\w8\w8 Impeccable vibes...\w8"
+	
+	"\0\s[4]Gundor Volcano Grotto...\w8\w8 I could listen to this all day...\w8"
+	
+	"\0\s[4]Oh Moonlight Tange,\w4 you really are a Level-5 song...\w8"
+	
+	"\0\s[4]Level-5 Accordions,\w4 my beloved...\w8"
+	
+	"\0\s[4]Oh Veniccio and Queens,\w4 we're really in it now...\w8"
+	
+	"\0\s[4]That Adventure really do be Never-ending...\w8"
+	
+	"\0\s[4]Mm...\w8\w8 This really does Corridor my Time...\w8"
+	
+	"\0\s[4]On my own,\w4 I can ride the winds of change...\w8"
+	
+	"\0\s[4]Drifting on a breeze only I can hear...\w8"
+	
+	"\0\s[4]Oh,\w4 Kazenone...\w8\w8 You mean everything to me...\w8"
+	
+	"\0\s[4]Mm...\w8\w8 Desperately Safe indeed...\w8"
+	--
+	"\w8\-"
+}

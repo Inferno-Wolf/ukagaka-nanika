@@ -1,0 +1,5 @@
+charset,UTF-8
+type,ghost
+
+name,Credit where Credit is Due
+directory,creditcredit

@@ -1,0 +1,28 @@
+charset, UTF-8
+charset.dic, UTF-8
+charset.output, UTF-8
+charset.file, UTF-8
+charset.save, UTF-8
+charset.extension, UTF-8
+
+dic, yaya_base/config.dic, UTF-8
+dic, yaya_base/shiori3.dic, UTF-8
+dicif, yaya_base/optional.dic, UTF-8
+dicif, yaya_base/compatible.dic, UTF-8
+dic, cred_aitalk.dic
+dic, cred_boot.dic
+dic, cred_meta.dic
+dic, cred_mouse.dic
+dic, cred_other.dic
+dic, cred_sakura_menu.dic
+dic, cred_word.dic
+
+msglang,english
+
+//------------------------------------------------------------------------------
+//Execution log
+//The execution log is recorded in ayame.log. It is recommended to keep logs during development.
+//------------------------------------------------------------------------------
+// log, ayame.log	
+ignoreiolog, ID: OnSecondChange //Ignores OnSecondChange
+ignoreiolog, ID: OnMouse        //Ignores all OnMouse functions

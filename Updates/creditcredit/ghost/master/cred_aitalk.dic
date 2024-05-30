@@ -1,0 +1,193 @@
+//----------------Talking!!
+
+
+OnAiTalk
+{
+	if CHAIN.IDName == "" {LastTalk = RandomTalk}
+	else {LastTalk = ChainTalk}
+	LastTalk
+}
+
+
+//talking time!!
+RandomTalk : nonoverlap_pool
+{
+	"\0\s[2]I don't get why %(overhype) is hailed as the best thing ever.\w8 \s[0]Sure,\w4 more people playing it means more vocal opinions.\w8 \s[2]But whatever.\w8 It's mid as hell.\w8\e"
+	
+	"\0\s[2]Souls-like.\w8 More like 'so hard a casual gamer can't even get past the intro'.\w8 Boring.\w8\e"
+	
+	"\0\s[0]Rogue-likes are fun,\w8 \s[2]you just have to make them interesting enough to hold my attention.\w8\e"
+	
+	{
+		"\0\s[0]Hmm...\w8\w8 I think you needed to "
+		--
+		"turn right there"
+		
+		"turn left there"
+		
+		"keep going forward"
+		
+		"return to the main hub"
+		
+		"get past the guards there"
+		
+		"ignore all those blatant signs and just go for it"
+		--
+		".\w8\e"
+	}
+	
+	"\0\s[3]Oh.\w8\w8 \s[0]Looks like you found that secret after all.\w8\e"
+	
+	"\0\s[0]Hmm.\w8 Looks like you got stuck again...\w8\e"
+	
+	"\0\s[0]Looks like you need to point.\w8 \s[1]And click.\w8\e"
+	
+	"\0\s[0]Seems like it's time.\w8 \s[1]Do you remember the correct song to play for this one?\w8\e"
+	
+	"\0\s[1]The pixel artstyle really is the best.\w8 \s[0]Sure,\w4 there's not as much detail,\w8 \s[1]but it's got such a defined look in spite of that.\w8\e"
+	
+	"\0\s[2]You know,\w4 it took me a while to get to grips with creature raising games outside of just Pokemon.\w8 \s[0]But they can be really fun once you let go of the fact that they're not going to be Pokemon.\w8\e"
+	
+	"\0\s[2]Those final battles at the end of Monster Sanctuary can go and die.\w8 I hated those.\w8\e"
+	
+	"\0\s[1]Video games can be musicals...\w8\e"
+	
+	"\0\s[1]I like games with a psychological element to them.\w8 Psychonauts,\w4 Figment,\w4 all those types.\w8 \n\n[half]The psychic-thrilling master Razputin Aquato and the embodiment of Courage Dusty are just a lot of fun to watch in action.\w8\e"
+	
+	"\0\s[0]Of course good writing is important in a game,\w4 but it also has to have fun mechanics.\w8 \s[2]\n\n[half]You gotta play the thing,\w4 after all.\w8\e"
+	
+	{
+		"\0\s[1]I'm glad you're the one playing and I'm not right now.\w8 "
+		--
+		"\s[2]I don't think I could even hold the controller with how comfy I am."
+		
+		"\s[4]Means I get to listen to the great music."
+		
+		"\s[4]I'd probably fall asleep on the controller and just cast cure over and over."
+		
+		"\s[2]You'd probably get upset when I fall asleep on the controller and spin in cirlces."
+		
+		"\s[2]Although,\w4 if this were Final Fantasy 12,\w4 you probably could fall asleep and I'd have no idea as the game kept going."
+		
+		"\s[4]If I were,\w4 Link would probably just be running forward into walls or in circles..."
+		
+		"\w8\w8\s[2]You...\w8 are still playing,\w4 aren't you?"
+		--
+		"\w8\e"
+	}
+	
+	"\0\s[0]Looks like another puzzle.\w8 \s[1]\n\n[half]Guess this calls for that great Professor Layton,\w4 huh?\w8\e"
+	
+	"\0\s[1]This reminds me of a puzzle.\w8\w8\w8\w8\w8 \s[2]\n\n[half]No,\w4 I won't do any other bits.\w8\e"
+	
+	"\0\s[4]Don't mind me,\w4 just dreaming of my ideal Pokemon team...\w8\e"
+	
+	"\0\s[2]Bug types are really cool.\w8 Gamefreak is just mean and won't let them utilise their full potential.\w8\e"
+	
+	"\0\s[0]That rhythm minigame in Underhero is rather shit.\w8 \s[1]\n\n[half]Good thing you don't have to win it in order to progress.\w8\e"
+	
+	"\0\s[0]Do you think soundtracks are as important as game mechanics and narrative?\w8 \s[4]Sometimes,\w4 they can be.\w8\e"
+	
+	"\0\s[0]Time limit,\w4 huh?\w8 \s[2]Sucks a lot.\w8\e"
+	
+	"\0\s[0]I don't think people really get the time limit in Majora's Mask.\w8 \s[2]\n\n[half]It's three whole days with schedules and everything.\w8 \s[0]Plenty of time to dick around and fail at platforming while still completing the first dungeon.\w8\e"
+	
+	"\0\s[2]Okay,\w4 but the 3DS remake of Majora's Mask sucks balls.\w8 Why'd they change the most time sensitive boss to be reliant on a button prompt that only triggers like half the time?\w8 Why'd they add fishing into a three day time limit game?\w8 \s[4]\n\n[half]Pisses me right off...\w8\e"
+	
+	{
+		"\0\s[2]Okay,\w4 but why did they have to do Apollo Justice dirty like that?\w8\n\n[half]"
+		--
+		"\s[4]The new writer really just wanted to make the Investigations games but again..."
+		
+		"\s[4]They really said in the nicest way possible 'now get the fuck out' to him..."
+		
+		"They didn't even respect my time in the joke DLC case.\w8 Giving us a piece of evidence with no use..."
+		
+		"\s[4]And people complain about how Phoenix Wright was done dirty...\w8\w8 They don't even know..."
+		--
+		"\w8\e"
+	}
+	
+	"\0\s[0]Do you call it Ace Attorney or Phoenix Wright?\w8 \s[1]Either way,\w4 he gets top billing in the crossover.\w8 \s[0]'Cause it's called Professor Layton vs Phoenix Wright.\w8\e"
+	
+	"\0\s[4]Snufkin game...\w8 So good...\w8\e"
+	
+	"\0\s[1]It really is a Melody of Moominvalley.\w8\e"
+	
+	"\0\s[1]They did a great job writing Snufkin in Melody of Moominvalley.\w8 \s[4]He's just like me for real for real.\w8\e"
+	
+	"\0\s[4]Underhero Underhero Underhero Underhero...\w8\e"
+	
+	"\0\s[0]Underhero's a good one.\w8 \s[1]I really like the puzzle dimension.\w8 Pretty colours...\w8\e"
+	
+	"\0\s[4]Your thoughts were never yours to begin with...\w8\w8\w8 \s[0]\n\n[half]That line is still metal as hell.\w8\e"
+	
+	"\0\s[4]There will be reconciliation,\w8 no matter how ugly...\w8\w8\w8 \n\n[half]Boy,\w4 do they sure mean it...\w8\e"
+	
+	"\0\s[4]You're on a path in the woods...\w8\w8\w8 \s[1]\n\n[half]I won't recite the whole thing again.\w8 Spare ya from my brainrot.\w8\e"
+	
+	"\0\s[0]So like,\w4 Necromorphs.\w8 What do you think they do when they're not hunting you?\w8\e"
+	
+	"\0\s[4]Mm...\w8\w8 Sounds like a Pokemon cry...\w8\e"
+	
+	"\0\s[4]Persona...\w8\e"
+	
+	"\0\s[0]Enough Persona.\w8 \s[2]When will the Megami Shin my Tensei?\w8\e"
+	
+	"\0\s[4]When will the Digital Devil my Saga...\w8\e"
+	
+	"\0\s[4]Remembering musical puzzles is easy...\w8\w8 Just gotta play the song over and over again...\w8\e"
+	
+	{
+		"\0\s[0]Sometimes,\w4 it's easy to forget to actually play the game.\w8 \s[4]\n\n[half]"
+		--
+		"I just wanna sort my Pokemon boxes"
+		
+		"Manual inventory sorting systems my beloved"
+		
+		"Listening to the title screen music is just too much fun"
+		
+		"Listening to the background music is just so relaxing"
+		
+		"All I wanna do is sort all my inventories"
+		
+		"It's just so satisfying seeing the numbers go up"
+		
+		"I wanna exist in this world a little longer"
+		
+		"They made that attract mode way too appealing"
+		--
+		"...\w8\e"
+	}
+	
+	"\0\s[1]Golden sun boys are peak characters,\w4 actually.\w8 Can't go wrong with having them as your protagonist or your best friend.\w8\e"
+	
+	"\0\s[0]What's up with Pokemon taking out the ability to sort our bag manually,\w4 anyway?\w8 \s[2]Remove half the fun for me,\w4 why don't you?\w8\e"
+	
+	"\0\s[2]How many pages of stats do we need for our weapons,\w4 Dark Cloud?\w8 \n\n[half]We can't be grinding here all day,\w4 Dark Cloud.\w8\e"
+	
+	"\0\s[0]They really didn't think about planning these dungeons in Dark Chronicle around their golf system.\w8 \n\n[half]Fishing makes sense,\w4 but golf?\w8 Half of these are too easy to get a void out in.\w8\e"
+	
+	"\0\s[0]Off course,\w8 off course,\w8 \s[2]off course.\w8\w8\w8 \n\n[half]We know it's off course,\w4 Dark Chronicle.\w8\e"
+	
+	"\0\s[1]Looks like we got another category quantum Freddy event again.\w8\e"
+	
+	"\0\s[4]He is called the Batteur for a reason,\w4 I guess...\w8\e"
+}
+
+
+//Happens about 30 seconds after a script ends, by default, to bring them back to normal poses
+OnSurfaceRestore
+{
+	if reference0 == 4
+	{"\1\s[10]\0\s[4]"}
+	else
+	{
+		"\1\s[10]\0"
+		--
+		"\s[0]"
+		"\s[1]"
+		"\s[2]"
+		"\s[4]"
+	}
+}

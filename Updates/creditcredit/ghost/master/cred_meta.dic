@@ -1,0 +1,168 @@
+//---------------Meta Network!!
+
+//—————————————————————————————— Installing something ——————————————————————————————
+OnInstallBegin
+{
+	"\0\s[2]Gotta get that DLC...\w8\e"
+	
+	"\0\s[0]What're they adding this time?\w8\e"
+	
+	"\0\s[0]And here I thought we avoided any DLC traps...\w8\e"
+}
+
+OnInstallComplete
+{
+	"\0\s[0]Okay,\w4 that's %(reference1) (%(reference0)),\w4 then.\w8"
+	--
+	//A little menu to open or change to the ghost that was installed immediately
+	if "ghost" _in_ reference0
+	{
+		"\n\n\_q"
+		--
+		"\![*]\__q[OnInstallComplete.Action,call]Call %(reference0)\__q  \![*]\__q[OnInstallComplete.Action,change]Change to %(reference0)\__q\n\n"
+		--
+		"\![*]\q[Thanks,blank]"
+	}
+}
+
+OnInstallComplete.Action
+{
+	if reference0 == "change"
+	{
+		"\![change,ghost,lastinstalled]"
+	}
+	else //call
+	{
+		"\![call,ghost,lastinstalled]"
+	}
+}
+
+OnInstallFailure
+{
+	_reason = reference0
+	case reference0
+	{
+		when "unlha32"; _reason = "Could not load the dll to decompress lzh files"
+		when "extraction"; _reason = "Failed to decompress the file"
+		when "invalid type"; _reason = "The install.txt is incorrect"
+		when "unsupported"; _reason = "The archive is not supported"
+		when "password"; _reason = "Incorrect password"
+		when "artificial"; _reason = "Canceled by user"
+	}
+	
+	"\0\s[2]Yup.\w8 %(_reason).\w8 Classic video game company bullshittery.\w8\e"
+}
+
+
+//—————————————————————————————— Creating a .nar file ——————————————————————————————
+OnNarCreating
+{
+	if reference0 == "Credit where Credit is Due"
+	{
+		"\0\s[2]Updating our save?\w8 \s[0]Make sure not to erase all our progress.\w8\e"
+	}
+	else //ANYTHING else
+	{
+		"\0\s[0]Careful not to save over anything important.\w8\e"
+	}
+}
+
+OnNarCreated
+{
+	//Makes a clickable link that'll open the location of the file they just made
+	_nar = "\_a[OnNarLocation,""%(reference1)""]%(reference0)\_a"
+	
+	if reference0 == "Credit where Credit is Due"
+	{
+		"\0\s[2]Okay,\w4 got ourselves a new save.\w8 \s[0]Hopefully,\w4 that's a surprise tool that'll help us later.\w8\e"
+	}
+	else //ALL ELSE
+	{
+		"\0\s[0]%(_nar),\w4 huh?\w8 \s[2]Have fun with that.\w8\e"
+	}
+}
+
+OnNarLocation
+{	
+	_path = SPLITPATH(reference0)[0] + SPLITPATH(reference0)[1]
+	
+	"\![open,file,""%(_path)""]"
+}
+
+
+//—————————————————————————————— Network Update ——————————————————————————————
+OnUpdatedataCreating
+{
+	"\0\s[2]Updating our last save?\w8 Careful with that.\w8\e"
+}
+
+OnUpdatedataCreated
+{
+	"\0\s[0]Okay.\w8 Load it up,\w4 I guess.\w8\e"
+}
+
+
+//the update process!
+OnUpdateBegin
+{
+	"\0\s[2]Gotta check for updates.\w8\e"
+	
+	"\0\s[4]Goodbye,\w4 infinite item duplication glitch.\w8\e"
+	
+	"\0\s[2]Hopefully,\w4 this fixes more things than Security Breach.\w8\e"
+}
+
+//reference0 is the number of new files, starting from 0
+OnUpdateReady
+{
+	reference0++ //Number of files starts from 0, so this displays the correct amount
+	
+	//plural checks
+	_s = ""; _are = "is"
+	if reference0 != 1; {_s = "s"; _are = "are"}
+	
+	"\0\s[0]\_q*There %(_are) %(reference0) new file%(_s).\w8\w8\w8\e"
+}
+
+//failure...
+OnUpdateFailure
+{	
+	_file = SPLITPATH(reference1)[2] + SPLITPATH(reference1)[3] //For MD5 errors, this gets the name and extension of the offending file
+	_reason = reference0
+	case reference0
+	{
+		when "timeout"; _reason = "Connection timed out"
+		when "md5 miss"; _reason = "MD5 error on file %(_file)"
+		when "artificial"; _reason = "Canceled by user"
+	}
+	"\0\s[2]Wellp.\w8 "
+	"\0\s[2]Whoop.\w8 "
+	"\0\s[2]Yup.\w8 "
+	--
+	"%(_reason).\w8 Ain't that just the way.\w8\e"
+}
+
+//When the update finishes.
+//reference0 is 'none' if there were no new files to update with
+OnUpdateComplete
+{
+	if reference0 == "none"
+	{
+		"\0\s[1]Oh,\w4 cool.\w8 We get to keep our glitches.\w8\e"
+		
+		"\0\s[0]Nothing new...\w8\w8 \s[1]Fine by me.\w8\e"
+		
+		"\0\s[1]We're good to keep playing as-is.\w8\e"
+	}
+	else
+	{
+		"\0\s[0]Okay,\w4 time to boot the game back up and see what all's changed.\w8\e"
+		
+		"\0\s[2]Goodbye,\w4 infinite item duplication glitch.\w8 \s[4]I cherished you well...\w8\e"
+		
+		"\0\s[0]Looks like everything's good.\w8 \s[1]Load it back up,\w4 I wanna see what happens next.\w8\e"
+	}
+}
+
+
+//I'll have to add ghost recognition LATER AGH

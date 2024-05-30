@@ -1,0 +1,142 @@
+//--------------------Everything else!
+
+
+OnTranslate
+{
+	_talk = reference0
+	
+	//This is what makes %(embedded_elements) work in script input
+	if reference1 == "" && reference2 == "" //If this is from the input box
+	{ //send input box : no event (ref2) , no special flag (ref1)
+		_talk = EVAL('"' + REPLACE(_talk,'"','""') + '"')
+	}
+	
+	TOSTR(_talk)
+}
+
+//This is just here so you can use anchors to link to websites if you want. You can link to websites with normal menu choice tags! If you do, a handy URL preview will show up in the balloon!
+OnAnchorSelect
+{
+	if "http://" _in_ reference0 || "https://" _in_ reference0; "\j[""%(reference0)""]"
+}
+
+//Hotkeys
+OnKeyPress
+{
+	if reference0 == "f1"; "\![open,readme]"
+	elseif reference0 == "t"; OnAiTalk
+	elseif reference0 == "r"; OnLastTalk
+}
+
+
+//Happens when the ghost is unminimized. You *can* include dialogue, but you don't *have* to. I have included this event because if you don't, it defaults to \0\s[0]\1\s[10], which you don't want in some cases, such as if your ghost uses different surfaces or has a different number of characters.
+OnWindowStateRestore
+{
+	"\1\s[10]\0\s[0]"
+}
+
+//Network update url
+On_homeurl
+{
+	"https://raw.githubusercontent.com/Inferno-Wolf/ukagaka-nanika/main/Updates/creditcredit/"
+}
+
+
+//—————————————————————————————— Right click menu links ——————————————————————————————
+
+//Takes an array of alternating names and urls, and formats them for use with the right click menu
+FormatLinks : all
+{
+	for _i = 0; _i < ARRAYSIZE(_argv); _i++
+	{
+		_argv[_i] //Add the link/title
+		//Alternate between adding %ASC(1) or %ASC(2)
+		if _i % 2 == 1; "%ASC(2)"
+		else; "%ASC(1)"
+	}
+}
+
+On_sakura.recommendsites
+{
+	FormatLinks(recommendsites_sakura)
+}
+
+//These are the websites linked in the top option of the sakura's right click menu. The format is simple; write the label of the link on the left followed by a semicolon, and then on the right, the url to link to. These should be separate strings.
+recommendsites_sakura : array
+{
+	"KFC's Site";	"http://www.characteroulette.tumblr.com/"
+}
+
+On_sakura.portalsites 
+{
+	FormatLinks(portalsites_sakura)
+}
+
+//These are the websites linked in the second option of the sakura's right click menu. Same as above
+portalsites_sakura : array
+{
+	"Simplicity Template";	"https://github.com/Zichqec/simplicity_template"
+	"Template Creator (Zi)";	"https://ukagaka.zichqec.com/"
+	"Ghost Walkthrough"; "http://www.ashido.com/ukagaka/"
+	"Ukagaka Dream Team"; "https://ukagakadreamteam.tumblr.com/"
+}
+
+On_kero.recommendsites
+{
+	FormatLinks(recommendsites_kero)
+}
+
+//These are the websites linked in the first option of the kero's right click menu. Same as above
+recommendsites_kero : array
+{
+	"Blank";	"Nothing here"
+}
+
+
+//—————————————————————————————— User pronoun related ——————————————————————————————
+
+they
+{
+	if SHIORI3FW.UserSex == "male"; "he"
+	elseif SHIORI3FW.UserSex == "female"; "she"
+	else; "they"
+}
+
+them
+{
+	if SHIORI3FW.UserSex == "male"; "him"
+	elseif SHIORI3FW.UserSex == "female"; "her"
+	else; "them"
+}
+
+their
+{
+	if SHIORI3FW.UserSex == "male"; "his"
+	elseif SHIORI3FW.UserSex == "female"; "her"
+	else; "their"
+}
+
+theirs
+{
+	if SHIORI3FW.UserSex == "male"; "his"
+	elseif SHIORI3FW.UserSex == "female"; "hers"
+	else; "theirs"
+}
+
+themself
+{
+	if SHIORI3FW.UserSex == "male"; "himself"
+	elseif SHIORI3FW.UserSex == "female"; "herself"
+	else; "themself"
+}
+
+//%(they) %(p('are','is'))
+//You can change the name of this function if you want! I kept it short so it's fast to type
+p
+{
+	if SHIORI3FW.UserSex == "undef"; _argv[0] //they are
+	else; _argv[1] //he is/she is
+}
+
+
+//that's it!
