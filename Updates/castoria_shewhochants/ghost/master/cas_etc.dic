@@ -534,9 +534,13 @@ OnGhostCalling
 		{
 			"\0%(talkb)\s[28]Hey there,\w4 Inferno!\w8\e"
 		}
+		when "Needle"
+		{
+			"\0%(talkb)\s[35]...\w8\w8\w8 Fairies can't get sick.\w8 No need to vaccinate me.\w8 You can keep that needle away from me.\w8 Forever.\w8\e"
+		}
 		//when ""
 		//{
-			//""
+			//"\0%(talkb)\s[]"
 		//}
 		//when "Castoria" //themself
 		others //all other unrecognised ghosts!

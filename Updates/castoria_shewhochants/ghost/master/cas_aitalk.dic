@@ -92,6 +92,12 @@ RandomTalk : nonoverlap_pool
 	
 	"\0%(talkb)\s[4]Say,\w4 do you have blue skies where you're from?\w8 \s[0]\n\n[half]The sky was never pure blue in Fairy Britain.\w8 But I'm told it's a beautiful color.\w8 \s[4]\n\n[half]You should change your wallpaper to the sky, so I can see it!\w8\e"
 	
+	"\0%(talkb)\s[41]Eh?\w8 If I mind being a computer program?\w8 \s[0]\n\n[half]...\w8\w8 You can only interact with me through specific keywords,\w4 the occasional wordless conversation starter,\w4 and a disembodied knife-like hand.\w8 \n\n[half]From my perspective,\w4 I'm not the fictional one here.\w8 \s[4]\n\n[half]So no,\w4 I don't really care.\w8\e" //shit you right
+	
+	"\0%(talkb)\s[0]I can't go off on the internet on my own,\w4 but I can hear echoes from here.\w8 \s[41]\n\n[half]Recently,\w4 I've been hearing about this thing called...\w8 gotcha?\w8 Gacha?\w8 You know,\w4 the gambling thing?\w8 \s[0]\n\n[half]I don't really get it,\w4 but it sounds like the kind of scam Oberon would come up with.\w8 \s[22]Don't spend money on that.\w8\e"
+	
+	"\0%(talkb)\s[0]So,\w4 what are the qualifications for someone to become an ukagaka?\w8 \s[28]\n\n[half]Not that I'm complaining about being here!\w8 \s[4]I'm glad we get to hang out.\w8 \s[0]\n\n[half]I was just wondering if maybe,\w4 I could meet...\w8\w8 \s[17]\n\n[half]...\w8\w8 Ah,\w4 well.\w8 \s[28]Don't worry.\w8 I know you can't answer.\w8 I was just musing out loud.\w8\e"
+	
 	
 	//some Anchors
 	"\0%(talkb)\s[0]Fairy Britain was ruled by morganlefey and her iron fist.\w8 \s[17]\n\n[half]Well,\w8 ''fist.''\w8 Her rule was enforced by the Fairy Knights.\w8 \s[0]fknightgawain,\w4 fknightlance,\w4 and fknighttrist.\w8\e"
@@ -102,8 +108,16 @@ RandomTalk : nonoverlap_pool
 	//{
 		//"\0%(talkb)\s[]"
 	//}
-	//if SHIORI3FW.ShellName == "Farmer Caster"
-	//if SHIORI3FW.ShellName == "Summer Berserker"
+	if SHIORI3FW.ShellName == "Farmer Caster"
+	{
+		"\0%(talkb)\s[0]I can take my hat on and off here,\w4 because it can get really hot otherwise.\w8 \n\n[half]But I'd rather keep my white hat on if I can.\w8 \s[4]\n\n[half]It's a gift from a friend.\w8 It's important to me.\w8\e"
+	}
+	if SHIORI3FW.ShellName == "Summer Berserker"
+	{
+		"\0%(talkb)\s[0]I like my alone time,\w8 but I will say,\w4 I do miss being in a place with people right now...\w8\w8 \s[35]\n\n[half]I want...\w8\w8 to go on a hunt...\w8\e"
+		
+		"\0%(talkb)\s[0]Becoming a Berserker granted me a madness curse...\w8\w8 \s[35]or so I heard,\w8 \s[4]but I don't feel any different from usual.\w8 \s[44]\n\n[half]Hm?\w8 You don't know what 'Berserker' means?\w8 \s[33]\n\n[half]Ah man,\w4 Ritsuka is the one to ask about thsi kind of stuff...\w8\w8 How do I put it...\w8\w8 \s[0]\n\n[half]Necromancy is really hard,\w4 but it's easier if you shove the ghost you're calling into a universe-approved container.\w8 \n\n[half]There are seven main containers,\w4 or classes:\w8 fateSaber,\w4 fateArcher,\w4 fateLancer,\w4 fateRider,\w4 fateCaster,\w4 fateAssassin,\w4 and fateBerserker.\w8 \n\n[half]There are some extra classes too,\w8 like Rulers,\w4 Avengers,\w4 Alter Egos,\w4 Moon Cancer\w4 or Pretender.\w8\e"
+	}
 	//if SHIORI3FW.ShellName == ""
 	//if SHIORI3FW.ShellName != "Official Caster"
 	//{
@@ -120,6 +134,11 @@ RandomTalk : nonoverlap_pool
 	//Month dialogue
 	if month == 1 || month == 2 || month == 12 //January, February, December; Winter
 	{
+		if SHIORI3FW.ShellName == "Summer Berserker"
+		{
+			"\0%(talkb)\s[39]Eh?\w8 If I'm cold?\w8 \s[4]\n\n[half]Not at all!\w8 \s[48]Perks of being dead is that you don't feel the cold anymore!\w8\e"
+		}
+		
 		"\0%(talkb)\s[4]The underside of your task bar is really warm.\w8 It's like a kotatsu...\w8\w8 \s[27]Ah...\w8\w8 This is great...\w8\w8 I'd hate to lose another toe in the cold...\w8\e"
 	}
 	//if month == 3 || month == 4 || month == 5 //March, April, May; Spring
@@ -130,10 +149,10 @@ RandomTalk : nonoverlap_pool
 	{
 		"\0%(talkb)\s[15]It's so hot...\w8\w8 I'm glad this stream is running under your task bar.\w8 \s[3]It's perfect to cool off.\w8\e"
 	}
-	//if month == 9 || month == 10 || month == 11 //September, October, November; Autumn
-	//{
-		//""
-	//}
+	if month == 9 || month == 10 || month == 11 //September, October, November; Autumn
+	{
+		"\0%(talkb)\s[0]Have you ever played in fallen leaves?\w8 \n\n[half]I haven't,\w4 but I heard it's pretty popular among children.\w8 \s[4]\n\n[half]You should change your background for something with trees,\w4 so I can try it out!\w8\e"
+	}
 	if month == 2 //February
 	{
 		{
@@ -150,6 +169,18 @@ RandomTalk : nonoverlap_pool
 	if timeslot == "night" || timeslot == "latenight" || timeslot == "earlymorning" //sleepies Castoria...
 	{
 		"\0%(talkb)\s[33]I'm sleepy...\w8\e"
+	}
+	if timeslot == "lunch" //pm12 to pm3
+	{
+		{
+			"\0%(talkb)\s[0]Strictly speaking,\w4 I don't need to eat.\w8 Fairies don't need need food to survive.\w8 \s[22]Also,\w4 you know.\w8 Dead and all that.\w8 \s[3]\n\n[half]But I do enjoy good food regardless!\w8"
+			--
+			""
+			
+			"\s[4]\n\n[half]Food can't be taken away from you if it's already eaten,\w4 after all."
+			--
+			"\w8\e"
+		}
 	}
 	
 	
@@ -214,6 +245,16 @@ RandomTalk : nonoverlap_pool
 		"\w8\e"
 	}
 	
+	{
+		"\0%(talkb)\s[0]Habetrot is a fairy who wishes to be the ally of brides everywhere.\w8 \s[46]\n\n[half]That's a pretty sweet dream.\w8 \s[0]\n\n[half]I can't imagine myself as a bride in any circumstances,\w4 though.\w8 \n\n[half]Maybe I could be a groom...?\w8"
+		--
+		""
+		
+		"...\w8\w8\w8 \s[45]Not like that could ever happen either way."
+		--
+		"\w8\e"
+	}
+	
 	
 	//--Choices / Questions! //\![*]\q[,]
 	"\0%(talkb)\s[44]Hm?\w8 What I do when I'm not here?\w8 \s[0]\n\n[half]I sleep,\w4 mostly.\w8 Sometimes I dream.\w8 \s[4]It's quite nice.\w8 \n\n\![*]\q[You sleep?,cassleep]    \![*]\q[You dream?,casdream]\w8\w8\w8\e"
@@ -233,6 +274,8 @@ RandomTalk : nonoverlap_pool
 	"\0%(talkb)\s[0]Mh?\w8 You have questions about Fairy Britain?\w8 \s[4]\n\n[half]Go right ahead! I'll tell you all I know!\w8 \n\n\![*]\q[Why Fairy?,whyfairy]    \![*]\q[Why Britain?,whybrit] \n\![*]\q[What is Fairy Britain like?,whatlike]\w8\w8\w8\e"
 	
 	"\0%(talkb)\s[13]I will never forgive rude customers.\w8 \s[8]\n\n[half]Oh?\w8 You're ignoring the store clerk?\w8 You think you're better just because you're not behind the counter?\w8 \s[6]\n\n[half]Jail!\w8 Jail to the customer for a thousand years!\w8 \n\n[half]...\w8\w8\w8 \s[0]Eh?\w8 My teeth?\w8 They're quite sharp?\w8 \s[20]\n\n[half]Oh...\w8 sorry.\w8 I thought I had a better grasp on my glamour...\w8 \n\n\![*]\q[You wear a glamour?,huhglamour] \n\![*]\q[You're not human?,huhhuman]\w8\w8\w8\e"
+	
+	"\0%(talkb)\s[41]Eh?\w8 A riddle for me?\w8 \s[0]\n\n[half]Sure,\w4 ask away!\w8 \n\n\_q\![*]\q[The Monty Hall problem,montyhall] \n\![*]\q[The Trolley Problem,troubletrolley] \n\![*]\q[The Prisoner's Dilemma,prisondilemma]\w8\w8\w8\e"
 	
 	
 	////Other ghost dialogue

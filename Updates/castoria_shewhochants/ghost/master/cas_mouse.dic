@@ -45,6 +45,8 @@ MouseMoveSakura
 			elseif reference4 == "CasFace"
 			{
 				"\0%(talkb)\s[47]Ah-hah!\w8 Careful,\w4 %(user),\w4 or I'll catch your hand!\w8\e"
+				
+				"\0%(talkb)\s[48]Shake my hand,\w4 shake my hand!\w8\e"
 			}
 		}
 	}

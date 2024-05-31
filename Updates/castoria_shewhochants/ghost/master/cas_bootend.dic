@@ -91,7 +91,6 @@ normalboottalk
 	//else
 	//{
 		/*
-		if timeslot == "earlymorning" //am5 to am8
 		elseif timeslot == "morning" //am9 to am11
 		elseif timeslot == "lunch" //pm12 to pm2
 		elseif timeslot == "afternoon" //pm3 to pm5
@@ -99,6 +98,11 @@ normalboottalk
 		elseif timeslot == "night" //pm9 to pm11
 		else //latenight; am12 to am5
 		*/
+		if timeslot == "earlymorning" //am5 to am8
+		{
+			"\0%(talkb)\s[0]Are you trying to watch the sun rise?\w8 \s[3]Do tell me how it goes!\w8\e"
+		}
+		
 		"\0%(talkb)\s[3]Hello again,\w8 %(user)!\w8 \s[0]\n\n[half]Thanks for inviting me in.\w8\e"
 		
 		"\0%(talkb)\s[0]Oh,\w4 I'm back here.\w8 \s[4]\n\n[half]Seems like we're to hang out again,\w4 huh?\w8\e"
@@ -131,6 +135,11 @@ OnClose
 			elseif timeslot == "night" //pm9 to pm11
 			else //latenight; am12 to am5
 			*/
+			if timeslot == "night" || timeslot == "latenight" || timeslot == "earlymorning"
+			{
+				"\0%(talkb)\s[0]Goodnight!\w8 Have pleasant dreams.\w8"
+			}
+			
 			"\0%(talkb)\s[0]Alright,\w4 I'm going back to Avalon.\w8 \s[3]See you later,\w4 %(user).\w8"
 			
 			"\0%(talkb)\s[0]Oh,\w4 seems like the dream is over.\w8 \s[3]See you in another dream,\w4 maybe!\w8"
@@ -175,6 +184,10 @@ OnGhostChanging
 	{
 		"\0%(talkb)\s[36]The great detective is here?!\w8 \s[28]\n\n[half]Ahh,\w4 I'd love to talk to him one day,\w4 lockpicker to lockpicker...\w8 \s[4]\n\n[half]Not today,\w4 though!\w8 I don't feel like having my secrets exposed to the world.\w8 \s[3]\n\n[half]See you,\w4 %(user)!\w8 \s[4]Tell me when it's safe to come back in!\w8\e"
 	}
+	elseif reference0 == "Needle"
+	{
+		"\0%(talkb)\s[35]...\w8\w8 What are you doing with this big needle?\w8 \s[41]\n\n[half]Huh?\w8 Rabies shots?\w8 \n\n[half]Oh,\w4 I am OUT of here.\w8\e"
+	}
 	//elseif reference0 == ""
 	else //unspecified ghosts; %(reference0)
 	{
@@ -213,7 +226,7 @@ OnShellChanging
 	}
 	elseif reference0 == "Farmer Caster"
 	{
-		"\0%(talkb)\s[28]Back in my old clothes I go! \s[0]\n\n[half]I've had these forever.\w8 They're not really showy or comfy,\w4 but they're practical.\w8 \s[3]And I can hide sooo many explosives in these pockets.\w8\e"
+		"\0%(talkb)\s[28]Back in my old clothes I go!\w8 \s[0]\n\n[half]I've had these forever.\w8 They're not really showy or comfy,\w4 but they're practical.\w8 \s[3]And I can hide sooo many explosives in these pockets.\w8\e"
 	}
 	elseif reference0 == "Summer Berserker"
 	{

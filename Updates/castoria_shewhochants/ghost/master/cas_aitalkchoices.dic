@@ -94,7 +94,7 @@ Select.nopets
 
 Select.petplay
 {
-	"\0%(talkb)\s[40]Eh?\w8 If I had any pets?\w8 \s[0]\n\n[half]...\w8\w8\w8 \s[38]\n\n[half]...\w8 I-\w8 I guess I owned,\w4 uh...\w8\w8 \s[27]\n\n[half]Y-\w4You know.\w8 \s[21]\n\n[half]A h-\w4human.\w8 \s[5]\n\n[half]Th-\w4They agreed to it!\w8 It was a life-threatening situation and...\w8 \s[23]\n\n[half]\w8\w8\w8pleasestopstaringatmelikethat\w8\e"
+	"\0%(talkb)\s[40]Eh?\w8 If I had any pets?\w8 \s[0]\n\n[half]...\w8\w8\w8 \s[38]\n\n[half]...\w8 I-\w8 I guess I owned,\w4 uh...\w8\w8 \s[27]\n\n[half]Y-\w4You know.\w8 \s[21]\n\n[half]A h-\w4human.\w8\w8 \s[5]\n\n[half]Th-\w4They agreed to it!\w8 It was a life-threatening situation and...\w8 \s[23]\n\n[half]\w8\w8\w8pleasestopstaringatmelikethat\w8\e"
 }
 
 
@@ -132,6 +132,41 @@ Select.huhglamour
 Select.huhhuman
 {
 	"\0%(talkb)\s[44]You thought I was?\w8 \s[0]\n\n[half]Good to know my glamour holds up that well.\w8 \n\n[half]But no,\w4 I'm not a human.\w8\e"
+}
+
+
+//riddles!
+Select.montyhall
+{
+	"\0%(talkb)\s[0]Suppose there are three doors in front of me.\w8 One of them has a big prize.\w8 If I can guess the right door,\w4 I get the prize.\w8 \n\n[half]When I point at one at random,\w4 I'm told that one of the two remaining door contained nothing.\w8 \n\n[half]With that additional information,\w4 I'm given the possibility to change my choice.\w8 \n\n[half]Do I...?\w8\w8 \s[33]\n\n[half]Mmh...\w8\w8 This problem is way too vague.\w8 \s[24]\n\n[half]Who is running the doors?\w8 Who is telling me about the door that has nothing in it?\w8 How many people are there?\w8 Did I have access to the doors beforehand?\w8 \s[25]\n\n[half]If only one person is present,\w4 then you might be able to knock them out and open both doors at the same time.\w8\e"
+	//*Family Feud voice* good answer!!
+}
+
+Select.troubletrolley
+{
+	"\0%(talkb)\s[0]Suppose there is a horse carriage incoming.\w8 The horse is running really fast,\w4 and can't stray off the path as a result.\w8 \n\n[half]On one branch of the path,\w4 where the horse is headed,\w4 five people are tied down.\w8 \n\n[half]On the other branch,\w4 only one person is tied down.\w8 \n\n[half]I don't have the time to free any of them.\w8 All I can do is force the horse to change course,\w4 and trample the other path to death if I so wish.\w8 \n\n[half]Do I make the horse change course...?\w8 \s[35]\n\n[half]...\w8\w8\w8"
+	--
+	"\*\s[0]\n\n[half]I have an additional question for you,\w4 %(user).\w8 \n\n[half]Say there is no other path.\w8 The horse will trample these five people regardless.\w8 \n\n[half]In front of you,\w4 you see someone rushing to get in front of the horse,\w4 hoping they can stop the horse with their own body.\w8 \n\n[half]This will,\w4 of course,\w4 kill them.\w8 But it would save five people.\w8 \n\n[half]Would you let them?\w8 \n\n\_q\![*]\q[Yes,yestrolley]     \![*]\q[No,notrolley] \n\![*]\q[I would sacrifice myself before they can.,selfsacrifice]\w8\e"
+}
+
+Select.yestrolley
+{
+	"\0%(talkb)\s[19]So you won't save a life even if it's perfectly within your abilities.\w8 \n\n[half]Does it make you better,\w4 or worse than the one who let five people die?\w8\e"
+}
+
+Select.notrolley
+{
+	"\0%(talkb)\s[19]So you would let five people die.\w8 \n\n[half]Does that make you better,\w4 or worse than the one who sat back and let things happen?\w8\e"
+}
+
+Select.selfsacrifice
+{
+	"\0%(talkb)\s[35]...\w8\w8\w8 \n\n[half]I just remembered,\w8 I left my sword on the stove.\w8 I should go back to Avalon.\w8 \n\n[half]See you later.\w8\w8\-\e"
+}
+
+Select.prisondilemma
+{
+	"\0%(talkb)\s[0]Suppose I'm caught for some crime,\w4 along with an accomplice.\w8 \n\n[half]We are kept away from each other,\w4 and asked to tattle on each other.\w8 \n\n[half]If we both keep silent,\w4 we both get a light punishment.\w8 \n\n[half]If one tattles,\w4 but not the other,\w4 the tattler has no punishment and the other gets a heavy punishment.\w8 \n\n[half]If both tattle,\w4 they both get a medium punishment.\w8 \n\n[half]Do I tattle or not...?\w8 \s[24]\n\n[half]...\w8\w8\w8 Obviously yes?\w8 \n\n[half]Even if my jailers SAY they won't hurt me if I don't tattle,\w4 there's no guarantee they won't try to force me to tattle regardless.\w8 \s[26]\n\n[half]Besides,\w4 tattling means you can avoid the heaviest punishment.\w8\w8\w8 \s[28]\n\n[half]Well,\w4 if you both tattle it would get really awkward when you both get out of jail,\w4 though.\w8\e"
 }
 
 

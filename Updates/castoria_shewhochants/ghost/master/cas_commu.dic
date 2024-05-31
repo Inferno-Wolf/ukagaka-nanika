@@ -145,12 +145,36 @@ RemovePauses
 }
 
 
+//and Needle, of course. reference1 is the name of Needle's current shell
+OnNeedlePoke
+{
+	//if reference0 == 1 //Kero
+	//{
+		//if reference1 == ""
+		//elseif reference1 == ""
+		//else
+		//{
+			//"\0%(talkb)\s[]"
+		//}
+	//}
+	//else //0; the Sakura
+	//{
+		//if reference1 == ""
+		//elseif reference1 == ""
+		//else
+		//{
+			"\0%(talkb)\s[29]Ouch!\w8\w8 \s[20]Be strong,\w4 Artoria...\w8 it's only a rabies shot...\w8 just a little poke...\w8\e"
+		//}
+	//}
+}
+
+
 //space for continuing ghost dialogues down here
 selftalk
 {
 	if "first" _in_ ConvoTag
 	{
-		res_reference0 = "Shadow Child"
+		res_reference0 = "Castoria"
 		
 		"\0%(talkb)\s[8]Hey,\w4 you're me,\w4 too!\w8\e disagree1"
 	}

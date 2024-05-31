@@ -11,6 +11,13 @@ OnTranslate
  	_talk = REPLACE(_talk, "fknightgawain", "\_a[Gawain]Fairy Knight Gawain\_a")
  	_talk = REPLACE(_talk, "fknightlance", "\_a[Lancelot]Fairy Knight Lancelot\_a")
 	_talk = REPLACE(_talk, "fknighttrist", "\_a[Tristan]Fairy Knight Tristan\_a")
+	_talk = REPLACE(_talk, "fateSaber", "\_a[Saber]Saber\_a")
+	_talk = REPLACE(_talk, "fateArcher", "\_a[Archer]Archer\_a")
+	_talk = REPLACE(_talk, "fateLancer", "\_a[Lancer]Lancer\_a")
+	_talk = REPLACE(_talk, "fateRider", "\_a[Rider]Rider\_a")
+	_talk = REPLACE(_talk, "fateCaster", "\_a[Caster]Caster\_a")
+	_talk = REPLACE(_talk, "fateAssassin", "\_a[Assassin]Assassin\_a")
+	_talk = REPLACE(_talk, "fateBerserker", "\_a[Berserker]Berserker\_a")
 	
 	//_talk = REPLACE(_talk, "", "\_a[]\_a")
 	
@@ -58,6 +65,34 @@ OnAnchorSelect
 			when "Tristan"
 			{
 				"\0%(talkb)\s[4]A rude,\w4 entitled brat who collects bloodsoaked shoes.\w8\w8\w8 \s[0]\n\n[half]Mh?\w8 It's an odd thing to smile about?\w8 \s[4]\n\n[half]Haha,\w4 I can't help it.\w8 \s[46]I can't hate her.\w8 \s[3]I like straightforward people!\w8\e"
+			}
+			when "Saber"
+			{
+				"\0%(talkb)\s[0]It's all in the title.\w8 People who use swords,\w4 or otherwise deal with blades.\w8 \s[48]\n\n[half]I know a blacksmith who qualifies for Saber!\w8\e"
+			}
+			when "Archer"
+			{
+				"\0%(talkb)\s[0]It's all in the title.\w8 People who use bows,\w4 or otherwise long-range weapons.\w8 \s[48]\n\n[half]I know an archer who fires soundwaves at people!\w8\e"
+			}
+			when "Lancer"
+			{
+				"\0%(talkb)\s[0]It's all in the title.\w8 People who use spears,\w4 lances,\w4 or otherwise sticks with blades at the tip.\w8 \n\n[half]...\w8\w8 I wonder if a roomba would qualify if you taped a knife on it...?\w8\e"
+			}
+			when "Rider"
+			{
+				"\0%(talkb)\s[0]It's all in the title.\w8 People with mounts,\w4 or vehicles.\w8 \s[20]\n\n[half]I don't actually know any Rider myself...\w8 \1%(bigb)\_b[habetrot.png,0,0,--option=use_self_alpha]\0\s[0]\n\n[half]Maybe Habetrot could qualify?\w8 She was always riding this little balloon thing.\w8\e"
+			}
+			when "Caster"
+			{
+				"\0%(talkb)\s[0]It's all in the title.\w8 Scholars and people of magecraft.\w8 \s[48]\n\n[half]Like me!\w8 Or,\w4 well,\w4 my regular self.\w8\e"
+			}
+			when "Assassin"
+			{
+				"\0%(talkb)\s[0]It's all in the title.\w8 Sneaky snakes who steal lives.\w8 \s[22]\n\n[half]I don't actually know any...\w8\w8\w8 \s[0]\n\n[half]Well,\w4 Muramasa WAS an assassin,\w8 but he wasn't of the assassin CLASS.\w8\e"
+			}
+			when "Berserker"
+			{
+				"\0%(talkb)\s[0]It's all in the title.\w8 People with a loose grasp on their sanity.\w8 \s[48]\n\n[half]I'm a Berserker,\w4 though I have no idea why!\w8 \s[4]\n\n[half]As far as I can tell,\w4 I'm perfectly fine and normal.\w8 \s[0]\n\n[half]I guess my madness enhancement is fairly low.\w8\e"
 			}
 		}
 	}

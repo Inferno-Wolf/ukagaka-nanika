@@ -394,7 +394,7 @@ Select.dosomething
 //the built-in ssp calendar function.
 Select.CALENDAR
 {
-	"\0%(talkb)\s[48]Check this out!\w8 We're in a week!\w8"
+	"\0%(talkb)\s[48]Check this out!\w8 We're in a week!\w8 \s[47]In a day,\w4 even!\w8"
 	--
 	"\![open,calendar]\e"
 }
@@ -483,6 +483,8 @@ Select.MailCheck
 OnChoiceTimeout
 {
 	"\0%(talkb)\s[28]I...\w8\w8 assume that long silence was a no...?\w8\e"
+	
+	"\0%(talkb)\s[0]Oh,\w4 are you busy?\w8 \s[22]Erm.\w8 Sorry.\w8\e"
 }
 
 
