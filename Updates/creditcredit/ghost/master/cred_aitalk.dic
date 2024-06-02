@@ -18,6 +18,26 @@ RandomTalk : nonoverlap_pool
 	
 	"\0\s[0]Rogue-likes are fun,\w8 \s[2]you just have to make them interesting enough to hold my attention.\w8\e"
 	
+	"\0\s[0]Of course good writing is important in a game,\w4 but it also has to have fun mechanics.\w8 \s[2]\n\n[half]You gotta play the thing,\w4 after all.\w8\e"
+	
+	"\0\s[0]Do you think soundtracks are as important as game mechanics and narrative?\w8 \s[4]Sometimes,\w4 they can be.\w8\e"
+	
+	"\0\s[1]The pixel artstyle really is the best.\w8 \s[0]Sure,\w4 there's not as much detail,\w8 \s[1]but it's got such a defined look in spite of that.\w8\e"
+	
+	"\0\s[1]Golden sun boys are peak characters,\w4 actually.\w8 Can't go wrong with having them as your protagonist or your best friend.\w8\e"
+	
+	"\0\s[4]Time loops are so fun to explore...\w8\w8 \s[0]\n\n[half]Games are inherently loops,\w4 so it just makes sense for time loops to be built into them.\w8\e"
+	
+	"\0\s[0]Time limit,\w4 huh?\w8 \s[2]Sucks a lot.\w8\e"
+	
+	"\0\s[4]Sighs.\w8\w8 \s[2]Touchs screen only controls my beloathed...\w8\w8 \s[0]\n\n[half]I'm glad you get to grapple with them instead of me this time.\w8\e"
+	
+	"\0\s[0]You don't have to worry about this,\w4 but I always restart games I really like.\w8 I can't help playing them over and over again,\w4 even if it's just the beginning section.\w8 \s[4]\n\n[half]Games too good...\w8\e"
+	
+	"\0\s[1]Love letter games are so fascinating to see.\w8 Whether they're sincere to the end,\w4 if they go sour at some point,\w4 if they completely miss the point of the game they love...\w8\w8 \n\n[half]The end result always turns out fun to see.\w8\e"
+	
+	"\0\s[2]Console wars are kinda silly.\w8 \s[0]\n\n[half]Listen to my wisdom:\w8 \s[1]Video Games Good.\w8 Fuck yeah.\w8\e"
+	
 	{
 		"\0\s[0]Hmm...\w8\w8 I think you needed to "
 		--
@@ -44,98 +64,6 @@ RandomTalk : nonoverlap_pool
 	
 	"\0\s[0]Seems like it's time.\w8 \s[1]Do you remember the correct song to play for this one?\w8\e"
 	
-	"\0\s[1]The pixel artstyle really is the best.\w8 \s[0]Sure,\w4 there's not as much detail,\w8 \s[1]but it's got such a defined look in spite of that.\w8\e"
-	
-	"\0\s[2]You know,\w4 it took me a while to get to grips with creature raising games outside of just Pokemon.\w8 \s[0]But they can be really fun once you let go of the fact that they're not going to be Pokemon.\w8\e"
-	
-	"\0\s[2]Those final battles at the end of Monster Sanctuary can go and die.\w8 I hated those.\w8\e"
-	
-	"\0\s[1]Video games can be musicals...\w8\e"
-	
-	"\0\s[1]I like games with a psychological element to them.\w8 Psychonauts,\w4 Figment,\w4 all those types.\w8 \n\n[half]The psychic-thrilling master Razputin Aquato and the embodiment of Courage Dusty are just a lot of fun to watch in action.\w8\e"
-	
-	"\0\s[0]Of course good writing is important in a game,\w4 but it also has to have fun mechanics.\w8 \s[2]\n\n[half]You gotta play the thing,\w4 after all.\w8\e"
-	
-	{
-		"\0\s[1]I'm glad you're the one playing and I'm not right now.\w8 "
-		--
-		"\s[2]I don't think I could even hold the controller with how comfy I am."
-		
-		"\s[4]Means I get to listen to the great music."
-		
-		"\s[4]I'd probably fall asleep on the controller and just cast cure over and over."
-		
-		"\s[2]You'd probably get upset when I fall asleep on the controller and spin in cirlces."
-		
-		"\s[2]Although,\w4 if this were Final Fantasy 12,\w4 you probably could fall asleep and I'd have no idea as the game kept going."
-		
-		"\s[4]If I were,\w4 Link would probably just be running forward into walls or in circles..."
-		
-		"\w8\w8\s[2]You...\w8 are still playing,\w4 aren't you?"
-		--
-		"\w8\e"
-	}
-	
-	"\0\s[0]Looks like another puzzle.\w8 \s[1]\n\n[half]Guess this calls for that great Professor Layton,\w4 huh?\w8\e"
-	
-	"\0\s[1]This reminds me of a puzzle.\w8\w8\w8\w8\w8 \s[2]\n\n[half]No,\w4 I won't do any other bits.\w8\e"
-	
-	"\0\s[4]Don't mind me,\w4 just dreaming of my ideal Pokemon team...\w8\e"
-	
-	"\0\s[2]Bug types are really cool.\w8 Gamefreak is just mean and won't let them utilise their full potential.\w8\e"
-	
-	"\0\s[0]That rhythm minigame in Underhero is rather shit.\w8 \s[1]\n\n[half]Good thing you don't have to win it in order to progress.\w8\e"
-	
-	"\0\s[0]Do you think soundtracks are as important as game mechanics and narrative?\w8 \s[4]Sometimes,\w4 they can be.\w8\e"
-	
-	"\0\s[0]Time limit,\w4 huh?\w8 \s[2]Sucks a lot.\w8\e"
-	
-	"\0\s[0]I don't think people really get the time limit in Majora's Mask.\w8 \s[2]\n\n[half]It's three whole days with schedules and everything.\w8 \s[0]Plenty of time to dick around and fail at platforming while still completing the first dungeon.\w8\e"
-	
-	"\0\s[2]Okay,\w4 but the 3DS remake of Majora's Mask sucks balls.\w8 Why'd they change the most time sensitive boss to be reliant on a button prompt that only triggers like half the time?\w8 Why'd they add fishing into a three day time limit game?\w8 \s[4]\n\n[half]Pisses me right off...\w8\e"
-	
-	{
-		"\0\s[2]Okay,\w4 but why did they have to do Apollo Justice dirty like that?\w8\n\n[half]"
-		--
-		"\s[4]The new writer really just wanted to make the Investigations games but again..."
-		
-		"\s[4]They really said in the nicest way possible 'now get the fuck out' to him..."
-		
-		"They didn't even respect my time in the joke DLC case.\w8 Giving us a piece of evidence with no use..."
-		
-		"\s[4]And people complain about how Phoenix Wright was done dirty...\w8\w8 They don't even know..."
-		--
-		"\w8\e"
-	}
-	
-	"\0\s[0]Do you call it Ace Attorney or Phoenix Wright?\w8 \s[1]Either way,\w4 he gets top billing in the crossover.\w8 \s[0]'Cause it's called Professor Layton vs Phoenix Wright.\w8\e"
-	
-	"\0\s[4]Snufkin game...\w8 So good...\w8\e"
-	
-	"\0\s[1]It really is a Melody of Moominvalley.\w8\e"
-	
-	"\0\s[1]They did a great job writing Snufkin in Melody of Moominvalley.\w8 \s[4]He's just like me for real for real.\w8\e"
-	
-	"\0\s[4]Underhero Underhero Underhero Underhero...\w8\e"
-	
-	"\0\s[0]Underhero's a good one.\w8 \s[1]I really like the puzzle dimension.\w8 Pretty colours...\w8\e"
-	
-	"\0\s[4]Your thoughts were never yours to begin with...\w8\w8\w8 \s[0]\n\n[half]That line is still metal as hell.\w8\e"
-	
-	"\0\s[4]There will be reconciliation,\w8 no matter how ugly...\w8\w8\w8 \n\n[half]Boy,\w4 do they sure mean it...\w8\e"
-	
-	"\0\s[4]You're on a path in the woods...\w8\w8\w8 \s[1]\n\n[half]I won't recite the whole thing again.\w8 Spare ya from my brainrot.\w8\e"
-	
-	"\0\s[0]So like,\w4 Necromorphs.\w8 What do you think they do when they're not hunting you?\w8\e"
-	
-	"\0\s[4]Mm...\w8\w8 Sounds like a Pokemon cry...\w8\e"
-	
-	"\0\s[4]Persona...\w8\e"
-	
-	"\0\s[0]Enough Persona.\w8 \s[2]When will the Megami Shin my Tensei?\w8\e"
-	
-	"\0\s[4]When will the Digital Devil my Saga...\w8\e"
-	
 	"\0\s[4]Remembering musical puzzles is easy...\w8\w8 Just gotta play the song over and over again...\w8\e"
 	
 	{
@@ -160,9 +88,219 @@ RandomTalk : nonoverlap_pool
 		"...\w8\e"
 	}
 	
-	"\0\s[1]Golden sun boys are peak characters,\w4 actually.\w8 Can't go wrong with having them as your protagonist or your best friend.\w8\e"
+	{
+		"\0\s[1]I'm glad you're the one playing and I'm not right now.\w8 "
+		--
+		"\s[2]I don't think I could even hold the controller with how comfy I am."
+		
+		"\s[4]Means I get to listen to the great music."
+		
+		"\s[4]I'd probably fall asleep on the controller and just cast cure over and over."
+		
+		"\s[2]You'd probably get upset when I fall asleep on the controller and spin in cirlces."
+		
+		"\s[2]Although,\w4 if this were Final Fantasy 12,\w4 you probably could fall asleep and I'd have no idea as the game kept going."
+		
+		"\s[4]If I were,\w4 Link would probably just be running forward into walls or in circles..."
+		
+		"\w8\w8\s[2]You...\w8 are still playing,\w4 aren't you?"
+		--
+		"\w8\e"
+	}
+	
+	"\0\s[0]Super bosses are kinda fun sometimes,\w4 kinda overrated other times.\w8 \n\n[half]Undertale and Deltarune have good super boss designs,\w8 \s[2]but the one in Chapter 1 will forever be on my shit list.\w8 \s[0]\n\n[half]I've never cared for the types in Final Fantasy or Persona,\w4 either.\w8 \s[2]Some people like counting their turns.\w8 Not me.\w8\e"
+	
+	"\0\s[2]You know,\w4 it took me a while to get to grips with creature raising games outside of just Pokemon.\w8 \s[0]But they can be really fun once you let go of the fact that they're not going to be Pokemon.\w8\e"
+	
+	"\0\s[4]Don't mind me,\w4 just dreaming of my ideal Pokemon team...\w8\e"
+	
+	"\0\s[2]Bug types are really cool.\w8 Gamefreak is just mean and won't let them utilise their full potential.\w8\e"
+	
+	"\0\s[4]Mm...\w8\w8 Sounds like a Pokemon cry...\w8\e"
 	
 	"\0\s[0]What's up with Pokemon taking out the ability to sort our bag manually,\w4 anyway?\w8 \s[2]Remove half the fun for me,\w4 why don't you?\w8\e"
+	
+	"\0\s[0]I think picking a favourite Pokemon generation is...\w8\w8 \s[4]Difficult,\w4 actually.\w8 \s[0]\n\n[half]Gen 2 is my favourite,\w4 but my favourite games are Heart Gold and Soul Silver,\w4 which are Gen 4...\w8\w8 \s[4]\n\n[half]Mm...\w8\w8 Yeah,\w4 Johto so good...\w8\e"
+	
+	"\0\s[0]Common misconception:\w8 Legends Arceus is not,\w4 in fact,\w4 the Pokemon Breath of the Wild.\w8 It is the Pokemon Monster Hunter.\w8 \n\n[half]Do with this what you will.\w8\e"
+	
+	"\0\s[0]Did Scarlet and Violet have to go off like that...?\w8\w8 \s[2]Actual decent story in MY Pokemon games?\w8 \s[4]Hard to believe.\w8\e"
+	
+	"\0\s[0]I agree with this wisdom:\w8 What makes Scarlet and Violet good is so good.\w8 What makes them bad is so funny.\w8 \s[4]\n\n[half]Take it with you as well.\w8\e"
+	
+	"\0\s[2]Gee,\w4 Diamond and Pearl.\w8 Why did Pokemon let you have TWO remakes?\w8 \s[4]\n\n[half]Why did Brilliant Diamond and Shining Pearl have to be as bad as they were...?\w8\e"
+	
+	"\0\s[0]Legends Arceus really is a remake of Diamond,\w4 Pearl,\w4 and Platinum in the best way possible.\w8 \n\n[half]I was not expecting its plot to go in the direction it did,\w4 but that was a cherry on top of the gameplay loop fun.\w8\e"
+	
+	"\0\s[0]So,\w4 Gen 5 is kinda overrated.\w8 \s[2]Not saying I dislike Black and White,\w4 or Black 2 and White 2,\w8 \s[0]just that they're overrated.\w8 \n\n[half]Seeing these stories play out again and noticing how every character acts more like the cardboard cutouts in X and Y than how players remember is...\w8\w8 \s[4]disheartening,\w4 to say the least.\w8\e"
+	
+	"\0\s[0]The whole story conceit in Pokemon Black and White was kinda doomed from the start.\w8 \s[2]\n\n[half]These games are married to their battle system,\w4 as anyone who has earnestly tried to do the Contests in Gen 3 and Gen 4 knows.\w8 \s[0]Which means having a character like N who advocates for Pokemon freedom make very little sense,\w4 as he is forced to battle you and therefore completely shatter all of his ideals.\w8 It cheapens all his arguments and creates a hard to ignore dissonance within the whole narrative itself.\w8 Lots of players ignore it because he does make some intriguing and understandable points,\w4 but it still stands that he's a giant hypocrite for participating in the cycle of what he calls senseless violence instead of fully rejecting it.\w8 \n\n[half]That would be too radical,\w4 after all.\w8 \s[2]And Pokemon is married to their battle system.\w8 \s[4]What else can they do,\w4 make a new mechanic?\w8 Perish the thought.\w8\e"
+	
+	"\0\s[0]Doing the movie making stuff in Black 2 and White 2 is a great way to stock up on items.\w8 \s[2]\n\n[half]You just have to deal with the jank battle system for the movie and hope to god the RNG doesn't hate you in that moment.\w8\e"
+	
+	"\0\s[0]Pokemon X and Y aren't bad,\w8 \s[2]but they are pretty jam packed full of meaningless fluff.\w8 \s[0]\n\n[half]There's a lot of fun Pokemon and neat ideas inside of these games,\w4 and it deserved its fair shake at a third installment that smoothed out all its half-baked ideas like Platinum did for Diamond and Pearl.\w8 \s[4]\n\n[half]Here's hoping Legends Z-A gives it the proper reworking it deserves...\w8\e"
+	
+	"\0\s[2]Those final battles at the end of Monster Sanctuary can go and die.\w8 I hated those.\w8\e"
+	
+	"\0\s[1]Tar Blob my absolute beloved...\w8 Spinner is also up there for top babies.\w8 \n\n[half]Actually,\w4 all the slimes are top-tier in Monster Sanctuary.\w8 That blob farmer was so right.\w8\e"
+	
+	"\0\s[0]Monster Sanctuary may have a very weak story,\w8 \s[1]but built-in randomisation for new game plus runs is such a cool feature.\w8 \s[4]Pokemon only wishes it had a feature as cool as that.\w8\e"
+	
+	"\0\s[0]Of all the genres,\w4 I never expected a mix of creature-raising and metroidvania to be one that works so well.\w8 \s[1]Monster Sanctuary turning out to be pretty fun.\w8\e"
+	
+	"\0\s[1]Video games can be musicals...\w8\e"
+	
+	"\0\s[0]It's so weird.\w8 I expected not to like Dusty,\w4 but he turned out to be a pretty swell embodiment of courage.\w8 Piper,\w4 too,\w4 could have been extremely annoying as an embodiment of optimism,\w4 but she ended up being really good,\w4 too.\w8 \s[1]\n\n[half]The power of a fun concept and fun characters...\w8\e"
+	
+	"\0\s[1]I like games with a psychological element to them.\w8 Psychonauts,\w4 Figment,\w4 all those types.\w8 \n\n[half]The psychic-thrilling master Razputin Aquato and the embodiment of Courage Dusty are just a lot of fun to watch in action.\w8\e"
+	
+	"\0\s[1]Raz my baby boy Razputin Aquato...\w8\w8 \s[4]\n\n[half]Let him rest,\w4 he's been through enough.\w8\e"
+	
+	"\0\s[4]Shoutouts to Dogen in the chat...\w8\e"
+	
+	"\0\s[0]Looks like another puzzle.\w8 \s[1]\n\n[half]Guess this calls for that great Professor Layton,\w4 huh?\w8\e"
+	
+	"\0\s[1]This reminds me of a puzzle.\w8\w8\w8\w8\w8 \s[2]\n\n[half]No,\w4 I won't do any other bits.\w8\e"
+	
+	"\0\s[4]Puzzles,\w4 puzzles,\w4 puzzles...\w8\w8 \s[1]\n\n[half]Better call Papyrus.\w8\e"
+	
+	"\0\s[0]To Mercy or to Attack...\w8\w8 \n\n[half]Making the important Undertale decisions,\w4 I see.\w8\e"
+	
+	"\0\s[0]That rhythm minigame in Underhero is rather shit.\w8 \s[1]\n\n[half]Good thing you don't have to win it in order to progress.\w8\e"
+	
+	"\0\s[4]Underhero Underhero Underhero Underhero...\w8\e"
+	
+	"\0\s[0]Underhero's a good one.\w8 \s[1]I really like the puzzle dimension.\w8 Pretty colours...\w8\e"
+	
+	"\0\s[0]I really like the charm of the jank platforming in Underhero.\w8 \s[4]\n\n[half]Sure,\w4 you can get stuck easily in that single space area and moving platforms have a guesstimate of a hitbox,\w8 \s[0]but the hoodie floating makes it easier to adjust your placement.\w8 \s[1]And it's fun.\w8\e"
+	
+	"\0\s[0]I don't think people really get the time limit in Majora's Mask.\w8 \s[2]\n\n[half]It's three whole days with schedules and everything.\w8 \s[0]Plenty of time to dick around and fail at platforming while still completing the first dungeon.\w8\e"
+	
+	"\0\s[2]Okay,\w4 but the 3DS remake of Majora's Mask sucks balls.\w8 Why'd they change the most time sensitive boss to be reliant on a button prompt that only triggers like half the time?\w8 Why'd they add fishing into a three day time limit game?\w8 \s[4]\n\n[half]Pisses me right off...\w8\e"
+	
+	"\0\s[1]Stone Tower's gotta be the Zelda dungeon of all time.\w8 \s[4]Great music,\w4 really cool mechanic,\w4 just a banger all around.\w8\e"
+	
+	"\0\s[0]You should absolutely play the Song of Time here.\w8 \s[4]Just sayin.\w8\e"
+	
+	"\0\s[2]Even if Twilight Princess is,\w4 structure-wise,\w4 just Ocarina of Time but with a wolf,\w8 \s[1]that wolf does it a lot of favours.\w8\e"
+	
+	"\0\s[4]Wolf Link is best Link...\w8\w8 \s[0]\n\n[half]Well.\w8 Wind Waker Link is also good.\w8 And so is Breath of the Wild and Tears of the Kingdom Link.\w8 Link is a good Link.\w8\e"
+	
+	"\0\s[4]Ballad of the Wind fish...\w8\w8 \s[0]is a less coherent song than I expected it to be.\w8 \s[2]Especially in the Switch remake...\w8\e"
+	
+	"\0\s[0]People say that Oracle of Seasons is combat focused,\w4 while Oracle of Ages is more puzzle focused.\w8 \s[4]\n\n[half]I think there's a healthy amount of each in both games,\w4 but their puzzles also just kick my ass.\w8\e"
+	
+	"\0\s[4]Dedicated bark button my beloved...\w8\e"
+	
+	"\0\s[0]Ookami was so real for having a dedicated bark button.\w8 \s[4]\n\n[half]And also letting you feed pretty much every animal.\w8 That,\w4 too.\w8\e"
+	
+	{
+		"\0\s[2]Okay,\w4 but why did they have to do Apollo Justice dirty like that?\w8\n\n[half]"
+		--
+		"\s[4]The new writer really just wanted to make the Investigations games but again..."
+		
+		"\s[4]They really said in the nicest way possible 'now get the fuck out' to him..."
+		
+		"They didn't even respect my time in the joke DLC case.\w8 Giving us a piece of evidence with no use..."
+		
+		"\s[4]And people complain about how Phoenix Wright was done dirty...\w8\w8 They don't even know..."
+		--
+		"\w8\e"
+	}
+	
+	"\0\s[0]Do you call it Ace Attorney or Phoenix Wright?\w8 \s[1]Either way,\w4 he gets top billing in the crossover.\w8 \s[0]'Cause it's called Professor Layton vs Phoenix Wright.\w8\e"
+	
+	"\0\s[0]Damon Gant really was the pinnacle of the first Ace Attorney game.\w8 Villains-wise,\w4 I mean.\w8 \n\n[half]His placement directly after someone like Manfred von Karma cements Phoenix as a proper Turnabout Terror and sets him up for the larger themes in Justice for All.\w8 \s[4]\n\n[half]It's just good writing decisions.\w8\e"
+	
+	"\0\s[0]Seeing Phoenix desperately fighting off a panic attack throughout that case in Justice for All really is something.\w8 \s[4]\n\n[half]My good lawyer,\w4 we're really in it now...\w8\e"
+	
+	"\0\s[4]Snufkin game...\w8 So good...\w8\e"
+	
+	"\0\s[1]It really is a Melody of Moominvalley.\w8\e"
+	
+	"\0\s[1]They did a great job writing Snufkin in Melody of Moominvalley.\w8 \s[4]He's just like me for real for real.\w8\e"
+	
+	"\0\s[0]Siffrin and Snufkin are such peak character design.\w8 \s[4]Big hat and cloak body is such a shape...\w8\e"
+	
+	"\0\s[0]So food is a metaphor for love and Siffrin being hungry shows just how starved they are for love,\w4 huh?\w8 \s[1]Sounds good to me.\w8 I'd run to the bank with that one.\w8\e"
+	
+	"\0\s[0]In Stars and Blood,\w4 In Tears and Time...\w8\w8 \s[4]\n\n[half]Start Again Start Again Start Again really was a prologue of all time...\w8\e"
+	
+	"\0\s[4]Siffrin my buddy Siffrin...\w8\w8 \n\n[half]He's just like me for real for real...\w8\e"
+	
+	"\0\s[0]In Stars and Time just has good game design.\w8 It's good writing and good game design.\w8\e"
+	
+	"\0\s[0]Absolutely everyone in In Stars and Time is a banger.\w8 \n\n[half]Isabeau?\w8 Love that guy.\w8 \nOdile?\w8 She rocks.\w8 \nMirabelle?\w8 Specialist failgirl ever.\w8 \nBonnie?\w8 Fantastic child.\w8 \nSiffrin?\w8 Protagonist of all time.\w8\w8 \s[4]\n\n[half]Everyone sucks so much and that's a part of their charm.\w8 They're all so good.\w8\e"
+	
+	"\0\s[0]I swear.\w8 In Stars and Time was made just for me.\w8 \s[4]\n\n[half]Time loop game about a starved stranger who has to face their sadness and agonises over their found family...\w8\w8 \s[1]\n\n[half]It's a game for me.\w8\e"
+	
+	"\0\s[4]Your thoughts were never yours to begin with...\w8\w8\w8 \s[0]\n\n[half]That line is still metal as hell.\w8\e"
+	
+	"\0\s[4]There will be reconciliation,\w8 no matter how ugly...\w8\w8\w8 \n\n[half]Boy,\w4 do they sure mean it...\w8\e"
+	
+	"\0\s[4]Maybe one day...\w8\w8 One day I'll actually finish Everhood.\w8\e"
+	
+	"\0\s[2]I think people missed the overt Buddhist themes in Everhood.\w8 \s[0]Or just didn't understand them.\w8 \n\n[half]I played Persona Q,\w4 though.\w8 I was prepared for a story all about stagnation and the struggle to return those souls to the cycle of rebirth and life.\w8\e"
+	
+	"\0\s[4]You're on a path in the woods...\w8\w8\w8 \s[1]\n\n[half]I won't recite the whole thing again.\w8 Spare ya from my brainrot.\w8\e"
+	
+	"\0\s[4]Yu my daughter Yu my girl who has both a dragon dad and a hero dad...\w8\e"
+	
+	"\0\s[4]Lovely moon,\w4 spare my wolf daughter...\w8\e"
+	
+	"\0\s[4]Radiant flowers,\w4 spare my blind prince son...\w8\e"
+	
+	"\0\s[4]I guess.\w8 I am always thinking of the Liar Princes...\w8\w8 \n\n[half]Wolf of all time...\w8\e"
+	
+	"\0\s[0]Liar Princess has such a cool design.\w8 Four ears AND four eyes?\w8 Genius.\w8 Zero notes.\w8\e"
+	
+	"\0\s[0]I know the design says the Liar Princess isn't supposed to be cute,\w8 \s[4]but she's so cute...\w8\e"
+	
+	"\0\s[0]You gotta hold the hold hands button as much as possible.\w8 \n\n[half]This is true for both Liar Princess and Blind Prince as well as Little Nightmares II.\w8\e"
+	
+	"\0\s[4]Oh,\w4 Six and Mono.\w8 You two really were the duo of all time up to the end...\w8\e"
+	
+	"\0\s[0]So like,\w4 Necromorphs.\w8 What do you think they do when they're not hunting you?\w8\e"
+	
+	"\0\s[0]Crow Country and My Friendly Neighbourhood are love letters to Resident Evil.\w8 \s[1]And I am so here for them.\w8\e"
+	
+	"\0\s[4]Things might turn out okay...\w8\w8 Or they might not...\w8\w8 \s[0]\n\n[half]Crow Country really knows how to unsettle even within its save rooms.\w8\e"
+	
+	"\0\s[0]Ambient style music can be so good inside a game.\w8 \s[4]Music built specifically for living inside the game it accompanies and cannot exist outside of that...\w8\w8 \n\n[half]Crow Country,\w4 I am talking about you...\w8\e"
+	
+	"\0\s[0]I don't get the ending of My Friendly Neighbourhood.\w8 It's a very neat game up until the endings happen.\w8 \n\n[half]I guess I don't hate it,\w4 at least?\w8 Still a very fun game up until that point.\w8\e"
+	
+	"\0\s[0]The amount of tension that Dead Space can build up is so impressive.\w8 \n\n[half]I'm just watching it and I'm still getting spooked.\w8\e"
+	
+	"\0\s[0]Oh,\w4 Plasma Cutter,\w4 my friend Plasma Cutter...\w8\e"
+	
+	"\0\s[0]Camera,\w4 you are my only friend,\w4 we can get through this asylum together...\w8\e"
+	
+	"\0\s[4]Persona...\w8\e"
+	
+	"\0\s[2]It really is a tragedy,\w4 what Persona 5 did to Ryuji.\w8 \n\n[half]He's our main guy and yet his trauma never gets used as more than a plot point and then a passing joke.\w8 \s[4]\n\n[half]Then again,\w4 that's just a Persona problem,\w4 isn't it...?\w8\e"
+	
+	"\0\s[4]Yosuke my guy Yosuke why did they finish your romance route like 90% of the way and then cut it without scrubbing the evidence?\w8\e"
+	
+	{
+		"\0\s[0]We should have been able to date Akechi in Persona 5.\w8\w8"
+		--
+		"\s[2]\n\n[half]Think about it.\w8 He's the one that Joker wishes back into existence as his 'perfect world'.\w8 He's the parallel to Joker as ordained by Yaldabaoth.\w8 He's the one with a meaningful sacrifice at the ninth hour,\w4 not absolving him of his misdeeds but at least doing something to make sure we reach our goal.\w8 \s[4]\n\n[half]We also get naked with him.\w8 It just would have made sense..."
+		
+		"\n\n[half]Think about it."
+		--
+		"\w8\e"
+	}
+	
+	"\0\s[2]Fuck Maruki.\w8 All our homies hate Maruki.\w8\w8\w8 \s[4]\n\n[half]That's a lie Maruki is so damn popular actually.\w8\e"
+	
+	"\0\s[0]Hear those rattling chains...?\w8\w8 \s[4]\n\n[half]Reaper's coming.\w8 Better get a move on to the next floor.\w8\e"
+	
+	"\0\s[0]Persona spin-offs have a near total success rate when it comes to their new characters.\w8 At least,\w4 they do in my opinion.\w8 \n\n[half]Zen and Rei are absolutely heartbreaking and cute,\w8 Sophia gets the coolest arc ever,\w8 Toshiro was way more compelling than I expected him to be...\w8\w8 \n\n[half]Yeah.\w8 If there's one thing Persona can do,\w4 it's make compelling characters.\w8\e"
+	
+	"\0\s[0]Enough Persona.\w8 \s[2]When will the Megami Shin my Tensei?\w8\e"
+	
+	"\0\s[4]When will the Digital Devil my Saga...\w8\e"
 	
 	"\0\s[2]How many pages of stats do we need for our weapons,\w4 Dark Cloud?\w8 \n\n[half]We can't be grinding here all day,\w4 Dark Cloud.\w8\e"
 	
@@ -170,9 +308,49 @@ RandomTalk : nonoverlap_pool
 	
 	"\0\s[0]Off course,\w8 off course,\w8 \s[2]off course.\w8\w8\w8 \n\n[half]We know it's off course,\w4 Dark Chronicle.\w8\e"
 	
-	"\0\s[1]Looks like we got another category quantum Freddy event again.\w8\e"
+	"\0\s[2]Max and Monica's arcs fizzled out by the time you reached Heim Rada.\w8 \s[0]\n\n[half]A real shame,\w4 because it means they have nothing to do with the entire finale of the game,\w4 making the story feel disconnected.\w8\e"
+	
+	{
+		"\0\s[4]When the ending ruins a game,\w4 it's just so sad...\w8\w8\n\n[half]"
+		--
+		"I wanted to like you so much but the ending spoiled the whole experience"
+		
+		"I like you so much,\w4 Dark Chronicle,\w4 why does your entire final dungeon have to be like that"
+		--
+		"...\w8\e"
+	}
 	
 	"\0\s[4]He is called the Batteur for a reason,\w4 I guess...\w8\e"
+	
+	"\0\s[0]The way the Elsen's heads pop off in their Burnt state...\w8\w8 \s[4]\n\n[half]It reminds me of something...\w8\e"
+	
+	"\0\s[4]Burnt,\w4 burnt,\w4 burnt...\w8\w8 \s[0]\n\n[half]Not quite the same as the Spectres,\w4 are they?\w8\e"
+	
+	"\0\s[4]Mm,\w8 sounds like Pathologic to me...\w8\e"
+	
+	"\0\s[0]Daniil Dankovsky of Bachelor fame...\w8\w8 \s[2]\n\n[half]He really is as insufferable as advertised...\w8\e"
+	
+	"\0\s[0]Artemy Burakh...\w8\w8 \s[4]\n\n[half]Haruspex trapped in a lose-lose situation...\w8\e"
+	
+	"\0\s[1]Looks like we got another category quantum Freddy event again.\w8\e"
+	
+	"\0\s[3]How...\w8\w8 are bears even extinct in the FNAF universe?\w8\w8 \s[0]\n\n[half]Is it connected to the Detroit: Become Human universe,\w4 do you think?\w8\e"
+	
+	"\0\s[0]See,\w4 YIIK has a great idea in there at the core of the thing.\w8 \s[2]\n\n[half]The problem is the rest of the game surrounding it,\w4 both in mechanics and writing.\w8\e"
+	
+	"\0\s[4]There really is something appealing about a soul with so much gravitational pull that they always drag the same friends into their orbit,\w4 no matter the universe...\w8\w8 \s[2]\n\n[half]It's a shame about the rest of the YIIK experience.\w8\e"
+	
+	"\0\s[2]If YIIK weren't so damn overwritten in a writing way,\w8 \s[0]it might actually be a playable idea.\w8 \s[2]\n\n[half]Instead,\w4 we have this mess.\w8\e"
+	
+	"\0\s[0]It might be weird,\w4 but I have a soft spot for all the robots in Mighty No.9.\w8 \s[1]\n\n[half]The slightest bit of character they have just appeals to me.\w8\e"
+	
+	"\0\s[0]I'd help you with the whole Crystal Caravan,\w8 \s[4]but there's no local play on the Crystal Chronicles remaster.\w8 A real shame.\w8\e"
+	
+	"\0\s[0]Lilties are the classes of all time.\w8 \s[4]A military people shaped like onions...\w8\e"
+	
+	"\0\s[0]Actually,\w4 Final Fantasy has some banger small people.\w8 The ones in 11 and 14 are standouts for sure.\w8\e"
+	
+	"\0\s[0]Sea of Stars could have done better to flesh out its characters.\w8 \n\n[half]The leads have such nice designs.\w8 \s[4]Moon and Sun children my beloveds...\w8\e"
 }
 
 

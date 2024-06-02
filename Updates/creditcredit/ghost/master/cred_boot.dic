@@ -110,9 +110,21 @@ OnClose
 	
 	"\0\s[4]Astral Observatory,\w4 how I love you...\w8"
 	
+	"\0\s[4]Stone Tower,\w4 upright version...\w8\w8 How I adore you...\w8"
+	
+	"\0\s[4]Stone Tower,\w4 in full bloom...\w8"
+	
+	"\0\s[4]Spoons and moons,\w4 and all sorts of those things...\w8"
+	
 	"\0\s[4]It's Always Raining Somewhere Else...\w8"
 	
+	"\0\s[4]Rest now,\w4 child...\w8\w8 You are Home...\w8"
+	
+	"\0\s[4]Oh,\w4 my love...\w8\w8 Is far away...\w8"
+	
 	"\0\s[4]It's the Great Revival,\w4 Miles Edgeworth...\w8"
+	
+	"\0\s[4]Repeat it in...\w8 my head...\w8"
 	
 	"\0\s[4]That's Tinnitus Dance for ya...\w8"
 	
@@ -152,6 +164,8 @@ OnClose
 	
 	"\0\s[4]Those kids really do be Pursuing My True Self...\w8"
 	
+	"\0\s[4]Heartbeat,\w4 heartbreak...\w8 It keeps on pounding...\w8"
+	
 	"\0\s[4]When that Kimi no Kioku just right...\w8"
 	
 	"\0\s[4]Yeah,\w4 I am Deep Inside My Mind...\w8"
@@ -180,7 +194,17 @@ OnClose
 	
 	"\0\s[4]Oh,\w4 Kazenone...\w8\w8 You mean everything to me...\w8"
 	
+	"\0\s[4]Amadatti,\w4 and Eleanor,\w4 too...\w8"
+	
 	"\0\s[4]Mm...\w8\w8 Desperately Safe indeed...\w8"
+	
+	"\0\s[4]Mm...\w8\w8 Liar Princess and Blind Prince really is a soundtrack of all time...\w8"
+	
+	"\0\s[4]Such an easy little lie,\w4 that grows too big to even hide...\w8"
+	
+	"\0\s[4]Mm...\w8\w8 A Song Melting In The Moonlit Night...\w8\w8 I'm gonna cry...\w8"
+	
+	"\0\s[4]Just let me lay here and listen to A Song Melting In The Moonlit Night a while longer...\w8"
 	--
 	"\w8\-"
 }
