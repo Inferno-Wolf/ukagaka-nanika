@@ -164,6 +164,14 @@ RandomTalk : nonoverlap_pool
 			"\n\n[half]But!\w8 Perhaps with effort,\w4 it is possible to overcome one's own nature.\w8 \s[12]\n\n[half]So I must try!\w8 I will defy fate,\w4 my purpose,\w4 my duty!\w8 For chocolate!\w8\e" //hell yeah, girlie
 		}
 	}
+	if month == 6 //June
+	{
+		"\0%(talkb)\s[0]So it's pride month?\w8\w5 \s[4]\n\n[half]I've been dropping by some drag shows.\w8 \s[48]They're a lot of fun!\w8\w5 \s[4]\n\n[half]Maybe I should get a drag king persona too...?\w8\e"
+	}
+	if month == 12 //December
+	{
+		"\0%(talkb)\s[41]Whoa!\w8 There are so many lights in the streets!\w8\w8 \s[0]\n\n[half]Mh?\w8 It's holidays season?\w8 \n\n[half]There's this big one incoming about throwing a birthday party to a son of a god?\w8 \n\n[half]...\w8\w8\w8 \s[28]Sorry,\w4 I don't get it.\w8 \s[17]I still have trouble understanding the concept of 'gods' to be honest.\w8\e"
+	}
 	
 	//Time of day checks!
 	if timeslot == "night" || timeslot == "latenight" || timeslot == "earlymorning" //sleepies Castoria...
@@ -262,7 +270,7 @@ RandomTalk : nonoverlap_pool
 	{
 		"\0%(talkb)\s[0]Earth clan fairies are short and stout.\w8 Wind clan fairies are tall and lithe.\w8 Fang clan fairies and strong and furry.\w8 \s[20]\n\n[half]I hear wing clan fairies are short and winged?\w8 I've only seen the one,\w4 so I'm not sure.\w8 \s[35]\n\n[half]As for mirror clan fairies and king clan fairies...\w8 \n\n[half]..."
 		--
-		"\w8\w8\w8 \s[0]\n\n[half]Anyways,\w4 what do you look like?\w8 I only ever see your hand waving around,\w4 and it's,\w4 uh.\w8 Pointy and sharp.\w8 \n\n\![*]\q[Earth clan fairy,earthfairy]   \![*]\q[Wind clan fairy,windfairy] \n\![*]\q[Fang clan fairy,fangfairy]   \![*]\q[Wing chan fairy,wingfairy]\w8\w8\w8\e"
+		"\w8\w8\w8 \s[0]\n\n[half]Anyways,\w4 what do you look like?\w8 I only ever see your hand waving around,\w4 and it's,\w4 uh.\w8 Pointy and sharp.\w8 \n\n\![*]\q[Earth clan fairy,earthfairy]   \![*]\q[Wind clan fairy,windfairy] \n\![*]\q[Fang clan fairy,fangfairy]   \![*]\q[Wing clan fairy,wingfairy]\w8\w8\w8\e"
 		
 		"\w8\e"
 	}

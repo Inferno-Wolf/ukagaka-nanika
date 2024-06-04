@@ -6,10 +6,11 @@ This character is Artoria Caster (Castoria for short) from popular video game Fa
 
 CONTENT WARNINGS:
 Chronologically, Castoria hails from the aftermath of her adventure. Meaning she is dead. She does occasionally mentions her death and its circumstances, albeit in vague terms. Additionally, while Castoria mostly acts kind and helpful, she does occasionally get really bitter and vitriolic. This will never be targetted towards you as a user, but I figure this warrants a warning regardless.
-(There is also one reference to canonical petplay.)
+(There is also one reference to canonical petplay and one reference to religion.)
 
 --Castoria is here to chill. She'll mostly hang out on your computer and make conversation with  you.
---Castoria has a lot of clickable options in her dialogues! Make sure to keep an eye out for when she's asking you a question.
+--Castoria has a lot of clickable options in her idle dialogues! Make sure to keep an eye out for when she's asking you a question.
+	--Castoria will act as if you are asking her questions as well with these clickables! All out of idle curiosity for the most part.
 --Castoria can do a lot of simple functions such as emptying your bin or checking your calendar. She's ressourceful like that!
 
 Some notes to use on how ghosts work:
