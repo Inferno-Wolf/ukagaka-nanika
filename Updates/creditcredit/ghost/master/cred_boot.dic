@@ -37,36 +37,40 @@ OnBoot
 	{
 		"\s[2]Yeah,\w4 yeah,\w8 I know.\w8 Birthday kid gets to choose the games.\w8 \s[0]\n\n[half]So,\w4 which is it this time?\w8\e"
 		
-		"\0\s[4]I know...\w8 Your birthday...\w8\w8 \n\n[half]Sleepy...\w8\e"
+		"\s[4]I know...\w8 Your birthday...\w8\w8 \n\n[half]Sleepy...\w8\e"
 	}
 	//elseif _today == "1/1" //You can add whatever cool dates you want with more elseifs here
 	else //Normal boot
 	{
-		"\0\s[4]Mm...\w8\w8 \s[2]Did I doze off again?\w8\e"
+		"\s[4]Mm...\w8\w8 \s[2]Did I doze off again?\w8\e"
 		
-		"\0\s[4]Comfy...\w8\w8 \s[2]Oh,\w4 sorry.\w8 \s[0]Must've dozed off again...\w8\e"
+		"\s[4]Comfy...\w8\w8 \s[2]Oh,\w4 sorry.\w8 \s[0]Must've dozed off again...\w8\e"
 		
-		"\0\s[2]Excuse me,\w4 Majora's Mask is a classic for a reason.\w8\w8\w8 \s[0]\n\n[half]Oh,\w4 sorry.\w8 Looks like I fell asleep again.\w8\e"
+		"\s[2]Excuse me,\w4 %(classicgame) is a classic for a reason.\w8\w8\w8 \s[0]\n\n[half]Oh,\w4 sorry.\w8 Looks like I fell asleep again.\w8\e"
 		
-		"\0\s[0]Are you sure you tried that solution?\w8\w8\w8 \s[2]\n\n[half]Yes,\w4 I'm still awake.\w8\e"
+		"\s[0]Are you sure you tried that solution?\w8\w8\w8 \s[2]\n\n[half]Yes,\w4 I'm still awake.\w8\e"
 		
-		"\0\s[4]Hmmn...\w8\w8 \s[0]Is it my turn,\w4 yet?\w8\w8\w8 \s[2]Good.\w8\e"
+		"\s[4]Hmmn...\w8\w8 \s[0]Is it my turn,\w4 yet?\w8\w8\w8 \s[2]Good.\w8\e"
 		
-		"\0\s[4]I'm watching,\w4 I promise,\w4 I promise...\w8\e"
+		"\s[4]I'm watching,\w4 I promise,\w4 I promise...\w8\e"
 		
-		"\0\s[0]See,\w4 that's the thing about %(types)...\w8\w8 \s[2]\n\n[half]Oh,\w4 sorry.\w8 Must've dozed off in the middle of our conversation.\w8\e"
+		"\s[0]See,\w4 that's the thing about %(types)...\w8\w8 \s[2]\n\n[half]Oh,\w4 sorry.\w8 Must've dozed off in the middle of our conversation.\w8\e"
 		
-		"\0\s[0]Can never get enough of %(types),\w4 huh?\w8\e"
+		"\s[0]Can never get enough of %(types),\w4 huh?\w8\e"
 		
-		"\0\s[0]Oh,\w4 uh.\w8 Where were we?\w8\e"
+		"\s[0]Oh,\w4 uh.\w8 Where were we?\w8\e"
 		
-		"\0\s[4]Hmm...\w8\w8 \s[0]Oh,\w4 sorry.\w8 Where were we going again?\w8\e"
+		"\s[4]Hmm...\w8\w8 \s[0]Oh,\w4 sorry.\w8 Where were we going again?\w8\e"
 		
-		"\0\s[4]Is it raining somewhere else,\w4 though...?\w8\w8\w8 \s[0]\n\n[half]Oh,\w4 you moved on.\w8 Whoops.\w8\e"
+		"\s[4]Is it raining somewhere else,\w4 though...?\w8\w8\w8 \s[0]\n\n[half]Oh,\w4 you moved on.\w8 Whoops.\w8\e"
 		
-		"\0\s[4]I'm listening,\w4 I'm here...\w8\e"
+		"\s[4]I'm listening,\w4 I'm here...\w8\e"
 		
-		"\0\s[4]Mm...\w8\w8\w8 Still sleepy...\w8\e"
+		"\s[4]Mm...\w8\w8\w8 Still sleepy...\w8\e"
+		
+		"\0\s[4]Profane Sabbath...\w8\w8 Sounds like a filthy bath...\w8\w8\w8 \s[2]\n\n[half]Huh?\w8 What?\w8\w8 \s[0]Oh,\w4 did I fall asleep again?\w8\e"
+		
+		"\0\s[4]Mm...\w8\w8 Is it Year Walk time?\w8\w8\w8\w8 \s[0]\n\n[half]Oh.\w8 Sorry,\w4 dozed off there.\w8\e"
 	}
 }
 
@@ -74,7 +78,17 @@ OnBoot
 //all closes go here
 OnClose
 {
+	"%(CloseMumbles)"
+	--
+	"\w8\-"
+}
+
+// %(CloseMumbles)
+CloseMumbles
+{
 	"\0\s[4]Mm...\w8 In the Earthen Womb is my favourite...\w8"
+	
+	"\0\s[4]Larai Cliff,\w4 Where the Wind Doesn't Reach...\w8\w8 So haunting and pretty...\w8"
 	
 	"\0\s[4]Ah,\w4 the save room music.\w8 Best part about the Resident Evil remake...\w8"
 	
@@ -85,6 +99,10 @@ OnClose
 	"\0\s[4]Still of the Night...\w8\w8 It sure is...\w8"
 	
 	"\0\s[4]Brush on through the night,\w4 it is still,\w4 it is calm,\w8 relaxing...\w8"
+	
+	"\0\s[4]Fly me to the desert...\w8\w8 Take me to the stars...\w8"
+	
+	"\0\s[4]Ah,\w4 Secret of the Arid Sands...\w8\w8 That's the good stuff...\w8"
 	
 	"\0\s[0]Riddle me this,\w4 huh?\w8 \s[4]That's a good one...\w8\e"
 	
@@ -100,9 +118,13 @@ OnClose
 	
 	"\0\s[4]Gotta find a centre and heal...\w8"
 	
-	"\0\s[4]No one appreciates you,\w4 Colosseum Waiting Room theme,\w4 like I do...\w8"
+	"\0\s[4]No one appreciates you like I do,\w4 Colosseum Waiting Room theme...\w8"
 	
 	"\0\s[4]Colosseum Waiting Room theme...\w8\w8 I get you...\w8"
+	
+	"\0\s[4]Aspertia City...\w8\w8 My favourite beginning town theme...\w8"
+	
+	"\0\s[4]Mm,\w4 National Park...\w8\w8 Must be a Bug catching contest soon...\w8"
 	
 	"\0\s[4]Only six more hours...\w8 Until the moon falls...\w8"
 	
@@ -178,7 +200,7 @@ OnClose
 	
 	"\0\s[4]Gundor Volcano Grotto...\w8\w8 I could listen to this all day...\w8"
 	
-	"\0\s[4]Oh Moonlight Tange,\w4 you really are a Level-5 song...\w8"
+	"\0\s[4]Oh Moonlight Tango,\w4 you really are a Level-5 song...\w8"
 	
 	"\0\s[4]Level-5 Accordions,\w4 my beloved...\w8"
 	
@@ -205,6 +227,386 @@ OnClose
 	"\0\s[4]Mm...\w8\w8 A Song Melting In The Moonlit Night...\w8\w8 I'm gonna cry...\w8"
 	
 	"\0\s[4]Just let me lay here and listen to A Song Melting In The Moonlit Night a while longer...\w8"
+	
+	"\0\s[4]Mm...\w8\w8 Gnossienne No.1 but bitcrushed...\w8\w8 Love that...\w8"
+	
+	"\0\s[4]What will it take just to find that special day...?\w8"
+	
+	"\0\s[4]Analogue girl...\w8\w8 With digital buttons...\w8"
+	
+	"\0\s[4]Alex Eggleston,\w4 who gave you such a catchy theme...?\w8"
+	
+	"\0\s[4]Mm,\w4 Memories of Green...\w8\w8 You bet they are...\w8"
+	
+	"\0\s[4]Now I awake...\w8\w8 At the end of time...\w8"
+	
+	"\0\s[4]Mm...\w8\w8 Purifia Flowers for my girl...\w8"
+	
+	"\0\s[4]Port Town,\w4 or port towns my beloved...\w8"
+	
+	"\0\s[4]Ode to joy,\w4 I love to see the light...\w8"
+}
+
+
+//--OnGhostChanging
+//Uses the name of your Sakura character as you put in install.txt or descript.txt.
+OnGhostChanging
+{
+	if reference0 == "Credit"
+	{
+		"%(CloseMumbles)"
+	}
+	elseif reference0 == "sans" || reference0 == "Sans" || reference0 == "UC" || reference0 == "Ink" || reference0 == "Error" || reference0 == "MVSans" || reference0 == "Papyrus" || reference0 == "Jazz" || reference0 == "Gaster" || reference0 == "Toriel" || reference0 == "Mettaton" || reference0 == "Pet Rock" || reference0 == "Frisk"
+	{
+		"\0\s[4]Oh...\w8\w8 Sounds like Undertale...\w8"
+		
+		"\0\s[0]Booting Undertale back up?\w8 \s[4]That's a good one for sure...\w8"
+		
+		"\0\s[4]Mm...\w8\w8 More Undertale time...\w8"
+	}
+	elseif reference0 == "Dreamtale Sans"
+	{
+		"\0\s[4]Sleepy guy,\w4 just like me...\w8"
+		
+		"\0\s[4]Sleepy song for Undertale...\w8"
+		
+		"\0\s[4]Maybe we'll both dream of Undertale...\w8"
+	}
+	elseif reference0 == "Sn"
+	{
+		"\0\s[0]Got some Bonetrousle in there with your Sans...\w8"
+		
+		"\0\s[4]Mm...\w8\w8 Skelebros good...\w8"
+		
+		"\0\s[4]Might as well be trousling on the sans...\w8"
+	}
+	elseif reference0 == "f_lowe_y"
+	{
+		"\0\s[4]Sounds like Your Best Friend...\w8"
+		
+		"\0\s[4]Your Best Friend...\w8\w8 It's Flowey time...\w8"
+		
+		"\0\s[4]Flowers Can't Hurt You,\w4 Right?\w8"
+	}
+	elseif reference0 == "Temmie"
+	{
+		"\0\s[4]Hoi,\w4 Temmie...\w8"
+		
+		"\0\s[4]Sounds like Tem Village time...\w8"
+		
+		"\0\s[4]Ah,\w4 the bouncy bups of Temmie Village...\w8"
+	}
+	elseif reference0 == "Ralsei" || reference0 == "SPAMTON!!"
+	{
+		"\0\s[4]Mm...\w8\w8 Now those are some Deltarune beats...\w8"
+		
+		"\0\s[4]Sounds like it's back to Deltarune...\w8"
+		
+		"\0\s[0]Got some more things to take care of in Deltarune?\w8 \s[4]Nice.\w8"
+	}
+	elseif reference0 == "Zaiga" || reference0 == "Azura" || reference0 == "RYS-0825" || reference0 == "Dusty" || reference0 == "Noteworthy"
+	{
+		"\0\s[3]Oh,\w4 that sounds like Undertale,\w8 \s[0]but slightly different...\w8"
+		
+		"\0\s[0]Going for a fan game this time?\w8 \s[4]Hell yeah.\w8"
+		
+		"\0\s[4]Sounds like a rad fan game...\w8\w8 Hell yeah...\w8"
+	}
+	elseif reference0 == "Radic" || reference0 == "Hop" || reference0 == "No.258"
+	{
+		"\0\s[4]More Pokemon time...\w8\w8 Sounds good to me...\w8"
+		
+		"\0\s[0]Back to Pokemon,\w4 huh?\w8 \s[4]Cool.\w8"
+		
+		"\0\s[4]Mm,\w4 sounds like the Pokemon theme...\w8"
+	}
+	elseif reference0 == "Wheatley"
+	{
+		"\0\s[4]Well,\w4 here we are again...\w8"
+		
+		"\0\s[4]Portal 2 time...\w8\w8 This is a triumph...\w8"
+		
+		"\0\s[4]Sounds like it's time for some Portal 2...\w8"
+		
+		"\0\s[4]Wheatley really is my favourite fail robot...\w8"
+	}
+	//elseif reference0 == "Wilson" //every Wilson gets the same text
+	elseif reference0 == "Snake"
+	{
+		"\0\s[4]Sounds like it's time for a Snake Eater...\w8"
+		
+		"\0\s[4]Mm...\w8\w8 Tactical stealth time with Snake...\w8"
+		
+		"\0\s[0]Going for some Metal Gear Solid?\w8 \s[4]Hell yeah.\w8"
+	}
+	//elseif reference0 == "Guard" //Skyrim
+	elseif reference0 == "Zacharie" || reference0 == "Elsen"
+	{
+		"\0\s[0]OFF time?\w8 \s[4]OFF time.\w8"
+		
+		"\0\s[4]Time to turn to OFF...\w8"
+		
+		"\0\s[0]Yeah.\w8 \s[4]I think OFF is an appropriate choice for our next game.\w8"
+	}
+	//elseif reference0 == "Sam"
+	//elseif reference0 == "Gaignun"
+	elseif reference0 == "Hydrate"
+	{
+		"\0\s[4]Mm...\w8\w8 Stay hydrated...\w8"
+		
+		"\0\s[4]Yeah,\w4 yeah,\w4 I'll take a drink,\w4 too...\w8"
+		
+		"\0\s[4]I know,\w4 I gotta drink something before I pass back out...\w8"
+	}
+	//elseif reference0 == "Yes Man" //both versions here
+	//elseif reference0 == "Aiba" //Ai Somnium Files
+	elseif reference0 == "Narrator"
+	{
+		"\0\s[4]Stanley will be shocked when we peek back into his life...\w8"
+		
+		"\0\s[4]Just what sort of adventure will we have Stanley go through next...?\w8"
+		
+		"\0\s[0]Off to bug the Stanley Parable Narrator again?\w8 \s[4]Nice.\w8"
+	}
+	//elseif reference0 == "Bugsnax"
+	//elseif reference0 == "Aster" || reference0 == "Vega"
+	//elseif reference0 == "GingerBrave"
+	//elseif reference0 == "Maze"
+	//elseif reference0 == "Crewmate" //Among Us bean
+	elseif reference0 == "Boyfriend and Girlfriend" //Friday Night Funkin
+	{
+		"\0\s[4]Rhythm game beep boops time...\w8"
+		
+		"\0\s[4]Time to get down with some Friday Night Funkin...\w8"
+		
+		"\0\s[4]Mm,\w4 sounds like it's Friday Night Funkin time...\w8"
+	}
+	//elseif reference0 == "Tartaglia" //Genshin Impact
+	elseif reference0 == "Rabite"
+	{
+		"\0\s[0]Gonna boot up a Mana game for some Rabites?\w8 \s[4]Nice.\w8"
+		
+		"\0\s[4]Rabites are such a staple of the Mana series...\w8"
+		
+		"\0\s[4]I wouldn't advise grinding on Rabites,\w4 but you do you.\w8"
+	}
+	//elseif reference0 == "Hornet"
+	//elseif reference0 == "Sackboy"
+	elseif reference0 == "Shadow"
+	{
+		"\0\s[0]Time to Live and Learn?\w8 \s[1]Hang on the edge of tomorrow?\w8"
+		
+		"\0\s[1]Heck yeah,\w4 it's Shadow the Hedgehog time.\w8"
+		
+		"\0\s[4]Shadow the Hedgehog time,\w4 let's go...\w8"
+	}
+	//elseif reference0 == "Team Snakemouth" //Bug Fables friends
+	//elseif reference0 == "Captain" //Risk of Rain dude
+	//elseif reference0 == "Rainometer"
+	//elseif reference0 == "ButtonToy"
+	elseif reference0 == "Slugcat" || reference0 == "The Hunter"
+	{
+		"\0\s[0]Rain World time,\w4 huh?\w8 \s[4]Slugcats are so cute...\w8"
+		
+		"\0\s[0]Booting up some more Rain World?\w8 \s[4]Watch out for the rain...\w8"
+		
+		"\0\s[4]Slugcat Slugcat Slugcat Slugcat...\w8"
+	}
+	//elseif reference0 == "Cricket" //Kawari Neko Atsume!
+	//elseif reference0 == "Trash Can" //HSR
+	elseif reference0 == "Crono" //CT Crew
+	{
+		"\0\s[4]Chrono Trigger time...\w8\w8 Good jams ahead...\w8"
+		
+		"\0\s[4]Play Robo's theme for me at least once...\w8"
+		
+		"\0\s[0]Gonna try your hand at the final battle again?\w8 \s[4]Good luck.\w8"
+	}
+	elseif reference0 == "Herlock Sholmes"
+	{
+		"\0\s[2]Herlock Sholmes...\w8\w8 \s[4]Why do you have to be the most popular Dai Gyakuten Saiban feature...?\w8"
+		
+		"\0\s[4]Mm...\w8\w8 Sounds like you're talking to Herlock again...\w8"
+		
+		"\0\s[4]Herlock does have a fun theme...\w8"
+	}
+	elseif reference0 == "Castoria"
+	{
+		"\0\s[0]Oh,\w4 Fate/Grand Order?\w8 \s[4]Don't spend any money on the gacha,\w4 now...\w8"
+		
+		"\0\s[0]Visiting your friend Castoria,\w4 huh?\w8 \s[1]That's fair.\w8"
+		
+		"\0\s[4]Mm...\w8\w8 It still surprises me how good Fate/Grand Order's music is...\w8"
+	}
+	//elseif reference0 == "Shadow Child"
+	elseif reference0 == "Fairune Duo"
+	{
+		"\0\s[4]Mm...\w8\w8 Returning to the land of Fairune...\w8"
+		
+		"\0\s[0]Doing another run through Fairune?\w8 \s[1]Nice.\w8"
+		
+		"\0\s[4]Fairune does have some good bleeps and bloops sounds...\w8"
+	}
+	elseif reference0 == "Tin Can"
+	{
+		"\0\s[0]Oh,\w4 Presentable Liberty?\w8 \s[4]I'm ready to cry again,\w4 sure...\w8"
+		
+		"\0\s[0]Ooh,\w4 Exoptable Money time,\w4 huh?\w8 \s[4]Perfect game for me.\w8"
+		
+		"\0\s[4]Mm,\w4 sounds like Exoptable Money time...\w8"
+		
+		"\0\s[0]Ah,\w4 Exoptable Money?\w8 \s[4]Take care with your cat this time...\w8"
+	}
+	elseif reference0 == "Layton"
+	{
+		"\0\s[4]Layton games always have such banger intro themes...\w8"
+		
+		"\0\s[4]Layton my friend Layton time...\w8"
+		
+		"\0\s[4]Mm...\w8\w8 Luke is so baby...\w8"
+	}
+	elseif reference0 == "RGB Puzzlers"
+	{
+		"\0\s[0]Oh,\w4 huh.\w8 How did you combine Snufkin game,\w4 Ace Attorney,\w4 AND Layton?\w8"
+		
+		"\0\s[0]Layton,\w4 Moomins,\w4 and Ace Attorney?\w8 That's a weird combo game if I've ever seen one...\w8"
+		
+		"\0\s[0]Is that...\w8\w8 Luke Triton,\w4 Snufkin,\w4 and Apollo Justice?\w8 Huh.\w8"
+	}
+	elseif reference0 == "Defence"
+	{
+		"\0\s[4]Time for some more Apollo Justice trials...\w8"
+		
+		"\0\s[4]Okay,\w4 but Apollo Justice soundtrack is such a banger...\w8"
+		
+		"\0\s[4]Mm...\w8\w8 Apollo Justice theme my beloved...\w8"
+	}
+	elseif reference0 == "Moomintroll" || reference0 == "Moomins"
+	{
+		"\0\s[0]Bringing out the Snufkin game,\w4 huh?\w8 \s[1]Can't wait to see our Moomins friends again.\w8"
+		
+		"\0\s[4]Snufkin game time...\w8\w8 Hell yeah...\w8"
+		
+		"\0\s[4]Time to be gay and do more crime in Snufkin game...\w8"
+	}
+	//elseif reference0 == "Inferno"
+	elseif reference0 == "Eggbeater"
+	{
+		"\0\s[1]Back to Psychonauts?\w8 You know I'm all for that.\w8"
+		
+		"\0\s[4]Raz time,\w4 and no meat circus in sight...\w8"
+		
+		"\0\s[4]Doodle Raz is so right...\w8\w8 My dogs ARE barking today...\w8"
+	}
+	elseif reference0 == "Freddy Fazbear"
+	{
+		"\0\s[0]Oh,\w4 back to Security Breach,\w4 huh?\w8 \s[1]Sure.\w8"
+		
+		"\0\s[4]Even if Security Breach is a mess,\w4 can't say their song's not a banger...\w8"
+		
+		"\0\s[4]Fazbear Pizzaplex time...\w8\w8 Better not break again,\w4 Gregory...\w8"
+	}
+	elseif reference0 == "P4tagonist"
+	{
+		"\0\s[0]Oh,\w4 loading up some Persona 4?\w8 \s[4]If only we could date Yosuke...\w8"
+		
+		"\0\s[4]Mm,\w4 Persona 4...\w8\w8 Hella jams...\w8"
+		
+		"\0\s[4]Persona 4 time,\w4 let's get Yu and Yosuke to the end...\w8"
+	}
+	elseif reference0 == "Siffrin"
+	{
+		"\0\s[1]In Stars and Time,\w4 fuck yeah.\w8 Let's go.\w8"
+		
+		"\0\s[4]Siffrin my buddy Siffrin we're gonna get you out of this loop...\w8"
+		
+		"\0\s[1]Ooh,\w4 more In Stars and Time.\w8 Let's rock.\w8"
+	}
+	elseif reference0 == "Red" //Everhood
+	{
+		"\0\s[1]Back to Everhood?\w8 Hell yeah.\w8"
+		
+		"\0\s[4]Sweet Everhood jams incoming...\w8"
+		
+		"\0\s[0]Gonna keep practising the incinerator bit?\w8 \s[4]I'll be here,\w4 rooting for ya...\w8"
+	}
+	//elseif reference0 == ""
+	else
+	{
+		"%(CloseMumbles)"
+	}
 	--
-	"\w8\-"
+	"\w8\e"
+}
+
+//--OnGhostChanged
+OnGhostChanged
+{
+	if reference0 == "Credit"
+	{
+		"\![raise,OnBoot]"
+	}
+	//elseif reference0 == "sans" || reference0 == "Sans" || reference0 == "UC" || reference0 == "Ink" || reference0 == "Error" || reference0 == "MVSans" || reference0 == "Papyrus" || reference0 == "Jazz" || reference0 == "Gaster" || reference0 == "Toriel" || reference0 == "Mettaton" || reference0 == "Pet Rock" || reference0 == "Frisk"
+	//elseif reference0 == "Dreamtale Sans"
+	//elseif reference0 == "Sn"
+	//elseif reference0 == "f_lowe_y"
+	//elseif reference0 == "Temmie"
+	//elseif reference0 == "Ralsei" || reference0 == "SPAMTON!!"
+	//elseif reference0 == "Zaiga" || reference0 == "Azura" || reference0 == "RYS-0825" || reference0 == "Dusty" || reference0 == "Noteworthy"
+	//elseif reference0 == "Juan & Sha"
+	//elseif reference0 == "Radic" || reference0 == "Hop" || reference0 == "No.258"
+	//elseif reference0 == "Wheatley"
+	//elseif reference0 == "Wilson" //there are three Wilsons we're just gonna have to live with it
+	////if reference2 == "The Wretched Scientist" //for specific Wilson
+	//elseif reference0 == "Snake"
+	//elseif reference0 == "Guard" //Skyrim
+	//elseif reference0 == "Zacharie" || reference0 == "Elsen"
+	//elseif reference0 == "Sam"
+	//elseif reference0 == "Gaignun"
+	//elseif reference0 == "Hydrate"
+	//elseif reference0 == "Yes Man"
+	////if reference2 == "Yes Man" //for Yes Man alone
+	//elseif reference0 == "Aiba" //Ai Somnium Files
+	//elseif reference0 == "Narrator"
+	//elseif reference0 == "Bugsnax"
+	//elseif reference0 == "Aster" || reference0 == "Vega"
+	//elseif reference0 == "GingerBrave"
+	//elseif reference0 == "Maze"
+	//elseif reference0 == "Crewmate" //Among Us bean
+	//elseif reference0 == "Boyfriend and Girlfriend" //Friday Night Funkin
+	//elseif reference0 == "Tartaglia" //Genshin Impact
+	//elseif reference0 == "Rabite"
+	//elseif reference0 == "Hornet"
+	//elseif reference0 == "Sackboy"
+	//elseif reference0 == "Shadow"
+	//elseif reference0 == "Team Snakemouth" //Bug Fables friends
+	//elseif reference0 == "Captain" //Risk of Rain dude
+	//elseif reference0 == "Rainometer"
+	//elseif reference0 == "ButtonToy"
+	//elseif reference0 == "Slugcat"
+	//elseif reference0 == "Cricket" //Kawari Neko Atsume!
+	//elseif reference0 == "The Hunter" //Slugcat
+	//elseif reference0 == "Trash Can" //HSR
+	//elseif reference0 == "Crono" //CT Crew
+	//elseif reference0 == "Herlock Sholmes"
+	//elseif reference0 == "Castoria"
+	//elseif reference0 == "Shadow Child"
+	//elseif reference0 == "Fairune Duo"
+	//elseif reference0 == "Tin Can"
+	//elseif reference0 == "Layton"
+	//elseif reference0 == "RGB Puzzlers"
+	//elseif reference0 == "Defence"
+	//elseif reference0 == "Moomintroll"
+	//elseif reference0 == "Moomins" //Moominhousehold
+	//elseif reference0 == "Inferno"
+	//elseif reference0 == "Eggbeater"
+	//elseif reference0 == "Freddy Fazbear"
+	//elseif reference0 == "P4tagonist"
+	//elseif reference0 == "Siffrin"
+	//elseif reference0 == "Red" //Everhood
+	//elseif reference0 == ""
+	else
+	{
+		"\![raise,OnBoot]"
+	}
 }

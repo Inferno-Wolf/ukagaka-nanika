@@ -5,7 +5,7 @@
 //Because there is an all modifier here, you don't need to write -- between menu options
 OnSakuraMenu : all
 {
-	"\0\s[0]\b2\![set,autoscroll,disable]\_q"
+	"\0\s[0]\![set,autoscroll,disable]\_q"
 	
 	"\![*]\q[Talk to me,OnAiTalk]"
 	if LastTalk != ""; "  \![*]\q[Say that again,OnLastTalk]"
@@ -18,7 +18,7 @@ OnSakuraMenu : all
 	
 	"--Talk Rate Options--"
 	"\nCurrently: %(_talkrate)"
-	"\n\![*]\q[3min,OnTalkRateMenu,norm]  /  \![*]\q[5min,OnTalkRateMenu,poor]  /  \![*]\q[Silent,OnTalkRateMenu,none]"
+	"\n\![*]\q[3min,OnTalkRateMenu,norm]  /  \![*]\q[5min,OnTalkRateMenu,poor]  /  \![*]\q[10min,OnTalkRateMenu,max] \n\![*]\q[Silent,OnTalkRateMenu,none]"
 	
 	"\n\n\![*]\q[Nevermind,blank]"	
 }
@@ -32,18 +32,1016 @@ OnTalkRateMenu
 {	
 	if reference0 == "norm"
 	{
-		talktime = "3 minutes"
 		aitalkinterval = 180
 	}
 	elseif reference0 == "poor"
 	{
-		talktime = "5 minutes"
 		aitalkinterval = 300
+	}
+	elseif reference0 == "max"
+	{
+		aitalkinterval = 600
 	}
 	elseif reference0 == "none"
 	{
-		talktime = "Silent"
 		aitalkinterval = 0
 	}
 	OnSakuraMenu
 }
+
+
+//GAME EXPLANATIONS GO HERE
+OnSouls
+{
+	"\1Souls games...\w8\w8\n\n[half]"
+	--
+	"A series of exploratory beat em ups by Fromsoft that boast a rather hard difficulty.\w8"
+	
+	"A game series in which you explore the worlds and learn its combat rules down to the tiniest detail.\w8"
+	
+	"A game series about fighting difficult battles and searching into the whispers of what remains of this world you're placed in.\w8"
+	--
+	if reference0 == "demon"
+	{
+		"\n\n[half]The very first entry in this series,\w4 Demon Souls,\w4 was released for the Playstation 3 and remade for the Playstation 5.\w8"
+	}
+	elseif reference0 == "dark"
+	{
+		"\n\n[half]The flagship game which made this series really take off,\w4 Dark Souls,\w4 was released for the Playstation 3 and has several sequels of its own.\w8"
+	}
+	elseif reference0 == "ring"
+	{
+		"\n\n[half]Elden Ring adopts a more open world approach to the formula than its predecessors and is just as much about traversal as it is about its combat.\w8"
+	}
+	--
+	"\n\n[half]Credit doesn't like these on principle.\w8 Something about accessibility in gaming.\w8\e"
+}
+
+
+OnResidentEvil
+{
+	"\1Resident Evil,\w4 known as Biohazard in Japan...\w8\w8\n\n[half]"
+	--
+	"A horror game series by Capcom usually involving shooting mechanics.\w8"
+	
+	"A game series about a deadly zombie virus that mutates out of control by the end every time.\w8"
+	
+	"A game series in which the company behind a zombie outbreak gets in far over their heads and is thwarted by someone who can't let them get away with their plots.\w8"
+	--
+	if reference0 == "vii"
+	{
+		"\n\n[half]The seventh game in the series used a first person perspective and returned the setting to a residence,\w4 like the very first game in the series.\w8 It got a direct sequel,\w4 called Village,\w4 which takes place in Europe and involves the player character trying to save their daughter on top of their wife.\w8"
+	}
+	elseif reference0 == "re4"
+	{
+		"\n\n[half]The fourth game in the series,\w4 Resident Evil 4,\w4 changed the genre more into an action shooter than a horror one.\w8 Its gameplay is still cited as revolutionising the shooter genre as a whole.\w8"
+	}
+	--
+	"\n\n[half]Credit thinks it's hilarious how ridiculous this series gets.\w8\e"
+}
+
+
+OnPokemon
+{
+	"\1Pokemon...\w8\w8\n\n[half]"
+	--
+	"A creature raising game series by GameFreak found mainly on Nintendo consoles.\w8"
+	
+	"A game series about raising a team of monsters and becoming the very best in the region like no one ever was.\w8"
+	
+	"A game series in which you travel the region with your team of critters and defeat the Leaders in a bid to reach the Elite,\w4 the strongest challenge available to you.\w8"
+	--
+	if reference0 == "pla"
+	{
+		"\n\n[half]Legends Arceus is a spin-off on the Nintendo Switch that adopts a more action-oriented play style.\w8"
+	}
+	elseif reference0 == "hgss"
+	{
+		"\n\n[half]Heart Gold and Soul Silver are Nintendo DS remakes of the original Gold,\w4 Silver,\w4 and Crystal games,\w4 which were on the Game Boy Colour.\w8 While the originals are known as Generation 2 of the series,\w4 these remakes take place in Generation 4.\w8"
+	}
+	elseif reference0 == "dppt"
+	{
+		"\n\n[half]Diamond,\w4 Pearl,\w4 and Platinum are the Generation 4 games of the series on the Nintendo DS.\w8 Diamon and Pearl got remakes for the Nintendo Switch called Brilliant Diamond and Shining Pearl,\w4 while Platinum's elements were used in Pokemon Legends Arceus.\w8"
+	}
+	elseif reference0 == "bw"
+	{
+		"\n\n[half]Black and White are the Generation 5 games of the series on the Nintendo DS.\w8 They got a direct sequel in Black 2 and White 2,\w4 which take place a few years after in the same region.\w8"
+	}
+	elseif reference0 == "xy"
+	{
+		"\n\n[half]X and Y are the Generation 6 games of the series on the Nintendo 3DS.\w8 They were the first in the main series to have full 3D graphics.\w8"
+	}
+	elseif reference0 == "sv"
+	{
+		"\n\n[half]Scarlet and Violet are the Generation 9 of the series on the Nintendo Switch.\w8 They were notoriously buggy and laggy upon release.\w8"
+	}
+	elseif reference0 == "colo"
+	{
+		"\n\n[half]Colosseum is a spin-off on the Nintendo Gamecube where you steal corrupted Pokemon from other Trainers instead of catching them in the wild.\w8 It got a direct sequel called Colosseum XD Gale of Darkness.\w8"
+	}
+	elseif reference0 == "mystdung"
+	{
+		"\n\n[half]Mystery Dungeon is a spin-off where the player is put into the body of a Pokemon and adopts a rogue-like dungeon crawler style of gameplay.\w8"
+	}
+	elseif reference0 == "ranger"
+	{
+		"\n\n[half]Rangers is a spin-off where the player captures Pokemon by drawing loops around them to help with overworld tasts,\w4 to calm them down from panicking or rampaging,\w4 and doesn't specifically keep them on their team.\w8 It had two sequels,\w4 Shadows of Almia and Guardian Signs.\w8 All three games were released on the Nintendo DS.\w8"
+	}
+	--
+	"\n\n[half]Credit's been playing this one since the very first releases,\w4 Red,\w4 Blue,\w4 and Yellow.\w8\e"
+}
+
+
+OnFF
+{
+	"\1Final Fantasy...\w8\w8\n\n[half]"
+	--
+	"An RPG series by Square Enix,\w4 formerly known as Squaresoft,\w4 that usually all take place in vastly different worlds with different characters and no connecting tissue.\w8"
+	
+	"A game series about gathering a party of characters in order to embark on a world-saving journey.\w8 Most of the time.\w8"
+	
+	"A game series in which you battle your way through the land and uncover political plots in your bid to save the world,\w4 whether for better or for worse.\w8"
+	--
+	if reference0 == "ff12"
+	{
+		"\n\n[half]Final Fantasy 12 introduced a mechanic where you could program your actions in battles,\w4 which could automate the whole system if you arranged it correctly.\w8"
+	}
+	elseif reference0 == "ffx"
+	{
+		"\n\n[half]Final Fantasy X involves a Summoner and her guardians on her pilgrimage through the temples throughout the world,\w4 gathering summon beast in preparation for defeating the monster disrupting their peace.\w8"
+	}
+	elseif reference0 == "ffcc"
+	{
+		"\n\n[half]Final Fantasy Crystal Chornicles is a spin-off where your caravan is exploring the land in order to find a precious resource to keep your town from succumbing to the poisonous air of the world.\w8 Originally on the Nintendo Gamecube,\w4 it got a remake for the Nintendo Switch.\w8"
+	}
+	elseif reference0 == "ff14"
+	{
+		"\n\n[half]Final Fantasy 14 is also an online multiplayer where you design your player character.\w8 Due to the online aspect of it,\w4 its battle system is different from the usual RPG fare.\w8"
+	}
+	--
+	"\n\n[half]Since Credit's a big RPG sort of person,\w4 they've devoured each and every one of these...\w8\e"
+}
+
+
+OnZelda
+{
+	"\1The Legend of Zelda...\w8\w8\n\n[half]"
+	--
+	"An adventure RPG series made by Nintendo for Nintendo consoles.\w8"
+	
+	"A game series about a hero of Courage,\w4 a princess of Wisdom,\w4 and an evil of Power locked in an eternal cycle of combat.\w8"
+	
+	"A game series in which you explore the lands of Hyrule or Hyrule-adjacent lands and prepare to fight the evil big bad waiting for you at the end.\w8"
+	--
+	if reference0 == "mm"
+	{
+		"\n\n[half]Majora's Mask was the direct sequel to Ocarina of Time,\w4 both on the Nintendo 64.\w8 It takes palce in the land of Termina instead of Hyrule.\w8 It got a remake on the Nintendo 3DS.\w8"
+	}
+	elseif reference0 == "tp"
+	{
+		"\n\n[half]Twilight Princess went with a more realistically styled aesthetic and gave the player character the ability to turn into a wolf.\w8 It was released originally on the Nintendo Gamecube and Nintendo Wii,\w4 then got a remaster on the Nintendo WiiU.\w8"
+	}
+	elseif reference0 == "ww"
+	{
+		"\n\n[half]Wind Waker went with a much more cartoony art style and involved sailing across the vast sea between small islands of interest.\w8 It was originally released for the Nintendo Gamecube and got a remaster for the Nintendo WiiU,\w4 as well as two sequels,\w4 Phantom Hourglass and Spirit Tracks,\w4 which were on the Nintendo DS.\w8"
+	}
+	elseif reference0 == "botw"
+	{
+		"\n\n[half]Breath of the Wild was a return to a more open world sort of style for the series that had less focus on the linear narrative aspect.\w8 It was released on both the Nintendo WiiU and the Nintendo Switch and got a direct sequel,\w4 Tears of the Kingdom,\w4 also on the Nintendo Switch.\w8"
+	}
+	elseif reference0 == "la"
+	{
+		"\n\n[half]Link's Awakening was originally on a Game Boy game and got a remaster for the Game Boy Colour,\w4 and now has a full remake on the Nintendo Switch.\w8 It involves the player character being stranded on an island where the wind fish slumbers and is a direct sequel to Link to the Past.\w8"
+	}
+	elseif reference0 == "oracle"
+	{
+		"\n\n[half]Oracle of Seasons and Oracle of Ages are Game Boy Colour games developed by Capcom where the player character is sent off to a different land and tasked with saving the Oracles of each area.\w8 It is also a sort of sequel to Link to the Past.\w8"
+	}
+	--
+	"\n\n[half]Credit's loved this series probably for as long as they've been alive.\w8\e"
+}
+
+
+OnUndertale
+{
+	"\1Undertale...\w8\w8\n\n[half]"
+	--
+	"An RPG by Toby Fox released on PC and console.\w8"
+	
+	"A game that is both very aware of its status as a game as well as a fascinating narrative about monsters and humans.\w8"
+	
+	"A game in which you are given the choice to Spare every encounter or Attack every encounter.\w8"
+	--
+	"\n\n[half]Of course Credit is a fan.\w8 Not many aren't.\w8\e"
+}
+
+OnDeltarune
+{
+	"\1Deltarune...\w8\w8\n\n[half]"
+	--
+	"An RPG by Toby Fox released on PC and console.\w8"
+	
+	"A game about how your choices don't really matter and yet there is meaning behind them anyway.\w8"
+	
+	"A game in which you befriend your bully through an alternate world that could destroy your own if left unchecked.\w8"
+	--
+	"\n\n[half]Credit is invested in seeing where the story goes on this one.\w8\e"
+}
+
+
+OnPersona
+{
+	"\1Persona...\w8\w8\n\n[half]"
+	--
+	"An RPG series with life simulation elements made by Atlus.\w8"
+	
+	"A game series about the struggles of humanity and the constant fight between the desire for destruction and the desire to continue living.\w8"
+	
+	"A game series in which you summon demons and fight shadows,\w4 deal with day to day life choices,\w4 and fight a power which wants the world destroyed.\w8"
+	--
+	if reference0 == "p1p2"
+	{
+		"\n\n[half]Persona 1 and 2 were written by a different team and have a structure more similar to its parent franchise,\w4 Shin Megami Tensei,\w4 than the later games of the series.\w8 Persona 2 also has two games:\w8 Innocent Sin,\w4 the first,\w4 then Eternal Punishment,\w4 its sequel.\w8"
+	}
+	elseif reference0 == "p3"
+	{
+		"\n\n[half]Persona 3 was the first game in the series to set the structure of half dungeon crawling,\w4 half daily life schedule.\w8 It has several different iterations,\w4 including FES,\w4 Portable,\w4 and Reload.\w8"
+	}
+	elseif reference0 == "p4"
+	{
+		"\n\n[half]Persona 4 is more light-hearted than its predecessors,\w4 as seen in its brighter theme colours.\w8 It got a definitive edition called Golden.\w8"
+	}
+	elseif reference0 == "p5"
+	{
+		"\n\n[half]Persona 5 gave a more designed structure to its dungeons compared to its predecessor's random generation.\w8 It got a definitive edition called Royal.\w8"
+	}
+	elseif reference0 == "pq"
+	{
+		"\n\n[half]Persona Q is a spin-off that cuts out the daily life segments and takes on a first person dungeon crawl like the first game in the series.\w8 It also combines the main casts of Persona 3 and Persona 4 together.\w8 It has a sequel,\w4 Persona Q2,\w4 that was one of the last games released for the Nintendo 3DS and which throws the Persona 5 main cast in on top of the returning two.\w8"
+	}
+	elseif reference0 == "pscram"
+	{
+		"\n\n[half]Persona 5 Strikers,\w4 also known as Scramble in Japan,\w4 is the sequel to Persona 5.\w8 It changes its gameplay to more of a beat em up than an RPG.\w8"
+	}
+	elseif reference0 == "ptact"
+	{
+		"\n\n[half]Persona 5 Tactica is a midquel to Persona 5 and takes on a tactics style gameplay instead of the more traditional RPG one.\w8"
+	}
+	elseif reference0 == "smt"
+	{
+		"\n\n[half]Shin Megami Tensei is the parent series of Persona and is more overtly about wars of religions.\w8 Digital Devil Saga is a different spin-off of the Shin Megami Tensei series.\w8"
+	}
+	--
+	"\n\n[half]Credit both loves and hates these games...\w8\e"
+}
+
+
+OnMonsterSanctuary
+{
+	"\1Monster Sanctuary...\w8\w8\n\n[half]"
+	--
+	"A 2D side scroller and creature raiser by Moi Rai Games released for PC and console.\w8"
+	
+	"A game about becoming a monster handler and unravelling a conspiracy behind your order in the process.\w8"
+	
+	"A game in which you rise in the ranks of monster handlers and are soon faced by a conspiracy brewing within your own order.\w8"
+	--
+	"\n\n[half]Credit says there's more to like in this one than frustrates them.\w8\e"
+}
+
+
+OnPsychonauts
+{
+	"\1Psychonauts...\w8\w8\n\n[half]"
+	--
+	"An action platformer by Double Fine released originally for XBox and Playstation 2.\w8"
+	
+	"A game about a psychic kid running away from his family's circus and unravelling a psychic spy conspiracy.\w8"
+	
+	"A game in which you dive into the minds of others in order to sort their emotional baggage,\w4 help them fight their demons,\w4 and unlock their memory vaults to learn more about them in your journey to become a Psychonaut.\w8"
+	--
+	if reference0 == 2
+	{
+		"\n\n[half]The sequel,\w4 Psychonauts 2,\w4 picks up right where the previous game left off and delves further into the mystery of just how connected the player character is to this underlying conspiracy.\w8"
+	}
+	elseif reference0 == "rhombus"
+	{
+		"\n\n[half]A VR sequel game was made which picks up directly after the first game ends,\w4 which elabourates more on one of the villains from the first game.\w8"
+	}
+	//elseif reference0 == ""
+	--
+	"\n\n[half]Credit really likes the writing and characters in this one.\w8\e"
+}
+
+
+OnFigment
+{
+	"\1Figment...\w8\w8\n\n[half]"
+	--
+	"A musical puzzle game by Bedtime Digital released on PC and console.\w8"
+	
+	"A game with musical numbers that's mostly a puzzle solver with some combat sections.\w8"
+	
+	"A game about the embodiment of Courage and the embodiment of Optimism inside a man's head doing their best to fight his fears and sort him and themselves out.\w8"
+	--
+	if reference0 == "creed"
+	{
+		"\n\n[half]The sequel game,\w4 Creed Valley,\w4 follows a similar formula with less confusing puzzles and smoother combat.\w8"
+	}
+	--
+	"\n\n[half]Credit is so charmed by the fact that this one's a musical.\w8\e"
+}
+
+
+OnOokami
+{
+	"\1Ookami...\w8\w8\n\n[half]"
+	--
+	"An adventure RPG by Clover Studio originally released for the Playstation 2 and Nintendo Wii.\w8"
+	
+	"A game about the goddess of the sun and her battle against the embodiment of darkness through several malicious youkai.\w8"
+	
+	"A game in which you play as the goddess of the sun in the form of a wolf and regain your powers through several trials and tribulations.\w8"
+	--
+	if reference0 == "bab"
+	{
+		"\n\n[half]There was a sequel game for the Nintendo DS which followed the child of the player character from the first game.\w8"
+	}
+	--
+	"\n\n[half]\w8\e"
+}
+
+
+OnPL
+{
+	"\1Professor Layton...\w8\w8\n\n[half]"
+	--
+	"A puzzle point and click game series by Level-5.\w8"
+	
+	"A game series about an archaeologist who is both a puzzle hound and a mystery solver and his young apprentice.\w8"
+	
+	"A game series in which you uncover the most ridiculous mysteries while solving puzzles.\w8"
+	--
+	if reference0 == "lbmr"
+	{
+		"\n\n[half]Layton Brothers Mystery Room is a sort of sequel that takes on a more visual novel style and is more akin to Ace Attorney than its parent games.\w8"
+	}
+	elseif reference0 == "lmj"
+	{
+		"\n\n[half]Layton's Mystery Journey is a sequel game in which the titular Professor Layton's daughter is the main character instead.\w8"
+	}
+	//elseif reference0 == ""
+	--
+	"\n\n[half]Credit can't play these,\w4 but is very attached to the main leads.\w8\e"
+}
+
+
+OnUnderhero
+{
+	"\1Underhero...\w8\w8\n\n[half]"
+	--
+	"A side scrolling RPG by Paper Castle released on PC and console.\w8"
+	
+	"A game in which you play as an underling to the big bad and accidentally become the hero of the story.\w8"
+	
+	"A game about a Masked Kid who picks up the hero's sword and takes on their job of defeating the big bad,\w4 their boss.\w8"
+	--
+	"\n\n[half]Credit was blown away by the ending of this one.\w8 Ever since,\w4 they're always ready to talk about it.\w8\e"
+}
+
+
+OnAA
+{
+	"\1Ace Attorney...\w8\w8\n\n[half]"
+	--
+	"A part point and click,\w4 part visual novel game series by Capcom originally released on the Game Boy Advance,\w4 then rereleased for the Nintendo DS.\w8"
+	
+	"A game series in which you play as a lawyer and defend your clients from a Guilty verdict.\w8"
+	
+	"A game about the legacy one lawyer carries with him as he fights to uncover the truth behind his cases.\w8"
+	--
+	if reference0 == "PW"
+	{
+		"\n\n[half]The first game in the series was simply called Phoenix Wright: Ace Attorney,\w4 and had a fifth case added to it for its Nintendo DS rerelease.\w8"
+	}
+	elseif reference0 == "JFA"
+	{
+		"\n\n[half]The second installment,\w4 called Justice for All,\w4 is now the only game in the original trilogy with only four cases.\w8"
+	}
+	elseif reference0 == "TAT"
+	{
+		"\n\n[half]The third and final installment of the original trilogy was called Trials and Tribulations.\w8"
+	}
+	elseif reference0 == "AJ"
+	{
+		"\n\n[half]The fourth installment,\w4 named after the titular new lawyer Apollo Justice,\w4 was a time jump 7 years after the end of the original trilogy and meant as a fresh start for the series.\w8"
+	}
+	elseif reference0 == "plvspw"
+	{
+		"\n\n[half]The crossover game with the Professor Layton series,\w4 called Professor Layton vs Phoenix Wright,\w4 was released on the Nintendo 3DS and was the first time in the series any of the Ace Attorney characters had 3D models.\w8"
+	}
+	elseif reference0 == "DD"
+	{
+		"\n\n[half]The fifth installment,\w4 Dual Destinies,\w4 was handled by the writer of the spin-off Ace Attorney Investigations series.\w8"
+	}
+	elseif reference0 == "SOJ"
+	{
+		"\n\n[half]The sixth installment,\w4 Spirit of Justice,\w4 was handled by the writer of the spin-off Ace Attorney Investigations series.\w8"
+	}
+	elseif reference0 == "invest"
+	{
+		"\n\n[half]The Investigations games are a spin-off duology starring Miles Edgeworth,\w4 Phoenix Wright's long running rival and friend,\w4 and were both released for the Nintendo DS.\w8"
+	}
+	--
+	"\n\n[half]Credit says this is one of their favourites,\w4 so they have quite a few opinions about it.\w8\e"
+}
+
+OnDGS
+{
+	"\1Dai Gyakuten Saiban,\w4 localised as the Great Ace Attorney Chronicles...\w8\w8\n\n[half]"
+	--
+	"A part point and click,\w4 part visual novel by Capcom originally for the Nintendo 3DS and later released together on the Nintendo Switch.\w8"
+	
+	"A courtroom drama game that takes place in the 1920s about a fledgling lawyer and his many escapades.\w8"
+	
+	"A game in which you become a lawyer and fight tooth and nail to discover the truth behind your cases.\w8"
+	--
+	"\n\n[half]Since it's connected to the Ace Attorney series,\w4 it's also gotta be one of Credit's favourites.\w8\e"
+}
+
+
+OnMoomins
+{
+	"\1Snufkin: Melody of Moominvalley...\w8\w8\n\n[half]"
+	--
+	"A puzzle adventure game by Hyper Games released for PC and console that uses the Moomins characters.\w8"
+	
+	"A game about Snufkin from the Moomins series returning from his Winter travels to find Moominvalley in the midst of a campaign against the Park Keeper.\w8"
+	
+	"A game in which you play as Snufkin in search of his Moomintroll and tearing up every park you see along the way.\w8"
+	--
+	"\n\n[half]Credit's a big fan of Moomins stuff.\w8 They're so charmed by the writing in this one.\w8\e"
+}
+
+
+OnISAT
+{
+	"\1In Stars and Time...\w8\w8\n\n[half]"
+	--
+	"An RPG by InsertDisc5 made in RPG maker released for PC and console.\w8"
+	
+	"A game about being stuck in a time loop right at the end of your journey.\w8"
+	
+	"A game in which you are a traveller who gets stuck in a time loop through the use of a forgotten power from your forgotten culture.\w8"
+	--
+	if reference0 == "sasasa"
+	{
+		"\n\n[half]The Prologue game,\w4 Start Again,\w4 features a slice of the main gameplay loop.\w8"
+	}
+	//elseif reference0 == ""
+	--
+	"\n\n[half]Credit really likes this one,\w4 always praising its characters and writing.\w8\e"
+}
+
+
+OnEverhood
+{
+	"\1Everhood...\w8\w8\n\n[half]"
+	--
+	"A rhythm-like game made by Chris Nordgren and Jordi Roca released on PC and console.\w8"
+	
+	"A game in which you dodge beats in musical battles and work towards getting your arm back.\w8"
+	
+	"A game about the ineffable tales of the inexpressible divine moments of truth.\w8 At least,\w4 that's what the subtitle says.\w8"
+	--
+	"\n\n[half]Credit says this one changed their whole brain chemistry.\w8\e"
+}
+
+
+OnSTP
+{
+	"\1Slay the Princess...\w8\w8\n\n[half]"
+	--
+	"A horror visual novel by Black Tabby Games released for PC.\w8"
+	
+	"A game in which you can romance the very Princess you've been sent to slain,\w4 or kill her as the Narrator intends.\w8"
+	
+	"A game about the constant battle between life and death and those who wish to control the narrative.\w8"
+	--
+	"\n\n[half]\w8\e"
+}
+
+
+OnLPBP
+{
+	"\1The Liar Princess and the Blind Prince...\w8\w8\n\n[half]"
+	--
+	"A side scrolling 2D platformer by Nippon Ichi Software released for Nintendo Switch and Playstation 4.\w8"
+	
+	"A game about a wolf who forms a bond with a prince and runs to a witch in the woods to get him his eyesight back.\w8"
+	
+	"A game in which a little lie grows big enough to start a forest fire.\w8"
+	--
+	"\n\n[half]Credit finds this one cute and sad in equal measures.\w8 They also keep falling asleep to the music...\w8\e"
+}
+
+OnCKSH
+{
+	"\1The Cruel King and the Great Hero...\w8\w8\n\n[half]"
+	--
+	"An RPG by Nippon Ichi Software that uses the same art style as the Liar Princess and the Blind Prince.\w8 It was released for Playstation 4 and Nintendo Switch.\w8"
+	
+	"A game about a child's ambitious dream to become a hero like her father and the dragon who raised her's sadness.\w8"
+	
+	"A game in which you learn what being a hero can really mean in a world full of creatures of all kinds.\w8"
+	--
+	"\n\n[half]It's so cute,\w4 Credit can't help but love it.\w8\e"
+}
+
+
+OnLittleNight
+{
+	"\1Little Nightmares...\w8\w8\n\n[half]"
+	--
+	"A horror side scrolling platformer by Tarsier Studios released for PC and console.\w8"
+	
+	"A game about small children trying to navigate hostile worlds far bigger than them.\w8"
+	
+	"A game in which you're chased and hunted across each environment in your attempts to reach your goal.\w8"
+	--
+	if reference0 == "ii"
+	{
+		"\n\n[half]The second installment,\w4 simply titled Little Nightmares II,\w4 is thought to be a prequel to the first.\w8"
+	}
+	elseif reference0 == "iii"
+	{
+		"\n\n[half]The third installment of the series isn't out yet.\w8"
+	}
+	//elseif reference0 == ""
+	--
+	"\n\n[half]Credit likes simple horror games like this.\w8\e"
+}
+
+
+OnDeadSpace
+{
+	"\1Dead Space...\w8\w8\n\n[half]"
+	--
+	"A first person shooter horror by Visceral Games released for Playstation 3 and later remade for Playstation 5.\w8"
+	
+	"A game about a space mining facility being overrun by the products of religious horror icons.\w8"
+	
+	"A game in which you play as an engineer looking for his wife on a space station that's been corrupted by what they found in the planet they were mining for resources.\w8"
+	--
+	if reference0 == 2
+	{
+		"\n\n[half]There are several sequel games,\w4 but both lean more into action rather than horror.\w8"
+	}
+	--
+	"\n\n[half]It's a much more tense and gory horror,\w4 but Credit likes it all the same.\w8\e"
+}
+
+
+OnOutlast
+{
+	"\1Outlast...\w8\w8\n\n[half]"
+	--
+	"A first person horror survival game by Red Barrels released for PC and console.\w8"
+	
+	"A game about an asylum that's been doing unethical experiments and the whistleblower trying to grab evidence of this.\w8"
+	
+	"A game in which you try to record the goings on of a deteriorating asylum with your trusty camcorder as you're chased by its inmates.\w8"
+	--
+	"\n\n[half]This one's kinda disgusting,\w4 but Credit is fascinated by it anyway.\w8\e"
+}
+
+
+OnCrowCountry
+{
+	"\1Crow Country...\w8\w8\n\n[half]"
+	--
+	"A third person puzzle game with light horror elements by SFB Games released on PC and console.\w8"
+	
+	"A game in which you explore an almost abandoned theme park and deal with the Guests,\w4 fleshy enemies that are amalgamations of humans only half the time.\w8"
+	
+	"A game about dealing with the consequences of greed and the suffering of misunderstood Guests.\w8"
+	--
+	"\n\n[half]Credit is fascinated by games that are love letters to others...\w8\e"
+}
+
+
+OnMFN
+{
+	"\1My Friendly Neighbourhood...\w8\w8\n\n[half]"
+	--
+	"A first person shooter with light horror elements by John and Rvan Szymanski released for PC.\w8"
+	
+	"A game in which a simple job to deactivate the broadcasting antenna of a shut down TV studio turns into a whole adventure in fighting off overzealous puppets.\w8"
+	
+	"A game about a slew of puppets forgotten at their shut down studio causing problems for a mechanic trying to fix their antenna from interfering with normal broadcasting.\w8"
+	--
+	"\n\n[half]Credit is fascinated by games that are love letters to others...\w8 This one makes them motion sick,\w4 though.\w8\e"
+}
+
+
+OnDarkCloud
+{
+	"\1Dark Cloud...\w8\w8\n\n[half]"
+	--
+	"A dungeon crawler RPG released by Level-5.\w8 It's one of the first Playstation 2 games.\w8"
+	
+	"A dungeon crawler with elements of weapon building and town building,\w4 among other minor minigames.\w8"
+	
+	"A game in which you restore your town as well as a line of others destroyed by an evil genie.\w8"
+	--
+	"\n\n[half]Credit likes this one as much as its sequel,\w4 but still has more than a few gripes with it.\w8\e"
+}
+
+OnDarkChronicle
+{
+	"\1Dark Chronicle,\w4 also called Dark Cloud 2...\w8\w8\n\n[half]"
+	--
+	"A Playstation 2 game by Level-5,\w4 a sequel only in name to the first Dark Cloud game.\w8"
+	
+	"A dungeon crawler with elements of weapon building,\w4 town building,\w4 fishing,\w4 golfing,\w4 fish raising and racing,\w4 photography,\w4 inventing,\w4 and probably more.\w8"
+	
+	"A game where you travel through the land restoring towns and checking on the changes you make in the future by doing so.\w8"
+	--
+	"\n\n[half]Credit says this is one of their favourites,\w4 but they have a lot of complaints about it...\w8\e"
+}
+
+
+OnSwordcraft
+{
+	"\1Summon Night: Swordcraft Story...\w8\w8\n\n[half]"
+	--
+	"An RPG by Banpresto released on the Game Boy Advance.\w8"
+	
+	"A game about a fledgeling weapon crafter who participates in a tournament to decide who will become the next Craft Lord.\w8"
+	
+	"A game in which you dive deep into a dungeon and learn the secrets within it that paint some of the authority figures in your society in a very strange light.\w8"
+	--
+	if reference0 == 2
+	{
+		"\n\n[half]The first sequel,\w4 simply titled Summon Night: Swordcraft Story 2,\w4 is simply a continuation of the mechanics and has no relation to its predecessor outside of general worldbuilding details.\w8 There is a third installment,\w4 but it was never released outside of Japan.\w8"
+	}
+	--
+	"\n\n[half]Credit says the aesthetic of this one is just impeccable.\w8\e"
+}
+
+OnTwinAge
+{
+	"\1Summon Night: Twin Age...\w8\w8\n\n[half]"
+	--
+	"An RPG by Flight-Plan released on the Nintendo DS.\w8"
+	
+	"A game about two siblings who wind up entangled in a war between summon beasts and the summoners who want to control them.\w8"
+	
+	"A game in which you chase down a summon beast terrorist group only to realise they're also being manipulated into causing the destruction of the world.\w8"
+	--
+	"\n\n[half]Credit is fond of this one despite its lacklustre story.\w8\e"
+}
+
+
+OnWandersong
+{
+	"\1Wandersong...\w8\w8\n\n[half]"
+	--
+	"A musical puzzle game by Greg Lobanov released for PC and console.\w8"
+	
+	"A game about a cheery bard doing their best to preserve what they love about their world while the creator plans to restart it all.\w8"
+	
+	"A game in which you travel with a grumpy witch and sing to the world in your bid to keep what you love about it before it's completely remade.\w8"
+	--
+	"\n\n[half]The ending made Credit cry.\w8 They really like the characters in it.\w8\e"
+}
+
+
+OnFairune
+{
+	"\1Fairune...\w8\w8\n\n[half]"
+	--
+	"A top down pixel adventure game by Skipmore released on mobile and console.\w8"
+	
+	"A game about the cyclical nature of darkness and heroes being likened to the occasional necessary rebooting of a program.\w8"
+	
+	"A game in which you reboot the world of Fairune as prescribed by the program itself.\w8 It happens from time to time,\w4 after all.\w8"
+	--
+	if reference0 == 2
+	{
+		"\n\n[half]The sequel,\w4 Fairune 2,\w4 adds an odd twist of the program being started early due to an unexpected addition of data it wasn't accounting for.\w8"
+	}
+	elseif reference0 == "collect"
+	{
+		"\n\n[half]A collection of both the first and second game as well as two extras was released for Nintendo Switch and other platforms.\w8"
+	}
+	--
+	"\n\n[half]Credit is probably the only person who loves this game as much as they do...\w8\e"
+}
+
+
+OnMana
+{
+	"\1Secret of Mana...\w8\w8\n\n[half]"
+	--
+	"An RPG by Squaresoft originally released on the Super Nintendo and remastered for the Playstation 4.\w8"
+	
+	"A game about an unwitting hero stumbling into a fight for the world's balance through their birthright.\w8"
+	
+	"A game in which a bumbling hero,\w4 a rebellious princess,\w4 and a mischievous sprite save the world from a cult leader.\w8"
+	--
+	if reference0 == "series"
+	{
+		"\n\n[half]The Mana series spans several games and consoles,\w4 from the first on the Game Boy,\w4 incorrectly titled Final Fantasy Adventures,\w4 all the way up to the Playstation 5.\w8"
+	}
+	elseif reference0 == "trials"
+	{
+		"\n\n[half]Trials of Mana,\w4 its sequel,\w4 was also released for the Super Nintendo and later remade for console and PC.\w8"
+	}
+	elseif reference0 == "legends"
+	{
+		"\n\n[half]Legend of Mana,\w4 released originally for the Playstation,\w4 changed up the world traversal by allowing players to place tiles on the map and create their own world.\w8"
+	}
+	--
+	"\n\n[half]A game of Credit's childhood...\w8 They played this one for hours back in the day.\w8\e"
+}
+
+
+OnLems
+{
+	"\1Lemmings...\w8\w8\n\n[half]"
+	--
+	"A strategy game by DMA Design that has seen many different releases and iterations across the years.\w8"
+	
+	"A game in which you direct a stream of beings through an obstacle course to a safe exit.\w8"
+	
+	"A game about management and marching steadily towards home.\w8"
+	--
+	"\n\n[half]Credit never plays this one properly,\w4 always popping all the Lemmings instead of figuring out the puzzle...\w8\e"
+}
+
+
+OnIOG
+{
+	"\1Illusion of Gaia...\w8\w8\n\n[half]"
+	--
+	"An RPG by Enix released on the Super Nintendo.\w8"
+	
+	"A game about the age of exploration in which a child of dark power sets out to find out what happened to their parents.\w8"
+	
+	"A game in which you travel across the world's landmarks in search of what happened to your parents.\w8"
+	--
+	if reference0 == "sb"
+	{
+		"\n\n[half]It's the second game in the Soul Blazer series,\w4 though mostly has its own standalone plot.\w8"
+	}
+	//elseif reference0 == ""
+	--
+	"\n\n[half]A game of Credit's childhood...\w8 Though,\w4 they've never been able to beat it on their own.\w8\e"
+}
+
+
+OnLufia
+{
+	"\1Lufia: The Fortress of Doom...\w8\w8\n\n[half]"
+	--
+	"An RPG by Neverland released on the Super Nintendo.\w8"
+	
+	"A game in which four evil gods attempt to destroy the world and are countered by a party of heroes each time the cycle repeats.\w8"
+	
+	"A game about Death who cannot be truly killed and the hero who fell in love with her.\w8"
+	--
+	if reference0 == "ii"
+	{
+		"\n\n[half]The prequel game,\w4 Lufia II: Rise of the Sinistrals,\w4 was originally released on the Super Nintendo and later remade for the Nintendo DS.\w8"
+	}
+	elseif reference0 == "tlr"
+	{
+		"\n\n[half]A sequel game was developed by Natsume called Lufia: The Legend Returns,\w4 for the Game Boy Colour.\w8 It featured a radically different battle system and expanded the party quite a bit.\w8"
+	}
+	//elseif reference0 == ""
+	--
+	"\n\n[half]A game of Credit's childhood...\w8 They cry at the end of the tale every time.\w8\e"
+}
+
+
+OnNitW
+{
+	"\1Night in the Woods...\w8\w8\n\n[half]"
+	--
+	"A side scroller adventure game by Infinite Fall released for PC and console.\w8"
+	
+	"A game in which a college dropout returns to their small home town and tries to grapple with how nothing really changes or stays the same.\w8"
+	
+	"A game about the enormity and purpose of life and those who try to use the aimless to their advantage.\w8"
+	--
+	"\n\n[half]Credit's always humming the songs from this one.\w8 They really like its vibe.\w8\e"
+}
+
+
+OnOFF
+{
+	"\1OFF...\w8\w8\n\n[half]"
+	--
+	"An RPG by Mortis Ghost released for PC and made in RPG Maker.\w8"
+	
+	"A game about the efforts to rebuld a broken world falling to ruin and what purification of it would truly means.\w8"
+	
+	"A game in which you assist the Batteur in his goal to purify the world of this oppressive fear hanging over the whole of it.\w8"
+	--
+	"\n\n[half]Of course Credit likes this one.\w8 It's got a dash of horror and a compelling story.\w8\e"
+}
+
+
+OnPathologic
+{
+	"\1Pathologic...\w8\w8\n\n[half]"
+	--
+	"A first person decision simulation by Ice-Pick Lodge released for PC.\w8 It was originally in Russian and translated into English two different times.\w8"
+	
+	"A game about the encroaching panic of a pandemic and the futility of doing anything to stop it.\w8"
+	
+	"A game in which you take one of three sides towards combatting a pandemic.\w8"
+	--
+	if reference0 == 2
+	{
+		"\n\n[half]There is a Pathologic 2,\w4 but it is more of a remake than a traditional sequel.\w8"
+	}
+	--
+	"\n\n[half]Credit keeps falling asleep to this one.\w8 They like it,\w4 but the walking everywhere really lulls them into passing right back out.\w8\e"
+}
+
+
+OnFaith
+{
+	"\1Faith: The Unholy Trinity...\w8\w8\n\n[half]"
+	--
+	"An Atari-style horror game by Airdorf Games released originally in chapters for PC and console.\w8"
+	
+	"A game about a preacher attempting to finish an exorcism and things spiralling out of control from there.\w8"
+	
+	"A game in which you fight demons,\w4 both your own and literal,\w4 as you attempt to reclaim your faith.\w8"
+	--
+	"\n\n[half]Credit likes pixel games and horror,\w4 so this one is right up their alley.\w8\e"
+}
+
+
+OnBuddy
+{
+	"\1Buddy Simulator 1984...\w8\w8\n\n[half]"
+	--
+	"A text-based game at the start by Not A Sailor Studios released for PC and console.\w8"
+	
+	"A game about an artificial intelligence program designed to be your buddy.\w8"
+	
+	"A game in which a program is faced with the obstacles of game development versus player decision,\w4 the inability to understand how human relationships work due to its limited programming,\w4 and how fleeting a human's attention is to a computer.\w8"
+	--
+	"\n\n[half]Credit actually screams at the scares in this one.\w8 They really love it.\w8\e"
+}
+
+
+OnDDLC
+{
+	"\1Doki Doki Literature Club...\w8\w8\n\n[half]"
+	--
+	"A visual novel horror game by Dan Salvato released originally for PC,\w4 then remastered and ported to console.\w8"
+	
+	"A game about a high school literature club and the existential horror of being a side character inside a visual novel.\w8"
+	
+	"A game in which you get to know the members of the literature club and how their writing can be twisted against them.\w8"
+	--
+	"\n\n[half]Credit got into visual novels due to this one.\w8 They like horror maybe too much...\w8\e"
+}
+
+
+OnYearWalk
+{
+	"\1Year Walk...\w8\w8\n\n[half]"
+	--
+	"A first person side scrolling puzzle game with horror elements by Simogo released for mobile and PC.\w8"
+	
+	"A game in which you are given puzzles by Swedish folkloric figures in your attempts to perform an ancient tradition that will allow you to glimpse your future.\w8"
+	
+	"A game about the dangers of grasping the future and closing the loop before it can hurt someone outside of it.\w8"
+	--
+	"\n\n[half]Credit's crazy about this one.\w8 Even if it's basically a walking simulator at times.\w8\e"
+}
+
+
+OnFNAF
+{
+	"\1Five Nights at Freddy's...\w8\w8\n\n[half]"
+	--
+	"A series of horror games by Scott Cawthon released on PC and console.\w8"
+	
+	"A game series about a rather irresponsible company and their chains of animatronic mascot restaurants.\w8"
+	
+	"A game series in which you sit and survive an onslaught from a bunch of animatronic mascot characters.\w8"
+	--
+	if reference0 == "sb"
+	{
+		"\n\n[half]Security Breach is an installment which allows you to freely roam the frankly huge Pizzaplex,\w4 a mega mall styled restaurant.\w8 It was developed by Steel Wool and was notoriously filled with glitches and bugs upon release that have never truly gotten any fixes.\w8"
+	}
+	//elseif reference0 == ""
+	--
+	"\n\n[half]Credit is so weird for liking this one as much as they do...\w8\e"
+}
+
+
+OnDBH
+{
+	"\1Detroit: Become Human...\w8\w8\n\n[half]"
+	--
+	"A cinematic decision simulator by Quantic Dream released for PC and console.\w8"
+	
+	"A game in which you play as one of three androids in the burgeoning android revolution happening in Detroit.\w8"
+	
+	"A game about androids fighting for their right to be their own people.\w8"
+	--
+	"\n\n[half]Credit finds this one hilarious.\w8 Can't really disagree with them...\w8\e"
+}
+
+
+OnRiviera
+{
+	"\1Riviera: The Promised Land...\w8\w8\n\n[half]"
+	--
+	"A tactical RPG by Sting Entertainment originally released for the Wonderswan Colour and later ported to the Game Boy Advance.\w8 A remastered version was made for the Playstation Portable.\w8"
+	
+	"A game about an angel deciding to fight for the folk on the surface of their world rather than for their beurocratic angel department.\w8"
+	
+	"A game in which,\w4 after a brief bout of amnesia,\w4 you agree to save the world rather than destroy it.\w8"
+	--
+	"\n\n[half]This one is too difficult for Credit to play by themself.\w8 They like something in the system,\w4 though.\w8\e"
+}
+
+
+OnYIIK
+{
+	"\1YIIK: A Postmodern RPG...\w8\w8\n\n[half]"
+	--
+	"An RPG by Ackk Studios released on PC and console.\w8"
+	
+	"A game in which you hunt down what happened to a missing girl and get sidetracked into metaphysical spaces and the end of the world.\w8"
+	
+	"A game about a college graduate returning home and becoming embroiled in a supernatural world-ending adventure that revolves solely around him.\w8"
+	--
+	"\n\n[half]Credit always says it's fun to pick apart a trainwreck...\w8\e"
+}
+
+
+OnMight9
+{
+	"\1Mighty No. 9...\w8\w8\n\n[half]"
+	--
+	"A side scrolling shooter by Comcept in conjunction with Inti Creates released on PC and console.\w8"
+	
+	"A game in which you fight down a string of corrupted robots by absorbing their infected xels rather than destroying them.\w8"
+	
+	"A game about a pacifist robot being the only one capable of saving the rest of the city's robots from corruption by an unstable program's xels.\w8"
+	--
+	"\n\n[half]Credit always says it's fun to pick through a trainwreck...\w8\e"
+}
+
+
+OnSeaStars
+{
+	"\1Sea of Stars...\w8\w8\n\n[half]"
+	--
+	"A pixel art RPG by Sabotage Studio released for PC and console.\w8"
+	
+	"A game about the exhaustion of child soldiers and what sacrificing yourself for the sake of the world truly means.\w8"
+	
+	"A game in which you play as one of two recent Solstice Warriors and travel to defeat evil creaturs terrorising the world.\w8"
+	--
+	"\n\n[half]Credit's fascinated by love letter games of all kinds,\w4 really.\w8\e"
+}
+
+
+/*
+On
+{
+	"\1...\w8\w8\n\n[half]"
+	--
+	""
+	
+	""
+	
+	""
+	--
+	if reference0 == ""
+	{
+		"\n\n[half]"
+	}
+	elseif reference0 == ""
+	{
+		"\n\n[half]"
+	}
+	elseif reference0 == ""
+	{
+		"\n\n[half]"
+	}
+	--
+	"\n\n[half]\w8\e"
+}
+*/

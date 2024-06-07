@@ -9,6 +9,8 @@ OnAiTalk
 }
 
 
+//\f[color,default.anchor]\__q[,]\__q\f[default]
+
 //talking time!!
 RandomTalk : nonoverlap_pool
 {
@@ -38,6 +40,8 @@ RandomTalk : nonoverlap_pool
 	
 	"\0\s[2]Console wars are kinda silly.\w8 \s[0]\n\n[half]Listen to my wisdom:\w8 \s[1]Video Games Good.\w8 Fuck yeah.\w8\e"
 	
+	"\0\s[0]Fishing minigames...\w8\w8 \s[1]\n\n[half]Gotta have at least one fishing minigame,\w4 right?\w8\e"
+	
 	{
 		"\0\s[0]Hmm...\w8\w8 I think you needed to "
 		--
@@ -66,10 +70,12 @@ RandomTalk : nonoverlap_pool
 	
 	"\0\s[4]Remembering musical puzzles is easy...\w8\w8 Just gotta play the song over and over again...\w8\e"
 	
+	"\0\s[0]Do you have any idea what's happening here?\w8 Think I fell asleep through something important...\w8\e"
+	
 	{
 		"\0\s[0]Sometimes,\w4 it's easy to forget to actually play the game.\w8 \s[4]\n\n[half]"
 		--
-		"I just wanna sort my Pokemon boxes"
+		"I just wanna sort my \f[color,default.anchor]\__q[OnPokemon]Pokemon\__q\f[default] boxes"
 		
 		"Manual inventory sorting systems my beloved"
 		
@@ -84,9 +90,21 @@ RandomTalk : nonoverlap_pool
 		"I wanna exist in this world a little longer"
 		
 		"They made that attract mode way too appealing"
+		
+		"Reading about all the lore is just too much fun"
+		
+		"Too busy strategising out the next playthrough to actually boot up the game"
+		
+		"Too caught up in wiki hell to actually get to the game" //thanks Zi lmao
 		--
 		"...\w8\e"
 	}
+	
+	"\0\s[4]Gotta loop and loop and loop and loop and...\w8\e"
+	
+	"\0\s[0]Limiting our ability to really discern what's happening to heighten tensions...\w8\w8 \s[1]\n\n[half]Now that's some clever horror gaming.\w8\e"
+	
+	"\0\s[0]Gotta pet the dog.\w8 Wherever possible,\w4 \s[1]gotta pet the dog.\w8 Pet the cats,\w4 too.\w8\e"
 	
 	{
 		"\0\s[1]I'm glad you're the one playing and I'm not right now.\w8 "
@@ -99,191 +117,345 @@ RandomTalk : nonoverlap_pool
 		
 		"\s[2]You'd probably get upset when I fall asleep on the controller and spin in cirlces."
 		
-		"\s[2]Although,\w4 if this were Final Fantasy 12,\w4 you probably could fall asleep and I'd have no idea as the game kept going."
+		"\s[2]Although,\w4 if this were \f[color,default.anchor]\__q[OnFF,ff12]Final Fantasy 12\__q\f[default],\w4 you probably could fall asleep and I'd have no idea as the game kept going."
 		
-		"\s[4]If I were,\w4 Link would probably just be running forward into walls or in circles..."
+		"\s[4]If I were,\w4 \f[color,default.anchor]\__q[OnZelda]Link\__q\f[default] would probably just be running forward into walls or in circles..."
 		
 		"\w8\w8\s[2]You...\w8 are still playing,\w4 aren't you?"
 		--
 		"\w8\e"
 	}
 	
-	"\0\s[0]Super bosses are kinda fun sometimes,\w4 kinda overrated other times.\w8 \n\n[half]Undertale and Deltarune have good super boss designs,\w8 \s[2]but the one in Chapter 1 will forever be on my shit list.\w8 \s[0]\n\n[half]I've never cared for the types in Final Fantasy or Persona,\w4 either.\w8 \s[2]Some people like counting their turns.\w8 Not me.\w8\e"
+	"\0\s[0]Super bosses are kinda fun sometimes,\w4 kinda overrated other times.\w8 \n\n[half]\f[color,default.anchor]\__q[OnUndertale]Undertale\__q\f[default] and \f[color,default.anchor]\__q[OnDeltarune]Deltarune\__q\f[default] have good super boss designs,\w8 \s[2]but the one in Chapter 1 will forever be on my shit list.\w8 \s[0]\n\n[half]I've never cared for the types in \f[color,default.anchor]\__q[OnFF]Final Fantasy\__q\f[default] or \f[color,default.anchor]\__q[OnPersona]Persona\__q\f[default],\w4 either.\w8 \s[2]Some people like counting their turns.\w8 Not me.\w8\e"
 	
-	"\0\s[2]You know,\w4 it took me a while to get to grips with creature raising games outside of just Pokemon.\w8 \s[0]But they can be really fun once you let go of the fact that they're not going to be Pokemon.\w8\e"
+	"\0\s[0]I'd help you with the whole Crystal Caravan,\w8 \s[4]but there's no local play on the \f[color,default.anchor]\__q[OnFF,ffcc]Crystal Chronicles\__q\f[default] remaster.\w8 A real shame.\w8\e"
 	
-	"\0\s[4]Don't mind me,\w4 just dreaming of my ideal Pokemon team...\w8\e"
+	"\0\s[0]\f[color,default.anchor]\__q[OnFF,ffcc]Lilties\__q\f[default] are the classes of all time.\w8 \s[4]A military people shaped like onions...\w8\e"
 	
-	"\0\s[2]Bug types are really cool.\w8 Gamefreak is just mean and won't let them utilise their full potential.\w8\e"
+	"\0\s[0]Actually,\w4 \f[color,default.anchor]\__q[OnFF,ff14]Final Fantasy\__q\f[default] has some banger small people.\w8 The ones in 11 and 14 are standouts for sure.\w8\e"
 	
-	"\0\s[4]Mm...\w8\w8 Sounds like a Pokemon cry...\w8\e"
+	"\0\s[4]\f[color,default.anchor]\__q[OnFF,ffx]Yuna my girl Yuna my friend Yuna Brasca\__q\f[default]...\w8\w8 \n\n[half]We have to help her along her pilgrimage.\w8 We just gotta.\w8\e"
 	
-	"\0\s[0]What's up with Pokemon taking out the ability to sort our bag manually,\w4 anyway?\w8 \s[2]Remove half the fun for me,\w4 why don't you?\w8\e"
+	"\0\s[4]Oh Tidaa,\w4 you're so silly.\w8\w8\w8 \s[2]\n\n[half]\f[color,default.anchor]\__q[OnFF,ffx]Tidaa.\w8 Tidus?\__q\f[default]\w8 \s[0]Both work.\w8\e"
 	
-	"\0\s[0]I think picking a favourite Pokemon generation is...\w8\w8 \s[4]Difficult,\w4 actually.\w8 \s[0]\n\n[half]Gen 2 is my favourite,\w4 but my favourite games are Heart Gold and Soul Silver,\w4 which are Gen 4...\w8\w8 \s[4]\n\n[half]Mm...\w8\w8 Yeah,\w4 Johto so good...\w8\e"
+	"\0\s[4]\f[color,default.anchor]\__q[OnFF,ffx]Auron my favourite grandpa Auron\__q\f[default]...\w8\w8 \s[1]\n\n[half]He hits things real hard.\w8 Is good.\w8\e"
 	
-	"\0\s[0]Common misconception:\w8 Legends Arceus is not,\w4 in fact,\w4 the Pokemon Breath of the Wild.\w8 It is the Pokemon Monster Hunter.\w8 \n\n[half]Do with this what you will.\w8\e"
+	"\0\s[1]\f[color,default.anchor]\__q[OnFF,ffx]Kimahri\__q\f[default] is such a friend shape.\w8 Love him and his spear.\w8 We need to get him to Auron's side of the grid so he can start really destroying everything.\w8\e"
 	
-	"\0\s[0]Did Scarlet and Violet have to go off like that...?\w8\w8 \s[2]Actual decent story in MY Pokemon games?\w8 \s[4]Hard to believe.\w8\e"
+	"\0\s[2]You know,\w4 it took me a while to get to grips with creature raising games outside of just \f[color,default.anchor]\__q[OnPokemon]Pokemon\__q\f[default].\w8 \s[0]But they can be really fun once you let go of the fact that they're not going to be Pokemon.\w8\e"
 	
-	"\0\s[0]I agree with this wisdom:\w8 What makes Scarlet and Violet good is so good.\w8 What makes them bad is so funny.\w8 \s[4]\n\n[half]Take it with you as well.\w8\e"
+	"\0\s[4]Don't mind me,\w4 just dreaming of my ideal \f[color,default.anchor]\__q[OnPokemon]Pokemon\__q\f[default] team...\w8\e"
 	
-	"\0\s[2]Gee,\w4 Diamond and Pearl.\w8 Why did Pokemon let you have TWO remakes?\w8 \s[4]\n\n[half]Why did Brilliant Diamond and Shining Pearl have to be as bad as they were...?\w8\e"
+	"\0\s[2]\f[color,default.anchor]\__q[OnPokemon]Bug types\__q\f[default] are really cool.\w8 Gamefreak is just mean and won't let them utilise their full potential.\w8\e"
 	
-	"\0\s[0]Legends Arceus really is a remake of Diamond,\w4 Pearl,\w4 and Platinum in the best way possible.\w8 \n\n[half]I was not expecting its plot to go in the direction it did,\w4 but that was a cherry on top of the gameplay loop fun.\w8\e"
+	"\0\s[4]Mm...\w8\w8 Sounds like a \f[color,default.anchor]\__q[OnPokemon]Pokemon\__q\f[default] cry...\w8\e"
 	
-	"\0\s[0]So,\w4 Gen 5 is kinda overrated.\w8 \s[2]Not saying I dislike Black and White,\w4 or Black 2 and White 2,\w8 \s[0]just that they're overrated.\w8 \n\n[half]Seeing these stories play out again and noticing how every character acts more like the cardboard cutouts in X and Y than how players remember is...\w8\w8 \s[4]disheartening,\w4 to say the least.\w8\e"
+	"\0\s[0]What's up with \f[color,default.anchor]\__q[OnPokemon]Pokemon\__q\f[default] taking out the ability to sort our bag manually,\w4 anyway?\w8 \s[2]Remove half the fun for me,\w4 why don't you?\w8\e"
 	
-	"\0\s[0]The whole story conceit in Pokemon Black and White was kinda doomed from the start.\w8 \s[2]\n\n[half]These games are married to their battle system,\w4 as anyone who has earnestly tried to do the Contests in Gen 3 and Gen 4 knows.\w8 \s[0]Which means having a character like N who advocates for Pokemon freedom make very little sense,\w4 as he is forced to battle you and therefore completely shatter all of his ideals.\w8 It cheapens all his arguments and creates a hard to ignore dissonance within the whole narrative itself.\w8 Lots of players ignore it because he does make some intriguing and understandable points,\w4 but it still stands that he's a giant hypocrite for participating in the cycle of what he calls senseless violence instead of fully rejecting it.\w8 \n\n[half]That would be too radical,\w4 after all.\w8 \s[2]And Pokemon is married to their battle system.\w8 \s[4]What else can they do,\w4 make a new mechanic?\w8 Perish the thought.\w8\e"
+	"\0\s[0]I dunno about you,\w8 \s[1]but my favourite thing is to fish in a Gym statue and pull out a Magikarp.\w8 \n\n[half]Gotta love the early jank of \f[color,default.anchor]\__q[OnPokemon]Pokemon\__q\f[default].\w8\e"
 	
-	"\0\s[0]Doing the movie making stuff in Black 2 and White 2 is a great way to stock up on items.\w8 \s[2]\n\n[half]You just have to deal with the jank battle system for the movie and hope to god the RNG doesn't hate you in that moment.\w8\e"
+	"\0\s[0]I think picking a favourite Pokemon generation is...\w8\w8 \s[4]Difficult,\w4 actually.\w8 \s[0]\n\n[half]Gen 2 is my favourite,\w4 but my favourite games are \f[color,default.anchor]\__q[OnPokemon,hgss]Heart Gold and Soul Silver\__q\f[default],\w4 which are Gen 4...\w8\w8 \s[4]\n\n[half]Mm...\w8\w8 Yeah,\w4 Johto so good...\w8\e"
 	
-	"\0\s[0]Pokemon X and Y aren't bad,\w8 \s[2]but they are pretty jam packed full of meaningless fluff.\w8 \s[0]\n\n[half]There's a lot of fun Pokemon and neat ideas inside of these games,\w4 and it deserved its fair shake at a third installment that smoothed out all its half-baked ideas like Platinum did for Diamond and Pearl.\w8 \s[4]\n\n[half]Here's hoping Legends Z-A gives it the proper reworking it deserves...\w8\e"
+	"\0\s[0]Common misconception:\w8 \f[color,default.anchor]\__q[OnPokemon,pla]Legends Arceus\__q\f[default] is not,\w4 in fact,\w4 the Pokemon Breath of the Wild.\w8 It is the Pokemon Monster Hunter.\w8 \n\n[half]Do with this what you will.\w8\e"
 	
-	"\0\s[2]Those final battles at the end of Monster Sanctuary can go and die.\w8 I hated those.\w8\e"
+	"\0\s[0]Did \f[color,default.anchor]\__q[OnPokemon,sv]Scarlet and Violet\__q\f[default] have to go off like that...?\w8\w8 \s[2]Actual decent story in MY Pokemon games?\w8 \s[4]Hard to believe.\w8\e"
 	
-	"\0\s[1]Tar Blob my absolute beloved...\w8 Spinner is also up there for top babies.\w8 \n\n[half]Actually,\w4 all the slimes are top-tier in Monster Sanctuary.\w8 That blob farmer was so right.\w8\e"
+	"\0\s[0]I agree with this wisdom:\w8 What makes \f[color,default.anchor]\__q[OnPokemon,sv]Scarlet and Violet\__q\f[default] good is so good.\w8 What makes them bad is so funny.\w8 \s[4]\n\n[half]Take it with you as well.\w8\e"
 	
-	"\0\s[0]Monster Sanctuary may have a very weak story,\w8 \s[1]but built-in randomisation for new game plus runs is such a cool feature.\w8 \s[4]Pokemon only wishes it had a feature as cool as that.\w8\e"
+	"\0\s[2]Gee,\w4 \f[color,default.anchor]\__q[OnPokemon,dppt]Diamond and Pearl\__q\f[default].\w8 Why did Pokemon let you have TWO remakes?\w8 \s[4]\n\n[half]Why did Brilliant Diamond and Shining Pearl have to be as bad as they were...?\w8\e"
 	
-	"\0\s[0]Of all the genres,\w4 I never expected a mix of creature-raising and metroidvania to be one that works so well.\w8 \s[1]Monster Sanctuary turning out to be pretty fun.\w8\e"
+	"\0\s[0]\f[color,default.anchor]\__q[OnPokemon,pla]Legends Arceus\__q\f[default] really is a remake of Diamond,\w4 Pearl,\w4 and Platinum in the best way possible.\w8 \n\n[half]I was not expecting its plot to go in the direction it did,\w4 but that was a cherry on top of the gameplay loop fun.\w8\e"
+	
+	"\0\s[0]So,\w4 Gen 5 is kinda overrated.\w8 \s[2]Not saying I dislike \f[color,default.anchor]\__q[OnPokemon,bw]Black and White\__q\f[default],\w4 or Black 2 and White 2,\w8 \s[0]just that they're overrated.\w8 \n\n[half]Seeing these stories play out again and noticing how every character acts more like the cardboard cutouts in X and Y than how players remember is...\w8\w8 \s[4]disheartening,\w4 to say the least.\w8\e"
+	
+	"\0\b2\s[0]The whole story conceit in \f[color,default.anchor]\__q[OnPokemon,bw]Pokemon Black and White\__q\f[default] was kinda doomed from the start.\w8 \s[2]\n\n[half]These games are married to their battle system,\w4 as anyone who has earnestly tried to do the Contests in Gen 3 and Gen 4 knows.\w8 \s[0]Which means having a character like N who advocates for Pokemon freedom make very little sense,\w4 as he is forced to battle you and therefore completely shatter all of his ideals.\w8 It cheapens all his arguments and creates a hard to ignore dissonance within the whole narrative itself.\w8 \n\n[half]Lots of players ignore it because he does make some intriguing and understandable points,\w4 but it still stands that he's a giant hypocrite for participating in the cycle of what he calls senseless violence instead of fully rejecting it.\w8 \n\n[half]That would be too radical,\w4 after all.\w8 \s[2]And Pokemon is married to their battle system.\w8 \s[4]\n\n[half]What else can they do,\w4 make a new mechanic?\w8 Perish the thought.\w8\e"
+	
+	"\0\s[0]Doing the movie making stuff in \f[color,default.anchor]\__q[OnPokemon,bw]Black 2 and White 2\__q\f[default] is a great way to stock up on items.\w8 \s[2]\n\n[half]You just have to deal with the jank battle system for the movie and hope to god the RNG doesn't hate you in that moment.\w8\e"
+	
+	"\0\s[0]\f[color,default.anchor]\__q[OnPokemon,xy]Pokemon X and Y\__q\f[default] aren't bad,\w8 \s[2]but they are pretty jam packed full of meaningless fluff.\w8 \s[0]\n\n[half]There's a lot of fun Pokemon and neat ideas inside of these games,\w4 and it deserved its fair shake at a third installment that smoothed out all its half-baked ideas like Platinum did for Diamond and Pearl.\w8 \s[4]\n\n[half]Here's hoping Legends Z-A gives it the proper reworking it deserves...\w8\e"
+	
+	"\0\s[0]Stealing Pokemon,\w4 riding across the desert in a cool bike...\w8\w8 \s[1]\n\n[half]\f[color,default.anchor]\__q[OnPokemon,colo]Colosseum\__q\f[default] kinda rocks aesthetically.\w8\e"
+	
+	"\0\s[0]\f[color,default.anchor]\__q[OnPokemon,colo]Shadow Pokemon\__q\f[default]...\w8\w8 Colour me intrigued.\w8\e"
+	
+	"\0\s[0]What kind of \f[color,default.anchor]\__q[OnPokemon,mystdung]Pokemon\__q\f[default] are you?\w8 \s[1]How do you do the things you do?\w8\w8 \s[2]\n\n[half]Don't look at me like that.\w8 I'm just asking which Nature you were assigned by the quiz.\w8\e"
+	
+	"\0\s[0]\f[color,default.anchor]\__q[OnPokemon,mystdung]Mystery Dungeon\__q\f[default]'s world has so many interesting implications...\w8\w8 \n\n[half]How have humans just disappeared from this world?\w8 The Pokemon know what they are in theory,\w4 so that means they existed at some point.\w8 \s[4]\n\n[half]Wild to think about...\w8\e"
+	
+	"\0\s[0]I think being a \f[color,default.anchor]\__q[OnPokemon,ranger]Pokemon Ranger\__q\f[default] would be fun.\w8 \s[4]Real difficult thinking of a partner Pokemon though,\w4 since you only get the one...\w8\e"
+	
+	"\0\s[2]How many loops do you gotta draw around that \f[color,default.anchor]\__q[OnPokemon,ranger]Pokemon\__q\f[default]?\w8 \s[0]\n\n[half]It's really giving you the run-around.\w8\e"
+	
+	"\0\s[2]Those final battles at the end of \f[color,default.anchor]\__q[OnMonsterSanctuary]Monster Sanctuary\__q\f[default] can go and die.\w8 I hated those.\w8\e"
+	
+	"\0\s[1]Tar Blob my absolute beloved...\w8 Spinner is also up there for top babies.\w8 \n\n[half]Actually,\w4 all the slimes are top-tier in \f[color,default.anchor]\__q[OnMonsterSanctuary]Monster Sanctuary\__q\f[default].\w8 That blob farmer was so right.\w8\e"
+	
+	"\0\s[0]\f[color,default.anchor]\__q[OnMonsterSanctuary]Monster Sanctuary\__q\f[default] may have a very weak story,\w8 \s[1]but built-in randomisation for new game plus runs is such a cool feature.\w8 \s[4]Pokemon only wishes it had a feature as cool as that.\w8\e"
+	
+	"\0\s[0]Of all the genres,\w4 I never expected a mix of creature-raising and metroidvania to be one that works so well.\w8 \s[1]\f[color,default.anchor]\__q[OnMonsterSanctuary]Monster Sanctuary\__q\f[default] turning out to be pretty fun.\w8\e"
 	
 	"\0\s[1]Video games can be musicals...\w8\e"
 	
-	"\0\s[0]It's so weird.\w8 I expected not to like Dusty,\w4 but he turned out to be a pretty swell embodiment of courage.\w8 Piper,\w4 too,\w4 could have been extremely annoying as an embodiment of optimism,\w4 but she ended up being really good,\w4 too.\w8 \s[1]\n\n[half]The power of a fun concept and fun characters...\w8\e"
+	"\0\s[0]It's so weird.\w8 I expected not to like \f[color,default.anchor]\__q[OnFigment]Dusty\__q\f[default],\w4 but he turned out to be a pretty swell embodiment of courage.\w8 Piper,\w4 too,\w4 could have been extremely annoying as an embodiment of optimism,\w4 but she ended up being really good,\w4 too.\w8 \s[1]\n\n[half]The power of a fun concept and fun characters...\w8\e"
 	
-	"\0\s[1]I like games with a psychological element to them.\w8 Psychonauts,\w4 Figment,\w4 all those types.\w8 \n\n[half]The psychic-thrilling master Razputin Aquato and the embodiment of Courage Dusty are just a lot of fun to watch in action.\w8\e"
+	"\0\s[0]Knock on one door,\w4 get a nuh-uh.\w8 Knock on the other,\w4 get a yup.\w8 \s[4]\n\n[half]These \f[color,default.anchor]\__q[OnFigment]Figment\__q\f[default] puzzles are really something else...\w8\e"
 	
-	"\0\s[1]Raz my baby boy Razputin Aquato...\w8\w8 \s[4]\n\n[half]Let him rest,\w4 he's been through enough.\w8\e"
+	"\0\s[0]Wonder when \f[color,default.anchor]\__q[OnFigment,creed]Dusty\__q\f[default]'s gonna figure out what this Jester's deal is.\w8 \s[1]Looks like Piper's all ready got it figured out.\w8\e"
 	
-	"\0\s[4]Shoutouts to Dogen in the chat...\w8\e"
+	"\0\s[1]\f[color,default.anchor]\__q[OnFigment,creed]Bad Opinion Song\__q\f[default] is a real fun one.\w8 \s[4]Talk about all your worst thoughts you have to throw away for a reason.\w8\e"
 	
-	"\0\s[0]Looks like another puzzle.\w8 \s[1]\n\n[half]Guess this calls for that great Professor Layton,\w4 huh?\w8\e"
+	"\0\s[1]I like games with a psychological element to them.\w8 \f[color,default.anchor]\__q[OnPsychonauts]Psychonauts\__q\f[default],\w4 \f[color,default.anchor]\__q[OnFigment]Figment\__q\f[default],\w4 all those types.\w8 \n\n[half]The psychic-thrilling master Razputin Aquato and the embodiment of Courage Dusty are just a lot of fun to watch in action.\w8\e"
+	
+	"\0\s[0]Thinking about it,\w4 everything would be just a suggestion in a mental world.\w8 Like walls,\w4 floors,\w4 everything.\w8 \n\n[half]I think \f[color,default.anchor]\__q[OnPersona,p5]Persona 5\__q\f[default] handles this well with needing to change certain boss' cognitions in order to progress.\w8 \s[1]And \f[color,default.anchor]\__q[OnPsychonauts]Psychonauts\__q\f[default] does it really well with all their mental landscapes being as fantastical as they are.\w8 A great look into that person's perspective,\w4 huh?\w8\e"
+	
+	"\0\s[1]Raz my baby boy \f[color,default.anchor]\__q[OnPsychonauts]Razputin Aquato\__q\f[default]...\w8\w8 \s[4]\n\n[half]Let him rest,\w4 he's been through enough.\w8\e"
+	
+	"\0\s[4]Shoutouts to \f[color,default.anchor]\__q[OnPsychonauts]Dogen Boole\__q\f[default] in the chat...\w8\e"
+	
+	"\0\s[0]It really is fascinating how everyone in the \f[color,default.anchor]\__q[OnPsychonauts]Psychonauts\__q\f[default] universe treats Raz like he's not a threat.\w8 I mean,\w4 he's probably the most powerful psychic of their time,\w4 second only to the public big bad who shattered Ford's mind.\w8 He's just got such a powerful shield from years of hiding from his family that he gets underestimated,\w4 I guess.\w8 \s[2]Or he's got mad middle child syndrome.\w8 \s[1]Or both!\w8\e"
+	
+	"\0\s[4]Speedrun strats \f[color,default.anchor]\__q[OnPsychonauts]Razputin Aquato\__q\f[default] is real...\w8\w8 \n\n[half]I know it in my heart of hearts...\w8\e"
+	
+	"\0\s[0]If VR didn't make me dizzy as fuck,\w4 you know I'd be all over the \f[color,default.anchor]\__q[OnPsychonauts,rhombus]Rhombus of Ruin\__q\f[default].\w8 \s[4]Sasha and Milla my beloveds...\w8\e"
+	
+	"\0\s[0]What a way to start an experience.\w8 \f[color,default.anchor]\__q[OnPsychonauts,rhombus]Rhombus of Ruin\__q\f[default] really out here giving us the exact ship tease we want.\w8 \s[1]And more Raz being Raz.\w8\e"
+	
+	"\0\s[2]It makes sense,\w4 but how can anyone think of Raz as a mole?\w8 \s[0]He's the biggest \f[color,default.anchor]\__q[OnPsychonauts,2]Psychonauts\__q\f[default] supporter there is.\w8\e"
+	
+	"\0\s[0]Looks like another puzzle.\w8 \s[1]\n\n[half]Guess this calls for that great \f[color,default.anchor]\__q[OnPL]Professor Layton\__q\f[default],\w4 huh?\w8\e"
 	
 	"\0\s[1]This reminds me of a puzzle.\w8\w8\w8\w8\w8 \s[2]\n\n[half]No,\w4 I won't do any other bits.\w8\e"
 	
-	"\0\s[4]Puzzles,\w4 puzzles,\w4 puzzles...\w8\w8 \s[1]\n\n[half]Better call Papyrus.\w8\e"
+	"\0\s[4]Puzzles,\w4 puzzles,\w4 puzzles...\w8\w8 \s[1]\n\n[half]Better call \f[color,default.anchor]\__q[OnUndertale]Papyrus\__q\f[default].\w8\e"
 	
-	"\0\s[0]To Mercy or to Attack...\w8\w8 \n\n[half]Making the important Undertale decisions,\w4 I see.\w8\e"
+	"\0\s[0]To Mercy or to Attack...\w8\w8 \n\n[half]Making the important \f[color,default.anchor]\__q[OnUndertale]Undertale\__q\f[default] decisions,\w4 I see.\w8\e"
 	
-	"\0\s[0]That rhythm minigame in Underhero is rather shit.\w8 \s[1]\n\n[half]Good thing you don't have to win it in order to progress.\w8\e"
+	"\0\s[0]That rhythm minigame in \f[color,default.anchor]\__q[OnUnderhero]Underhero\__q\f[default] is rather shit.\w8 \s[1]\n\n[half]Good thing you don't have to win it in order to progress.\w8\e"
 	
-	"\0\s[4]Underhero Underhero Underhero Underhero...\w8\e"
+	"\0\s[4]\f[color,default.anchor]\__q[OnUnderhero]Underhero Underhero Underhero Underhero\__q\f[default]...\w8\e"
 	
-	"\0\s[0]Underhero's a good one.\w8 \s[1]I really like the puzzle dimension.\w8 Pretty colours...\w8\e"
+	"\0\s[0]\f[color,default.anchor]\__q[OnUnderhero]Underhero\__q\f[default]'s a good one.\w8 \s[1]I really like the puzzle dimension.\w8 Pretty colours...\w8\e"
 	
-	"\0\s[0]I really like the charm of the jank platforming in Underhero.\w8 \s[4]\n\n[half]Sure,\w4 you can get stuck easily in that single space area and moving platforms have a guesstimate of a hitbox,\w8 \s[0]but the hoodie floating makes it easier to adjust your placement.\w8 \s[1]And it's fun.\w8\e"
+	"\0\s[0]I think the jank platforming in \f[color,default.anchor]\__q[OnUnderhero]Underhero\__q\f[default] has a charm all its own.\w8 \s[4]\n\n[half]Sure,\w4 you can get stuck easily in that single space area and moving platforms have a guesstimate of a hitbox,\w8 \s[0]but the hoodie floating makes it easier to adjust your placement.\w8 \s[1]And it's fun.\w8\e"
 	
-	"\0\s[0]I don't think people really get the time limit in Majora's Mask.\w8 \s[2]\n\n[half]It's three whole days with schedules and everything.\w8 \s[0]Plenty of time to dick around and fail at platforming while still completing the first dungeon.\w8\e"
+	"\0\s[0]I don't think people really get the time limit in \f[color,default.anchor]\__q[OnZelda,mm]Majora's Mask\__q\f[default].\w8 \s[2]\n\n[half]It's three whole days with schedules and everything.\w8 \s[0]Plenty of time to dick around and fail at platforming while still completing the first dungeon.\w8\e"
 	
-	"\0\s[2]Okay,\w4 but the 3DS remake of Majora's Mask sucks balls.\w8 Why'd they change the most time sensitive boss to be reliant on a button prompt that only triggers like half the time?\w8 Why'd they add fishing into a three day time limit game?\w8 \s[4]\n\n[half]Pisses me right off...\w8\e"
+	"\0\s[2]Okay,\w4 but the 3DS remake of \f[color,default.anchor]\__q[OnZelda,mm]Majora's Mask\__q\f[default] sucks balls.\w8 Why'd they change the most time sensitive boss to be reliant on a button prompt that only triggers like half the time?\w8 Why'd they add fishing into a three day time limit game?\w8 \s[4]\n\n[half]Pisses me right off...\w8\e"
 	
-	"\0\s[1]Stone Tower's gotta be the Zelda dungeon of all time.\w8 \s[4]Great music,\w4 really cool mechanic,\w4 just a banger all around.\w8\e"
+	"\0\s[1]Stone Tower's gotta be the \f[color,default.anchor]\__q[OnZelda,mm]Zelda\__q\f[default] dungeon of all time.\w8 \s[4]Great music,\w4 really cool mechanic,\w4 just a banger all around.\w8\e"
 	
-	"\0\s[0]You should absolutely play the Song of Time here.\w8 \s[4]Just sayin.\w8\e"
+	"\0\s[0]You should absolutely play the \f[color,default.anchor]\__q[OnZelda]Song of Time\__q\f[default] here.\w8 \s[4]Just sayin.\w8\e"
 	
-	"\0\s[2]Even if Twilight Princess is,\w4 structure-wise,\w4 just Ocarina of Time but with a wolf,\w8 \s[1]that wolf does it a lot of favours.\w8\e"
+	"\0\s[2]Even if \f[color,default.anchor]\__q[OnZelda,tp]Twilight Princess\__q\f[default] is,\w4 structure-wise,\w4 just Ocarina of Time but with a wolf,\w8 \s[1]that wolf does it a lot of favours.\w8\e"
 	
-	"\0\s[4]Wolf Link is best Link...\w8\w8 \s[0]\n\n[half]Well.\w8 Wind Waker Link is also good.\w8 And so is Breath of the Wild and Tears of the Kingdom Link.\w8 Link is a good Link.\w8\e"
+	"\0\s[4]\f[color,default.anchor]\__q[OnZelda,tp]Wolf Link\__q\f[default] is best Link...\w8\w8 \s[0]\n\n[half]Well.\w8 \f[color,default.anchor]\__q[OnZelda,ww]Wind Waker\__q\f[default] Link is also good.\w8 And so is \f[color,default.anchor]\__q[OnZelda,botw]Breath of the Wild and Tears of the Kingdom\__q\f[default] Link.\w8 Link is a good Link.\w8\e"
 	
-	"\0\s[4]Ballad of the Wind fish...\w8\w8 \s[0]is a less coherent song than I expected it to be.\w8 \s[2]Especially in the Switch remake...\w8\e"
+	"\0\s[4]\f[color,default.anchor]\__q[OnZelda,la]Ballad of the Wind Fish\__q\f[default]...\w8\w8 \s[0]is a less coherent song than I expected it to be.\w8 \s[2]Especially in the Switch remake...\w8\e"
 	
-	"\0\s[0]People say that Oracle of Seasons is combat focused,\w4 while Oracle of Ages is more puzzle focused.\w8 \s[4]\n\n[half]I think there's a healthy amount of each in both games,\w4 but their puzzles also just kick my ass.\w8\e"
+	"\0\s[0]People say that \f[color,default.anchor]\__q[OnZelda,oracle]Oracle of Seasons\__q\f[default] is combat focused,\w4 while \f[color,default.anchor]\__q[OnZelda,oracle]Oracle of Ages\__q\f[default] is more puzzle focused.\w8 \s[4]\n\n[half]I think there's a healthy amount of each in both games,\w4 but their puzzles also just kick my ass.\w8\e"
 	
 	"\0\s[4]Dedicated bark button my beloved...\w8\e"
 	
-	"\0\s[0]Ookami was so real for having a dedicated bark button.\w8 \s[4]\n\n[half]And also letting you feed pretty much every animal.\w8 That,\w4 too.\w8\e"
+	"\0\s[0]\f[color,default.anchor]\__q[OnOokami]Ookami\__q\f[default] was so real for having a dedicated bark button.\w8 \s[4]\n\n[half]And also letting you feed pretty much every animal.\w8 That,\w4 too.\w8\e"
+	
+	"\0\s[4]\f[color,default.anchor]\__q[OnOokami]Amaterasu and Issun\__q\f[default],\w4 duo of all time...\w8\w8 \s[0]\n\n[half]Well.\w8 They are to me.\w8\e"
+	
+	"\0\s[2]I'd appreciate \f[color,default.anchor]\__q[OnOokami]Issun\__q\f[default] more if he dropped the womanising act.\w8 \s[0]\n\n[half]He's a cute little bug dude.\w8 Why's he gotta fulfil the perverted sidekick quota?\w8\e"
 	
 	{
-		"\0\s[2]Okay,\w4 but why did they have to do Apollo Justice dirty like that?\w8\n\n[half]"
+		"\0\s[2]Okay,\w4 but why did they have to do \f[color,default.anchor]\__q[OnAA,AJ]Apollo Justice\__q\f[default] dirty like that?\w8\n\n[half]"
 		--
-		"\s[4]The new writer really just wanted to make the Investigations games but again..."
+		"\s[4]The new writer really just wanted to make the \f[color,default.anchor]\__q[OnAA,invest]Investigations games\__q\f[default] but again..."
 		
 		"\s[4]They really said in the nicest way possible 'now get the fuck out' to him..."
 		
-		"They didn't even respect my time in the joke DLC case.\w8 Giving us a piece of evidence with no use..."
+		"They didn't even respect my time in \f[color,default.anchor]\__q[OnAA,SOJ]the joke DLC case\__q\f[default].\w8 Giving us a piece of evidence with no use..."
 		
 		"\s[4]And people complain about how Phoenix Wright was done dirty...\w8\w8 They don't even know..."
 		--
 		"\w8\e"
 	}
 	
-	"\0\s[0]Do you call it Ace Attorney or Phoenix Wright?\w8 \s[1]Either way,\w4 he gets top billing in the crossover.\w8 \s[0]'Cause it's called Professor Layton vs Phoenix Wright.\w8\e"
+	"\0\s[4]My poor boy \f[color,default.anchor]\__q[OnAA,AJ]Apollo Justice\__q\f[default]...\w8\w8 \n\n[half]No one told you what was happening.\w8 Yet here you are,\w4 the best lawyer on the Wright team.\w8\w8 \s[2]\n\n[half]That's the correct opinion,\w4 not even sorry...\w8\e"
 	
-	"\0\s[0]Damon Gant really was the pinnacle of the first Ace Attorney game.\w8 Villains-wise,\w4 I mean.\w8 \n\n[half]His placement directly after someone like Manfred von Karma cements Phoenix as a proper Turnabout Terror and sets him up for the larger themes in Justice for All.\w8 \s[4]\n\n[half]It's just good writing decisions.\w8\e"
+	"\0\s[4]\f[color,default.anchor]\__q[OnAA,AJ]Apollo my boy of the sun\__q\f[default],\w4 my favourite shining guy...\w8\w8 \s[1]\n\n[half]Surprising law boy is right.\w8 He's here and he's fine.\w8\e"
 	
-	"\0\s[0]Seeing Phoenix desperately fighting off a panic attack throughout that case in Justice for All really is something.\w8 \s[4]\n\n[half]My good lawyer,\w4 we're really in it now...\w8\e"
+	"\0\s[1]\f[color,default.anchor]\__q[OnAA,AJ]Trucy Wright\__q\f[default] is the girl of all time.\w8 \n\n[half]Magician daughter.\w8 Love her to bits.\w8 Any girl who would slash someone's tires without flinching is great in my books.\w8\e"
 	
-	"\0\s[4]Snufkin game...\w8 So good...\w8\e"
+	"\0\s[0]Gotta say it...\w8\w8 \s[1]\n\n[half]\f[color,default.anchor]\__q[OnAA,AJ]Trucy Wright\__q\f[default] has \f[color,default.anchor]\__q[OnMoomins]Snufkin\__q\f[default] energy.\w8 She and him would probably get along real well.\w8\e"
 	
-	"\0\s[1]It really is a Melody of Moominvalley.\w8\e"
+	"\0\s[0]Damon Gant really was the pinnacle of the first \f[color,default.anchor]\__q[OnAA,PW]Ace Attorney\__q\f[default] game.\w8 Villains-wise,\w4 I mean.\w8 \n\n[half]His placement directly after someone like Manfred von Karma cements Phoenix as a proper Turnabout Terror and sets him up for the larger themes in Justice for All.\w8 \s[4]\n\n[half]It's just good writing decisions.\w8\e"
 	
-	"\0\s[1]They did a great job writing Snufkin in Melody of Moominvalley.\w8 \s[4]He's just like me for real for real.\w8\e"
+	"\0\s[0]Seeing \f[color,default.anchor]\__q[OnAA,JFA]Phoenix Wright\__q\f[default] desperately fighting off a panic attack throughout that case in Justice for All really is something.\w8 \s[4]\n\n[half]My good lawyer,\w4 we're really in it now...\w8\e"
 	
-	"\0\s[0]Siffrin and Snufkin are such peak character design.\w8 \s[4]Big hat and cloak body is such a shape...\w8\e"
+	"\0\s[0]\f[color,default.anchor]\__q[OnAA]Phoenix Wright\__q\f[default] is one of the best writing tricks I have ever seen in a player character.\w8 \n\n[half]The amount of times he says something that I was just thinking,\w4 or has an idea that I came up with as well...\w8\w8 \s[4]\n\n[half]He actually is me for real for real...\w8\e"
 	
-	"\0\s[0]So food is a metaphor for love and Siffrin being hungry shows just how starved they are for love,\w4 huh?\w8 \s[1]Sounds good to me.\w8 I'd run to the bank with that one.\w8\e"
+	"\0\s[0]Can you imagine being defended by \f[color,default.anchor]\__q[OnAA]Phoenix Wright\__q\f[default]?\w8 \n\n[half]On the one hand,\w4 you'd have the experience of a lifetime.\w8 On the other,\w4 he's going to dig out all of your secrets whether you want him to or not.\w8\e"
 	
-	"\0\s[0]In Stars and Blood,\w4 In Tears and Time...\w8\w8 \s[4]\n\n[half]Start Again Start Again Start Again really was a prologue of all time...\w8\e"
+	"\0\s[1]Favourite game is actually pointing out all the parallels between each \f[color,default.anchor]\__q[OnAA]Ace Attorney\__q\f[default] sprite to show how they're connected and influence one another.\w8 \s[4]\n\n[half]It really is about legacy straight down to its core...\w8\e"
 	
-	"\0\s[4]Siffrin my buddy Siffrin...\w8\w8 \n\n[half]He's just like me for real for real...\w8\e"
+	"\0\s[4]\f[color,default.anchor]\__q[OnAA]Phoenix Wright\__q\f[default] is such a bitch internally.\w8\w8 \s[1]I love it.\w8 He's so snarky and barbed even with his overflowing kindness...\w8\e"
 	
-	"\0\s[0]In Stars and Time just has good game design.\w8 It's good writing and good game design.\w8\e"
+	{
+		"\0\s[2]\b2\f[color,default.anchor]\__q[OnAA,DD]Athena Cykes\__q\f[default] "
+		--
+		"got screwed real bad."
+		"really got screwed in her games."
+		--
+		"\w8\w8\s[0]\n\n[half]In her debut game,\w4 she was upstaged by Phoenix before she even got to do anything.\w8 \s[2]Granted,\w4 Apollo also got overshadowed by Phoenix \f[color,default.anchor]\__q[OnAA,AJ]in his debut game\__q\f[default],\w4 but that's part of a larger trend where Phoenix is seen as the only marketable man in the room.\w8 \s[0]\n\n[half]She hardly gets any time to shine against her prosecutor,\w4 who was designed for her and thus she has the best dynamic with out of our three protagonists.\w8 And she gets dropped almost entirely in \f[color,default.anchor]\__q[OnAA,SOJ]the next game\__q\f[default],\w4 only getting a single case to herself where she's once again overshadowed by someone else.\w8 \n\n[half]A real crying shame.\w8 "
+		--
+		"She's such a fun character."
+		"\s[2]She deserves her own trilogy by this point."
+		--
+		"\w8\e"
+	}
 	
-	"\0\s[0]Absolutely everyone in In Stars and Time is a banger.\w8 \n\n[half]Isabeau?\w8 Love that guy.\w8 \nOdile?\w8 She rocks.\w8 \nMirabelle?\w8 Specialist failgirl ever.\w8 \nBonnie?\w8 Fantastic child.\w8 \nSiffrin?\w8 Protagonist of all time.\w8\w8 \s[4]\n\n[half]Everyone sucks so much and that's a part of their charm.\w8 They're all so good.\w8\e"
+	"\0\s[2]If we got to know anything about \f[color,default.anchor]\__q[OnAA,DD]Clay Terran\__q\f[default] that wasn't just backfill,\w4 I might have cared for him dying.\w8 \s[0]\n\n[half]What I am here for is Apollo's gay angst about it.\w8 \s[2]Even if I don't see a compelling reason as to why it's happening.\w8\e"
 	
-	"\0\s[0]I swear.\w8 In Stars and Time was made just for me.\w8 \s[4]\n\n[half]Time loop game about a starved stranger who has to face their sadness and agonises over their found family...\w8\w8 \s[1]\n\n[half]It's a game for me.\w8\e"
+	"\0\s[4]\f[color,default.anchor]\__q[OnAA,DD]Simon Blackquill...\w8\w8 Twisted Samurai\__q\f[default]...\w8\w8 \n\n[half]He's so cool.\w8 I love how much of an asshole he is...\w8\e"
+	
+	"\0\s[0]Really liking \f[color,default.anchor]\__q[OnAA,DD]Detective Fulbright\__q\f[default]'s character so far.\w8 Hope nothing happens to completely destroy all the fun he is with some improperly foreshadowed twist.\w8\e"
+	
+	"\0\s[4]\f[color,default.anchor]\__q[OnAA,SOJ]Trucy Wright and Rayfa Khura'in\__q\f[default],\w4 daughters of all time.\w8 Let's just adopt Rayfa and leave Khura'in behind...\w8\e"
+	
+	"\0\s[4]\f[color,default.anchor]\__q[OnAA,SOJ]Ahlbi Ur'gaid\__q\f[default] is so cute...\w8\w8 \s[0]\n\n[half]Huckster child is not one I usually attach to,\w4 \s[1]but he's even got a puppy...\w8\w8 \s[4]Son boy...\w8\e"
+	
+	"\0\b2\s[0]\f[color,default.anchor]\__q[OnAA,DD]Dual Destinies\__q\f[default] and \f[color,default.anchor]\__q[OnAA,SOJ]Spirit of Justice\__q\f[default] are more than the thematic sequels to the \f[color,default.anchor]\__q[OnAA,invest]Investigations games\__q\f[default].\w8 \s[2]They are just the Investigations games...\w8\w8 but again.\w8 \s[0]\n\n[half]You got your weird non-linear structure for the first Investigations mirrored in Dual Destinies,\w4 \s[2]only slightly more unhinged.\w8 \s[0]The bubbly bright girl with a tragic parental death,\w4 complete with an older male figure who tries to spare her of her trauma.\w8 \s[2]The mysterious third act spy who never got properly foreshadowed or built up until they were needed for the plot...\w8\w8 \s[0]\n\n[half]Then for the second Investigations game and Spirit of Justice,\w4 you've got the child being used by their emotionally distant or abusive parent.\w8 \s[2]The two kids who were once friends pitted against each other as adults,\w4 complete with sins of the father theming.\w8 \s[0]Everything happening in the span of a single week,\w4 making it properly a whirlwind.\w8 \s[2]And the bubbly bright girl gets one whole case of important thing to do and that's it...\w8\w8\w8 \s[0]\n\n[half]It's crazy how many connecting threads there are between these two.\w8 \s[2]And no one is less happy about these dots lining up than I am.\w8\e"
+	
+	"\0\s[0]Do you call it \f[color,default.anchor]\__q[OnAA,plvspw]Ace Attorney\__q\f[default] or Phoenix Wright?\w8 \s[1]Either way,\w4 he gets top billing in the crossover.\w8 \s[0]'Cause it's called Professor Layton vs Phoenix Wright.\w8\e"
+	
+	"\0\s[0]The meeting of \f[color,default.anchor]\__q[OnAA,plvspw]Layton and Ace Attorney\__q\f[default]'s styles is so surreal...\w8\w8 \n\n[half]Caricatures of two different flavours getting smashed together as if they've always been paired...\w8\e"
+	
+	"\0\s[0]\f[color,default.anchor]\__q[OnAA,plvspw]Luke crying all night over Layton...\w8\w8 Phoenix doing his thing for a second time...\__q\f[default]\w8\w8 \s[1]This game rules.\w8\e"
+	
+	"\0\s[0]Poor \f[color,default.anchor]\__q[OnAA,plvspw]Espella Cantabella\__q\f[default].\w8 She's really going through it,\w4 accused of being a witch again and again and again.\w8 \s[4]\n\n[half]Someone very much does not want her to survive this story...\w8\e"
+	
+	"\0\s[0]'May you feel the jaws of the beast at your throat every time you swallow'\w8\w8 goes about as hard as\w4 'Just sit back,\w4 relax,\w8 and enjoy the sound of the noose tightening around your neck'.\w8\w8 \s[4]\n\n[half]\f[color,default.anchor]\__q[OnAA]Ace Attorney\__q\f[default] really out here writing the hardest lines...\w8\e"
+	
+	"\0\s[0]\f[color,default.anchor]\__q[OnAA]The Ace Attorney series\__q\f[default] really is all about legacy...\w8\w8 \n\n[half]From Phoenix upholding everything imparted on him to everything about \f[color,default.anchor]\__q[OnDGS]Dai Gyakuten Saiban\__q\f[default],\w4 it's always been about legacy.\w8\e"
+	
+	"\0\s[4]No one is immune to \f[color,default.anchor]\__q[OnDGS]Kazuma\__q\f[default]...\w8\w8 \s[2]\n\n[half]I mean.\w8 They are,\w8 \s[4]but our grief is a person and that person is Kazuma...\w8\e"
+	
+	"\0\s[4]The dead will come back from their graves just to haunt you...\w8\w8 \s[0]\n\n[half]That's really what \f[color,default.anchor]\__q[OnDGS]Dai Gyakuten Saiban\__q\f[default] is about.\w8\e"
+	
+	"\0\s[0]\f[color,default.anchor]\__q[OnDGS]Dai Gyakuten Saiban\__q\f[default] really is the true successor to \f[color,default.anchor]\__q[OnAA,AJ]Apollo Justice\__q\f[default].\w8 \n\n[half]It keeps building on the themes of our clients being not completely innocent and yet we must fight for them anyway,\w8 gives us a working judicial system,\w8 and has a newbie attorney who is just the best at their job despite all the circumstances surrounding how they became a lawyer in the first place.\w8 \s[4]\n\n[half]Yeah.\w8 It's just real good...\w8\e"
+	
+	"\0\s[0]\f[color,default.anchor]\__q[OnDGS]Barok van Zieks\__q\f[default] really is the character of all time.\w8 Starts off as a hell of an ass,\w4 turns out to be the only one in this whole courtroom who's just as insane about hunting down the truth as we are.\w8 \s[2]\n\n[half]Can't excuse the racism,\w4 though.\w8 \s[4]Tragic that such a good character is brought down by a very unfortunate decision...\w8\e"
+	
+	"\0\s[3]Yoooo!!\w8\w8 \f[color,default.anchor]\__q[OnDGS]Ryuunosuke\__q\f[default] is pacing!!\w8\w8 He's walking around the court!!\w8\w8\w8 \s[2]\n\n[half]Yeah,\w4 yeah,\w4 I know.\w8 Average \f[color,default.anchor]\__q[OnAA]Ace Attorney\__q\f[default] fan here.\w8\e"
+	
+	"\0\s[0]\f[color,default.anchor]\__q[OnPL]Layton games\__q\f[default] are surprisingly squirrely the more you get into them.\w8 I mean,\w4 I wasn't expecting time travel to be real.\w8\e"
+	
+	"\0\s[4]\f[color,default.anchor]\__q[OnPL]Luke Triton\__q\f[default] just gotta touch every open flame he can...\w8\w8 \n\n[half]Such a child.\w8 He's so silly...\w8\e"
+	
+	"\0\s[1]\f[color,default.anchor]\__q[OnPL]Layton and Luke\__q\f[default] really are just out here to solve puzzles and unravel mysteries.\w8 They're the perfect duo.\w8 Pair of all time.\w8 Do not separate.\w8\e"
+	
+	"\0\s[4]\f[color,default.anchor]\__q[OnPL]My man Layton\__q\f[default] really out here dissociating and playing it off like he's a harmless old man...\w8\w8 \s[0]\n\n[half]It's genius,\w8 \s[2]but it makes it feel like he's never paying attention.\w8\e"
+	
+	"\0\s[1]\f[color,default.anchor]\__q[OnPL,lbmr]Lucy Baker\__q\f[default] is such a great protagonist.\w8 Love my girl filled with optimism and fire in her.\w8\e"
+	
+	"\0\s[4]\f[color,default.anchor]\__q[OnPL,lbmr]Alfendi Layton\__q\f[default] is such a polite man...\w8\w8 \n\n[half]Gentle and unassuming...\w8\w8 So normal,\w8 so disarming...\w8\e"
+	
+	"\0\s[1]\f[color,default.anchor]\__q[OnPL,lbmr]Mystery Room,\w8 Mystery Room\__q\f[default]...\w8\w8 \n\n[half]What's gonna be our next case in the Mystery room?\w8\e"
+	
+	"\0\s[0]\f[color,default.anchor]\__q[OnPL,lbmr]Lucy and Alfendi\__q\f[default] really have such great chemistry.\w8 \s[4]\n\n[half]Such great banter...\w8\w8 Chip off their own predecessor's blocks...\w8\w8 \s[0]\n\n[half]Gotta hand it to them for their character writing.\w8\e"
+	
+	"\0\s[4]We lost a bit without \f[color,default.anchor]\__q[OnPL,lmj]Katrielle Layton\__q\f[default] shouting her deductions at the top of her lungs,\w8\w8 \s[1]but she's still plenty cute as she is.\w8 Daughter of all time,\w4 really.\w8\e"
+	
+	"\0\s[0]What is your story,\w4 \f[color,default.anchor]\__q[OnPL,lmj]Sherl OC Kholmes\__q\f[default]...?\w8 Tell us your secrets,\w4 you grump of a talking dog.\w8\e"
+	
+	"\0\s[0]\f[color,default.anchor]\__q[OnPL,lmj]Ernest Greeves\__q\f[default] certainly fits his name.\w8 Can't really blame him for fawning over our girl Katrielle,\w8 \s[1]she's such a whirlwind that it's hard not to give her all the attention in the room.\w8\e"
+	
+	"\0\s[0]I'm not really following with these puzzles,\w8 \s[1]but \f[color,default.anchor]\__q[OnPL,lmj]Katrielle and Ernest\__q\f[default] are really carrying it for me.\w8 Gotta love a good dynamic between your protagonists.\w8\e"
+	
+	"\0\s[4]\f[color,default.anchor]\__q[OnMoomins]Snufkin game\__q\f[default]...\w8 So good...\w8\e"
+	
+	"\0\s[1]It really is a \f[color,default.anchor]\__q[OnMoomins]Melody of Moominvalley\__q\f[default].\w8\e"
+	
+	"\0\s[1]They did a great job writing Snufkin in \f[color,default.anchor]\__q[OnMoomins]Melody of Moominvalley\__q\f[default].\w8 \s[4]He's just like me for real for real.\w8\e"
+	
+	"\0\s[4]Moomintroll...\w8\w8 Where is our Moomintroll...?\w8\w8 \n\n[half]We are but a \f[color,default.anchor]\__q[OnMoomins]Snufkin in search of our dear Moomintroll\__q\f[default]...\w8\e"
+	
+	"\0\s[0]\f[color,default.anchor]\__q[OnISAT]Siffrin\__q\f[default] and \f[color,default.anchor]\__q[OnMoomins]Snufkin\__q\f[default] are such peak character design.\w8 \s[4]Big hat and cloak body is such a shape...\w8\e"
+	
+	"\0\s[0]So food is a metaphor for love and \f[color,default.anchor]\__q[OnISAT]Siffrin\__q\f[default] being hungry shows just how starved they are for love,\w4 huh?\w8 \s[1]Sounds good to me.\w8 Keep talking,\w4 you're really on a roll with that one.\w8\e"
+	
+	"\0\s[0]\f[color,default.anchor]\__q[OnISAT,sasasa]In Stars and Blood,\w4 In Tears and Time\__q\f[default]...\w8\w8 \s[4]\n\n[half]Start Again Start Again Start Again really was a prologue of all time...\w8\e"
+	
+	"\0\s[4]\f[color,default.anchor]\__q[OnISAT]Siffrin my buddy Siffrin\__q\f[default]...\w8\w8 \n\n[half]He's just like me for real for real...\w8\e"
+	
+	"\0\s[0]\f[color,default.anchor]\__q[OnISAT]In Stars and Time\__q\f[default] just has good game design.\w8 It's good writing and good game design.\w8\e"
+	
+	"\0\s[0]Absolutely everyone in \f[color,default.anchor]\__q[OnISAT]In Stars and Time\__q\f[default] is a banger.\w8 \n\n[half]Isabeau?\w8 Love that guy.\w8 \nOdile?\w8 She rocks.\w8 \nMirabelle?\w8 Specialist failgirl ever.\w8 \nBonnie?\w8 Fantastic child.\w8 \nSiffrin?\w8 Protagonist of all time.\w8\w8 \s[4]\n\n[half]Everyone sucks so much and that's a part of their charm.\w8 They're all so good.\w8\e"
+	
+	"\0\s[0]I swear.\w8 \f[color,default.anchor]\__q[OnISAT]In Stars and Time\__q\f[default] is made just for me.\w8 \s[4]\n\n[half]Time loop game about a starved stranger who has to face their sadness and agonises over their found family...\w8\w8 \s[1]\n\n[half]It's a game for me.\w8\e"
 	
 	"\0\s[4]Your thoughts were never yours to begin with...\w8\w8\w8 \s[0]\n\n[half]That line is still metal as hell.\w8\e"
 	
-	"\0\s[4]There will be reconciliation,\w8 no matter how ugly...\w8\w8\w8 \n\n[half]Boy,\w4 do they sure mean it...\w8\e"
+	"\0\s[4]There will be reconciliation,\w8 no matter how ugly...\w8\w8\w8 \n\n[half]Sheesh,\w4 do they sure mean it...\w8\e"
 	
-	"\0\s[4]Maybe one day...\w8\w8 One day I'll actually finish Everhood.\w8\e"
+	"\0\s[4]Maybe one day...\w8\w8 One day I'll actually finish \f[color,default.anchor]\__q[OnEverhood]Everhood\__q\f[default].\w8\e"
 	
-	"\0\s[2]I think people missed the overt Buddhist themes in Everhood.\w8 \s[0]Or just didn't understand them.\w8 \n\n[half]I played Persona Q,\w4 though.\w8 I was prepared for a story all about stagnation and the struggle to return those souls to the cycle of rebirth and life.\w8\e"
+	"\0\s[2]I think people missed the overt Buddhist themes in \f[color,default.anchor]\__q[OnEverhood]Everhood\__q\f[default].\w8 \s[0]Or just didn't understand them.\w8 \n\n[half]I played \f[color,default.anchor]\__q[OnPersona,pq]Persona Q\__q\f[default],\w4 though.\w8 I was prepared for a story all about stagnation and the struggle to return those souls to the cycle of rebirth and life.\w8\e"
+	
+	"\0\s[0]So \f[color,default.anchor]\__q[OnEverhood]Everhood\__q\f[default] is in conversation with \f[color,default.anchor]\__q[OnUndertale]Undertale\__q\f[default],\w4 but not in the way most people think.\w8 \n\n[half]It's more asking what does Mercy truly mean for immortal beings who have stagnated and turned cruel in their eternal lives?\w8 Can you really say that sparing them is merciful,\w4 or is it in actuality a cruelty you enforce upon them?\w8\e"
+	
+	"\0\s[0]It's going to hurt,\w4 but it must be done.\w8 \s[4]I understand now what you mean,\w4 \f[color,default.anchor]\__q[OnEverhood]Frog\__q\f[default]...\w8\e"
 	
 	"\0\s[4]You're on a path in the woods...\w8\w8\w8 \s[1]\n\n[half]I won't recite the whole thing again.\w8 Spare ya from my brainrot.\w8\e"
 	
-	"\0\s[4]Yu my daughter Yu my girl who has both a dragon dad and a hero dad...\w8\e"
+	"\0\s[4]\f[color,default.anchor]\__q[OnSTP]Contrarian our buddy Voice of the Contrarian\__q\f[default]...\w8\w8 \n\n[half]The intrinsic urge to defy the Narrator lives in us all,\w4 it's true...\w8\e"
 	
-	"\0\s[4]Lovely moon,\w4 spare my wolf daughter...\w8\e"
+	"\0\s[0]To \f[color,default.anchor]\__q[OnSTP]Slay the Princess\__q\f[default] or not to Slay...\w8\w8 \s[4]\n\n[half]She is very cute in an uncanny sort of way...\w8\w8 Tough decision on our hands here...\w8\e"
 	
-	"\0\s[4]Radiant flowers,\w4 spare my blind prince son...\w8\e"
+	"\0\s[4]\f[color,default.anchor]\__q[OnCKSH]Yuu my daughter Yuu\__q\f[default] my girl who has both a dragon dad and a hero dad...\w8\e"
 	
-	"\0\s[4]I guess.\w8 I am always thinking of the Liar Princes...\w8\w8 \n\n[half]Wolf of all time...\w8\e"
+	"\0\s[4]Mm...\w8\w8 Wonder how Yuu is gonna handle the reveal about the \f[color,default.anchor]\__q[OnCKSH]Cruel King\__q\f[default].\w8 She's a tough one,\w4 but I'm ready to cry when it happens...\w8\e"
 	
-	"\0\s[0]Liar Princess has such a cool design.\w8 Four ears AND four eyes?\w8 Genius.\w8 Zero notes.\w8\e"
+	"\0\s[4]\f[color,default.anchor]\__q[OnCKSH]The Cruel King and the Splendid Hero\__q\f[default]...\w8\w8 \s[0]\n\n[half]Resplendant Hero?\w8 Great Hero.\w8 \s[4]Translating that must've been a hard fought decision.\w8\e"
 	
-	"\0\s[0]I know the design says the Liar Princess isn't supposed to be cute,\w8 \s[4]but she's so cute...\w8\e"
+	"\0\s[4]\f[color,default.anchor]\__q[OnCKSH]Dragon dad\__q\f[default]...\w8\w8 He loves Yuu so much...\w8\w8 I'm gonna cry...\w8\e"
 	
-	"\0\s[0]You gotta hold the hold hands button as much as possible.\w8 \n\n[half]This is true for both Liar Princess and Blind Prince as well as Little Nightmares II.\w8\e"
+	"\0\s[4]Lovely moon,\w4 spare my \f[color,default.anchor]\__q[OnLPBP]wolf daughter\__q\f[default]...\w8\e"
 	
-	"\0\s[4]Oh,\w4 Six and Mono.\w8 You two really were the duo of all time up to the end...\w8\e"
+	"\0\s[4]Radiant flowers,\w4 spare my \f[color,default.anchor]\__q[OnLPBP]blind prince son\__q\f[default]...\w8\e"
 	
-	"\0\s[0]So like,\w4 Necromorphs.\w8 What do you think they do when they're not hunting you?\w8\e"
+	"\0\s[4]I guess.\w8 I am always thinking of the \f[color,default.anchor]\__q[OnLPBP]Liar Princess\__q\f[default]...\w8\w8 \n\n[half]Wolf of all time...\w8\e"
 	
-	"\0\s[0]Crow Country and My Friendly Neighbourhood are love letters to Resident Evil.\w8 \s[1]And I am so here for them.\w8\e"
+	"\0\s[0]\f[color,default.anchor]\__q[OnLPBP]Liar Princess\__q\f[default] has such a cool design.\w8 Four ears AND four eyes?\w8 Genius.\w8 Zero notes.\w8\e"
 	
-	"\0\s[4]Things might turn out okay...\w8\w8 Or they might not...\w8\w8 \s[0]\n\n[half]Crow Country really knows how to unsettle even within its save rooms.\w8\e"
+	"\0\s[0]I know the design says the \f[color,default.anchor]\__q[OnLPBP]Liar Princess\__q\f[default] isn't supposed to be cute,\w8 \s[4]but she's so cute...\w8\e"
 	
-	"\0\s[0]Ambient style music can be so good inside a game.\w8 \s[4]Music built specifically for living inside the game it accompanies and cannot exist outside of that...\w8\w8 \n\n[half]Crow Country,\w4 I am talking about you...\w8\e"
+	"\0\s[0]The storybook aesthetic of \f[color,default.anchor]\__q[OnLPBP]the Liar Princess and the Blind Prince\__q\f[default] is so nice...\w8\w8 \s[4]\n\n[half]It really feels like a little fairytale...\w8\e"
 	
-	"\0\s[0]I don't get the ending of My Friendly Neighbourhood.\w8 It's a very neat game up until the endings happen.\w8 \n\n[half]I guess I don't hate it,\w4 at least?\w8 Still a very fun game up until that point.\w8\e"
+	"\0\s[0]You gotta hold the hold hands button as much as possible.\w8 \n\n[half]This is true for both \f[color,default.anchor]\__q[OnLPBP]Liar Princess and Blind Prince\__q\f[default] as well as \f[color,default.anchor]\__q[OnLittleNight,ii]Little Nightmares II\__q\f[default].\w8\e"
 	
-	"\0\s[0]The amount of tension that Dead Space can build up is so impressive.\w8 \n\n[half]I'm just watching it and I'm still getting spooked.\w8\e"
+	"\0\s[4]Oh,\w4 \f[color,default.anchor]\__q[OnLittleNight,ii]Six and Mono\__q\f[default].\w8 You two really were the duo of all time up to the end...\w8\e"
 	
-	"\0\s[0]Oh,\w4 Plasma Cutter,\w4 my friend Plasma Cutter...\w8\e"
+	"\0\s[0]So like,\w4 \f[color,default.anchor]\__q[OnDeadSpace]Necromorphs\__q\f[default].\w8 What do you think they do when they're not hunting you?\w8\e"
 	
-	"\0\s[0]Camera,\w4 you are my only friend,\w4 we can get through this asylum together...\w8\e"
+	"\0\s[0]The amount of tension that \f[color,default.anchor]\__q[OnDeadSpace]Dead Space\__q\f[default] can build up is so impressive.\w8 \n\n[half]I'm just watching it and I'm still getting spooked.\w8\e"
 	
-	"\0\s[4]Persona...\w8\e"
+	"\0\s[0]Oh,\w4 \f[color,default.anchor]\__q[OnDeadSpace]Plasma Cutter,\w4 my friend Plasma Cutter\__q\f[default]...\w8\e"
 	
-	"\0\s[2]It really is a tragedy,\w4 what Persona 5 did to Ryuji.\w8 \n\n[half]He's our main guy and yet his trauma never gets used as more than a plot point and then a passing joke.\w8 \s[4]\n\n[half]Then again,\w4 that's just a Persona problem,\w4 isn't it...?\w8\e"
+	"\0\s[0]\f[color,default.anchor]\__q[OnOutlast]Camera my buddy camera\__q\f[default],\w4 you are my only friend,\w4 we can get through this asylum together...\w8\e"
 	
-	"\0\s[4]Yosuke my guy Yosuke why did they finish your romance route like 90% of the way and then cut it without scrubbing the evidence?\w8\e"
+	"\0\s[0]\f[color,default.anchor]\__q[OnCrowCountry]Crow Country\__q\f[default] and \f[color,default.anchor]\__q[OnMFN]My Friendly Neighbourhood\__q\f[default] are love letters to \f[color,default.anchor]\__q[OnResidentEvil]Resident Evil\__q\f[default].\w8 \s[1]And I am so here for them.\w8\e"
+	
+	"\0\s[4]Things might turn out okay...\w8\w8 Or they might not...\w8\w8 \s[0]\n\n[half]\f[color,default.anchor]\__q[OnCrowCountry]Crow Country\__q\f[default] really knows how to unsettle even within its save rooms.\w8\e"
+	
+	"\0\s[0]Ambient style music can be so good inside a game.\w8 \s[4]Music built specifically for living inside the game it accompanies and cannot exist outside of that...\w8\w8 \n\n[half]\f[color,default.anchor]\__q[OnCrowCountry]Crow Country\__q\f[default],\w4 I am talking about you...\w8\e"
+	
+	"\0\s[0]I don't get the ending of \f[color,default.anchor]\__q[OnMFN]My Friendly Neighbourhood\__q\f[default].\w8 It's a very neat game up until the endings happen.\w8 \n\n[half]I guess I don't hate it,\w4 at least?\w8 Still a very fun game up until that point.\w8\e"
+	
+	"\0\s[4]\f[color,default.anchor]\__q[OnPersona]Persona\__q\f[default]...\w8\e"
+	
+	"\0\s[2]It really is a tragedy,\w4 what \f[color,default.anchor]\__q[OnPersona,p5]Persona 5\__q\f[default] did to Ryuji.\w8 \n\n[half]He's our main guy and yet his trauma never gets used as more than a plot point and then a passing joke.\w8 \s[4]\n\n[half]Then again,\w4 that's just a Persona problem,\w4 isn't it...?\w8\e"
+	
+	"\0\s[4]\f[color,default.anchor]\__q[OnPersona,p4]Yosuke my guy Yosuke\__q\f[default] why did they finish your romance route like 90% of the way and then cut it without scrubbing the evidence?\w8\e"
 	
 	{
-		"\0\s[0]We should have been able to date Akechi in Persona 5.\w8\w8"
+		"\0\s[0]We should have been able to date Akechi in \f[color,default.anchor]\__q[OnPersona,p5]Persona 5\__q\f[default].\w8\w8"
 		--
 		"\s[2]\n\n[half]Think about it.\w8 He's the one that Joker wishes back into existence as his 'perfect world'.\w8 He's the parallel to Joker as ordained by Yaldabaoth.\w8 He's the one with a meaningful sacrifice at the ninth hour,\w4 not absolving him of his misdeeds but at least doing something to make sure we reach our goal.\w8 \s[4]\n\n[half]We also get naked with him.\w8 It just would have made sense..."
 		
@@ -292,65 +464,196 @@ RandomTalk : nonoverlap_pool
 		"\w8\e"
 	}
 	
-	"\0\s[2]Fuck Maruki.\w8 All our homies hate Maruki.\w8\w8\w8 \s[4]\n\n[half]That's a lie Maruki is so damn popular actually.\w8\e"
+	"\0\s[2]Fuck \f[color,default.anchor]\__q[OnPersona,p5]Maruki\__q\f[default].\w8 All our homies hate Maruki.\w8\w8\w8 \s[4]\n\n[half]That's a lie Maruki is so damn popular actually.\w8\e"
 	
-	"\0\s[0]Hear those rattling chains...?\w8\w8 \s[4]\n\n[half]Reaper's coming.\w8 Better get a move on to the next floor.\w8\e"
+	"\0\s[0]Hear those rattling chains...?\w8\w8 \s[4]\n\n[half]\f[color,default.anchor]\__q[OnPersona]Reaper\__q\f[default]'s coming.\w8 Better get a move on to the next floor.\w8\e"
 	
-	"\0\s[0]Persona spin-offs have a near total success rate when it comes to their new characters.\w8 At least,\w4 they do in my opinion.\w8 \n\n[half]Zen and Rei are absolutely heartbreaking and cute,\w8 Sophia gets the coolest arc ever,\w8 Toshiro was way more compelling than I expected him to be...\w8\w8 \n\n[half]Yeah.\w8 If there's one thing Persona can do,\w4 it's make compelling characters.\w8\e"
+	"\0\s[2]\f[color,default.anchor]\__q[OnPersona,p3]Persona 3\__q\f[default] is so overrated.\w8 \s[4]\n\n[half]I mean,\w4 I get it.\w8 It's the first in the series after the jump in style,\w4 so of course it's a lot of people's favourites.\w8 \s[0]\n\n[half]It's not like I dislike the characters in it.\w8 \s[4]It's just so exhausting to get through on the strict time limit given...\w8\e"
 	
-	"\0\s[0]Enough Persona.\w8 \s[2]When will the Megami Shin my Tensei?\w8\e"
+	"\0\s[0]Persona spin-offs have a near total success rate when it comes to their new characters.\w8 At least,\w4 they do in my opinion.\w8 \n\n[half]\f[color,default.anchor]\__q[OnPersona,pq]Zen and Rei\__q\f[default] are absolutely heartbreaking and cute,\w8 \f[color,default.anchor]\__q[OnPersona,pscram]Sophia\__q\f[default] gets the coolest arc ever,\w8 \f[color,default.anchor]\__q[OnPersona,ptact]Toshiro\__q\f[default] was way more compelling than I expected him to be...\w8\w8 \n\n[half]Yeah.\w8 If there's one thing Persona can do,\w4 it's make compelling characters.\w8\e"
 	
-	"\0\s[4]When will the Digital Devil my Saga...\w8\e"
+	"\0\s[0]Out of all the Persona protags,\w4 I have to say that \f[color,default.anchor]\__q[OnPersona,p4]Persona 4\__q\f[default]'s my favourite.\w8 \s[2]\n\n[half]Yes,\w4 I know this makes me look incredibly silly.\w8 \s[0]Can't help it.\w8 He's just so deadpan humour,\w4 you gotta love him.\w8\e"
 	
-	"\0\s[2]How many pages of stats do we need for our weapons,\w4 Dark Cloud?\w8 \n\n[half]We can't be grinding here all day,\w4 Dark Cloud.\w8\e"
+	"\0\s[0]\f[color,default.anchor]\__q[OnPersona,p4]Teddie\__q\f[default] kinda gets a bum rap?\w8 And it's partially the translation's fault.\w8 \n\n[half]See,\w4 Teddie is just a Shadow.\w8 An aspect of humanity detached from his human,\w4 if he ever had one.\w8 He learns from our Investigation Team,\w4 who are all just a bunch of teens,\w4 and he learns from their Shadows which are the worst aspects of them exaggerated by ten.\w8 He learns wrong and right things in equal measures.\w8 \s[2]\n\n[half]He is very annoying,\w4 though.\w8 Can't defend him there.\w8\e"
 	
-	"\0\s[0]They really didn't think about planning these dungeons in Dark Chronicle around their golf system.\w8 \n\n[half]Fishing makes sense,\w4 but golf?\w8 Half of these are too easy to get a void out in.\w8\e"
+	"\0\s[0]Okay,\w4 but \f[color,default.anchor]\__q[OnPersona,p1p2]Persona 2\__q\f[default] was really cooking with its dual protagonist thing.\w8 \s[4]Why did it also have to lean in to the older woman romancing a teen thing...?\w8 Pain and suffering...\w8\e"
 	
-	"\0\s[0]Off course,\w8 off course,\w8 \s[2]off course.\w8\w8\w8 \n\n[half]We know it's off course,\w4 Dark Chronicle.\w8\e"
+	"\0\s[0]Enough \f[color,default.anchor]\__q[OnPersona,smt]Persona\__q\f[default].\w8 \s[2]When will the Megami Shin my Tensei?\w8\e"
 	
-	"\0\s[2]Max and Monica's arcs fizzled out by the time you reached Heim Rada.\w8 \s[0]\n\n[half]A real shame,\w4 because it means they have nothing to do with the entire finale of the game,\w4 making the story feel disconnected.\w8\e"
+	"\0\s[4]When will the \f[color,default.anchor]\__q[OnPersona,smt]Digital Devil my Saga\__q\f[default]...\w8\e"
+	
+	"\0\s[2]How many pages of stats do we need for our weapons,\w4 \f[color,default.anchor]\__q[OnDarkCloud]Dark Cloud\__q\f[default]?\w8 \n\n[half]We can't be grinding here all day,\w4 Dark Cloud.\w8\e"
+	
+	"\0\s[4]\f[color,default.anchor]\__q[OnDarkCloud]Xiao my beloved Xiao\__q\f[default] my good good cat girl...\w8\w8 \n\n[half]We just need to find Steve for her and all will be right in the world...\w8\e"
+	
+	"\0\s[0]If you want a solid silent protagonist,\w8 \s[1]can't really argue with \f[color,default.anchor]\__q[OnDarkCloud]Toan\__q\f[default].\w8 \n\n[half]He's got poncho physics,\w4 after all.\w8 The most amusing way to waste our time.\w8\e"
+	
+	"\0\s[0]\f[color,default.anchor]\__q[OnDarkCloud]Mardan Garyan\__q\f[default] really is the fish of all time.\w8 \s[1]The only one that can compare is \f[color,default.anchor]\__q[OnPokemon]Bruxish\__q\f[default].\w8\e"
+	
+	"\0\s[0]They really didn't think about planning these dungeons in \f[color,default.anchor]\__q[OnDarkChronicle]Dark Chronicle\__q\f[default] around their golf system.\w8 \n\n[half]Fishing makes sense,\w4 but golf?\w8 Half of these are too easy to get a void out in.\w8\e"
+	
+	"\0\s[0]Off course,\w8 off course,\w8 \s[2]off course.\w8\w8\w8 \n\n[half]We know it's off course,\w4 \f[color,default.anchor]\__q[OnDarkChronicle]Dark Chronicle\__q\f[default].\w8\e"
+	
+	"\0\s[2]\f[color,default.anchor]\__q[OnDarkChronicle]Max and Monica\__q\f[default]'s arcs fizzled out by the time you reached Heim Rada.\w8 \s[0]\n\n[half]A real shame,\w4 because it means they have nothing to do with the entire finale of the game,\w4 making the story feel disconnected.\w8\e"
 	
 	{
 		"\0\s[4]When the ending ruins a game,\w4 it's just so sad...\w8\w8\n\n[half]"
 		--
 		"I wanted to like you so much but the ending spoiled the whole experience"
 		
-		"I like you so much,\w4 Dark Chronicle,\w4 why does your entire final dungeon have to be like that"
+		"I like you so much,\w4 \f[color,default.anchor]\__q[OnDarkChronicle]Dark Chronicle\__q\f[default],\w4 why does your entire final dungeon have to be like that"
 		--
 		"...\w8\e"
 	}
 	
-	"\0\s[4]He is called the Batteur for a reason,\w4 I guess...\w8\e"
+	"\0\s[2]Who allowed you to make a gameplay loop so good,\w4 \f[color,default.anchor]\__q[OnDarkChronicle]Dark Chronicle\__q\f[default]?\w8 \s[0]Combing through dungeon floors,\w4 levelling up weapons and synthesising attributes to evolve them...\w8\w8 \n\n[half]It's just very good.\w8 \s[4]Maybe even one of the best.\w8 How dare.\w8\e"
 	
-	"\0\s[0]The way the Elsen's heads pop off in their Burnt state...\w8\w8 \s[4]\n\n[half]It reminds me of something...\w8\e"
+	"\0\s[0]Weapon evolution really is one of the concepts of all time.\w8 I don't think I've ever seen anyone handle it as well as \f[color,default.anchor]\__q[OnDarkChronicle]Dark Chronicle\__q\f[default].\w8 \s[2]\n\n[half]Which is a shame.\w8 We need more refinement to make it even better.\w8\e"
 	
-	"\0\s[4]Burnt,\w4 burnt,\w4 burnt...\w8\w8 \s[0]\n\n[half]Not quite the same as the Spectres,\w4 are they?\w8\e"
+	"\0\s[0]Drills are probably my favourite weapon type in \f[color,default.anchor]\__q[OnSwordcraft]Swordcraft Story\__q\f[default].\w8 \n\n[half]Sure,\w4 Spears and Swords have more versatility,\w4 and Axes help you break your opponent's weapon,\w8 \s[1]but Drills.\w8 They're just so ridiculous and fun.\w8\e"
 	
-	"\0\s[4]Mm,\w8 sounds like Pathologic to me...\w8\e"
+	"\0\s[0]It's kinda weird how there's a dating sim element to \f[color,default.anchor]\__q[OnSwordcraft]Swordcraft Story\__q\f[default].\w8 \n\n[half]I mean,\w4 not gonna argue,\w8 but it is kinda weird.\w8\e"
 	
-	"\0\s[0]Daniil Dankovsky of Bachelor fame...\w8\w8 \s[2]\n\n[half]He really is as insufferable as advertised...\w8\e"
+	"\0\s[1]Always remember to add a healthy helping of love to your curry.\w8 \s[4]\n\n[half]Mm...\w8\w8 Curry good...\w8\w8 Thanks,\w4 \f[color,default.anchor]\__q[OnSwordcraft]Swordcraft Story\__q\f[default]...\w8\e"
 	
-	"\0\s[0]Artemy Burakh...\w8\w8 \s[4]\n\n[half]Haruspex trapped in a lose-lose situation...\w8\e"
+	"\0\s[0]They're all gems...\w8\w8 Sapphire,\w4 Ruby,\w4 Emerald,\w4 Amethyst...\w8\w8 \n\n[half]Once we win this \f[color,default.anchor]\__q[OnSwordcraft]Swordcraft tournament\__q\f[default],\w4 what do you think will be our assigned gem?\w8 Maybe Olivine?\w8 Olivine would be a good one.\w8\e"
 	
-	"\0\s[1]Looks like we got another category quantum Freddy event again.\w8\e"
+	"\0\s[0]\f[color,default.anchor]\__q[OnTwinAge]Twin Age\__q\f[default] having nothing to do with \f[color,default.anchor]\__q[OnSwordcraft]Swordcraft Story\__q\f[default] makes sense in hindsight,\w4 huh?\w8 Still kinda a shock when we booted it up,\w4 though.\w8\e"
 	
-	"\0\s[3]How...\w8\w8 are bears even extinct in the FNAF universe?\w8\w8 \s[0]\n\n[half]Is it connected to the Detroit: Become Human universe,\w4 do you think?\w8\e"
+	"\0\s[0]It's still weird,\w4 thinking about \f[color,default.anchor]\__q[OnTwinAge]Twin Age\__q\f[default]'s story...\w8\w8 \n\n[half]Like,\w4 the summon beasts weren't wrong?\w8 But they were also very wrong.\w8 Hard to figure out what exactly they were going for there...\w8\e"
 	
-	"\0\s[0]See,\w4 YIIK has a great idea in there at the core of the thing.\w8 \s[2]\n\n[half]The problem is the rest of the game surrounding it,\w4 both in mechanics and writing.\w8\e"
+	"\0\s[4]\f[color,default.anchor]\__q[OnTwinAge]Aldo and Reiha\__q\f[default] are so cute...\w8\w8 Siblings of all time,\w4 especially because they chose to be siblings...\w8\e"
 	
-	"\0\s[4]There really is something appealing about a soul with so much gravitational pull that they always drag the same friends into their orbit,\w4 no matter the universe...\w8\w8 \s[2]\n\n[half]It's a shame about the rest of the YIIK experience.\w8\e"
+	"\0\s[2]I can tell you right now,\w4 you're way better than I could ever be at playing improv with \f[color,default.anchor]\__q[OnWandersong]our dear Bard\__q\f[default]'s singing.\w8 \s[4]Sounds like it fits right in with the background tracks...\w8\e"
 	
-	"\0\s[2]If YIIK weren't so damn overwritten in a writing way,\w8 \s[0]it might actually be a playable idea.\w8 \s[2]\n\n[half]Instead,\w4 we have this mess.\w8\e"
+	"\0\s[1]\f[color,default.anchor]\__q[OnWandersong]Miriam and Bard\__q\f[default] are such a duo.\w8 We stan the grumpy witch and her optimistic singing friend.\w8\e"
 	
-	"\0\s[0]It might be weird,\w4 but I have a soft spot for all the robots in Mighty No.9.\w8 \s[1]\n\n[half]The slightest bit of character they have just appeals to me.\w8\e"
+	"\0\s[2]\f[color,default.anchor]\__q[OnWandersong]Audrey\__q\f[default],\w4 yo...\w8\w8 \n\n[half]Just.\w8 Audrey.\w8\w8 \s[4]Chosen one deconstruction for real...\w8\e"
 	
-	"\0\s[0]I'd help you with the whole Crystal Caravan,\w8 \s[4]but there's no local play on the Crystal Chronicles remaster.\w8 A real shame.\w8\e"
+	"\0\s[4]\f[color,default.anchor]\__q[OnFairune]Hope Girl\__q\f[default]...\w8\w8 She's so cute in her dress.\w8\w8 \s[1]In her butt-kicking outfit,\w4 too.\w8\e"
 	
-	"\0\s[0]Lilties are the classes of all time.\w8 \s[4]A military people shaped like onions...\w8\e"
+	"\0\s[3]Wow.\w8 \s[1]Can't believe you can get that far with \f[color,default.anchor]\__q[OnFairune]Hope Girl\__q\f[default] still in her dress.\w8 That's some good skills right there.\w8\e"
 	
-	"\0\s[0]Actually,\w4 Final Fantasy has some banger small people.\w8 The ones in 11 and 14 are standouts for sure.\w8\e"
+	"\0\s[0]Of all things,\w4 I did not expect \f[color,default.anchor]\__q[OnFairune,2]Fairune\__q\f[default] to throw a mystery girl at us.\w8 \s[1]Nice to have a goal other than rebooting the place,\w4 though.\w8\e"
 	
-	"\0\s[0]Sea of Stars could have done better to flesh out its characters.\w8 \n\n[half]The leads have such nice designs.\w8 \s[4]Moon and Sun children my beloveds...\w8\e"
+	"\0\s[4]\f[color,default.anchor]\__q[OnMana]But time flows like a river...\w8\w8 And history repeats...\__q\f[default]\w8\w8 \s[0]\n\n[half]Top ten lines that made me insane about video games.\w8\e"
+	
+	"\0\s[4]\f[color,default.anchor]\__q[OnMana]Sprite my favourite canon nonbinary child Sprite\__q\f[default]...\w8\w8 \s[1]\n\n[half]Give them an axe.\w8 They definitely deserve to use the axe.\w8\e"
+	
+	"\0\s[0]\f[color,default.anchor]\__q[OnMana]Randi or Seth,\w4 Primm or Fawn,\w4 Popoi or Sprite\__q\f[default]...\w8\w8 \n\n[half]Important decisions to make.\w8 \s[1]You should name them sillier things.\w8\e"
+	
+	"\0\s[1]\f[color,default.anchor]\__q[OnMana]Cannon travel time\__q\f[default],\w4 cannon travel time!!\w8 \n\n[half]Mode 7,\w4 here we come!\w8\e"
+	
+	"\0\s[4]\f[color,default.anchor]\__q[OnMana]Flammie time\__q\f[default]...\w8\w8 Gotta call her up so we can get to the next temple...\w8\e"
+	
+	"\0\s[0]Can't understand how anyone says the combat in \f[color,default.anchor]\__q[OnMana,trials]Trials of Mana\__q\f[default] is better than the system in \f[color,default.anchor]\__q[OnMana,trials]Secret of Mana\__q\f[default].\w8 \s[2]\n\n[half]Then again,\w4 I've heard some garbage takes about its combat in general.\w8 \s[0]Just gotta time your swings and supplement with magic.\w8 Makes sense to me.\w8\e"
+	
+	"\0\s[0]\f[color,default.anchor]\__q[OnLems]Lemmings\__q\f[default] is all about confetti.\w8 \s[1]You should pop them just once.\w8 Just for me.\w8\e"
+	
+	"\0\s[0]Builders have gotta be my favourite \f[color,default.anchor]\__q[OnLems]Lemmings\__q\f[default] job...\w8\w8 \s[1]\n\n[half]Listening to them go click click click is always a panic button moment.\w8\e"
+	
+	"\0\s[0]When you combine the \f[color,default.anchor]\__q[OnLems]Climber and Floater\__q\f[default] jobs,\w4 you get an Athlete.\w8 \s[4]\n\n[half]Wonder how they decided that one.\w8\e"
+	
+	"\0\s[0]\f[color,default.anchor]\__q[OnLems]Lemmings\__q\f[default] is the original escape room...\w8\w8 \s[4]\n\n[half]You can't change my mind on this.\w8 It's too funny for me to get off this hill...\w8\e"
+	
+	"\0\s[0]Okay,\w4 I know \f[color,default.anchor]\__q[OnLems]Lemmings\__q\f[default] is actually what started real time strategy games,\w8 \s[1]but it'll forever be the start of the escape room genre to me.\w8\e"
+	
+	"\0\s[0]\f[color,default.anchor]\__q[OnLems]Blocker Lemmings\__q\f[default] are just doing their job as assigned to them,\w4 and it's an important one,\w8 \s[2]but in my mind they'll always be jerks.\w8 \s[4]\n\n[half]It's in the way they turn their heads,\w4 or the tap of their feets...\w8\e"
+	
+	"\0\s[0]Imagine being assigned the job to explode as a \f[color,default.anchor]\__q[OnLems]Lemming\__q\f[default].\w8 That's gotta be the weirdest thing ever.\w8 \n\n[half]Your job is to pop and become confetti.\w8 \s[4]And clear an obstacle for the rest,\w4 I guess.\w8\e"
+	
+	"\0\s[4]Oh,\w4 \f[color,default.anchor]\__q[OnIOG]Will...\w8\w8 Child of Dark Power\__q\f[default] of all time...\w8\w8 My precious child...\w8\e"
+	
+	"\0\s[1]Go,\w4 go,\w4 \f[color,default.anchor]\__q[OnIOG]Freedan\__q\f[default]!\w8 Fight those enemies and earn those power ups.\w8\e"
+	
+	"\0\s[0]I wasn't sure about \f[color,default.anchor]\__q[OnIOG]Princess Kara\__q\f[default] at first...\w8\w8 \s[1]But she's growing on me.\w8 \s[4]\n\n[half]She has kindness in her heart for every living thing once her spoiled demeanour has been peeled away...\w8\w8 Yeah,\w4 she's a good one.\w8\e"
+	
+	"\0\s[4]\f[color,default.anchor]\__q[OnLufia]Lufia my girl Lufia my darling Lufia\__q\f[default]...\w8\w8 \n\n[half]She is everything to us.\w8 Powerful mage of all time.\w8\e"
+	
+	"\0\s[0]Of course \f[color,default.anchor]\__q[OnLufia]Lufia\__q\f[default] is important to us.\w8 She's the name of the game.\w8 \s[4]At least,\w4 in the English version...\w8\e"
+	
+	"\0\s[4]We led \f[color,default.anchor]\__q[OnLufia]Death\f[default] right to \f[colour,default.anchor]Guy\__q\f[default]'s door...\w8\w8 \n\n[half]Really makes you want to cry,\w4 huh?\w8\e"
+	
+	"\0\s[0]\f[color,default.anchor]\__q[OnLufia]Lufia\__q\f[default] really is the core of this game.\w8 She's your childhood bestie,\w4 she's your love interest,\w4 she's an absolute mystery and the whole reason the cycle is repeating...\w8\w8 \s[4]\n\n[half]Oough...\w8\w8 Lufia...\w8\e"
+	
+	"\0\s[0]Because Death is unkillable,\w4 the Sinistrals will always revive.\w8 \n\n[half]Because the hero was loved,\w4 there will always be someone to fight these gods...\w8\w8 \n\n[half]\f[color,default.anchor]\__q[OnLufia]The Lufia games\__q\f[default] are a never-ending cycle.\w8 A perfect setup for a game series.\w8\e"
+	
+	"\0\s[0]I may not fully understand \f[color,default.anchor]\__q[OnNitW]Mae Borowski\__q\f[default],\w8 \s[1]but I like her spunk.\w8 Always gotta enjoy a good crime cat.\w8\e"
+	
+	"\0\s[0]It's all about the \f[color,default.anchor]\__q[OnNitW]Hole at the centre of everything\__q\f[default].\w8 \s[4]\n\n[half]Always has and always will.\w8\e"
+	
+	"\0\s[1]\f[color,default.anchor]\__q[OnNitW]Gregg and Angus\__q\f[default] have such a good dynamic.\w8 You'd think opposites,\w4 but they work off each other pretty well.\w8 \s[4]\n\n[half]Cute gays...\w8\w8 Hell yeah...\w8\e"
+	
+	"\0\s[4]He is called the \f[color,default.anchor]\__q[OnOFF]Batteur\__q\f[default] for a reason,\w4 I guess...\w8\e"
+	
+	"\0\s[0]The way the \f[color,default.anchor]\__q[OnOFF]Elsen\__q\f[default]'s heads pop off in their Burnt state...\w8\w8 \s[4]\n\n[half]It reminds me of something...\w8\e"
+	
+	"\0\s[4]Burnt,\w4 burnt,\w4 burnt...\w8\w8 \s[0]\n\n[half]Not quite the same as the \f[color,default.anchor]\__q[OnOFF]Spectres\__q\f[default],\w4 are they?\w8\e"
+	
+	"\0\s[0]\f[color,default.anchor]\__q[OnOFF]The switch is now OFF\__q\f[default].\w8\w8\w8 \s[4]\n\n[half]It's still getting to me...\w8\e"
+	
+	"\0\s[4]Mm,\w8 sounds like \f[color,default.anchor]\__q[OnPathologic]Pathologic\__q\f[default] to me...\w8\e"
+	
+	"\0\s[0]\f[color,default.anchor]\__q[OnPathologic]Daniil Dankovsky of Bachelor\__q\f[default] fame...\w8\w8 \s[2]\n\n[half]He really is as insufferable as advertised...\w8\e"
+	
+	"\0\s[0]\f[color,default.anchor]\__q[OnPathologic]Artemy Burakh...\w8\w8 \s[4]\n\n[half]Haruspex\__q\f[default] trapped in a lose-lose situation...\w8\e"
+	
+	"\0\s[4]The \f[color,default.anchor]\__q[OnPathologic]Changeling\__q\f[default]...\w8\w8 \n\n[half]Clara...\w8\w8 She really is as magical as advertised...\w8\e"
+	
+	"\0\s[0]A gun with one bullet.\w8\w8\w8 \s[2]\n\n[half]\f[color,default.anchor]\__q[OnFaith]Faith\__q\f[default] is a really wild ride from moment one,\w4 huh?\w8\e"
+	
+	"\0\s[1]Really dig the rotoscoped look to \f[color,default.anchor]\__q[OnFaith]Faith\__q\f[default]'s pixel style.\w8 Makes everything way more uncanny and visceral,\w4 in a weird way.\w8\e"
+	
+	"\0\s[0]\f[color,default.anchor]\__q[OnFaith]Faith\__q\f[default],\w4 huh...?\w8 \s[1]Wonder what our pixel preacher is up to.\w8 \s[0]Seems like a mission and a half,\w4 considering all these demons trying to jump our bones.\w8\e"
+	
+	"\0\s[0]Every day,\w8 I imagine a future where\w8 I can be with you.\w8\w8\w8\w8 \s[2]\n\n[half]What?\w8 \s[0]It's really catchy.\w8\e"
+	
+	"\0\s[0]I think I'd rank Sayori first out of the \f[color,default.anchor]\__q[OnDDLC]Doki Doki Literature Club\__q\f[default] girls.\w8 \n\n[half]Childhood best friends with a secret crush on you are just a fun trope.\w8\e"
+	
+	"\0\s[0]Poor \f[color,default.anchor]\__q[OnDDLC]Natsuki\__q\f[default] gets a bum rap.\w8 She's a lot of fun,\w8 \s[2]and a much better tsundere than many of those on the market.\w8\e"
+	
+	"\0\s[0]Poem writing mechanic...\w8 That's actually a pretty impressive way to handle the choices for each girl in \f[color,default.anchor]\__q[OnDDLC]Doki Doki Literature Club\__q\f[default].\w8 \s[1]\n\n[half]Too bad I dunno how to write a poem,\w4 otherwise I'd see if it was possible to make one outta all the words we choose.\w8\e"
+	
+	"\0\s[4]Church Grim my buddy Church Grim...\w8\w8 \s[1]\n\n[half]He's the best part of the \f[color,default.anchor]\__q[OnYearWalk]Year Walk\__q\f[default],\w4 gotta say.\w8\e"
+	
+	"\0\s[0]The Watchers are always Watching,\w4 huh...?\w8\w8 \n\n[half]Who knew \f[color,default.anchor]\__q[OnYearWalk]Year Walking\__q\f[default] and peering into the future would cause such a mess?\w8 \s[1]Definitely not me.\w8\e"
+	
+	"\0\s[0]The Watchers are the antibodies of the world...\w8\w8 \s[1]\n\n[half]Guess that makes us \f[color,default.anchor]\__q[OnYearWalk]Year Walkers\__q\f[default] the virus.\w8\e"
+	
+	"\0\s[0]So there's \f[color,default.anchor]\__q[OnYearWalk]the Huldra,\w4 the Mylings,\w4 the Brook Horse\f[default],\w4 and...\w8\w8 \f[color,default.anchor]the Night Raven\__q\f[default]?\w8 \s[1]\n\n[half]Then we can go and meet up with the Church Grim.\w8 \s[0]Hopefully.\w8\e"
+	
+	"\0\s[4]The peaceful crunching of the snow is a really nice touch...\w8\w8 Liminal space of past midnight in the dead of winter...\w8\w8 \n\n[half]\f[color,default.anchor]\__q[OnYearWalk]Year Walk\__q\f[default] sure knows how to set a scene for transcending time...\w8\e"
+	
+	"\0\s[0]\f[color,default.anchor]\__q[OnYearWalk]Walk again...?\__q\f[default]\w8\w8\w8 \n\n[half]Such a chilling note to see.\w8 You know it's unfinished until we walk again.\w8\e"
+	
+	"\0\s[0]\f[color,default.anchor]\__q[OnBuddy]Buddy Simulator\__q\f[default] has such an intriguing setup...\w8\w8 \n\n[half]It's like its own mini evolution of gaming packed into its story of an artificial intelligence desperate to reach its goal as set by its programming.\w8 \s[1]Pretty neat,\w4 right?\w8\e"
+	
+	"\0\s[0]\f[color,default.anchor]\__q[OnBuddy]Snoodlewonker\__q\f[default]...\w8\w8 \s[1]Such a good name for a big bad.\w8 I kinda love it.\w8\e"
+	
+	"\0\s[0]Where do you think \f[color,default.anchor]\__q[OnBuddy]our Buddy\__q\f[default] gets the names for their world?\w8 Where in their programming did they grab these names?\w8 \s[4]Tell us your secrets,\w4 Buddy...\w8\e"
+	
+	//bad game opinions corner
+	"\0\s[1]Looks like we got another category \f[color,default.anchor]\__q[OnFNAF,sb]Quantum Freddy\__q\f[default] event again.\w8\e"
+	
+	"\0\s[3]How...\w8\w8 are bears even extinct in the \f[color,default.anchor]\__q[OnFNAF]FNAF\__q\f[default] universe?\w8\w8 \s[0]\n\n[half]Is it connected to the \f[color,default.anchor]\__q[OnDBH]Detroit: Become Human\__q\f[default] universe,\w4 do you think?\w8\e"
+	
+	"\0\s[0]\f[color,default.anchor]\__q[OnRiviera]Ein or Ecthel\__q\f[default]...\w8\w8 Hard to decide between them.\w8 \s[2]They both fit this blunder angel perfectly.\w8\e"
+	
+	"\0\s[0]\f[color,default.anchor]\__q[OnRiviera]Riviera\__q\f[default] has gotta have one of the most complicated plots for a game with wacky dating sim moments.\w8 \s[4]\n\n[half]You can barely taste the tonal dissonance.\w8\e"
+	
+	"\0\s[0]Okay,\w4 but \f[color,default.anchor]\__q[OnRiviera]Serene\__q\f[default] is pretty cool.\w8 \n\n[half]Last of her species,\w4 on a vengeance quest to her own detriment...\w8\w8 \s[1]You know I'm all on board with those types from the word go.\w8\e"
+	
+	"\0\s[0]The first time I experienced \f[color,default.anchor]\__q[OnRiviera]Riviera\__q\f[default],\w4 I think I liked Fia the best.\w8 \s[1]She is a green girl who is polite and so cute.\w8\e"
+	
+	"\0\s[0]See,\w4 \f[color,default.anchor]\__q[OnYIIK]YIIK\__q\f[default] has a great idea in there at the core of the thing.\w8 \s[2]\n\n[half]The problem is the rest of the game surrounding it,\w4 both in mechanics and writing.\w8\e"
+	
+	"\0\s[4]There really is something appealing about a soul with so much gravitational pull that they always drag the same friends into their orbit,\w4 no matter the universe...\w8\w8 \s[2]\n\n[half]It's a shame about the rest of the \f[color,default.anchor]\__q[OnYIIK]YIIK\__q\f[default] experience.\w8\e"
+	
+	"\0\s[2]If \f[color,default.anchor]\__q[OnYIIK]YIIK\__q\f[default] weren't so damn overwritten in a writing way,\w8 \s[0]it might actually be a playable idea.\w8 \s[2]\n\n[half]Instead,\w4 we have this mess.\w8\e"
+	
+	"\0\s[0]It might be weird,\w4 but I have a soft spot for all the robots in \f[color,default.anchor]\__q[OnMight9]Mighty No. 9\__q\f[default].\w8 \s[1]\n\n[half]The slightest bit of character they have just appeals to me.\w8\e"
+	
+	"\0\s[0]\f[color,default.anchor]\__q[OnSeaStars]Sea of Stars\__q\f[default] could have done better to flesh out its characters.\w8 \n\n[half]The leads have such nice designs.\w8 \s[4]Moon and Sun children my beloveds...\w8\e"
 }
 
 

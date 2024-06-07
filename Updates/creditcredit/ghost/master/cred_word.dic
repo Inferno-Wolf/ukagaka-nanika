@@ -4,10 +4,16 @@
 // %(overhype)
 overhype
 {
-	"Elden Ring"
-	"Dark Souls"
-	"Resident Evil 4"
-	"Demon Souls"
+	"\f[color,default.anchor]\__q[OnSouls,ring]Elden Ring\__q\f[default]"
+	"\f[color,default.anchor]\__q[OnSouls,dark]Dark Souls\__q\f[default]"
+	"\f[color,default.anchor]\__q[OnResidentEvil,re4]Resident Evil 4\__q\f[default]"
+	"\f[color,default.anchor]\__q[OnSouls,demon]Demon Souls\__q\f[default]"
+}
+
+// %(classicgame)
+classicgame
+{
+	"Majora's Mask"; "Illusion of Gaia"; "Secret of Mana"; "Ocarina of Time"; "Ace Attorney"; "Final Fantasy"; "Final Fantasy VI"; "Final Fantasy IV"; "Final Fantasy IX"; "Resident Evil"
 }
 
 // %(types)
