@@ -6,26 +6,13 @@
 //--AiTalk
 AiTalk
 {
-	if RAND(100) < communicateratio
- 	{
- 		StartCommunicate
-	}
- 	else
+	if mikireflag == 1
+	{ MikireTalk }
+	else
 	{
- 		if mikireflag == 0
-		{
-			if CHAIN.IDName == "" {
- 				lastTalk = RandomTalk
-			}
-			else {
-				lastTalk = ChainTalk
-			}
-			lastTalk
-		}
- 		else
-		{ 
-		MikireTalk
- 		}
+		if CHAIN.IDName == "" { lastTalk = RandomTalk }
+		else { lastTalk = ChainTalk }
+		lastTalk
 	}
 }
 
@@ -120,204 +107,82 @@ RandomTalk : nonoverlap
 	
 	
 	/*
-	if nowshell == "master" //the shell folder name
+	if SHIORI3FW.ShellName == "Detective (Derogatory)"
 	{
-	"\0\s[0]Here is dialogue related to the default shell.\w8\1\s[10]You can use this to comment on clothing your ghost is wearing.\e"
-	
-	"\0\s[0]Here is more dialogue related to the default shell.\e"
+		""
 	}
 	*/
 	
 	
 	/*
 	//month dialogue
-	if month == 1
-	{
-		"\0\s[0]This is dialogue for January.\w8\1\s[10]Yup.\e"
-		
-		"\0\s[0]This is more dialogue for January.\w8\1\s[10]That it is.\e"
-	}
-	if month == 2
-	{
-		"\0\s[0]This is dialogue for February.\w8\1\s[10]Yup.\e"
-		
-		"\0\s[0]This is more dialogue for February.\w8\1\s[10]That it is.\e"
-	}
-	if month == 3
-	{
-		"\0\s[0]This is dialogue for March.\w8\1\s[10]Yup.\e"
-		
-		"\0\s[0]This is more dialogue for March.\w8\1\s[10]That it is.\e"
-	}
-	if month == 4
-	{
-		"\0\s[0]This is dialogue for April.\w8\1\s[10]Yup.\e"
-		
-		"\0\s[0]This is more dialogue for April.\w8\1\s[10]That it is.\e"
-	}
-	if month == 5
-	{
-		"\0\s[0]This is dialogue for May.\w8\1\s[10]Yup.\e"
-		
-		"\0\s[0]This is more dialogue for May.\w8\1\s[10]That it is.\e"
-	}
-	if month == 6
-	{
-		"\0\s[0]This is dialogue for June.\w8\1\s[10]Yup.\e"
-		
-		"\0\s[0]This is more dialogue for June.\w8\1\s[10]That it is.\e"
-	}
-	if month == 7
-	{
-		"\0\s[0]This is dialogue for July.\w8\1\s[10]Yup.\e"
-		
-		"\0\s[0]This is more dialogue for July.\w8\1\s[10]That it is.\e"
-	}
-	if month == 8
-	{
-		"\0\s[0]This is dialogue for August.\w8\1\s[10]Yup.\e"
-		
-		"\0\s[0]This is more dialogue for August.\w8\1\s[10]That it is.\e"
-	}
-	if month == 9
-	{
-		"\0\s[0]This is dialogue for September.\w8\1\s[10]Yup.\e"
-		
-		"\0\s[0]This is more dialogue for September.\w8\1\s[10]That it is.\e"
-	}
-	if month == 10
-	{
-		"\0\s[0]This is dialogue for October.\w8\1\s[10]Yup.\e"
-		
-		"\0\s[0]This is more dialogue for October.\w8\1\s[10]That it is.\e"
-	}
-	if month == 11
-	{
-		"\0\s[0]This is dialogue for November.\w8\1\s[10]Yup.\e"
-		
-		"\0\s[0]This is more dialogue for November.\w8\1\s[10]That it is.\e"
-	}
-	if month >= 12
-	{
-		"\0\s[0]This is dialogue for December.\w8\1\s[18]A cold month?\e"
-		
-		"\0\s[0]This is more dialogue for December.\w8\1\s[18]Still cold?\e"
-	}
+	if month == 1 //January
+	if month == 3 //March
+	if month == 4 //April
+	if month == 5 //May
 	*/
+	if month == 2 //February
+	{
+		"\0\s[1]I've heard that this month,\w4 young fellows gift things to one another to profess their love.\w8 \s[0]\n\n[half]My trade is deductions and not romance,\w8 \s[2]but that does seem like a sound practice to me.\w8 \s[6]\n\n[half]Look at little Wagahai,\w4 bringing use mice and trinkets.\w8 Gifts to show your love are universal!\w8\e"
+	}
+	if month == 6 || month == 7 || month == 8 //June, July, August; Summer
+	{
+		"\0\s[1]Mh?\w8 \s[0]If I'm hot in this outfit?\w8 \s[3]\n\n[half]Not an ounce,\w4 my dear fellow!\w8 \s[2]\n\n[half]I am resistant to all temperatures,\w4 from extreme heat to freezing cold.\w8 \s[8]\n\n[half]A jacket won't kill me!\w8\w8\w8 \s[0]\n\n[half]Also,\w4 I have strategically placed some chemicals in my clothes with refreshing properties.\w8 \s[2]\n\n[half]Worry not.\w8 \s[3]They're Iris-approved.\w8\e"
+	}
+	if month == 9 || month == 10 || month == 11 //September, October, November; Autumn
+	{
+		"\0\s[4]When I was a boy,\w8 I enjoyed playing in the fallen leaves.\w8 \s[0]\n\n[half]Well,\w4 I did that when I was a girl,\w4 too.\w8 \s[1]\n\n[half]My point is that it's a real shame I can't do it anymore.\w8 \s[5]\n\n[half]London doesn't have enough trees to warrant piles of fallen leaves.\w8\e"
+	}
+	if month == 12 && day < 24 //before Christmas
+	{
+		"\0\s[3]Christmas is coming!\w8 \s[0]\n\n[half]I believe my roommates are unaccoustomed to such celebrations.\w8 \s[1]\n\n[half]I ought to find a good lie for them before Iris tell them about it.\w8 \s[6]\n\n[half]It'd be a wast to let such wonderful innocence go unused,\w4 wouldn't it?\w8\e"
+	}
 	
 	"\0\s[1]Is it %(Hermonth)??\w8 \s[5]How has time passed so fast?!\w8\w8\w8 \s[0]\n\n[half]Mh?\w8 \s[1]It isn’t,\w4 you say?\w8 \s[4]\n\n[half]Oh...\w8 This newspaper issue is dated from last year...\w8\e"
 	
 	/*
 	//These ifs check what day of the week it is.
-	if weekday == 1
-	{
-		"\0\s[0]This is dialogue for Monday.\w8\1\s[10]Yup.\e"
-		
-		"\0\s[0]This is more dialogue for Monday.\w8\1\s[10]That it is.\e"
-	}
-	if weekday == 2
-	{
-		"\0\s[0]This is dialogue for Tuesday.\w8\1\s[10]Yup.\e"
-		
-		"\0\s[0]This is more dialogue for Tuesday.\w8\1\s[10]That it is.\e"
-	}
-	if weekday == 3
-	{
-		"\0\s[0]This is dialogue for Wednesday.\w8\1\s[10]Yup.\e"
-		
-		"\0\s[0]This is more dialogue for Wednesday.\w8\1\s[10]That it is.\e"
-	}
-	if weekday == 4
-	{
-		"\0\s[0]This is dialogue for Thursday.\w8\1\s[10]Yup.\e"
-		
-		"\0\s[0]This is more dialogue for Thursday.\w8\1\s[10]That it is.\e"
-	}
-	if weekday == 5
-	{
-		"\0\s[0]This is dialogue for Friday.\w8\1\s[10]Yup.\e"
-		
-		"\0\s[0]This is more dialogue for Friday.\w8\1\s[10]That it is.\e"
-	}
-	if weekday == 6
-	{
-		"\0\s[0]This is dialogue for Saturday.\w8\1\s[10]Yup.\e"
-		
-		"\0\s[0]This is more dialogue for Saturday.\w8\1\s[10]That it is.\e"
-	}
-	if weekday == 0
-	{
-		"\0\s[0]This is dialogue for Sunday.\w8\1\s[10]Yup.\e"
-		
-		"\0\s[0]This is more dialogue for Sunday.\w8\1\s[10]That it is.\e"
-	}
+	if weekday == 1 //Monday
+	if weekday == 2 //Tuesday
+	if weekday == 3 //Wednesday
+	if weekday == 4 //Thursday
+	if weekday == 5 //Friday
+	if weekday == 6 //Saturday
+	if weekday == 0 //Sunday
 	*/
 	
 	//These ifs check for the time of day as defined in bootend.dic.
-	/*
-	if timeslot == "earlymorning"
-	{
-		"\0\s[0]This is dialogue for the early morning.\w8\1\s[10]Yup.\e"
-		
-		"\0\s[0]This is more dialogue for early morning.\w8\1\s[10]That it is.\e"
-	}
-	if timeslot == "morning"
-	{
-		"\0\s[0]This is dialogue for the morning.\w8\1\s[10]Yup.\e"
-		
-		"\0\s[0]This is more dialogue for the morning.\w8\1\s[10]That it is.\e"
-	}
-	*/
+	//if timeslot == "morning"
 	if timeslot == "lunch"
 	{
 		"\0\s[4]Candles are so terribly disappointing.\w8 \s[1]\n\n[half]They smell so nice.\w8 They burn so bright.\w8 \s[4]They feel so good to bite into.\w8 \n\n[half]But the taste?\w8 \s[5]Horrible.\w8 This is just soap all over again.\w8 \s[9]\n\n[half]When will I ever stop undergoing betrayal?\w8\e"
 		
 		"\0\s[4]Wine is the most treacherous friend there is on this Earth.\w8 \s[1]\n\n[half]It smells so sweet...\w8it looks so nice...\w8\s[6]hold it under the light and the liquid will reflect a thousand delicious promises.\w8 \s[3]\n\n[half]And then you drink it,\w4 and!\w8 \s[5]\n\n[half]Betrayal!\w8 Bitterness!\w8 \n\n[half]A taste so foul it curses your entire mouth!\w8 \s[9]\n\n[half]I guess this is why Barok only ever uses it as a drama prop in court.\w8\e"
 	}
-	/*
-	if timeslot == "afternoon"
-	{
-		"\0\s[0]This is dialogue for the afternoon.\w8\1\s[10]Yup.\e"
-		
-		"\0\s[0]This is more dialogue for the afternoon.\w8\1\s[10]That it is.\e"
-	}
-	if timeslot == "evening"
-	{
-		"\0\s[0]This is dialogue for the evening.\w8\1\s[10]Yup.\e"
-		
-		"\0\s[0]This is more dialogue for the evening.\w8\1\s[10]That it is.\e"
-	}
-	*/
+	//if timeslot == "afternoon"
+	//if timeslot == "evening"
 	if timeslot == "latenight" || timeslot == "midnight"
 	{
 		"\0\s[0]Ah!\w8 \s[1]A fellow night owl,\w4 I see!\w8 \s[0]\n\n[half]Working late is often very stimulating for the nerves.\w8 \s[1]\n\n[half]Sadly,\w4 my roommate is someone who must be in bed by 8 in the evening,\w4 \s[0]so I have to be quiet past that.\w8\e"
 	}
-	
-	
-	//--Double Envelopes
-	/*
-	//note that this is enclosed in its own set of brackets
+	if timeslot == "midnight" || timeslot == "earlymorning"
 	{
-	_korean = lessonkor //Here, the envelope "lessonkor" (which is in word.dic) is stored as a new temporary value called _korean. As a reminder, when coding, it goes "4 = 2 + 2" and not "2 + 2 = 4". The result always comes first!
-	//If you look at lessonkor in word.dic, you'll see it goes "Korean word, meaning". So "Korean word" is the first value in that array, and "meaning" is the second. Arrays always start at 0, as a note.
-	_korword = _korean[0] //Now we make a temporary value called "_korword", which is what will store the Korean word. Since the Korean word is the first value in the array _korean which we just defined, then we can pull that value from the array with _korean[0]. [0] is telling it which entry in the array to take - in this case, the first one (again, arrays start at 0).
-	_kormean = _korean[1] //Now we make a temporary value called "_kormean", which is what will store the meaning of the Korean word. This is the second value in the array, so we can pull it out of _korean by using _korean[1].
-	
-	//Now we put it all together!
-	"\1\s[10]Here is an example of a double envelope. The Korean word is %(_korword).\w8\0\s[0]The word means %(_kormean).\e"
-	
-	//As you can see here, we then use the values we set above for _korword and _kormean up there in the dialogue as our new envelopes.
-	//The underscores in front of korword and kormean mean that the value is temporary, and will disappear when the dialogue has finished.
-	
-	//Additional Note - You can't test this kind of dialogue in Script Input. You'll have to wait until it comes up naturally in your ghost's random dialogue.
+		"\0"
+		--
+		"\s[2]"
+		"\s[7]"
+		"\s[6]"
+		"\s[3]"
+		--
+		"The early bird gets the case!\w8\e"
 	}
-	*/
+	
 	
 	//--Multiple Responses
 	
 	//Ryuu references!
 	{
-	"\0\s[2]Presenting evidence to random people is the most human reflex of them all.\w8 \s[0]\n\n[half]So,\w4 \s[3]behold!\w8\w8 \s[1]I found this %(filetype) in this %(userfolder)!\w8"
+	"\0\s[2]Presenting evidence to random people is the most human reflex of them all.\w8 \s[0]\n\n[half]So,\w4 \s[3]behold!\w8\w8 \s[1]I found this %(filetype) in this %(userfolder) of yours!\w8"
 	--
 	if user == "Mister Naruhodou"
 	{
@@ -349,38 +214,16 @@ RandomTalk : nonoverlap
 	{
 		"\0No other ghosts open at this time.\w8\e"
 	}
-	if ghostexcount >= 3
-	{
-		"\0Three or more other ghosts are out.\w8\e"
-	}
-	
 	if ghostexcount > 0
 	{
-	_number = RAND(ghostexcount)
-	--
-	checkname = "%(ghostexlist[_number])"
-	--
-	case checkname
-	{
-		when ""
-		{
-			""
-		}
-		//when ""
-		//{
-			//""
-		//}
-		when ""
-		{
-			""
-		}
-		others
-		{
-			"\![raise,OnStartTalking]"
-		}
+		"\0Other ghosts are out.\w8\e"
+		
+		"\![raise,OnStartTalking]\e"
 	}
-	//Always include an "other" it is just a good idea
-	}
+	
+	//specific ghost checks
+	//if "Shadow Child" _in_ ghostexlist
+	//if "" _in_ ghostexlist
 	*/
 	
 	
@@ -423,19 +266,21 @@ OnCapsSherlock
 	reference0 = REPLACE(reference0,"-","") //removes dashes
 	reference0 = REPLACE(reference0,"'","") //removes apostrophes
 	
-	if "BITCH" || "SHIT" || "FUCK" || "DAMN" || "BLOODY" || "HELL" || "BASTARD" || "ASS" || "BITCH" || "TWAT" || "STUPID" || "IDIOT" || "SHIROOTO" || "シロート" || "CUNT" _in_ reference0
+	if "BITCH" _in_ reference0 || "SHIT" _in_ reference0 || "FUCK" _in_ reference0 || "DAMN" _in_ reference0 || "BLOODY" _in_ reference0 || "HELL" _in_ reference0 || "BASTARD" _in_ reference0 || "ASS" _in_ reference0 || "BITCH" _in_ reference0 || "TWAT" _in_ reference0 || "STUPID" _in_ reference0 || "IDIOT" _in_ reference0 || "SHIROOTO" _in_ reference0 || "シロート" _in_ reference0 || "CUNT" _in_ reference0
 	{
 		"\0\s[0]Well,\w4 now.\w8 There's no need to be rude.\w8 \s[4]\n\n[half]A simple no would have suffised."
 	}
-	//elseif "RYUUNOSUKE" || "RYUNOSUKE" || "SUSATO" || "NARUHODOU" || "NARUHODO" || "MIKOTOBA" || "YUUJIN" || "YUJIN" || "IRIS" || "GREGSON" || "BAROK" || "VANZIEKS" _in_ reference0
-	//{
+	elseif "RYUUNOSUKE" _in_ reference0 || "RYUNOSUKE" _in_ reference0 || "SUSATO" _in_ reference0 || "NARUHODOU" _in_ reference0 || "NARUHODO" _in_ reference0 || "MIKOTOBA" _in_ reference0 || "YUUJIN" _in_ reference0 || "YUJIN" _in_ reference0 || "IRIS" _in_ reference0 || "GREGSON" _in_ reference0 || "BAROK" _in_ reference0 || "VANZIEKS" _in_ reference0
+	{
 		//if user == "Mister Naruhodou" || user == "Miss Susato" || user == "''Barok''" || user == "Inspector Gregson"
-	//}
-	//elseif "HERLOCK" || "SHOLMES" || "HERLOSS" || "SHOLMCK" || "SHERLOCK" || "HOLMES" _in_ reference0
-	//{
+		"\0\s[8]Do you think I've forgotten who you are,\w4 my dear %(user)?\w8 \s[1]No need to shout,\w4 \s[6]I'm right here,\w4 you know."
+	}
+	elseif "HERLOCK" _in_ reference0 || "SHOLMES" _in_ reference0 || "HERLOSS" _in_ reference0 || "SHOLMCK" _in_ reference0 || "SHERLOCK" _in_ reference0 || "HOLMES" _in_ reference0
+	{
 		//if user == "Herloss Sholmck" || user == "Sherlock Holmes"
-	//}
-	//elseif "KLINT" || "KLIMT" || "BASKERVILLE" || "PROFESSOR" || "JOHN" || "WILSON" || "WATSON" _in_ reference0
+		"\0\s[8]My dear,\w4 why are you shouting at me??"
+	}
+	//elseif "KLINT" _in_ reference0 || "KLIMT" _in_ reference0 || "BASKERVILLE" _in_ reference0 || "PROFESSOR" _in_ reference0 || "JOHN" _in_ reference0 || "WILSON" _in_ reference0 || "WATSON" _in_ reference0
 	//elseif "WAGAHAI" _in_ reference0
 	elseif reference0 == "" //blank check
 	{
@@ -524,7 +369,7 @@ Select.hauntingiguess
 //Keeps track of if an hour has passed.
 HourCheck
 {
-if passmin >= 59
+	if passmin >= 59
 	{
 		passmin = 0
 		passhour = passhour + 1
@@ -535,38 +380,8 @@ if passmin >= 59
 OnMinuteChange
 {
 	HourCheck
-	--
- 	if minute == 0
-	{
-		/*
- 		if hour == 12 //noon
-		{
- 			"\0\s[0]It's noon.\w8\1\s[15]Let's have a showdown!\w8\0\n\n[half]\s[9]There are no corrals here, dude.\e"
-		}
- 		elseif hour == 0 //midnight
-		{
- 			"\0\s[0]It's midnight!\e"
- 			"\0\s[0]This is another bit of dialogue for midnight.\w8\1\s[10]BooooOoooOOOooOOOOo.\e"
- 			"\0\s[0]This is the third bit of dialogue for midnight.\e"
-		}
-		else
-		{
-			"\0\s[0]It's %(hour12)'o clock.\e"
-		}
-		*/
-	}
-	/*
-	elseif hour == 23 && minute == 55 //this checks to see if the hour is 23 and the minutes are at 55... essentially, 11:55 pm.
-	{
-		"\0\s[0]5 minutes to midnight.\e"
-	}
-	elseif hour == 7 && minute == 30 && weekday == 0 //Here, it's checking for a specific time on a specific day.
-	{			
-		"\0\s[0]It's 7:30 on Sunday.\e"
-	}
-	*/
 	
-	elseif mikireflag == 1
+	if mikireflag == 1
  	{
  		MikireTalk
 	}
@@ -586,16 +401,13 @@ OnSecondChange
 	{
 	 	passsec = passsec + 1
 	}
+	
+	mikireflag = reference1
+	
 	if mikireflag == 0 && reference1 == 1 //Dialogue for when they're offscreen.
 	{
 		MikireTalk
 	}
-	if mikireflag == 1 && reference1 == 0 //Dialogue for coming back on the screen
-	{
-		EndMikireTalk
-	}
-	
-	mikireflag = reference1
 	
 	if reference2 == 1
 	{
@@ -612,13 +424,6 @@ MikireTalk
 {
 	//this should hold him in thought pose while he's offscreen...
 	"\0\s[1]\e"
-}
-
-//----EndMikireTalk--------------------------------------------------------------------
-//this shouldn't get called at all anymore BUT LET'S BE SAFE
-EndMikireTalk
-{
-	"\0\s[3]\e"
 }
 
 
@@ -645,7 +450,7 @@ OnOffscreen
 //Sakura is reference0, Kero is reference1.
 OnSurfaceRestore
 {
-	"\0\s[0]\1\s[10]\e"
+	"\1\s[10]\0\s[0]"
 }
 
 
@@ -653,17 +458,11 @@ OnSurfaceRestore
 OnKeyPress
 {
 	if reference0 == "t"
-	{
-	OnAiTalk
-	}
+	{OnAiTalk}
 	elseif reference0 == "r"
-	{
-	OnLastTalk
-	}
+	{OnLastTalk}
 	elseif reference0 == "f1"
-	{
-	"\![open,readme]"
-	}
+	{"\![open,readme]"}
 }
 
 

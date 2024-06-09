@@ -5,18 +5,11 @@
 //--OnTeachName
 OnTeachName	
 {
-	if reference0 == "TEACHNAME" //ignore this
-	{
-		"\0\s[0]Ooh,\w4 looking for a new name?\w8 \s[1]Do you take suggestions?\w8"
-		
-		"\0\s[1]Looking for a new name,\w4 are you?\w8 \s[6]Do you take suggestions?\w8"
-		--
-		"\![open,inputbox,OnNameTeach,-1]\e"
-	}
-	else
-	{
-		//Empty.
-	}
+	"\0\s[0]Ooh,\w4 looking for a new name?\w8 \s[1]Do you take suggestions?\w8"
+	
+	"\0\s[1]Looking for a new name,\w4 are you?\w8 \s[6]Do you take suggestions?\w8"
+	--
+	"\![open,inputbox,OnNameTeach,-1]\e"
 }
 
 
@@ -32,7 +25,7 @@ OnNameTeach
 	
 	if tempname == user && firstboot != 1 //checking if user inputs same name after firstboot sequence
 	{
-		"\0\s[0]Ah,\w4 right!\w8 \s[3]I remember now!\w8 \s[5]\n\n[half]I look forward to rummaging through the garbage with you!\w8\w8\w8 \c\s[0]\b2Did you,\w4 by chance,\w4 have a title?\w8"
+		"\0\s[0]Ah,\w4 right!\w8 \s[3]I remember now!\w8 \s[5]\n\n[half]I look forward to rummaging through the garbage with you!\w8\w8\w8 \c\s[0]\b8Did you,\w4 by chance,\w4 have a title?\w8"
 		--
 		"\n\n[half]\_q\![*]\q[Nope,titlenone] \n\![*]\q[Mr.,titlemr] \n\![*]\q[Lord,titlelord] \n\![*]\q[Ms.,titlems] \n\![*]\q[Lady,titlelady]\e"
 	}
@@ -50,9 +43,7 @@ OnNameTeach
 		--
 		if firstboot == 1
 		{
-			"\w8\w8\w8\c\s[0]\b2Anyway,\w4 how do you go by,\w4 my dear fellow?\w8"
-			--
-			"\n\n\_q\![*]\q[He/Him/His,OnPronouns,masc] \n\![*]\q[She/Her/Hers,OnPronouns,fem] \n\![*]\q[They/Them/Their,OnPronouns,undef] \n\![*]\q[I have my own,OnPronouns,own]\e"
+			"%(firstbootredirect)\e"
 		}
 		else //end me pls
 		{
@@ -67,9 +58,7 @@ OnNameTeach
 		--
 		if firstboot == 1
 		{
-			"\w8\w8\w8\c\s[0]\b2Anyway,\w4 how do you go by,\w4 my dear fellow?\w8"
-			--
-			"\n\n\_q\![*]\q[He/Him/His,OnPronouns,masc] \n\![*]\q[She/Her/Hers,OnPronouns,fem] \n\![*]\q[They/Them/Their,OnPronouns,undef] \n\![*]\q[I have my own,OnPronouns,own]\e"
+			"%(firstbootredirect)\e"
 		}
 		else //end me pls
 		{
@@ -84,9 +73,7 @@ OnNameTeach
 		--
 		if firstboot == 1
 		{
-			"\w8\s[0]\n\n[half]\b2Anyway,\w4 how do you go by,\w4 my dear fellow?\w8"
-			--
-			"\n\n\_q\![*]\q[He/Him/His,OnPronouns,masc] \n\![*]\q[She/Her/Hers,OnPronouns,fem] \n\![*]\q[They/Them/Their,OnPronouns,undef] \n\![*]\q[I have my own,OnPronouns,own]\e"
+			"%(firstbootredirect)\e"
 		}
 		else //end me pls
 		{
@@ -101,9 +88,7 @@ OnNameTeach
 		--
 		if firstboot == 1
 		{
-			"\w8\w8\w8\c\s[0]\b2Anyway,\w4 how do you go by,\w4 my dear fellow?\w8"
-			--
-			"\n\n\_q\![*]\q[He/Him/His,OnPronouns,masc] \n\![*]\q[She/Her/Hers,OnPronouns,fem] \n\![*]\q[They/Them/Their,OnPronouns,undef] \n\![*]\q[I have my own,OnPronouns,own]\e"
+			"%(firstbootredirect)\e"
 		}
 		else //end me pls
 		{
@@ -124,9 +109,7 @@ OnNameTeach
 		--
 		if firstboot == 1
 		{
-			"\w8\w8\w8\c\s[0]\b2Anyway,\w4 how do you go by,\w4 my dear fellow?\w8"
-			--
-			"\n\n\_q\![*]\q[He/Him/His,OnPronouns,masc] \n\![*]\q[She/Her/Hers,OnPronouns,fem] \n\![*]\q[They/Them/Their,OnPronouns,undef] \n\![*]\q[I have my own,OnPronouns,own]\e"
+			"%(firstbootredirect)\e"
 		}
 		else //end me pls
 		{
@@ -141,9 +124,7 @@ OnNameTeach
 		--
 		if firstboot == 1
 		{
-			"\w8\w8\w8\c\s[0]\b2Anyway,\w4 how do you go by,\w4 my dear fellow?\w8"
-			--
-			"\n\n\_q\![*]\q[He/Him/His,OnPronouns,masc] \n\![*]\q[She/Her/Hers,OnPronouns,fem] \n\![*]\q[They/Them/Their,OnPronouns,undef] \n\![*]\q[I have my own,OnPronouns,own]\e"
+			"%(firstbootredirect)\e"
 		}
 		else //end me pls
 		{
@@ -164,9 +145,7 @@ OnNameTeach
 		--
 		if firstboot == 1
 		{
-			"\w8\w8\w8\c\s[0]\b2Anyway,\w4 how do you go by,\w4 my dear fellow?\w8"
-			--
-			"\n\n\_q\![*]\q[He/Him/His,OnPronouns,masc] \n\![*]\q[She/Her/Hers,OnPronouns,fem] \n\![*]\q[They/Them/Their,OnPronouns,undef] \n\![*]\q[I have my own,OnPronouns,own]\e"
+			"%(firstbootredirect)\e"
 		}
 		else //end me pls
 		{
@@ -181,9 +160,7 @@ OnNameTeach
 		--
 		if firstboot == 1
 		{
-			"\w8\w8\w8\c\s[0]\b2Anyway,\w4 how do you go by,\w4 my dear fellow?\w8"
-			--
-			"\n\n\_q\![*]\q[He/Him/His,OnPronouns,masc] \n\![*]\q[She/Her/Hers,OnPronouns,fem] \n\![*]\q[They/Them/Their,OnPronouns,undef] \n\![*]\q[I have my own,OnPronouns,own]\e"
+			"%(firstbootredirect)\e"
 		}
 		else //end me pls
 		{
@@ -198,9 +175,7 @@ OnNameTeach
 		--
 		if firstboot == 1
 		{
-			"\w8\w8\w8\c\s[0]\b2Anyway,\w4 how do you go by,\w4 my dear fellow?\w8"
-			--
-			"\n\n\_q\![*]\q[He/Him/His,OnPronouns,masc] \n\![*]\q[She/Her/Hers,OnPronouns,fem] \n\![*]\q[They/Them/Their,OnPronouns,undef] \n\![*]\q[I have my own,OnPronouns,own]\e"
+			"%(firstbootredirect)\e"
 		}
 		else //end me pls
 		{
@@ -215,9 +190,7 @@ OnNameTeach
 		--
 		if firstboot == 1
 		{
-			"\w8\w8\w8\c\s[0]\b2Anyway,\w4 how do you go by,\w4 my dear fellow?\w8"
-			--
-			"\n\n\_q\![*]\q[He/Him/His,OnPronouns,masc] \n\![*]\q[She/Her/Hers,OnPronouns,fem] \n\![*]\q[They/Them/Their,OnPronouns,undef] \n\![*]\q[I have my own,OnPronouns,own]\e"
+			"%(firstbootredirect)\e"
 		}
 		else //end me pls
 		{
@@ -232,9 +205,7 @@ OnNameTeach
 		--
 		if firstboot == 1
 		{
-			"\w8\w8\w8\c\s[0]\b2Anyway,\w4 how do you go by,\w4 my dear fellow?\w8"
-			--
-			"\n\n\_q\![*]\q[He/Him/His,OnPronouns,masc] \n\![*]\q[She/Her/Hers,OnPronouns,fem] \n\![*]\q[They/Them/Their,OnPronouns,undef] \n\![*]\q[I have my own,OnPronouns,own]\e"
+			"%(firstbootredirect)\e"
 		}
 		else //end me pls
 		{
@@ -250,7 +221,7 @@ OnNameTeach
 		{
 			"\0\s[1]Not feeling talkative,\w4 are you?\w8 \s[0]That is fine,\w8 \s[2]I know just what to call you!\w8 \s[6]\n\n[half]Fan %(numb)!\w8"
 			--
-			"\x\s[0]\b2And what do you go by,\w4 my dear fellow?\w8"
+			"\x\*\t\s[0]\b8And what do you go by,\w4 my dear fellow?\w8"
 			--
 			"\n\n\_q\![*]\q[He/Him/His,OnPronouns,masc] \n\![*]\q[She/Her/Hers,OnPronouns,fem] \n\![*]\q[They/Them/Their,OnPronouns,undef] \n\![*]\q[I have my own,OnPronouns,own]\e"
 		}
@@ -262,10 +233,18 @@ OnNameTeach
 	else
 	{
 		//added some dialogue here for the titles; also I refuse to allow Sholmes to use honorfics
-		"\0\s[1]%(tempname),\w4 huh?\w8 \s[2]Doesn't ring a single bell!\w8\w8\w8 \c\s[0]\b2Would you,\w4 perchance,\w4 like me to use some sort of title while addressing you?\w8"
+		"\0\s[1]%(tempname),\w4 huh?\w8 \s[2]Doesn't ring a single bell!\w8\w8\w8 \c\s[0]\b8Would you,\w4 perchance,\w4 like me to use some sort of title while addressing you?\w8"
 		--
 		"\n\n[half]\![*]\q[Nope,titlenone] \n\![*]\q[Mr.,titlemr] \n\![*]\q[Lord,titlelord] \n\![*]\q[Ms.,titlems] \n\![*]\q[Lady,titlelady]\e"
 	}
+}
+
+//spare me pls
+firstbootredirect
+{
+	"\w8\w8\w8\c\*\t\s[0]\b8Anyway,\w4 how do you go by,\w4 my dear fellow?\w8"
+	--
+	"\n\n\_q\![*]\q[He/Him/His,OnPronouns,masc] \n\![*]\q[She/Her/Hers,OnPronouns,fem] \n\![*]\q[They/Them/Their,OnPronouns,undef] \n\![*]\q[I have my own,OnPronouns,own]\e"
 }
 
 Select.titlenone
@@ -306,7 +285,7 @@ NameDone
 	if firstboot == 1
 	{
 		//added some preamble here because it's nice to have a little confirmation on what the user entered
-		"\0\s[1]%(user),\w4 is it?\w8 \s[2]\n\n[half]I shall do well to remember that.\w8\w8\w8 \s[3]\n\n[half]Now!\w8 \c\s[6]\b2What do you go by,\w4 my dear fellow?"
+		"\*\t\0\s[1]%(user),\w4 is it?\w8 \s[2]\n\n[half]I shall do well to remember that.\w8\w8\w8 \s[3]\n\n[half]Now!\w8 \c\s[6]\b8What do you go by,\w4 my dear fellow?"
 		--
 		"\n\n\_q\![*]\q[He/Him/His,OnPronouns,masc] \n\![*]\q[She/Her/Hers,OnPronouns,fem] \n\![*]\q[They/Them/Their,OnPronouns,undef] \n\![*]\q[I have my own,OnPronouns,own]\e"
 	}
@@ -329,30 +308,18 @@ OnPronouns
 	if reference0 == "masc"
 	{
 		presuffix = "masculine"
-		them = "him"
-		they = "he"
-		their = "his"
-		theyre = "he's"
 	}
 	elseif reference0 == "fem"
 	{
 		presuffix = "feminine"
-		them = "her"
-		they = "she"
-		their = "her"
-		theyre = "she's"
 	}
 	elseif reference0 == "undef"
 	{
 		presuffix = "undefine"
-		them = "them"
-		they = "they"
-		their = "their"
-		theyre = "they're"
 	}
 	elseif reference0 == "own"
 	{
-		"\![leave,passivemode]\0\s[3]Marvelous!\w8 \s[1]Now,\w4 tell me which one you use for they / he / she!\w8"
+		"\0\s[3]Marvelous!\w8 \s[1]Now,\w4 tell me which one you use for they / he / she!\w8"
 		--
 		"\![open,inputbox,OntheyTeach,-1]\e"
 	}
@@ -363,15 +330,18 @@ OnPronouns
 	--
 	if firstboot == 1
 	{
-		firstboot = 0
-		
-		"\![leave,passivemode]\0\s[1]That's '%(they)', '%(them)', and '%(their)',\w4 then?\w8 \s[6]\n\n[half]Perfect!\w8 \s[0]Now that I know who you are,\w4 it is time for me to do what I do best.\w8 \s[3]\n\n[half]Stand over there and look pretty!\w8\e"
+		"\![raise,Onbootcomplete]"
+		--
+		"\0\s[1]That's '%(they)', '%(them)', and '%(their)',\w4 then?\w8 \s[6]\n\n[half]Perfect!\w8 \s[0]Now that I know who you are,\w4 it is time for me to do what I do best.\w8 \s[3]\n\n[half]Stand over there and look pretty!\w8\e"
 	}
 	else
 	{
 		"\0\s[1]That's '%(they)', '%(them)', and '%(their)',\w4 then?\w8 \s[3]Understood!\w8 \s[1]\n\n[half]If a certain attorney comes by,\w4 \s[2]I’ll make sure to update your profile in his court record!\w8\e"
 	}
 }
+
+//to solve the own pronouns issue
+Onbootcomplete {firstboot = 0}
 
 
 
@@ -380,15 +350,11 @@ OnPronouns
 //begin with they!
 OntheyTeach
 {
-	they = reference0
-	reference0 = REPLACE(reference0," ","") //removes spaces
-	reference0 = REPLACE(reference0,".","") //removes periods
-	reference0 = REPLACE(reference0,"-","") //removes dashes
-	reference0 = REPLACE(reference0,"'","") //removes apostrophes
+	xthey = reference0
 	
 	if reference0 == "" //blank check
 	{
-		they = "they"
+		xthey = "they"
 	}
 	Onstep2
 }
@@ -396,7 +362,7 @@ OntheyTeach
 //preamble to next teach
 Onstep2
 {
-	"\0\s[1]So that's '%(they)'?\w8"
+	"\0\s[1]So that's '%(xthey)'?\w8"
 	--
 	"\n\n\_q\![*]\q[Correct,proceed1] \n\![*]\q[That's not right,tryagain1]"
 }
@@ -421,15 +387,11 @@ Select.proceed1
 //onto them!
 OnthemTeach
 {
-	them = reference0
-	reference0 = REPLACE(reference0," ","") //removes spaces
-	reference0 = REPLACE(reference0,".","") //removes periods
-	reference0 = REPLACE(reference0,"-","") //removes dashes
-	reference0 = REPLACE(reference0,"'","") //removes apostrophes
+	xthem = reference0
 	
 	if reference0 == "" //blank check
 	{
-		them = "them"
+		xthem = "them"
 	}
 	Onstep3
 }
@@ -437,7 +399,7 @@ OnthemTeach
 //preamble to next teach
 Onstep3
 {
-	"\0\s[1]So that's '%(them)'?\w8"
+	"\0\s[1]So that's '%(xthem)'?\w8"
 	--
 	"\n\n\_q\![*]\q[Correct,proceed2] \n\![*]\q[That's not right,tryagain2]"
 }
@@ -462,15 +424,11 @@ Select.proceed2
 //onto their!
 OntheirTeach
 {
-	their = reference0
-	reference0 = REPLACE(reference0," ","") //removes spaces
-	reference0 = REPLACE(reference0,".","") //removes periods
-	reference0 = REPLACE(reference0,"-","") //removes dashes
-	reference0 = REPLACE(reference0,"'","") //removes apostrophes
+	xtheir = reference0
 	
 	if reference0 == "" //blank check
 	{
-		their = "their"
+		xtheir = "xtheir"
 	}
 	Onstep4
 }
@@ -478,7 +436,7 @@ OntheirTeach
 //preamble to next teach
 Onstep4
 {
-	"\0\s[1]So that's '%(their)'?\w8"
+	"\0\s[1]So that's '%(xtheir)'?\w8"
 	--
 	"\n\n\_q\![*]\q[Correct,proceed3] \n\![*]\q[That's not right,tryagain3]"
 }
@@ -502,15 +460,12 @@ Select.proceed3
 //teach teach!
 OntheyreTeach
 {
-	theyre = reference0
-	reference0 = REPLACE(reference0," ","") //removes spaces
-	reference0 = REPLACE(reference0,".","") //removes periods
-	reference0 = REPLACE(reference0,"-","") //removes dashes
+	xtheyre = reference0
 	reference0 = REPLACE(reference0,"'","") //removes apostrophes
 	
 	if reference0 == "" //blank check
 	{
-		theyre = "they're"
+		xtheyre = "they're"
 	}
 	Onsteplast
 }
@@ -518,7 +473,7 @@ OntheyreTeach
 //final preamble
 Onsteplast
 {
-	"\0\s[1]So that's '%(theyre)'?\w8"
+	"\0\s[1]So that's '%(xtheyre)'?\w8"
 	--
 	"\n\n\_q\![*]\q[Correct,proceed4] \n\![*]\q[That's not right,tryagain4]"
 }
@@ -534,6 +489,8 @@ Select.tryagain4
 //final talks!!
 Select.proceed4
 {
+	presuffix = "own"
+	
 	"\0\s[3]Fantastic!\w8 \s[1]\n\n[half]If I've gathered all your input correctly,\w4 \s[2]then I'm to refer to you using '%(them)',\w4 '%(they)', and '%(their)'!\w8 "
 	--
 	if firstboot == 1

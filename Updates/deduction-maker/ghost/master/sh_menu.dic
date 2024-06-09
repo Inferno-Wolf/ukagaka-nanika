@@ -3,7 +3,6 @@
 
 
 //--Test Variable --------------------------------------------------------
-
 Select.testvariable
 {
 	"\0\s[0]Say,\w4 my dear fellow,\w4 \s[1]could you type something in upper case for me?\w8"
@@ -20,15 +19,15 @@ OpenSakuraMenu
 	"\0\s[3]"
 	"\0\s[6]"
 	--
-	"\b2How can I help you,\w4 my dear fellow?"
+	"\b[8]How can I help you,\w4 my dear fellow?"
 	--
-	MenuRun
+	OnMenuRun
 }
 
 //--MenuRun
-MenuRun
+OnMenuRun
 {	
-	"\n\n\_q\b2\![set,autoscroll,0]"
+	"\n\n\_q\b[8]\![set,autoscroll,0]"
 	--
 	if lastTalk != ""
 	{
@@ -68,7 +67,7 @@ OnLastTalk
 //If someone selects an option linked to BACKTOMENU, it will go back to MenuRun.
 Select.BACKTOMENU
 {
-	MenuRun
+	OnMenuRun
 }
 
 //If someone selects configmenu, this will lead to TalkConfig.
@@ -81,21 +80,19 @@ Select.configmenu
 //--TalkConfig
 OnTalkConfig
 {
-	"\0\b[2]\_q\![set,autoscroll,0]"
+	"\0\b[2]\_q"
 	--
-	"\f[bold,1]Your name:\f[bold,0] %(user) \n(\q[Change it?,TEACHNAME])\n"
+	"\![*]\q[Your name,TEACHNAME]: %(user)"
 	--
-	"\f[bold,1]Your pronouns:\f[bold,0] %(they)/%(them)/%(their) \n(\q[Change them?,TEACHPRONOUN])\n"
+	"\n\![*]\q[Preferred pronouns,TEACHPRONOUN]: %(they)/%(them)/%(their)"
 	--
-	"\f[bold,1]Your birthday:\f[bold,0] %(birthdayprint) \n(\q[Change it?,TEACHBDAY])\n\n[half]"
+	"\n\![*]\q[Your birthday,TEACHBDAY]: %(birthdayprint)"
 	--
-	"\f[bold,1]Talk Rate:\f[bold,0] - %(talktime) \n(\q[Change it,talkinter])\n\n"
-	--		
-	{
-	"\![*]Enable Uninstall? (NOW : %(deleteshitai))\n\q[ON,deleteon] \q[OFF,deleteoff]\n\n[half]\n"
-	}
+	"\n\![*]\q[Talk Rate,talkinter]: %(talktime)"
 	--
-	"\![*]\q[Back to the menu,BACKTOMENU]\e"
+	"\n\n\![*]\q[Enable Uninstall?,deleteon] (NOW : %(deleteshitai))"
+	--
+	"\n\n\n[half]\![*]\q[Back to Main Menu,BACKTOMENU]   \![*]\q[Cancel,CANCEL]\e"
 }
 
 
@@ -112,15 +109,12 @@ Select.TEACHPRONOUN
 //These two options toggle whether or not you can delete your ghost. Leave them alone.
 Select.deleteon
 {
-	deleteshitai = "ON"
-	TalkConfig
+	if deleteshitai == "OFF" {deleteshitai = "ON"}
+	else {deleteshitai = "OFF"}
+	
+	OnTalkConfig
 }
 
-Select.deleteoff
-{
-	deleteshitai = "OFF"
-	TalkConfig
-}
 
 
 //This next set of functions handles inputting the user's birthday.
@@ -214,16 +208,18 @@ birthchecked
 {
 	if userbirthday == dayslot //if today is the user's birthday
 	{
-		"\0\s[0]Why,\w8 \s[3]that's today's date!\w8 \s[6]\n\n[half]Happy birthday,\w4 my dear fellow!\w8 \s[1]I hope you had a fine day up until this point.\w8\e"
+		"\0\s[0]Why,\w8 \s[3]that's today's date!\w8 \s[6]\n\n[half]Happy birthday,\w4 my dear fellow!\w8 \s[1]I hope you had a fine day up until this point.\w8"
 	}
 	elseif userbirthday == "6month 7day" || userbirthday == "9month 10day" || userbirthday == "11month 13day"
 	{
-		"\0\s[1]Oh,\w4 really?\w8 \s[3]That is a rather auspicious date.\w8 \s[1]\n\n[half]As you might know,\w4 I was born of three wonderful parents.\w8 \n\n[half]They pulled me together with love,\w4 care,\w4 and just a pinch of hard work.\w8 \s[2]\n\n[half]You just happen to be born the same day as one of them!\w8 \s[6]Aren’t you a lucky one?\w8\e"
+		"\0\s[1]Oh,\w4 really?\w8 \s[3]That is a rather auspicious date.\w8 \s[1]\n\n[half]As you might know,\w4 I was born of three wonderful parents.\w8 \n\n[half]They pulled me together with love,\w4 care,\w4 and just a pinch of hard work.\w8 \s[2]\n\n[half]You just happen to be born the same day as one of them!\w8 \s[6]Aren’t you a lucky one?\w8"
 	}
 	else //if the birthday is not listed above.
 	{
-		"\0\s[1]So that's %(bornmonthprint) %(borndayprint)?\w8 \s[6]\n\n[half]Wonderful!\w8 I’ll make sure to remember.\w8 \s[2]\n\n[half]As I remember everything about everyone,\w4 %(user)ley!\w8\e"
+		"\0\s[1]So that's %(bornmonthprint) %(borndayprint)?\w8 \s[6]\n\n[half]Wonderful!\w8 I’ll make sure to remember.\w8 \s[2]\n\n[half]As I remember everything about everyone,\w4 %(user)ley!\w8"
 	}
+	--
+	"\n\n[half]\![Back to Config Menu,configmenu] \n\![*]\q[Back to Main Menu,BACKTOMENU]   \![*]\q[Cancel,CANCEL]\e"
 }
 
 
@@ -245,7 +241,7 @@ OnTalkrate
 	}
 	elseif reference0 == "high"
 	{
-		talktime = "minute"
+		talktime = "1 minute"
 		aitalkinterval = 60
 	}
 	elseif reference0 == "norm"
@@ -264,14 +260,18 @@ OnTalkrate
 		aitalkinterval = 0
 		//poutyboi ++
 		
-		"\0\s[1]...\w8\w8\w8 \s[3]\n\n[half]Understood!\w8 I’ll be over there.\w8 \s[0]Discreet.\w8 Silent.\w8 \s[4]Absolutely not sulking.\w8 \n\n[half]Oh,\w4 my sweet sweet caramel friend,\w4 we’re really in it now.\w8\e"
+		"\0\s[1]...\w8\w8\w8 \s[3]\n\n[half]Understood!\w8 I’ll be over there.\w8 \s[0]Discreet.\w8 Silent.\w8 \s[4]Absolutely not sulking.\w8 \n\n[half]Oh,\w4 my sweet sweet caramel friend,\w4 we’re really in it now.\x"
+		--
+		OnTalkConfig
 	}
 	else //cancel
 	{
 		"\0\s[1]You’re good?\w8 \s[3]Magnificient!\w8 Let us go,\w3 then.\w8 \s[2]The game is afoot!\w8\e"
 	}
 	--
-	"\0\s[1]So that'll be %(talktime),\w4 then?\w8 \s[2]Understood!\w8 I’ll adapt to your pace.\w8 \s[0]\n\n[half]It would be a shame if you were to miss any of my input!\w8\e"
+	"\0\s[1]So that'll be %(talktime),\w4 then?\w8 \s[2]Understood!\w8 I’ll adapt to your pace.\w8 \s[0]\n\n[half]It would be a shame if you were to miss any of my input!\x"
+	--
+	OnTalkConfig
 }
 
 
@@ -373,7 +373,9 @@ Select.ChoiceSystemInformation
 	os_version = FUNCTIONEX("saori_cpuid.dll","os.version")
 	cpu_name = FUNCTIONEX("saori_cpuid.dll","cpu.name")
 	cpu_clockex = FUNCTIONEX("saori_cpuid.dll","cpu.clockex")
-	"\0\s[0]\b[2]\_q\f[bold,1]OS:\f[bold,0] %(os_name) %(os_version)\n\f[bold,1]Memory Load:\f[bold,0] %(memoryload)%\n\f[bold,1]Physical Memory:\f[bold,0] %(memoryavailphys) KB\n\f[bold,1]CPU:\f[bold,0] %(cpu_name) %(cpu_clockex)MHz\n\f[bold,1]Ukagaka:\f[bold,0] %property[baseware.version]\e"
+	"\t\*\0\s[0]\b[2]\_q\f[bold,1]OS:\f[bold,0] %(os_name) %(os_version)\n\f[bold,1]Memory Load:\f[bold,0] %(memoryload)%\n\f[bold,1]Physical Memory:\f[bold,0] %(memoryavailphys) KB\n\f[bold,1]CPU:\f[bold,0] %(cpu_name) %(cpu_clockex)MHz\n\f[bold,1]Ukagaka:\f[bold,0] %property[baseware.version]\x[noclear]"
+	--
+	"\n\n[half]\![Back to Functions,dosomething] \n\![*]\q[Back to Main Menu,BACKTOMENU]   \![*]\q[Cancel,CANCEL]\e"
 }
 
 
@@ -390,9 +392,11 @@ OnChoiceTimeout
 {
 	//poutyboi ++
 	
-	"\0\s[0]My dear fellow?\w8 \s[1]Did you fall asleep on me?\w8\e"
+	"\0\s[0]My dear fellow?\w8 \s[1]Did you fall asleep on me?\w8"
+	--
+	"\e"
 	
-	"\0\s[0]My dear fellow?\w8 \s[1]Did you fall asleep on me?\w8 \s[0]\n\n[half]I can hardly blame you.\w8 \s[1]The same thing happened to me the other day.\w8 \n\n[half]I was having a chat with Inspector Gregson at the time.\w8 \n\n[half]He was...\w8\s[2]less than pleased.\w8\e"
+	"\s[0]\n\n[half]I can hardly blame you.\w8 \s[1]The same thing happened to me the other day.\w8 \n\n[half]I was having a chat with Inspector Gregson at the time.\w8 \n\n[half]He was...\w8\s[2]less than pleased.\w8\e"
 }
 
 
@@ -411,12 +415,12 @@ OpenKeroMenu
 	
 	"I don't know why I should do anything for you.\w8 \0\s[0]Come on,\w4 Barok!\w8 \1\s[10]\n\n[half]....\w8 \0\s[0]\c\b[-1]\1\s[10]\cWhat shall it be?\w8"
  	--
-	KeroMenuRun
+	OnKeroMenuRun
 }
 
-KeroMenuRun
+OnKeroMenuRun
 {
-	"\b[2]\_q\n\n[half]"
+	"\1\b[2]\_q\n\n[half]"
 	--
 	"\![*]\q[Update,keroupdatecheck]\n"
 	--

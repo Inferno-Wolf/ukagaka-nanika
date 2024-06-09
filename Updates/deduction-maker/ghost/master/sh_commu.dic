@@ -8,8 +8,7 @@ OnCommunicate
 {
 	if reference0 == "user" || reference0 == "User"
  	{
-		//---- answering the user
- 		ReplyToUser
+		// :c
 	}
  	else
 	{
@@ -18,21 +17,15 @@ OnCommunicate
  	}
 }
 
-//Just ignore this.
-ReplyToUser
-{
-	TalkToUser
-}
 
 
 //This is your ghost starting a conversation with another ghost. It will choose a random one from the currently open ghosts.
 OnStartTalking
 {
-	AlreadyResponded = 1
 	if ghostexcount > 0
 	{
-		_num = RAND(ghostexcount)
-		_randghost = "%(ghostexlist[_num])"
+		_randghost = ANY(ghostexlist) //this simplifies the process!! thanks again, Zi!!
+		_randghost = _randghost[0,C_BYTE1] //and this removes the garble that comes after it, also thanks to Zi
 		--
 		//Checks for the Sakura name
 		case _randghost
@@ -50,7 +43,7 @@ OnStartTalking
 				
 				"\0\s[3]Ambassadors from a far-off land!\w8 \s[1]\n\n[half]I know a thing or two about greeting ambassadors,\w4 I'll have you know.\w8\e ambassadors"
 			}
-			when "Defemce"
+			when "Defence"
 			{
 				res_reference0 = "Defence"
 				
@@ -83,15 +76,13 @@ OnStartTalking
 
 
 //--ReplyToGhost
-//There are a few different ways you can refine this dialogue, depending on what ghost is speaking to yours and what they're saying. The things you can check for are reference0 and reference1, being the ghost's sakuraname (in their descript.txt) and what they're saying. For example, let's say you want to check if my Gaster ghost is speaking to yours. In that case, you'd set it up like...
-
 ReplyToGhost
 {
 	_Speech = SPLIT(reference1,"\e")[0] //Everything the ghost said that the user can see
 	ConvoTag = SPLIT(reference1,"\e")[1] //Everything after the \e, which will be the invisible tags that track the conversation
 	_Last = SPLIT(reference1,"::")[1] //Ghosts using the reflect system send ":%(_Speech)" at the end of every communication, so _Last is what THIS ghost last said. See below.
 	
-	_last = RemovePauses(_last) //Removes pauses and quicksection tags so it can display properly
+	_Last = RemovePauses(_Last) //Removes pauses and quicksection tags so it can display properly
 	"\![commu-%(reference0)]" //This isn't a real sakurascript tag, but structuring it like one means it wont show in dialogue. This is for loop prevention.
 	--
 	case reference0
@@ -110,17 +101,17 @@ ReplyToGhost
 			{
 				res_reference0 = reference0
 				
-				"\0\s[3]Fascinating stuff!\w8\e"
-				
-				"\0\s[2]The game is afoot,\w4 my dear fellow!\w8\e"
-				
-				"\0\s[0]Is that a yes?\w8 \s[1]Do tell!\w8\e"
+				"\0\s[2]Why hello there,\w4 %(reference0)!\w8\e"
 			}
 			else //If this IS a response to a ghost we already spoke to, say the alternate response and end the conversation
 			{
 				res_reference0 = ""
 				
-				"\0\s[2]Why hello there,\w4 %(reference0)!\w8\e"
+				"\0\s[3]Fascinating stuff!\w8\e"
+				
+				"\0\s[2]The game is afoot,\w4 my dear fellow!\w8\e"
+				
+				"\0\s[0]Is that a yes?\w8 \s[1]Do tell!\w8\e"
 			}
 		}
 	}
@@ -157,6 +148,6 @@ SansPapschat
 	{
 		res_reference0 = ""
 		
-		"\0\s[3]Tally ho,\w4 then!\w8\e"
+		"\0\s[3]\cTally ho,\w4 then!\w8\e"
 	}
 }

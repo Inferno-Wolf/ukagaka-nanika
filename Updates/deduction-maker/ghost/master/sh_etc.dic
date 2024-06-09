@@ -67,15 +67,15 @@ OnWallpaper
 //--OnShellScaling
 OnShellScaling
 {
-	if reference0 > 100 //bigger
-	{
-		"\0\s[8]\![set,balloonwait,4]Hahaha... \s[1]yes... \s[3]yes... \s[6]YES!!!\![set,balloonwait,1]\w8\e"
-	}
-	elseif reference0 == 100 //default
+	if reference0 == 100 //default
 	{
 		"\0\s[4]Oof!\w8 \s[0]Well,\w4 that was fun,\w8 \s[2]but I prefer my original size,\w4 I think.\w8\e"
 	}
-	elseif reference0 < 100 //smaller
+	elseif reference0 > reference1 || reference2 > reference3 //bigger
+	{
+		"\0\s[8]\![set,balloonwait,4]Hahaha... \s[1]yes... \s[3]yes... \s[6]YES!!!\![set,balloonwait,1]\w8\e"
+	}
+	elseif reference0 < reference1 || reference2 < reference3 //smaller
 	{
 		"\0\s[3]Oh!\w8 \s[2]It seems that I found the first step to fully become Harelock!\w8\e"
 	}
@@ -117,13 +117,13 @@ OnInstallComplete
 		{
 			"\0\s[0]Is that...\w8me?\w8 \s[3]\n\n[half]The experiment was a success then!\w8 \s[1]\n\n[half]Ah!\w8 What a pleasure it will be to dance with someone of equally quick footing!\w8 \n\n[half]And I did not foresee this specific part,\w8 \s[2]but it is also a pleasure to lay my eyes on this beautiful face.\w8 \s[0]\n\n[half]You know what?\w8 \s[6]I look good,\w4 actually!\w8"
 		}
-		//elseif reference1 == "Defemce"
+		//elseif reference1 == "Defence"
 		else //literally any other ghost
 		{
 			"\0\s[1]%(reference1)...?\w8 \s[3]\n\n[half]I’m excited to see some new fellows around here!\w8 \s[0]This will liven up the place.\w8"
 		}
 		--
-		"\1\![*]\q[Call %(reference1),CallGhost]\n\![*]\q[Change to %(reference1),ChangeToGhost]\n\n\![*]\q[No thanks,cancelnodialogue]\e"
+		"\1\*\![*]\q[Call %(reference1),CallGhost]\n\![*]\q[Change to %(reference1),ChangeToGhost]\n\n\![*]\q[No thanks,cancelnodialogue]\e"
  	}
 	elseif reference0 == "shell"
  	{
@@ -434,16 +434,6 @@ OnUpdate.OnDownloadBegin
 	//using the text buffers to display the correct number of boxes
 	"%(_txt)\n\n%(Update_Process) of %(Update_Total)"
 	--
-	//flavortext
-	//if "aitalk" _in_ reference0
-	//{
-		//"\n\n\_q\0\s[0]More dialogue!\w8\w8\e"
-	//}
-	//else //for files not specified above
-	//{
-		//""
-	//}
-	//--
 	"\w5\e"
 }
 
@@ -634,7 +624,7 @@ OnHeadlinesenseFailure
 
 
 
-//****　Clock Synchronization　**********************************************************
+//****Clock Synchronization**********************************************************
 //**** 미카 (http://homepage2.nifty.com/ko-ki/)의 사전을 참고했습니다．감사＞こ 나무 성
 //This set of functions was done by the above Korean coder, I think. I'll leave their comment there untouched. 
 
@@ -646,7 +636,7 @@ OnSNTPBegin
 	"\0\s[6]It would be my pleasure to tinker with this odd clock of yours!\w8 \s[2]Gears,\w4 steam and leather hats are my trade.\w8 \1\b[6](Now connecting to %(reference0)...)\w8\e"
 }
 
-//----　OnSNTPCompare----------------------------------------------------------
+//----OnSNTPCompare----------------------------------------------------------
 OnSNTPCompare
 {
  	"Retrieved Time: %reference1[1]/%reference1[2]/%reference1[0] %reference1[3]:%reference1[4]:%reference1[5]\w2\nYour Time: %reference2[1]/%reference2[2]/%reference2[0] %reference2[3]:%reference2[4]:%reference2[5]\w2\n\n"
@@ -665,7 +655,7 @@ OnSNTPCompare
 	}
 }
 
-//----　OnSNTPEXECUTE ------------------------------------------------------------------
+//----OnSNTPEXECUTE ------------------------------------------------------------------
 //Note the \6 tag - that's what actually changes the clock.
 OnSNTPEXECUTE
 {
@@ -674,73 +664,17 @@ OnSNTPEXECUTE
 	"\0\s[3]Oh I have been waiting for this!\w8 \s[1]I ought to bring the blueprints to Iris,\w4 I’m sure she’d love it.\w8\e"
 }
 
-//----　OnSNTPCANCEL ------------------------------------------------------------------
+//----OnSNTPCANCEL ------------------------------------------------------------------
 OnSNTPCANCEL
 {
 	"\0\s[0]Oh,\w4 well.\w8 \s[3]Less work for me!\w8\e"
 }
 
-//----　OnSNTPFailure ------------------------------------------------------------------
+//----OnSNTPFailure ------------------------------------------------------------------
 OnSNTPFailure
 {
 	"\0\s[1]...\w8\w8\w8 \s[4]\n\n[half]I cannot believe I am saying this,\w4 but...\w8 \n\n[half]I am being bested by this clock.\w8 \s[9]I cannot figure how to change it.\w8 At all.\w8\e"
 }
-
-//--OnDisplayChange----------------------------------------------------------------
-OnDisplayChange
-{
-	displaybpp    = reference0
- 	displaywidth  = reference1
-	displayheight = reference2
-}
-
-
-/*
-//---- OnScreenSaverStart -------------------------------------------------------
-OnScreenSaverStart
-{
-	"\0\s[0]The screensaver is starting.\w7\1\s[10]Wiggle your mouse!\e"
-}
-
-//---- OnScreenSaverEnd -------------------------------------------------------
-OnScreenSaverEnd
-{
-	"\0\s[0]The screensaver is gone.\e"
-}
-
-
-//---- OnApplicationBoot ---------------------------------------------------------------
-OnApplicationBoot
-{
-	"\0\s[0]%(reference0) just started.\e"
-}
-
-//---- OnApplicationClose --------------------------------------------------------------
-OnApplicationClose
-{
-	"\0\s[0]%(reference0) has closed.\e"
-}
-
-//---- OnApplicationFileOpen ----------------------------------------------------------
-OnApplicationFileOpen
-{
-	"\0\s[0]Opening %(reference1).\e"
-}
-
-
-//---- OnBatteryLow -----------------------------------------------------------------
-//reference0 here is the amount of battery power.
-OnBatteryLow
-{
-	"\1\s[10]The laptop's battery is low. \w8\0\s[0]There is %(reference0) power left.\e"
-}
-
-//--OnBatteryCritical-----------------------------------------------------------------
-OnBatteryCritical
-{
-	"\0\s[0]The laptop's battery is critically low.\e"
-}
-*/
 
 
 
@@ -748,53 +682,44 @@ OnBatteryCritical
 //when you call another ghost. It activates immediately, so write dialogue accordingly.
 OnGhostCalling
 {
-	_ghost = reference0
-	--
+	case reference0
 	{
-		case _ghost
+		when "Herlock Sholmes"
 		{
-			when "Herlock Sholmes"
-			{
-				"\0\s[3]That's my evil twin over there!\w8\e"
-				
-				"\0\s[1]So the experiment was,\w4 indeed,\w4 a success...\w8\e"
-			}
-			//when ""
-			//{
-				//""
-			//}
-			others
-			{
-				"\0\s[0]Oh!\w8 \s[1]So that's %(reference0),\w4 then?\w8 \s[3]Come testify for this investigation!\w8\e"
-			}
+			"\0\s[3]That's my evil twin over there!\w8\e"
+			
+			"\0\s[1]So the experiment was,\w4 indeed,\w4 a success...\w8\e"
+		}
+		//when ""
+		//{
+			//""
+		//}
+		others
+		{
+			"\0\s[0]Oh!\w8 \s[1]So that's %(reference0),\w4 then?\w8 \s[3]Come testify for this investigation!\w8\e"
 		}
 	}
 }
 
 //when you change another ghost. activates after they've finished swapping.
-//reloading a ghost doesn't trigger this I'm saddddddd
 //reference0 = ghost before switch; reference1 = ghost switched to; reference4 = name of previous ghost; reference5 = name of switched to ghost
 OnOtherGhostChanged
 {
-	_ghost = reference1
-	--
+	case reference1
 	{
-		case _ghost
+		when "Herlock Sholmes"
 		{
-			when "Herlock Sholmes"
-			{
-				"\0\s[1]Ah!\w8 I have lost sight of %(reference0)...\w8 \s[3]\n\n[half]But,\w4 the good news is,\w4 I have found %(reference1) instead!\w8\e"
-			}
-			//when ""
-			//{
-				//""
-			//}
-			others
-			{
-				"\0\s[1]Ah!\w8 I have lost sight of %(reference4)...\w8 \s[3]\n\n[half]But,\w4 the good news is,\w4 I have found %(reference5) instead!\w8\e"
-				
-				"\0\s[1]Ah!\w8 I have lost sight of %(reference0)...\w8 \s[3]\n\n[half]But,\w4 the good news is,\w4 I have found %(reference1) instead!\w8\e"
-			}
+			"\0\s[1]Ah!\w8 I have lost sight of %(reference0)...\w8 \s[3]\n\n[half]But,\w4 the good news is,\w4 I have found %(reference1) instead!\w8\e"
+		}
+		//when ""
+		//{
+			//""
+		//}
+		others
+		{
+			"\0\s[1]Ah!\w8 I have lost sight of %(reference4)...\w8 \s[3]\n\n[half]But,\w4 the good news is,\w4 I have found %(reference5) instead!\w8\e"
+			
+			"\0\s[1]Ah!\w8 I have lost sight of %(reference0)...\w8 \s[3]\n\n[half]But,\w4 the good news is,\w4 I have found %(reference1) instead!\w8\e"
 		}
 	}
 }
@@ -802,25 +727,21 @@ OnOtherGhostChanged
 //when you close another ghost. Only activates after the other ghost is gone.
 OnOtherGhostClosed
 {
-	_ghost = reference0
-	--
+	case reference0
 	{
-		case _ghost
+		when "Herlock Sholmes"
 		{
-			when "Herlock Sholmes"
-			{
-				"\0\s[7]Let ua duel some other time,\w4 evil twin!\w8\e"
-				
-				"\0\s[7]Do you think I could win in a fight against myself,\w4 %(user)?\w8\e"
-			}
-			//when ""
-			//{
-				//""
-			//}
-			others
-			{
-				"\0\s[0]So long,\w4 %(reference0)!\w8 \s[2]I’m sure we’ll meet again!\w8\e"
-			}
+			"\0\s[7]Let ua duel some other time,\w4 evil twin!\w8\e"
+			
+			"\0\s[7]Do you think I could win in a fight against myself,\w4 %(user)?\w8\e"
+		}
+		//when ""
+		//{
+			//""
+		//}
+		others
+		{
+			"\0\s[0]So long,\w4 %(reference0)!\w8 \s[2]I’m sure we’ll meet again!\w8\e"
 		}
 	}
 }
