@@ -32,10 +32,9 @@ This ghost uses Zarla's template! Documentation on it can be found here: http://
 She used Cindysuke's ghost for her template. Although that ghost has been taken down, you may find Cindysuke here: cindysuke.deviantart.com
 If you're interested in making your own ghost, check out the tumblr at: https://ukagakadreamteam.tumblr.com/
 
-(and anything else y'all wanna plug)
-
 
 
 ----/Versions & Updates/----
 
+Version 1.2 - Balloon stuff and more dialogues
 Version 1.0 - Release!!
