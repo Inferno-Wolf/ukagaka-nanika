@@ -1,0 +1,240 @@
+//---------------------------Anchors and OnTranslate--------------------------
+//ALL THE REFERENCES!
+
+
+//--OnTranslate
+OnTranslate
+{
+	_talk = reference0
+	_talk = REPLACE(_talk, "maskedgent", "\_a[RandallAscot]Randall\_a")
+	_talk = REPLACE(_talk, "clairedelune", "\_a[ClaireFoley]Claire\_a")
+	_talk = REPLACE(_talk, "desdes", "\_a[DesmondSycamore]Descole\_a")
+	_talk = REPLACE(_talk, "thegoldenapple", "\_a[FloraReinhold]Flora\_a")
+	_talk = REPLACE(_talk, "misslayton", "\_a[KatrielleLayton]Katrielle\_a")
+	_talk = REPLACE(_talk, "pottyprof", "\_a[AlfendiLayton]Alfendi\_a")
+	_talk = REPLACE(_talk, "dadtriton", "\_a[ClarkTriton]Clark\_a")
+	_talk = REPLACE(_talk, "momtriton", "\_a[BrendaTriton]Brenda\_a")
+	_talk = REPLACE(_talk, "topassistant", "\_a[EmmyAltava]Emmy\_a")
+	_talk = REPLACE(_talk, "aurorazan", "\_a[Aurora]Aurora\_a")
+	_talk = REPLACE(_talk, "futureluke", "\_a[CliveDove]Clive\_a")
+	_talk = REPLACE(_talk, "paulpaolo", "\_a[DonPaolo]Don Paolo\_a")
+	_talk = REPLACE(_talk, "mraceattorney", "\_a[PhoenixWright]Mr Wright\_a")
+	_talk = REPLACE(_talk, "borgerfey", "\_a[MayaFey]Miss Fey\_a")
+	
+	//_talk = REPLACE(_talk, "", "\_a[]\_a")
+	
+	if SHIORI3FW.BalloonName == "Professor Layton Speech"
+	{
+		_talk = REPLACE(_talk,"\0\b[0]","\0\b[%(Balloon.Layton[0])0]")
+		_talk = REPLACE(_talk,"\0\b[2]","\0\b[%(Balloon.Layton[0])2]")
+		_talk = REPLACE(_talk,"\0\b[4]","\0\b[%(Balloon.Layton[0])4]")
+		
+		_talk = REPLACE(_talk,"\1\b[0]","\1\b[%(Balloon.Luke[0])6]")
+		_talk = REPLACE(_talk,"\1\b[2]","\1\b[%(Balloon.Luke[0])2]")
+		_talk = REPLACE(_talk,"\1\b[4]","\1\b[%(Balloon.Luke[0])4]")
+		
+		//_talk = REPLACE(_talk,"__INPUT_BOX_COLOR_0__","--balloon=%(Balloon.Layton[0])0")
+		//_talk = REPLACE(_talk,"__INPUT_BOX_COLOR_1__","--balloon=%(Balloon.Luke[0])0")
+	}
+	
+	//send input box : no event (ref2) , no special flag (ref1)
+	if reference1 == "" && reference2 == ""
+	{ EVAL('"' + REPLACE(_talk,'"','" + CHR(0x22) + "') + '"') }
+	//event result from ghost
+	else
+	{ TOSTR(_talk) }
+}
+
+
+//--OnAnchorSelect
+// \j is a tag that will open a specified url in the user's browser of choice. This basically just tells the ghost to open the webpage stored in reference0, which would be the address that the user just clicked.
+OnAnchorSelect
+{
+	if "http://" _in_ reference0 || "https://" _in_ reference0 //checking to see if the link is a web address
+	{"\j[%(reference0)]\e"}
+	else //if it's NOT a web address
+	{
+		case reference0
+		{
+			when "RandallAscot" //if the link is this value
+			{
+				if favegame == "Miracle Mask"
+				{
+					"\1\b[0]\s[19]\i[0]That's the Professor's old school mate from back when he was just a little older than I am now!\w8 \0\b[0]\s[1]%(concernsmile)Yes,\w4 maskedgent Ascot,\w4 my best friend.\w8 \1\s[16]\i[1]\0\s[5]%(sadsmile)He was the one who got me into puzzles and archaeology,\w4 %(user).\w8 \1\s[16]\i[27]\n\n[half]You and he explored the Akbadain ruins together.\w8 \0\s[7]\i[0]\1\s[16]\i[11]Until he...\w8 \0\n\n[half]...\w8\w8\w8\1\s[16]\i[24]\0\s[3]%(concernsmile)It was an unfortunate accident,\w4 for sure.\w8 \1\s[16]\i[11]\0\s[5]%(sad)Even more unfortunate,\w4 he lost all his memories and was subsequently manipulated into terrorism by desdes.\w8 \1\s[15]\i[1]\n\n[half]He tried to destroy all of Monte d'Or.\w8 \0\s[7]\i[2]\1\s[15]\i[2]And nearly killed me,\w4 too!\w8 \0\s[4]%(concernsmile)\n\n[half]\_a[AngelaLedore]Angela\_a,\w4 \_a[HenryLedore]Henry\_a,\w4 and I are certainly glad he's come to his senses since then.\w8 \1\s[15]\i[10]\0\s[4]%(confusesmile)Though,\w4 he wasn't very happy about having to pay reparations for his part in that whole fiasco.\w8 \1\s[16]\i[27]\n\n[half]All's well that ends well,\w4 I suppose.\w8\e"
+				}
+				
+				"\0\b[0]\s[1]%(shockopen)Oh,\w4 maskedgent?\w8 \1\b[0]\s[16]\i[17]The Professor's old friend?\w8 \0\s[4]%(shock)\1\s[19]\i[6]The one who threatened to kill me and then nearly buried all of Monte d'Or?\w8 \0\n\n[half]...\w8\w8\w8\s[7]\i[2]Yes,\w4 well.\w8 \1\s[16]\i[17]\n\n[half]He's an odd character for sure.\w8 \0\s[4]%(concernsmile)\1\s[16]\i[9]It wasn't really his fault he was being so hostile.\w8 \s[19]\i[27]desdes lied to him after he lost his memory.\w8 \0\s[3]%(sadsmile)\n\n[half]Randall has always been a very passionate person.\w8 \1\s[16]\i[9]\0\s[3]%(annoyedsmile)Always rushing into things,\w4 never thinking ahead to the consequences.\w8 \1\s[16]\i[27]\n\n[half]After everything was sorted,\w4 he didn't seem all that bad.\w8 \0\s[1]%(confusesmile)\1\s[19]\i[9]You,\w4 \_a[HenryLedore]Mr Ledore\_a,\w4 \_a[AngelaLedore]Miss Angela\_a,\w4 and Mr Dalston all really care about him after all.\w8 \0\s[1]%(sad)\n\n[half]I'm sorry about what he did.\w8 \1\s[10]\n\n[half]Eh,\w4 it's all right.\w8 \0\s[1]%(confusesmile)\1\s[15]\i[22]You were there to help me.\w8 \0\s[7]\i[2]\n\n[half]I'm just glad you weren't actually hurt.\w8\e"
+			}
+			when "ClaireFoley" //if the link is this value
+			{
+				if favegame == "Unwound Future" || favegame == "Lost Future"
+				{
+					"\1\b[0]\s[16]\i[24]That's your almost fiancee,\w8 \0\s[7]\i[0]\1right,\w4 Professor?\w8 \s[16]\i[11]The one who was working on the time machine.\w8 \0\b[0]Yes,\w4 that.\w8 \1\s[16]\i[13]\0\s[4]%(sadsmile)That would be her.\w8 \1\s[16]\i[9]\0\s[5]%(concernsmile)clairedelune Foley,\w4 my brilliant and fierce love.\w8 \s[4]%(sad)She's the one who gave me my hat.\w8 \1\s[21]\i[13]\n\n[half]She seemed real nice when we saw her in that fake future London.\w8 \0\s[4]%(sadsmile)\1\s[22]\i[9]At least,\w4 she seemed so because she helped us out of a few tight spots.\w8 \0\s[4]%(closeeyes)\n\n[half]She was a very wonderful and caring person.\w8 \1\s[16]\i[24]\0\s[7]\i[2]I was quite sad to see her go.\w8 \1\s[16]\i[11]\n\n[half]...\w8\w8\s[21]\i[24]are you gonna be okay,\w4 Professor?\w8 \0\s[4]%(concernsmile)\n\n[half]I will be,\w4 my boy,\w4 thank you.\w8 \1\s[21]\i[13]\0\s[7]\i[0]Just a very sensitive subject for me.\w8 \1\s[21]\i[9]\n\n[half]I understand.\w8 \0\s[4]%(sadsmile)\1\s[22]\i[23]At least,\w4 I think I do.\w8\e"
+				}
+				
+				"\0\b[0]\s[4]%(sad)Ah...\w8 \1\b[0]\s[16]\i[24]That's...\w8\w8 \0\s[7]\i[0]\1your girlfriend from university.\w8 Right?\w8 \0\n\n[half]Yes.\w8 \1\s[16]\i[11]\0\s[4]%(concernsmile)clairedelune Foley,\w4 my.\w8 \s[7]\i[2]My girlfriend.\w8 \1\s[18]\i[13]\n\n[half]She died in an accident,\w4 but she seemed real nice.\w8 \0\s[4]%(sadsmile)\1\s[18]\i[9]I would've liked to have met her when she was alive.\w8 \0\s[3]%(concernsmile)\n\n[half]Yes,\w8 she would have adored you,\w4 I'm sure.\w8 \1\s[18]\i[24]\n\n[half]...\w8\w8\0\s[1]%(shock)\1\s[25]I'm sorry,\w4 Professor.\w8 \0\s[1]%(concernsmile)\n\n[half]It's quite all right,\w4 Luke.\w8 \1\s[18]\i[24]\0\s[12]Sometimes,\w4 it's better to acknowledge what went wrong than to pretend it never happened in the first place.\w8 \1\s[25]\e"
+			}
+			when "DesmondSycamore" //if the link is this value
+			{
+				if favegame == "Azran Legacy"
+				{
+					"\1\b[0]\s[16]\i[20]\0\b[0]\s[1]%(neutral)Jean desdes.\w8 \s[5]%(closeeyes)Otherwise known to us as Desmond Sycamore.\w8 \1\s[16]\i[7]I still can't believe he was lying to us the whole time.\w8 \0\s[1]%(neutral)\1\s[16]\i[2]That he tried to kill you when he gave up everything to save you!\w8 \0\s[1]%(closeeyes)\n\n[half]Yes,\w4 well.\w8 \1\s[16]\i[20]\0\s[3]%(neutral)His many years acting as a counter terrorist to Targent couldn't have helped with his well-being.\w8 \1\s[21]\i[2]\n\n[half]He gave you his name!\w8 \0\s[3]%(shock)\1\s[21]\i[7]It's just baffling to me that he would act how he did after going through so much trouble.\w8 \0\s[1]%(sad)\n\n[half]...\w8\w8\1\s[16]\i[20]\0\s[1]%(closeeyes)You still haven't forgiven him for what he did during his time in Misthallery,\w4 have you?\w8 \1\s[16]\i[7]\n\n[half]I haven't forgiven him for a lot of things he did.\w8 \0\s[1]%(sad)\1\s[25]But yeah.\w8 Yeah,\w4 he really crossed the line with me on that one.\w8\e"
+				}
+				
+				{
+					"\1\b[0]\s[21]\i[2]desdes!\w8 \0\b[0]\s[5]%(neutral)That's the man whom we raced against in our pursuit of the mysteries behind the Azran people.\w8 \1\s[16]\i[7]\0\s[1]%(confused)I take it you're still upset at him,\w4 Luke?\w8 \1\s[16]\i[20]\n\n[half]Why wouldn't I be?\w8 \0\s[1]%(sad)\1\s[21]\i[2]"
+					--
+					if favegame == "Last Spectre" || favegame == "Spectre's Call"
+					{"He kidnapped my mum and blackmailed my dad!"}
+					elseif favegame == "Eternal Diva"
+					{"He tried to kill you and me and topassistant!\w8 He tried to have us all killed while we were on that island!"}
+					elseif favegame == "Miracle Mask"
+					{"He lied to your old friend and had him nearly bury all of Monte d'Or!"}
+					elseif favegame == "Azran Legacy"
+					{"He lied to our faces the whole time we travelled together and then left without a word!"}
+					else //other games
+					{"He's done countless evil things not just against us,\w4 but against most cities and towns we've been through!"}
+					--
+					"\w8\0\s[1]%(closeeyes)\n\n[half]I suppose that's a good point.\w8 \1\s[25]\0\s[3]%(neutral)He was quite the complicated man who then disappeared once we discovered what was left by the Azran.\w8 \1\s[16]\i[7]\n\n[half]I guess his cape was cool.\w8 \s[16]\i[20]But that was it.\w8 \0\s[1]%(confusesmile)\1That's all I'll give him.\w8 \0\s[3]%(concernsmile)\n\n[half]As you can see,\w4 %(user),\w4 we have terribly mixed feelings on the matter.\w8 \1\s[25]\e"
+				}
+			}
+			when "FloraReinhold"
+			{
+				if favegame == "Curious Village"
+				{
+					"\1\b[0]\s[18]\i[21]That's thegoldenapple Reinhold!\w8 \0\s[1]%(surprisesmile)\1\s[18]\i[0]The late Baron Reinhold's only daughter!\w8 \0\b[0]\s[5]%(calmsmile)Yes,\w4 she was,\w4 without a doubt,\w4 his precious golden apple.\w8 \1\s[22]\i[17]\n\n[half]Why d'ya think he built a house for her at the top of that tower in St Mystere?\w8 \0\s[4]%(shock)\1\s[22]\i[7]If he built all of St Mystere just for her,\w4 then she should have been allowed to live in it,\w4 too,\w4 shouldn't she have?\w8 \0\s[3]%(concernsmile)\n\n[half]I'm sure the Baron Reinhold was just trying to keep his daughter safe.\w8 \1\s[16]\i[1]\0\s[5]%(sadsmile)Making sure she had a place away from all the residents of St Mystere after she couldn't connect with Lady Dahlia was also probably on his mind.\w8 \1\s[16]\i[13]\n\n[half]I guess so.\w8 \0\s[1]%(concernsmile)\1I still think it's weird,\w8 \s[16]\i[12]but Flora's with us now and not in that tower anymore,\w4 at least!\w8 \0\s[4]%(happies)\n\n[half]Yes,\w4 she's free to expand her horizons as much as she wishes now.\w8 \1\s[16]\i[22]\e"
+				}
+				
+				"\1\b[0]\s[21]\i[19]That's thegoldenapple Reinhold!\w8 \0\s[4]%(happies)\1\s[21]\i[22]She's my friend and the Professor's ward.\w8 \0\b[0]\s[3]%(smiles)She's been through quite a lot and come out the other side as a fierce girl.\w8 \1\s[21]\i[27]\0\s[1]%(confusesmile)She's still working on her ability to be independant and is naive to many things,\w8 \s[3]%(calmsmile)but I have no doubts she'll grow into a fine lady.\w8 \1\s[18]\i[12]\n\n[half]She's probably my best friend after the Professor.\w8 \0\s[1]%(confusesmile)\1\s[18]\i[25]If he wasn't such a stickler about potential dangers and the like,\w8 \s[18]\i[28]then we'd take her on more adventures with us!\w8 \0\s[4]%(concernsmile)\n\n[half]Well.\w8 It's not safe for her to come with us most of the time.\w8 \1\s[17]\i[20]\n\n[half]If I can handle it,\w4 I'm sure she can!\w8 \0\s[4]%(upset)\n\n[half]...\w8\w8 \s[1]%(confusesmile)Anyway.\w8 \1\s[16]\i[26]\0\s[3]%(happies)Flora is a good girl,\w4 %(user).\w8 \1\s[21]\i[21]\n\n[half]I'm sure she'd love to meet you one day!\w8\e"
+			}
+			when "KatrielleLayton"
+			{
+				if favegame == "Layton Mystery Journey"
+				{
+					"\0\b[0]\s[3]%(happies)misslayton Layton,\w4 my daughter.\w8 \1\b[0]\s[16]\i[27]I'm still surprised you decided to adopt her.\w8 \0\s[1]%(confused)\n\n[half]Is it so surprising?\w8 \1\s[16]\i[12]\n\n[half]It's just so difficult for me to think of you as a father.\w8 \0\s[1]%(neutral)\1\s[22]\i[6]I mean,\w4 \_a[ClarkTriton]my dad\_a's a father.\w8 You're the Professor!\w8 \0\s[4]%(concernsmile)\n\n[half]Hahaha,\w4 I suppose I can see what you mean.\w8 \1\s[16]\i[27]\0\s[3]%(calmsmile)But after you went through so much just to get her to me,\w4 how could I not agree to care for her?\w8 \1\s[21]\i[9]\n\n[half]I'm glad you did in the end!\w8 \0\s[1]%(happies)\1\s[21]\i[0]Watching her be able to grow up has been a lot of fun.\w8 \s[16]\i[21]She's so silly!\w8 \0\s[4]%(calmsmile)\n\n[half]Yes,\w4 it has been quite the treat seeing her personality develop as she's grown.\w8 \1\s[16]\i[0]\0\s[4]%(smiles)I'm also grateful that both you and pottyprof have taken so well to her.\w8 \1\s[16]\i[13]\n\n[half]It was a bit touch and go there with him,\w4 but he came around in the end.\w8 \0\s[1]%(concernsmile)\1\s[16]\i[3]Especially now that she's got herself a friend.\w8 \0\s[3]%(smiles)\n\n[half]Mostly,\w4 I look forward to seeing her surpass me when it comes to her puzzle prowess.\w8 \1\s[21]\i[19]\n\n[half]I can't wait to see her get better and better,\w4 too!\w8\e"
+				}
+				
+				"\0\b[0]\s[1]%(surprisesmile)\1\b[0]\s[18]\i[19]misslayton Layton,\w4 my favourite little girl!\w8 \0\s[5]%(happies)She's my daughter,\w4 %(user).\w8 \1\s[16]\i[21]\0\s[5]%(smiles)She and Luke went through quite the ordeal on their journey to me,\w4 so it's quite natural for him to be so attached to her.\w8 \1\s[10]\n\n[half]She's also just great fun and such a character.\w8 \0\s[1]%(happies)\1\s[19]\i[12]Why,\w4 just the other day we were making biscuits together and she burst into tears when she got my puzzle wrong.\w8 \0\s[1]%(confusesmile)\n\n[half]Oh dear.\w8 \1\s[16]\i[0]\n\n[half]She cheered right up once she got the right answer.\w8 And when the biscuits were ready.\w8 \0\s[1]%(concernsmile)\1\s[18]\i[12]It sounds less funny when I retell it,\w4 but you know her,\w4 Professor.\w8 \s[19]\i[27]Bursting into crocodile tears when she gets even the slightest bit upset.\w8 \0\s[4]%(calmsmile)\n\n[half]I know very well,\w4 my boy.\w8 \1\s[16]\i[0]\0\s[4]%(confusesmile)You and she tend to have emotions bigger than can fit in your bodies,\w4 don't you?\w8 \1\s[16]\i[12]\n\n[half]I guess so!\w8 \s[16]\i[27]We just aren't shy about sharing how we feel.\w8 \0\s[5]%(calmsmile)\n\n[half]I'm also certain that,\w4 between the two of you,\w4 not a single biscuit was left from that batch.\w8 \1\s[21]\i[1]\n\n[half]Uh.\w8\w4 \s[18]\i[28]Well.\w8\w4 \s[18]\i[12]You know what they say,\w4 Professor!\w8 \0\s[1]%(happies)\1\s[19]\i[9]Sweets always put you in a better mindframe than you were before!\w8\e"
+			}
+			when "AlfendiLayton"
+			{
+				if favegame == "Layton Brothers Mystery Room"
+				{
+					"\0\b[0]\s[5]%(smiles)That would be pottyprof Layton,\w4 my son.\w8 \1\b[0]\s[19]\i[27]He's rude and has a weird fascination with criminals,\w8 \0\s[1]%(concernsmile)\1\s[19]\i[12]but he's a whiz at puzzles,\w4 so he's not all bad.\w8 \0\s[1]%(sad)\n\n[half]Yes,\w4 his darker tendencies worry me.\w8 \1\s[16]\i[1]\0\s[2]%(closeeyes)I fear they're going to get him in trouble one of these days.\w8 \1\s[19]\i[9]\n\n[half]He made a new friend recently.\w8 \0\s[1]%(neutral)\1\s[19]\i[14]This spitfire girl who's almost his match!\w8 \0\s[1]%(confusesmile)\1\s[18]\i[21]Seeing them once they hit their stride is really something else.\w8 \0\s[4]%(concernsmile)\n\n[half]His abrasiveness can be a little off-putting,\w4 so it's heartening to hear he's managed to make a friend.\w8 \1\s[17]\i[14]\n\n[half]Whatever comes their way,\w4 I know they'll be able to handle it!\w8 \0\s[3]%(smiles)\n\n[half]Yes,\w4 I quite agree.\w8\e"
+				}
+				
+				"\0\b[0]\s[5]%(happies)That would be pottyprof Layton,\w4 my son.\w8 \1\b[0]\s[16]\i[3]He's a real rascal.\w8 \0\s[1]%(confusesmile)\1\s[16]\i[27]I think he's more of a troublemaker than I was at his age.\w8 \0\s[3]%(happies)\n\n[half]Hahaha,\w4 yes,\w4 he's quite spirited and full of fight.\w8 \1\s[16]\i[9]\0\s[3]%(sadsmile)I'm afraid he's not as interested in becoming a proper gentleman as yourself,\w4 Luke.\w8 \1\s[16]\i[0]\n\n[half]That's fine.\w8 \s[19]\i[14]He's still a whiz at puzzles and lots of fun to go on adventures with.\w8 \0\s[4]%(happies)\n\n[half]I'm glad that,\w4 despite your differences,\w4 the two of you get along as well as you do.\w8 \1\s[18]\i[3]\n\n[half]Hard not to get along when you've shared a few puzzles!\w8\e"
+			}
+			when "ClarkTriton"
+			{
+				if favegame == "Unwound Future" || favegame == "Lost Future"
+				{
+					"\0\b[0]\s[5]%(smiles)dadtriton Triton,\w4 a friend of mine back in university.\w8 \1\b[0]\s[18]\i[19]And my dad!\w8 \0\s[1]%(neutral)\1\s[18]\i[0]Say,\w4 Professor.\w8 \s[22]\i[1]Did he know \_a[ClaireFoley]Miss Claire\_a as well?\w8 \0\s[1]%(confusesmile)\n\n[half]Why,\w4 yes,\w4 he did.\w8 \1\s[22]\i[9]\0\s[5]%(concernsmile)He was the one who introduced Claire to me,\w4 in fact.\w8 \1\s[16]\i[13]\n\n[half]So they were friends,\w4 too?\w8 \0\s[1]%(sadsmile)\n\n[half]Yes.\w8 Unfortunately,\w4 Clark and momtriton moved by the time of the accident.\w8 \1\s[16]\i[24]\0\s[3]%(concernsmile)They visited after the fact to pay their respects,\w4 and to help me get back on my feet.\w8 \s[12]But neither of them really had the chance to properly say goodbye.\w8 \1\s[25]\n\n[half]...\w8\w8neither did you.\w8 \0\s[1]%(shock)\1It was too sudden,\w4 wasn't it?\w8 \0\s[12]\n\n[half]...\w8\w8\s[1]%(closeeyes)Well.\w8\w4 \1\s[18]\i[9]\0\s[3]%(sadsmile)I very much appreciated them coming out to see me.\w8 \1\s[18]\i[1]\0\s[3]%(happies)And seeing you again as well.\w8 \1\s[22]\i[27]\n\n[half]Right,\w4 I would have been three around then.\w8 \s[22]\i[15]My absolute terror days!\w8 \0\s[3]%(smiles)\n\n[half]You were just as sweet back then as you are now.\w8 \1\s[16]\i[20]\0\s[2]%(happies)Then again,\w4 you've always been quite the terror,\w4 haven't you?\w8 \1\s[16]\i[3]\n\n[half]Aw,\w4 Professor!\w8\e"
+				}
+				if favegame == "Last Spectre" || favegame == "Spectre's Call"
+				{
+					"\1\b[0]\s[18]\i[19]That's my dad!\w8 \0\b[0]\s[5]%(happies)dadtriton Triton,\w4 my university friend.\w8 \1\s[18]\i[9]\0\s[5]%(confusesmile)Receiving that letter from him quite out of the blue was rather shocking.\w8 \1\s[22]\i[27]\n\n[half]You said he always wrote his letters by hand,\w4 didn't you?\w8 \0\s[5]%(calmsmile)\n\n[half]That's what made it most obvious that it wasn't truly from him at all.\w8 \1\s[18]\i[9]\0\s[3]%(sadsmile)Though,\w4 I very much understand why you posed it as from him.\w8 \1\s[25]\n\n[half]I was so desperate for help back then.\w8 \0\s[1]%(sad)\1It had been six months,\w4 he wasn't talking to me,\w4 and \_a[BrendaTriton]mum\_a was missing.\w8 \0\s[1]%(closeeyes)\1\s[18]\i[2]If anyone was able to help me get my dad back to his old self,\w4 I knew it had to be you.\w8 \0\n\n[half]The most logical answer to such a terrible puzzle imposed upon you.\w8 \1\s[18]\i[9]\0\s[4]%(confusesmile)I'm glad we were able to figure things out.\w8 \1\s[25]\n\n[half]I'm still glad my dad wasn't actually behind any of that.\w8 \0\s[4]%(sad)\1I feel bad for suspecting him,\w4 but it'd be much worse if I had been right.\w8 \0\s[3]%(closeeyes)\n\n[half]Thankfully,\w4 Clark loves you and momtriton far too much to cause you that level of distress purposely.\w8 \1\s[18]\i[9]\0\s[4]%(sadsmile)Though,\w4 I am also very glad things turned out as they did.\w8 \1\s[16]\i[11]\n\n[half]To think,\w4 he was having just as much of a bad time as I was.\w8 \0\s[1]%(sad)\1\s[24]If only he'd been able to tell me...\w8\e"
+				}
+				
+				"\1\b[0]\s[21]\i[21]That's my dad,\w4 %(user)!\w8 \0\b[0]\s[5]%(happies)dadtriton Triton,\w4 an old friend from my university days.\w8 \1\s[21]\i[0]\0\s[3]%(smiles)He and I had a bit of a friendly rivalry back then due to our majors being the same.\w8 \1\s[16]\i[1]\n\n[half]It's still so weird to think of my dad being that young.\w8 \0\s[3]%(confusesmile)\1\s[16]\i[12]But,\w4 I guess if you hadn't known each other,\w4 then you and I might have never become friends.\w8 \0\s[2]%(calmsmile)\n\n[half]Haha,\w4 I still remember the days after you were born.\w8 \1\s[16]\i[16]\0\s[3]%(calmsmile)Clark was so proud to be a father and momtriton was pleased by how feisty you were even then.\w8 \1\s[18]\i[3]\n\n[half]Aww,\w4 Professor.\w8 \0\s[3]%(smiles)\1\s[18]\i[27]I wish I remembered that,\w4 it's embarrassing just hearing about it.\w8 \0\s[4]%(happies)\n\n[half]Not at all.\w8 \1\s[18]\i[9]\0\s[4]%(smiles)You've always had such a strong will,\w4 like your parents.\w8 \1\s[18]\i[27]\0\s[3]%(happies)I'm quite honoured to be able to be yours and Clark's friend.\w8 \1\s[17]\i[21]\n\n[half]And I'm glad we can be friends,\w4 too.\w8 \s[17]\i[22]Thanks,\w4 Professor.\w8 \0\s[4]%(happies)\n\n[half]Of course,\w4 my boy.\w8\e"
+			}
+			when "BrendaTriton"
+			{
+				if favegame == "Last Spectre" || favegame == "Spectre's Call"
+				{
+					"\0\b[0]\s[5]%(smiles)momtriton Triton,\w4 Luke's mother and a good friend of mine.\w8 \1\b[0]\s[21]\i[19]She's the sweetest mum anyone could ask for!\w8 \0\s[4]%(happies)\1\s[21]\i[21]She always makes me the best snacks and helps me understand things that start getting too complicated in my head.\w8 \0\s[4]%(smiles)\n\n[half]Haha,\w4 it sounds like she and dadtriton take good care of you.\w8 \1\s[16]\i[0]\n\n[half]Dad cooks most of our meals,\w4 and he makes a lot of my favourites.\w8 \0\s[4]%(confusesmile)\1\s[16]\i[13]But after mum got kidnapped,\w4 I can't help but like it when she cooks more.\w8 \0\s[1]%(concernsmile)\n\n[half]I see.\w8 \1\s[16]\i[9]\0\s[5]%(concernsmile)A part of you needs to appreciate her as much as you can after what happened,\w4 it seems.\w8 \1\s[15]\i[27]\n\n[half]Maybe.\w8 I'm just glad she didn't get hurt.\w8 \0\s[4]%(confusesmile)\n\n[half]Yes,\w4 that is quite fortunate.\w8\e"
+				}
+				
+				"\1\b[0]\s[21]\i[19]That's my mum!\w8 \0\b[0]\s[5]%(happies)momtriton Triton,\w4 Luke's mother and a friend of mine from university.\w8 \1\s[16]\i[0]\n\n[half]She was your friend before you met my dad,\w4 isn't that right?\w8 \0\s[4]%(smiles)\n\n[half]Yes,\w4 but only by a couple of months.\w8 \1\s[16]\i[22]\0\s[3]%(happies)We happened to sit next to each other in our shared class and hit it off fairly well.\w8 \1\s[16]\i[27]\n\n[half]Professor,\w4 you make it sound like you weren't social at all back then.\w8 \0\s[4]%(concernsmile)\n\n[half]Hahaha.\w8 Well.\w8 \1\s[16]\i[13]\n\n[half]Aww.\w8 \0\s[3]%(smiles)\n\n[half]Even before I knew them,\w8 \1\s[16]\i[0]\0Brenda and dadtriton were sweet on one another.\w8 \s[5]%(calmsmile)Watching them slowly develop their relationship was quite the treat.\w8 \1\s[15]\i[27]\n\n[half]Sounds exhausting to me,\w8 \0\s[5]%(confusesmile)\1\s[15]\i[3]but also just like them.\w8 \s[10]They're always doting on each other.\w8 \0\s[4]\i[18]\n\n[half]They're always doting on you as well.\w8 \1\s[16]\i[12]\n\n[half]I guess so.\w8\e"
+			}
+			when "EmmyAltava"
+			{
+				if favegame == "Last Spectre" || favegame == "Spectre's Call"
+				{
+					"\0\b[0]\s[5]%(smiles)My first assistant,\w4 topassistant Altava.\w8 \1\b[0]\s[16]\i[27]She became your assistant just before you met me in Misthallery,\w4 didn't she?\w8 \0\s[4]%(concernsmile)\n\n[half]Yes,\w4 and what a startling beginning to our friendship.\w8 \1\s[16]\i[1]\0\s[5]%(smiles)She pulled out on her scooter right in front of me as I was driving out to meet you.\w8 \1\s[15]\i[16]\n\n[half]I still can't believe she did such a dangerous thing!\w8 \0\s[3]%(concernsmile)\n\n[half]Yes.\w8 Fearless and reckless,\w4 but a perfect encapsulation of her character.\w8 \1\s[16]\i[27]\n\n[half]I suppose so.\w8 \0\s[3]%(confusesmile)\1\s[16]\i[9]I wasn't sure what to make of her at first,\w4 considering she wrote off my fears as those of a child.\w8 \0\s[1]%(concernsmile)\1\s[16]\i[0]But her dedication to helping us solve this mystery helped me come to terms with her brash personality.\w8 \0\s[4]%(confusesmile)\n\n[half]She has a kind heart,\w4 even if she kept herself guarded.\w8 \1\s[16]\i[1]\0\s[7]\i[0]Even if it was hard to fully see it with how open she presented herself to the both of us.\w8 \1\s[25]\n\n[half]Yeah.\w8 I started thinking of her as a big sister,\w4 right up until...\w8 \0\n\n[half]...\w8\w8\1\s[18]\i[24]\0\s[4]%(sadsmile)Wherever she is now,\w4 I'm sure she's entangled in a fantastic adventure of her own.\w8 \1\s[16]\i[9]\n\n[half]I sure hope so.\w8\e"
+				}
+				if favegame == "Azran Legacy"
+				{
+					"\0\b[0]\s[5]%(smiles)topassistant Altava,\w4 my former assistant.\w8 \1\b[0]\s[18]\i[12]We had lots of fun together,\w4 travelling the world and solving the mysteries there.\w8 \0\s[1]%(confusesmile)\n\n[half]She was a fantastic friend.\w8 \1\s[18]\i[27]\0\s[2]%(calmsmile)A real knack for puzzles and the courage to meet every challenge we encountered.\w8 \1\s[25]\n\n[half]But it turned out,\w4 she was working with Targent the whole time.\w8 \0\s[1]%(sad)\1And she threatened me in order to get you to give up the key to the Azran Sanctuary.\w8 \0\s[1]%(closeeyes)\n\n[half]Yes,\w4 it was quite the regrettable situation.\w8 \1\n\n[half]If she hadn't done that,\w4 then maybe aurorazan wouldn't have had to...\w8 \0\s[7]\i[2]\n\n[half]...\w8\w8\w8\1\s[18]\i[24]\0\s[4]%(sad)Her actions do taint our perception of her,\w4 unfortunately.\w8 \1\s[18]\i[26]\0\s[4]%(closeeyes)But it's also a fact that she was our friend in earnest.\w8 \1\s[16]\i[13]\n\n[half]Sorry,\w4 %(user).\w8 \0\s[4]%(sad)\1\s[16]\i[11]It's more complicated than we can really explain.\w8 \0\s[3]%(closeeyes)\n\n[half]Complicated,\w4 as most things in life are.\w8\e"
+				}
+				
+				"\1\b[0]\s[24]topassistant...\w8 \0\b[0]\s[5]%(neutral)Emmy Altava.\w8\w4 \1\s[18]\i[24]\0\s[5]%(closeeyes)She was my assistant for a time.\w8 \1\s[21]\i[13]\n\n[half]She was really fun,\w4 always willing to argue with me and looking out for me.\w8 \0\s[1]%(sad)\1\s[25]I miss her,\w4 but...\w8 \0\s[12]\n\n[half]...\w8\w8\w8\1\s[18]\i[11]\0\s[3]%(closeeyes)She had to go on her own way.\w8 Wherever she is now,\w4 I know she's capable of handling herself.\w8 \1\s[16]\i[13]\n\n[half]Yeah.\w8\w4 \0\s[3]%(sadsmile)\1\s[16]\i[12]She can fistfight or kickbox her way out of any situation,\w4 I'm sure.\w8 \0\s[4]%(concernsmile)\n\n[half]I suppose she was more prone to solving situations with her fists...\w8\e"
+			}
+			when "Aurora"
+			{
+				if favegame == "Azran Legacy"
+				{
+					"\1\b[0]\s[19]\i[0]aurorazan,\w4 the emissary of the Azran people.\w8 \0\s[1]%(sadsmile)\1\s[19]\i[22]We helped her out of a jam and travelled the world looking for the keys to the Azran Sanctuary with her.\w8 \0\b[0]\s[2]%(concernsmile)It was both fascinating to watch her mannerisms and interesting to see her personality develop as we went.\w8 \1\s[16]\i[13]\0\s[2]%(sad)It's very much a shame she couldn't develop further that she did.\w8 \1\s[25]\n\n[half]Yeah.\w8 I wish she didn't have to give her life for ours...\w8 \0\s[3]%(closeeyes)\n\n[half]She would have become a wonderful human being.\w8 \s[3]%(sadsmile)I'm certain of it.\w8 \1\s[18]\i[9]\n\n[half]As am I,\w4 Professor.\w8\e"
+				}
+				
+				"\0\b[0]\s[4]%(confusesmile)aurorazan?\w8 \1\b[0]\s[18]\i[19]That's our friend!\w8 \0\s[4]%(happies)\1\s[19]\i[22]She was an emissary of the Azran people.\w8 \0\s[5]%(calmsmile)\n\n[half]She was also encased in a special ice for more than a thousand years.\w8 \1\s[16]\i[0]\0\s[2]%(confusesmile)She was quite the fascinating character.\w8 \1\s[16]\i[21]\n\n[half]Since she was so out of sorts from not knowing about the modern world,\w4 we got to show her lots of fun things while we travelled together!\w8 \0\s[3]%(concernsmile)\n\n[half]Yes,\w4 she was a bit like thegoldenapple in that regard.\w8 \1\s[16]\i[13]\n\n[half]...\w8\w8\w8\0\s[1]%(sad)\1\s[24]I really miss her.\w8 \0\s[1]%(closeeyes)\n\n[half]You and she became rather good friends.\w8 \s[12]It's a shame how it all ended.\w8\e"
+			}
+			when "CliveDove"
+			{
+				if favegame == "Unwound Future" || favegame == "Lost Future"
+				{
+					"\1\b[0]\s[16]\i[7]Hmph.\w8 \0\b[0]\s[5]%(neutral)futureluke Dove,\w4 the true mastermind behind that fake future London.\w8 \1\s[16]\i[20]\n\n[half]He was pretending to be my future self.\w8 \0\s[1]%(shock)\1\s[21]\i[2]But he's nothing like me!\w8 Not in the slightest!\w8 \0\s[4]%(confused)\n\n[half]...\w8\w8\w8\1\s[24]\0\s[4]%(sad)You took his betrayal quite hard,\w4 didn't you?\w8 \1\n\n[half]It was so cruel of him.\w8 \0\s[1]%(closeeyes)\1We thought he was so charming and well mannered at first.\w8 He really could have been a gentleman.\w8 \0\s[1]%(sad)\1\s[25]I'd have been chuffed if I did grow up to be him one day.\w8 \0\s[3]%(closeeyes)\n\n[half]Unfortunately,\w4 he had his own goals and losses driving him to deceive us as he did.\w8 \1\s[18]\i[24]\0\s[5]%(sad)It's impressive he managed to construct an entire fake city beneath the true one and his own fortress in five years time,\w4 even if the results of such weren't as desirable.\w8 \1\s[25]\n\n[half]...\w8\w8\w8\0\s[1]%(sad)\1I'm glad he got to be held accountable in the end.\w8 \0\s[12]\n\n[half]As am I.\w8\w8 \1\s[18]\i[23]\0\s[3]%(sad)His cries for help might have come a bit late,\w4 but it means he's willing to make amends.\w8\e"
+				}
+				
+				"\1\b[0]\s[15]\i[20]Mm.\w8 \0\b[0]\s[5]%(neutral)futureluke Dove,\w4 a young man who was central in one of our adventures.\w8 \1\s[24]\n\n[half]He lied to us and cheated even his own business partner.\w8 \0\s[1]%(sad)\1\s[21]\i[2]For five years,\w4 he did nothing but waste his life trying to get revenge in the worst way possible.\w8 \0\n\n[half]...\w8\w8\1\s[25]\0\s[1]%(closeeyes)You still harbour quite a lot of distaste for him,\w4 I see.\w8 \1\s[18]\i[2]\n\n[half]He lied to us!\w8 \0\s[1]%(shock)\1We can't even say we truly know who he was!\w8 \0\s[1]%(sad)\1\s[16]\i[7]I hate that.\w8\w8 \0\s[1]%(annoyed)\n\n[half]I suppose.\w8 That's fair enough.\w8 \1\s[25]\0\s[12]One can only deal with being lied to so much.\w8\e"
+			}
+			when "DonPaolo"
+			{
+				if favegame == "Unwound Future" || favegame == "Lost Future"
+				{
+					"\0\b[0]\s[5]%(confusesmile)That would be Paul,\w4 an old acquaintance from my university days.\w8 \1\b[0]\s[18]\i[27]He calls himself paulpaolo,\w4 for some reason.\w8 \0\s[1]%(concernsmile)\1\s[18]\i[12]He's really mechanically gifted and is a great actor,\w4 but he holds a really silly grudge against the Professor.\w8 \0\s[2]%(confusesmile)\n\n[half]Silly,\w4 indeed.\w8 \1\s[18]\i[9]\0\s[2]%(concernsmile)I had no idea he even fancied clairedelune,\w4 nor that he and I shared a few classes.\w8 \1\s[16]\i[27]\n\n[half]He helped us out to save London,\w4 but I don't think he'll ever truly change his ways.\w8 \0\s[1]%(confusesmile)\1\s[16]\i[3]His attitude has just gotten too rotten.\w8 \0\s[1]%(annoyedsmile)\n\n[half]It is rather unfortunate.\w8 \1\s[16]\i[27]\0\s[2]%(confused)I so would have enjoyed discussing his mechanical contraptions with him over a spot of tea.\w8\e"
+				}
+				if favegame == "Layton Mystery Journey"
+				{
+					"\1\b[0]\s[19]\i[3]That's paulpaolo,\w4 the Professor's self-proclaimed nemesis.\w8 \0\b[0]\s[1]%(upset)He's certainly trying his best to stay on my bad side,\w4 considering he went through all that trouble to kidnap you.\w8 \1\s[16]\i[13]\n\n[half]Now I know how thegoldenapple must have felt.\w8 \0\s[1]%(annoyed)\1\s[16]\i[12]It was scary,\w4 but I knew you'd be able to figure it out and find me,\w4 Professor!\w8 \0\s[4]%(sadsmile)\n\n[half]Poor misslayton was in tears when she heard about it.\w8 \1\s[16]\i[9]\0\s[4]%(sad)I really am grateful he didn't harm you in any way.\w8 \1\s[18]\i[27]\n\n[half]Don Paolo may be a mechanical genius and rotten to his core,\w4 but he's not completely malicious.\w8 \0\s[4]%(upset)\1\s[18]\i[3]Not in the way desdes was,\w4 at least.\w8 \0\s[2]%(annoyed)\n\n[half]To be honest,\w4 I'm not sure that makes him any easier to deal with.\w8\e"
+				}
+				
+				"\0\b[0]\s[4]%(smiles)Oh,\w4 that would be Paul.\w8 \1\b[0]\s[19]\i[14]paulpaolo,\w4 the self-proclaimed nemesis of the Professor.\w8 \0\s[4]%(neutral)\1\s[19]\i[3]He's a real master of disguise,\w4 able to pretend to be pretty much anyone.\w8 \s[19]\i[27]He's even successfully impersonated thegoldenapple and the Professor.\w8 \0\s[3]%(concernsmile)\n\n[half]He's a recognised scientific genius,\w4 but his designs are far too insidious to be useful to anyone besides himself.\w8 \1\s[16]\i[0]\0\s[1]%(annoyed)Quite a shame,\w4 really.\w8 I would very much like to sit down and talk over tea about his machines.\w8 \1\s[16]\i[13]\n\n[half]It really is too bad.\w8 \0\s[1]%(confusesmile)\1\s[16]\i[3]I think he'd be a lot more fun if he didn't have that rancid attitude.\w8 \0\s[3]%(concernsmile)\n\n[half]Unfortunate,\w4 for sure.\w8\e"
+			}
+			when "PhoenixWright"
+			{
+				if favegame == "Professor Layton vs Phoenix Wright"
+				{
+					"\1\b[0]\s[21]\i[15]\_a[PhoenixWright]Mr Phoenix Wright\_a,\w4 the Turnabout Terror!\w8 \0\b[0]\s[4]%(sadsmile)Oh dear.\w8 Does he really get called that?\w8 \1\s[17]\i[4]\n\n[half]My intelligence network says so,\w4 Professor!\w8 \0\s[4]%(concernsmile)\n\n[half]Well.\w8\w8 \1\s[17]\i[0]\0\s[3]%(smiles)He and borgerfey were our travelling companions while we were figuring out the mystery behind Labyrinthia.\w8 \1\s[21]\i[19]\n\n[half]Seeing him in court,\w4 even if it wasn't a real one,\w4 was so cool!\w8 \0\s[1]%(concernsmile)\1He may have struggled,\w8 \s[21]\i[14]but he refused to stop until he dug out the truth!\w8 \0\s[4]%(smiles)\n\n[half]He also made sure you weren't entirely alone while I was indisposed.\w8 \1\s[16]\i[13]\n\n[half]Yeah.\w8 He really helped me back then.\w8 \0\s[4]%(concernsmile)\1\s[24]I don't think we would have ever found you and Miss Fey again had we not had each other and \_a[EspellaCantabella]Espella\_a.\w8 \0\s[5]%(calmsmile)\n\n[half]For that,\w4 I am forever grateful to him.\w8 \1\s[18]\i[0]\n\n[half]We still need to see him in a real trial.\w8 \0\s[1]%(happies)\n\n[half]That we do.\w8\e"
+				}
+				
+				"\1\b[0]\s[19]\i[15]That'd be mraceattorney,\w4 ace attorney!\w8 \0\b[0]\s[3]%(happies)Hahaha,\w4 he is quite the ace,\w4 isn't he?\w8 \1\s[19]\i[22]\n\n[half]We travelled with him and borgerfey during our adventures in Labyrinthia.\w8 \0\s[1]%(happies)\1\s[21]\i[21]He's a fantastic lawyer and really nice!\w8 \0\s[5]%(smiles)\n\n[half]As his namesake suggests,\w4 he rises like a Phoenix from the ashes and finds the truth of his cases.\w8 \1\s[18]\i[14]\n\n[half]I've heard he's been called the 'Turnabout Terror' over in his home country.\w8 \0\s[4]%(confusesmile)\n\n[half]Ah,\w4 right.\w8 \1\s[18]\i[0]\0\s[4]%(sadsmile)He was merely visiting London on an exchange trip to experience how our courts differ from his own.\w8 \1\s[16]\i[12]\n\n[half]He and Miss Fey were fantastic to have around.\w8 \0\s[4]%(smiles)\1\s[16]\i[22]I really think we all became great friends!\w8 \0\s[3]%(calmsmile)\n\n[half]Yes,\w4 I only hope the sentiment is mutual.\w8\e"
+			}
+			when "MayaFey"
+			{
+				if favegame == "Professor Layton vs Phoenix Wright"
+				{
+					"\1\b[0]\s[19]\i[21]That's borgerfey!\w8 \0\b[0]\s[5]%(happies)She's mraceattorney's assistant and an accomplished spirit medium in her own right.\w8 \1\s[19]\i[14]\n\n[half]We travelled with her through Labyrinthia!\w8 \0\s[0]\1\s[19]\i[9]She wound up with you after the two of you died in the story,\w4 right,\w4 Professor?\w8 \0\s[4]%(calmsmile)\n\n[half]Yes,\w4 she was an invaluable help while we explored the village of the Shades.\w8 \1\s[16]\i[27]\0\s[4]%(confusesmile)And after experiencing her boundless enthusiasm,\w4 I must say I'm impressed Mr Wright can match her as well as he does.\w8 \1\s[17]\i[21]\n\n[half]She's a lot of fun.\w8 \0\s[4]%(smiles)\1\s[17]\i[0]Kinda like how topassistant was,\w4 don't you think?\w8 \0\s[3]%(concernsmile)\n\n[half]I can see the similarities,\w4 yes.\w8 \1\s[21]\i[19]\n\n[half]Next time we get to see her,\w4 we should ask if she can show us her channeling technique!\w8 \0\s[2]%(confusesmile)\n\n[half]I would be interested in seeing it in action.\w8\e"
+				}
+				
+				"\1\b[0]\s[18]\i[21]\_a[MayaFey]Miss Maya Fey\_a!\w8 \0\b[0]\s[5]%(happies)Our second travel companion in Labyrinthia after mraceattorney.\w8 \1\s[18]\i[0]\0\s[5]%(smiles)She was a rather energetic and confident sort.\w8 \1\s[21]\i[22]\n\n[half]She was really funny.\w8 \0\s[1]%(concernsmile)\1\s[21]\i[0]Kinda like how topassistant was,\w4 only less inclined to punch her way out of every problem.\w8 \0\s[4]%(smiles)\n\n[half]She said she was a spirit medium,\w4 something I've since read up on.\w8 \1\s[16]\i[1]\0\s[2]%(calmsmile)Both the Kurain channeling technique and the whole of the Fey Clan are fascinating in their history.\w8 \1\s[16]\i[27]\n\n[half]I still can't believe ghosts are real.\w8 \0\s[2]%(confusesmile)\1\s[16]\i[12]Makes you reconsider some of the things we've come across in our adventures,\w4 huh,\w4 Professor?\w8 \0\s[3]%(concernsmile)\n\n[half]It certainly does raise some questions for sure.\w8\e"
+			}
+			when "HenryLedore"
+			{
+				//if favegame == "Miracle Mask"
+				
+				"\0\b[0]\s[5]%(concernsmile)\_a[HenryLedore]Henry Ledore\_a,\w4 an old friend of mine.\w8 \1\s[16]\i[9]\0\s[5]%(confusesmile)He was maskedgent's family's ward and is the mayor of Monte d'Or.\w8 \1\b[0]\s[22]\i[27]When we met him,\w4 he was under a lot of stress.\w8 \s[22]\i[26]But he seemed nice...?\w8 \0\s[4]%(concernsmile)\n\n[half]He's a rather hard to read sort of person.\w8 \1\s[22]\i[1]\0\s[4]%(sadsmile)Even when we were younger,\w4 his expressions were always very subtle.\w8 There were times I was certain he wasn't fond of me at all.\w8 \1\s[16]\i[13]\n\n[half]Aww.\w8\w4 \0\s[4]%(concernsmile)\1\s[16]\i[9]But he cares a lot about Mr Ascot and \_a[AngelaLedore]Miss Angela\_a,\w4 considering what he did for them.\w8 \0\s[3]%(calmsmile)\n\n[half]Yes,\w4 he loves them very much.\w8 Of that,\w4 I'm certain.\w8\e"
+			}
+			when "AngelaLedore"
+			{
+				//if favegame == "Miracle Mask"
+				
+				"\0\b[0]\s[5]%(sadsmile)\_a[AngelaLedore]Angela Ledore\_a,\w4 an old friend of mine.\w8 \1\s[16]\i[9]\0\s[1]%(concernsmile)She and maskedgent have been romantically entangled for as long as I've known them.\w8 \1\b[0]\s[22]\i[17]The impression I got from our first meeting was that the two of you had a complicated sort of history.\w8 \0\s[4]%(sadsmile)\n\n[half]That's one way of putting it,\w4 certainly.\w8 \1\s[16]\i[24]\0\s[7]\i[0]I'm sure she blamed me for many years for what happened to Randall,\w4 but she knew how important he was to me as well.\w8 \1\s[16]\i[9]\0\s[4]%(concernsmile)Hence why she sent for us once the Masked Gentleman appeared.\w8 \1\s[19]\i[14]\n\n[half]She knew you'd solve the mystery.\w8 \0\s[4]%(sad)\1\s[16]\i[10]I wish we'd gotten to see more of her,\w4 but...\w8\w8 \0\s[3]%(concernsmile)\n\n[half]Thankfully,\w4 she was all right in the end.\w8 \1\s[16]\i[27]\0\s[5]%(smiles)Now she and \_a[HenryLedore]Henry\_a are working with Randall and continuing to manage Monte d'Or.\w8 \1\s[18]\i[12]\n\n[half]All's well that ends well!\w8\e"
+			}
+			when "EspellaCantabella"
+			{
+				//if favegame == "Professor Layton vs Phoenix Wright"
+				
+				"\1\b[0]\s[19]\i[22]\_a[EspellaCantabella]Espella Cantabella\_a,\w4 our friend from Labyrinthia!\w8 \0\b[0]\s[1]%(concernsmile)She's had quite the life from what we uncovered.\w8 \1\s[19]\i[27]\0\s[1]%(sadsmile)I'm glad her friends and father are more equipped to help her now.\w8 \1\s[16]\i[13]\n\n[half]Yeah.\w8 \0\s[1]%(concernsmile)\1\s[16]\i[9]It was pretty scary for a moment there,\w4 but now she can hopefully face her life without all her fears holding her back so much.\w8 \0\s[4]%(smiles)\n\n[half]We should visit and see how they're all doing sometime soon.\w8 \1\s[21]\i[19]\n\n[half]Ooh,\w4 I bet misslayton, pottyprof, and thegoldenapple would love to meet them all,\w4 too!\w8\e"
+			}
+			when "InspectorChelmey"
+			{
+				"\1\b[0]\s[19]\i[22]Inspector \_a[InspectorChelmey]Chelmey\_a!\w8 \0\s[1]%(happies)\1\s[19]\i[0]The good detective at the Yard whom we've sort of become friends with.\w8 \0\b[0]\s[2]%(confusesmile)He's a rather rough fellow,\w4 but he has a surprisingly soft side to him as well.\w8 \1\s[16]\i[0]\0\s[5]%(happies)His wife just so happens to be \_a[InspectorGrosky]Inspector Grosky\_a's sister.\w8 \1\s[16]\i[21]\n\n[half]Funny how that works!\w8 \0\s[0]\1\s[19]\i[0]His assistant,\w4 Constable Barton,\w4 is always by his side.\w8 \0\s[3]%(calmsmile)\n\n[half]We've had our fair share of encounters with the both of them.\w8 \1\s[16]\i[22]\0\s[3]%(confusesmile)They've even called us a few of those times on their more difficult cases.\w8\e"
+			}
+			when "InspectorGrosky"
+			{
+				"\1\b[0]\s[19]\i[21]Inspector \_a[InspectorGrosky]Grosky\_a!\w8 \0\s[1]%(confusesmile)\1\s[19]\i[0]We saw plenty of him in our adventures.\w8 \0\b[0]\s[1]%(happies)Yes,\w4 we certainly did.\w8 \1\s[16]\i[0]\0\s[5]%(smiles)He and topassistant knew one another,\w4 meaning he was often quite accommodating during our encounters.\w8 \1\s[16]\i[3]\n\n[half]He was as funny as he was dedicated to his work.\w8 \0\s[1]%(confusesmile)\1\s[16]\i[27]Sometimes,\w4 he got a bit too single minded about it,\w4 I think.\w8 \0\s[4]%(concernsmile)\n\n[half]I think I would agree with you there.\w8\e"
+			}
+		}
+	}
+}

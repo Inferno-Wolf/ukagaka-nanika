@@ -1,0 +1,393 @@
+﻿//---------------------------Envelopes--------------------------
+//
+
+// %(place)
+place
+{
+	"St Mystere"
+	"Drop Stone"
+	"Folsense"
+	"London"
+	//"future London"
+	"Misthallery"
+	"Monte d'Or"
+	"Stansbury"
+	"Froenborg"
+	"Kodh"
+	"Phong Gi"
+	"San Grio"
+	"Norwell"
+	"Torrido"
+	"Hoogland"
+	"Steam Bison"
+}
+
+// %(good)
+good
+{
+	"exquisite"
+	"extraordinary"
+	"quite refreshing"
+	"just right"
+	"fantastic"
+	"exactly what we needed"
+}
+
+// %(taste)
+taste
+{
+	if servedtea == "Citrus Classic" || servedtea == "Belle Classic" {"slight sourness"}
+	elseif servedtea == "Oasis Berry" {"sweetness"}
+	elseif servedtea == "Sugar Smoke" {"spicy fruitiness"}
+	elseif servedtea == "Root Remedy" {"bitterness"}
+	elseif servedtea == "Cherry Boost" {"spiciness"}
+	elseif servedtea == "Bitter Fruit" {"sour bitterness"}
+	elseif servedtea == "Dream Spice" {"sweet spiciness"}
+	elseif servedtea == "Clover Quencher" {"smoky sweetness"}
+	elseif servedtea == "Radiance Blend" {"sleepiness"}
+	elseif servedtea == "Cayenne Twilight" {"relaxing spiciness"}
+	elseif servedtea == "Cinder Flower" {"strongness"}
+	elseif servedtea == "The Layton Elixir" {"out of this world-ness"}
+	else // Undecided
+	{"sourness"; "sweetness"; "spiciness"; "earthiness"; "bitterness"; "fruitiness"; "smokiness"}
+}
+
+// %(flavour)
+flavour
+{
+	if servedtea == "Citrus Classic" || servedtea == "Belle Classic" {"fruity"}
+	elseif servedtea == "Oasis Berry" {"refreshing"}
+	elseif servedtea == "Sugar Smoke" {"smoky"}
+	elseif servedtea == "Root Remedy" {"refined"}
+	elseif servedtea == "Cherry Boost" {"peppy"}
+	elseif servedtea == "Bitter Fruit" {"exquisite depth of"}
+	elseif servedtea == "Dream Spice" {"subtle"}
+	elseif servedtea == "Clover Quencher" {"rejuvenating"}
+	elseif servedtea == "Radiance Blend" {"soothing"}
+	elseif servedtea == "Cayenne Twilight" {"light"}
+	elseif servedtea == "Cinder Flower" {"distinct"}
+	elseif servedtea == "The Layton Elixir" {"mystifying"; "harmonious"}
+	else // Undecided
+	{"fruity"; "refreshing"; "smoky"; "refined"; "subtle"; "soothing"; "light"; "distinct"}
+}
+
+// %(ingredients)
+ingredients
+{
+	if servedtea == "Citrus Classic" {"an oasis leaf,\w4 a brisk berry,\w4 and a citronia seed"}
+	elseif servedtea == "Belle Classic" {"an oasis leaf,\w4 a brisk berry,\w4 and a belle tart seed"}
+	elseif servedtea == "Oasis Berry" {"an oasis leaf and two brisk berries"}
+	elseif servedtea == "Sugar Smoke" {"an oasis leaf,\w4 a citronia seed,\w4 and a cinder horse"}
+	elseif servedtea == "Root Remedy" {"an oasis leaf,\w4 a joy root clover,\w4 and a tonic flower"}
+	elseif servedtea == "Cherry Boost" {"an oasis leaf and two peppercherries"}
+	elseif servedtea == "Bitter Fruit" {"a brisk berry,\w4 a citronia seed,\w4 and a tonic flower"}
+	elseif servedtea == "Dream Spice" {"a brisk berry,\w4 a dream fluff,\w4 and a peppercherry"}
+	elseif servedtea == "Clover Quencher" {"a brisk berry,\w4 a joy root clover,\w4 and a cinder horse"}
+	elseif servedtea == "Radiance Blend" {"a citronia seed,\w4 a dream fluff,\w4 and a joy root clover"}
+	elseif servedtea == "Cayenne Twilight" {"a dream fluff,\w4 a joy root clover,\w4 and a peppercherry"}
+	elseif servedtea == "Cinder Flower" {"a dream fluff,\w4 a tonic flower,\w4 and a cinder horse"}
+	else // The Layton Elixir
+	{"a root clover,\w4 a peppercherry,\w4 and a cinder horse"}
+}
+
+
+
+//I've called it a double envelope at times, but this is actually technically an array. Note that it has a word, a comma, then another word. This is essentially a list being stored in this envelope. You can call one of the values by using brackets around the number of the list entry. So, the first value (the Korean word) would be %(lessonkor[0]) since all arrays start at 0. The second value (the definition) would be %(lessonkor[1]). If you have a longer array, like "word,word,word,word,word", you can keep calling values by changing the numbers, like %(lessonkor[5]) or %(lessonkor[10]). An example of pulling information from this array can be seen in aitalk.dic.
+
+
+
+//raises Layton affection; \![raise,OnLaytonGain]
+OnLaytonGain
+{
+	if RAND(2) == 2 {Laytonaffect += 4}
+	elseif RAND(2) == 1 {Laytonaffect += 3}
+	else {Laytonaffect += 2}
+}
+
+//raises Luke affection; \![raise,OnLukeGain]
+OnLukeGain
+{
+	if RAND(2) == 2 {Lukeaffect += 4}
+	elseif RAND(2) == 1 {Lukeaffect += 3}
+	else {Lukeaffect += 2}
+}
+
+
+//---------------------Capitalisation-----------------------------
+//this will capitalise the first letter of a word in an envelope!! very useful for the pronouns. (this was written by Zi also!)
+//%(Capitalise(envelope))
+Capitalise
+{
+	_word = _argv[0] //Sets _word to the word the user sent
+	_buffer = SUBSTR(_word,0,1) //Stores the first character in _buffer
+	_word = ERASE(_word,0,1) //Erases the first character from _word
+	_word = INSERT(_word,0,TOUPPER(_buffer)) //Inserts the character in _buffer back into _word after capitalizing it
+	_word //Returns the capitalized word
+}
+
+//%(Lowercase(envelope))
+Lowercase
+{
+	_word = _argv[0] //Sets _word to the word the user sent
+	_buffer = SUBSTR(_word,0,1) //Stores the first character in _buffer
+	_word = ERASE(_word,0,1) //Erases the first character from _word
+	_word = INSERT(_word,0,TOLOWER(_buffer)) //Inserts the character in _buffer back into _word after capitalizing it
+	_word //Returns the capitalized word
+}
+
+
+
+//----------------Backend Code stuff----------------------------
+
+//Pronouns stuff
+they
+{
+	if presuffix == "masculine" {"he"}
+	elseif presuffix == "feminine" {"she"}
+	elseif presuffix == "own" {xthey}
+	else //undefined
+	{"they"}
+}
+
+
+them
+{
+	if presuffix == "masculine" {"him"}
+	elseif presuffix == "feminine" {"her"}
+	elseif presuffix == "own" {xthem}
+	else //undefined
+	{"them"}
+}
+
+their
+{
+	if presuffix == "masculine" {"his"}
+	elseif presuffix == "feminine" {"her"}
+	elseif presuffix == "own" {xtheir}
+	else //undefined
+	{"their"}
+}
+
+theyre
+{
+	if presuffix == "masculine" {"he's"}
+	elseif presuffix == "feminine" {"she's"}
+	elseif presuffix == "own" {xtheyre}
+	else //undefined
+	{"they're"}
+}
+
+
+//-------Talktime
+talktime
+{
+	if aitalkinterval == 60 {"1 minute"}
+	elseif aitalkinterval == 180 {"3 minutes"}
+	elseif aitalkinterval == 300 {"5 minutes"}
+	elseif aitalkinterval == 600 {"10 minutes"}
+	else //0
+	{"Silent"}
+}
+
+
+//-------Balloons
+//Layton small
+sb0
+{
+	if SHIORI3FW.BalloonName == "Professor Layton Speech"
+	{
+		"\b[%(Balloon.Layton[0])0]"
+	}
+	else //NOT their balloon
+	{"\b[0]"}
+}
+
+//Layton trunk
+sb2
+{
+	if SHIORI3FW.BalloonName == "Professor Layton Speech"
+	{
+		"\b[%(Balloon.Layton[0])2]"
+	}
+	else //NOT their balloon
+	{"\b[2]"}
+}
+
+//Layton big
+sb4
+{
+	if SHIORI3FW.BalloonName == "Professor Layton Speech"
+	{
+		"\b[%(Balloon.Layton[0])4]"
+	}
+	else //NOT their balloon
+	{"\b[2]"}
+}
+
+//Luke small
+kb0
+{
+	if SHIORI3FW.BalloonName == "Professor Layton Speech"
+	{
+		"\b[%(Balloon.Layton[0])6]"
+	}
+	else //NOT their balloon
+	{"\b[0]"}
+}
+
+//Luke trunk
+kb2
+{
+	if SHIORI3FW.BalloonName == "Professor Layton Speech"
+	{
+		"\b[%(Balloon.Luke[0])2]"
+	}
+	else //NOT their balloon
+	{"\b[2]"}
+}
+
+//Luke big
+kb4
+{
+	if SHIORI3FW.BalloonName == "Professor Layton Speech"
+	{
+		"\b[%(Balloon.Luke[0])4]"
+	}
+	else //NOT their balloon
+	{"\b[2]"}
+}
+
+
+
+//--------------Movements!
+// %(Laymove)
+Laymove
+{
+	if SHIORI3FW.ShellName == "Luke and Layton"
+	{"\![move,--base=1,--x=-310,--time=130]"; "\![move,--base=1,--x=310,--time=130]"}
+	elseif SHIORI3FW.ShellName == "lukeluke"
+	{"\![move,--base=1,--x=-110,--time=130]"; "\![move,--base=1,--x=110,--time=130]"}
+	else //KFC shell here??
+	{"\![move,--base=1,--x=-110,--time=130]"; "\![move,--base=1,--x=110,--time=130]"}
+}
+
+// %(Lukemove)
+Lukemove
+{
+	if SHIORI3FW.ShellName == "Luke and Layton"
+	{"\![move,--base=0,--x=-310,--time=60]"; "\![move,--base=0,--x=310,--time=60]"}
+	elseif SHIORI3FW.ShellName == "lukeluke"
+	{"\![move,--base=0,--x=-110,--time=60]"; "\![move,--base=0,--x=110,--time=60]"}
+	else //KFC shell here??
+	{"\![move,--base=0,--x=-110,--time=60]"; "\![move,--base=0,--x=110,--time=60]"}
+}
+
+
+//----random nums
+// %(num)
+num
+{
+	"4"; "7"; "12"; "%(randnumb)"
+}
+
+randnumb
+{
+	_rand = RAND(30)
+	_rand += 2
+	--
+	"%(_rand)"
+}
+
+
+//--timeslot
+timeslot
+{
+	if hour >= 5 && hour <= 8
+	{	"earlymorning"	}
+	elseif hour >= 9 && hour <= 11
+	{	"morning"	}
+	elseif hour >= 12 && hour <= 14
+	{	"lunch"	}
+	elseif hour >= 15 && hour <= 17
+	{	"afternoon"	}
+	elseif hour >= 18 && hour <= 20
+	{	"evening"	}
+	elseif hour >= 21 && hour <= 24
+	{ "night"	}
+	else
+	{ "latenight" }
+}
+
+//--dayslot
+dayslot
+{
+	"%(month)month %(day)day"
+}
+
+//--times
+nowhour
+{
+	if hour12 == 0; "1"
+	else; "%(hour12)"
+}
+
+nowmin
+{
+	if minute >= 0 && minute <=9; "0%(minute)"
+	else; "%(minute)"
+}
+
+
+
+//////INTERVALS
+//----Layton
+smiles // %(smiles)
+{"\i[0]"}
+
+neutral // %(neutral)
+{"\i[1]"}
+
+annoyed // %(annoyed)
+{"\i[2]"}
+
+happies // %(happies)
+{"\i[3]"}
+
+confident // %(confident)
+{"\i[4]"}
+
+annoyedsmile // %(annoyedsmile)
+{"\i[5]"}
+
+confused // %(confused)
+{"\i[6]"}
+
+confusesmile // %(confusesmile)
+{"\i[7]"}
+
+closeeyes // %(closeeyes)
+{"\i[8]"}
+
+sad // %(sad)
+{"\i[9]"}
+
+concernsmile // %(concernsmile)
+{"\i[10]"}
+
+sadsmile // %(sadsmile)
+{"\i[11]"}
+
+shockopen // %(shockopen)
+{"\i[12]"}
+
+shock // %(shock)
+{"\i[13]"}
+
+calmsmile // %(calmsmile)
+{"\i[14]"}
+
+surprisesmile // %(surprisesmile)
+{"\i[15]"}
+
+upset // %(upset)
+{"\i[16]"}

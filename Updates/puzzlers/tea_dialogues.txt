@@ -1,0 +1,167 @@
+//Hey this file is purely for the tea flavourtext (lmao) that my sister (ageofzero) transcribed from me!! as well as me piecing together the bits from the game files provided by the server. Enjoy!! (??)
+
+///////-- Actual Blend Dialogues
+		citrus classic
+		-- oasis leaf, brisk berry, citronia seed; A classic tea with the added twist of Citronia Seed. This special ingredient gives an unique flavour.
+		Luke: Oh, it’s a little sour and a little sweet. Yum.
+		Layton: I certainly have to tip my hat to this tea’s drinkability. I imagine it would be delicious iced as well.
+		Luke: Yep, and since it’s nice and light, I bet just about anyone would be happy to have a cup.
+		Layton: Mmm, yes. I myself am partial to its lovely fruity aftertaste.
+		
+		belle classic
+		-- oasis leaf, brisk berry, belle tart seed; A classic tea with the added twist of Belle Tart Seed. This special ingredient imparts a unique flavour.
+		Luke: Oh, it’s a little sour and a little sweet. Yum.
+		Layton: I certainly have to tip my hat to this tea’s drinkability. I imagine it would be delicious cold as well.
+		Luke: Yep, and since it’s nice and light, I bet just about anyone would be happy to have a cup.
+		Layton: Mmm, yes. I myself am partial to its lovely fruity aftertaste.
+		
+		oasis berry
+		-- oasis leaf, brisk berry, brisk berry; A tea loved by women and children. It's refreshing sweetness is the secret to its popularity.
+		Luke: Deeeelicious! I just love how sweet this tea is, Professor!
+		Layton: Well, it’s a bit too sweet for me, but I understand why so many children enjoy it.
+		Luke: I think I could drink a whole pot of this stuff myself. Just watch me!
+		Layton: Ha ha ha! You’ve got quite the sweet tooth, Luke. Just try not to drink it too fast.
+		
+		sugar smoke
+		-- oasis leaf, belle tart / citronia seed, cinder horse; A unique blend of fruity flavour with spicy undertones. Read the leaves to see the future of your love life. / The leaves show the future of your love life.
+		Layton: Hmm. What an interesting blend of fruitiness and subtle smokiness.
+		Luke: I’ve heard you can use the tea leaves from this blend to predict your love life.
+		Layton: I’m impressed, Luke. That’s the first I’ve heard on that subject. Have you been studying up on tea?
+		// I'm impressed, Luke. It heartens me that you take such interest in the blending of tea.
+		Luke: But of course, Professor! I couldn’t rightly call myself your apprentice if I didn’t!
+		
+		root remedy
+		-- oasis leaf, joy root clover, tonic flower; Refined in flavour, this tea warms the body and improves circulation. Drink it at the start of a cold. // Rich in flavour, this tea warms the body, improves circulation and is ideal if you feel a cold coming on.
+		Layton: This tea seems like just the thing for driving away the chills when you feel a cold coming on.
+		Luke: Maybe so, Professor, but it’s a little bitter for my tastes.
+		Layton: That’s how you know it works, my boy. The Japanese say that good medicine is bitter to the taste.
+		// Now then Luke, no good medicine is ever easy to drink! That's how you know this is effective.
+		Luke: Oh, I think you might be onto something there, Professor! I feel all warm inside now!
+		
+		cherry boost
+		-- oasis leaf, peppercherry, peppercherry; The spicy kick of Peppercherry makes this tea an ideal pick-me-up if you're feeling a little down.
+		Luke: Ooh, spicy! My entire mouth is all tingly now!
+		Layton: Yes, there’s quite a healthy dose of Peppercherry in there. No doubt about it.
+		Luke: I kind of like it. It makes me feel very peppy / chirpy. Next time I’m feeling down, I know what to reach for.
+		Layton: Yes, a good cup of Cherry Boost can be quite nice every once in a while.
+		
+		bitter fruit
+		-- brisk berry, belle tart / citronia seed, tonic flower; Sweet and sour with a subdued, bitter flavour. This complex tea is ideal for discerning adults.
+		Layton: Oh, this is simply exquisite. There’s a depth of flavor here I haven’t found in many other teas.
+		Luke: Really? Gosh, maybe my tongue’s just broken or something. I didn’t really see stars or anything…
+		Layton: Ha ha! You may be a bit young for this one. It’s what some might call a tea for the experienced palate.
+		Luke: Well, I don’t know about that. As far as I’m concerned, it’s too bitter to be tasty. 
+		
+		dream spice
+		-- brisk berry, dream fluff, peppercherry; This mysterious blend melds sweet and mild notes with a fantastic spiciness.
+		Layton: My, what a peculiar blend this is. Subtle and spicy all at once.
+		Luke: And sweet at the end to boot / as well.
+		Layton: I especially like how the initial heat helps to balance out the sweetness that comes later.
+		Luke: I never imagined spicy and sweet could work together so well.
+		
+		clover quencher
+		-- brisk berry, joy root clover, cinder horse; Smokiness and a sweetness coexist in this peculiar tea. It's perfect for quenching thirst.
+		Layton: Impressive. One sip and I feel rejuvinated. It’s smoky, yet it has a wonderful sweetness to it.
+		Luke: This is a whole new flavor to me, Professor. I’ve never tried anything quite like it.
+		Layton: It’s interesting, and I’m sure it’s good for you when you’ve worked up a thirst, but it’s not quite my taste / thing.
+		Luke: Really? Well, I for one think it’s rather tasty.
+		
+		radiance blend
+		-- belle tart / citronia seed, dream fluff, joy root clover; Soothing in scent and mildly fruity in flavour, this vitamin-packed tea addresses all kinds of beauty woes.
+		Luke: Mmm, now this smells nice.
+		Layton: Indeed. There’s something about the aroma of this tea that’s quite soothing.
+		Luke: You hit that one / the nail on the head, Professor. I think it’s making me sleepy. Yaaaaaawn…
+		Layton: I suppose that’s further proof of its relaxing effect. It does seem— yaaaawn— rather potent, eh?
+		
+		cayenne twilight
+		-- dream fluff, joy root clover, peppercherry; The initial light taste of this tea soon transforms into something spicy. Perfect for unwinding.
+		Layton: Ahhh, just take in that aroma. It’s incredibly relaxing!
+		Luke: Kind of makes you forget all your troubles for a minute, eh, Professor?
+		Layton: I must confess, this is rather nice. It’s like the tea drove all the weariness from me.
+		Luke: Wow, all that with just a couple of sips? The good a cup of herb tea can do never fails to amaze me!
+		
+		cinder flower
+		-- dream fluff, tonic flower, cinder horse; This blend works wonders against sickness of all kinds, though the taste can be off-puttingly strong.
+		Luke: Um… What’s this flavor? It’s a bit… odd.
+		Layton: It certainly has a distinct taste, but you know, Luke, the more I drink of it, the more I like it. (wow run-on sentence)
+		Luke: If you’re that fond of it, you’re more than welcome to the cup I’ve been drinking.
+		Layton: Sorry to hear that Cinder Flower isn’t your cup of tea, Luke. // your...erm...cup of tea, Luke.
+		
+		~the layton elixer~ (it’s got a seahorse in it??)
+		-- root clover, peppercherry, cinder horse; A single sip will capture your heart. The harmony of unlikely flavours results in a miraculous beverage.
+		Luke: Wow! This tea is out of this world!
+		Layton: I agree, Luke, but I do have to wonder how common ingredients can make something like this.
+		// I agree, Luke. I'm amazed that it's possible to make something like this with common ingredients.
+		Luke: Beats me, Professor. The world’s just full of mysteries like that, I suppose. / isn't it, Professor?
+		Layton: Aptly put / Indeed, my boy. Well, consider me mystified…
+
+
+
+
+///////-- Fail Blend Dialogues
+	fail tea blend
+	Luke: P-Professor! There’s smoke coming off / out of this tea!
+	Layton: We may have unwittingly invented a drink that should never have been.
+	Luke: I’m no coward, but I’m not brave enough to drink any of that stuff.
+	Layton: Well then, our course of action is clear. Let’s seal this recipe away and never make it again.
+	
+	another fail tea
+	Luke: Well…
+	Layton: Well…
+	Luke: Um, Professor? I think I’m going to throw up.
+	Layton: Perhaps I need to practice a bit more on my own before I start calling myself a tea master.
+	// I'm not surprised. This is really not the kind of tea that a gentleman should be making.
+	
+	fail tea the fourth
+	Luke: Professor… this tea is… peculiar.
+	Layton: I admit, I can’t seem to find a more appropriate word for this blend than peculiar.
+	Luke: What is that taste anyway? Old shoe?
+	Layton: All right, I get the picture, Luke. Let’s rip of the recipe and never make it again.
+	
+	fail tea 5ever
+	Luke: Professor, this doesn’t look like tea at all. If I didn’t know better, I’d swear we brewed some mud / here.
+	Layton: It is rather… viscous. How in the world did this happen?
+	Luke: We must have brewed a few incompatible ingredients together.
+	Layton: You’re quite right there, Luke. Next time, let’s try a different combination, shall we?
+	
+	I don’t know how many fail tea dialogues there are
+	Luke: This tea smells a bit, well, funny. Are you sure we can drink this, Professor?
+	Layton: Why not take a sip and find out for yourself?
+	Luke: Eww! I think I’ll pass on this one.
+	Layton: Where did I go wrong? I was so sure I’d brewed something good, too.
+	
+	another failure tea
+	Layton: This is just terrible.
+	Luke: Sorry, Professor. I don’t think I can choke down another sip.
+	Layton: That’s quite all right, Luke. No one should ever feel obliged to drink something as rank as this tea.
+	Luke: Everything looked good going in. I wonder where you went wrong.
+	
+	HOW MANY FAIL TEA DIALOGUES ARE THERE
+	Luke: Professor, this tea is… foaming!
+	Layton: Oh, dear. I suppose that’s a clear sign that this tea isn’t fit for human consumption then.
+	Luke: I don’t understand. We checked all the ingredients. Why all this foam?
+	Layton: I’m afraid I have no answer there, Luke. But perhaps we can use it to clean the floor.
+	
+	oh my god I’ve gotta choose a fail stopping point somewhere
+	Layton: Oh, this won’t do at all.
+	Luke: Ugh, this tea is making me sad. One sip was enough to make me want to cry.
+	Layton: I don’t think I’ve ever come out of teatime wearing anything but a smile… until now.
+	Luke: Believe me, Professor, you’re not the only one frowning.
+	
+	boring fail tea
+	Layton: We put in lots of the same ingredient, but all it made was a boring, one-note tea.
+	Luke: The real beauty of tea is the way different flavors come together. Try using a variety of ingredients.
+	//
+	Layton: The real beauty of tea is the way different flavours come together. Try using a variety of ingredients.
+	Luke: Yeah. We put in lots of the same ingredient, but all it made was a boring, one-note tea.
+	
+	//and the two fails which eluded Tega
+	Layton: Oh, dear...
+	Luke: Professor, is this tea supposed to look so...erm, brown and murky?
+	Layton: I hate to say it, but I think I may be wide of the mark with this blend. It's completely unpalatable.
+	Luke: Let's write this one down so we don't ever try to make it again.
+	
+	Layton: Interesting. I've never seen tea congeal before.
+	Luke: It looks more like pudding than tea, Professor. We might need a spoon to drink it.
+	Layton: The individual ingredients we used seem fine. Technically speaking, we should be able to drink it.
+	Luke: Er... None for me, thanks.

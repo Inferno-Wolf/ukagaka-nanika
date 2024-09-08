@@ -1,0 +1,439 @@
+﻿//---------------------------The User's Name--------------------------
+//What'cher naaaaaame?
+
+
+//--OnTeachName
+OnTeachName	
+{
+	"\0\b[0]\1\b[0]"
+	--
+	"\0\s[4]%(surprisesmile)\1\s[16]\i[17]Changing your name up?\w8 \0\s[3]%(happies)Let's hear what you've decided on.\w8"
+	
+	"\0\s[4]%(smiles)A new name?\w8 \1\s[18]\i[0]What's it gonna be?\w8"
+	
+	"\0\s[2]%(surprisesmile)Ah,\w4 \1\s[16]\i[13]\0a new alias?\w8 \1\s[18]\i[27]Got tired of %(user)?\w8 \0\s[3]%(calmsmile)\n\n[half]Tell us what you've decided on.\w8"
+	
+	"\1\s[18]\i[17]Changing it up?\w8 \0\s[4]%(happies)We'd be happy to hear what you'd like us to call you.\w8"
+	--
+	"\![open,inputbox,OnNameTeach,-1]\![set,balloontimeout,-1]\e"
+}
+
+
+//to keep the user from breaking out of ANY inputbox
+OnUserInputCancel
+{
+	"\C\![open,inputbox,%(reference0),-1]"
+}
+
+
+//--OnNameTeach
+OnNameTeach
+{
+	tempname = reference0 //this stores the name value from reference0 in tempname
+	reference0 = TOLOWER(reference0) //changes it to lowercase
+	reference0 = REPLACE(reference0," ","") //removes spaces
+	reference0 = REPLACE(reference0,".","") //removes periods
+	reference0 = REPLACE(reference0,"-","") //removes dashes
+	reference0 = REPLACE(reference0,"'","") //removes apostrophes
+	
+	"\t\0\b[0]\1\b[0]"
+	--
+	if tempname == user && firstboot != 1 //this checks if the username is the same as before AND if the firstboot has finished! thanks Zi for putting this in here I love it
+	{
+		"\1\s[18]\i[17]Innit that the same thing?\w8 \0\s[2]%(sadsmile)Did you change your mind?\w8 \1\s[16]\i[12]\n\n[half]Guess we'll stick with %(user),\w4 then!\w8 \0\s[1]%(concernsmile)"
+		
+		"\1\s[22]\i[17]\0\s[2]%(confused)Oh.\w8 Did you change your mind?\w8 \1\s[18]\i[27]Guess we'll keep calling you %(user),\w4 then!\w8 \0\s[4]%(concernsmile)"
+		--
+		"\x"
+		--
+		OnTalkConfig
+	}
+	elseif reference0 == "layton" || reference0 == "hershellayton" || reference0 == "professorlayton" || reference0 == "misterlayton" || reference0 == "mrlayton" || reference0 == "hershel" || reference0 == "hersh" || reference0 == "professorhershellayton"
+	{
+		"\1\s[23]\i[16]Another you,\w4 Professor??\w8 \0\s[4]%(concernsmile)Slow down there,\w4 Luke.\w8 \1\s[23]\i[1]\0\s[5]%(smiles)I'm not quite so sure that's entirely possible.\w8"
+		--
+		if favegame == "Unwound Future" || favegame == "Lost Future" {"\s[3]%(calmsmile) Remember how we proved it wasn't possible concerning futureluke?\w8"}
+		--
+		"\1\s[16]\i[13]\n\n[half]Aww.\w8 You're right,\w8 \0\s[4]%(concernsmile)\1\s[16]\i[21]but it would be so cool if it could be another you.\w8 \0\s[3]%(calmsmile)\n\n[half]Now,\w4 let's hear what you'd truly like us to call you.\w8 \1\s[18]\i[0]"
+		--
+		"\![open,inputbox,OnNameTeach,-1]"
+	}
+	elseif reference0 == "luke" || reference0 == "luketriton" || reference0 == "detectivetriton" || reference0 == "detectiveluketriton" || reference0 == "dettriton" || reference0 == "detluketriton" || reference0 == "lukey"
+	{
+		"\1\s[20]\i[16]Another Luke,\w4 Professor!\w8 \0\s[4]%(concernsmile)Hold on,\w4 my boy.\w8 \1\s[21]\i[1]\0\s[3]%(smiles)I doubt this person is another you.\w8 \s[5]%(calmsmile)Even if it's possible for %(them) to share a name with you.\w8 \1\s[16]\i[13]\n\n[half]Yeah,\w4 you're right.\w8 "
+		--
+		if favegame == "Unwound Future" || favegame == "Lost Future" {"\0\s[1]%(concernsmile)\1\s[16]\i[3]There's no way it could turn out to be another Future Luke situation!\w8"}
+		--
+		"\0\s[0]\n\n[half]Our apologies,\w8 \1\s[18]\i[0]\0\s[1]%(concernsmile)but we'd appreciate if you chose a less confusing name for us to refer to you as.\w8 \1\s[18]\i[21]\n\n[half]It's cool we're Luke buddies,\w4 though!\w8"
+		--
+		"\![open,inputbox,OnNameTeach,-1]"
+	}
+	elseif reference0 == "flora" || reference0 == "florareinhold" || reference0 == "thegoldenapple"
+	{
+		"\0\s[1]%(shockopen)\1\s[23]\i[16]"
+		--
+		if firstboot == 1 {"Flora"}
+		else {"thegoldenapple"}
+		--
+		"??\w8 \0\s[11]I...\w8\w8 \1\s[21]\i[24]\0\s[3]%(concernsmile)I don't think this is our Flora,\w4 Luke.\w8 \1\s[25]\n\n[half]Right.\w8\w8 \s[16]\i[12]Boy,\w4 you gave us a real surprise there!\w8 \0\s[1]%(sadsmile)\n\n[half]Sorry,\w4 but I believe the both of us will be much more comfortable if we could call you something else.\w8 \1\s[21]\i[19]\n\n[half]It's a really pretty name!\w8 \0\s[1]%(concernsmile)\1\s[21]\i[12]But it would get a mite confusing for us,\w4 since we all ready know a Flora.\w8"
+		--
+		"\![open,inputbox,OnNameTeach,-1]"
+	}
+	elseif reference0 == "katrielle" || reference0 == "katriellelayton" || reference0 == "katri" || reference0 == "katrilayton" || reference0 == "katkat" || reference0 == "katkatlayton" || reference0 == "mslayton" || reference0 == "misslayton"
+	{
+		"\1\s[23]\i[16]\0\s[4]%(shock)K-\w8\w8\s[4]%(shockopen)"
+		--
+		if firstboot == 1 {"Katrielle"}
+		else {"misslayton"}
+		--
+		"?\w8 \1\s[23]\i[1]...\w8\w8\w8\s[17]\i[20]You don't\w8 look\w8 \0\s[4]%(shock)\1like Katrielle to me.\w8 \0\s[3]%(concernsmile)\n\n[half]Apologies,\w4 but.\w8 \1\s[16]\i[17]\0\s[5]%(sadsmile)That is the same name as my daughter.\w8 \s[5]%(smiles)Perhaps we could use another name to refer to you.\w8 \1\s[16]\i[26]\n\n[half]It might be a little confusing for us,\w4 and all.\w8"
+		--
+		"\![open,inputbox,OnNameTeach,-1]"
+	}
+	elseif reference0 == "alfendi" || reference0 == "alfendilayton" || reference0 == "alfe" || reference0 == "alfelayton" || reference0 == "pottyprof"
+	{
+		"\0\s[1]%(shockopen)\1\s[23]\i[17]\_s....\_s\w8\w8\w8 \0\s[4]%(shock)\1\s[16]\i[3]\nBwah hah hah!!\w8 \0\s[4]%(concernsmile)\1\s[16]\i[19]That's a good one!\w8 \0\s[1]%(confusesmile)\n\n[half]If you were truly somehow my son,\w8 \1\s[16]\i[21]\0\s[5]%(happies)that would certainly be a rather amazing trick.\w8 \1\s[18]\i[21]\n\n[half]Sorry,\w4 but since we all ready know an "
+		--
+		if firstboot == 1 {"Alfendi"}
+		else {"pottyprof"}
+		--
+		",\w8 \0\s[0]\1\s[18]\i[0]it'd be a lot less confusing if you had a different name we could call you.\w8 \0\s[3]%(concernsmile)\n\n[half]Our deepest apologies for laughing.\w8"
+		--
+		"\![open,inputbox,OnNameTeach,-1]"
+	}
+	elseif reference0 == "clarktriton" || reference0 == "papatriton" || reference0 == "mrclark" || reference0 == "misterclark" || reference0 == "mrclarktriton" || reference0 == "misterclarktriton" || reference0 == "dadtriton" || reference0 == "mrtriton" || reference0 == "mistertriton"
+	{
+		"\1\s[23]\i[16]Dad??\w8 \0\s[1]%(confused)Is there any reason you're attempting to impersonate "
+		--
+		if firstboot == 1 {"Clark"}
+		else {"dadtriton"}
+		--
+		"?\w8 \1\s[21]\i[1]\n\n[half]Oh.\w8 \0\s[5]%(neutral)\n\n[half]Admittedly,\w4 Clark is a rather common name,\w8 \1\s[16]\i[17]\0\s[3]%(annoyed)but I doubt you share his full name with him.\w8 \1\s[18]\i[5]\n\n[half]Sorry!\w8 Gonna have to give us a different name to use for you!\w8"
+		--
+		"\![open,inputbox,OnNameTeach,-1]"
+	}
+	elseif reference0 == "brendatriton" || reference0 == "mamatriton" || reference0 == "mrstriton" || reference0 == "missustriton" || reference0 == "misstriton" || reference0 == "mrsbrendatriton" || reference0 == "missusbrendatriton" || reference0 == "missbrendatriton" || reference0 == "momtriton"
+	{
+		"\1\s[23]\i[16]Mum??\w8 \0\s[1]%(confused)Now,\w4 there's no reason to attempt to impersonate "
+		--
+		if firstboot == 1 {"Brenda"}
+		else {"momtriton"}
+		--
+		" like this.\w8 \1\s[21]\i[1]\n\n[half]Oh.\w8 \0\s[5]%(annoyedsmile)\n\n[half]Perhaps using just Brenda would have sufficed?\w8 \1\s[16]\i[17]\0\s[5]%(smiles)It is a common enough name.\w8 \1\s[16]\i[6]\n\n[half]Sorry!\w8 Maybe try a different name this time.\w8"
+		--
+		"\![open,inputbox,OnNameTeach,-1]"
+	}
+	elseif reference0 == "emmy" || reference0 == "emmyaltava" || reference0 == "emmelinealtava" || reference0 == "topassistant"
+	{
+		"\1\s[24]\0\s[1]%(shock)Ah.\w8 \1Oh.\w8 \0\s[12]\n\n[half]...\w8\w8\w8\1\s[15]\i[1]\0\s[5]%(sadsmile)Sorry,\w4 but for personal reasons,\w4 we'd prefer you choose a different name for us to call you than that one.\w8"
+		--
+		if favegame == "Last Spectre" || favegame == "Spectre's Call" || favegame == "Miracle Mask" || favegame == "Azran Legacy" || favegame == "Eternal Diva"
+		{
+			"\1\s[21]\i[24]\n\n[half]D'ya think topassistant's doing well wherever she is,\w4 Professor?\w8 \0\s[1]%(closeeyes)\n\n[half]I hope so,\w4 my boy.\w8 \s[12]I do hope so...\w8"
+			
+			"\1\s[25]\n\n[half]I really miss her,\w4 Professor...\w8 \0\s[7]\i[2]\n\n[half]I do,\w4 too,\w4 my boy.\w8 \1\s[18]\i[1]\0\s[3]%(calmsmile)But,\w4 wherever she is,\w4 she's undoubtedly taking care of herself.\w8 \1\s[18]\i[13]\n\n[half]Yeah!\w8"
+			
+			"\1\s[15]\i[24]\n\n[half]Where d'ya think topassistant is,\w4 Professor?\w8 \0\s[12]\n\n[half]Wherever it may be,\w8 \s[5]%(calmsmile)I know for a fact she's doing well for herself.\w8 \1\s[18]\i[9]\n\n[half]Yeah!\w8"
+			
+			"\1\s[25]\n\n[half]D'ya think she'll ever come back to see us again,\w4 Professor?\w8 \0\s[1]%(concernsmile)\n\n[half]Perhaps one day.\w8 \1\s[18]\i[10]"
+		}
+		--
+		"\![open,inputbox,OnNameTeach,-1]"
+	}
+	elseif reference0 == "desmondsycamore" || reference0 == "professorsycamore" || reference0 == "jeandescole" || reference0 == "descole" || reference0 == "desdes"
+	{
+		"\0\s[4]%(shock)\1\s[16]\i[2]Nope.\w8 \0\s[4]%(confusesmile)\1Denied.\w8\w8 \0\s[3]%(concernsmile)It seems you'll have to choose a different name for us to call you.\w8 \1\s[16]\i[7]\0\s[3]%(sadsmile)Apologies.\w8"
+		--
+		"\![open,inputbox,OnNameTeach,-1]"
+	}
+	elseif reference0 == "aurora" || reference0 == "azranemissary" || reference0 == "aurorazan"
+	{
+		"\0\s[4]%(shockopen)\1\s[18]\i[1]Oh!\w8\w8 \0\s[4]%(confusesmile)\1\s[18]\i[27]I mean.\w8 \s[16]\i[12]It's a very pretty name,\w8 \0\s[1]%(concernsmile)\1\s[16]\i[13]but I'd rather use a name for you that doesn't remind me of our friend "
+		--
+		if firstboot == 1 {"Aurora"}
+		else {"aurorazan"}
+		--
+		".\w8 \0\s[3]%(concernsmile)Sorry,\w4 but it appears you'll have to use a different name with us.\w8"
+		--
+		"\![open,inputbox,OnNameTeach,-1]"
+	}
+	elseif reference0 == "randall" || reference0 == "randallascot" || reference0 == "mrascot" || reference0 == "misterascot" || reference0 == "maskedgentleman" || reference0 == "themaskedgentleman" || reference0 == "maskedgent"
+	{
+		"\0\s[7]\i[2]\1\s[17]\i[2]Nope.\w8 \0No.\w8\w8 \1\s[16]\i[20]\0\s[3]%(concernsmile)Sorry,\w4 but.\w8 \s[12]That's the name of an old friend of mine.\w8 \1\s[16]\i[11]\0\s[3]%(concernsmile)I think we'd both appreciate if you used something else,\w4 our apologies.\w8"
+		--
+		"\![open,inputbox,OnNameTeach,-1]"
+	}
+	elseif reference0 == "claire" || reference0 == "clairefoley" || reference0 == "missfoley" || reference0 == "msfoley" || reference0 == "clairedelune" || reference0 == "celestefoley"
+	{
+		"\1\s[23]\i[24]\0\s[7]\i[0]....\w8\w8\w8 \1\s[21]\i[24]\0\s[3]%(concernsmile)\nMy sincerest apologies,\w4 but I all ready know a "
+		--
+		if firstboot == 1 {"Claire"}
+		else {"clairedelune"}
+		--
+		".\w8 \1\s[16]\i[24]\0\s[5]%(concernsmile)For personal reasons,\w4 I would appreciate if you chose to have us call you a different name besides that one.\w8 \1\s[25]Professor...\w8"
+		--
+		"\![open,inputbox,OnNameTeach,-1]"
+	}
+	elseif reference0 == "clivedove" || reference0 == "clivealbatross" || reference0 == "klausalbatross" || reference0 == "futureluke"
+	{
+		"\0\s[1]%(confusesmile)\1\s[16]\i[20]Somehow,\w4 I doubt you're the same "
+		--
+		if firstboot == 1 {"Clive"}
+		else {"futureluke"}
+		--
+		" as the one we know!\w8 \0\s[1]%(concernsmile)\1\s[22]\i[17]Though,\w4 I wouldn't put it past him to place us in a puzzle like this one.\w8 \0\s[3]%(smiles)Sorry,\w4 but you'll have to give us a different name for us to call you.\w8"
+		--
+		"\![open,inputbox,OnNameTeach,-1]"
+	}
+	elseif reference0 == "donpaolo" || reference0 == "donpaul" || reference0 == "paulpaolo"
+	{
+		"\0\s[1]%(shockopen)\1\s[21]\i[2]So it was YOU who placed us here??\w8 \0\s[3]%(happies)Hahaha,\w4 slow down there,\w4 my boy.\w8 \1\s[17]\i[20]\0\s[5]%(confident)Does this look like the sort of puzzle "
+		--
+		if firstboot == 1 {"Paul"}
+		else {"paulpaolo"}
+		--
+		" is known for?\w8 \1\s[22]\i[7]\n\n[half]I suppose that's a good point.\w8 \0\s[4]%(concernsmile)\1\s[22]\i[3]Don Paolo only wishes he could pull off an illusion this complicated.\w8 \0\s[5]%(calmsmile)\n\n[half]It does,\w4 however,\w8 \1\s[18]\i[0]\0\s[5]%(smiles)mean we'd prefer calling you a different name.\w8 \1\s[18]\i[12]\0\s[3]%(concernsmile)Our apologies about that.\w8 \1\s[16]\i[0]\n\n[half]Why would you want to impersonate that guy,\w4 anyway?\w8"
+		--
+		"\![open,inputbox,OnNameTeach,-1]"
+	}
+	elseif reference0 == "phoenixwright" || reference0 == "mrwright" || reference0 == "wright" || reference0 == "nickwright" || reference0 == "misterwright" || reference0 == "mraceattorney"
+	{
+		"\0\s[4]%(shockopen)\1\s[15]\i[1]Oh!\w8 \0\s[4]%(surprisesmile)\1\s[21]\i[19]Professor,\w4 %(theyre) trying to impersonate "
+		--
+		if firstboot == 1 {"Mr Wright"}
+		else {"mraceattorney"}
+		--
+		"!\w8 \0\s[1]%(confusesmile)I had no idea he was known well enough to have impersonators.\w8 \1\s[17]\i[21]\0\s[5]%(concernsmile)But,\w4 that does regretfully mean we'd prefer calling you something else.\w8 \1\s[18]\i[12]\n\n[half]Sorry!\w8"
+		--
+		"\![open,inputbox,OnNameTeach,-1]"
+	}
+	elseif reference0 == "maya" || reference0 == "mayafey" || reference0 == "missmaya" || reference0 == "missfey" || reference0 == "missmayafey" || reference0 == "borgerfey"
+	{
+		"\1\s[21]\i[16]\0\s[1]%(confused)"
+		--
+		if firstboot == 1 {"Miss Fey"}
+		else {"borgerfey"}
+		--
+		"...?\w8\w8 \1\s[16]\i[20]I don't think that's really her,\w4 Professor.\w8 \0\s[3]%(concernsmile)\w8\n\n[half]I have to agree,\w4 my boy.\w8 \1\s[16]\i[7]\0\s[4]%(confusesmile)Apologies,\w4 but could you have us call you a different name?\w8 \1\s[18]\i[14]\n\n[half]Since that one's the same as our friend's!\w8"
+		--
+		"\![open,inputbox,OnNameTeach,-1]"
+	}
+	elseif reference0 == "henryledore" || reference0 == "mrledore" || reference0 == "misterledore"
+	{
+		"\0\s[2]%(confused)Henry?\w8 \1\s[18]\i[17]Mr Ledore?\w8 \0\s[1]%(confusesmile)\n\n[half]I'm rather curious as to where you got that name from,\w8 \1\s[16]\i[9]\0\s[3]%(calmsmile)but I'll leave it at simply asking you to choose a different name for us to call you.\w8 \1\s[18]\i[12]\n\n[half]Sorry!\w8"
+		--
+		"\![open,inputbox,OnNameTeach,-1]"
+	}
+	elseif reference0 == "angelaledore" || reference0 == "missledore" || reference0 == "mrsledore" || reference0 == "missusledore" || reference0 == "angela"
+	{
+		"\0\s[2]%(confused)Angela?\w8 \1\s[22]\i[20]The real one?\w8 \0\s[1]%(confusesmile)\n\n[half]I'm fairly certain not,\w4 Luke.\w8 \1\s[16]\i[17]\n\n[half]Well.\w8 \0\s[1]%(concernsmile)\1\s[16]\i[2]Then you should choose a different name for us to call you so we don't get confused.\w8 \0\s[4]%(confusesmile)\n\n[half]That would be much appreciated,\w4 our apologies.\w8 \1\s[16]\i[7]"
+		--
+		"\![open,inputbox,OnNameTeach,-1]"
+	}
+	elseif reference0 == "theodorebronev" || reference0 == "hershelbronev" || reference0 == "leonbronev" || reference0 == "bronev"
+	{
+		"\1\s[23]\i[16]\0\s[1]%(shockopen)Oh!\w8\w8 \1\s[21]\i[24]Isn't that...?\w8 \0\s[5]%(annoyed)\n\n[half]Sorry,\w4 but we'll have to stop you right there.\w8 \1\s[18]\i[27]\n\n[half]You'll have to give us a different name for us to call you.\w8 \0\s[11]\1\s[18]\i[12]Sorry!\w8"
+		--
+		"\![open,inputbox,OnNameTeach,-1]"
+	}
+	elseif reference0 == "apollo" || reference0 == "apollojustice" || reference0 == "aj"
+	{
+		"\0\s[1]%(shock)\1\s[21]\i[19]Hey!\w8 \s[18]\i[21]That's the same name as my pen pal!\w8 \0\s[1]%(confusesmile)How fascinating.\w8 \1\s[16]\i[17]\n\n[half]Yeah,\w4 but since you're not him,\w8 \0\s[1]%(concernsmile)\1\s[16]\i[25]I'd prefer you have us call you something else.\w8 \s[16]\i[21]Sorry about that!\w8"
+		--
+		"\![open,inputbox,OnNameTeach,-1]"
+	}
+	elseif reference0 == "snufkin" || reference0 == "nuskamuikunen" || reference0 == "snusmumriken" || reference0 == "snuf" || reference0 == "snus" || reference0 == "wanderer"
+	{
+		"\0\s[1]%(shock)\1\s[18]\i[1]Oh!\w8 \s[17]\i[21]That's the same name as my pen pal's best friend!\w8 \0\s[1]%(confusesmile)That's a rather peculiar connection.\w8 \1\s[17]\i[0]\n\n[half]Yeah.\w8 \s[17]\i[25]And since I know for a fact you're not him,\w8 \0\s[1]%(concernsmile)\1\s[17]\i[14]you're gonna have to choose a different name for us to call you.\w8 \s[18]\i[21]Sorry about that!\w8"
+		--
+		"\![open,inputbox,OnNameTeach,-1]"
+	}
+	//elseif reference0 == "" || reference0 == ""
+	elseif reference0 == ""
+	{
+		{
+			"\0\s[1]%(shock)\1"
+			--
+			"\s[15]"
+			"\s[18]"
+			"\s[23]"
+			--
+			"\i[16]Oh!\w8\w8 \0\s[4]%(confusesmile)\1\s[16]\i[13]Bit eager there,\w4 aren't you?\w8 \0\s[3]"
+			--
+			"%(concernsmile)"
+			"%(smiles)"
+			"%(confusesmile)"
+			--
+			"Sorry,\w4 would you please try that again?\w8"
+		}
+		
+		{
+			"\1"
+			--
+			"\s[18]"
+			"\s[16]"
+			"\s[15]"
+			--
+			"\i[1]\0\s[1]%(shockopen)Oh!\w8\w8 \1\s[18]\i[13]\0\s[3]%(concernsmile)Our apologies,\w4 we didn't quite catch that.\w8 \1\s[16]\i[12]Sorry,\w4 could you try that again?\w8"
+		}
+		--
+		"\![open,inputbox,OnNameTeach,-1]"
+	}
+	else
+	{
+		user = tempname
+		NameDone
+	}
+}
+
+
+
+//--NameDone
+NameDone
+{
+	"\0\b[0]\1\b[0]"
+	--
+	if firstboot == 1
+	{
+		firstboot = 0
+		
+		"\1\s[22]\i[14]%(user),\w4 huh?\w8 \s[19]\i[22]That's a nice name!\w8 \0\s[1]%(happies)Yes,\w4 it is very nice to make your acquaintance,\w4 %(user).\w8 \1\s[18]\i[15]\n\n[half]Let's get back to it,\w4 Professor!\w8 \0\s[3]%(calmsmile)\n\n[half]Yes,\w4 Luke.\w8 Let's.\w8 \1\s[18]\i[21]\e"
+	}
+	else
+	{
+		"\1\s[18]\i[0]\0\s[2]%(confusesmile)%(user),\w4 then?\w8 \1\s[18]\i[21]That's a good one!\w8 \0\s[3]%(happies)\n\n[half]Thank you for updating us with this information.\w8 \1\s[18]\i[19]\n\n[half]It's nice to meet you again,\w4 %(user)!\w8"
+		
+		"\0\s[4]%(surprisesmile)\1\s[22]\i[14]So that's %(user),\w4 then?\w8 \0\s[3]%(calmsmile)A fine name.\w8 \1\s[18]\i[21]\n\n[half]Thanks for letting us know!\w8"
+		
+		"\1\s[18]\i[0]\0\s[0]We'll use %(user) for you from now on.\w8 \1\s[18]\i[21]Nice to meet'cha again,\w4 %(user)!\w8"
+		
+		"\1\s[18]\i[0]\0\s[4]%(smiles)Thank you for informing us of this,\w4 %(user).\w8 \1\s[16]\i[21]Lovely to get reacquainted with you,\w4 %(user)!\w8"
+		
+		"\0\s[4]%(surprisesmile)\1\s[22]\i[14]%(user),\w4 got'cha!\w8 \0\s[3]%(happies)Thank you for letting us know this,\w4 %(user).\w8 \1\s[16]\i[21]\n\n[half]Yeah,\w4 thank you!\w8"
+		
+		"\0\s[1]%(surprisesmile)\1\s[22]\i[14]%(user),\w4 huh?\w8 \0\s[0]\1\s[18]\i[21]You got it!\w8 \0\s[3]%(happies)Thank you for allowing us to get reacquainted with you,\w4 %(user).\w8 \1\s[18]\i[0]\n\n[half]Thanks very much!\w8"
+		--
+		"\_q\n\n\![*]\q[Back to Main menu,BACKTOMENU]   \![*]\q[Back to Preferences,configmenu] \n\![*]\q[Cancel,CANCEL]\e"
+	}	
+}
+
+
+//leads here from the menu option
+OnPronouns
+{
+	if reference0 == "masc"
+	{
+		presuffix = "masculine"
+	}
+	elseif reference0 == "fem"
+	{
+		presuffix = "feminine"
+	}
+	elseif reference0 == "undef"
+	{
+		presuffix = "undefined"
+	}
+	elseif reference0 == "own"
+	{
+		"\0\b[0]\s[0]\_qChoose which pronoun do you prefer for them / him / her.\w8"
+		--
+		"\![open,inputbox,OnthemTeach,-1]\![set,balloontimeout,-1]\e"
+	}
+	elseif reference0 == "menu"
+	{
+		OnMenuRun
+	}
+	elseif reference0 == "config"
+	{
+		OnTalkConfig
+	}
+	else //cancel
+	{
+		"\e"
+	}
+	--
+	OnTalkConfig
+}
+
+
+//Teaching Pronouns!!
+OnthemTeach
+{
+	xthem = reference0
+	
+	if reference0 == "" //blank check!
+	{
+		xthem = "them"
+	}
+	PronounThey
+}
+
+//inputbox selection
+PronounThey
+{
+	"\0\b[0]\s[0]\_q'%(xthem)'.\w8 \n\n[half]Now input the one you use for they / he / she.\w8"
+	--
+	"\![open,inputbox,OntheyTeach,-1]\![set,balloontimeout,-1]\e"
+}
+
+OntheyTeach
+{
+	xthey = reference0
+	
+	if reference0 == "" //blank check!
+	{
+		xthey = "they"
+	}
+	PronounTheir
+}
+
+//inputbox selection
+PronounTheir
+{
+	"\0\b[0]\s[0]\_q'%(xthey)'.\w8 \n\n[half]Now input the one used for their / his / her.\w8"
+	--
+	"\![open,inputbox,OntheirTeach,-1]\![set,balloontimeout,-1]\e"
+}
+
+OntheirTeach
+{
+	xtheir = reference0
+	
+	if reference0 == "" //blank check!
+	{
+		xtheir = "their"
+	}
+	PronounTheyre
+}
+
+//inputbox selection
+PronounTheyre
+{
+	"\0\b[0]\s[0]\_q'%(xtheir)'.\w8 \n\n[half]Finally,\w4 input for they're / he's / she's.\w8"
+	--
+	"\![open,inputbox,OntheyreTeach,-1]\![set,balloontimeout,-1]\e"
+}
+
+OntheyreTeach
+{
+	xtheyre = reference0
+	
+	if reference0 == "" //blank check!
+	{
+		xtheyre = "they're"
+	}
+	PronounsFinish
+}
+
+//Finished!!
+PronounsFinish
+{
+	presuffix = "own"
+	
+	"\0\b[0]\s[0]\_qYour personal pronouns are now set to '%(they)',\w4 '%(them)',\w4 and '%(their)'.\x\_q"
+	--
+	OnTalkConfig
+}
+
+
+//The personal pronouns teaching came from either Dusk and Dawn or MiniDev, I think...

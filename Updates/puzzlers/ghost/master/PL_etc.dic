@@ -1,0 +1,1212 @@
+﻿//---------------------------Miscellaneous Functions--------------------------
+//This .dic file is concerned with a number of functions that didn't quite fit in anywhere else.
+
+
+//--OnFileDrop2
+OnFileDrop2
+{
+	_filepath = SPLITPATH(reference0)
+	_filename = _filepath[2]
+	_fileext = TOLOWER(_filepath[3])
+	
+	"\0\b[0]\1\b[0]"
+	--
+	case _fileext
+	{
+		when ".mid", ".wav", ".mp3", ".wma", ".au"
+		{
+			if "Professor Layton's Theme" _in_ _filename
+			{
+				"\0\s[1]%(shockopen)\1\s[15]\i[16]Oh!\w8 \0\s[1]%(confusesmile)\1\s[20]\i[19]That's your song,\w4 Professor!\w8 \0\s[1]%(concernsmile)So it is.\w8 \1\s[17]\i[21]\0\s[3]%(smiles)Thank you,\w4 %(user),\w4 for playing this for us.\w8 \1\s[21]\i[21]\n\n[half]Yeah!\w8 \s[21]\i0]I think the violin part is my favourite.\w8 \0\s[4]%(concernsmile)\1\s[22]\i[17]Though,\w4 the accordion part is also really good...\w8\e"
+				
+				"\1\s[15]\i[16]\0\s[4]%(surprisesmile)Ah,\w8 \1\s[18]\i[19]\0\s[4]%(happies)I'd recognise that tune anywhere.\w8 \1\s[20]\i[21]That's your song,\w4 Professor!\w8 \0\s[4]%(smiles)\n\n[half]Indeed it is,\w4 Luke.\w8 \1\s[17]\i[22]\0\s[3]%(calmsmile)That piano laying the bedrock for the rest to perform atop is always a joy to hear.\w8 \1\s[15]\i[21]\n\n[half]It's fun hearing you play it live,\w4 too!\w8 \0\s[1]%(happies)\e"
+			}
+			elseif "Future British Gentleman" _in_ _filename || "Luke's Theme" _in_ _filename
+			{
+				"\0\s[3]%(happies)Ah,\w4 \1\s[18]\i[0]\0that would be your theme.\w8 Wouldn't it,\w4 Luke?\w8 \1\s[18]\i[21]Yup!\w8\w8 \0\s[1]%(happies)\1\s[18]\i[27]Reminds me of the time I scaled desdes's mech in order to help Janice and Melina.\w8 \0\s[1]%(confusesmile)\n\n[half]That was certainly a stressful time.\w8 \1\s[18]\i[9]\0\s[3]%(concernsmile)You did fantastically,\w4 of course,\w4 and I'm still very grateful you weren't hurt.\w8 \1\s[15]\i[13]\n\n[half]I'm glad you didn't get hurt,\w4 either.\w8\e"
+				
+				"\1\s[16]\i[13]Oof.\w8 \0\s[4]%(confusesmile)Are you all right,\w4 Luke?\w8 \1\s[16]\i[12]\n\n[half]Oh,\w4 sorry,\w4 Professor.\w8 \0\s[4]%(concernsmile)\1\s[18]\i[27]And sorry,\w4 %(user).\w8 \1\s[18]\i[9]This just reminded me of that run I had to do.\w8 \0\s[4]%(neutral)\1\s[17]\i[26]Makes me kinda nauseous thinking about it again.\w8 \0\s[3]%(concernsmile)\n\n[half]That was quite the feat.\w8 \1\s[17]\i[27]\0\s[3]%(smiles)You did a splendid job that whole trip,\w4 my boy.\w8 \1\s[18]\i[12]\n\n[half]Thanks,\w4 Professor.\w8\e"
+			}
+			elseif "Katrielle's Theme" _in_ _filename
+			{
+				"\0\s[3]%(happies)Ah,\w4 this one's misslayton's theme,\w4 isn't it?\w8 \1\s[17]\i[21]Sure sounds like it!\w8 \0\s[0]\1\s[17]\i[14]It's got her personality all over it.\w8 \0\s[1]%(happies)\n\n[half]It certainly does.\w8 \1\s[17]\i[0]\0\s[3]%(calmsmile)She's such a feisty spirit,\w4 but what amazes me most is how deeply she cares for those around her.\w8 \1\s[19]\i[22]\n\n[half]She learned from the best,\w4 after all!\w8 \0\s[2]%(confusesmile)\n\n[half]Yes,\w4 the both of you are kind to a fault at times.\w8 \1\s[16]\i[3]\n\n[half]Aww,\w4 Professor!\w8\e"
+				
+				"\1\s[18]\i[21]Hahaha,\w4 this one's got misslayton all over it!\w8 \0\s[2]%(confusesmile)It does indeed.\w8 \1\s[18]\i[0]\0\s[3]%(calmsmile)I can just imagine her doing her little deductions listening to this.\w8 \1\s[20]\i[15]\n\n[half]The truth is stranger than fiction!\w8 \0\s[3]%(smiles)\1\s[16]\i[21]She's real fond of that one.\w8 \0\s[2]%(confusesmile)\n\n[half]After hearing about our many adventures,\w4 it would be no wonder she could say that so confidently.\w8\e"
+			}
+			elseif "Don Paul's Theme" _in_ _filename
+			{
+				"\0\s[1]%(shock)Ah,\w4 is that paulpaolo's theme?\w8 \1\s[16]\i[24]He's...\w8\w4 \0\s[1]%(confusesmile)\1\s[16]\i[9]not here,\w4 is he?\w8 \0\s[5]%(concernsmile)\n\n[half]I'm sure he's not,\w4 my boy.\w8 \1\s[15]\i[26]\n\n[half]Phew.\w8\e"
+				
+				"\0\s[1]%(shockopen)\1\s[23]\i[29]Woah!!\w8 \0\s[4]%(sad)Luke,\w4 are you all right?\w8 \1\s[23]\i[1]\n\n[half]Oh,\w8 \0\s[4]%(concernsmile)\1\s[16]\i[9]sorry,\w4 Professor.\w8 \s[16]\i[13]And sorry to you as well,\w4 %(user).\w8 \0\s[4]%(sadsmile)\1\s[16]\i[26]I thought paulpaolo was here for a moment...\w8 \0\s[3]%(concernsmile)\n\n[half]It does sound like he would be here,\w4 but thankfully,\w4 we're spared for the time being.\w8 \1\s[16]\i[6]\n\n[half]Yeah...\w8\w4 \0\s[1]%(confusesmile)\1\s[18]\i[12]I'd hate to find out he was impersonating you the whole time,\w4 Professor!\w8 \0\s[1]%(confused)\1\s[18]\i[27]Or %(user)!\w8 \0\s[1]%(concernsmile)\n\n[half]Hahaha,\w8 yes,\w4 that wouldn't be very fun.\w8\e"
+			}
+			elseif "Descole's Theme" _in_ _filename
+			{
+				"\0\s[1]%(shockopen)desdes?\w8 \1\s[16]\i[27]Yeah,\w4 that sounds like him all right.\w8 \0\s[1]%(shock)\1\s[16]\i[6]What an arrogant guy.\w8 \0\s[3]%(calmsmile)\n\n[half]Haha,\w4 he was quite the thorn in our sides for a while there,\w4 wasn't he?\w8 \1\s[21]\i[2]\n\n[half]He sure was!\w8 \0\s[3]%(neutral)\1\s[18]\i[7]He couldn't even leave quietly,\w4 either.\w8 \0\s[1]%(confused)\n\n[half]Such is his personality,\w4 as you can hear in this song.\w8\e"
+				
+				"\1\s[15]\i[20]Ugh.\w8 \0\s[3]%(annoyedsmile)Hahaha,\w4 why such a strong reaction,\w4 Luke?\w8 \1\s[16]\i[7]\n\n[half]This just sounds like desdes to me.\w8 \0\s[3]%(confusesmile)\1\s[16]\i[20]Arrogant and hugely annoying.\w8 \0\s[2]%(confused)\n\n[half]That is one way to describe him,\w4 for sure.\w8 \1\s[18]\i[27]\n\n[half]Sorry,\w4 %(user).\w8 \0\s[2]%(concernsmile)\1\s[18]\i[12]It'd be nice if it didn't have his name on it.\w8\e"
+			}
+			elseif "Puzzles" _in_ _filename //PUZZLES!!
+			{
+				"\0\s[2]%(calmsmile)Ah,\w4 this certainly reminds me of a puzzle or two.\w8 \1\s[18]\i[19]How could it not?\w8 \0\s[2]%(smiles)\1\s[19]\i[21]I'll bet even %(user) has a puzzle or three in mind from hearing this one.\w8 \0\s[4]%(happies)\n\n[half]Hahaha,\w4 I'm sure of that as well.\w8\e"
+				
+				"\1\s[18]\i[19]Ooh,\w4 sounds like a puzzle!\w8 \0\s[2]%(confusesmile)It does,\w4 indeed.\w8 \1\s[18]\i[21]\0\s[3]%(happies)I can think of one or two that really tickled us during our adventures.\w8 \1\s[17]\i[22]\n\n[half]I bet %(user) can,\w4 too.\w8\e"
+				
+				"\0\s[2]%(confusesmile)Is that a puzzle you've got for us,\w4 %(user)?\w8 \1\s[18]\i[15]Or maybe you want us to give you one.\w8 \0\s[4]%(surprisesmile)\1\s[22]\i[7]Hold on,\w4 I think I've almost got one,\w4 just need to remember how it goes...\w8 \0\s[3]%(calmsmile)\n\n[half]Let's let the music play out for now,\w4 Luke.\w8 \1\s[16]\i[27]\n\n[half]Aww.\w8 Okay.\w8\e"
+				
+				"\1\s[18]\i[21]Got a puzzle for us,\w4 %(user)?\w8 \0\s[4]%(happies)It certainly sounds like you do.\w8 \1\s[18]\i[0]\0\s[2]%(confusesmile)Or were you,\w4 perhaps,\w4 waiting on us to give you a puzzle?\w8 \1\s[21]\i[12]\n\n[half]Ooh,\w4 I've got one sparkling right at the tip of my tongue!\w8 \0\s[1]%(concernsmile)\1\s[22]\i[7]How exactly did it go again...?\w8 \0\s[5]%(calmsmile)\n\n[half]Now that's a puzzle in itself,\w4 my boy.\w8 \1\s[22]\i[27]\e"
+			}
+			elseif "The Journey Begins" _in_ _filename || "About Town" _in_ _filename || "Rhineford Manor" _in_ _filename || "The Plot Thickens!" _in_ _filename || "Gant's Bar" _in_ _filename || "The Mysterious Girl" _in_ _filename || "Gloomy Basement" _in_ _filename || "The Park with the Ferris Wheel" _in_ _filename || "Pursuit in the Night" _in_ _filename || "The Veil of Night" _in_ _filename || "The Village Awakens" _in_ _filename || "The Looming Tower" _in_ _filename || "Memories of the Village" _in_ _filename || "The Girl Departs" _in_ _filename || "End Theme" _in_ _filename || "The Curious Village" _in_ _filename //Curious Village
+			{
+				"\0\s[2]%(confusesmile)Oh,\w4 this sounds familiar.\w8 \1\s[16]\i[0]Sounds like our time in St Mystere.\w8 \0\s[3]%(happies)\n\n[half]Walking around and solving puzzles in that small town was a fun little jaunt,\w4 wasn't it?\w8 \1\s[18]\i[21]\n\n[half]It was!\w8 \0\s[3]%(smiles)\1\s[18]\i[27]Especially after all we'd just been through.\w8 \0\s[4]%(sadsmile)\n\n[half]Yes,\w4 I.\w8 \1\s[18]\i[13]\0\s[4]%(concernsmile)I suppose it was a nice break in that regard.\w8 \1\s[21]\i[19]\n\n[half]And then we met thegoldenapple!\w8 \0\s[0]\n\n[half]That we did.\w8 \1\s[21]\i[22]\0\s[3]%(happies)Thank you,\w4 %(user),\w4 for playing this for us.\w8 \1\s[18]\i[21]\n\n[half]Thanks a bunch!\w8\e"
+				
+				"\1\s[15]\i[16]Oh!\w8 \0\s[1]%(happies)Ah,\w4 this sounds like our time in St Mystere.\w8 \1\s[16]\i[0]\n\n[half]I'd bet thegoldenapple would find this an interesting listen,\w4 too.\w8 \0\s[0]\1\s[16]\i[13]Nostalgic,\w4 even.\w8 \0\s[3]%(concernsmile)\n\n[half]I hope it'd bring up more pleasant memories than unpleasant.\w8\e"
+			}
+			elseif "Theme of Pandora's Box" _in_ _filename || "London" _in_ _filename || "Molentary Express" _in_ _filename || "Suspense" _in_ _filename || "Drop Stone" _in_ _filename || "A Disquieting Atmosphere" _in_ _filename || "Folsense" _in_ _filename || "The History of the Village" _in_ _filename || "A Moment of Rest" _in_ _filename || "Lost Forest" _in_ _filename || "To the Darkness" _in_ _filename || "Unfulfilled Feelings" _in_ _filename || "Dignity of a Castle" _in_ _filename || "Dance in the Dreams" _in_ _filename || "The Village of Truth" _in_ _filename || "iris ~ Music Box ver." _in_ _filename || "The Diabolical Box" _in_ _filename //Diabolical / Pandora's Box
+			{
+				"\0\s[3]%(calmsmile)Ahh,\w4 that sounds like our pursuit of the mystery behind the Elysian Box.\w8 \1\s[18]\i[22]It does sound like our travels through Dropstone,\w4 Folsense,\w4 and the Molentary Express,\w4 doesn't it?\w8 \0\s[2]%(confusesmile)\n\n[half]We travelled through quite a few locales,\w4 didn't we?\w8 \1\s[18]\i[0]\0\s[2]%(happies)Even ending in a castle.\w8 \1\s[18]\i[21]\n\n[half]Thanks,\w4 %(user).\w8 This is fun!\w8\e"
+				
+				"\1\s[16]\i[22]Ooh,\w4 this reminds me of when we went through Dropstone and Folsene.\w8 \0\s[5]%(happies)It reminds me of the Molentary Express,\w4 personally.\w8 \1\s[16]\i[27]\n\n[half]We sure travelled a lot during that case,\w4 didn't we,\w4 Professor?\w8 \0\s[3]%(smiles)\n\n[half]It was worthy of the title of adventure,\w4 for sure.\w8\e"
+			}
+			elseif "The Unwound Future" _in_ _filename || "London Streets" _in_ _filename || "Searching for Clues" _in_ _filename || "Tension" _in_ _filename || "More London Streets" _in_ _filename || "A Quiet Town" _in_ _filename || "The Gilded 7 Casino" _in_ _filename || "Sorrow" _in_ _filename || "Suspicion" _in_ _filename || "Chinatown" _in_ _filename || "Puzzle Battle" _in_ _filename || "Memories" _in_ _filename || "The Towering Pagoda" _in_ _filename || "The Professor's Deductions" _in_ _filename || "Crisis" _in_ _filename || "The Research Facility" _in_ _filename || "The Mobile Fortress" _in_ _filename || "Time Travel" _in_ _filename //Unwound / Lost Future
+			{
+				"\0\s[4]%(neutral)Ah,\w4 I think I recognise this one.\w8 \1\s[16]\i[1]Sounds like that future London we had to explore.\w8 \0\s[12]\n\n[half]Yes,\w4 that's what I was thinking as well.\w8 \1\s[16]\i[24]\0\s[7]\i[2]What a mess...\w8 \1\s[21]\i[9]\n\n[half]A mystery that was no match for us,\w4 Professor.\w8 \0\s[4]%(concernsmile)\n\n[half]That is how it goes for the most part.\w8\e"
+				
+				"\1\s[18]\i[1]Oh,\w4 this sounds like our time in that future London.\w8 \0\s[2]%(confused)It does remind you of that,\w4 doesn't it?\w8 \1\s[25]\n\n[half]That was an adventure and a half,\w4 wasn't it?\w8 \0\s[1]%(sad)\n\n[half]It was.\w8\w4 \s[3]%(closeeyes)One we've thankfully put behind us now.\w8 \1\s[18]\i[23]\n\n[half]Yeah...\w8\e"
+				
+				"\1\s[24]...\w8\w8 \0\s[1]%(sad)Luke?\w8 \1\s[25]\0Is everything all right?\w8 \1\s[18]\i[9]\n\n[half]Sorry,\w4 Professor.\w8 \s[18]\i[27]And sorry to you as well,\w4 %(user).\w8 \s[25]This song just...\w8\w4 reminds me of our time with futureluke...\w8 \0\s[1]%(closeeyes)\n\n[half]I see.\w8\w4 \s[3]%(sad)Yes,\w4 I can't blame you for having that reaction.\w8 \1\s[18]\i[9]\n\n[half]It's pretty,\w4 at least.\w8 \0\s[4]%(concernsmile)\1\s[16]\i[13]And we did have some good times together.\w8 \0\s[7]\i[0]\n\n[half]I'm sorry it turned out the way it did,\w4 \s[4]%(concernsmile)but there were some good times,\w4 at least.\w8 \1\s[16]\i[11]\e"
+			}
+			elseif "The Melody of the Specter's Flute" _in_ _filename || "The Specter's Flute Theme" _in_ _filename || "The Specter Appears" _in_ _filename || "Town of Water ~Misthallery Day" _in_ _filename || "Mansion of Shadows" _in_ _filename || "A Calm Afternoon" _in_ _filename || "Rumble!" _in_ _filename || "Black Market" _in_ _filename || "A Quiet Time" _in_ _filename || "Town of Mist ~Misthallery Night" _in_ _filename || "Ghost Factory" _in_ _filename || "Theme of the Last Battle" _in_ _filename || "The Legendary Paradise" _in_ _filename || "The Guardian Deity of Paradise" _in_ _filename || "Lagoocy's Theme" _in_ _filename || "The Last Specter" _in_ _filename //Last Spectre's Call
+			{
+				"\0\s[3]%(happies)Ah,\w4 this reminds me of when we were investigating Misthallery's spectre.\w8 \1\s[16]\i[1]\0\s[2]%(confusesmile)That was a quaint little town,\w4 wasn't it?\w8 \1\s[16]\i[27]Yeah.\w8 \s[16]\i[9]I hope everyone's doing okay over there.\w8 \0\s[4]%(concernsmile)\n\n[half]Yes,\w4 I hope all the archaeologists are respectful to the environment as they investigate.\w8\e"
+				
+				"\1\s[19]\i[27]Ooh,\w4 this reminds me of walking around Misthallery.\w8 \0\s[2]%(happies)It does,\w4 doesn't it?\w8 \1\s[19]\i[0]\0\s[2]%(smiles)Your little hometown was very quaint.\w8 \1\s[16]\i[1]\n\n[half]Hm.\w8 \s[16]\i[27]It was a nice town,\w4 but I don't think I'd ever really want to return.\w8 \0\s[2]%(neutral)\1\s[16]\i[9]Not after what happened.\w8 \0\s[4]%(concernsmile)\n\n[half]Ah.\w8 I can understand that.\w8\e"
+			}
+			elseif "Theme of the Mask of Miracles" _in_ _filename || "Monte D'Or - Carnival Night" _in_ _filename || "Misgivings" _in_ _filename || "Dangerous Tricks" _in_ _filename || "The Gentleman's Theme" _in_ _filename || "Fierce Chase" _in_ _filename || "Expectation" _in_ _filename || "Suspicion" _in_ _filename || "Monte D'Or - City of Miracles" _in_ _filename || "A Moment of Calm" _in_ _filename || "Inside the Circus Tent" _in_ _filename || "Searching for Clues" _in_ _filename || "The Scorpion Casino" _in_ _filename || "The Racetrack" _in_ _filename || "Stansbury ~ Calm Days" _in_ _filename || "Stansbury ~ Moonlight Hill" _in_ _filename || "The Norwell Wall" _in_ _filename || "Akbadain's Ruins" _in_ _filename || "Akbadain Breakthrough" _in_ _filename || "A Time For Battle" _in_ _filename || "Pain" _in_ _filename || "Unforgettable Memories" _in_ _filename || "Pumpkin Park" _in_ _filename || "Waiting for a Friend" _in_ _filename || "A Treasure That Lasts" _in_ _filename || "Targent's Theme" _in_ _filename || "The Miracle Mask" _in_ _filename //Miracle Mask
+			{
+				"\0\s[2]%(confusesmile)Ah,\w4 this sounds like our time in Monte d'Or.\w8 \1\s[18]\i[0]\0\s[3]%(happies)Doesn't it,\w4 Luke?\w8 \1\s[18]\i[21]It does!\w8 \0\s[3]%(smiles)\1\s[18]\i[0]It also reminds me a lot of the circus.\w8 \0\s[5]%(confusesmile)\n\n[half]Well,\w4 they were having quite the festival while we were there.\w8 \1\s[18]\i[22]\0\s[4]%(calmsmile)You and topassistant enjoyed yourselves while we weren't in the midst of our investigation,\w4 didn't you?\w8 \1\s[16]\i[27]\n\n[half]True.\w8 \0\s[4]%(smiles)\1\s[16]\i[22]Seeing all the clowns and animals while they worked was a lot of fun.\w8\e"
+				
+				"\1\s[19]\i[0]Oh,\w4 this sounds like Monte d'Or.\w8 \0\s[1]%(surprisesmile)\1\s[22]\i[27]At least,\w4 during the time we were there.\w8 \0\s[3]%(smiles)It does,\w4 doesn't it?\w8 \1\s[22]\i[22]\0\s[3]%(calmsmile)That was quite the mystery for us.\w8 \1\s[16]\i[0]\n\n[half]Yeah.\w8 \0\s[3]%(smiles)\1\s[16]\i[22]We learned all sorts of things about you and your old school friends.\w8 \0\s[4]%(concernsmile)\n\n[half]I'm glad you and topassistant didn't mind my telling you the story behind it all.\w8 \1\s[16]\i[27]\n\n[half]Honestly?\w8\w4 \0\s[4]%(shock)\1\s[22]\i[9]I'm still surprised you told us all that at all.\w8 \0\s[4]%(confusesmile)\e"
+			}
+			elseif "The Azran Legacy" _in_ _filename || "The Silver Peaks of Froenborg" _in_ _filename || "Aboard The Bostonius" _in_ _filename || "Airship Chase" _in_ _filename || "The Lakeside Town of Kodh" _in_ _filename || "Echoes of the Past" _in_ _filename || "The History of the Village" _in_ _filename || "The Jungle Village of Phong Gi" _in_ _filename || "Picking Up The Pace" _in_ _filename || "San Grio: Island of Happiness" _in_ _filename || "Norwell" _in_ _filename || "The Dusty Town of Torrido" _in_ _filename || "London Streets Remapped" _in_ _filename || "Searching For Clues" _in_ _filename || "The Windy Village of Hoogland" _in_ _filename || "Warmth and Kindness" _in_ _filename || "Mosinnia: The Walled City" _in_ _filename || "Targent" _in_ _filename || "The Nest of Iniquity" _in_ _filename || "A Tragic Fate" _in_ _filename || "The Azran Sanctuary" _in_ _filename || "Descole" _in_ _filename || "Surely Someday" _in_ _filename //Azran Legacy
+			{
+				"\0\s[5]%(happies)Ah,\w4 this reminds me of our time travelling the world.\w8 \1\s[18]\i[0]\0\s[3]%(smiles)Doesn't it,\w4 Luke?\w8 \1\s[18]\i[21]Yeah,\w4 while we were riding in the Bostonius with topassistant and aurorazan!\w8 \0\s[1]%(happies)\1\s[16]\i[0]That was a lot of fun.\w8 \0\s[0]\1\s[21]\i[21]We got to see so many places and meet so many different people!\w8 \0\s[1]%(happies)\n\n[half]Indeed we did.\w8 \1\s[21]\i[0]\0\s[2]%(confusesmile)It was also fascinating seeing all the different puzzles we encountered.\w8 \1\s[16]\i[3]\n\n[half]Of course!\w8\e"
+				
+				"\1\s[19]\i[19]Oh,\w4 this reminds me of our time riding around in the Bostonius!\w8 \0\s[3]%(happies)Yes,\w4 while we were searching the world for the keys to the Azran Sanctuary.\w8 \1\s[19]\i[0]\0\s[1]%(happies)We had fun with aurorazan and topassistant,\w4 didn't we?\w8 \1\s[18]\i[22]\n\n[half]We did.\w8 \0\s[0]\1\s[18]\i[0]It was a lot of fun,\w4 seeing new cultures and puzzles from everywhere.\w8 \0\s[1]%(shock)\1\s[25]Even if it makes me sad,\w4 thinking on how it all ended.\w8 \0\s[1]%(sad)\n\n[half]\w8\w8\w8\1\s[18]\i[24]\0\s[5]%(sadsmile)The important parts are the memories we can cherish of them while we were together,\w4 Luke.\w8 \1\s[18]\i[13]\n\n[half]Yeah.\w8\w4 \s[18]\i[12]Yeah,\w4 be happy we got to have fun with them and not sad that it's over.\w8 \0\s[1]%(concernsmile)\1\s[16]\i[13]I got it,\w4 Professor.\w8 \0\s[3]%(sadsmile)\n\n[half]It's okay to be sad,\w4 of course.\w8 \1\s[16]\i[9]\0\s[5]%(closeeyes)It's also important,\w4 however,\w4 to remember the happier times.\w8 \1\s[21]\i[12]\n\n[half]We sure had a lot of happy times,\w4 at least.\w8 \0\s[1]%(concernsmile)\e"
+			}
+			elseif "The Picture Book" _in_ _filename || "The Toy Car" _in_ _filename || "The Parrot" _in_ _filename || "The Professor's Trunk" _in_ _filename || "The Toy Robot" _in_ _filename || "Clockwork Robot Battle" _in_ _filename || "The One Stop Shop" _in_ _filename || "The Rabbit Show" _in_ _filename || "The Rabbit On Stage" _in_ _filename || "Mysterious Flower" _in_ _filename || "Bloom Burst" _in_ _filename || "Dress Up" _in_ _filename || "Nutty Roller" _in_ _filename //Minigames!!
+			{
+				"\0\s[2]%(confusesmile)Hmm.\w8 \1\s[16]\i[0]\0\s[5]%(calmsmile)This reminds me of a robot navigation puzzle.\w8 \1\s[19]\i[14]Or a puppet theatre puzzle.\w8 \0\s[3]%(smiles)\n\n[half]Or piecing together a fashion design sort of puzzle.\w8 \1\s[18]\i[21]\n\n[half]Heehee,\w4 we've had a lot of different little puzzles like that,\w4 haven't we?\w8 \0\s[4]%(happies)\n\n[half]We have,\w4 indeed.\w8 \1\s[18]\i[0]\0\s[3]%(smiles)All of them have been fun little brain teasers while we've hit a snag in our investigations.\w8 \1\s[17]\i[21]\n\n[half]Yeah,\w4 a way to refresh our minds while we figure out what to do next!\w8\e"
+				
+				"\1\s[22]\i[14]Oh,\w4 this makes me want to help a fish navigate their tank.\w8 \0\s[2]%(confusesmile)Or read through a little sticker storybook.\w8 \1\s[19]\i[21]\n\n[half]Or try out new combinations to make tea!\w8 \0\s[3]%(happies)\n\n[half]Hahaha,\w4 it does sound very much like our time with all our little puzzles,\w4 doesn't it?\w8 \1\s[18]\i[0]\n\n[half]Those puzzles were always the best whenever we had some down time.\w8 \0\s[3]%(smiles)\1\s[19]\i[22]I especially liked making tracks for the toy train and courses for the toy car.\w8 \0\s[2]%(happies)\n\n[half]Yes,\w4 you enjoyed those little mechanical ones.\w8\e"
+			}
+			elseif "Case File Select" _in_ _filename || "Opening Case" _in_ _filename || "Investigating The Crime Scene" _in_ _filename || "Incertitude" _in_ _filename || "Truth Exposed" _in_ _filename || "Mystery Solved" _in_ _filename || "Criminal Mind" _in_ _filename || "Rising Tension" _in_ _filename || "Unexpected Appearance" _in_ _filename || "Unease" _in_ _filename || "Forbodium Castle" _in_ _filename || "Lucy's Deception" _in_ _filename || "Mystery Makers" _in_ _filename || "Fanfare" _in_ _filename //LBMR
+			{
+				"\0\s[2]%(confused)Hmm.\w8 \1\s[16]\i[1]\0\s[2]%(confusesmile)This sounds like what you'd hear inside the mystery room.\w8 \1\s[19]\i[27]That's the place where they solve really weird crimes,\w4 right,\w4 Professor?\w8 \0\s[4]%(happies)\n\n[half]It is indeed,\w4 Luke.\w8 \1\s[19]\i[22]\0\s[2]%(confusesmile)Perhaps we should ask to take their crime scene recreation device out for another spin some time.\w8 \1\s[18]\i[19]\n\n[half]Ooh,\w4 sounds like a right puzzle to me!\w8\e"
+				
+				"\1\s[18]\i[0]Oh,\w4 this sounds like the stuff they had playing in the Yard's mystery room.\w8 \0\s[2]%(confusesmile)It does,\w4 yes.\w8 \1\s[18]\i[22]\0\s[3]%(calmsmile)It fits the atmosphere of the types of crimes they have to investigate,\w4 in my opinion.\w8 \1\s[21]\i[21]\n\n[half]I agree,\w4 Professor!\w8 \0\s[3]%(confusesmile)\1\s[21]\i[14]Something about jazz and strange murder cases just go hand in hand.\w8\e"
+			}
+			elseif "Foggy Night in London Town" _in_ _filename || "Comical, Quizzical Quest" _in_ _filename || "At the Agency" _in_ _filename || "Chancer Lane" _in_ _filename || "Case Etude" _in_ _filename || "Clock Tower Chaconne" _in_ _filename || "Gressenheller" _in_ _filename || "A Clue!" _in_ _filename || "Riverside Festival" _in_ _filename || "The Meander of the Thames" _in_ _filename || "A Moment of Quiet" _in_ _filename || "Trouble!" _in_ _filename || "The Wight House Haunt" _in_ _filename || "Mystery Solved!" _in_ _filename || "Millionaire's Row" _in_ _filename || "Ideal Meal Music" _in_ _filename || "Flight of the Fugitive" _in_ _filename || "The Saveloy" _in_ _filename || "No Sub For Love" _in_ _filename || "Passers Buy" _in_ _filename || "A Threatening Air" _in_ _filename || "Bowline Hill Bagatelle" _in_ _filename || "Tension Mounts" _in_ _filename || "Ratman Rag" _in_ _filename || "The Seven Dragons" _in_ _filename || "The Great Escape" _in_ _filename || "Confessional" _in_ _filename || "City Workers' Waltz" _in_ _filename || "Theme from Thametanic" _in_ _filename || "Mysteries" _in_ _filename || "In Pursuit of Truth" _in_ _filename || "Tender Rhapsody" _in_ _filename || "Richmond Court" _in_ _filename || "Lord Adamas Largo" _in_ _filename || "Triste Tune" _in_ _filename || "The Truth Laid Bare" _in_ _filename || "DS Menu Jingle" _in_ _filename //LMJ
+			{
+				"\0\s[2]%(confused)Hmm.\w8 \1\s[18]\i[1]\0\s[2]%(annoyed)This sounds a bit like our London,\w4 but there's something about it that isn't quite the same.\w8 \1\s[19]\i[0]Sounds like misslayton's little games with her friends,\w4 if you ask me.\w8 \0\s[4]%(confusesmile)\n\n[half]Oh?\w8 Is that so?\w8 \1\s[17]\i[21]\n\n[half]Yeah.\w8 \s[17]\i[0]Their games run all around London,\w4 so I can see why they'd sound like it but with something a little different.\w8 \0\s[2]%(concernsmile)\n\n[half]I see.\w8 How fascinating.\w8\e"
+				
+				"\1\s[16]\i[21]Aww,\w4 that sounds like it'd fit one of the games misslayton and her friends play.\w8 \0\s[2]%(confusesmile)Does it,\w4 now?\w8 \1\s[16]\i[0]\0\s[2]%(happies)How charming.\w8 \1\s[19]\i[12]\n\n[half]She always gets so into it.\w8 \0\s[2]%(smiles)\1\s[19]\i[15]Whether it's being wrongly accused of murder or chasing down the secret identity of a local hero,\w4 \0\s[1]%(shock)\1\s[17]\i[21]she acts like it's as important as real life!\w8 \0\s[2]%(confusesmile)\n\n[half]Those are...\w8\w4 \1\s[17]\i[0]\0\s[3]%(concernsmile)quite interesting scenarios,\w4 for sure.\w8\e"
+			}
+			elseif "Professor Layton vs Phoenix Wright" _in_ _filename || "PL vs PW" _in_ _filename || "Labyrinthia" _in_ _filename || "Into the Forest" _in_ _filename || "The Shady workshop" _in_ _filename || "Tavern" _in_ _filename || "The Town at Night" _in_ _filename || "Espella's Theme" _in_ _filename || "Reunion" _in_ _filename || "LINK" _in_ _filename || "The Underground Ruins" _in_ _filename || "The Audience Room" _in_ _filename || "The Storyteller's Tower" _in_ _filename || "The Hidden Garden" _in_ _filename || "English Turnabout Mix" _in_ _filename || "Deathknell Dungeon" _in_ _filename || "Witches' Court Convenes" _in_ _filename || "Fiery Witnesses" _in_ _filename || "Zacharias Barnham" _in_ _filename || "Mass Inquisition" _in_ _filename || "Logic and Witchcraft" _in_ _filename || "Hit or Miss" _in_ _filename || "Objection! 2012" _in_ _filename || "Confess the Truth 2012" _in_ _filename || "The Winning Combination" _in_ _filename || "Courtroom Magic" _in_ _filename || "Fated Magic" _in_ _filename || "Courtroom Jester" _in_ _filename || "A Golden Message" _in_ _filename || "Newton Belduke" _in_ _filename || "The Trial of the Great Witch" _in_ _filename || "The Two-Step Turnabout" _in_ _filename || "The Creator and the Alchemist" _in_ _filename || "The Darkness Within" _in_ _filename || "The Legendary Fire" _in_ _filename || "Spell-breaker" _in_ _filename || "The Final Witness" _in_ _filename || "Turnabout Sisters Music Box Melody" _in_ _filename || "Witches' Theme" _in_ _filename || "RAINY NIGHT" _in_ _filename || "In-Flight" _in_ _filename || "OPENING" _in_ _filename || "Escape" _in_ _filename || "THE MAGIC BOOK" _in_ _filename || "That Case" _in_ _filename || "The Storyteller's Theme" _in_ _filename || "The Witches' Court" _in_ _filename || "A Mysterious Fire" _in_ _filename || "The Bell Tower's Arrival" _in_ _filename || "The Sorrowful Golden Statue" _in_ _filename || "Rescue and Retribution" _in_ _filename || "A Familiar Face" _in_ _filename || "Into the Ruins" _in_ _filename || "A Faint Voice" _in_ _filename || "Granwyrm" _in_ _filename || "Confrontation" _in_ _filename || "Festival" _in_ _filename || "Sealed Memories" _in_ _filename || "Taelende!!" _in_ _filename || "The Light of Truth" _in_ _filename || "PRELUDE" _in_ _filename || "DENOUEMENT" _in_ _filename //PL vs PW
+			{
+				"\0\s[1]%(shockopen)Oh.\w8 \1\s[18]\i[0]\0\s[3]%(happies)This sounds like it belongs to our time in Labyrinthia.\w8 \1\s[18]\i[21]It does!\w8 \0\s[3]%(smiles)\1\s[18]\i[27]Wow,\w4 I can't believe that happened so long ago now.\w8 \0\s[1]%(concernsmile)\n\n[half]It's easier to see all the little details we missed at first while looking back on it now.\w8 \1\s[16]\i[13]\n\n[half]I hope \_a[EspellaCantabella]Espella\_a's doing well.\w8 \0\s[1]%(surprisesmile)\1\s[16]\i[22]We should send her,\w4 mraceattorney,\w4 and borgerfey some letters soon.\w8 \0\s[4]%(happies)\n\n[half]Haha,\w4 I agree.\w8 \1\s[16]\i[21]\0\s[4]%(calmsmile)It would be lovely to hear from them all again.\w8\e"
+				
+				"\1\s[18]\i[16]Oh!\w8 \0\s[4]%(surprisesmile)\1\s[18]\i[19]This sounds like our time in Labyrinthia with mraceattorney and borgerfey,\w4 Professor!\w8 \0\s[3]%(happies)Haha,\w4 so it does!\w8 \1\s[18]\i[22]\0\s[2]%(confusesmile)That entire ordeal was quite the puzzle to figure out,\w4 wouldn't you say?\w8 \1\s[17]\i[14]\n\n[half]And we couldn't have gotten to the truth without our friends.\w8 \0\s[5]%(calmsmile)\n\n[half]Yes,\w4 they were integral to our ability in understanding what was going on.\w8 \1\s[17]\i[22]\0\s[4]%(smiles)And they were wonderful companions as well.\w8 \1\s[17]\i[21]\n\n[half]Yeah!!\w8\w4 \0\s[4]%(happies)\1\s[21]\i[0]Hey,\w4 we should send them a letter when we get back.\w8 \0\s[3]%(calmsmile)\n\n[half]Sounds like a plan,\w4 my boy.\w8\e"
+			}
+			elseif "Menu Screen" _in_ _filename || "Little London" _in_ _filename || "Bedroom Adventure" _in_ _filename || "Train Station" _in_ _filename || "City Hall" _in_ _filename || "Minigames" _in_ _filename || "Anton's Castle" _in_ _filename //London Life
+			{
+				"\0\s[5]%(smiles)Oh,\w4 this one makes me think of our London,\w4 \1\s[16]\i[27]\0\s[5]%(confusesmile)but a bit more compact.\w8 \1\s[16]\i[21]London,\w4 but bit crushed!\w8 \0\s[3]%(happies)\n\n[half]A smaller place to live where happiness is the currency.\w8 \1\s[18]\i[27]\n\n[half]Sounds awful when you put it like that,\w4 actually.\w8 \0\s[4]%(concernsmile)\n\n[half]That's why it's more of a game than an actual place,\w4 I take it.\w8\e"
+				
+				"\1\s[19]\i[21]This sounds like it'd be right at home in a miniature London.\w8 \0\s[2]%(confusesmile)That's a rather odd description,\w4 \1\s[19]\i[0]\0\s[3]%(concernsmile)but I believe you're spot-on there,\w4 Luke.\w8 \1\s[16]\i[22]\n\n[half]Didja spend a long time playing around with us there,\w4 %(user)?\w8 \0\s[1]%(confused)\1\s[16]\i[0]I hear it takes a lot to get that Professor as your flatmate.\w8 \0\s[2]%(confused)\n\n[half]\w8\w8\w8\1\s[16]\i[1]\0\s[4]%(concernsmile)I'm not sure what you're referencing there,\w4 my boy.\w8 \1\s[18]\i[12]\n\n[half]It's just silly game stuff.\w8 \0\s[4]%(confusesmile)\1\s[18]\i[27]Don't worry about it too much,\w4 Professor.\w8\e"
+			}
+			//elseif "" _in_ _filename || "" _in_ _filename
+			else //unrecognised music
+			{
+				"\1\s[18]\i[1]\0\s[2]%(confusesmile)Oh?\w8 %(_filename)...?\w8 \1\s[18]\i[27]Not sure we've heard of that one before,\w4 %(user).\w8 \0\s[1]%(concernsmile)\n\n[half]It sounds nice,\w4 \1\s[18]\i[9]\0\s[1]%(confusesmile)but I'm sorry to say I'm unfamiliar with its melody.\w8 \1\s[18]\i[12]\n\n[half]Sorry!\w8\e"
+				
+				"\0\s[2]%(confused)\1\s[22]\i[17]%(_filename),\w4 huh?\w8 \0\s[2]%(confusesmile)I don't believe I've heard that one before.\w8 \1\s[22]\i[1]\0\s[3]%(smiles)Have you,\w4 Luke?\w8 \1\s[18]\i[12]\n\n[half]Nope!\w8 \0\s[3]%(concernsmile)\1\s[18]\i[27]Sorry,\w4 %(user).\w8 \0\s[4]%(confusesmile)\n\n[half]Our apologies,\w4 but we can't comment on it more than that.\w8 \1\s[18]\i[9]\e"
+				
+				"\0\s[2]%(confused)Hmm...\w8\w8 \1\s[16]\i[1]\0\s[5]%(concernsmile)It has a nice tune,\w4 I think,\w8 \1\s[16]\i[27]\0\s[5]%(confusesmile)but I'm sorry to say that I can't place it.\w8 \1\s[18]\i[12]Yeah,\w4 sorry,\w4 %(user).\w8 \0\s[1]%(concernsmile)\1\s[18]\i[17]I don't recognise %(_filename),\w4 either.\w8 \0\s[0]\1\s[19]\i[22]It does sound nice,\w4 though!\w8\e"
+				
+				"\1\s[22]\i[27]Ooh.\w8 That's a neat one,\w4 %(user).\w8 \0\s[1]%(concernsmile)\1\s[18]\i[12]Don't recognise it at all,\w4 but it sounds nice.\w8 \0\s[4]%(confusesmile)Yes,\w4 our apologies,\w4 but I don't believe either of us have ever heard this %(_filename) before.\w8 \1\s[16]\i[0]\0\s[2]%(confusesmile)It's very interesting,\w4 though.\w8\e"
+			}
+		}
+		when ".3ds", ".nds", ".dvs", ".vs1", ".dat", ".lt5dx", "lt6" //roms and save files
+		{
+			if teatime == 1 //on
+			{
+				teatime = 0 //turns it off
+			}
+			--
+			if "Curious Village" _in_ _filename
+			{
+				"\0\s[2]%(shock)Is this...?\w8 \1\s[15]\i[16]Woah!\w8\w4 \0\s[2]%(happies)\1\s[15]\i[19]That's a log of all our adventures in St Mystere!\w8 \0\s[5]%(smiles)\n\n[half]And in such a nicely compressed format,\w4 too.\w8 \1\s[18]\i[0]\n\n[half]%(user),\w4 that's amazing!\w8 \0\s[5]%(happies)\1\s[22]\i[27]I only ever wrote to my pen pal about it,\w4 and even then I never went into this much detail.\w8 \0\s[4]%(smiles)\n\n[half]Thank you for the reminder of a fascinating memory.\w8 \1\s[16]\i[21]\n\n[half]Yeah,\w4 thanks!\w8\e"
+				
+				"\1\s[15]\i[16]%(user),\w4 is that...?\w8 \0\s[4]%(surprisesmile)Oh,\w4 it appears to be a record of our time in St Mystere.\w8 \1\s[18]\i[21]\n\n[half]Wow!\w8 \s[18]\i[19]So many memories of when we first met thegoldenapple and had our run-in with paulpaolo.\w8 \0\s[3]%(happies)\n\n[half]Thank you for the reminder,\w4 %(user).\w8 \1\s[21]\i[21]\n\n[half]Thanks a bunch!\w8\e"
+			}
+			elseif "Pandora's Box" _in_ _filename || "Diabolical Box" _in_ _filename
+			{
+				"\0\s[4]%(surprisesmile)Oh,\w4 this is a recounting of our travels on the Molentary Express!\w8 \1\s[18]\i[0]Wow,\w4 all that in one little file.\w8 \0\s[4]%(happies)\1\s[18]\i[21]That's amazing!\w8 \0\s[2]%(confusesmile)\n\n[half]Quite the strange case,\w4 too,\w4 if I can recall correctly.\w8 \1\s[18]\i[0]\0\s[3]%(happies)I'm glad things turned out well in the end.\w8 \1\s[16]\i[22]\n\n[half]Me,\w4 too.\w8 \0\s[3]%(smiles)\1\s[16]\i[14]It was cool to see your fencing skills again.\w8 \0\s[4]%(calmsmile)\n\n[half]Thank you,\w4 my boy.\w8\e"
+				
+				"\1\s[18]\i[0]Oh wow,\w4 \0\s[1]%(surprisesmile)\1\s[18]\i[21]this is a detailed account of our time looking into the mystery of the Elysian Box!\w8 \0\s[4]%(concernsmile)Good heavens,\w4 from our time on the Molentary Express to Folsense Castle.\w8 \1\s[18]\i[0]\0\s[2]%(confusesmile)Even our stop in Dropstone is here.\w8 \1\s[16]\i[13]\n\n[half]Poor thegoldenapple.\w8 \0\s[2]%(shock)\1\s[16]\i[9]I'm glad she was okay when we went back to get her.\w8 \0\s[4]%(concernsmile)\n\n[half]I am,\w4 too.\w8\e"
+			}
+			elseif "Unwound Future" _in_ _filename || "Lost Future" _in_ _filename
+			{
+				"\0\s[4]%(neutral)Ah,\w4 this is an account of our investigation into that future London.\w8 \1\s[16]\i[17]Huh.\w8 It felt so much longer than a single day.\w8 \0\s[1]%(confused)\n\n[half]It did,\w4 but here's the whole of it laid out,\w4 plain to see.\w8 \1\s[25]\n\n[half]Hm.\w8\e"
+				
+				"\1\s[16]\i[1]Oh,\w4 this is the whole of our travels through future London.\w8 \0\s[4]%(neutral)So it is.\w8 \1\s[16]\i[23]\0\s[4]%(confused)Funny,\w4 it felt much longer than a single day.\w8 \1\s[16]\i[24]\n\n[half]It sure did.\w8 \s[25]But here it all is,\w4 plain to see.\w8 \0\s[7]\i[0]\n\n[half]Hm.\w8\e"
+			}
+			elseif "Spectre's Call" _in_ _filename || "Last Specter" _in_ _filename
+			{
+				"\0\s[1]%(surprisesmile)Oh,\w4 this is a record of our time in Misthallery.\w8 \1\s[18]\i[27]It is.\w8\w4 \0\s[1]%(concernsmile)\1\s[18]\i[9]Boy,\w4 that was both a really great time and one of the worst in my life.\w8 \0\s[3]%(confusesmile)\n\n[half]I'm thankful we were able to solve that mystery in the end.\w8 \1\s[16]\i[27]\n\n[half]Me,\w4 too.\w8 \0\s[3]%(confusesmile)\1\s[16]\i[10]I dunno what I would have done if \_a[BrendaTriton]mum\_a and \_a[ClarkTriton]dad\_a weren't okay.\w8\e"
+				
+				"\1\s[15]\i[1]Oh.\w8 \0\s[1]%(concernsmile)\1\s[15]\i[27]This is an account of the spectre of Misthallery.\w8 \0\s[0]It is,\w4 indeed.\w8 \1\s[15]\i[1]\0\s[3]%(calmsmile)Meeting you and topassistant was definitely something I'll never forget.\w8 \1\s[16]\i[12]\n\n[half]Me neither.\w8 \0\s[3]%(confusesmile)\1\s[16]\i[13]There was a lot of upsetting stuff that happened along the way,\w4 \s[16]\i[9]but things ended on a better note for the most part.\w8 \0\s[4]%(concernsmile)\n\n[half]For the most part is for sure.\w8\e"
+			}
+			elseif "Miracle Mask" _in_ _filename
+			{
+				"\0\s[4]%(surprisesmile)Ah.\w8 \1\s[16]\i[27]\0\s[4]%(happies)This appears to be an account of our time in Monte d'Or.\w8 \1\s[19]\i[9]That was the mystery of the Masked Gentleman and all his staged miracles.\w8 \0\s[4]%(smiles)\1\s[19]\i[27]Right,\w4 Professor?\w8 \0\n\n[half]Indeed.\w8 \1\s[16]\i[9]\0\s[3]%(concernsmile)I do hope maskedgent,\w4 \_a[HenryLedore]Henry\_a,\w4 and \_a[AngelaLedore]Angela\_a are doing well over there.\w8 \1\s[18]\i[27]\n\n[half]I hope so,\w4 too.\w8\e"
+				
+				"\1\s[18]\i[0]Oh wow,\w4 this has got our trip to Monte d'Or!\w8 \0\s[1]%(confusesmile)\1\s[18]\i[21]It even has your story about when you lived in Stansbury,\w4 Professor!\w8 \0\s[2]%(confusesmile)And when maskedgent and I went off to investigate the Akbadain Ruins,\w4 how intriguing.\w8 \1\s[16]\i[0]\n\n[half]That was an interesting case.\w8 \0\s[2]%(neutral)\1\s[16]\i[21]I got hung at least nine stories high!\w8 \0\s[4]%(concernsmile)\n\n[half]That was certainly my least favourite part of the whole thing.\w8 \1\s[16]\i[27]\0\s[4]%(sadsmile)I'm glad you weren't hurt.\w8 \1\s[16]\i[9]\n\n[half]Yeah.\w8 \0\s[4]%(concernsmile)\1I'm glad you were able to get your friend back for the most part.\w8\e"
+			}
+			elseif "Azran Legacy" _in_ _filename
+			{
+				"\0\s[2]%(confusesmile)Ah,\w4 this looks to be a recounting of our time travelling the world in the Bostonius.\w8 \1\s[21]\i[19]Wow!\w8 \0\s[2]%(happies)\1\s[21]\i[21]It's got all the places we visited and even our time with aurorazan and topassistant!\w8 \0\s[3]%(smiles)\n\n[half]That was an interesting puzzle,\w4 for sure.\w8 \1\s[21]\i[0]\0\s[5]%(calmsmile)A nice way to put all of our research on the Azran people to rest.\w8 \1\s[18]\i[13]\n\n[half]Yeah.\w8 \0\s[1]%(concernsmile)\1A good way to end things.\w8\e"
+				
+				"\1\s[18]\i[19]Oh hey,\w4 this one's got all our adventures around the world in it!\w8 \0\s[2]%(confusesmile)While we were gathering the keys to the Azran Sanctuary,\w4 yes.\w8 \1\s[18]\i[0]\0How fascinating.\w8 \1\s[19]\i[9]\n\n[half]It's even got what happened once we found all the keys.\w8 \0\s[1]%(concernsmile)\1\s[16]\i[13]Not my most favourite memory,\w4 but can't deny that it happened.\w8 \0\s[3]%(sadsmile)\n\n[half]It was a bittersweet note to end that mystery on,\w4 for sure.\w8\e"
+			}
+			elseif "vs. Phoenix Wright" _in_ _filename
+			{
+				"\0\s[3]%(calmsmile)Ah,\w4 this is a detailed account of our time in Labyrinthia.\w8 \1\s[21]\i[19]With mraceattorney and borgerfey and \_a[EspellaCantabella]Espella\_a!\w8 \0\s[3]%(smiles)\1\s[21]\i[22]Professor,\w4 we should visit them sometime.\w8 \0\s[4]%(happies)\n\n[half]I agree.\w8 \1\s[21]\i[0]\0\s[4]%(smiles)It would be nice to pop in and see how they're all doing.\w8 \1\s[18]\i[14]\n\n[half]Seeing Mr Wright in a real trial is always a good time.\w8 \0\s[4]%(concernsmile)\1\s[18]\i[22]I'm sure Miss Maya and Espella would agree with me!\w8 \0\s[3]%(confusesmile)\n\n[half]I'm sure they would,\w4 yes.\w8\e"
+				
+				"\1\s[18]\i[1]Oh!\w8 \0\s[1]%(surprisesmile)\1\s[18]\i[19]This is an account of our whole investigation into the mystery of Labyrinthia!\w8 \0\s[2]%(confusesmile)So it is.\w8 \1\s[18]\i[22]\0\s[2]%(happies)That was quite the fascinating puzzle.\w8 \1\s[17]\i[0]\n\n[half]I'll bet you were pleased as punch to have more ruins to study.\w8 \0\s[5]%(calmsmile)\n\n[half]Hard as it is to believe,\w4 my boy,\w8 \1\s[17]\i[1]\0\s[5]%(confident)I am an archaeologist.\w8 \1\s[17]\i[3]\n\n[half]Kinda hard to forget that's what you are,\w4 Professor!\w8\e"
+			}
+			elseif "Ace Attorney" _in_ _filename || "Gyakuten Saiban" _in_ _filename || "逆転裁判" _in_ _filename || "AA" _in_ _filename || "GS" _in_ _filename
+			{
+				"\0\s[2]%(confused)Is this...\w8\w8 \1\s[18]\i[1]\0\s[2]%(confusesmile)one of mraceattorney's adventures?\w8 \1\s[18]\i[19]Looks like it!\w8 \0\s[2]%(concernsmile)\1\s[18]\i[21]He sure gets himself into a lot of strange situations,\w4 doesn't he?\w8 \0\s[5]%(confusesmile)\n\n[half]He and borgerfey both,\w4 I've heard.\w8\e"
+				
+				"\1\s[21]\i[19]Ooh,\w4 this looks like one of mraceattorney's cases.\w8 \0\s[4]%(concernsmile)Goodness,\w4 I don't envy him on how convoluted these all get.\w8 \1\s[21]\i[0]\0\s[5]%(smiles)Though,\w4 I must applaud him for finding his way to the truth every time.\w8 \1\s[18]\i[21]\n\n[half]Yeah!\w8 \0\s[5]%(happies)\1\s[18]\i[15]No matter how much he stumbles,\w4 he always gets back up.\w8 \0\s[4]%(concernsmile)\n\n[half]An admirable trait,\w4 for sure.\w8\e"
+			}
+			else //unrecognised game roms
+			{
+				"\0\s[2]%(confused)%(_filename)...?\w8 \1\s[16]\i[0]Never heard of that one,\w4 %(user).\w8 \s[16]\i[12]Sorry!\w8 \0\s[2]%(closeeyes)\n\n[half]How fascinating...\w8\e"
+				
+				"\1\s[18]\i[17]%(_filename)...?\w8 \0\s[3]%(confusesmile)I'm afraid neither of us are very familiar with this one,\w4 %(user).\w8 \1\s[22]\i[7]\n\n[half]I wonder what's this all about...?\w8\e"
+			}
+		}
+		others
+		{
+			if teatime == 1 //on
+			{
+				teatime = 0 //turns it off
+			}
+			--
+			if _fileext == "" //If it's a folder. Using \_? lets you display the slashes and such in dialogue, but you have to toggle it off after you no longer need it
+			{
+				"\1\s[18]\i[1]\0\s[2]%(confusesmile)Oh,\w4 what's this?\w8 \1\s[18]\i[17]A file?\w8 \0\s[2]%(confused)\1\s[18]\i[7]It looks like it's labeled \_?%(_filepath[1])\_?...\w8 \0\s[4]%(confusesmile)\n\n[half]Let's see...\w8\w4 \1\s[18]\i[1]\0\s[3]%(calmsmile)Quite some interesting contents you have here.\w8 \1\s[18]\i[27]\0\s[3]%(confusesmile)Unfortunately,\w4 we're in the middle of investigating our own mystery currently,\w4 so we can't accept this workload.\w8 \1\s[16]\i[12]\n\n[half]Yeah,\w4 even if it looks real neat!\w8 \s[16]\i[0]Good luck with it,\w4 %(user)!\w8 \0\s[4]%(happies)\n\n[half]Yes,\w4 good luck.\w8\e"
+				
+				"\0\s[4]%(neutral)\1\s[15]\i[16]A whole file?\w8 \0\s[2]%(confused)It looks to be labeled as \_?%(_filepath[1])\_?...\w8 \1\s[16]\i[17]\n\n[half]Is it some case you're investigating?\w8 \0\s[1]%(concernsmile)\1\s[18]\i[9]Would be nice to help out,\w4 but we're all ready working on a mystery here.\w8 \0\s[4]%(smiles)\n\n[half]Best of luck to you with this,\w4 %(user).\w8\e"
+			}
+			else //other files; %(_filename)%(_fileext)
+			{
+				"\0\s[1]%(shock)\1\s[18]\i[16]Oh!\w8\w4 \0\s[1]%(confusesmile)\1\s[18]\i[27]What an interesting thing to show us.\w8 \0\s[3]%(happies)Hahaha,\w4 practicing your impression of mraceattorney?\w8 \1\s[18]\i[0]\0\s[2]%(confusesmile)Or,\w4 perhaps,\w4 you're an attorney yourself?\w8 \1\s[16]\i[3]\n\n[half]That's silly,\w4 Professor.\w8\e"
+				
+				"\1\s[16]\i[1]\0\s[1]%(shockopen)Oh,\w8\w4 \1\s[16]\i[27]\0\s[1]%(confusesmile)what an interesting presentation technique.\w8 \1\s[18]\i[21]Heehee,\w4 just like mraceattorney,\w4 eh,\w4 Professor?\w8 \0\s[2]%(happies)\n\n[half]I suppose so.\w8\e"
+				
+				"\1\s[17]\i[0]Want us to take this?\w8 \0\s[2]%(confusesmile)Or maybe to hold it?\w8 \1\s[18]\i[12]\n\n[half]Aw,\w4 we made the same joke,\w4 Professor!\w8 \0\s[3]%(happies)\n\n[half]Hahaha,\w4 great minds think alike,\w4 my boy.\w8\e"
+				
+				"\0\s[2]%(confusesmile)Need us to hold this?\w8 \1\s[17]\i[15]Or maybe to take that!\w8 \0\s[3]%(happies)\n\n[half]Hahaha,\w4 it seems we were thinking the same thing,\w4 Luke.\w8 \1\s[18]\i[21]\n\n[half]Great minds think alike,\w4 Professor!\w8\e"
+			}
+		}
+	}
+}
+
+
+//--OnShellScaling
+//reference1 and reference3 are the scale before the change, then reference0 and reference2 are the scale after the change (0 and 1 are horizontal checks, 2 and 3 are vertical checks)
+OnShellScaling
+{
+	if teatime == 1 //on
+	{
+		teatime = 0 //turns it off
+		Laytonaffect -= 2
+		Lukeaffect -= 3
+		
+		"\0\b[0]\s[4]%(shockopen)\1\b[0]\s[23]\i[29]Woah!!\w8\w8 \n\0\s[4]%(neutral)\1\s[23]\i[1]\_s...\_s\w8\w8\w8\0\s[1]%(concernsmile)\1\s[18]\i[12]Whoops!\w8 \0\s[1]%(sadsmile)Perhaps that was an ill-suited idea for the moment.\w8 \1\s[25]\n\n[half]Aww...\w8 \0\s[1]%(sad)\1We dropped our cups of %(servedtea)...\w8 \0\s[4]%(concernsmile)\n\n[half]It's all right,\w4 Luke.\w8 \1\s[18]\i[24]\0\s[5]%(confusesmile)There's no use crying over spilt tea.\w8 \1\s[18]\i[13]\n\n[half]I know,\w4 Professor.\w8 \0\s[1]%(sad)\1\s[25]It's just so sad...\w8\e"
+		
+		"\1\b[0]\s[23]\i[29]\0\b[0]\s[4]%(shockopen)Ah!\w8\w8 \n\1\s[23]\i[1]\0\s[4]%(neutral)\_s...\_s\w8\w8\w8\1\s[25]\0\s[7]\i[0]Oh dear.\w8\w4 \1\s[18]\i[2]\n\n[half]%(user)!\w8 You made us drop our tea!\w8 \0\s[3]%(concernsmile)\n\n[half]I suppose that's the end of that.\w8 \1\s[16]\i[24]\n\n[half]Aww...\w8\e"
+	}
+	else //no tea
+	{
+		"\0\b[0]\1\b[0]"
+		--
+		"\0\s[4]"
+		"\0\s[1]"
+		--
+		"%(shockopen)"
+		"%(shock)"
+		--
+		"\1\s[18]"
+		"\1\s[15]"
+		"\1\s[23]"
+		--
+		"\i[16]"
+		"\i[29]"
+		"\i[1]"
+		--
+		if reference0 > reference1 || reference2 > reference3 //bigger
+		{
+			"\1\s[18]\i[27]Oh,\w4 did'ja need us to adjust where we're standing?\w8 \0\s[4]%(happies)We'll step closer to you,\w4 then.\w8\e"
+			
+			"\0\s[4]%(confusesmile)Oh,\w4 were we too far away from you,\w4 %(user)?\w8 \1\s[18]\i[21]Guess we'll stand a bit closer to you,\w4 then!\w8\e"
+		}
+		elseif reference0 < reference1 || reference2 < reference3 //smaller
+		{
+			"\1\s[16]\i[27]Oh,\w4 did'ja need us to adjust where we're standing?\w8 \0\s[4]%(concernsmile)We'll move a bit further away,\w4 then.\w8\e"
+			
+			"\0\s[1]%(confusesmile)Oh,\w4 were we too close to you,\w4 %(user)?\w8 \1\s[19]\i[22]Guess we'll stand a bit further away from you,\w4 then!\w8\e"
+		}
+		else //these actually don't get called, but I want them here just in case =7= ;;
+		{
+			"\1\s[18]\i[27]Looks like we've been readjusted,\w4 Professor.\w8 \0\s[1]%(confusesmile)So it does.\w8\e"
+			
+			"\0\s[2]%(confusesmile)I suppose you wish for us to stand right here,\w4 %(user)?\w8 \1\s[17]\i[21]Works fine for me!\w8\e"
+		}
+	}
+	
+}
+
+
+//---- OnInstallBegin -------------------------------------------------------
+OnInstallBegin
+{
+	"\0\b[0]\1\b[0]"
+	--
+	"\1\s[16]\i[1]\0\s[2]%(confusesmile)What's this,\w4 then?\w8 \1\s[22]\i[14]A puzzle?\w8\e"
+	
+	"\0\s[1]%(shock)\1\s[18]\i[1]Huh?\w8 What's this?\w8 \0\s[2]%(confident)Looks to be a puzzle,\w4 my boy.\w8\e"
+}
+
+//---- OnInstallComplete -------------------------------------------------------
+//Reference1 here is the name of what's being installed
+OnInstallComplete
+{
+	"\0\b[0]\1\b[0]"
+	--
+	if reference0 == "ghost"
+	{
+		if reference1 == "Defence" //AJ Trial Sims
+		{
+			"\1\s[18]\i[16]Oh!\w8\w4 \0\s[4]%(confusesmile)\1\s[18]\i[19]That's Apollo!\w8 \0\s[4]%(neutral)Your pen pal?\w8 \1\s[21]\i[21]\n\n[half]Yeah!\w8\w4 \0\s[4]%(happies)\1\s[22]\i[17]Though,\w4 I don't think he's the same one I know.\w8 \0\s[4]%(confusesmile)\n\n[half]Well.\w8\w4 \1\s[22]\i[1]\0\s[3]%(happies)Perhaps we should call him over so the two of you can speak to one another anyway.\w8 \1\s[17]\i[21]\n\n[half]I'm sure he's real chuffed about becoming an attorney!\w8"
+		}
+		elseif reference1 == "RGB Puzzlers"
+		{
+			"\1\s[15]\i[16]\0\s[2]%(confused)Is that...?\w8 \1\s[23]\i[29]Me??\w8 \0\s[2]%(confusesmile)\n\n[half]How very strange.\w8 \1\s[23]\i[1]\0\s[5]%(happies)It looks like a more accurate future version of you,\w4 my boy.\w8 \1\s[22]\i[9]\n\n[half]That is really weird!\w8 \0\s[5]%(confusesmile)\1\s[19]\i[14]Maybe we should call him over and see what all's in store for us in the future!\w8 \0\s[4]%(concernsmile)\n\n[half]I don't believe it works like that,\w4 Luke.\w8"
+		}
+		elseif reference1 == "Moomintroll" //Moomin and Snufkin
+		{
+			"\0\s[1]%(shockopen)\1\s[18]\i[16]Oh!\w8\w4 \0\s[1]%(confusesmile)\1\s[18]\i[9]I don't think I know either of these two.\w8 \s[22]\i[17]They seem really familiar,\w4 though.\w8 \0\s[5]%(smiles)Perhaps we should call them over in order to acquaint ourselves?\w8 \1\s[21]\i[22]\n\n[half]I'm sure curious to meet them!\w8"
+		}
+		elseif reference1 == "Moomins" //Moominhousehold
+		{
+			"\0\s[1]%(surprisesmile)\1\s[16]\i[16]Oh!\w8 \0\s[2]%(confusesmile)The whole of Moominhouse,\w4 is it?\w8 \1\s[16]\i[17]\0\s[3]%(happies)I suppose this is a pleasant enough neighbourhood for them to move into.\w8 \1\s[19]\i[22]\n\n[half]Maybe we should pop in and greet them!\w8 \0\s[4]%(calmsmile)\n\n[half]It would be the most gentlemanly thing to do.\w8"
+		}
+		elseif reference1 == "Layton"
+		{
+			"\0\s[2]%(shock)Is that...?\w8 \1\s[15]\i[16]Us??\w8 \0\s[2]%(annoyed)\n\n[half]How strange...\w8 \1\s[18]\i[15]\n\n[half]We should call them over just to see how convincing they are as us,\w4 Professor!\w8 \0\s[4]%(concernsmile)\n\n[half]I don't think we'll like what we find out,\w4 my boy...\w8"
+		}
+		else //ALL OTHER GHOSTS; %(reference1)
+		{
+			"\1\s[16]\i[17]%(reference1)...?\w8 \0\s[1]%(confusesmile)\1\s[16]\i[0]Sounds like a real interesting one!\w8 \0\s[3]%(smiles)Would you like for us to call up this new friend of yours?\w8"
+			
+			"\0\s[2]%(confused)%(reference1)?\w8 \1\s[22]\i[17]\0I don't believe we're acquainted with them.\w8 \1\s[19]\i[22]Maybe we should call them over for %(user) and meet them!\w8"
+		}
+		--
+		"\*\n\n\![*]\q[Call %(reference1),CallGhost]\n\![*]\q[Change to %(reference1),ChangeToGhost]\n\n\![*]\q[No action necessary,cancelnodialogue]\e"
+	}
+	elseif reference0 == "shell" //uses the name of your shell as defined in descript.txt in the shell folder.
+	{
+		//if reference1 == ""
+		//elseif reference1 == ""
+		//else //For any other shell they may install.
+		
+		"\1\s[22]\i[17]%(reference1)...\w8 huh!\w8 \0\s[4]%(confusesmile)Are you adding to our wardrobe?\w8\e"
+		
+		"\0\s[2]%(confused)%(reference1)...?\w8 \1\s[17]\i[21]Looks like we've got a new outfit,\w4 Professor!\w8\e"
+	}
+	//elseif reference0 == "balloon"
+	//elseif reference0 == "plugin"
+	elseif reference0 == "calendar skin"
+	{
+		"\0\s[4]%(surprisesmile)Ah,\w4 a new calendar.\w8 \1\s[22]\i[27]%(reference1),\w4 huh?\w8 \0\s[4]%(happies)\1\s[22]\i[22]Looks pretty neat!\w8\e"
+		
+		"\1\s[18]\i[19]Ooh,\w4 a new calendar!\w8 \0\s[2]%(confusesmile)%(reference1)...\w8 \1\s[18]\i[22]\0\s[1]%(happies)\nIt looks quite fascinating.\w8\e"
+	}
+	elseif reference0 == "headline" || reference0 == "rss"
+	{
+		"\0\s[5]%(calmsmile)Ah,\w4 it looks as if we'll be getting the news from %(reference1) from now on.\w8 \1\s[18]\i[21]Gotta keep up to date on things,\w4 %(user)!\w8\e"
+		
+		"\1\s[21]\i[19]Ooh,\w4 Professor!\w8 \0\s[4]%(confusesmile)\1\s[21]\i[3]Looks like %(user)'ll keep us updated on all the %(reference1) news from now on!\w8 \0\s[3]%(happies)I look forward to hearing the headlines.\w8\e"
+	}
+	else
+	{
+		"\0\s[2]%(confusesmile)%(reference1),\w4 huh?\w8 \1\s[22]\i[14]What an interesting puzzle!\w8 \0\s[2]%(happies)\1\s[18]\i[21]Of course,\w4 it was no match for us,\w4 Professor!\w8 \0\s[3]%(smiles)\n\n[half]Yes,\w4 that was quite the fun challenge.\w8 \1\s[18]\i[0]\0\s[4]\i[17]Thank you,\w4 %(user).\w8 \1\s[18]\i[21]\n\n[half]Thanks!\w8 \0\s[4]%(happies)\e"
+		
+		"\1\s[22]\i[14]Not sure we've ever encountered a puzzle with a name like %(reference1) before.\w8 \0\s[1]%(confusesmile)No,\w8 \1\s[22]\i[0]\0\s[5]\i[18]but that never stopped us from solving it.\w8 \1\s[18]\i[21]\n\n[half]Right you are,\w4 Professor!\w8 \0\s[5]%(happies)\e"
+	}
+}
+
+//Calling the ghost that was just installed.
+Select.CallGhost
+{
+	"\![call,ghost,lastinstalled]\e"
+}
+
+//Opening the ghost that was just installed.
+Select.ChangeToGhost
+{
+	"\![change,ghost,lastinstalled,--option=raise-event]\e"
+}
+
+
+//---- OnInstallFailure -------------------------------------------------------
+OnInstallFailure
+{
+	"\0\b[0]\1\b[0]"
+	--
+	if reference0 == "artificial" //If the user cancels by double clicking the balloon
+	{
+		"\1\s[23]\i[29]\0\s[4]%(shockopen)Ah.\w8\w8 \0\s[4]%(concernsmile)\1\s[18]\i[9]I suppose it's not time for that puzzle,\w4 Professor.\w8 \0\s[3]%(concernsmile)\n\n[half]I suppose not.\w8 \1\s[18]\i[13]\0\s[3]%(smiles)Let us know if you have another puzzle we can solve,\w4 %(user).\w8\e"
+		
+		"\0\s[4]%(shockopen)\1\s[23]\i[29]Woah!\w8 \0Ah.\w8\w8 \1\s[18]\i[9]\0\s[5]%(concernsmile)I'm guessing that wasn't the puzzle you meant to hand us,\w4 %(user).\w8 \1\s[16]\i[27]\n\n[half]Perhaps we can solve a different one for you sometime!\w8\e"
+	}
+	else
+	{
+		if reference0 == "unsupported" //This checks if the file was unsupported.
+		{
+			"\0\s[4]%(confused)Oh,\w4 dear.\w8 \1\s[18]\i[9]That doesn't seem to be something we can understand,\w4 %(user).\w8 \0\s[3]%(concernsmile)\n\n[half]Our apologies,\w4 but you might need to find someone else to help you with that.\w8 \1\s[18]\i[12]\n\n[half]Sorry!\w8\e"
+			
+			"\1\s[16]\i[1]Oh.\w8\w4 \0\s[1]%(confused)\1\s[16]\i[17]Hm.\w8\w4 \0\s[3]%(concernsmile)Sorry,\w4 %(user),\w4 but I'm not sure we can work out that puzzle.\w8 \1\s[18]\i[12]\n\n[half]Sorry!\w8 \0\s[3]%(confusesmile)\1\s[18]\i[13]You might have to go to someone else to help you with that.\w8\e"
+		}
+		elseif reference0 == "extraction" //This checks if the file didn't extract properly.
+		{
+			"\0\s[1]%(shockopen)Oh.\w8\w4 \1\s[22]\i[17]\0\s[1]%(annoyed)How odd.\w8\w4 \1\s[22]\i[4]It won't let us even see the puzzle!\w8 \0\s[4]%(confusesmile)\n\n[half]Our apologies,\w4 %(user),\w4 but it seems we can't help you with this one.\w8 \1\s[16]\i[27]\n\n[half]Sorry!\w8\e"
+			
+			"\1\s[16]\i[16]Huh??\w8 \0\s[1]%(confused)How very odd.\w8 \1\s[16]\i[7]\n\n[half]It won't even let us see the rules to solving this one!\w8 \0\s[3]%(concernsmile)\n\n[half]Sorry,\w4 %(user).\w8 \1\s[16]\i[17]\0\s[3]%(confusesmile)I'm afraid we aren't going to be able to help you with this one.\w8 \1\s[15]\i[7]\n\n[half]Aww.\w8 How frustrating!\w8\e"
+		}
+		elseif reference0 == "invalid type" //install.txt isn't set up properly
+		{
+			"\0\s[2]%(confused)Oh.\w8 \1\s[22]\i[17]\0How very odd.\w8 \1\s[19]\i[6]The rules on this one aren't set up properly!\w8 \0\s[1]%(confusesmile)\1\s[19]\i[27]This puzzle makes no sense!\w8 \0\s[5]%(calmsmile)\n\n[half]Make sure to refine those rules.\w8 \1\s[19]\i[9]\0\s[5]%(sadsmile)It's a shame to see an unsolvable puzzle.\w8 \1\s[18]\i[13]\n\n[half]It really is.\w8\e"
+			
+			"\1\s[18]\i[17]Uh.\w8 \0\s[2]%(confused)\1\s[18]\i[9]I don't think this puzzle makes any sense...\w8 \0\s[5]%(concernsmile)It appears as if the rules need some refinement.\w8 \1\s[18]\i[27]\0\s[5]%(smiles)Make sure you check that everything's in place next time,\w4 %(user).\w8 \1\s[16]\i[12]\n\n[half]Yeah!\w8 That way,\w4 we can solve it for you next time!\w8 \0\s[1]%(concernsmile)\e"
+		}
+		else
+		{
+			"\0\s[2]%(confused)Hm.\w8 \1\s[22]\i[17]Huh.\w8 \0\s[4]%(concernsmile)\n\n[half]Not quite sure what's wrong with this one.\w8 \1\s[19]\i[7]\n\n[half]'%(reference0)'?\w8 \0\s[4]%(confusesmile)\1\s[19]\i[17]That's what it says.\w8 \0\s[2]%(annoyed)\n\n[half]How very odd...\w8\e"
+			
+			"\1\s[22]\i[17]Huh.\w8 \0\s[2]%(confused)How strange.\w8 \1\s[22]\i[7]\0\s[5]%(annoyed)All this one says is '%(reference0)'...\w8 \1\s[18]\i[27]\n\n[half]I don't think we've ever run into something like that before,\w4 Professor,\w4 have we?\w8 \0\s[2]%(calmsmile)\n\n[half]It's almost a puzzle in itself,\w4 isn't it?\w8 \1\s[16]\i[25]\n\n[half]Professor.\w8\e"
+		}
+	}
+}
+
+//--OnInstallRefuse
+//reference0 is the Sakura name of the ghost the item was meant for, reference1 (since SSP 2.4.85) is the type of item you tried to install
+OnInstallRefuse
+{
+	"\1\b[0]\s[18]\i[16]\0\b[0]\s[4]%(shockopen)Oh!\w8\w8 \1\s[18]\i[27]\0\s[4]%(confused)Oh dear.\w8 \1\s[19]\i[0]This one has %(reference0) written on it!\w8 \0\s[3]%(concernsmile)\n\n[half]Our apologies,\w4 %(user).\w8 \1\s[18]\i[9]\0\s[3]%(confusesmile)It does seem like a very nice %(reference1),\w4 but it doesn't seem to be for us.\w8 \1\s[18]\i[12]\n\n[half]Sorry!\w8\e"
+	
+	"\0\b[0]\s[1]%(shockopen)\1\b[0]\s[18]\i[16]Woah!\w8\w8 \0\s[2]%(confused)A %(reference1),\w4 eh...?\w8 \1\s[19]\i[0]\n\n[half]It has '%(reference0)' written on it,\w4 Professor.\w8 \0\s[4]%(calmsmile)\n\n[half]Ah,\w4 that would explain it.\w8 \1\s[16]\i[9]\0\s[4]%(confusesmile)Terribly sorry,\w4 %(user),\w4 but it appears you've given us something that belongs to %(reference0) by accident.\w8 \1\s[16]\i[27]\n\n[half]Hope it's not too important,\w4 else they'll be missing it...\w8\e"
+}
+
+
+//**** Network Update *****************************************************************
+
+//---- OnUpdateBegin -------------------------------------------------------------
+OnUpdateBegin
+{
+	"\0\b[0]\1\b[0]"
+	--
+	{
+		"\0\s[2]%(confident)"
+		"\0\s[3]%(calmsmile)"
+		"\0\s[5]%(happies)"
+		--
+		"Ah,\w4 it looks like we have a puzzle on our hands.\w8"
+		--
+		"\1\s[18]"
+		"\1\s[21]"
+		"\1\s[17]"
+		--
+		"\i[19]Ooh,\w4 it looks like a "
+		--
+		"fantastic"
+		"real neat"
+		"great"
+		"rather interesting"
+		--
+		" one!\w8\e"
+	}
+	
+	{
+		"\1\s[18]"
+		"\1\s[20]"
+		"\1\s[21]"
+		--
+		"\i[15]"
+		"\i[19]"
+		"\i[21]"
+		--
+		"Professor,\w4 a puzzle!\w8"
+		--
+		"\0\s[2]%(confusesmile)"
+		"\0\s[1]%(happies)"
+		"\0\s[2]%(smiles)"
+		--
+		"So it is.\w8 \s[2]%(calmsmile)And a rather fascinating one at that.\w8\e"
+	}
+}
+
+//---- OnUpdateReady ---------------------------------------------------------
+//reference0 here storing the number of new files.
+OnUpdateReady
+{
+	reference0++ //makes sure it starts at 1 instead of 0
+	
+	"\1\s[18]"
+	"\1\s[26]"
+	"\1\s[16]"
+	"\1\s[17]"
+	--
+	"\i[0]"
+	"\i[14]"
+	"\i[21]"
+	"\i[22]"
+	--
+	"\0\s[1]"
+	"\0\s[2]"
+	"\0\s[8]"
+	"\0\s[4]"
+	--
+	"%(closeeyes)"
+	"%(confusesmile)"
+	"%(happies)"
+	"%(smiles)"
+	--
+	"\0\b[0]\_q"
+	--
+	"New Puzzles being added: %(reference0)."
+	
+	"New Puzzles to solve: %(reference0)."
+	--
+	"\_q\w8\w8\w8\e"
+}
+
+//---- Downloading the update ------------------------------------------------
+
+//---- OnUpdate.OnDownloadBegin ------------------------------------------------
+//reference0 - file being downloaded
+//reference1 - number of file being downloaded, as in "this is file 1 out of 9"
+//reference2 - overall number of files to download, counting zero. so if there are ten files, it'll display as 9.
+//reference3 - what's being updated - ghost, shell, balloon, plugin, headline, baseware
+
+//all of this comes from Malakin, Zarla, and Zi!!
+
+//+ 1 because otherwise the count starts at 0 and it looks weird. Basic format is variablename = TOINT(target you're turning into an integer, in this case the references)
+OnUpdate.OnDownloadBegin
+{
+	"\_q\0\b[2]Downloading %(reference0)...\n\n"
+	--
+	Update_Process = TOINT(reference1) + 1
+	Update_Total = TOINT(reference2) + 1
+	Update_Remaining = Update_Total - Update_Process
+	
+	//defining starting points
+	PointA = 1 
+	PointB = 1
+	
+	//defining text buffers beforehand, otherwise they don't display right
+	_txt = ""
+	
+	//loop calculates how many check boxes to display based on the variables above
+	while PointA <= Update_Process 
+	{
+		_txt += "°"
+		PointA++ 
+	} 
+	//see above except for blank boxes
+	while PointB <= Update_Remaining 
+	{
+		_txt += ""
+		PointB++ 
+	}
+	--
+	//using the text buffers to display the correct number of boxes
+	"%(_txt)\n\n%(Update_Process) of %(Update_Total)"
+	--
+	"\w5\e"
+}
+
+
+//---- OnUpdate.OnMD5CompareFailure ---------------------------------------------------
+//_remaining should be the number of the file that's giving the error, in the order they're being downloaded. currentfile will be the file path.
+OnUpdate.OnMD5CompareFailure
+{
+	_remaining = Update_Remaining + 1
+	
+	"\1\s[16]"
+	"\1\s[23]"
+	"\1\s[18]"
+	--
+	"\i[17]"
+	"\i[29]"
+	"\i[24]"
+	"\i[10]"
+	"\i[11]"
+	--
+	"\0\s[4]"
+	"\0\s[1]"
+	"\0\s[2]"
+	--
+	"%(concernsmile)"
+	"%(shock)"
+	"%(confused)"
+	"%(neutral)"
+	--
+	"\0\b[0]\_q"
+	--
+	"Incorrect solution in %(_remaining) (%(currentfile))."
+	
+	"Puzzle failed at %(_remaining) (%(currentfile))."
+	--
+	"\_q\w8\w8\e"
+}
+
+//---- OnUpdateFailure -------------------------------------------------------------
+OnUpdateFailure
+{
+	"\0\b[0]\1\b[0]"
+	--
+	if reference0 == "timeout" //if the connection times out
+ 	{
+ 		"\0\s[4]%(confusesmile)Ah.\w8 \1\s[18]\i[28]Uh oh!\w8 \0\s[3]%(concernsmile)\n\n[half]Looks like that puzzle shut us out.\w8 \1\s[16]\i[27]\n\n[half]Sorry,\w4 %(user)!\w8 \0\s[1]%(confusesmile)\1\s[16]\i[12]Maybe try that again later.\w8\e"
+		
+		"\1\s[23]\i[29]Woah!\w8 \0\s[1]%(confused)Oh dear.\w8 \1\s[18]\i[9]\0\s[4]%(concernsmile)Seems that puzzle's not about to let us complete it.\w8 \1\s[16]\i[12]\n\n[half]Sorry,\w4 %(user).\w8 \0\s[4]%(confusesmile)\1\s[16]\i[27]Might need something more stable before we try that one again.\w8\e"
+	}
+ 	elseif reference0 == "md5 miss" //md5 error below at some point.
+	{
+		"\0\s[2]%(confusesmile)Ah.\w8 \1\s[16]\i[17]Huh.\w8 \s[16]\i[9]Seems that puzzle's answer doesn't match its question.\w8 \0\s[2]%(closeeyes)\n\n[half]How peculiar...\w8 \1\s[18]\i[12]\n\n[half]At least we know it's not on us!\w8 \0\s[4]%(confusesmile)\n\n[half]Yes,\w4 I'd take this back to the puzzle maker himself.\w8\e"
+		
+		"\1\s[18]\i[1]Huh!\w8 \0\s[2]%(confused)Hm.\w8\w4 \1\s[18]\i[27]\0\s[2]%(annoyed)This puzzle's solution doesn't quite match its explanation.\w8 \1\s[19]\i[9]\n\n[half]Probably need to take that one back to the one who made it.\w8 \0\s[4]%(confusesmile)\n\n[half]Yes,\w4 our apologies,\w4 but there's not much we can do about that.\w8\e"
+ 	}
+	elseif reference0 == "artificial" //If the user cancels the update by double clicking the balloon
+	{
+		"\1\s[15]\i[16]\0\s[1]%(shockopen)Oh!\w8\w4 \1\s[21]\i[2]Hey!\w8\w4 \0\s[1]%(confusesmile)\1\s[21]\i[7]That was rude,\w4 %(user).\w8 \0\s[4]%(concernsmile)\n\n[half]Was that puzzle not ready for us?\w8 \1\s[21]\i[20]\0\s[2]%(confusesmile)Or did you not mean to hand it to us?\w8 \1\s[21]\i[27]\0\s[3]%(calmsmile)Perhaps a bit more warning would be nice.\w8 \1\s[16]\i[7]\n\n[half]We almost had the answer,\w4 too...\w8\e"
+		
+		"\0\s[4]%(shockopen)\1\s[23]\i[29]Wah!\w8 \0\s[4]%(shock)I...\w8\w8 \1\s[18]\i[20]\0\s[4]%(confusesmile)suppose you didn't want us to solve that one?\w8 \1\s[21]\i[2]\n\n[half]Give us some warning before you snap a puzzle shut on us like that,\w4 %(user)!\w8\e"
+	}
+	else //for other errors; '%(reference0)'
+ 	{
+ 		"\0\s[4]%(confused)Oh.\w8 \1\s[22]\i[17]Hmm.\w8 \s[22]\i[27]I don't think we can solve this one,\w4 %(user).\w8 \s[18]\i[12]Sorry!\w8 \0\s[2]%(annoyed)\n\n[half]An unsolvable puzzle.\w8 \1\s[18]\i[1]\0Now that just makes no sense.\w8 \1\s[16]\i[27]\n\n[half]I'm sure you'll think up ten more puzzles in its place,\w4 Professor.\w8 \0\s[4]%(confusesmile)\n\n[half]Not if you get there before I can.\w8 \1\s[16]\i[21]\e"
+		
+		"\1\s[18]\i[17]Huh.\w8 \0\s[2]%(confused)Hmm.\w8\w4 \1\s[18]\i[27]\0\s[5]%(concernsmile)It appears this puzzle is unsolvable,\w4 %(user).\w8 \1\s[16]\i[13]\n\n[half]Aww,\w4 it's such a sad thing,\w4 a puzzle without a solution.\w8 \0\s[4]%(confusesmile)\n\n[half]Chin up,\w4 my boy.\w8 \1\s[16]\i[9]\0\s[4]%(happies)We'll think of another one to solve instead.\w8 \1\s[16]\i[0]\n\n[half]Yeah.\w8\w4 \s[18]\i[21]We will!\w8\e"
+	}
+}
+
+
+//---- OnUpdateComplete -------------------------------------------------------------
+OnUpdateComplete
+{
+	"\0\b[0]\1\b[0]"
+	--
+	if reference0 == "none" //if the ghost had nothing to update with
+	{
+ 		"\0\s[4]%(confusesmile)Ah,\w4 it appears this is a puzzle we've solved before.\w8 \1\s[18]\i[19]Ooh,\w4 maybe you can think of a different way to get to the solution this time,\w4 Professor!\w8 \0\s[3]%(happies)\n\n[half]Haha,\w4 something to try later,\w4 perhaps.\w8 \1\s[18]\i[22]\0\s[5]%(smiles)For now,\w4 we should get back to our investigation.\w8 \1\s[18]\i[21]\n\n[half]Okay!\w8\e"
+		
+		"\1\s[16]\i[27]Ooh,\w4 this one's been solved all ready.\w8 \0\s[2]%(confused)Hmm.\w8 \1\s[16]\i[0]\0\s[2]%(closeeyes)I'm sure there's another way to reach the solution on this one.\w8 \1\s[17]\i[3]\n\n[half]If there is,\w4 I know you'd be the one to find it,\w4 Professor!\w8 \0\s[4]%(happies)\n\n[half]Hahaha,\w4 thank you,\w4 my boy.\w8\e"
+	}
+	else //if the ghost has updated successfully
+	{
+		"\0\s[3]%(calmsmile)Another puzzle solved.\w8 \1\s[21]\i[21]That was brilliant,\w4 Professor!\w8 \0\s[4]%(smiles)\n\n[half]Thank you for that,\w4 %(user).\w8 \1\s[21]\i[22]\0\s[4]%(calmsmile)There's nothing quite like a good puzzle.\w8\e"
+		
+		{
+			"\1\s[20]\i[14]"
+			"\1\s[17]\i[3]"
+			--
+			"And there you have it!\w8"
+			"Layton's apprentice strikes again,\w4 %(user)!\w8"
+			--
+			"\0\s[3]%(happies)Wonderful work,\w4 my boy.\w8 \1\s[17]\i[0]\n\n[half]Thanks for the fun puzzle!\w8 \0\s[4]%(smiles)\n\n[half]Yes,\w4 thank you.\w8\e"
+		}
+	}
+}
+
+
+//**** Ghost Creation and Updating ******************************************************
+
+//---- OnUpdatedataCreating -----------------------------------------------------------
+OnUpdatedataCreating
+{
+	"\0\b[0]\1\b[0]"
+	--
+	"\0\s[1]%(shockopen)Oh.\w8 \1\s[18]\i[0]\0\s[2]%(confusesmile)Making our own puzzle,\w4 are we?\w8\e"
+	
+	"\1\s[18]\i[19]Ooh,\w8 \0\s[2]%(confusesmile)\1that looks like a puzzle we can make.\w8\e"
+}
+
+//---- OnUpdatedataCreated -------------------------------------------------------------
+OnUpdatedataCreated
+{
+	"\0\b[0]\1\b[0]"
+	--
+	"\0\s[3]%(calmsmile)There we are.\w8 \1\s[21]\i[21]Have fun with that one,\w4 %(user).\w8\e"
+	
+	"\1\s[18]\i[19]Here you go!\w8 \0\s[1]%(happies)\1\s[18]\i[3]Knew we could do that up in a jiffy.\w8\e"
+}
+
+
+//---- OnNarCreating ------------------------------------------------------------------
+//reference0 is the name of what you're making a nar for (which is the name of your ghost as specified in install.txt), reference2 is what you're making (balloon/ghost/etc)
+OnNarCreating
+{
+	"\0\b[0]\1\b[0]"
+	--
+	if reference0 == "Professor Layton and Luke Triton"
+	{
+		"\0\s[4]%(happies)Ah,\w4 you wish to have a copy of our notes?\w8 \1\s[26]\i[27]Hold on,\w4 I think we've written down a lot more since last time...\w8\e"
+		
+		"\1\s[18]\i[0]Oh,\w4 didja need a copy of all our notes?\w8 \0\s[8]%(confusesmile)Just a moment while we add our most recent observations...\w8\e"
+	}
+	else //'%(reference0)', a %(reference2)
+	{
+		"\0\s[2]%(confusesmile)Making notes on %(reference0)?\w8 \1\s[19]\i[22]I think %(theyre) asking us to make some notes on them,\w4 Professor.\w8 \0\s[2]%(concernsmile)\n\n[half]Ah.\w8\w8 \1\s[26]\i[0]\0\s[8]%(confusesmile)Let's see here...\w8\e"
+		
+		"\1\s[18]\i[0]Need us to write up some notes on %(reference0) for ya?\w8 \0\s[8]%(confusesmile)One moment,\w4 please.\w8\e"
+	}
+}
+
+//---- OnNarCreated -------------------------------------------------------------------
+//reference0 here will be the filename of the nar you just created.
+OnNarCreated
+{
+	"\0\b[0]\1\b[0]"
+	--
+	if reference0 == "Professor Layton and Luke Triton"
+	{
+		"\0\s[4]%(happies)There you are,\w4 %(user).\w8 \1\s[18]\i[21]That should be everything!\w8 \0\s[4]%(smiles)\1\s[18]\i[0]Hope it helps!\w8\e"
+		
+		"\1\s[17]\i[21]All done!\w8 \0\s[1]%(happies)\1\s[17]\i[0]Have fun reading that,\w4 %(user)!\w8 \0\s[4]%(confusesmile)Hopefully,\w4 it all makes sense to you.\w8 \1\s[17]\i[9]\0\s[4]%(concernsmile)We're still discovering what we can about your mystery,\w4 after all.\w8\e"
+	}
+	else //'%(reference0)', a %(reference2)
+	{
+		"\0\s[3]%(calmsmile)There we are.\w8 \1\s[15]\i[22]\0\s[3]%(confusesmile)Hopefully,\w4 that makes sense to you,\w4 %(user).\w8 \1\s[16]\i[27]Yeah.\w8 Doing a bunch of slapdash research on %(reference0) like that was a hefty puzzle,\w8 \0\s[4]%(concernsmile)\1\s[16]\i[3]but we took care of it!\w8 \0\s[4]%(smiles)\n\n[half]Haha,\w4 you could call us pros by this point.\w8 \1\s[16]\i[27]\n\n[half]We are pros,\w4 Professor!\w8\e"
+		
+		"\1\s[18]\i[15]There you go,\w4 %(user)!\w8 \0\s[3]%(happies)Hopefully,\w4 that makes sense to you,\w4 \1\s[18]\i[14]\0\s[3]%(confusesmile)considering we had to find out about %(reference0) as we went.\w8 \1\s[17]\i[21]\n\n[half]These tough puzzles are no match for the great Professor Layton!\w8 \0\s[4]%(concernsmile)\e"
+	}
+}
+
+
+//**** Uninstallation ******************************************
+
+//--OnVanishSelecting
+//When you select the uninstall option in the menu.
+OnVanishSelecting
+{
+	"\0\b[0]\1\b[0]"
+	--
+	"\0\s[4]%(confusesmile)Ah,\w4 is it time for us to leave?\w8 \1\s[15]\i[27]I suppose we've learned all we can about the mystery here.\w8\e"
+	
+	"\1\s[18]\i[0]Time for us to go?\w8 \0\s[4]%(concernsmile)I suppose we've more or less solved every puzzle here that we can.\w8\e"
+}
+
+//OnVanishSelected
+//When you decide to uninstall them. 
+OnVanishSelected
+{
+	"\0\b[0]\1\b[0]"
+	--
+	"\0\s[4]%(happies)Right then.\w8 \1\s[16]\i[27]\0\s[4]%(smiles)Thank you for having us,\w4 %(user).\w8 \1\s[18]\i[12]Yeah,\w4 hope we helped even a little!\w8\e"
+	
+	"\1\s[18]\i[21]Off we go,\w4 Professor!\w8 \0\s[4]%(happies)Thank you for having us,\w4 %(user).\w8\e"
+}
+
+//--OnVanishCancel
+//If you select Uninstall from the menu, but decide not to do it.
+OnVanishCancel
+{
+	"\0\b[0]\1\b[0]"
+	--
+	{
+		"\0\s[4]%(confusesmile)Well,\w4 we'll continue looking around,\w4 then.\w8"
+		--
+		"\1\s[21]"
+		"\1\s[18]"
+		"\1\s[17]"
+		--
+		"\i[21]"
+		"\i[19]"
+		"\i[15]"
+		--
+		"We're still on the case,\w4 Professor!\w8\e"
+	}
+	
+	"\1\s[16]\i[27]Still need us around?\w8 \0\s[3]%(smiles)We'll be here as long as you need us,\w4 %(user).\w8\e"
+}
+
+//--OnVanishButtonHold
+//If you double click to cancel the balloon.
+OnVanishButtonHold
+{
+	"\0\b[0]\1\b[0]"
+	--
+	"\0\s[4]%(shockopen)Oh!\w8 \1\s[18]\i[17]Uh.\w8 \0\s[4]%(confusesmile)\1\s[18]\i[27]Changed your mind?\w8 \0\s[3]%(concernsmile)\n\n[half]I suppose we'll stick around a bit longer,\w4 then.\w8\e"
+	
+	"\1\s[18]\i[29]Wah!\w8 \0\s[1]%(confusesmile)I take it.\w8 \1\s[18]\i[1]\0\s[3]%(concernsmile)You've changed your mind?\w8 \1\s[16]\i[27]\n\n[half]Guess we'll still be here,\w4 then.\w8 \0\s[1]%(confused)\1\s[16]\i[11]That was startling...\w8\e"
+}
+
+//---- OnVanished -----------------------------------------
+//if they're called after you've uninstalled a different ghost. reference0 is the name of the uninstalled ghost.
+OnVanished
+{
+	"\0\b[0]\s[0]\1\b[0]\s[10]"
+	--
+	"\0\s[4]%(confusesmile)Ah,\w4 finished with %(reference0)?\w8 \1\s[22]\i[17]Strange.\w8 \0\s[4]%(neutral)\1\s[22]\i[7]We didn't see them on their way out this time.\w8 \0\s[3]%(happies)\n\n[half]Either way,\w4 hello,\w4 %(user).\w8 \1\s[17]\i[21]\n\n[half]Hiya!\w8\e"
+	
+	"\1\s[15]\i[19]Hey again,\w4 %(user)!\w8 \0\s[1]%(confusesmile)Did you finish your business with %(reference0)?\w8 \1\s[16]\i[27]\n\n[half]Hope you weren't too hard on them.\w8 \0\s[1]%(concernsmile)\1\s[16]\i[22]You're pretty nice to us,\w4 after all.\w8 \0\s[4]%(smiles)\n\n[half]Either way,\w4 we'll get back to our investigation here.\w8 \1\s[16]\i[21]\n\n[half]Yeah!\w8\e"
+}
+
+
+//**** Mail Checking *******************************************************************
+//just taking the code from Zi's stuff and not messing any further with it because /shrugs
+
+//---- OnBIFFBegin ---------------------------------------------------------------
+OnBIFFBegin
+{
+	if teatime == 1 //on
+	{
+		teatime = 0 //turns it off
+	}
+	--
+	"\0\b[0]\1\b[0]"
+	--
+	"\0\s[4]%(confusesmile)You'd like us to retrieve your mail for you?\w8 \1\s[17]\i[21]Sounds fun!\w8 \0\s[4]%(neutral)\1\s[19]\i[14]I'll just pop out for a mo'.\w8 \s[-1]\0\s[4]%(confusesmile)\e"
+	
+	"\1\s[18]\i[21]Mail time!\w8 \s[-1]\0\s[3]%(happies)He'll be right back with your mail for you,\w4 %(user).\w8\e"
+}
+
+
+//---- OnBIFFComplete ---------------------------------------------------------------
+OnBIFFComplete
+{
+	"\0\b[0]\1\b[0]"
+	--
+	if reference0 == 0 //If you have no new mail.
+	{
+		"\1\s[16]\i[20]\0\s[4]%(concernsmile)Ah,\w4 nothing new today?\w8 \1\s[16]\i[27]Nope.\w8 \s[16]\i[9]Oh,\w4 well.\w8\e"
+		
+		"\1\s[16]\i[13]Sorry,\w4 %(user).\w8 \0\s[1]%(concernsmile)\1\s[16]\i[27]Doesn't look like there was anything new.\w8 \0\s[4]%(confusesmile)Well.\w8 \1\s[16]\i[9]\0I hope that's all right with you,\w4 %(user).\w8\e"
+	}
+	elseif reference0 < 100 //less than 100 new emails
+	{
+		if reference7 != "" //Reference7 is the headers. If it's empty(if the user has headers off), no need to run this loop. I STRONGLY ENCOURAGE YOU not to run this loop for more than 100 headers, as it may cause severe amounts of lag/freezing. Also, that's a lot to scroll through.
+		{
+			_buff = reference7
+			_len = ARRAYSIZE(_buff)
+			headers = ""
+			if reference7 != "" && reference0 <= 500 //max number of headers
+			{
+				headers = SPLIT(reference.raw[7],C_BYTE1)
+			}
+		}
+		--
+		_s = ""; if reference0 != 1; _s = "s" //Plural check, adds an s if the number of emails is not 1
+		"\0\s[2]%(confusesmile)What have you got,\w4 Luke?\w8 \1\s[18]\i[19]Got %(reference0) new letter%(_s) for ya,\w4 %(user)!\w8 \0\s[1]%(happies)\n\n[half]How wonderful.\w8"
+		
+		"\1\s[18]\i[21]Got %(reference0) letter%(_s) for ya,\w4 %(user)!\w8 \0\s[4]%(smiles)Well!\w8 \1\s[18]\i[0]\0\s[4]%(happies)How about that.\w8"
+		--
+		if reference7 != "" //Same as above, no need to ask if there are no headers
+		{
+			"\n\n\![*]\q[See Header%(_s),OnSeeHeaders]\n\*\![*]\q[Thanks for checking,cancelnodialogue]"
+		}
+		--
+		"\e"
+	}
+	else //For any other number of emails.
+	{
+		"\0\s[1]%(shock)Luke?\w8 \1\s[15]\i[29]There were over a hundred...\w8\w8 \0\s[4]%(shock)\1\s[18]\i[9]I couldn't carry all of it back here.\w8 \0\s[2]%(confusesmile)\n\n[half]I see.\w8 \1\s[18]\i[1]\0How fascinating.\w8 \s[3]%(happies)It seems you and I employ some of the same sorting techniques,\w4 %(user).\w8 \1\s[16]\i[25]\n\n[half]I don't think you've left over a hundred letters unread on your desk before,\w4 Professor.\w8 \0\s[1]%(concernsmile)\e"
+		
+		"\1\s[21]\i[29]%(user),\w4 there's over a hundred of them!\w8 \0\s[1]%(shock)\1\s[21]\i[10]I can't carry all that back!\w8 \0\s[4]%(confusesmile)Oh dear.\w8 \1\s[21]\i[27]\0\s[4]%(concernsmile)Sorry to say,\w4 that might be beyond our capabilities.\w8 \1\s[19]\i[0]\n\n[half]Maybe you should get some of that sorted.\w8 \0\s[4]%(neutral)\1\s[19]\i[3]You don't want your work space to be overrun like the Professor's is.\w8 \0\s[1]%(confusesmile)\e"
+	}
+}
+
+//Displaying the headers. Reference0 is the list of headers
+OnSeeHeaders
+{
+	if reference0 == "yes" //It's set up this way so that the headers variable will still be erased if the user says no
+	{
+		_display = ""
+		foreach headers; _header
+		{
+			_display += "\![*]"
+			_display += SHIORI3FW.EscapeAllTags(_header)
+			_display += "\n\n[half]"
+		}
+		
+		"\0\b[2]\![set,autoscroll,disable]\*\_q"
+		--
+		"\![*]\q[Done,cancelnodialogue]\n\n"
+		--
+		"%(_display)"
+		--
+		"\n\n\![*]\q[Done,cancelnodialogue]"
+	}
+	
+	ERASEVAR("headers") //This erases the variable so you're not storing all those headers and bloating your save. Also, privacy reasons.
+}
+
+//---- OnBIFFFailure ---------------------------------------------------------------
+//reference0 here stores the error message the email server would have given the ghost, hopefully.
+OnBIFFFailure
+{
+	"\0\b[0]\1\b[0]"
+	--
+	if reference0 == "timeout" //If the connection times out.
+ 	{
+ 		"\0\s[4]%(neutral)Luke?\w8 \1\s[16]\i[20]\0What happened?\w8 \1\s[22]\i[17]It was weird.\w8 \0\s[4]%(confused)\1It wouldn't let me pick up any of the mail.\w8 \s[22]\i[9]Sorry,\w4 %(user).\w8 \0\s[3]%(concernsmile)\n\n[half]Sounds like we'll just have to try again some other time.\w8 \1\s[16]\i[13]\n\n[half]Yeah...\w8\e"
+		
+		"\1\s[16]\i[17]Well,\w4 that was weird.\w8 \0\s[4]%(confused)Did something go wrong?\w8 \1\s[16]\i[24]\n\n[half]I wasn't able to grab all the mail.\w8 \0\s[4]%(confusesmile)\1\s[22]\i[7]Something about the connection being wrong.\w8 \0\s[4]%(concernsmile)\n\n[half]I see...\w8\w8 \1\s[22]\i[1]\0\s[3]%(smiles)Sounds like we'll just have to try again some other time.\w8 \1\s[18]\i[12]\n\n[half]Sorry,\w4 %(user)!\w8\e"
+	}
+ 	elseif reference0 == "kick" //If the account blocks the ghost from accessing it.
+	{
+		"\0\s[1]%(confusesmile)How did it go,\w4 \1\s[15]\i[20]\0Luke?\w8 \1Well.\w8 \s[19]\i[17]%(user)'s mailbox is locked up tight.\w8 \0\s[1]%(neutral)\1\s[19]\i[1]We don't have the right keys to get in.\w8 \0\s[2]%(closeeyes)\n\n[half]I see.\w8\w4 \1\s[19]\i[27]\0\s[2]%(confusesmile)That's an interesting puzzle,\w4 sounds like.\w8 \1\s[16]\i[12]\n\n[half]Not one we can solve,\w4 unfortunately.\w8 \0\s[2]%(concernsmile)\1\s[16]\i[0]When you got the right keys for us,\w4 %(user),\w4 let us try again!\w8 \0\s[4]%(confusesmile)\n\n[half]Yes,\w4 \_a[https://zarla-s.tumblr.com/post/167925002903/how-do-you-set-up-your-email-on-ukagaka-could-you]I heard it can be a little difficult\_a to make sure your mailbox is unlocked...\w8\e"
+		
+		"\1\s[16]\i[24]%(user),\w4 your mailbox is locked up tight!\w8 \0\s[1]%(neutral)\1\s[16]\i[9]I can't even get in!\w8 \0\s[1]%(confusesmile)Oh dear.\w8 \1\s[16]\i[27]\0\s[5]%(concernsmile)That sounds like a puzzle we're unable to solve for you,\w4 I'm afraid.\w8 \1\s[19]\i[9]\n\n[half]\_a[https://zarla-s.tumblr.com/post/167925002903/how-do-you-set-up-your-email-on-ukagaka-could-you]Setting up your mailbox can be a little difficult\_a,\w4 I've heard.\w8 \0\s[4]%(confusesmile)\1\s[19]\i[0]Make sure you give us the right keys next time,\w4 please and thanks!\w8\e"
+ 	}
+	elseif reference0 == "defect" //If the information put into the POP menu is wrong.
+ 	{
+ 		"\0\s[1]%(shock)Luke?\w8 \1\s[16]\i[17]\0\s[1]%(neutral)Did something go wrong?\w8 \1\s[16]\i[7]Well,\w4 other than %(user) giving me the wrong address.\w8 \0\s[4]%(confusesmile)\n\n[half]Oh dear.\w8\w4 \1\s[16]\i[1]\0\s[3]%(concernsmile)Seems you'll need to take a bit more care when giving us directions,\w4 %(user).\w8 \1\s[18]\i[9]\n\n[half]Hopefully,\w4 we can get it for you next time.\w8 \0\s[1]%(concernsmile)\1\s[19]\i[0]Once we have the proper directions and all.\w8"
+		
+		"\1\s[18]\i[17]Uh,\w4 %(user),\w4 \0\s[1]%(neutral)\1I think you gave me the wrong address.\w8 \0\s[3]%(confused)What do you mean?\w8 \1\s[19]\i[7]\n\n[half]I ended up somewhere completely different from %(user)'s mail.\w8 \0\s[2]%(closeeyes)\n\n[half]How odd.\w8 \1\s[19]\i[20]\0\s[2]%(confusesmile)Perhaps you can give us the correct one for next time,\w4 %(user)?\w8 \1\s[16]\i[9]\n\n[half]Would be much appreciated!\w8"
+		--
+		"\![open,configurationdialog,biff]\e"
+	}
+	elseif reference0 == "artificial" //As far as I can tell, artificial is if the user double clicks on the balloon to stop it
+	{
+		"\1\s[15]\i[16]\0\s[4]%(shockopen)Ah.\w8 \1\s[18]\i[17]Uh.\w8 \0\s[4]%(confused)\1Did you not want me to get your mail?\w8 \0\s[3]%(concernsmile)\n\n[half]%(Capitalise(they)) must have something to check for %(them)self,\w4 first.\w8 \1\s[16]\i[27]\n\n[half]I guess.\w8 \0\s[3]%(smiles)\1\s[18]\i[9]Well,\w4 we'll be here next you need us!\w8\e"
+		
+		"\1\s[15]\i[17]Uh.\w8 \0\s[4]%(neutral)\1Didja need something,\w4 %(user)?\w8 \0\s[3]%(concernsmile)Seems %(they) didn't want you getting %(their) mail yet.\w8 \1\s[18]\i[27]\n\n[half]Okay then.\w8 \0\s[3]%(smiles)\1\s[18]\i[9]Guess we'll be here next you ask!\w8\e"
+	}
+ 	else //if there's some other kind of error; '%(reference[0])'
+	{
+		"\1\s[18]\i[20]\w8\0\s[4]%(neutral)Oh,\w4 you're back quicker than I expected.\w8 \1Mail's haunted.\w8 \0\s[4]%(shock)\n\n[half]\w8\w8\w8\s[4]%(confused)I beg pardon?\w8 \1\s[16]\i[17]\n\n[half]Mail's haunted.\w8 \0\s[4]%(neutral)\1\s[16]\i[27]We'll just have to try again later,\w4 %(user).\w8 \0\s[2]%(confused)\n\n[half]I...\w8\w8\w8 see.\w8\e"
+		
+		"\1\s[18]\i[17]Uh.\w8 \0\s[1]%(neutral)\1\s[18]\i[9]Guess you're not getting your mail,\w4 %(user).\w8 \0\s[1]%(confused)Something happen,\w4 Luke?\w8 \1\s[16]\i[17]\n\n[half]Not sure.\w8 \s[16]\i[7]Just couldn't get it this time.\w8 \0\s[2]%(closeeyes)\n\n[half]I see.\w8 \1\s[16]\i[1]\0\s[3]%(confusesmile)Maybe next time.\w8 \1\s[16]\i[9]\n\n[half]Hopefully!\w8\e"
+ 	}
+}
+
+
+//**** Headlines and RSS Feeds *********************************************************
+
+//---- OnHeadlinesenseBegin -----------------------------------------------------------
+// %(reference0)
+OnHeadlinesenseBegin
+{
+	"\0\b[0]\1\b[0]"
+	--
+	"\1\s[18]\i[0]\0\s[2]%(confusesmile)Let's see what the headlines are for today...\w8\e"
+	
+	"\0\s[4]%(smiles)\1\s[22]\i[14]What's the news for the day,\w4 %(user)?\w8\e"
+}
+
+//---- OnHeadlinesense.OnFind --------------------------------------------------------
+//reference0 is the site name, reference1 is the url, reference3 is the headlines
+OnHeadlinesense.OnFind
+{
+	//---- Headlines
+	"\0\b[2]%(reference0):\n\n%(reference3)\n"
+ 	--
+	//---- Pages
+ 	if reference2 == "First" || reference2 == "Next"
+	{
+ 		//---- Bottom buttons
+		"\![*]\q[Next,] - \![*]\q[Stop,Headline_Cancel]\e"
+ 	}
+	else
+ 	{
+		//---- Bottom buttons
+ 		"\![*]\q[Stop,Headline_Cancel]\e"
+ 	}
+	
+}
+
+Select.Headline_Cancel
+{
+	"\0\b[0]\1\b[0]"
+	--
+	"\0\s[3]%(calmsmile)That's all there is to read for now.\w8 \1\s[18]\i[21]Fun!\w8\e"
+	
+	"\1\s[18]\i[22]Looks like that's all for today!\w8 \0\s[2]%(confusesmile)Fascinating.\w8\e"
+}
+
+//---- OnHeadlinesenseComplete -------------------------------------------------------
+//reference0 here supposedly always stores the value no update?
+OnHeadlinesenseComplete
+{
+	"\0\b[0]\1\b[0]"
+	--
+	"\0\s[4]%(confusesmile)Doesn't seem to be anything new today.\w8 \1\s[15]\i[13]Aww.\w8 \0\s[4]%(concernsmile)\1\s[15]\i[9]Slow news day,\w4 I guess.\w8\e"
+	
+	"\1\s[16]\i[27]Nope.\w8 \0\s[4]%(confusesmile)\1\s[16]\i[12]Nothing new today.\w8 \0\s[3]%(calmsmile)A slow news day can be a good thing.\w8\e"
+}
+
+//---- OnHeadlinesenseFailure ---------------------------------------------------------
+OnHeadlinesenseFailure
+{
+	"\0\b[0]\1\b[0]"
+	--
+	"\0\s[2]%(confused)Hmm.\w8 \1\s[22]\i[17]\0It won't let us read anything.\w8 \1\s[19]\i[22]Well,\w4 we know what they would have said.\w8 \0\s[1]%(shock)\1\s[20]\i[15]Another mystery solved by the great Professor Layton!\w8 \0\s[1]%(concernsmile)\n\n[half]I'm sure they'd have something a bit more exciting than that.\w8 \1\s[21]\i[21]\e"
+	
+	"\1\s[22]\i[17]Huh.\w8 \0\s[2]%(confused)\1Doesn't seem like we can read that.\w8 \0\s[3]%(concernsmile)I suppose we'll have to try again later.\w8 \1\s[22]\i[1]\0\s[4]\i[18]Though,\w4 I'm sure the news story of the day would tell of your accomplishments as a detective,\w4 Luke.\w8 \1\s[16]\i[12]\n\n[half]Aww,\w4 I'm not that well-known!\w8 \0\s[4]%(happies)\1\s[16]\i[27]Not yet,\w4 at least.\w8\e"
+}
+
+
+
+//---- OnGhostCalling ---------------------------------------------------------------
+//when you call another ghost. It activates immediately, so write dialogue accordingly.
+//reference0 is the Sakura name of the ghost
+OnGhostCalling
+{
+	"\0\b[0]\1\b[0]"
+	--
+	case reference0
+	{
+		when "Defence" //AJ Trial Sims
+		{
+			"\0\s[2]%(confusesmile)A Trial Simulation?\w8 \1\s[17]\i[0]\0How fascinating.\w8 \1\s[18]\i[21]I'm sure AJ can help prove your innocence on this one,\w4 %(user)!\w8\e"
+			
+			"\1\s[21]\i[15]Let's get AJ in here to help with the case,\w4 %(user)!\w8 \0\s[2]%(confusesmile)I'm interested in seeing this Trial Simulation in action.\w8\e"
+		}
+		when "RGB Puzzlers"
+		{
+			"\0\s[2]%(confusesmile)Inviting the three of them here?\w8 \1\s[17]\i[21]That future me and AJ can handle this mystery,\w4 no problem!\w8\e"
+			
+			"\1\s[21]\i[19]Ooh,\w4 getting that future me and AJ back in here,\w4 are you?\w8 \0\s[4]%(calmsmile)Perhaps they can help us continue our investigation.\w8\e"
+		}
+		when "Moomintroll" //Moomin and Snufkin
+		{
+			"\0\s[2]%(confusesmile)Inviting over a troll and a traveller?\w8 \1\s[18]\i[21]I'll bet AJ and his friend'll be a big help here,\w4 %(user).\w8 \0\s[1]%(concernsmile)\e"
+			
+			"\1\s[22]\i[27]Bringing over AJ and his friend,\w4 huh?\w8 \0\s[4]%(concernsmile)Hopefully,\w4 they can explain this misunderstanding better than you or I,\w4 %(user).\w8\e"
+		}
+		when "Moomins" //Moominhousehold
+		{
+			"\0\s[4]%(smiles)Oh,\w4 taking us on your trip out to Moominvalley?\w8 \1\s[21]\i[21]Yippee!\w8 \0\s[4]%(happies)\1\s[21]\i[19]This is gonna be fun,\w4 %(user)!\w8\e"
+			
+			"\1\s[18]\i[21]Let's take a trip out to Moominvalley,\w4 Professor!\w8 \0\s[4]%(happies)Thank you for inviting us along,\w4 %(user).\w8\e"
+		}
+		when "Inferno"
+		{
+			"\0\s[2]%(confused)Dante and Petel...?\w8 \1\s[16]\i[9]Not sure we'll get much information out of them about this mystery,\w4 %(user).\w8\e"
+			
+			"\1\s[22]\i[17]Dante and Petel?\w8 \0\s[3]%(concernsmile)I hope you're being nice to them,\w4 %(user).\w8\e"
+		}
+		//when ""
+		//{
+			//""
+		//}
+		others
+		{
+			"\0\s[1]%(surprisesmile)Ah,\w4 inviting %(reference0) over as well?\w8 \1\s[17]\i[21]Maybe we can ask them a thing or two about the case!\w8\e"
+			
+			"\1\s[16]\i[0]Oh,\w4 are you having %(reference0) over as well?\w8 \0\s[2]%(confusesmile)I wonder if they might know anything about the mystery we're investigating...\w8\e"
+		}
+	}
+}
+
+//when you change another ghost. activates after they've finished swapping.
+//reference0 = ghost before switch; reference1 = ghost switched to; reference4 = name of previous ghost; reference5 = name of switched to ghost
+OnOtherGhostChanged
+{
+	"\0\b[0]\1\b[0]"
+	--
+	if reference0 == "Defence" //AJ Trial Sims
+	{
+		if reference1 == "RGB Puzzlers"
+		{
+			"\0\s[1]%(confused)Have you...\w8 \1\s[16]\i[17]Swapped one version of AJ for another?\w8 \0\s[1]%(concernsmile)\n\n[half]I suppose you have your reasons for it.\w8 \1\s[18]\i[27]\n\n[half]Didja finish up with your trial?\w8\e"
+			
+			"\1\s[15]\i[27]Taking a break from your trial stuff,\w4 %(user)?\w8 \0\s[3]%(concernsmile)Well,\w4 I'm sure we'll enjoy your pen pal and futre self's company instead.\w8\e"
+		}
+		elseif reference1 == "Moomintroll" //Moomin and Snufkin
+		{
+			"\0\s[3]%(calmsmile)It's nice to see such laid back characters after a trial.\w8 \1\s[16]\i[21]It is nice,\w4 isn't it?\w8\e"
+			
+			"\1\s[16]\i[9]I guess AJ can't very well have his friend join him in a trial.\w8 \0\s[1]%(confusesmile)Especially not when one is a troll and his companion is a wanderer.\w8\e"
+		}
+		elseif reference1 == "Moomins" //Moominhousehold
+		{
+			"\0\s[2]%(confusesmile)From a trial to Moominvalley.\w8 \1\s[18]\i[0]\0How fascinating...\w8 \1\s[18]\i[21]We get to relax a bit,\w4 too,\w4 now.\w8\e"
+			
+			"\1\s[16]\i[22]It's nice to have a place like Moominvalley to visit after being tangled up in a trial.\w8 \0\s[1]%(happies)Yes,\w4 Moominvalley is such a relaxing place.\w8\e"
+		}
+		else //all other ghosts
+		{
+			"\0\s[4]%(smiles)Taking a break from your trial in favour of enjoying %(reference5)'s company?\w8 \1\s[16]\i[21]Guess we gotta ask %(reference1) about this mystery now!\w8\e"
+			
+			"\1\s[18]\i[19]Seeya,\w4 AJ!\w8 \0\s[4]%(happies)And hello to %(reference5).\w8 \1\s[16]\i[0]\n\n[half]He's still got a lot of investigating ahead of him.\w8 \0\s[4]%(smiles)\1\s[16]\i[21]And so do we!\w8\e"
+		}
+	}
+	elseif reference0 == "RGB Puzzlers"
+	{
+		if reference1 == "Defence" //AJ Trial Sims
+		{
+			"\0\s[4]%(confusesmile)Ah.\w8 Heading off to trial,\w4 %(user)?\w8 \1\s[21]\i[13]I wish I could help out more,\w8 \0\s[4]%(happies)\1\s[21]\i[22]but I know even without future me's help,\w4 AJ's got this!\w8\e"
+			
+			"\1\s[16]\i[27]Looks like AJ's moving to trial.\w8 \0\s[4]%(concernsmile)It's too bad your future self can't exactly help him in that regard.\w8 \1\s[17]\i[21]\n\n[half]At least we're here to help where we can!\w8 \0\s[2]%(confusesmile)\n\n[half]I suppose that is true.\w8\e"
+		}
+		elseif reference1 == "Moomintroll" //Moomin and Snufkin
+		{
+			"\0\s[4]%(confusesmile)Looks like %(user) has shuffled %(their) guests here.\w8 \1\s[16]\i[13]Yeah,\w4 no more future me.\w8 \0\s[4]%(neutral)\1\s[16]\i[21]And now AJ looks extra huggable.\w8 \0\s[1]%(concernsmile)\e"
+			
+			"\1\s[16]\i[13]Aww,\w4 no more future me.\w8 \0\s[4]%(confusesmile)\1\s[16]\i[22]Now it's just AJ and his wandering friend!\w8 \0\s[5]%(calmsmile)We should ask them a few more questions while they're here.\w8 \1\s[21]\i[19]\n\n[half]Yeah,\w4 at least we still get to hang out with them!\w8\e"
+		}
+		elseif reference1 == "Moomins" //Moominhousehold
+		{
+			"\0\s[4]%(smiles)I suppose we're off to Moominvalley now.\w8 \1\s[22]\i[27]I bet future me would love to see it,\w4 too.\w8 \0\s[4]%(neutral)\1\s[22]\i[7]Maybe he'll get to see it a bit since I'll be there?\w8 \0\s[1]%(confusesmile)\n\n[half]Perhaps.\w8\e"
+			
+			"\1\s[18]\i[21]Off we go to Moominvalley!\w8 \0\s[1]%(confusesmile)It's too bad we can't take your friends with us.\w8 \1\s[16]\i[13]\n\n[half]Yeah.\w8 \0\s[1]%(neutral)\1\s[16]\i[9]That future me'll just have to remember we went right now.\w8 \0\s[4]%(confusesmile)\n\n[half]That's certainly interesting logic.\w8\e"
+		}
+		else //all other ghosts
+		{
+			"\0\s[1]%(confusesmile)It appears as if your pen pal,\w4 your future self,\w4 and your other friend have all left.\w8 \1\s[10]They've all got work to do,\w4 no doubt.\w8 \0\s[1]%(concernsmile)\1\s[18]\i[21]Anyway,\w4 it's nice to see %(reference1) here now!\w8 \0\s[4]%(smiles)\n\n[half]Yes,\w4 it'll be nice to see how %(user) and %(reference5) interact while we're here.\w8\e"
+			
+			"\1\s[18]\i[21]Bye bye,\w4 AJ and future me!\w8 \0\s[4]%(happies)And hello to %(reference5) in their stead.\w8 \1\e"
+		}
+	}
+	elseif reference0 == "Moomintroll" //Moomin and Snufkin
+	{
+		if reference1 == "Defence" //AJ Trial Sims
+		{
+			"\0\s[2]%(confusesmile)Starting up your trial,\w4 %(user)?\w8 \1\s[16]\i[21]I'll bet AJ will be happy about that!\w8 \0\s[2]%(concernsmile)\1\s[16]\i[17]His friend,\w4 not so much,\w4 though.\w8\e"
+			
+			"\1\s[18]\i[21]Seeya,\w4 AJ's friend!\w8 \0\s[2]%(confusesmile)It seems to be time for your trial,\w4 %(user).\w8\e"
+		}
+		elseif reference1 == "RGB Puzzlers"
+		{
+			"\0\s[4]%(happies)Ah,\w4 you've brought Luke's future self here,\w4 %(user).\w8 \1\s[18]\i[21]I bet I'll be real happy to see AJ and his friend again!\w8 \0\s[4]%(confusesmile)\1\s[18]\i[0]Even if AJ's a lot less squishy now.\w8\e"
+			
+			"\1\s[18]\i[19]Hey,\w4 that's me again!\w8 \0\s[3]%(happies)It's nice to see your actual pen pal\w8 \1\s[18]\i[1]\0as well as his friend.\w8 \1\s[22]\i[17]\n\n[half]I guess AJ does look different from before...\w8\e"
+		}
+		elseif reference1 == "Moomins" //Moominhousehold
+		{
+			"\0\s[4]%(confusesmile)It seems we've all ended up back in Moominvalley for the moment.\w8 \1\s[16]\i[12]I hope AJ and his friend don't mind that we basically followed them here...\w8\e"
+			
+			"\1\s[18]\i[27]I guess the ones who would know the way to Moominvalley best\w8 \0\s[1]%(confusesmile)\1\s[18]\i[12]would be two of it's residents!\w8 \0\s[2]%(concernsmile)I do hope they don't mind that they led us here...\w8\e"
+		}
+		else //all other ghosts
+		{
+			"\0\s[4]%(calmsmile)So long to a troll and his wandering friend.\w8 \1\s[18]\i[21]And hello to %(reference1)!\w8\e"
+			
+			"\1\s[16]\i[27]Looks like AJ and his friend have headed back to Moominvalley for now.\w8 \0\s[4]%(smiles)Yes.\w8\w4 \1\s[16]\i[0]\0\s[4]%(happies)Now,\w4 hello to you there,\w4 %(reference5).\w8 \1\s[18]\i[21]\n\n[half]Yeah,\w4 hiya!\w8\e"
+		}
+	}
+	elseif reference0 == "Moomins" //Moominhousehold
+	{
+		if reference1 == "Defence" //AJ Trial Sims
+		{
+			"\0\s[4]%(confusesmile)Straight from Moominvalley and into your trial,\w4 %(user)?\w8 \1\s[16]\i[13]Golly,\w4 you sure are busy!\w8\e"
+			
+			"\1\s[16]\i[13]Having to get back to your trial right after leaving Moominvalley sounds real rough,\w4 %(user).\w8 \0\s[3]%(concernsmile)We'll be here to support you should you need it.\w8 \1\s[18]\i[14]\n\n[half]Yeah,\w4 call us to the witness stand!\w8 \0\s[2]%(confused)\n\n[half]Would we be allowed to testify...?\w8\e"
+		}
+		elseif reference1 == "RGB Puzzlers"
+		{
+			"\0\s[3]%(calmsmile)Ah,\w4 back from Moominvalley.\w8 \1\s[18]\i[15]And into the future!\w8 \0\s[4]%(confusesmile)\n\n[half]I'm not sure we can say that definitively,\w4 Luke.\w8 \1\s[16]\i[12]\n\n[half]Sorry,\w4 I just wanted to make a joke since future me's here.\w8 \0\s[1]%(concernsmile)\e"
+			
+			"\1\s[18]\i[19]Back from Moominvalley and we get to see future me again!\w8 \0\s[3]%(happies)It's nice to see how well you get along with your friends.\w8\e"
+		}
+		elseif reference1 == "Moomintroll" //Moomin and Snufkin
+		{
+			"\0\s[4]%(confusesmile)Looks like we're not the only ones who needed to step outside of Moominvalley for now.\w8 \1\s[19]\i[22]AJ did call his friend a wanderer,\w4 after all!\w8\e"
+			
+			"\1\s[18]\i[0]It's time to wander outside Moominvalley for AJ's friend,\w4 I guess!\w8 \0\s[2]%(concernsmile)It does seem they followed %(user) back to %(their) place for now.\w8\e"
+		}
+		else //all other ghosts
+		{
+			"\0\s[4]%(calmsmile)Ah,\w4 I do believe we'll all miss Moominvalley.\w8 \1\s[21]\i[21]But now we get to ask %(reference1) about our mystery here,\w4 Professor!\w8 \0\s[1]%(happies)\e"
+			
+			"\1\s[16]\i[13]It's a bit sad,\w4 leaving Moominvalley.\w8 \0\s[4]%(concernsmile)Yes,\w4 but if %(user) would like us to resume our investigation,\w8 \1\s[16]\i[0]\0\s[4]%(smiles)then we should enjoy our time with %(reference5) here.\w8 \1\s[17]\i[21]\n\n[half]Yeah,\w4 we can chat with %(reference1) and see what they think about %(user)'s mystery!\w8\e"
+		}
+	}
+	/*
+	elseif reference0 == ""
+	{
+		if reference1 == ""
+		elseif reference1 == ""
+		else
+		{
+			""
+		}
+	}
+	*/
+	else //ALL OTHERS
+	{
+		"\0\s[4]%(smiles)Ah,\w4 goodbye then,\w4 %(reference4).\w8 \1\s[18]\i[21]And hello to %(reference1)!\w8 \0\s[1]%(happies)\1\s[18]\i[0]You're pretty popular,\w4 %(user).\w8\e"
+		
+		"\1\s[18]\i[0]Oh,\w4 there goes %(reference0).\w8 \0\s[3]%(happies)It seems %(user) has invited %(reference5) over in their stead.\w8 \1\s[21]\i[21]\n\n[half]Let's ask %(reference1) some questions,\w4 too,\w4 Professor!\w8\e"
+	}
+}
+
+//when you close another ghost. Only activates after the other ghost is gone.
+OnOtherGhostClosed
+{
+	"\0\b[0]\1\b[0]"
+	--
+	case reference0
+	{
+		when "Defence" //AJ Trial Sims
+		{
+			"\0\s[4]%(concernsmile)I suppose your trial's finished then,\w4 %(user)?\w8 \1\s[16]\i[0]That looked like a lot of fun.\w8 \0\s[4]%(concernsmile)\1\s[16]\i[9]Not sure what we could figure out about our mystery here from it all,\w4 though.\w8\e"
+			
+			"\1\s[18]\i[21]Seeya,\w4 AJ!\W8 \0\s[2]%(confusesmile)Quite the fascinating group there,\w4 wouldn't you agree,\w4 %(user)?\w8\e"
+		}
+		when "RGB Puzzlers"
+		{
+			"\0\s[4]%(happies)So long,\w4 you three.\w8 \1\s[22]\i[14]I'll bet me and AJ have lots of work to get done.\w8\e"
+			
+			"\1\s[18]\i[21]Bye bye,\w4 AJ and future me!\w8 \0\s[3]%(happies)It's wonderful to see how you'll grow,\w4 my boy.\w8\e"
+		}
+		when "Moomintroll" //Moomin and Snufkin
+		{
+			"\0\s[2]%(confused)Luke,\w4 why are you convinced those two are your pen pal and his friend?\w8 \1\s[16]\i[19]'Cause that's AJ's friend.\w8 \0\s[2]%(concernsmile)\1\s[16]\i[3]No one else could befriend AJ's friend as well as he has.\w8\e"
+			
+			"\1\s[18]\i[21]Seeya back in Moominvalley!\w8 \0\s[4]%(confusesmile)It's rather fascinating to see where exactly your place is located,\w4 %(user).\w8\e"
+		}
+		when "Moomins" //Moominhousehold
+		{
+			"\0\s[4]%(happies)Here we are,\w4 back in your place,\w4 %(user).\w8 \1\s[21]\i[15]Now we can get back to our usual investigation,\w4 Professor!\w8\e"
+			
+			"\1\s[18]\i[22]Phew!\w8 \s[18]\i[0]Travelling all that way reminds me of our usual ventures,\w4 Professor.\w8 \0\s[2]%(happies)Yes,\w4 it is quite a lot like that,\w4 isn't it?\w8 \1\s[16]\i[21]\e"
+		}
+		when "Inferno"
+		{
+			"\0\s[1]%(sadsmile)So long,\w4 Dante and Petel.\w8 \1\s[16]\i[13]Hope they can get some rest back in their dorms.\w8\e"
+			
+			"\1\s[18]\i[12]Seeya,\w4 Dante and Petel!\w8 \0\s[4]%(concernsmile)Hopefully,\w4 those two haven't missed too much of their classes...\w8\e"
+		}
+		//when ""
+		//{
+			//""
+		//}
+		others
+		{
+			"\0\s[4]%(calmsmile)And there goes %(reference0)...\w8 \1\s[15]\i[22]Usually,\w4 we're the ones moving about,\w4 Professor.\w8 \0\s[4]%(smiles)\1\s[10]This is a nice change of pace.\w8 \0\s[2]%(confusesmile)\n\n[half]It's certainly very interesting.\w8\e"
+			
+			"\1\s[18]\i[21]Off they go!\w8 \0\s[1]%(confusesmile)I do hope %(reference0) didn't mind our manner too much.\w8 \1\s[16]\i[9]\n\n[half]Yeah,\w4 we are a bit preoccupied now with our investigation.\w8 \0\s[1]%(concernsmile)\1\s[16]\i[0]Maybe some other time we can chat more casually with them!\w8 \0\s[3]%(smiles)\n\n[half]Perhaps.\w8\e"
+		}
+	}
+}
+
+
+//that's it! we're finished!!

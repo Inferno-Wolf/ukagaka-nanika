@@ -1,0 +1,932 @@
+﻿//---------------------------Booting and Ending--------------------------
+//Hellos and Goodbyes!
+
+
+
+//--OnFirstBoot--
+// \![raise,OnFirstBoot]
+OnFirstBoot
+{
+	lastTalk = ""
+	passhour = 0
+	passmin = 0 
+	passsec = 0
+	user = "Friend"
+	birthdayprint = "????"
+	stroke = 0
+	mikireflag = 0
+	aitalkinterval = 300
+	firstboot = 1
+	//added variables
+	Balloon.Layton = ("0")
+	Balloon.Luke = ("0")
+	offscreen = 1 //on
+	outside = 0 //false
+	overlap = 1 //on
+	teatime = 0 //off
+	teapassmin = 0
+	servedtea = "None"
+	favetea = "Undecided"
+	favegame = "Undecided"
+	Laytonaffect = 0
+	Lukeaffect = 5
+	
+	//I want this to raise a random chance on which shell it loads but bah. idk how to make that happen.
+	"\t\0\b[0]\s[11]\1\b[0]\s[21]\i[19]Professor!\w8 Just look at this place!\w8 \0It seems we've found ourselves a new mystery to investigate,\w4 my boy.\w8 \1\s[21]\i[21]\n\n[half]No kidding!\w8 \s[18]\i[0]We even have a guide!\w8 \0\s[1]%(shockopen)\n\n[half]Oh!\w8\w8 \s[4]%(surprisesmile)Hello there.\w8 \1\s[18]\i[22]\0\s[4]%(happies)My name is Hershel Layton and I'm a Professor of Archeology.\w8 \1\s[19]\i[22]\n\n[half]And I'm Luke Triton,\w8 \s[19]\i[21]the Professor's apprentice!\w8 \0\s[0]\n\n[half]Might we ask after your name?\w8 \1\s[26]\i[0]"
+	--
+	"\![open,inputbox,OnNameTeach,-1]\e"
+}
+
+
+
+//-----------------------Normal Booting----------------------------
+
+//--OnBoot
+OnBoot
+{
+	lastTalk = ""
+	passhour = 0
+	passmin = 0
+	passsec = 0
+	teatime = 0 //off
+	teapassmin = 0
+	
+	"\0\b[0]\1\b[0]"
+	--
+	"\0\s[4]%(shockopen)"
+	"\0\s[4]%(shock)"
+	"\0\s[1]%(shockopen)"
+	"\0\s[1]%(surprisesmile)"
+	"\0\s[1]%(shock)"
+	"\0\s[4]%(smiles)"
+	--
+	"\1\s[17]\i[16]"
+	"\1\s[18]\i[0]"
+	"\1\s[18]\i[17]"
+	"\1\s[15]\i[1]"
+	"\1\s[18]\i[16]"
+	"\1\s[16]\i[16]"
+	"\1\s[18]\i[1]"
+	"\1\s[15]\i[16]"
+	"\1\s[16]\i[1]"
+	--
+	if dayslot == userbirthday 	// %(bornmonthprint) %(borndayprint)
+	{
+		if Laytonaffect > 60 && Lukeaffect > 60
+		{
+			"\1\s[21]\i[19]Professor,\w4 Professor!\w8 \0\s[4]%(smiles)\1\s[21]\i[21]Guess what day it is today!\w8 \0\s[2]%(calmsmile)Hmm.\w8\w8 \s[5]%(happies)From what my calendar shows,\w8 \1\s[17]\i[21]\0it's %(bornmonthprint) %(borndayprint).\w8 \1\s[18]\i[19]\n\n[half]And that means it's %(user)'s birthday!\w8 \0\s[1]%(happies)\n\n[half]Indeed it does.\w8 \1\s[18]\i[22]\0\s[4]%(smiles)Happy birthday,\w4 my friend.\w8 \1\s[18]\i[0]\n\n[half]Hope you're having a good one.\w8 \s[22]\i[10]If not,\w4 \0\s[4]%(concernsmile)\1well,\w8 \s[21]\i[13]then I hope we can make it just a little brighter for you!\w8 \0\s[3]%(calmsmile)\n\n[half]Yes,\w4 I hope we can offer a pleasant presence while you have us here with you.\w8 \1\s[21]\i[21]\e"
+			
+			"\1\s[18]\i[0]\0\s[4]%(smiles)Hello,\w4 %(user).\w8 \1%(user),\w4 hello!\w8 \0\s[4]%(happies)\1\s[18]\i[21]\_s\n\n[half]Happy birthday!\_s\w8\w8 \0\s[4]%(smiles)\1\s[21]\i[0]\nWas that good?\w8 Did we do it?\w8 \0\s[1]%(happies)\n\n[half]Luke and I have been practicing that for a while now,\w4 just so we could wish you well today.\w8 \1\s[21]\i[13]\n\n[half]I really wish we could do a lot more,\w8 \0\s[1]%(concernsmile)\1\s[17]\i[9]but I hope our well wishes at least make you happy.\w8 \0\s[4]%(happies)\n\n[half]And thank you for being our friend,\w4 %(user).\w8 \1\s[17]\i[21]\n\n[half]Yeah,\w4 thank you so much!!\w8\e"
+		}
+		
+		"\0\s[1]%(shock)Oh.\w8 \1\s[17]\i[0]\0\s[1]%(happies)It looks like it's %(bornmonthprint) %(borndayprint),\w4 Luke.\w8 \1\s[21]\i[21]Then that means it's %(user)'s birthday today!\w8 \0\s[5]%(calmsmile)\n\n[half]It does indeed.\w8 \1\s[18]\i[22]\n\n[half]Happy birthday,\w4 %(user)!\w8 \0\s[0]\1\s[18]\i[0]Didja wanna see us today so we could help you celebrate it?\w8 \0\s[3]%(concernsmile)\n\n[half]I'm afraid the most we can offer are our well-wishes and our company.\w8 \1\s[16]\i[10]\0\s[4]%(smiles)But I do wish your day has gone well for you so far.\w8 \1\s[16]\i[21]\n\n[half]And that it gets even better from here on out!\w8\e"
+		
+		"\1\s[18]\i[15]We're back,\w4 Professor!\w8 \0\s[4]%(smiles)And on %(bornmonthprint) %(borndayprint),\w4 no less.\w8 \1\s[16]\i[5]\n\n[half]Hang on...\w8 \0\s[4]%(happies)\1\s[19]\i[14]That means it's %(user)'s birthday!\w8 \0\s[3]%(calmsmile)\n\n[half]Indeed it does.\w8 \1\s[19]\i[6]\n\n[half]Well,\w8 \0\s[1]%(happies)\1\s[17]\i[21]happy birthday,\w4 %(user)!\w8 \0\s[0]\n\n[half]We both hope it's going well for you.\w8 \1\s[17]\i[21]\n\n[half]Yeah,\w4 and that you're having a lot of fun!\w8 \s[17]\i[0]Or,\w4 had a lot of fun.\w8 \0\s[1]%(concernsmile)\n\n[half]Though we can't do much else besides provide our well wishes and our companionship,\w8 \1\s[17]\i[21]\0\s[3]%(happies)the both of us sincerely are pleased to be with you today.\w8\e"
+	}
+	elseif dayslot == "2month 15day" //Feb 15; Curious Village release in JP! (Layton bday)
+	{
+		"\0\s[4]%(smiles)Hello again,\w4 %(user).\w8 \1\s[18]\i[21]%(user)!\w8 \0\s[1]%(happies)\1\s[18]\i[0]You have really good timing.\w8 \s[18]\i[22]Today's the Professor's birthday!\w8 \0\s[7]%(concernsmile)\n\n[half]Yes,\w4 well.\w8 There's no need to make such a big fuss over it.\w8 \1\s[16]\i[13]\n\n[half]I suppose so.\w8 \0\s[1]%(concernsmile)\1\s[21]\i[19]But we can get some cake later,\w4 right?\w8 \0\s[1]%(calmsmile)\n\n[half]I don't see the harm in a few tea cakes.\w8 \1\s[21]\i[21]\0\s[5]%(calmsmile)Just for today.\w8 \1\n\n[half]Yippee!\w8\e"
+		
+		"\1\s[18]\i[19]Hello,\w4 %(user)!\w8 \0\s[0]It's good to see you again.\w8 \1\s[18]\i[0]\n\n[half]The Professor and I were just discussing one of our old adventures.\w8 \0\s[1]%(calmsmile)\1\s[18]\i[21]Back when we travelled out to St. Mystere and met thegoldenapple for the first time.\w8 \0\n\n[half]It was a rather peculiar mystery.\w8 \1\s[16]\i[0]\0\s[5]%(smiles)One we promised to keep a secret from most of the world.\w8 \1\s[16]\i[13]\n\n[half]Yeah,\w4 sorry we can't give many details,\w4 %(user).\w8 \0\s[1]%(concernsmile)\1\s[16]\i[21]Just know the Professor had it solved right quick!\w8\e"
+	}
+	elseif dayslot == "2month 19day" //Feb 19; AJ release in US! (Apollo bday)
+	{
+		"\0\s[4]%(surprisesmile)Hello to you,\w4 %(user).\w8 \1\s[17]\i[21]Hello!\w8 \0\s[1]%(confusesmile)\n\n[half]You've pulled us away from sorting our mail,\w4 sadly.\w8 \1\s[19]\i[26]\n\n[half]We'll have to finish up later,\w4 Professor!\w8 \0\s[1]%(shock)\1\s[18]\i[14]I have to check and see if I got a letter from my pen pal,\w4 after all.\w8 \0\s[5]%(smiles)\n\n[half]Until then,\w8 \1\s[18]\i[1]\0\s[5]%(calmsmile)we shall enjoy our time here in our lack of mail bliss.\w8 \1\s[17]\i[6]\n\n[half]Professor!\w8 \0\s[1]%(happies)\e"
+		
+		"\1\s[20]\i[21]It's %(user)!\w8 \0\s[0]Hello there.\w8 \1\s[17]\i[21]\n\n[half]The Professor and I were sorting through our mail today.\w8 \0\s[1]%(confusesmile)\1\s[22]\i[17]I'm pretty sure I got a letter from my pen pal in there.\w8 \0\s[4]%(concernsmile)\n\n[half]Unfortunately,\w4 we shall just have to wait until we return to finish.\w8 \1\s[22]\i[25]\n\n[half]I bet that makes you happy.\w8 \0\s[7]%(calmsmile)\e"
+	}
+	elseif dayslot == "2month 26day" //Feb 26; Miracle Mask release in JP!
+	{
+		"\0\s[4]%(happies)Ah,\w4 %(user).\w8 \1\s[17]\i[21]Hello!\w8 \0\s[0]\1\s[17]\i[0]The Professor and I were just talking about our time in Monte d'Or.\w8 \0\s[3]%(calmsmile)\n\n[half]\_a[AngelaLedore]Angela\_a and \_a[HenryLedore]Henry\_a seem to be doing well,\w4 from what I've heard.\w8 \1\s[21]\i[19]\n\n[half]We should go and have fun at Pumpkin Park again!\w8 \0\s[1]%(calmsmile)\n\n[half]Perhaps one day.\w8 \1\s[21]\i[21]\e"
+		
+		"\1\s[18]\i[19]Hi,\w4 %(user)!\w8 \0\s[4]%(happies)Good day to you.\w8 \1\s[16]\i[0]\0\s[0]Luke and I were just discussing our time in Monte d'Or.\w8 \1\s[16]\i[27]\n\n[half]It would be nice to go back and see how \_a[HenryLedore]Mr Ledore\_a and \_a[AngelaLedore]Mrs Ledore\_a are doing.\w8 \0\s[1]%(confusesmile)\n\n[half]Perhaps we'll phone them later,\w4 once we get back.\w8\e"
+	}
+	elseif dayslot == "2month 28day" //Feb 28; Azran Legacy release in JP!
+	{
+		"\0\s[4]%(happies)Good day to you,\w4 %(user).\w8 \1\s[17]\i[21]Nice to see you again!\w8 \0\s[0]\1\s[21]\i[19]The Professor and I were talking about our adventures across the world in a flying ship!\w8 \0\s[3]%(concernsmile)\n\n[half]That was certainly an intriguing mystery.\w8 \1\s[21]\i[13]\n\n[half]Yeah...\w8\e"
+		
+		"\1\s[19]\i[19]Hey,\w4 it's %(user)!\w8 \0\s[4]%(happies)\1\s[18]\i[21]Hello!\w8\w6 \0\s[0]It's good to see you again.\w8 \1\s[16]\i[0]\0\s[3]%(calmsmile)Luke and I were discussing our time travelling around the world in search of the keys to a mystery.\w8 \1\s[16]\i[24]\n\n[half]...\w8\w8\w8\0\s[1]%(sad)\1\s[25]I miss aurorazan and topassistant,\w4 Professor.\w8 \0\s[12]\n\n[half]I understand how you feel,\w4 my boy.\w8\e"
+	}
+	elseif dayslot == "2month 29day" //Feb 29; Leap Year!
+	{
+		"\0\s[4]%(shock)Oh,\w4 %(user).\w8 \1\s[18]\i[19]%(user)!\w8\w6 \0\s[0]\1\s[19]\i[0]Today's a leap year!\w8 \0\s[1]%(happies)\n\n[half]Quite fascinating,\w4 really.\w8 \s[2]%(calmsmile)It reminds me of a particular puzzle.\w8 \1\s[21]\i[19]\n\n[half]Ooh,\w4 do tell,\w4 Professor!\w8 \0\s[3]%(happies)\n\n[half]Well,\w4 you see...\w8 \1\s[21]\i[21]\e"
+		
+		"\1\s[18]\i[19]Hello again,\w4 %(user)!\w8 \0\s[4]%(happies)Good day to you.\w8 \1\s[16]\i[0]\0\s[3]%(smiles)It seems you've called us over on the leap year.\w8 \1\s[16]\i[17]\n\n[half]Professor,\w4 how come we need an extra day every four years to catch us up on the calendar?\w8 \0\s[3]%(happies)\n\n[half]Well,\w4 Luke,\w4 it's a rather fascinating puzzle.\w8 \s[3]%(smiles)Here,\w4 let me tell you.\w8 \1\s[18]\i[15]\n\n[half]I'll make sure to solve it!\w8 \0\s[3]%(happies)\e"
+	}
+	elseif dayslot == "3month 28day" //Mar 28; PL vs PW release in US!
+	{
+		"\0\s[4]%(surprisesmile)Hello there,\w4 %(user)!\w8 \1\s[16]\i[19]Hi!\w8\w6 \0\s[0]\1\s[18]\i[0]The Professor and I were just talking about our adventures with mraceattorney and borgerfey!\w8 \0\s[5]%(concernsmile)\n\n[half]It was quite the adventure,\w4 wasn't it?\w8\e"
+		
+		"\0\s[4]%(smiles)\1\s[18]\i[19]%(user),\w4 hello!\w8 \0\s[0]It's nice to see you again.\w8 \1\s[17]\i[0]\0\s[5]%(smiles)Luke and I were just reminiscing on our adventures with mraceattorney and borgerfey.\w8 \1\s[21]\i[21]\n\n[half]It was a lot of fun,\w8 \s[21]\i[12]for the most part.\w8 \0\s[1]%(concernsmile)\n\n[half]Indeed.\w8\e"
+	}
+	elseif dayslot == "6month 27day" //June 27; LBMR release in US!
+	{
+		"\0\s[1]%(shock)Oh,\w4 %(user).\w8 \1\s[18]\i[21]Hello!\w8\w5 \0\s[0]\1\s[18]\i[0]We were just chatting with pottyprof.\w8 \s[18]\i[21]He's made a friend!\w8 \0\s[1]%(confusesmile)\n\n[half]It's always good to see him opening up a bit more.\w8\e"
+		
+		"\1\s[18]\i[19]Hello,\w4 %(user)!\w8 \0\s[0]You chose an interesting time to bring us here.\w8 \1\s[16]\i[0]\0\s[3]%(concernsmile)Luke and I just finished solving a puzzle with my son,\w4 pottyprof.\w8 \1\s[16]\i[21]\n\n[half]He's getting really good at them.\w8 \0\s[0]\1\s[18]\i[15]Almost as good as you,\w4 Professor!\w8 \0\s[1]%(happies)\n\n[half]Yes,\w4 it seems that way.\w8 \1\s[17]\i[21]\e"
+	}
+	elseif dayslot == "7month 20day" //July 20; LMJ release in JP! (Katrielle bday)
+	{
+		"\0\s[1]%(shockopen)Oh.\w8 \1\s[18]\i[0]\0\s[4]%(surprisesmile)%(user),\w4 hello there.\w8 \1\s[18]\i[21]It's misslayton's birthday today!\w8 \0\s[1]%(confusesmile)\n\n[half]It brings up quite a few odd memories,\w4 doesn't it?\w8 \1\s[16]\i[13]\n\n[half]Yes,\w4 it does...\w8\e"
+		
+		"\1\s[18]\i[19]Hello,\w4 %(user)!\w8 \0\s[0]Hello again.\w8 \1\s[17]\i[0]\0\s[3]%(concernsmile)You've chosen an interesting date to bring us here,\w4 as it's my daughter's birthday today.\w8 \1\s[16]\i[9]\n\n[half]I hope misslayton and pottyprof don't miss us too much.\w8 \0\s[1]%(concernsmile)\n\n[half]I'm sure we'll be back in time to see them.\w8\e"
+	}
+	elseif dayslot == "8month 8day" //August 8; Comet in Moominland Release date! (Snufkin bday)
+	{
+		"\0\s[1]%(shockopen)Oh,\w8 \1\s[18]\i[21]\0\s[1]%(happies)hello again,\w4 %(user).\w8 \1\s[19]\i[14]Today's a special day!\w8 \0\s[1]%(confusesmile)\n\n[half]Is it,\w4 now?\w8 \1\s[19]\i[21]\n\n[half]Yeah!\w8 \0\s[4]%(confusesmile)\1\s[17]\i[19]It's my pen pal's friend's birthday!\w8 \0\s[0]\1\s[22]\i[17]Though,\w4 I suppose that doesn't really mean much to anyone besides him...\w8 \0\s[1]%(confusesmile)\n\n[half]Well,\w4 I do hope your pen pal's friend has a fine birthday.\w8 \1\s[21]\i[21]\n\n[half]Me,\w4 too!\w8\e"
+		
+		"\0\s[4]%(happies)\1\s[18]\i[21]Hello again,\w4 %(user)!\w8 \0\s[0]\1\s[19]\i[0]Today's a real interesting day,\w4 don't you think?\w8 \0\s[1]%(confusesmile)How so,\w4 Luke?\w8 \1\s[18]\i[0]\n\n[half]Well,\w8 \s[18]\i[14]it seems like the type of day to go hiking out to an observatory and witness a comet countdown!\w8 \0\s[4]%(happies)\n\n[half]Hahaha,\w4 is that so?\w8 \1\s[16]\i[21]\0\s[3]%(calmsmile)Now that would be a proper adventure,\w4 I dare say.\w8 \1\s[16]\i[19]\n\n[half]Right?\w8\e"
+	}
+	elseif dayslot == "8month 24day" //Aug 24; Diabolical Box release US!
+	{
+		if servedtea != "None"
+		{
+			"\0\s[4]%(shockopen)Ah,\w4 %(user)!\w8 \1\s[18]\i[0]Hello again!\w8 \0\s[0]\n\n[half]Today seems like a good day for a cup of %(servedtea).\w8 \1\s[18]\i[21]\n\n[half]Yeah,\w4 it does!\w8 \0\s[1]%(happies)\1\s[16]\i[0]Maybe you'd like to join us for a spot of it later?\w8 \0\s[3]%(calmsmile)\n\n[half]If you have the time,\w4 that is.\w8 \1\s[17]\i[21]\e"
+			
+			"\1\s[20]\i[0]It's %(user),\w4 Professor!\w8 \0\s[4]%(surprisesmile)So it is.\w8 \1\s[16]\i[21]\0\s[3]%(calmsmile)You happened to catch us right before we could enjoy a cup of %(servedtea).\w8 \1\s[21]\i[0]\n\n[half]Maybe you'd like to have one with us!\w8 \0\s[5]%(smiles)\n\n[half]We'd greatly appreciate it if so.\w8 \1\s[21]\i[22]\e"
+		}
+		if favetea != "Undecided"
+		{
+			"\0\s[1]%(shockopen)Ah,\w8 \s[1]%(smiles)%(user).\w8 \1\s[18]\i[21]Hello there!\w8 \1\s[19]\i[0]The Professor and I were just thinking about how nice it would be to make some %(favetea) again.\w8 \0\s[3]%(happies)\n\n[half]Perhaps you'd like to join us in having a cup?\w8 \1\s[21]\i[21]\n\n[half]Yeah,\w4 that'd be great!\w8\e"
+			
+			"\1\s[18]\i[16]Hey,\w4 it's %(user) again!\w8 \0\s[1]%(smiles)So it is.\w8 \1\s[18]\i[22]\0\s[3]%(smiles)Luke and I were just pondering over having a cup of %(favetea),\w4 in actuality.\w8 \1\s[21]\i[19]\n\n[half]Now we can have one together!\w8 \s[18]\i[21]At least,\w4 if you'd like.\w8 \0\s[1]%(happies)\n\n[half]It would be quite nice.\w8\e"
+		}
+		
+		"\0\s[1]%(happies)Hello there,\w4 %(user).\w8 \1\s[15]\i[21]Hi again!\w8 \s[15]\i[22]\0\s[3]%(smiles)\n\n[half]Luke and I were just reminiscing about our time investigating a rather diabolical box.\w8 \1\s[22]\i[14]\n\n[half]That was some puzzle,\w4 wasn't it,\w4 Professor?\w8 \0\s[1]%(calmsmile)\n\n[half]Indeed it was.\w8 \1\s[18]\i[0]\0\s[0]Perhaps you've heard about it,\w4 %(user)?\w8\e"
+		
+		"\1\s[18]\i[19]It's %(user)!\w8 \0\s[1]%(surprisesmile)\1\s[18]\i[21]Hello!\w8 \0\s[1]%(happies)Hello again,\w4 %(user).\w8 \1\s[19]\i[0]\n\n[half]The Professor and I were just talking about all the tea you can find in Folsense.\w8 \0\s[1]%(neutral)\1\s[22]\i[17]Or,\w4 more specifically,\w4 all the ingredients for tea.\w8 \0\s[3]%(calmsmile)\n\n[half]We had quite the time brewing them up.\w8 \1\s[18]\i[0]\0\s[3]%(happies)It makes me wish for a cup right now,\w4 if I'm being honest.\w8 \1\s[17]\i[21]\n\n[half]A good cuppa does sound like a brilliant idea.\w8\e"
+	}
+	elseif dayslot == "9month 12day" //Sep 12; Unwound Future release in US! (Flora bday)
+	{
+		"\0\s[4]%(happies)Hello there,\w4 %(user).\w8 \1\s[18]\i[21]Hello!\w8 \0\s[0]\1\s[18]\i[0]The Professor and I were just celebrating with thegoldenapple!\w8 \0\s[5]%(happies)\n\n[half]Today's her birthday,\w4 you see.\w8 \1\s[21]\i[21]\n\n[half]We got her a cake and sang to her and everything.\w8 \0\s[0]\n\n[half]We'll let her know you wish her well once we return,\w4 if you'd like.\w8 \1\s[18]\i[0]\n\n[half]But until then,\w8 \0\s[1]%(happies)\1\s[18]\i[21]we'll keep you company!\w8\e"
+		
+		"\1\s[15]\i[16]Oh!\w8 \0\s[1]%(surprisesmile)\1\s[18]\i[21]It's %(user) again!\w8 Hello!\w8 \0\s[0]You have interesting timing.\w8 \1\s[16]\i[0]\0\s[5]%(calmsmile)Luke and I were just discussing our experiences with time travel.\w8 \1\s[16]\i[13]\n\n[half]Even thegoldenapple was surprised about all of that...\w8 \0\s[4]%(concernsmile)\n\n[half]It was quite the adventure,\w4 that's for sure.\w8\e"
+	}
+	elseif dayslot == "9month 21day" //Sep 21; LBMR release in JP! (Alfendi bday)
+	{
+		"\0\s[4]%(shockopen)Oh!\w8 \1\s[18]\i[0]\0\s[4]%(happies)Hello again,\w4 %(user).\w8 \1\s[18]\i[19]Today's pottyprof's birthday!\w8 \0\s[0]\1\s[18]\i[0]He was talking about making a new friend recently.\w8 \0\s[1]%(sadsmile)\n\n[half]I do hope he's behaving himself.\w8 \1\s[16]\i[9]\0\s[3]%(concernsmile)He can get rather rowdy when he loses himself in his work...\w8\e"
+		
+		"\0\s[1]%(shockopen)\1\s[19]\i[19]Professor,\w4 it's %(user) again!\w8 \0\s[0]%(surprisesmile)I see that,\w4 Luke.\w8 \1\s[18]\i[22]\0\s[1]%(happies)Hello again,\w4 %(user).\w8 \1\s[18]\i[0]\0\s[0]We were just celebrating my son's birthday.\w8 \1\s[21]\i[14]\n\n[half]He managed to solve your puzzle in no time!\w8 \0\s[1]%(happies)\n\n[half]Hahaha,\w4 he is getting rather good at them,\w4 isn't he?\w8 \1\s[17]\i[21]\e"
+	}
+	elseif dayslot == "10month 6day" //Oct 6; LMJ release in US!
+	{
+		"\0\s[4]%(shockopen)Ah,\w8 \1\s[18]\i[0]\0\s[4]%(happies)hello again,\w4 %(user).\w8 \1\s[18]\i[21]Hi!\w8 \0\s[0]\1\s[18]\i[0]The Professor and I were just talking about how misslayton came into our family.\w8 \0\s[1]%(sadsmile)\n\n[half]It was a rather harrowing tale to hear about after the fact...\w8 \1\s[16]\i[12]\n\n[half]It was pretty tough going through it,\w4 for sure.\w8 \0\s[1]%(concernsmile)\1\s[18]\i[19]But we both came out of it okay!\w8 \0\s[3]%(concernsmile)\n\n[half]A fact which I am forever grateful for...\w8\e"
+		
+		"\1\s[18]\i[19]Hey,\w8 \0\s[1]%(surprisesmile)\1it's %(user) again!\w8 \0\s[4]%(happies)\1\s[18]\i[21]Hello!\w8 \0\s[4]%(smiles)You caught us in the middle of discussing my daughter,\w4 misslayton.\w8 \1\s[17]\i[19]\n\n[half]She's been having a lot of fun with some new friends recently.\w8 \0\s[1]%(concernsmile)\1\s[17]\i[14]It always gets me fired up,\w4 seeing them running around trying to solve mysteries.\w8 \0\s[4]%(concernsmile)\n\n[half]She is quite energetic.\w8 \1\s[17]\i[0]\0\s[3]%(happies)Rather like you,\w4 my boy.\w8 \1\s[18]\i[21]I guess so!\w8\e"
+	}
+	elseif dayslot == "10month 12day" //Oct 12; AA1 release in JP! (Phoenix bday)
+	{
+		"\0\s[4]%(happies)Hello,\w4 %(user).\w8 \1\s[18]\i[21]Hey,\w4 %(user)!\w8 \0\s[0]\1\s[19]\i[0]The Professor and I were just wondering if we should call mraceattorney up for his birthday today!\w8 \0\s[1]%(concernsmile)\n\n[half]I suppose we'll have to do so later.\w8 \1\s[22]\i[17]\n\n[half]Yeah,\w4 I guess so.\w8\e"
+		
+		"\1\s[18]\i[19]Oh,\w4 it's %(user) again!\w8 \0\s[4]%(happies)%(user),\w4 nice to see you again.\w8 \1\s[16]\i[22]\0\s[5]%(calmsmile)Luke and I just got finished chatting with our friend mraceattorney.\w8 \1\s[16]\i[19]\n\n[half]He told us some fun stories about his first year as an attorney,\w4 \0\s[1]%(concernsmile)\1\s[16]\i[21]including the time he had to defend himself in court.\w8 \0\s[1]%(sadsmile)\n\n[half]Sometimes,\w4 I do worry his strange luck is going to land him in more trouble than he can handle one day...\w8 \1\s[16]\i[13]\n\n[half]Yeah,\w8 \0\s[1]%(concernsmile)\1\s[16]\i[12]you and he do get into a lot of worrying situations for sure,\w4 Professor.\w8 \0\s[1]%(confused)\e"
+	}
+	elseif dayslot == "10month 17day" //Oct 17; Last Spectre release in US!
+	{
+		"\1\s[16]\i[1]\0\s[4]%(surprisesmile)Ah,\w4 %(user).\w8 \1\s[18]\i[19]Hi again,\w4 %(user)!\w8 \0\s[0]\1\s[18]\i[0]The Professor and I were just reminiscing about that time we solved the case of a spectre.\w8 \0\s[1]%(happies)\n\n[half]That was when we became the team we are today.\w8 \1\s[16]\i[13]\n\n[half]It wasn't all fun,\w8 \0\s[4]%(concernsmile)\1\s[16]\i[22]but that bit always puts a smile on my face.\w8 \0\s[3]%(concernsmile)\n\n[half]It is the nicest thing about that time to look back on,\w4 I agree.\w8 \1\e"
+		
+		"\1\s[19]\i[21]Professor,\w4 it's %(user)!\w8 \0\s[1]%(surprisesmile)So it is.\w8 \1\s[18]\i[0]\0\s[4]%(happies)Hello again,\w4 %(user).\w8 \1\s[18]\i[21]\n\n[half]Hi!\w8\w4 \0\s[0]\1\s[16]\i[0]The Professor and I were just talking about the time we first met!\w8 \0\s[5]%(smiles)\n\n[half]Hahaha,\w4 have you forgotten,\w4 Luke?\w8 \1\s[16]\i[1]\0\s[3]%(calmsmile)I've known you since you were a baby.\w8 \1\s[16]\i[4]\n\n[half]Come on,\w4 I barely remember that.\w8 \0\s[1]%(happies)\1\s[17]\i[14]Besides,\w4 I think it's cooler to say we first met when we solved our first mystery together!\w8 \0\s[1]%(calmsmile)\n\n[half]Yes,\w4 I suppose it does sound more fun that way.\w8 \1\s[17]\i[21]\e"
+	}
+	elseif dayslot == "10month 26day" //Oct 26; Miracle Mask release in US!
+	{
+		"\0\s[4]%(happies)Hello again,\w4 %(user).\w8 \1\s[18]\i[21]Hiya!\w8\w4 \0\s[0]\1\s[19]\i[0]The Professor and I were just talking about our trip to Monte D'Or.\w8 \0\s[1]%(concernsmile)\n\n[half]It was quite the mystery we had to solve there,\w4 wasn't it?\w8 \1\s[16]\i[25]\n\n[half]I'm half-convinced you knew the identity to the Masked Gentleman the whole time.\w8 \0\s[3]%(sad)\n\n[half]Unfortunately,\w4 even I was taken aback once all the pieces for that one fell into place.\w8 \1\s[16]\i[13]\n\n[half]I suppose that would be hard to predict.\w8\e"
+		
+		"\1\s[18]\i[19]Hey,\w4 it's %(user),\w4 Professor!\w8 \0\s[0]Oh,\w8 \1\s[18]\i[21]\0\s[4]%(happies)hello there,\w4 %(user).\w8 \1\s[18]\i[0]\0\s[4]%(smiles)Luke and I were discussing our time in Monte D'Or and the mystery we solved there.\w8 \1\s[21]\i[19]\n\n[half]That was my first time trying to talk to a parrot.\w8 \s[21]\i[21]And a tiger!\w8 \0\s[3]%(happies)\n\n[half]There were plenty of opportunities for you to show off your talents,\w4 indeed.\w8 \1\s[17]\i[21]\e"
+	}
+	elseif dayslot == "11month 7day" //Nov 7; Curious Village release in UK! (Luke bday)
+	{
+		"\0\s[4]%(happies)Hello there,\w4 %(user).\w8 \1\s[18]\i[21]%(user),\w4 hello!\w8 \0\s[0]\1\s[18]\i[19]Didja want to celebrate my birthday with me?\w8 \0\s[2]%(confusesmile)\n\n[half]How old are you turning this year,\w4 Luke?\w8 \1\s[16]\i[5]\n\n[half]Don't you all ready know,\w4 Professor?\w8 \0\s[2]%(happies)\n\n[half]Of course,\w8 \1\s[16]\i[1]\0\s[3]%(happies)but I was sure you thought of the answer in the form of a puzzle.\w8 \1\s[16]\i[21]\n\n[half]You got me!\w8 \0\s[2]%(confident)\1\s[22]\i[14]Okay,\w4 so here's how it goes...\w8\e"
+		
+		"\1\s[18]\i[19]It's %(user),\w4 Professor!\w8 \0\s[3]%(surprisesmile)And on your birthday,\w4 no less.\w8 \1\s[18]\i[21]\n\n[half]Yeah!\w8 \0\s[1]%(happies)\1\s[18]\i[0]Did you know,\w4 %(user)?\w8 Is that why you called us here?\w8 \0\s[5]%(calmsmile)\n\n[half]Perhaps you can tell %(them) your puzzle for how old you're turning.\w8 \1\s[17]\i[27]\n\n[half]Aww,\w4 but you solved that one all ready,\w4 Professor!\w8 \0\s[1]%(concernsmile)\1\s[22]\i[14]I'd have to come up with a whole new puzzle to tell %(them).\w8 \0\s[3]%(smiles)\n\n[half]Perhaps next year,\w4 then.\w8 \1\s[22]\i[22]\e"
+	}
+	elseif dayslot == "11month 8day" //Nov 8; Azran Legacy release in US!
+	{
+		"\0\s[4]%(surprisesmile)Ah,\w4 hello there,\w4 %(user).\w8 \1\s[18]\i[21]Hiya,\w4 %(user)!\w8 \0\s[1]%(happies)\1\s[18]\i[19]The Professor and I were just reminiscing on our time travelling all around the world!\w8 \0\s[3]%(smiles)\n\n[half]That was quite the mystery we were given to solve,\w4 wasn't it?\w8 \1\s[16]\i[0]\n\n[half]Yeah.\w8 \s[16]\i[21]And the biggest group to solve it!\w8 \0\s[1]%(concernsmile)\n\n[half]I suppose we did have five others with us,\w4 didn't we?\w8 \1\s[16]\i[9]\e"
+		
+		"\1\s[18]\i[0]Hello,\w4 %(user)!\w8 \0\s[4]%(happies)Yes,\w4 hello there.\w8 \1\s[17]\i[22]\0\s[3]%(smiles)Luke and I were just discussing our time investigating the Azran's greatest mystery.\w8 \1\s[19]\i[14]\n\n[half]It was a real doozy.\w8 \0\s[1]%(concernsmile)\1\s[19]\i[19]We had to travel around the whole world and had five other people helping us!\w8 \0\s[0]\n\n[half]It was quite the adventure indeed.\w8 \1\s[16]\i[22]\e"
+	}
+	elseif dayslot == "11month 26day" //Nov 26; Last Spectre release in JP! (Luke bday)
+	{
+		"\0\s[1]%(happies)Hello there,\w4 %(user).\w8 \1\s[15]\i[16]Oh,\w4 %(user)!\w8 \0\s[0]\1\s[18]\i[19]Did you know it was my birthday today?\w8 \0\s[2]%(confident)\n\n[half]Perhaps %(they) might have.\w8 \1\s[19]\i[0]\n\n[half]The Professor and I were on our way to celebrate with my parents,\w4 \s[19]\i[21]but this is just as much fun!\w8 \0\s[1]%(happies)\n\n[half]It'll certainly make for an exciting story to tell them once we arrive.\w8\e"
+		
+		"\1\s[18]\i[19]Hey,\w4 it's %(user)!\w8 \0\s[4]%(surprisesmile)Hello there,\w4 %(user).\w8 \1\s[17]\i[21]\n\n[half]Did you call us here because today's my birthday?\w8 \0\s[3]%(happies)\n\n[half]That's quite lucky if %(they) did.\w8 \1\s[17]\i[0]\0\s[3]%(happies)Today always reminds me of the day we met,\w4 Luke.\w8 \1\s[17]\i[22]\n\n[half]Yeah.\w8 \0\s[0]\1\s[21]\i[14]Solving mysteries together has been what we do from the word go,\w4 innit?\w8 \0\s[4]%(happies)\n\n[half]At the very least,\w4 we've never had a dull moment together.\w8 \1\s[21]\i[21]\n\n[half]Yeah!\w8\e"
+	}
+	elseif dayslot == "11month 29day" //Nov 29; Diabolical Box / Unwound Future / PL vs PW release in JP! (I can't wait until I have to add NWOS to this list....)
+	{
+		if favegame == "Diabolical Box" || favegame == "Pandora's Box"
+		{
+			"\0\s[4]%(surprisesmile)Ah,\w4 %(user).\w8 \1\s[18]\i[19]Hello there,\w4 %(user)!\w8 \0\s[0]\1\s[18]\i[0]The Professor and I were just thinking back on our time exploring Folsense.\w8 \0\s[3]%(calmsmile)\n\n[half]It was quite the intriguing mystery,\w4 wasn't it?\w8 \1\s[16]\i[13]\n\n[half]I'll say.\w8 \0\s[1]%(concernsmile)\1\s[16]\i[12]We ran into so many things that the vampire castle at the end didn't seem out of place at all.\w8 \0\s[4]%(concernsmile)\n\n[half]Hahaha,\w4 I suppose it was just one more piece in what seemed like a string of absurdities,\w4 wasn't it?\w8\e"
+			
+			"\1\s[18]\i[19]Heya,\w4 %(user)!\w8 \0\s[4]%(surprisesmile)\s[0]Ah,\w4 yes.\w8 \s[4]%(happies)Hello there.\w8 \1\s[16]\i[0]\n\n[half]The Professor and I were just thinking about all those teas we made in Folsense again.\w8 \0\s[2]%(confident)\n\n[half]That was only one of the many puzzles we had to contend with during that adventure.\w8 \1\s[16]\i[22]\0\s[3]%(happies)That's not even counting the case of impersonation,\w4 the attempted theft of a dangerous artefact,\w4 or the castle built above such a dangerous mine.\w8 \1\s[18]\i[14]\n\n[half]Nothing the great Professor Layton and his star apprentice couldn't handle!\w8 \0\s[1]%(happies)\e"
+		}
+		if favegame == "Unwound Future" || favegame == "Lost Future"
+		{
+			"\0\s[4]%(surprisesmile)Ah,\w4 %(user).\w8 \1\s[18]\i[21]Hi there,\w4 %(user)!\w8 \0\s[3]%(calmsmile)\n\n[half]Luke and I were just discussing our adventure through a fantastic impression of a future London.\w8 \1\s[10]\n\n[half]It was a real adventure.\w8 \s[19]\i[14]They really made it look lived in and had the whole Thames and everything!\w8 \0\s[2]%(annoyedsmile)\n\n[half]An important lesson in knowing the basics of infrastructure.\w8\e"
+			
+			"\1\s[18]\i[19]%(user)!\w8 \0\s[4]%(surprisesmile)\1\s[18]\i[21]Hiya!\w8 \0\s[4]%(happies)Hello again.\w8 \1\s[18]\i[0]\0\s[4]%(smiles)Luke and I were just talking about our time investigating a mystery within a future London.\w8 \1\s[16]\i[10]\n\n[half]It was a pretty sad mystery in the end.\w8 \0\s[1]%(sad)\1\s[16]\i[13]But there were a lot of fun bits,\w4 too.\w8 \s[16]\i[0]Like thinking we'd actually travelled through time.\w8 \0\s[3]%(concernsmile)\n\n[half]Yes,\w4 that was a rather shocking aspect to it.\w8\e"
+		}
+		if favegame == "Professor Layton vs Phoenix Wright"
+		{
+			"\0\s[1]%(surprisesmile)Oh,\w4 hello there,\w4 %(user).\w8 \1\s[18]\i[21]Hi again!\w8 \0\s[0]\1\s[18]\i[0]The Professor and I were just reminiscing about our adventure with mraceattorney.\w8 \0\s[1]%(concernsmile)\n\n[half]It was quite a stressful mystery for all the fun we had along the journey.\w8 \1\s[16]\i[13]\n\n[half]Yeah...\w8 \s[16]\i[0]I hope \_a[EspellaCantabella]Espella\_a's doing well.\w8 \0\s[4]%(concernsmile)\n\n[half]I hope so as well,\w4 my boy.\w8\e"
+			
+			"\1\s[18]\i[19]Hiya,\w4 %(user)!\w8 \0\s[1]%(happies)Hello again.\w8 \1\s[18]\i[0]\0\s[0]Luke and I were talking over our adventures in Labyrinthia with mraceattorney and borgerfey.\w8 \1\s[16]\i[13]\n\n[half]It was kinda stressful at the time,\w8 \0\s[1]%(concernsmile)\1\s[16]\i[21]but really fun once we got everything properly sorted.\w8 \0\s[1]%(calmsmile)\n\n[half]Indeed.\w8\e"
+		}
+		
+		"\0\s[4]%(smiles)Hello there,\w4 %(user).\w8 \1\s[18]\i[21]Hello!\w8 \0\s[0]\1\s[18]\i[27]Gosh,\w4 Professor,\w4 we sure are busy today.\w8 \0\s[1]%(concernsmile)\n\n[half]November the 29th seems a particularly auspicious date.\w8 \1\s[16]\i[0]\0\s[3]%(concernsmile)So many of our adventures have happened today that it's hard to pick just one to think about.\w8 \1\s[16]\i[9]\n\n[half]It really is.\w8\e"
+		
+		"\1\s[18]\i[19]Hey,\w4 it's %(user) again!\w8 \0\s[1]%(surprisesmile)Hello there,\w4 %(user).\w8 \1\s[16]\i[0]\0\s[1]%(concernsmile)Today continues to be quite busy for the both of us,\w4 doesn't it?\w8 \1\s[16]\i[12]\n\n[half]You can say that again,\w4 Professor!\w8 \0\s[0]\1\s[19]\i[0]We've solved at least three different cases around today,\w4 haven't we?\w8 \0\s[5]%(calmsmile)\n\n[half]And now we're solving %(user)'s mystery as well.\w8 \1\s[18]\i[21]\n\n[half]We sure are!\w8\e"
+		
+		"\0\s[4]%(surprisesmile)Ah,\w4 hello there,\w4 %(user).\w8 \1\s[18]\i[19]Hiya,\w4 %(user)!\w8 \0\s[0]\1\s[18]\i[27]Adding to our busy day today?\w8 \0\s[1]%(concernsmile)\n\n[half]Today does seem to be a day for solving mysteries.\w8 \1\s[21]\i[21]\n\n[half]You bet.\w8 \0\s[0]\1\s[21]\i[0]We climbed aboard the Molentary Express,\w4 received that letter from my future self,\w4 \s[21]\i[21]and found ourselves in Labyrinthia all on today's date!\w8 \0\s[5]%(concernsmile)\n\n[half]Different times,\w4 of course.\w8 \1\s[10]\0\s[5]%(calmsmile)But yes,\w4 all of those happened upon a November 29th.\w8 \s[2]%(calmsmile)Quite odd,\w4 wouldn't you say?\w8 \1\s[18]\i[25]\n\n[half]Looks like you're cooking up a puzzle over it,\w4 Professor.\w8 \0\s[2]%(happies)\e"
+		
+		"\1\s[18]\i[19]Oh,\w4 it's %(user)!\w8 \0\s[4]%(happies)Hello again,\w4 %(user).\w8 \1\s[17]\i[0]\0\s[4]%(smiles)It seems we've been called into yet another mystery on November 29th,\w4 my boy...\w8 \1\s[18]\i[15]\n\n[half]Seems so,\w4 Professor!\w8 \0\s[0]\1\s[22]\i[14]First we had that mystery of a diabolical box,\w4 then the mystery of a future London,\w4 \s[19]\i[21]and then our adventures in Labyrinthia!\w8 \0\s[2]%(confusesmile)\n\n[half]It's almost as if today itself holds its own little mystery.\w8 \1\s[17]\i[0]\n\n[half]If it does,\w4 \s[17]\i[21]I know you'll figure it out!\w8 \0\s[2]%(happies)\e"
+	}
+	else
+	{
+		"%(normalboottalk)"
+	}
+}
+
+
+//--normalboottalk
+normalboottalk
+{
+	//if weekday == 6 && hour >= 19 //It's Saturday night!!
+	if RAND(100) < 5
+	{
+		"\0\s[1]%(surprisesmile)Oh,\w4 %(user).\w8 \1\s[17]\i[19]Hiya,\w4 %(user)!\w8 \0\s[1]%(happies)\1\s[17]\i[0]It's nice to see you again.\w8 \0\s[0]\1\s[17]\i[15]The Professor and I were just thinking about your mystery here.\w8 \0\s[2]%(happies)\n\n[half]Yes,\w4 quite the fortuitous coincidence indeed.\w8\e"
+		
+		"\1\s[18]\i[19]Hey,\w4 it's %(user)!\w8 \0\s[4]%(happies)Hello again,\w4 %(user).\w8 \1\s[17]\i[0]\0\s[3]%(calmsmile)Luke and I were just discussing the finer points of your mystery.\w8 \1\s[17]\i[21]\n\n[half]What are the odds that you'd call us over here,\w4 huh?\w8\e"
+		
+		"\0\s[1]%(surprisesmile)Ah,\w4 %(user).\w8 \1\s[18]\i[21]Hi again!\w8 \0\s[0]\1\s[18]\i[0]Weren't we just talking about %(their) mystery,\w4 Professor?\w8 \0\s[1]%(calmsmile)\n\n[half]We were indeed.\w8 \1\s[16]\i[0]\0\s[3]%(calmsmile)It's a rather fascinating one,\w4 after all.\w8 \1\s[16]\i[21]\n\n[half]Definitely not something we've ever come across before.\w8\e"
+		
+		"\1\s[18]\i[19]Oh,\w4 hello,\w4 %(user)!\w8 \0\s[4]%(smiles)Hello again.\w8 \1\s[17]\i[0]\0\s[3]%(calmsmile)Luke,\w4 weren't we just discussing %(their) mystery?\w8 \1\s[17]\i[21]\n\n[half]We were,\w4 Professor!\w8 \0\s[1]%(happies)\1\s[17]\i[25]You have it all figured out,\w4 too,\w4 don't you?\w8 \0\s[2]%(calmsmile)\n\n[half]Perhaps.\w8 \1\s[17]\i[21]\e"
+	}
+	else
+	{
+		if timeslot == "earlymorning" //am5 to am8
+		{
+			"\0\s[4]%(shockopen)%(user)?\w8 \1\s[16]\i[17]So early?\w8 \0\s[3]%(concernsmile)\n\n[half]Well,\w4 good morning to you.\w8 \1\s[18]\i[27]\n\n[half]Gotta get a head start on the day,\w4 I suppose.\w8 \0\e"
+			
+			"\1\s[18]\i[0]%(user),\w4 good morning!\w8 \0\s[1]%(confusesmile)You're up quite early.\w8 \1\s[16]\i[25]\n\n[half]So are we,\w4 Professor.\w8 \0\s[2]%(concernsmile)\n\n[half]I suppose that's true.\w8 \1\s[16]\i[22]\e"
+			
+			"\1\s[15]\i[8]\0\s[1]%(shockopen)Oh,\w4 %(user).\w8 \1\s[15]\i[20]\0\s[4]%(confusesmile)Up early,\w4 I see.\w8 \1\s[18]\i[5]G'morning,\w4 %(user).\w8 \0\s[1]%(confusesmile)\1\s[16]\i[10]I'll be okay in a jiff,\w4 just give me a mo'.\w8 \0\s[1]%(concernsmile)\e"
+			
+			"\1\s[18]\i[22]G'morning,\w4 %(user)!\w8 \0\s[4]%(concernsmile)Yes,\w4 good morning.\w8 \1\s[10]\0\s[4]%(confusesmile)Quite an early start to your day,\w4 I see.\w8 \1\s[15]\i[9]\n\n[half]Us,\w4 too.\w8 \0\s[1]%(concernsmile)\1\s[19]\i[22]We've got a mystery to investigate,\w4 after all!\w8 \0\s[3]%(concernsmile)\n\n[half]Indeed we do.\w8\e"
+		}
+		elseif timeslot == "morning" //am9 to am11
+		{
+			"\0\s[4]%(surprisesmile)Ah,\w4 %(user).\w8 \1\s[18]\i[21]Good morning!\w8 \0\s[0]\1\s[18]\i[0]Nice to be up early,\w4 right,\w4 Professor?\w8 \0\n\n[half]Indeed.\w8 \1\s[16]\i[22]\0\s[5]%(calmsmile)Getting a headstart on the day is certainly something we're used to.\w8 \1\s[16]\i[21]\n\n[half]It sure is.\w8\e"
+			
+			"\1\s[18]\i[19]%(user)!\w8 \0\s[4]%(surprisesmile)\1\s[18]\i[21]Good morning!\w8 \0\s[4]%(happies)Pleasure to see you again,\w4 %(user).\w8 \1\s[16]\i[0]\0\s[0]Thank you for inviting us back on such a fine morning.\w8 \1\s[16]\i[21]\n\n[half]Yeah!\w8 \0\s[1]%(happies)\1\s[21]\i[14]It looks like the perfect time to get back to looking into this mystery.\w8 \0\s[1]%(calmsmile)\n\n[half]It certainly does.\w8\e"
+			
+			"\0\s[4]%(shockopen)Oh,\w4 \s[4]%(happies)good morning,\w4 %(user).\w8 \1\s[18]\i[21]Good morning!\w8 \0\s[0]\1\s[18]\i[0]The Professor and I just grabbed some breakfast before coming here.\w8 \0\s[1]%(happies)\1\s[21]\i[21]It was delicious!\w8 \0\s[5]%(happies)\n\n[half]It's important not to work on an empty stomach,\w4 after all.\w8\e"
+			
+			"\1\s[18]\i[19]Hey there,\w4 %(user)!\w8 \0\s[4]%(smiles)Good morning.\w8 \1\s[17]\i[0]\0\s[3]%(calmsmile)Shall we continue where we last left off,\w4 my boy?\w8 \1\s[18]\i[15]\n\n[half]I'm as ready to go as you are,\w4 Professor!\w8\e"
+		}
+		elseif timeslot == "lunch" //pm12 to pm2
+		{
+			"\0\s[4]%(surprisesmile)Ah,\w4 \s[4]%(happies)hello there,\w4 %(user).\w8 \1\s[18]\i[19]Hi!\w8\w4 \0\s[0]\1\s[18]\i[0]The Professor and I just had ourselves some lunch,\w4 \s[17]\i[15]so we're ready to get back to the investigation!\w8 \0\s[2]%(calmsmile)\n\n[half]I expect you'll be hungry again soon enough,\w4 Luke.\w8 \1\s[16]\i[0]\n\n[half]Probably.\w8 \0\s[1]%(happies)\1\s[16]\i[21]I'm a growing boy,\w4 after all!\w8\e"
+			
+			"\0\s[4]%(happies)Hello there,\w4 %(user).\w8 \1\s[18]\i[21]Hi again!\w8 \s[18]\i[0]\0\s[0]\n\n[half]Luke and I are quite ready to get back to our investigation now that we've had a good lunch.\w8 \1\s[21]\i[22]\n\n[half]It was sooooo good!\w8 \0\s[1]%(happies)\1\s[21]\i[0]I could always eat some more,\w4 of course.\w8 \0\s[4]%(happies)\n\n[half]Of course,\w4 my boy.\w8\e"
+			
+			"\1\s[18]\i[19]Hey there,\w4 %(user)!\w8 \0\s[4]%(happies)Hello once again.\w8 \1\s[16]\i[0]\0\s[3]%(smiles)Luke and I just finished getting ourselves some lunch.\w8 \1\s[21]\i[21]\n\n[half]It was really good!\w8 \0\s[1]%(happies)\1\s[21]\i[13]Just thinking back to it is making me hungry again.\w8 \0\s[1]%(concernsmile)\n\n[half]I suppose you are a growing boy...\w8 \1\s[21]\i[22]\e"
+			
+			"\1\s[18]\i[21]Hi again,\w4 %(user)!\w8 \0\s[3]%(calmsmile)Pleasure to see you once again.\w8 \1\s[17]\i[0]\n\n[half]The Professor and I just had some lunch,\w8 \0\s[0]\1\s[21]\i[15]so we can dive right back into our investigation here!\w8 \0\s[1]%(happies)\n\n[half]Indeed we can.\w8\e"
+		}
+		elseif timeslot == "afternoon" //pm3 to pm5
+		{
+			"\1\s[18]\i[16]Oh,\w4 \s[18]\i[21]it's %(user),\w4 Professor!\w8 \0\s[4]%(smiles)So it is.\w8 \1\s[10]\0\s[4]%(happies)Good afternoon,\w4 %(user).\w8 \1\s[17]\i[15]\n\n[half]Lovely day for investigating this mystery,\w4 innit?\w8 \0\s[3]%(calmsmile)\n\n[half]I would say so,\w4 Luke.\w8 \1\s[17]\i[21]\e"
+			
+			"\0\s[4]%(surprisesmile)Ah,\w4 good afternoon,\w4 %(user).\w8 \1\s[18]\i[21]Afternoon!\w8 \0\s[0]\1\s[18]\i[14]Looks like it's the perfect time to get back to our mystery here,\w4 Professor.\w8 \0\s[3]%(calmsmile)\n\n[half]I heartily agree,\w4 Luke.\w8\e"
+			
+			"\0\s[4]%(happies)Good afternoon to you,\w4 %(user).\w8 \1\s[18]\i[21]Hiya!\w8 \0\s[0]\1\s[18]\i[0]Ready to get back to it,\w4 Professor?\w8 \0\s[3]%(happies)\n\n[half]Of course,\w4 my boy.\w8\e"
+			
+			"\1\s[18]\i[22]Afternoon there,\w4 %(user)!\w8 \0\s[4]%(smiles)Good afternoon.\w8 \1\s[17]\i[22]\0\s[3]%(happies)Luke and I are quite ready to get back to our investigation of this mystery here.\w8 \1\s[21]\i[21]\n\n[half]You bet we are!\w8\e"
+		}
+		elseif timeslot == "evening" //pm6 to pm8
+		{
+			"\0\s[4]%(happies)Good evening there,\w4 %(user).\w8 \1\s[18]\i[21]Evening!\w8 \0\s[0]\1\s[21]\i[14]Ready to get back to it,\w4 Professor?\w8 \0\s[3]%(calmsmile)\n\n[half]Naturally.\w8 \1\s[21]\i[21]\e"
+			
+			"\1\s[18]\i[21]Evening there,\w4 %(user)!\w8 \0\s[4]%(calmsmile)Yes,\w4 a good evening to you.\w8 \1\s[17]\i[0]\n\n[half]Hope you've eaten if you're planning on a long night!\w8 \0\s[3]%(happies)\n\n[half]We've had our dinner,\w4 so no need to worry about us.\w8 \1\s[17]\i[21]\e"
+			
+			"\0\s[4]%(surprisesmile)Ah,\w4 %(user).\w8 \1\s[18]\i[19]\0\s[4]%(happies)Good evening.\w8 \1\s[18]\i[21]Evening!\w8 \0\s[0]\1\s[17]\i[0]Are you planning on a long night of investigation?\w8 \0\s[3]%(concernsmile)\n\n[half]We're quite accustomed to long nights.\w8\e"
+			
+			"\1\s[18]\i[19]Oh,\w4 %(user)!\w8 \0\s[4]%(happies)Good evening.\w8 \1\s[17]\i[0]\n\n[half]Hope you've all ready had your dinner.\w8 \0\s[4]%(concernsmile)\1\s[17]\i[21]'Cause the Professor and I have!\w8 \0\s[5]%(calmsmile)\n\n[half]Make sure to take care of yourself if you're planning a long night.\w8\e"
+		}
+		elseif timeslot == "night" //pm9 to pm11
+		{
+			"\0\s[1]%(shockopen)Oh,\w8 \s[4]%(happies)hello there,\w4 %(user).\w8 \1\s[16]\i[27]It's rather late to be up.\w8 \0\s[4]%(concernsmile)\1\s[16]\i[21]Guess we've got a full night of investigating,\w4 Professor!\w8 \0\s[3]%(calmsmile)\n\n[half]It seems so,\w4 Luke.\w8\e"
+			
+			"\1\s[18]\i[17]%(user)?\w8 \0\s[1]%(confusesmile)\1\s[18]\i[27]What're you doing up so late?\w8 \0\s[3]%(calmsmile)Now,\w4 Luke.\w8 \1\s[16]\i[1]\0Neither of us can really throw stones here.\w8 \1\s[16]\i[0]\n\n[half]I suppose that's true.\w8 \0\s[4]%(happies)\1\s[16]\i[22]Well,\w4 we'll be here to keep you company while we work,\w4 then!\w8\e"
+			
+			"\0\s[4]%(calmsmile)Good night to you,\w4 %(user).\w8 \1\s[18]\i[21]Hi again!\w8 \0\s[0]\1\s[18]\i[0]Rather late for investigating,\w4 innit?\w8 \0\s[5]%(calmsmile)\n\n[half]That just means we'll find different clues than we did during the day.\w8 \1\s[17]\i[21]\n\n[half]Sounds good to me!\w8\e"
+			
+			"\1\s[18]\i[21]Hiya,\w4 %(user)!\w8 \0\s[4]%(happies)Hello again.\w8 \1\s[16]\i[0]\n\n[half]Pleasant night tonight,\w4 isn't it?\w8 \0\s[3]%(calmsmile)\n\n[half]Perfect for continuing our search into this mystery.\w8 \1\s[16]\i[21]\n\n[half]I'll say!\w8\e"
+		}
+		else //am12 to am5
+		{
+			"\0\s[1]%(shockopen)%(user)?\w8 \1\s[18]\i[17]Isn't it too early to be up?\w8 \0\s[1]%(confusesmile)\n\n[half]Perhaps.\w8 \1\s[16]\i[1]\0\s[3]%(concernsmile)I was more shocked to see you here again,\w4 quite honestly.\w8 \1\s[16]\i[27]\n\n[half]Yeah.\w8 I guess that's fair.\w8\e"
+			
+			"\1\s[18]\i[16]%(user)?\w8 \0\s[4]%(confusesmile)\1That you?\w8 \0\s[3]%(concernsmile)It's rather early to be calling us here.\w8 \1\s[16]\i[17]\0\s[3]%(smiles)Though,\w4 I suppose it's a fine time to look into things around here.\w8 \1\s[16]\i[0]\n\n[half]It is neat seeing this place all dark.\w8\e"
+			
+			"\1\s[16]\i[8]\0\s[4]%(shockopen)Ah,\w8 \s[4]%(concernsmile)hello there,\w4 %(user).\w8 \1\s[16]\i[20]Mm,\w4 what time is it,\w4 Professor?\w8 \0\s[5]%(calmsmile)\n\n[half]It appears to be %(nowhour):%(nowmin),\w4 Luke.\w8 \1\s[15]\i[16]\n\n[half]Really?\w8 \s[15]\i[9]Wow,\w4 %(user),\w4 you're calling us here real early.\w8 \0\s[1]%(concernsmile)\e"
+			
+			"\1\s[18]\i[16]%(user)?\w8 \0\s[4]%(concernsmile)\1\s[18]\i[9]It's a bit too early to be up and at 'em,\w4 don't you think?\w8 \0\s[3]%(concernsmile)Perhaps a bit,\w4 \1\s[16]\i[9]\0\s[3]%(calmsmile)but you and I can handle it,\w4 Luke,\w4 I'm sure.\w8 \1\s[16]\i[27]\n\n[half]If you say so,\w4 Professor.\w8\e"
+		}
+	}
+}
+
+
+//--OnClose
+OnClose
+{
+	"\0\b[0]\1\b[0]"
+	--
+	if passmin >= 5 || passhour > 0	//open for at least five minutes.
+	{
+		if teatime == 1 //on
+		{teatime = 0} //turns it off
+		--
+		if RAND(100) < 5
+		{
+			"\0\s[1]%(shockopen)Oh,\w8 \1\s[18]\i[14]\0\s[3]%(happies)we'll be off,\w4 then.\w8 \1\s[18]\i[21]Let's investigate over there,\w4 Professor!\w8 \s[-1]\0\s[1]%(shockopen)\n\n[half]Hold on,\w4 Luke!"
+			
+			"\1\s[15]\i[16]Oh,\w8 \0\s[1]%(concernsmile)\1\s[18]\i[0]guess we'll head out now.\w8 \0\s[5]%(calmsmile)Why don't we continue the investigation over there,\w4 my boy?\w8 \1\s[21]\i[21]\n\n[half]You got it,\w4 Professor!"
+			
+			"\0\s[4]%(surprisesmile)Ah,\w4 I suppose we'll be off for now.\w8 \1\s[17]\i[19]We've got plenty of investigating still to do,\w4 don't we,\w4 Professor?\w8 \0\s[3]%(happies)\n\n[half]That we do,\w4 my boy."
+			
+			"\1\s[18]\i[14]Time for us to hit the pavement again,\w4 Professor?\w8 \0\s[3]%(happies)It appears so.\w8 \1\s[18]\i[22]\0\s[4]%(smiles)We'll see you around,\w4 %(user).\w8 \1\s[18]\i[21]\n\n[half]Seeya!"
+		}
+		else
+		{
+			if dayslot == userbirthday //if it's your birthday!
+			{
+				"\0\s[1]%(happies)Yes,\w8 \1\s[16]\i[22]\0I suppose you've got much to do today on your birthday.\w8 \1\s[18]\i[21]Hope you have a great rest of your birthday,\w4 %(user)!"
+				
+				"\1\s[21]\i[21]Happy birthday again,\w4 %(user)!\w8 \0\s[3]%(calmsmile)Yes,\w4 have a fantastic rest of your day."
+				
+				"\0\s[4]%(smiles)We'll be off,\w4 then.\w8 \1\s[18]\i[21]Enjoy the rest of your birthday,\w4 %(user)!"
+				
+				"\1\s[21]\i[0]Got plans for your birthday,\w4 %(user)?\w8 \0\s[3]%(happies)Hopefully,\w4 they go well for you.\w8 \1\s[17]\i[21]\n\n[half]We'll catch you later!"
+			}
+			elseif timeslot == "earlymorning" //am5 to am8
+			{
+				"\0\s[4]%(happies)We'll be stepping out now.\w8 \1\s[16]\i[0]Since we're all ready awake,\w4 Professor,\w4 \0\s[1]%(neutral)\1\s[16]\i[19]do you want to get started on tidying up some things?\w8 \0\s[1]%(concernsmile)\n\n[half]I suppose we could do that..."
+				
+				"\1\s[18]\i[21]Have a good morning,\w4 %(user)!\w8 \0\s[2]%(confusesmile)I suppose since we're all ready up,\w4 \1\s[18]\i[0]\0\s[2]%(happies)we can get started on our other work for the day.\w8 \1\s[17]\i[21]\n\n[half]Sounds like a plan to me!"
+				
+				"\0\s[4]%(calmsmile)We'll see you again,\w4 %(user).\w8 \1\s[15]\i[0]For now,\w4 \0\s[4]%(smiles)\1I think we should put on the kettle.\w8 \s[18]\i[21]Gonna be a long day ahead of us!\w8 \0\s[3]%(happies)\n\n[half]That sounds like a marvellous idea,\w4 Luke."
+				
+				"\1\s[17]\i[21]Seeya later,\w4 %(user)!\w8 \0\s[0]Luke,\w8 \1\s[17]\i[0]\0\s[3]%(happies)how about a spot of tea once we get back?\w8 \1\s[21]\i[19]\n\n[half]Ooh,\w4 that'll add some pep to our day!"
+			}
+			elseif timeslot == "morning" //am9 to am11
+			{
+				"\0\s[3]%(happies)Have a good morning,\w4 then.\w8 \1\s[18]\i[21]Bye,\w4 %(user)!"
+				
+				"\1\s[18]\i[21]Hope your morning goes well,\w4 %(user)!\w8 \0\s[4]%(calmsmile)We'll be off on our way,\w4 then."
+				
+				"\0\s[4]%(calmsmile)We'll be stepping out now,\w4 %(user).\w8 \1\s[21]\i[19]You've got to get to your classes,\w4 Professor!\w8 \0\s[1]%(confusesmile)\n\n[half]Ah,\w4 right."
+				
+				"\1\s[18]\i[14]Off we go,\w4 then!\w8 \0\s[3]%(happies)Think we can squeeze in a spot of breakfast before we get back,\w4 Luke?\w8 \1\s[21]\i[21]\n\n[half]I bet so!"
+			}
+			elseif timeslot == "lunch" //pm12 to pm2
+			{
+				"\0\s[5]%(happies)Time for a lunch break,\w4 Luke.\w8 \1\s[21]\i[21]Yippee!\w8 \0\s[5]%(shock)\1\s[-1]Race you there,\w4 Professor!\w8 \0\s[4]%(shockopen)\n\n[half]Luke,\w4 wait!"
+				
+				"\1\s[21]\i[21]Time to get lunch,\w4 Professor!\w8 \0\s[1]%(happies)That sounds like a splendid idea.\w8 \1\s[-1]\0\s[4]%(happies)We'll return later,\w4 %(user).\w8 Thank you again."
+				
+				"\0\s[5]%(calmsmile)Let's take a break for something to eat,\w4 Luke.\w8 \1\s[18]\i[21]No arguments here,\w4 Professor!\w8 \0\s[0]\1\s[18]\i[19]Bye,\w4 %(user)!"
+				
+				"\1\s[17]\i[19]Now's a good time to grab a bite to eat,\w4 Professor.\w8 \0\s[1]%(happies)I suppose it is that time,\w4 isn't it?\w8 \1\s[18]\i[22]\0\s[4]%(calmsmile)We'll be off now,\w4 %(user).\w8 \1\s[18]\i[21]\n\n[half]See you later!"
+			}
+			elseif timeslot == "afternoon" //pm3 to pm5
+			{
+				"\0\s[3]%(smiles)What say we take an afternoon break,\w4 Luke?\w8 \1\s[15]\i[27]Aww.\w8 I was really getting into it,\w4 too.\w8 \0\s[3]%(concernsmile)\1\s[15]\i[22]But okay!\w8 \0\s[4]%(calmsmile)\n\n[half]We'll be off,\w4 then,\w4 %(user).\w8 \1\s[18]\i[21]\n\n[half]Seeya later!"
+				
+				"\1\s[10]Professor,\w4 I think we should break for the afternoon.\w8 \0\s[3]%(calmsmile)I agree.\w8 \1\s[15]\i[22]\0\s[3]%(smiles)Thank you again for your time,\w4 %(user).\w8 \1\s[18]\i[21]\n\n[half]We'll see you again later!"
+				
+				"\0\s[3]%(happies)Shall we break for the afternoon?\w8 \1\s[10]I suppose now's as good a time as any to take a break in this investigation.\w8 \0\s[3]%(concernsmile)\1\s[18]\i[19]Bye,\w4 %(user)!\w8 \0\s[4]%(smiles)\n\n[half]Until next time."
+				
+				"\1\s[17]\i[0]We should get going now,\w4 Professor.\w8 \0\s[2]%(calmsmile)Yes,\w4 we do have some afternoon plans today,\w4 don't we?\w8 \1\s[18]\i[21]\n\n[half]Thanks again for having us,\w4 %(user)!\w8 \0\s[4]%(happies)\n\n[half]Goodbye for now."
+			}
+			elseif timeslot == "evening" //pm6 to pm8
+			{
+				"\0\s[3]%(calmsmile)Let's head home for the day,\w4 Luke.\w8 \1\s[18]\i[19]Gotta get an early start for next time!\w8 \s[18]\i[21]Bye,\w4 %(user)!\w8 \0\s[4]%(smiles)\n\n[half]We'll be back next you need our assistance."
+				
+				"\1\s[16]\i[13]It's getting a bit late...\w8 \0\s[3]%(concernsmile)We should get you home to momtriton and dadtriton.\w8 \1\s[16]\i[0]\n\n[half]I guess so.\w8 \0\s[1]%(concernsmile)\1\s[18]\i[21]Seeya next time,\w4 %(user)!\w8 \0\s[4]%(calmsmile)\n\n[half]Have a good evening,\w4 %(user)."
+				
+				"\0\s[4]%(happies)A good evening to you,\w4 %(user).\w8 \1\s[18]\i[21]See you later!"
+				
+				"\1\s[18]\i[19]Hope you have a good evening,\w4 %(user)!\w8 \0\s[4]%(smiles)Until next time."
+			}
+			elseif timeslot == "night" //pm9 to pm11
+		 	{
+				"\0\s[5]%(concernsmile)We should retire for the night,\w4 Luke.\w8 \1\s[16]\i[13]Yeah.\w8 \s[16]\i[21]Any later and we'd be too sleepy to keep up our investigation!\w8 \0\s[4]%(smiles)\n\n[half]Have a good night,\w4 %(user).\w8 \1\s[18]\i[0]\n\n[half]Bye!"
+				
+				"\1\s[22]\i[27]Think it's time to turn in for the night,\w4 Professor.\w8 \0\s[4]%(concernsmile)I think so as well.\w8 \1\s[22]\i[9]\0\s[3]%(concernsmile)We won't get much done tomorrow if we make an all nighter of it.\w8 \1\s[18]\i[0]\n\n[half]Goodnight,\w4 %(user)!\w8 \0\s[0]\n\n[half]We'll return next time you ask for us."
+				
+				"\0\s[1]%(concernsmile)It's getting late.\w8 \1\s[18]\i[21]Time to turn in for the day,\w4 Professor?\w8 \0\n\n[half]I think so.\w8 \1\s[18]\i[0]\0\s[4]%(smiles)Goodnight,\w4 %(user).\w8 \1\s[18]\i[19]\n\n[half]We'll be back next time you call us!"
+				
+				"\1\s[15]\i[7]Professor,\w4 I'm ready for bed...\w8 \0\s[1]%(concernsmile)It is getting to be late,\w4 isn't it?\w8 \1\s[15]\i[9]\0\s[4]%(smiles)We'll be off now,\w4 %(user).\w8 \1\s[18]\i[22]\n\n[half]Bye bye!"
+			}
+			else //am12 to am5
+			{
+				"\0\s[3]%(concernsmile)Yes,\w4 I suppose it is getting to be too late for us to keep up our investigation.\w8 \1\s[15]\i[22]Night,\w4 %(user).\w8 \s[15]\i[8]It's sleep time...\w8 \0\s[4]%(concernsmile)"
+				
+				"\1\s[15]\i[8]I'm sleepy,\w4 Professor...\w8 \0\s[4]%(concernsmile)We'll be off now,\w4 %(user).\w8 \1\s[15]\i[22]\0Goodnight to you."
+				
+				"\0\s[5]%(confusesmile)Time for us to head home for now,\w4 Luke.\w8 \1\s[10]Yeah.\w8 \s[15]\i[22]Bye,\w4 %(user).\w8 \s[10]Get some sleep,\w4 too.\w8 \0\s[5]%(concernsmile)"
+				
+				"\1\s[15]\i[27]Let's go,\w4 Professor.\w8 \0\s[1]%(concernsmile)Yes,\w4 you should probably grab a nap before our day tomorrow.\w8 \1\s[16]\i[9]\n\n[half]Mm-hm.\w8 \0\s[4]%(smiles)\n\n[half]Take care,\w4 %(user)."
+			}
+		}
+	}
+	else //This dialogue is for if they haven't been open for at least five minutes.
+	{
+		if teatime == 1 //on
+		{
+			teatime = 0 //turns it off
+			
+			"\0\s[9]%(shockopen)Ah,\w8 \1\s[27]\i[17]\0\s[3]%(concernsmile)we should get going now,\w4 Luke.\w8 \1\s[15]\i[13]Aww.\w8 \0\s[3]%(smiles)\1\s[15]\i[21]Make sure you finish that %(servedtea) for us,\w4 %(user)!"
+			
+			"\0\s[9]%(shock)\1\s[27]\i[16]What?\w8 \1\s[16]\i[24]But we haven't even had time to drink our tea!\w8 \0\s[3]%(calmsmile)Come now,\w4 Luke.\w8 \s[3]%(smiles)If %(user)'s asking us to head out,\w4 it would be rude not to.\w8 \1\s[16]\i[7]\n\n[half]Isn't it also rude to not give us time to finish our tea?"
+		}
+		else //not tea time
+		{
+			"\0\s[1]%(shockopen)Ah.\w8 \1\s[15]\i[17]Oh.\w8 \0\s[1]%(concernsmile)\1\s[10]Time for us to go,\w4 Professor!\w8 \s[15]\i[17]I guess.\w8 \0\s[4]%(smiles)\n\n[half]We'll see you next time,\w4 %(user).\w8 \s[4]%(concernsmile)Perhaps when you're more prepared for us."
+			
+			"\1\s[15]\i[16]Huh?\w8 \0\s[1]%(neutral)I see.\w8 \1\s[15]\i[1]\0\s[4]%(concernsmile)We'll be off for now,\w4 then.\w8 \1\s[16]\i[17]\n\n[half]We didn't even have time to get a good look at anything..."
+			
+			"\1\s[15]\i[1]\0\s[1]%(shockopen)Ah.\w8 \1\s[16]\i[17]\0\s[4]%(concernsmile)I suppose we'll be right off,\w4 then.\w8 \1\s[16]\i[27]Guess we'll see you next time,\w4 %(user)."
+			
+			"\0\s[1]%(shock)\1\s[16]\i[1]Um.\w8 \0\s[1]%(concernsmile)\1\s[16]\i[17]I guess we'll head on back out...?\w8 \0\s[4]%(confusesmile)We'll return once you're more prepared to have us,\w4 I suppose."
+		}
+	}
+	--
+	"\w8\w8\-"
+}
+
+
+//-------------------------State Changing--------------------
+
+//--OnWindowStateRestore
+OnWindowStateRestore
+{
+	"\1\b[0]\0\b[0]"
+	--
+	"\0\s[4]%(shock)"
+	"\0\s[1]%(shock)"
+	--
+	"\1\s[15]\i[1]"
+	"\1\s[15]\i[16]"
+	"\1\s[15]\i[29]"
+	"\1\s[18]\i[1]"
+	"\1\s[18]\i[16]"
+	"\1\s[18]\i[29]"
+	"\1\s[23]\i[29]"
+	--
+	if teatime == 1 //on
+	{
+		teatime = 0
+		
+		"\0\s[1]%(sad)Oh dear.\w8 \1\s[21]\i[24]Our %(servedtea)...\w8 \0\s[1]%(concernsmile)\n\n[half]I suppose that's what happens when we must dash off in the middle of our spot of tea.\w8 \1\s[16]\i[13]\n\n[half]S'pose so.\w8 \s[16]\i[24]Aww...\w8\e"
+		
+		"\1\s[21]\i[29]Oh no...\w8 \0\s[3]%(concernsmile)Our apologies,\w4 %(user).\w8 \1\s[21]\i[24]\0\s[3]%(sadsmile)It seems we had some bad timing there.\w8 \1\s[16]\i[13]\n\n[half]At least we got to chase that lead,\w4 Professor.\w8 \0\s[1]%(concernsmile)\n\n[half]Yes,\w4 I think we did learn something rather valuable from that.\w8 \1\s[25]\0\s[7]\i[2]Even if it took a rather steep casualty to learn it.\w8\e"
+	}
+	else //off
+	{
+		"\1\s[18]\i[19]We're back!\w8 \0\s[2]%(confused)That really was quite the puzzle...\w8\e"
+		
+		"\w8\w8\w8\0\s[4]%(neutral)Ah,\w8 \1\s[16]\i[1]\0\s[4]%(concernsmile)you've brought us back.\w8 \1\s[16]\i[12]That was quite a trip!\w8\e"
+		
+		"\0\s[2]%(confused)Fascinating...\w8 \1\s[19]\i[14]There's a whole bunch of ruins just beneath here,\w4 %(user)!\w8\e"
+		
+		"\1\s[21]\i[16]What?\w8 \0\s[4]%(confusesmile)\1\s[21]\i[17]Aww,\w4 I was just about to solve that puzzle,\w4 too...\w8 \0\s[3]%(concernsmile)Chin up,\w4 Luke.\w8 \1\s[16]\i[1]\0\s[3]%(calmsmile)There are plenty more puzzles to solve here as well.\w8 \1\s[16]\i[9]\n\n[half]I suppose so,\w4 Professor.\w8\e"
+	}
+}
+
+
+//--OnGhostChanging
+//Uses the name of your Sakura character as you put in install.txt or descript.txt.
+OnGhostChanging
+{
+	if teatime == 1 //on
+	{teatime = 0} //turns it off
+	--
+	"\0\b[0]\1\b[0]"
+	--
+	if reference0 == "Layton"
+	{
+		"\0\s[1]%(confused)Solving some sort of puzzle?\w8 \1\s[21]\i[13]Aww,\w4 I want to know what it is,\w4 too!\w8\e"
+		
+		"\0\s[2]%(confident)A puzzle,\w4 you say?\w8 \1\s[18]\i[21]We'll have it solved by the time you get back,\w4 %(user)!\w8\e"
+		
+		"\0\s[2]%(calmsmile)Now this looks like a proper sort of puzzle.\w8 \1\s[19]\i[22]We'll get it all worked out in a jiff,\w4 %(user)!\w8\e"
+		
+		{
+			"\1\s[21]\i[19]"
+			"\1\s[18]\i[15]"
+			--
+			"Looks like we've got a puzzle on our hands,\w4 Professor!\w8 \0\s[2]%(confused)And it's a curious one at that.\w8\e"
+		}
+		
+		"\1\s[22]\i[14]This is some puzzle,\w4 Professor!\w8 \0\s[2]%(confused)Let's see.\w8 \s[2]%(closeeyes)Where to begin...?\w8\e"
+		
+		"\1\s[21]\i[19]Oh,\w4 let me solve this one,\w4 Professor!\w8 \0\s[4]%(happies)All right,\w4 Luke.\w8 \s[1]%(happies)I know you can handle it.\w8\e"
+	}
+	//elseif reference0 == "Papyrus"
+	//elseif reference0 == "Jazz"
+	//elseif reference0 == "Sn"
+	//elseif reference0 == "Frisk"
+	//elseif reference0 == "Gaster"
+	//elseif reference0 == "f_lowe_y"
+	//elseif reference0 == "Temmie"
+	//elseif reference0 == "Pet Rock"
+	//elseif reference0 == "Ralsei"
+	//elseif reference0 == "SPAMTON!!"
+	//elseif reference0 == "RYS-0825" //S the skeleton
+	//elseif reference0 == "Dusty"
+	//elseif reference0 == "Zim"
+	//elseif reference0 == "Wheatley"
+	//elseif reference0 == "Wilson" //there are three Wilsons we're just gonna have to live with it
+	////if reference2 == "The Wretched Scientist" //for specific Wilson
+	//elseif reference0 == "Snake"
+	//elseif reference0 == "Aziraphale"
+	//elseif reference0 == "Zacharie"
+	//elseif reference0 == "Elsen"
+	//elseif reference0 == "Cat" || reference0 == "Neko." || reference0 == "—­‚ß”L" //english cat, translated cat, third cat...??
+	//elseif reference0 == "Warrior" //Warrior Cats generator
+	//elseif reference0 == "Sam"
+	//elseif reference0 == "Hydrate"
+	//elseif reference0 == "Snail"
+	//elseif reference0 == "Radio Sakura"
+	//elseif reference0 == "Plushie"
+	//elseif reference0 == "Danbooru-chan"
+	//elseif reference0 == "Narrator"
+	//elseif reference0 == "Angel"
+	//elseif reference0 == "Squid"
+	//elseif reference0 == "one-seven-z" //Pet blob
+	//elseif reference0 == "Микола" //Russian Janitor
+	//elseif reference0 == "Tea Tavern"
+	//elseif reference0 == "Balloons"
+	//elseif reference0 == "Needle"
+	//elseif reference0 == "Paper"
+	//elseif reference0 == "Tekame"
+	//elseif reference0 == "Rabite"
+	//elseif reference0 == "Sackboy"
+	//elseif reference0 == "Snoopy"
+	//elseif reference0 == "Feesh"
+	//elseif reference0 == "Legacy"
+	//elseif reference0 == "OurOwl"
+	//elseif reference0 == "Aaron" //lava animal!
+	////if reference2 == "Maximus The Cat" //since they both Aaron lol
+	//elseif reference0 == "Vending Machine"
+	//elseif reference0 == "Shadow"
+	//elseif reference0 == "Rainometer"
+	//elseif reference0 == "Painting"
+	//elseif reference0 == "Toad" //Kick Toad
+	//elseif reference0 == "ButtonToy"
+	//elseif reference0 == "Slugcat"
+	//elseif reference0 == "Skrunkly"
+	//elseif reference0 == "Dungeon!!!!!!!!"
+	//elseif reference0 == "Tiffany" //Quiet Conversation over Tea
+	
+	//elseif reference0 == "Crono" //CT Crew
+	elseif reference0 == "Herlock Sholmes"
+	{
+		"\1\s[21]\i[29]THE\w4 Herlock Sholmes,\w4 %(user)??\w8 \0\s[4]%(surprisesmile)Sounds like you've made quite a many interesting friends there.\w8\e"
+		
+		"\0\s[1]%(confused)Herlock Sholmes...?\w8 \1\s[21]\i[19]Wow,\w4 you have him working on this mystery,\w4 too?\w8 \0\s[1]%(confusesmile)\1\s[21]\i[21]Professor,\w4 how cool is that?\w8 \0\s[1]%(concernsmile)\n\n[half]It's certainly interesting...\w8\e"
+	}
+	//elseif reference0 == "David" //Camp Camp
+	//elseif reference0 == "Castoria"
+	//elseif reference0 == "Shadow Child"
+	//elseif reference0 == "Fairune Duo"
+	//elseif reference0 == "Tin Can"
+	//elseif reference0 == "Credit"
+	elseif reference0 == "Defence"
+	{
+		"\0\s[1]%(surprisesmile)Ah,\w8 \1\s[21]\i[19]\0\s[3]%(happies)that's your pen pal,\w4 Luke.\w8 Isn't it?\w8 \1\s[21]\i[21]It is!\w8 \0\s[1]%(happies)\1\s[21]\i[19]Have fun with AJ,\w4 %(user)!\w8\e"
+		
+		"\1\s[21]\i[19]That's my pen pal,\w4 %(user)!\w8 \0\s[2]%(confusesmile)I must say,\w4 I'm rather curious to see what sort trial this simulation is.\w8\e"
+	}
+	elseif reference0 == "RGB Puzzlers"
+	{
+		"\0\s[2]%(confusesmile)Quite strange that %(user) can call an older version of you here,\w4 Luke.\w8 \1\s[10]It is pretty strange.\w8 \0\s[2]%(concernsmile)\1\s[17]\i[21]But I bet that me's happy to have AJ with him.\w8 \0\s[3]%(happies)\n\n[half]Yes,\w4 I'm sure of that as well.\w8\e"
+		
+		"\1\s[17]\i[21]Have fun with that big me and my pen pal,\w4 %(user)!\w8 \0\s[2]%(confusesmile)I suppose time travel is feasible.\w8 \1\s[17]\i[27]\0\s[2]%(annoyed)Though I'd love to understand how...\w8\e"
+	}
+	elseif reference0 == "Moomintroll"
+	{
+		"\0\s[4]%(happies)We'll be off now,\w4 %(user).\w8 \1\s[18]\i[21]Have fun with my pen pal's friend!\w8\e"
+		
+		"\1\s[18]\i[0]Bye,\w4 %(user)!\w8 \s[18]\i[21]Have fun with my pen pal and his friend!\w8 \0\s[2]%(confused)I'm not so sure that's your friend AJ there,\w4 Luke...\w8\e"
+	}
+	elseif reference0 == "Moomins" //Moominhousehold
+	{
+		"\0\s[4]%(calmsmile)Until later,\w4 %(user).\w8 \1\s[18]\i[21]Yeah!\w8 \s[18]\i[19]Have fun on your trip out to Moominhouse!\w8\e"
+		
+		"\1\s[18]\i[21]Seeya later,\w4 %(user)!\w8 \0\s[4]%(happies)Have a safe trip out to Moominvalley.\w8\e"
+	}
+	//elseif reference0 == "Songstress"
+	//elseif reference0 == "Inferno"
+	//elseif reference0 == "Eggbeater"
+	//elseif reference0 == "Freddy Fazbear"
+	//elseif reference0 == "Wirt" //OTGW
+	//elseif reference0 == "P4tagonist"
+	//elseif reference0 == "Mole"
+	//elseif reference0 == "Cheesecake"
+	//elseif reference0 == "Spiral"
+	//elseif reference0 == ""
+	else
+	{
+		"\0\s[4]%(smiles)We'll be off,\w4 then.\w8 \1\s[18]\i[0]Enjoy your time with %(reference0)!\w8\e"
+		
+		"\0\s[4]%(happies)Enjoy your time with %(reference0).\w8 \1\s[19]\i[15]Professor,\w4 let's get back to that puzzle!\w8\e"
+		
+		{
+			"\0\s[4]%(smiles)Until next time,\w4 %(user).\w8"
+			--
+			"\1\s[18]\i[0]"
+			"\1\s[22]\i[1]"
+			"\1\s[16]\i[13]"
+			--
+			"I wonder if %(reference0) would like puzzles,\w4 too...\w8\e"
+		}
+		
+		"\1\s[10]Professor!\w8 \0\s[0]\1\s[15]\i[22]D'ya think your lesson plan might work for %(reference0)?\w8 \0\s[2]%(confusesmile)Even if it would,\w8 \s[2]%(happies)I wouldn't know how to invite them to attend one of my lectures.\w8\e"
+		
+		"\1\s[18]\i[21]We'll be off now!\w8 \0\s[4]%(confusesmile)I hope %(reference0) will keep you company,\w4 %(user).\w8\e"
+		
+		"\1\s[18]\i[22]Bye bye,\w4 %(user)!\w8 \0\s[4]%(happies)We'll leave you in %(reference0)'s capable company.\w8\e"
+	}
+}
+
+
+//--OnGhostChanged
+OnGhostChanged
+{
+	"\0\b[0]\s[0]\1\b[0]\s[10]"
+	--
+	if reference0 == "Layton"
+	{
+		"\1\s[18]\i[19]\0\s[3]%(calmsmile)And there we have it.\w8 \1\s[21]\i[21]We did it,\w4 %(user)!\w8\e"
+		
+		"\1\s[18]\i[0]\0\s[5]%(happies)It seems we've figured out the answer.\w8 \1\s[21]\i[21]You did it,\w4 Professor!\w8 \0\s[0]\n\n[half]Seems you found your answer as well,\w4 %(user).\w8\e"
+		
+		"\0\s[6]%(confident)Another puzzle solved.\w8 \1\s[21]\i[19]That was brilliant,\w4 Professor!\w8 \0\s[1]%(happies)\1\s[18]\i[0]Looks like %(user) figured it out as well!\w8 \0\s[1]%(calmsmile)\n\n[half]So it does.\w8 \1\s[18]\i[21]\e"
+		
+		"\1\s[20]\i[15]Here's my answer!\w8 \0\s[3]%(happies)Good show,\w4 Luke.\w8 \1\s[21]\i[21]\0\s[5]%(smiles)You and %(user) certainly make quite the team.\w8 \1\s[21]\i[22]\n\n[half]Hee hee,\w4 thanks,\w4 Professor.\w8 \0\s[1]%(happies)\e"
+		
+		"\1\s[20]\i[15]There we are!\w8 \0\s[1]%(happies)\1\s[17]\i[6]That was an easy one.\w8 \0\s[0]Good work,\w4 Luke.\w8 \1\s[17]\i[22]\0\s[3]%(happies)And to you as well,\w4 %(user).\w8\e"
+		
+		"\1\s[21]\i[19]We did it,\w4 Professor!\w8 \0\s[1]%(calmsmile)Yes,\w4 you and %(user) certainly made quick work of that one.\w8 \1\s[21]\i[14]\n\n[half]We make a great team,\w4 %(user)!\w8 \0\s[1]%(happies)\e"
+	}
+	elseif dayslot == userbirthday //if it's your birthday!
+	{
+		"\0\s[4]%(smiles)Hello again,\w4 %(user).\w8 \1\s[18]\i[0]Did %(reference0) wish you a happy birthday?\w8 \0\s[4]%(happies)\1\s[18]\i[21]I hope they did!\w8 \0\s[3]%(calmsmile)\n\n[half]It seems to be our turn now to wish you well on your birthday.\w8 \1\s[17]\i[21]\n\n[half]Yeah!\w8 \0\s[3]%(happies)\1\s[17]\i[19]Hope you're having a good one!\w8 \0\s[0]\n\n[half]We'll be here conducting our investigation in case you need us.\w8\e"
+		
+		"\1\s[18]\i[19]Heya,\w4 %(user)!\w8 \0\s[1]%(happies)Are you finished celebrating with %(reference0)?\w8 \1\s[16]\i[0]\n\n[half]Didja want us to celebrate some with you,\w4 too?\w8 \0\s[3]%(calmsmile)\n\n[half]Well then.\w8 \n\n[half]\1\s[17]\i[21]\n\n[half]\0\s[3]%(happies)\_sHappy birthday!\_s\w8\e"
+		
+		"\0\s[4]%(surprisesmile)Ah,\w4 %(user).\w8 \1\s[17]\i[21]Happy birthday!\w8 \0\s[2]%(calmsmile)\n\n[half]I hope you enjoyed your time with %(reference0).\w8 \1\s[17]\i[22]\0\s[5]%(happies)And a happy birthday to you.\w8\e"
+		
+		"\1\s[18]\i[19]Bye bye,\w4 %(reference0)!\w8 \0\s[3]%(happies)Happy birthday to you,\w4 %(user).\w8 \1\s[17]\i[21]\n\n[half]Happy birthday!\w8 \0\s[0]\1\s[17]\i[0]Hope you're having as much fun as we are.\w8\e"
+	}
+	//elseif reference0 == "Papyrus"
+	//elseif reference0 == "Jazz"
+	//elseif reference0 == "Sn"
+	//elseif reference0 == "Frisk"
+	//elseif reference0 == "Gaster"
+	//elseif reference0 == "f_lowe_y"
+	//elseif reference0 == "Temmie"
+	//elseif reference0 == "Pet Rock"
+	//elseif reference0 == "Ralsei"
+	//elseif reference0 == "SPAMTON!!"
+	//elseif reference0 == "RYS-0825" //S the skeleton
+	//elseif reference0 == "Dusty"
+	//elseif reference0 == "Zim"
+	//elseif reference0 == "Wheatley"
+	//elseif reference0 == "Wilson" //there are three Wilsons we're just gonna have to live with it
+	////if reference2 == "The Wretched Scientist" //for specific Wilson
+	//elseif reference0 == "Snake"
+	//elseif reference0 == "Aziraphale"
+	//elseif reference0 == "Zacharie"
+	//elseif reference0 == "Elsen"
+	//elseif reference0 == "Cat" || reference0 == "Neko." || reference0 == "—­‚ß”L" //english cat, translated cat, third cat...??
+	//elseif reference0 == "Warrior" //Warrior Cats generator
+	//elseif reference0 == "Sam"
+	//elseif reference0 == "Hydrate"
+	//elseif reference0 == "Snail"
+	//elseif reference0 == "Radio Sakura"
+	//elseif reference0 == "Plushie"
+	//elseif reference0 == "Danbooru-chan"
+	//elseif reference0 == "Narrator"
+	//elseif reference0 == "Angel"
+	//elseif reference0 == "Squid"
+	//elseif reference0 == "one-seven-z" //Pet blob
+	//elseif reference0 == "Микола" //Russian Janitor
+	//elseif reference0 == "Tea Tavern"
+	//elseif reference0 == "Balloons"
+	//elseif reference0 == "Needle"
+	//elseif reference0 == "Paper"
+	//elseif reference0 == "Tekame"
+	//elseif reference0 == "Rabite"
+	//elseif reference0 == "Sackboy"
+	//elseif reference0 == "Snoopy"
+	//elseif reference0 == "Feesh"
+	//elseif reference0 == "Legacy"
+	//elseif reference0 == "OurOwl"
+	//elseif reference0 == "Aaron" //lava animal!
+	////if reference2 == "Maximus The Cat" //since they both Aaron lol
+	//elseif reference0 == "Vending Machine"
+	//elseif reference0 == "Shadow"
+	//elseif reference0 == "Rainometer"
+	//elseif reference0 == "Painting"
+	//elseif reference0 == "Toad" //Kick Toad
+	//elseif reference0 == "ButtonToy"
+	//elseif reference0 == "Slugcat"
+	//elseif reference0 == "Skrunkly"
+	//elseif reference0 == "Dungeon!!!!!!!!"
+	//elseif reference0 == "Tiffany" //Quiet Conversation over Tea
+	
+	//elseif reference0 == "Crono" //CT Crew
+	elseif reference0 == "Herlock Sholmes"
+	{
+		"\0\s[4]%(smiles)Hello again,\w4 %(user).\w8 \1\s[16]\i[0]I can't believe we saw the real Herlock Sholmes,\w4 Professor.\w8 \0\s[4]%(concernsmile)\1\s[21]\i[19]How did you even become friends with him,\w4 %(user)?\w8 \0\s[3]%(concernsmile)\n\n[half]It's quite a mystery.\w8 \1\s[16]\i[21]\0\s[2]%(confusesmile)One that no doubt ties into the whole mystery of this place,\w4 I'm sure.\w8 \1\s[16]\i[22]\e"
+		
+		"\1\s[18]\i[19]Hi again,\w4 %(user)!\w8 \0\s[4]%(happies)It's a pleasure to see you again.\w8 \1\s[16]\i[0]\n\n[half]It was also real neat seeing Herlock Sholmes on our way in!\w8 \0\s[1]%(concernsmile)\n\n[half]Yes,\w4 it was...\w8\w8 \s[2]%(concernsmile)quite an intriguing encounter.\w8 \1\s[16]\i[21]\e"
+	}
+	//elseif reference0 == "David" //Camp Camp
+	//elseif reference0 == "Castoria"
+	//elseif reference0 == "Shadow Child"
+	//elseif reference0 == "Fairune Duo"
+	//elseif reference0 == "Tin Can"
+	//elseif reference0 == "Credit"
+	elseif reference0 == "Defence"
+	{
+		"\0\s[4]%(happies)Hello again,\w4 %(user).\w8 \1\s[18]\i[21]Hiya!\w8 \0\s[4]%(smiles)\1\s[18]\i[19]How was my friend AJ?\w8 \s[16]\i[0]Did you and he figure out that trial you were having?\w8 \0\s[1]%(concernsmile)\n\n[half]I certainly hope so,\w4 considering %(user) was the one on trial.\w8 \1\s[16]\i[21]\e"
+		
+		"\1\s[18]\i[0]Hi there,\w4 %(user)!\w8 \0\s[4]%(smiles)It's nice to see you again.\w8 \1\s[16]\i[0]\n\n[half]That trial you and AJ were solving looked pretty neat!\w8 \0\s[2]%(confusesmile)\n\n[half]Yes,\w4 their system is rather intriguing.\w8 \1\s[16]\i[22]\0I'd love to look into that,\w8 \0\s[3]%(happies)but first,\w4 our mystery here.\w8 \1\s[18]\i[21]\e"
+	}
+	elseif reference0 == "RGB Puzzlers"
+	{
+		"\0\s[4]%(surprisesmile)Ah,\w4 %(user).\w8 \1\s[18]\i[21]We're back!\w8 \0\s[4]%(happies)\1\s[18]\i[0]Did you and AJ and big me have a fun time together?\w8 \0\s[2]%(confusesmile)\n\n[half]I wonder if either of them would have any insight into the mystery of this place.\w8 \1\s[21]\i[19]\n\n[half]Ooh,\w4 we should ask them next time!\w8\e"
+		
+		"\1\s[18]\i[21]Hey again,\w4 %(user)!\w8 \0\s[4]%(happies)It's nice to see you once more.\w8 \1\s[17]\i[0]\n\n[half]How were AJ and big me?\w8 \0\s[4]%(smiles)\1\s[17]\i[22]I hope they're doing well.\w8 \0\s[2]%(confusesmile)\n\n[half]It's a shame we can't ask them much about their circumstances.\w8 \1\s[16]\i[13]\n\n[half]Yeah.\w8 \s[16]\i[21]But it's nice to see they're still friends!\w8 \0\s[1]%(happies)\e"
+	}
+	elseif reference0 == "Moomintroll"
+	{
+		"\0\s[4]%(happies)Hello there,\w4 %(user).\w8 \1\s[18]\i[21]Nice to see you again!\w8 \0\s[4]%(smiles)\1\s[18]\i[0]Did you and AJ's friend have a fun time together?\w8 \0\s[3]%(happies)\n\n[half]Hopefully,\w4 we can provide just as much entertainment as them.\w8\e"
+		
+		"\1\s[18]\i[21]We're back!\w8 \0\s[4]%(calmsmile)Pleasure to see you again,\w4 %(user).\w8 \1\s[16]\i[0]\0\s[0]How was your time with Moomintroll and Snufkin?\w8 \1\s[16]\i[21]\n\n[half]I never thought AJ would look quite so huggable...\w8 \0\s[1]%(confused)\n\n[half]\w8\w8\w8\1\s[16]\i[0]\0\s[2]%(confused)I'm not so sure that was your pen pal,\w4 Luke.\w8\e"
+	}
+	elseif reference0 == "Moomins" //Moominhousehold
+	{
+		"\0\s[4]%(happies)Hello there,\w4 %(user).\w8 \1\s[18]\i[21]Welcome back!\w8 \0\s[0]\1\s[17]\i[0]Did you have fun over in Moominvalley?\w8 \0\s[2]%(calmsmile)\n\n[half]I hear it's rather hard not to have a good time in that environment.\w8\e"
+		
+		{
+			"\0\s[4]%(smiles)Ah,\w4 welcome back,\w4 %(user).\w8 \1\s[18]\i[0]How was Moominvalley?\w8 \s[16]\i[21]I hear it's "
+			--
+			if month == 1 || month == 2 || month == 12 //January, February, December; Winter
+			{"all frozen over"; "completely covered in snow"; "colder than a London winter"}
+			elseif month == 3 || month == 4 || month == 5 //March, April, May; Spring
+			{"really beautiful"; "the perfect season to visit"; "all in bloom"}
+			elseif month == 6 || month == 7 || month == 8 //June, July, August; Summer
+			{"getting ready for the bonfire"; "scorching hot"; "full of adventure and fun"}
+			else //September, October, November; Autumn
+			{"getting colder"; "full of autumn colours"; "winding down for hibernation"}
+			--
+			" this time of year.\w8 \0\s[1]%(happies)\n\n[half]Do enlighten us with your own adventures if it's not too much trouble.\w8\e"
+		}
+		
+		"\1\s[18]\i[19]%(user),\w4 welcome back!\w8 \0\s[1]%(happies)Was your trip to Moominvalley fruitful?\w8 \1\s[17]\i[14]\n\n[half]The Professor and I have kept your place nice and tidy while you were out!\w8 \0\s[3]%(calmsmile)\n\n[half]Not an item out of place,\w4 we assure you.\w8 \1\s[17]\i[21]\e"
+	}
+	//elseif reference0 == "Songstress"
+	//elseif reference0 == "Inferno"
+	//elseif reference0 == "Eggbeater"
+	//elseif reference0 == "Freddy Fazbear"
+	//elseif reference0 == "Wirt" //OTGW
+	//elseif reference0 == "P4tagonist"
+	//elseif reference0 == "Mole"
+	//elseif reference0 == "Cheesecake"
+	//elseif reference0 == "Spiral"
+	//elseif reference0 == ""
+	else
+	{
+		"\1\s[18]\i[0]See you later,\w4 %(reference0)!\w8 \0\s[4]%(confusesmile)You have some very interesting friends,\w4 %(user).\w8\e"
+		
+		"\1\s[22]\i[17]Do you recognise %(reference0) at all,\w4 Professor?\w8 \0\s[1]%(sadsmile)Unfortunately,\w4 I do not.\w8 \s[1]%(surprisesmile)But I am sure they're a good friend of %(user)'s.\w8 \1\s[19]\i[0]\n\n[half]I think so,\w4 too!\w8\e"
+		
+		"\1\s[22]\i[17]%(reference0)...\w8 \s[19]\i[1]That's an interesting name,\w4 innit?\w8 \0\s[2]%(confused)I can think of a puzzle or two pertaining to it,\w4 certainly.\w8 \1\s[16]\i[9]\e"
+		
+		"\0\s[4]%(surprisesmile)It's good to see you again,\w4 %(user).\w8 \1\s[18]\i[0]You and %(reference0) must have had a lot to talk about!\w8\e"
+		
+		"\0\s[4]%(confusesmile)So long,\w4 %(reference0).\w8 \1\s[16]\i[19]Maybe we'll see them again next time!\w8 \0\s[4]%(smiles)\n\n[half]But for now,\w8 \1\s[17]\i[0]\0\s[3]%(calmsmile)we're here with %(user).\w8 \1\s[17]\i[21]\n\n[half]Hello,\w4 %(user)!\w8\e"
+		
+		"\0\s[2]%(confused)I'm not familiar with %(reference0),\w4 I don't think...\w8 \1\s[16]\i[13]Well.\w8 \s[16]\i[12]They're %(user)'s friend,\w4 so they can't be too unfriendly.\w8 \0\s[2]%(confusesmile)\n\n[half]I suppose that's a good point.\w8 \1\s[16]\i[0]\0\s[4]%(happies)And hello to you,\w4 %(user).\w8 \1\s[18]\i[21]\n\n[half]Hello!\w8\e"
+	}
+}
+
+
+//--OnShellChanging
+//reference0 in OnShellChanging is the name of the shell you're swapping to defined in the descript.txt file in your shell folder.
+OnShellChanging
+{
+	if teatime == 1 //on
+	{teatime = 0} //turns it off
+	--
+	"\0\b[0]\1\b[0]"
+	--
+	if reference0 == reference1
+	{
+		"\0\s[1]%(confused)You need us to...\w8 shuffle something?\w8 \1\s[16]\i[27]Okay,\w4 if you think it'll help!\w8\e"
+		
+		"\1\s[16]\i[17]But we're all ready wearing that...\w8 \0\s[3]%(concernsmile)If you think it'll help,\w4 we'll adjust our current attire.\w8\e"
+	}
+	elseif reference0 == "Puzzle Gentleman" //KFC Shell
+	{
+		"\0\s[3]%(calmsmile)Ah,\w4 such simplicity.\w8 \1\s[16]\i[27]Professor,\w4 these are just our normal clothes!\w8\e"
+		
+		"\1\s[16]\i[17]You want us to change back into our usual clothes?\w8 \0\s[3]%(happies)Give us just a minute,\w4 then.\w8\e"
+	}
+	elseif reference0 == "Luke and Layton" //Danganny Shell
+	{
+		"\0\s[3]%(happies)Shall we get changed,\w4 Luke?\w8 \1\s[18]\i[21]You've gotta tuck your hair in better,\w4 Professor!\w8\e"
+		
+		"\1\s[18]\i[19]Let's get changed,\w4 Professor!\w8 \0\s[4]%(happies)Yes,\w4 I do believe I have to tidy up a bit.\w8\e"
+	}
+	elseif reference0 == "lukeluke" //Smooley! Shell
+	{
+		"\0\s[3]%(calmsmile)Time to get changed,\w4 Luke.\w8 \1\s[18]\i[21]You got it,\w4 Professor!\w8 \0\s[3]%(smiles)\1\s[18]\i[30]Be right back,\w4 %(user)!\w8\e"
+		
+		"\1\s[17]\i[31]Time to change things up,\w4 Professor!\w8 \0\s[4]%(happies)We'll return in just a moment,\w4 %(user).\w8\e"
+	}
+	else
+	{
+		"\0\s[1]%(happies)We'll go and change into this,\w4 then.\w8 \1\s[22]\i[14]%(reference0),\w4 huh...?\w8\e"
+		
+		"\1\s[22]\i[17]You want us to change into this %(reference0)?\w8 \0\s[3]%(happies)We'll be right back,\w4 then.\w8\e"
+	}
+}
+
+
+//--OnShellChanged
+//reference0 this is the name of your shell as you put in the descript.txt file for that shell.
+//Note the %(reference[0]) here! This time that should store the name of whatever shell you're switching to.
+OnShellChanged
+{
+	"\0\b[0]\s[0]\1\b[0]\s[10]"
+	--
+	if reference0 == SHIORI3FW.ShellNameOld
+	{
+		"\0\s[3]%(calmsmile)There we are.\w8 \1\s[15]\i[27]Maybe %(user) thought your shirt was wrinkled,\w4 Professor.\w8 \0\s[1]%(concernsmile)\n\n[half]Well,\w4 hopefully we've taken care of that now.\w8 \1\s[15]\i[9]\e"
+		
+		"\1\s[18]\i[0]Okay,\w4 we're back.\w8 \0\s[3]%(concernsmile)Hopefully,\w4 whatever was wrong before has been straightened out.\w8 \1\s[16]\i[7]\n\n[half]Not sure anything was wrong before.\w8\e"
+	}
+	elseif reference0 == "Puzzle Gentleman" //KFC shell
+	{
+		"\1\s[15]\i[1]\0\s[3]%(calmsmile)And here we are.\w8 \s[3]%(smiles)Quite the classic look,\w4 wouldn't you say?\w8 \1\s[18]\i[0]I do like these clothes.\w8 \s[18]\i[21]Easy to run about in!\w8 \0\s[1]%(concernsmile)\n\n[half]We do find ourselves in need of maneuverability far too often.\w8\e"
+		
+		"\1\s[18]\i[21]And we're back!\w8 \0\s[4]%(concernsmile)Hopefully,\w4 there's nothing we need to outrun here.\w8 \1\s[17]\i[0]\n\n[half]If there is,\w4 \s[17]\i[15]we'll be prepared for it now!\w8 \0\s[1]%(concernsmile)\e"
+	}
+	elseif reference0 == "Luke and Layton" //Danganny Shell
+	{
+		"\0\s[3]%(calmsmile)Here we are,\w4 %(user).\w8 \1\s[18]\i[19]That better for ya?\w8 \0\1\s[19]\i[22]I'll bet we can explore more of your place like this.\w8 \0\s[1]%(concernsmile)\e"
+		
+		"\1\s[18]\i[19]And we're back!\w8 \0\s[4]%(concernsmile)I hope I've made myself a bit more presentable now.\w8 \1\s[16]\i[27]\n\n[half]Aw,\w4 you're always presentable,\w4 Professor.\w8 \0\s[4]%(neutral)\1\s[16]\i[12]%(user) and I were just teasing,\w4 you know.\w8 \0\s[1]%(concernsmile)\n\n[half]That's...\w8\w4 good to hear.\w8\e"
+	}
+	elseif reference0 == "Another" //Smooley! Shell
+	{
+		"\0\s[3]\i[18]Here we are,\w4 %(user).\w8 \1\s[18]\i[21]I'll bet you just wanted us all cute and bite-sized.\w8 \0\s[1]\n\n[half]%(confusesmile)Bite-sized...?\w8 \1\s[18]\i[0]\n\n[half]Yeah!\w8 \0\s[1]%(concernsmile)\e"
+		
+		"\1\s[18]\i[21]How's that,\w4 %(user)?\w8 \0\s[3]%(happies)Are we more to your liking in this state?\w8 \1\s[17]\i[32]\n\n[half]I bet you just wanted to see us do our quick change.\w8 \0\s[4]%(confusesmile)\e"
+	}
+	else // %(reference[0])
+	{
+		"\0\s[3]%(happies)Here we are.\w8 \1\s[22]\i[17]%(reference[0]),\w4 huh?\w8 \0\s[0]\1\s[22]\i[27]I hope we look okay in this...\w8\e"
+		
+		"\1\s[18]\i[0]We're all changed now,\w4 %(user)!\w8 \0\s[2]%(confusesmile)%(reference[0]),\w4 how fascinating.\w8 \1\s[18]\i[9]\0\s[2]%(concernsmile)I hope this looks adequate enough.\w8\e"
+	}
+}
+
+
+//--OnDressupChanged
+//reference0 refers to the character (0 for Sakura, 1 for Kero, etc)
+//reference1 is the name of the clothing item in the descript.txt file
+//reference2 checks if putting on (1) / off (0 / else)
+//OnDressupChanged
+//{
+	//if reference0 == 0
+		//if reference1 == ""
+			//if reference2 == 1
+			//else
+	//else //the Kero
+		//if reference1 == ""
+			//if reference2 == 1
+			//else
+		//elseif reference1 == ""
+			//if reference2 == 1
+			//else
+//}
+
+
+//these dressups may or may not be used! I have zero idea!!

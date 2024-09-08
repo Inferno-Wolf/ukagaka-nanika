@@ -1,0 +1,1366 @@
+﻿//---------------------------AI Talk--------------------------
+//This is where all their random conversations are stored.
+
+
+
+//--AiTalk
+OnAiTalk
+{
+	if CHAIN.IDName == "" { lastTalk = RandomTalk }
+	else { lastTalk = ChainTalk }
+	lastTalk
+}
+
+
+//--RandomTalk 
+
+
+//--Dialogue Tags
+
+// \f[color0-255,0-255,0-255] changes the color of the text. \f[color,default] will return the color to default.
+/// \f[color,default.anchor] will change the colour of the text to the one set as the anchor for the balloon!
+// \f[default] returns everything back to normal.
+
+// \_a[[http://www.website.com/](put text here)\_a can link a website in dialogue.
+// \0\s[0]\1\s[0]\_s(put dialogue here)\_s has characters say dialogue at the same time. Using \_s[0,1](text here)\_s specifies which characters are speaking at the same time (in this case, the Sakura, 0, and the Kero, 1).
+// \_b[name.png,50,50,centerxy] displays an image in the balloon. can use (inline) to have it follow the text and (--option=use_self_alpha) for transparency
+// \![set,balloontimeout,-1] makes it so the balloon doesn't disappear / time out. helpful for input choices like nameteach!
+// \![set,autoscroll,disable] exactly as it says, disables autoscroll. helpful for long menus!
+// \![set,balloonwait,0.1] controls the speed of the text. default set at 1, 0.1 is faster, 2+ are slower
+// \c[char,6] clears the previous 6 characters; basically deleting specific things!!
+
+
+//Envelopes
+// %(user) // %(they) // %(them) // %(their) // %(theyre)
+// %(userfolder)
+
+
+RandomTalk : nonoverlap_pool
+{
+	if offscreen == 1 && outside != 0 //on and offscreen
+	{
+		//Note the hotkey combo Ctrl-Shift-F12
+		if outside == 2 //Luke
+		{
+			"\0\b[0]\s[4]%(sad)Are you all right,\w4 Luke?\w8 \1\b[0]\s[10]Yeah,\w4 I know better than to run off too far.\w8 \s[18]\i[21]It's nice to see what it's like out here,\w4 though.\w8 \0\s[1]%(sad)\n\n[half]As long as you're okay.\w8 \1\s[19]\i[25]\n\n[half]I can still hear you,\w4 Professor,\w4 and you can hear me.\w8 \0\s[1]%(concernsmile)\n\n[half]That is true...\w8\e"
+			
+			"\0\b[0]\s[4]%(sad)Luke?\w8 \1\s[16]\i[1]\0Luke,\w4 are you still there?\w8 \1\b[0]\s[18]\i[9]I'm here!\w8 \0\s[4]%(closeeyes)\1\s[18]\i[13]Sorry,\w4 Professor,\w4 I thought I saw a puzzle across the way.\w8 \0\s[1]%(sad)\n\n[half]I see.\w8 \1\s[18]\i[9]\0I know you can handle yourself,\w4 but make sure to be careful.\w8 \1\s[19]\i[0]\n\n[half]I'm not gonna get kidnapped,\w4 I promise.\w8 \0\s[1]%(concernsmile)\e"
+			
+			"\1\b[0]\s[18]\i[0]It's actually pretty nice out here right now.\w8 \0\b[0]\s[1]%(confused)Is it?\w8 \1\s[18]\i[22]\n\n[half]Yeah,\w4 it's a very different atmosphere than it is inside %(user)'s place.\w8 \0\s[1]%(concernsmile)\1\s[22]\i[14]We could probably find a lot more hint coins if we poked around...\w8 \0\s[3]%(sad)\n\n[half]Take care not to break anything,\w4 please.\w8 \1\s[16]\i[9]\n\n[half]I'll be careful!\w8\e"
+			
+			"\1\b[0]\s[16]\i[17]Is this a time out,\w8 \0\s[4]%(sad)\1\s[16]\i[25]or did you want me to solve some of the puzzles out here for you,\w4 %(user)?\w8 \0\b[0]\s[2]%(closeeyes)There must be a vast array of different ones out there.\w8 \1\s[19]\i[22]\n\n[half]They look pretty unique!\w8 \0\s[2]%(confusesmile)\1\s[18]\i[0]I'll bring one back for you to see,\w4 Professor.\w8 \0\s[4]%(concernsmile)\n\n[half]Ah,\w4 I'm looking forward to it,\w4 thank you.\w8\e"
+		}
+		else //1; Layton
+		{
+			"\0\b[0]\s[4]%(confusesmile)Am I to be let back inside,\w4 %(user)?\w8 \1\s[16]\i[27]\0\s[3]%(annoyedsmile)I do hope you're being accommodating to Luke.\w8 \1\b[0]\s[16]\i[3]I'm fine,\w4 Professor.\w8 \0\s[3]%(confusesmile)\1\s[16]\i[27]%(user) must have thought you'd find more clues out there.\w8 \0\s[2]%(confused)\n\n[half]There are different clues,\w4 I'll give %(them) that...\w8\e"
+			
+			"\0\b[0]\s[4]%(sad)Are you doing all right,\w4 Luke?\w8 \1\b[0]\s[18]\i[3]I'm doing just fine,\w4 Professor.\w8 \0\s[4]%(confusesmile)\1\s[18]\i[27]How are you?\w8 \0\s[5]%(concernsmile)\n\n[half]I've found a few different clues out here,\w8 \1\s[16]\i[1]\0\s[5]%(confused)but I'm a little worried about %(user)'s intentions here.\w8\e"
+			
+			"\1\b[0]\s[21]\i[24]Are you okay,\w4 Professor?\w8 \0\b[0]\s[3]%(concernsmile)Quite all right,\w4 my boy.\w8 \1\s[21]\i[9]\0\s[2]%(confusesmile)While I'm out here,\w4 I figured I may as well indulge in a puzzle or two.\w8 \1\s[16]\i[27]\n\n[half]I guess that's all you can do until %(user) invites you back in.\w8\e"
+			
+			"\1\b[0]\s[18]\i[1]Find anything interesting out there,\w4 Professor?\w8 \0\b[0]\s[5]%(calmsmile)Quite a lot,\w4 actually.\w8 \1\s[18]\i[16]\0\s[5]%(confusesmile)In fact,\w4 it seems the puzzles out here are a different sort than the ones we've seen so far.\w8 \1\s[21]\i[0]\n\n[half]Ooh.\w8 That sounds interesting,\w4 at least.\w8\e"
+		}
+	}
+	elseif teatime == 1 //on
+	{
+		"\0\b[0]\s[9]%(calmsmile)It really is nice to have a good cup of tea.\w8 \1\b[0]\s[27]\i[21]I agree!\w8 \0\s[9]%(smiles)\1\s[27]\i[22]Thank you,\w4 %(user)!\w8 \0\s[9]%(happies)\n\n[half]Yes,\w4 thank you very much,\w4 %(user).\w8\e"
+		
+		"\1\b[0]\s[22]\i[17]%(servedtea)...\w8 \0\s[9]%(confusesmile)\1\s[19]\i[22]That's %(ingredients),\w4 isn't it,\w4 Professor?\w8 \0\b[0]\s[9]%(happies)Well remembered,\w4 Luke!\w8 \1\s[27]\i[27]\n\n[half]Your favourites all had a real complex or fruity flavour to them.\w8 \0\s[9]%(smiles)\n\n[half]And yours were all quite sweet.\w8 \1\s[27]\i[21]\n\n[half]Can't go wrong with sweet!\w8\e"
+		
+		"\0\b[0]\s[9]%(happies)I hope you're enjoying this tea as well,\w4 %(user).\w8 \1\b[0]\s[27]\i[21]Yeah!\w8 \0\s[9]%(smiles)\1\s[27]\i[19]You did a fantastic job at making it!\w8 \0\s[9]%(calmsmile)\n\n[half]You captured the %(taste) quite well,\w4 I must say.\w8\e"
+		
+		"\0\b[0]\s[9]%(calmsmile)Ahh...\w8\w8 \1\s[27]\i[27]\0\s[9]%(smiles)A good cup of tea really does help most of our worries melt away.\w8 \1\s[27]\i[9]\0\s[9]%(concernsmile)Or at least squirrels them away for a while.\w8 \1\b[0]\s[27]\i[0]It's nice to have,\w4 for sure.\w8 \0\s[9]%(calmsmile)\1\s[27]\i[18]Even just the smell is relaxing...\w8\e"
+		
+		"\1\b[0]\s[19]\i[22]We can still find hint coins even while drinking our tea,\w4 %(user).\w8 \0\b[0]\s[9]%(calmsmile)Hint coins are scattered just about everywhere.\w8 \1\s[27]\i[1]\0\s[9]%(smiles)Why,\w4 I do believe I have one right here.\w8 \1\s[27]\i[16]\n\n[half]In your cup??\w8 \0\s[4]\i[18]\n\n[half]Actually,\w4 I found it on my saucer.\w8 \1\s[27]\i[1]\n\n[half]Oh.\w8\w4 \0\s[9]%(happies)\1\s[27]\i[17]But...\w8\w8\w8 \s[27]\i[27]Okay.\w8\e"
+		
+		"\1\b[0]\s[27]\i[17]Can you imagine ordering two drinks instead of just one,\w4 Professor?\w8 \0\b[0]\s[3]%(calmsmile)Yes,\w4 that's not so uncommon of an occurrence.\w8 \1\s[27]\i[16]\n\n[half]What?\w8 \0\s[5]%(smiles)\n\n[half]Some people enjoy drinking a water alongside their other choice.\w8 \1\s[27]\i[1]\0\s[5]%(happies)Or they like the variety two different flavours can bring to their meal.\w8 \s[9]%(confusesmile)They might even enjoy both a cold and a hot drink.\w8 \1\s[27]\i[27]\n\n[half]I see.\w8\w4 \0\s[9]%(happies)\1\s[27]\i[21]Sounds like you've got a puzzle on the matter.\w8 \0\s[9]%(smiles)\n\n[half]Hahaha,\w4 I do indeed.\w8 \1\s[27]\i[0]\0\s[9]%(calmsmile)Here,\w4 listen to this one...\w8\e"
+		
+		"\1\b[0]\s[22]\i[7]So there are soda pop floats...\w8 \0\b[0]\s[9]%(neutral)Yes?\w8 \1\s[22]\i[27]\n\n[half]I wonder if someone's ever made an iced tea float before.\w8 \0\s[9]%(confusesmile)\n\n[half]Ah.\w8\w4 \1\s[27]\i[22]\0\s[2]%(annoyedsmile)I can see that working with green tea,\w4 maybe.\w8 \1\s[27]\i[0]\0\s[5]%(smiles)It would be quite similar to adding milk and sugar to your cup.\w8 \1\s[27]\i[21]\n\n[half]Exactly!\w8\w4 \0\s[9]%(confusesmile)\1\s[22]\i[6]I bet thegoldenapple and misslayton would be willing to try it out with me.\w8 \0\s[9]%(concernsmile)\n\n[half]Just make sure not to give yourselves some upset somtachs...\w8\e"
+		
+		"\0\b[0]\s[3]%(calmsmile)When we get back,\w8 \1\s[27]\i[0]\0it would be nice to brew a cup of %(servedtea) for misslayton.\w8 \s[3]%(smiles)pottyprof and thegoldenapple as well.\w8 \1\b[0]\s[27]\i[21]Ooh,\w4 yeah!\w8 \0\s[9]%(happies)\1\s[27]\i[19]A nice little tea time with everyone.\w8 \s[27]\i[22]I bet Katrielle and Flora'd be pleased as punch.\w8 \0\s[9]\i[18]\n\n[half]Pleased as %(favetea),\w4 even.\w8 \1\s[27]\i[21]\n\n[half]Hahaha,\w4 that's a good one,\w4 Professor!\w8 \0\s[9]%(happies)\e"
+		
+		"\1\b[0]\s[22]\i[14]Which do you like more,\w4 Professor?\w8 \0\s[9]%(neutral)\1\s[19]\i[22]The Citrus Classic or the Layton Elixir?\w8 \0\b[0]\s[9]%(happies)Hahaha,\w4 I like both an equal amount.\w8 \1\s[22]\i[27]\n\n[half]So you don't have a top favourite or anything?\w8 \0\s[9]%(smiles)\n\n[half]I suppose not.\w8 \1\s[22]\i[9]\0\s[9]%(calmsmile)How could I choose when both are delicious for different reasons?\w8 \1\s[27]\i[0]\n\n[half]That makes sense.\w8 \0\s[9]%(smiles)\1\s[27]\i[22]Even though I really like them both as well,\w4 I think Oasis Berry's my top choice.\w8 \0\s[9]%(happies)\n\n[half]You and your insatiable sweet tooth are positively legendary by this point.\w8 \1\s[27]\i[19]\n\n[half]You really think so?\w8\e"
+		
+		//friend talk
+		{
+			"\1\b[10]\s[27]\i[13]We never had a chance to find out thegoldenapple's favourite,\w4 did we?\w8 \0\b[0]\s[4]%(concernsmile)Ah,\w4 I suppose we didn't.\w8 \1\s[27]\i[9]\0\s[3]%(sadsmile)That's a shame,\w4 isn't it?\w8 \1\s[27]\i[0]\n\n[half]Knowing her,\w4 she'd probably like %(servedtea) the best.\w8 "
+			--
+			if favetea != "" {"\0\s[1]%(confusesmile)\1\s[27]\i[21]Or maybe she'd agree with you about %(favetea),\w4 %(user)!\w8"}
+			--
+			"\0\s[3]%(calmsmile)\n\n[half]We can always make some for her next we can.\w8 \1\s[27]\i[19]\n\n[half]Yeah,\w4 that sounds like fun!\w8\e"
+		}
+		
+		"\0\b[0]\s[2]%(confused)Does thegoldenapple have our tea set,\w4 do you know?\w8 \1\b[0]\s[27]\i[3]Wouldn't you know that better than I would,\w4 Professor?\w8 \0\s[4]%(concernsmile)\n\n[half]I just assumed she'd tell you if she was experimenting in creating new teas with all the different ingredients.\w8 \1\s[27]\i[27]\n\n[half]That does sound like something she'd do.\w8 \0\s[9]%(confusesmile)\1\s[27]\i[9]I can't believe misslayton loves trying everything she makes.\w8 \0\s[9]%(calmsmile)\n\n[half]Ah,\w4 to have the unbridled curiosity of a child...\w8\e"
+		
+		"\1\b[0]\s[22]\i[18]Hmm...\w8 \0\b[0]\s[9]%(neutral)Thinking of something,\w4 my boy?\w8 \1\s[22]\i[20]\n\n[half]I'm sure if pottyprof had this tea set,\w8 \0\s[9]%(concernsmile)\1he'd be making all sorts of new combinations.\w8 \0\s[9]%(confusesmile)\n\n[half]Ah.\w8 I see.\w8 \1\s[27]\i[6]\n\n[half]I guess then thegoldenapple would get her own weird tastes thrown right back at her.\w8 \0\s[9]%(concernsmile)\e"
+		
+		"\1\b[0]\s[27]\i[27]Which tea d'ya think pottyprof would like best?\w8 \0\b[0]\s[2]%(confused)Hmm.\w8 Now that's a tough question.\w8 \1\s[27]\i[9]\0\s[5]%(happies)We can always ask once we return.\w8 \1\s[27]\i[0]\n\n[half]We can,\w4 for sure.\w8\e"
+		
+		"\1\b[0]\s[27]\i[21]misslayton has the same favourite as me.\w8 \0\b[0]\s[9]%(happies)Ah,\w4 yes.\w8 \1\s[27]\i[0]\0\s[9]%(smiles)The both of you are quite fond of sweets,\w4 after all.\w8 \1\s[27]\i[22]\n\n[half]Can't ever go wrong with sweets!\w8\e"
+		
+		"\0\b[0]\s[9]%(confusesmile)It's cute how you and misslayton share a favourite when it comes to tea.\w8 \1\b[0]\s[27]\i[21]Can't help we both have a love of sweets!\w8 \0\s[9]%(happies)\n\n[half]Hahaha,\w4 we certainly can't.\w8\e"
+		
+		"\1\b[0]\s[27]\i[27]Did topassistant have a favourite tea that you know of,\w4 Professor?\w8 \0\b[0]\s[2]%(confused)I'm not entirely sure.\w8 \1\s[27]\i[9]\0\s[2]%(closeeyes)I would often see her drink coffee as much as she would drink tea.\w8 \1\s[27]\i[27]\n\n[half]Maybe she liked the bitterness,\w4 then?\w8 \0\s[3]%(concernsmile)\n\n[half]I think she was in it for the caffeine,\w4 really...\w8 \1\s[27]\i[9]\n\n[half]That would make sense,\w4 too.\w8 \0\s[3]%(confusesmile)\1\s[27]\i[0]She always had so much pep!\w8 \0\s[9]%(calmsmile)\n\n[half]That she did.\w8\e"
+		
+		"\0\b[0]\s[2]%(confusesmile)I wonder if maskedgent wouldn't mind getting together for a nice cup of %(servedtea).\w8 \1\b[0]\s[27]\i[22]I'm sure he,\w4 \_a[HenryLedore]Mr Ledore\_a,\w4 and \_a[AngelaLedore]Mrs Ledore\_a would enjoy a nice chin wag with you,\w4 Professor.\w8 \0\s[9]%(concernsmile)\n\n[half]I certainly hope so.\w8\e"
+		
+		"\1\b[0]\s[19]\i[27]mraceattorney's more of a coffee person,\w4 isn't he?\w8 \0\b[0]\s[9]%(calmsmile)As far as I can tell,\w4 yes.\w8 \1\s[16]\i[22]\0\s[9]%(smiles)But he does enjoy a nice cup of tea when it's offered to him.\w8 \1\s[27]\i[18]\n\n[half]I don't know anyone who'd turn down a nice cuppa,\w4 Professor.\w8 \0\s[9]%(calmsmile)\n\n[half]Neither do I,\w4 my boy.\w8\e"
+		
+		"\1\b[0]\s[27]\i[27]Didn't mraceattorney drink coffee most mornings?\w8 \0\b[0]\s[3]%(smiles)He did.\w8 \s[3]%(concernsmile)Though,\w4 he tells me now that he's gotten used to morning tea.\w8 \1\s[27]\i[9]\0\s[5]%(smiles)He even said his kettle had a rotation of different tea it dispenses and that we'd have some fun with that.\w8 \1\s[27]\i[19]\n\n[half]Oh boy,\w4 that sounds like a potential puzzles to be had!\w8 \0\s[9]%(calmsmile)\n\n[half]It does,\w4 doesn't it?\w8\e"
+		
+		"\0\b[0]\s[2]%(confusesmile)Didn't borgerfey prefer green tea over most of ours?\w8 \1\b[0]\s[27]\i[21]She did!\w8 \0\s[2]%(happies)\1\s[27]\i[0]Green tea and matcha are pretty good.\w8 \0\s[2]%(smiles)\1\s[27]\i[22]I know someone else who mostly drinks those.\w8 \s[27]\i[0]And oolong.\w8 \0\s[9]%(calmsmile)\n\n[half]It just goes to show you how many teas there are out there.\w8 \1\s[27]\i[21]\0\s[9]\i[18]You could even say there's a tea for everyone.\w8 \1\s[27]\i[19]\n\n[half]Like iced tea!\w8 \0\s[9]%(happies)\n\n[half]Yes,\w4 even iced tea.\w8\e"
+		
+		"\1\b[0]\s[22]\i[18]Green tea,\w4 huh...?\w8 \0\s[9]%(confusesmile)\1\s[22]\i[27]I wonder what ingredients we'd need in order to brew that.\w8 \0\b[0]\s[9]%(concernsmile)I wouldn't know.\w8 \1\s[22]\i[0]\0\s[9]%(confusesmile)Any reason why you're thinking of green tea specifically,\w4 Luke?\w8 \1\s[19]\i[22]\n\n[half]Well,\w4 borgerfey likes green tea.\w8 \0\s[9]%(happies)\1\s[19]\i[0]I think it'd be nice if we could make it for her the next we see her.\w8 \0\s[9]%(smiles)\n\n[half]How very thoughtful of you.\w8 \1\s[19]\i[21]\0\s[9]%(calmsmile)But that's a puzzle to tackle once we actually see her and mraceattorney again.\w8 \1\s[27]\i[22]\n\n[half]Okay,\w4 Professor!\w8\e"
+		
+		//shell joke
+		"\0\b[0]\s[9]%(confusesmile)This tea set of yours,\w4 %(user).\w8 \1\s[27]\i[27]\0\s[9]%(calmsmile)It's quite fascinating,\w4 I must say.\w8 \1\b[0]\s[27]\i[21]Yeah!\w8\w4 \0\s[9]%(smiles)\1\s[27]\i[0]The cups are real neat.\w8 \s[27]\i[25]Maybe you made them yourself?\w8 \0\s[9]%(happies)\n\n[half]If so,\w4 I have to applaud your craftsmanship.\w8 \1\s[27]\i[21]\n\n[half]Me,\w4 too!\w8\e"
+		
+		
+		if servedtea == favetea
+		{
+			if favetea == "Citrus Classic" || servedtea == "Belle Classic"
+			{
+				"\0\b[0]\s[9]%(happies)It's really quite fortunate that we share a favourite tea between us,\w4 %(user).\w8 \1\b[0]\s[27]\i[12]I think it's very silly of %(them).\w8 \0\s[9]%(neutral)\1\s[27]\i[31]The Professor just can't help having admirers,\w4 can he,\w4 %(user)?\w8 \0\s[9]%(confused)\n\n[half]What do you mean,\w4 Luke?\w8 \1\s[27]\i[25]\n\n[half]Oh,\w4 it's nothing too important.\w8 \0\n\n[half]...\w8\w8\w8\1\s[27]\i[21]\0\s[9]%(annoyed)I'm not sure having the same favourite tea counts as admiration.\w8\e"
+				
+				"\1\b[0]\s[27]\i[22]It's kinda cute how %(user) has the same favourite tea as you,\w4 Professor.\w8 \0\b[0]\s[9]%(happies)It's a fantastic choice,\w4 for sure.\w8 \1\s[27]\i[27]\0\s[9]%(smiles)Do you also enjoy the crisp citrus flavour?\w8 \1\s[27]\i[21]\n\n[half]Maybe %(theyre) a fan of it iced!\w8 \0\s[9]%(confusesmile)\n\n[half]It would work wonderfully as an iced tea,\w4 I have to agree...\w8\e"
+			}
+			if favetea == "Oasis Berry"
+			{
+				"\0\b[0]\s[9]%(happies)It's very cute how you and %(user) share a favourite tea,\w4 my boy.\w8 \1\b[0]\s[27]\i[21]You really can't beat something good and sweet.\w8 \0\s[9]%(confusesmile)\1\s[27]\i[22]I've been telling you this,\w4 Professor.\w8 \0\s[9]%(calmsmile)\n\n[half]It's quite refreshing,\w4 I'll give you that.\w8\e"
+				
+				"\1\b[0]\s[27]\i[22]You must have a sweet tooth as well,\w4 %(user).\w8 \0\b[0]\s[9]%(confusesmile)Are you saying that because you both enjoy Oasis Berry?\w8 \1\s[27]\i[27]\n\n[half]Well,\w4 do you know another reason %(their) favourite would be the same as mine?\w8 \0\s[2]%(confused)\n\n[half]...\w8\w8\w8\1\s[27]\i[1]\0\s[9]%(calmsmile)Perhaps let's just enjoy our tea for now,\w4 Luke.\w8 \1\s[27]\i[27]\n\n[half]Uh.\w8 Okay?\w8\e"
+			}
+			if favetea == "The Layton Elixir"
+			{
+				"\0\b[0]\s[9]%(calmsmile)Such a refined tea to have as your favourite,\w4 %(user).\w8 \1\s[27]\i[27]\0\s[9]%(smiles)The marvellous mix of flavours is definitely to be admired.\w8 \1\b[0]\s[27]\i[25]Or is it the name which makes it your favourite?\w8 \0\s[9]%(neutral)\n\n[half]I'm...\w8\w8 \1\s[27]\i[22]\0\s[9]%(confused)not sure I see how the two are related.\w8 \1\s[27]\i[3]\n\n[half]I'm just joking.\w8 This tea really is delicious!\w8 \0\s[9]%(confusesmile)\e"
+				
+				"\1\b[0]\s[27]\i[22]If this tea's your favourite,\w4 %(user),\w4 \0\s[9]%(confused)\1I bet you make it often.\w8 \s[27]\i[0]It's pretty easy to get all the ingredients,\w4 after all!\w8 \0\b[0]\s[9]%(happies)It is rather simple to procure the ingredients.\w8 \s[9]%(smiles)And for them to make such a fantastically complex flavour,\w4 too.\w8 \1\s[27]\i[9]\n\n[half]Finding substitutes for a Cinder Horse is surprisingly easy,\w4 isn't it...?\w8 \0\s[9]%(concernsmile)\e"
+			}
+			
+			"\0\b[0]\s[9]%(confusesmile)Isn't %(servedtea) also your favourite,\w4 %(user)?\w8 \1\b[0]\s[27]\i[22]Is it the %(taste) you like most about it?\w8 \0\s[9]%(calmsmile)\n\n[half]I think it's the %(flavour) flavour I admire myself.\w8\e"
+			
+			"\1\b[0]\s[27]\i[22]It's nice of you to share your favourite tea with us,\w4 %(user).\w8 \0\b[0]\s[9]%(happies)It is,\w4 indeed.\w8 \1\s[27]\i[0]\0\s[3]%(calmsmile)Sort of a way to share your own interests or a piece of yourself,\w4 wouldn't you say?\w8 \1\s[27]\i[21]\n\n[half]Yeah!\w8\w4 \0\s[9]%(smiles)\1\s[27]\i[0]If I had my favourite tea,\w4 I'd want to share it with you,\w4 too,\w4 Professor.\w8 \0\s[9]%(happies)\n\n[half]And %(user),\w4 too,\w4 I'd hope.\w8 \1\s[27]\i[21]\n\n[half]And %(user),\w4 too.\w8\e"
+		}
+		if servedtea != favetea && favetea != "Undecided"
+		{
+			"\1\b[0]\s[27]\i[13]I wish we could ask %(user) why %(favetea) is %(their) favourite.\w8 \0\b[0]\s[2]%(confusesmile)It would be interesting to know what about it is preferable over %(servedtea),\w4 for sure.\w8 \1\s[27]\i[0]\0\s[5]%(calmsmile)Perhaps we could ask in the form of a puzzle?\w8 \1\s[27]\i[19]\n\n[half]Or %(they) could give us %(their) answer in the form of a puzzle!\w8 \0\s[9]%(concernsmile)\n\n[half]But maybe some other time.\w8 \1\s[27]\i[22]\n\n[half]Yeah,\w4 we've got some %(servedtea) to enjoy!\w8\e"
+			
+			"\0\b[0]\s[9]%(confusesmile)I wonder if you've served us a cup of %(servedtea) to see what we have to say about it,\w4 %(user).\w8 \1\b[0]\s[27]\i[27]What makes you think that,\w4 Professor?\w8 \0\s[5]%(calmsmile)\n\n[half]Because %(their) favourite is clearly %(favetea).\w8 \1\s[27]\i[12]\n\n[half]I don't think serving us something besides %(their) favourite doesn't make it purely intellectual curiosity.\w8 \0\s[9]%(smiles)\n\n[half]True.\w8\w8 \1\s[27]\i[27]\0\s[9]%(calmsmile)It's just a thought I had.\w8 \1\n\n[half]Hm.\w8\e"
+		}
+		if servedtea == "Citrus Classic" || servedtea == "Belle Classic"
+		{
+			"\1\b[0]\s[22]\i[27]Is citrus your favourite flavour,\w4 Professor?\w8 \0\b[0]\s[9]%(confusesmile)Why are you asking that,\w4 my boy?\w8 \1\s[19]\i[22]\n\n[half]Well,\w4 it's because of your favourite tea!\w8 \0\s[9]%(concernsmile)\1\s[22]\i[27]I just got to thinking...\w8 \0\s[9]%(confusesmile)\n\n[half]Hmm.\w8\w8 \1\s[27]\i[9]\0\s[9]%(calmsmile)I don't know if I would say that citrus is my favourite flavour,\w8 \1\s[27]\i[27]\0\s[9]%(smiles)but it does make for a fantastic tea.\w8 Wouldn't you agree?\w8 \1\s[27]\i[21]\n\n[half]Absolutely!\w8\e"
+			
+			"\1\b[0]\s[27]\i[12]You can be so particular about how your %(servedtea) is brewed.\w8 \0\b[0]\s[9]%(neutral)Hm?\w8 What do you mean,\w4 Luke?\w8 \1\s[27]\i[27]\n\n[half]Just the other day,\w4 pottyprof was telling me how misslayton was crying because she made some %(servedtea) for you and it didn't knock your socks off.\w8 \0\s[4]%(sad)\n\n[half]She was crying?\w8 Oh dear.\w8 \1\s[27]\i[9]\n\n[half]She was definitely being dramatic,\w8 \0\s[7]\i[0]\1\s[27]\i[27]but I also remember trying to make you some %(servedtea) one time and you told me I left it steeping for too long!\w8 \0\n\n[half]Well.\w8 \1\s[27]\i[9]\0\s[4]%(concernsmile)I'm sorry about that.\w8 \s[4]%(sad)I try not to be too particular about my tea.\w8 \1\s[27]\i[0]\n\n[half]It's okay.\w8 \s[27]\i[22]I think it's rather silly of you.\w8 \0\s[9]%(confused)\e"
+			
+			"\1\b[0]\s[27]\i[21]You really knocked this one out of the park,\w4 %(user).\w8 \0\b[0]\s[9]%(confusesmile)Why do you say that,\w4 Luke?\w8 \1\s[27]\i[27]\n\n[half]You might not realise this,\w4 Professor,\w4 but you can be very particular about how your %(servedtea) is brewed.\w8 \0\s[9]%(neutral)\n\n[half]\w8\w8\1\s[27]\i[9]\0\s[9]%(sad)Can I,\w4 now?\w8 \1\s[27]\i[12]\n\n[half]Yeah!\w8\w8 \0\s[9]%(neutral)\1\s[27]\i[9]One time,\w4 I accidentally left it steeping for too long and the face you made when you tasted it definitely showed me where I went wrong.\w8 \0\s[4]%(sad)\n\n[half]Well.\w8\w8 \1\s[27]\i[27]\0\s[7]\i[0]I'm sorry about that.\w8 \1\s[27]\i[0]\n\n[half]It's okay.\w8 \0\s[4]%(confused)\1\s[27]\i[3]It just makes you a bit sillier than most people think.\w8 \0\s[9]%(concernsmile)\n\n[half]I'm sure we're all a fair bit sillier than others perceive us to be.\w8 \1\s[27]\i[9]\e"
+		}
+		if servedtea == "Oasis Berry"
+		{
+			"\1\b[0]\s[27]\i[22]Mm,\w4 it's sooooo tasty!\w8 \0\b[0]\s[9]%(happies)You really do have quite the sweet tooth,\w4 don't you,\w4 my boy?\w8 \1\s[27]\i[21]\n\n[half]Sweet things are good,\w4 Professor!\w8 \0\s[9]%(confusesmile)\n\n[half]Indeed.\w8\w4 \1\s[27]\i[22]\0\s[9]%(calmsmile)Can't much argue with that.\w8\e"
+			
+			"\0\b[0]\s[2]%(confusesmile)Is there any particular reason why Oasis Berry is your favourite,\w4 Luke?\w8 \1\s[27]\i[27]\0\s[5]%(happies)Besides it being sweet,\w4 of course.\w8 \1\b[0]Well.\w8 \s[27]\i[21]I like the taste of it the best!\w8 \0\s[1]%(confusesmile)\1\s[27]\i[19]Not only is it sweet,\w4 it's got a nice refreshing aftertaste!\w8 \0\s[1]%(happies)\1\s[27]\i[22]It really helps you get back on your feet when you need the boost.\w8 \0\s[2]%(confusesmile)\n\n[half]I see.\w8\w4 \1\s[27]\i[0]\0\s[2]%(calmsmile)That does make sense,\w4 I can see how it can be refreshing.\w8 \1\s[27]\i[21]\n\n[half]misslayton likes this one a lot,\w4 too!\w8 \0\s[9]%(smiles)\n\n[half]Haha,\w4 she does,\w4 indeed.\w8\e"
+			
+			"\1\b[0]\s[27]\i[22]Mm!\w8\w8 \0\s[9]%(confusesmile)\1\s[27]\i[21]Gotta love that refreshing sweetness,\w4 eh,\w4 Professor?\w8 \0\b[0]\s[4]%(concernsmile)It's a little too sweet for me,\w4 but I am enjoying my cup.\w8 \1\s[27]\i[0]\0\s[4]%(happies)And I'm glad you're enjoying your portion as well.\w8 \1\s[27]\i[21]\n\n[half]I'm getting all boost from the juice!\w8 \0\s[4]%(neutral)\1\s[27]\i[22]As the saying goes.\w8 \0\s[2]%(confused)\n\n[half]I'm not sure I've ever heard that saying before.\w8\e"
+		}
+		if servedtea == "Sugar Smoke"
+		{
+			"\1\b[0]\s[22]\i[17]You wouldn't think smokiness and fruit would go well together,\w8 \0\s[9]%(confusesmile)\1\s[19]\i[22]but this tea proves that wrong!\w8 \0\b[0]\s[9]%(happies)It does,\w4 indeed.\w8 \1\s[19]\i[0]\0\s[9]%(calmsmile)That sharp citrus being expertly accompanied by the smokiness of the Cinder Horse is quite wonderful.\w8 \1\s[27]\i[18]\n\n[half]It's subtle enough that the fruitiness really shines,\w4 too.\w8 \0\s[9]\i[18]\n\n[half]It's almost as good as the satisfaction of a puzzle solved.\w8 \1\s[27]\i[21]\n\n[half]Yeah!\w8\w4 \0\s[9]%(happies)\1\s[27]\i[22]I get that.\w8\e"
+			
+			"\0\b[0]\s[2]%(confused)Divining your love life...\w8 \1\b[0]\s[27]\i[9]It's an interesting property of tea leaves,\w4 innit?\w8 \0\s[2]%(concernsmile)\1\s[27]\i[18]People see what shapes form and make up little stories or fortunes based on what they can interpret from it.\w8 \0\s[3]%(confusesmile)\n\n[half]It's very interesting,\w4 but I'm not sure how reliable it is.\w8 \1\s[27]\i[27]\n\n[half]C'mon,\w4 Professor.\w8 \s[27]\i[12]It's for fun,\w4 not anything super serious.\w8 \0\s[9]%(concernsmile)\n\n[half]I suppose so.\w8\e"
+			
+			"\1\b[0]\s[22]\i[17]Where do you think the Cinder Horse came from?\w8 \0\b[0]\s[9]%(neutral)What do you mean?\w8 \1\s[18]\i[9]\n\n[half]In retrospect,\w4 it seems a little strange that we'd be able to brew a tea with a seahorse as an ingredient.\w8 \0\s[9]%(confusesmile)\n\n[half]A lot of our adventures in Folsense were quite strange.\w8 \1\s[18]\i[27]\0\s[9]%(concernsmile)I believe it was simply a trick of our minds,\w4 assuming it to be a seahorse when in actuality it was a much more common ingredient in a shape our minds interpreted as a seahorse.\w8 \1\s[18]\i[1]\n\n[half]You really think so?\w8 \0\s[9]%(smiles)\n\n[half]How else would %(user) be serving us this tea were it not?\w8 \1\s[27]\i[9]\n\n[half]I suppose that's a good point,\w4 Professor.\w8\e"
+		}
+		if servedtea == "Root Remedy"
+		{
+			"\1\b[0]\s[27]\i[12]If anyone could use some improved circulation,\w4 it's definitely me.\w8 \0\b[0]\s[9]%(concernsmile)You do tend to run cold.\w8 \1\s[27]\i[27]\0\s[9]%(smiles)Which is why this tea was a good choice to help you warm up.\w8 \1\s[27]\i[10]\n\n[half]If only it weren't so bitter...\w8 \0\s[9]%(concernsmile)\e"
+			
+			"\0\b[0]\s[2]%(calmsmile)Medicinal teas are a fascinating thing,\w4 aren't they?\w8 \1\b[0]\s[27]\i[21]They are.\w8 \0\s[2]%(confusesmile)\1\s[27]\i[14]Just think,\w4 all of the impact of cough syrup or a pill in the form of a nice cuppa.\w8 \0\s[9]%(happies)\n\n[half]And with only double the bitterness,\w4 as well.\w8 \1\s[27]\i[11]\n\n[half]That's the part I'm not so sold on.\w8\e"
+			
+			"\1\b[0]\s[27]\i[13]Are you worried about catching colds,\w4 %(user)?\w8 \0\b[0]\s[9]%(concernsmile)Being aware of your health is a good thing.\w8 \1\s[27]\i[9]\0\s[5]%(smiles)I make sure to have misslayton,\w4 pottyprof,\w4 and Luke all take their vitamins every day.\w8 \1\s[27]\i[13]\n\n[half]Those aren't nearly half as bitter as this tea,\w4 though.\w8 \0\s[9]%(concernsmile)\1\s[27]\i[21]And one of them comes in the form of a nice orange drink!\w8 \0\s[9]%(smiles)\n\n[half]Either way,\w4 make sure to take care of yourself,\w4 %(user).\w8 \1\s[27]\i[9]\n\n[half]Yeah,\w4 being sick's really no fun at all!\w8\e"
+		}
+		if servedtea == "Cherry Boost"
+		{
+			"\0\b[0]\s[9]%(calmsmile)Ah,\w4 Peppercherry.\w8 \1\s[27]\i[18]\0To think,\w4 its spiciness can be drawn out despite how concentrated its addition to such a delicious tea.\w8 \1\b[0]\s[27]\i[12]It makes my mouth all nice and tingly in a fun way.\w8 \0\s[9]%(smiles)\1\s[27]\i[19]Like eating curry or green chile.\w8 \0\s[5]%(calmsmile)\n\n[half]The trick,\w4 I believe,\w4 is to make it not painful.\w8 \1\s[27]\i[27]\n\n[half]Well,\w4 it's definitely not painful,\w4 so.\w8 \0\s[9]%(happies)\1\s[27]\i[21]%(user) did a good job on that front!\w8\e"
+			
+			"\1\b[0]\s[27]\i[18]Mm,\w4 who ever thought spicy could be so tasty?\w8 \0\b[0]\s[9]%(happies)It is quite the feat to have something that's spicy,\w4 yet not too painful.\w8 \1\s[27]\i[19]\n\n[half]Painful spicy can be fun,\w4 too.\w8 \0\s[9]%(confusesmile)\1\s[27]\i[21]Like a test of how tingly your mouth can get!\w8 \0\s[3]%(concernsmile)\n\n[half]Or how long you can go before it all goes numb?\w8 \1\s[27]\i[22]\n\n[half]Yeah,\w4 exactly!\w8 \0\s[4]%(confusesmile)\n\n[half]I do hope you and pottyprof aren't pushing yourselves.\w8 \1\s[27]\i[16]\n\n[half]How'd you know I was thinking of Alfendi,\w4 Professor?\w8 \0\s[9]%(concernsmile)\e"
+			
+			"\1\b[0]\s[27]\i[27]Do you like spicy foods,\w4 %(user)?\w8 \0\b[0]\s[9]%(happies)We've had the fortune of travelling to enough places to have a variety of different dishes,\w8 \1\s[27]\i[9]\0\s[9]%(confusesmile)but I'm sure you're well aware of the stereotype surrounding our home cuisine.\w8 \1\s[27]\i[27]\n\n[half]Aww,\w4 it's not that bad.\w8 \0\s[9]%(concernsmile)\1\s[22]\i[7]Sure,\w4 it might seem bad in comparison to others,\w4 but there's a lot of stuff to like that we got.\w8 \0\s[9]%(smiles)\1\s[27]\i[21]Like roast lamb!\w8 \0\s[9]%(calmsmile)\n\n[half]And this delicious tea.\w8 \1\s[27]\i[22]\n\n[half]Yeah!\w8\e"
+		}
+		if servedtea == "Bitter Fruit"
+		{
+			"\1\b[0]\s[16]\i[7]Isn't the bitterness supposed to be the subdued part of the flavour?\w8 \0\s[9]%(concernsmile)\1It's all I can really taste.\w8 \0\b[0]\s[9]%(sadsmile)It is a shame that the bitter part gets in the way of the sweet and sour flavours mingling in there.\w8 \1\s[16]\i[17]\0\s[9]%(calmsmile)Bitter Fruit is otherwise a rather tasty experience.\w8 \1\s[16]\i[13]\n\n[half]It really is a shame.\w8 \s[16]\i[9]But you like it a lot,\w4 Professor,\w4 don't you?\w8 \0\s[9]%(smiles)\n\n[half]The complexity is simply what draws me in.\w8 \1\s[16]\i[1]\0\s[9]\i[18]You could say it reminds me of a puzzle.\w8 \1\s[27]\i[3]\n\n[half]That makes sense.\w8 \0\s[9]%(happies)\e"
+			
+			"\0\b[0]\s[2]%(confusesmile)Do you enjoy complex flavours in your teas,\w4 %(user)?\w8 \1\b[0]\s[19]\i[25]Are you a\w4 \f[italic,1]discerning adult\f[italic,0]\w8 \0\s[2]%(neutral)\1like the Professor?\w8 \0\s[3]%(concernsmile)\n\n[half]You don't have to be an adult to enjoy complex flavours,\w4 Luke.\w8 \1\s[16]\i[0]\n\n[half]True.\w8\w4 \0\s[3]%(confusesmile)\1\s[16]\i[6]Some people like bitter flavours.\w8 I can't imagine any,\w4 but they're sure out there!\w8 \0\s[9]%(annoyedsmile)\n\n[half]Haha,\w4 Luke.\w8\e"
+			
+			"\1\b[0]\s[18]\i[9]This one's not even medicinal like Root Remedy...\w8 \0\b[0]\s[9]%(calmsmile)What it lacks in giving you that warmth inside to help you stave off your next cold\w4 \1\s[18]\i[1]\0it makes up for in it's depth of flavour.\w8 \1\s[18]\i[27]\0\s[9]%(happies)The sour hints definitely balance out its bitterness for myself.\w8 \1\s[16]\i[7]\n\n[half]If I could even get a hint of the sweetness supposedly in there,\w4 this tea would be ten times better.\w8 \0\s[9]%(neutral)\n\n[half]I'm sorry,\w4 Luke.\w8 \1\s[15]\i[27]\n\n[half]It's okay.\w8\w4 \0\s[9]%(sadsmile)\1\s[27]\i[9]I'm glad you enjoy it.\w8\e"
+		}
+		if servedtea == "Dream Spice"
+		{
+			"\1\b[0]\s[27]\i[22]Mm,\w8 \0\s[9]%(happies)\1that kick of heat mixing with this sweetness is just so good.\w8 \0\b[0]\s[9]%(confusesmile)It's a very interesting combination,\w4 indeed.\w8 \1\s[27]\i[0]\0\s[9]%(happies)You wouldn't expect something spicy to work so well with something sweet.\w8 \1\s[27]\i[21]\n\n[half]I suppose there are lots of strange combos out there that work despite first appearances.\w8 \0\s[9]%(smiles)\n\n[half]Indeed there are.\w8\e"
+			
+			"\1\b[0]\s[22]\i[27]Which flavour do you like more,\w4 %(user)?\w8 \0\s[9]%(confusesmile)\1Spicy or sweet?\w8 \0\b[0]\s[9]%(happies)I think I prefer something tart over either,\w8 \1\s[27]\i[22]\0\s[9]%(smiles)but both are quite good depending on the circumstances in which they're served.\w8 \1\s[27]\i[21]\n\n[half]You know my answer,\w4 Professor!\w8 \0\s[9]%(happies)\1\s[27]\i[22]Though,\w4 I think spicy would be a close second now.\w8\e"
+			
+			"\0\b[0]\s[9]%(concernsmile)A subtle spiciness like this one is about as much spice as I'd prefer to handle.\w8 \1\b[0]\s[27]\i[13]Do you not like spicy foods,\w4 Professor?\w8 \0\s[3]%(confusesmile)\n\n[half]Not particularly,\w4 no.\w8 \1\s[27]\i[9]\0\s[5]%(concernsmile)I've heard,\w4 though,\w4 that mraceattorney has had to put a limit on the amount of spice on food in his lodgings.\w8 \1\s[27]\i[12]\n\n[half]You and he can have too much spice for sure,\w4 then.\w8\e"
+		}
+		if servedtea == "Clover Quencher"
+		{
+			"\1\b[0]\s[27]\i[9]After this pot,\w4 \0\s[9]%(concernsmile)\1I don't think we'll need to hydrate for the rest of the day!\w8 \0\b[0]\s[4]%(confusesmile)It's very refreshing for sure.\w8 \1\s[22]\i[14]\n\n[half]Maybe we could run a whole marathon,\w4 Professor.\w8 \0\s[4]%(concernsmile)\1\s[22]\i[3]Just to test this theory.\w8 \0\s[3]%(confusesmile)\n\n[half]By the time we finish,\w4 I think we'd be ready for the next brew,\w4 definitely.\w8 \1\s[27]\i[22]\n\n[half]Haha,\w4 taking a run just to drink more tea sounds like something we'd do.\w8 \0\s[9]%(concernsmile)\e"
+			
+			"\0\b[0]\s[4]%(confusesmile)At the very least,\w4 we don't have to worry about drinking again for a while.\w8 \1\b[0]\s[27]\i[22]As promised,\w4 this one sure quenches your thirst!\w8 \0\s[1]%(concernsmile)\n\n[half]Even if I was more inclined towards the taste,\w4 I wouldn't need more than one cup,\w4 that's for certain.\w8 \1\s[16]\i[9]\n\n[half]I understand what you mean.\w8 \0\s[1]%(confusesmile)\1\s[16]\i[21]But it's nice!\w8\w4 \s[27]\i[27]At least,\w4 I think so.\w8 \0\s[9]%(calmsmile)\n\n[half]It is nice in its own way.\w8\e"
+			
+			"\1\b[0]\s[22]\i[27]Where do you think the Cinder Horse came from?\w8 \0\b[0]\s[9]%(neutral)What do you mean?\w8 \1\s[19]\i[9]\n\n[half]In retrospect,\w4 it seems a little strange that we'd be able to brew a tea with a seahorse as an ingredient.\w8 \0\s[9]%(confusesmile)\n\n[half]A lot of our adventures in Folsense were quite strange.\w8 \1\s[19]\i[27]\0\s[3]%(calmsmile)I believe it was simply a trick of our minds,\w4 assuming it to be a seahorse when in actuality it was a much more common ingredient in a shape our minds interpreted as a seahorse.\w8 \1\s[18]\i[16]\n\n[half]You really think so?\w8 \0\s[9]%(smiles)\n\n[half]How else would %(user) be serving us this tea were it not?\w8 \1\s[27]\i[9]\n\n[half]I suppose that's a good point,\w4 Professor.\w8\e"
+		}
+		if servedtea == "Radiance Blend"
+		{
+			"\1\b[0]\s[18]\i[8]Yaaaaawn...\w8\w8 \0\s[9]%(neutral)\1\s[18]\i[9]Sorry,\w4 %(user).\w8 This tea's making me nod off a bit.\w8 \0\b[0]\s[9]%(confusesmile)Now,\w4 Luke.\w8 Careful not to fall asleep on your feet there.\w8 \1\s[27]\i[3]\n\n[half]You're the one who can fall asleep on his feet,\w4 Professor.\w8 \0\s[9]%(happies)\n\n[half]Haha,\w4 I suppose that's fair.\w8\e"
+			
+			"\0\b[0]\s[4]%(closeeyes)Yaaaaawn...\w8\w8 \1\s[27]\i[1]\0\s[3]%(concernsmile)Ah,\w4 pardon me,\w4 %(user).\w8 \1\b[0]\s[27]\i[27]Don't fall asleep on your feet again,\w4 Professor.\w8 \0\s[1]%(confusesmile)\1\s[27]\i[3]I know you can\w4 -\w4 \s[27]\i[7]yaaaaawn...\w8 \0\s[9]%(happies)\n\n[half]Hahaha,\w4 it seems you're nodding off a bit there as well,\w4 Luke.\w8 \1\s[27]\i[13]\n\n[half]This tea is just so relaxing,\w4 it makes me want a nap...\w8 \0\s[9]%(confusesmile)\n\n[half]That's the power of Radiance Blend for you.\w8\e"
+			
+			"\1\b[0]\s[16]\i[8]Mm,\w4 I think I'm nodding off a bit...\w8 \0\b[0]\s[9]%(concernsmile)It's a good thing we're having a tea break,\w4 then.\w8 \1\s[16]\i[27]\n\n[half]Yeah.\w8 This Radiance Blend is\w4 -\w4 \s[16]\i[10]yaaaaawn\w8 -\w4 \0\s[9]%(confusesmile)\1\s[16]\i[9]is putting me to sleep.\w8 \0\s[4]%(calmsmile)\n\n[half]It is quite relaxing,\w4 isn't it?\w8 Almost\w4 -\w4 \s[4]%(closeeyes)yaaaaawn\w8 -\w4 \1\s[16]\i[1]\0\s[4]%(confusesmile)almost too relaxing,\w4 pardon me.\w8 \1\s[18]\i[12]\n\n[half]Haha,\w4 sorry,\w4 Professor.\w8 \0\s[4]%(concernsmile)\1\s[27]\i[27]Yawns are contagious,\w4 after all!\w8 \0\s[9]%(concernsmile)\n\n[half]They really can be.\w8\e"
+		}
+		if servedtea == "Cayenne Twilight"
+		{
+			"\1\b[0]\s[27]\i[18]Ahh...\w8\w8 \0\s[9]%(happies)\1\s[27]\i[0]It's nice to sit a while and just sip some good Cayenne Twilight.\w8 \0\b[0]\s[5]%(smiles)And once we've finished our rest,\w4 we'll be nice and rejuvenated when we get back to our investigation.\w8 \1\s[27]\i[21]\n\n[half]It's amazing what a nice cuppa can do,\w4 eh,\w4 Professor?\w8 \0\s[9]%(happies)\n\n[half]That's what I always say,\w4 Luke.\w8\e"
+			
+			"\0\b[0]\s[9]%(calmsmile)Ahh.\w8 \1\s[27]\i[18]\0This Cayenne Twilight is so relaxing.\w8 It's as if all the tension in my body has left.\w8 \1\b[0]\s[27]\i[0]It's really amazing what a good cuppa can do.\w8 \0\s[9]%(confusesmile)\1\s[27]\i[21]It's almost like being boneless!\w8 \0\s[9]%(concernsmile)\n\n[half]I wouldn't go that far,\w4 but I understand the sentiment.\w8 \1\s[27]\i[0]\0\s[9]%(calmsmile)I could sink into my favourite armchair and spend a while just drinking this tea.\w8 \1\s[27]\i[22]\n\n[half]Yeah,\w4 that's the perfect way to put it!\w8\e"
+			
+			"\1\b[0]\s[27]\i[22]The breadth that spiciness can have is amazing,\w4 Professor.\w8 \0\s[9]%(happies)\1\s[27]\i[27]In something like a Cherry Boost or Dream Spice,\w4 it's nice and peppy.\w8 \s[27]\i[18]But here,\w4 it adds to the relaxing quality of this flavour.\w8 \0\b[0]\s[9]%(confusesmile)It is quite fascinating,\w4 isn't it?\w8 \1\s[27]\i[0]\0\s[2]%(calmsmile)I'm sure there's a puzzle in there somewhere about how flavours mix...\w8 \1\s[27]\i[21]\n\n[half]And I'm sure you'll be the one to find it.\w8\e"
+		}
+		if servedtea == "Cinder Flower"
+		{
+			"\1\b[0]\s[27]\i[7]This one still tastes like what it must be like to eat raw tea leaves...\w8\w4 \0\s[9]%(confusesmile)\1\s[27]\i[27]At least,\w4 it does to me.\w8 \0\b[0]\s[9]%(concernsmile)Is that why you're not very fond of it?\w8 \1\s[16]\i[7]\n\n[half]It's a bit too earthy for me,\w4 I think.\w8 Like smoked dirt,\w4 almost...\w8 \0\s[9]%(confusesmile)\n\n[half]At least it's not a cup of mud,\w4 like one of our failed brews.\w8 \1\s[27]\i[3]\n\n[half]That's true!\w8\e"
+			
+			"\0\b[0]\s[9]%(calmsmile)Ahh,\w4 that smokiness really does add to the flavour of this tea.\w8 \1\b[0]\s[18]\i[10]It smells a lot like how it tastes,\w4 but it's nicer to smell than drink.\w8 \0\s[9]%(confusesmile)\n\n[half]Do you like particularly earthy teas,\w4 %(user)?\w8 \1\s[18]\i[21]\n\n[half]I bet you'd really like this one if you do!\w8\e"
+			
+			"\1\b[0]\s[22]\i[27]Where do you think the Cinder Horse came from?\w8 \0\b[0]\s[9]%(confusesmile)What do you mean?\w8 \1\s[19]\i[9]\n\n[half]In retrospect,\w4 it seems a little strange that we'd be able to brew a tea with a seahorse as an ingredient.\w8 \0\s[9]%(concernsmile)\n\n[half]A lot of our adventures in Folsense were quite strange.\w8 \1\s[19]\i[1]\0\s[3]%(confusesmile)I believe it was simply a trick of our minds,\w4 assuming it to be a seahorse when in actuality it was a much more common ingredient in a shape our minds interpreted as a seahorse.\w8 \1\s[18]\i[16]\n\n[half]You really think so?\w8 \0\s[9]%(happies)\n\n[half]How else would %(user) be serving us this tea were it not?\w8 \1\s[18]\i[9]\n\n[half]I suppose that's a good point,\w4 Professor.\w8\e"
+		}
+		if servedtea == "The Layton Elixir"
+		{
+			"\1\b[0]\s[27]\i[27]Professor,\w4 why did you name it after you?\w8 \0\b[0]\s[9]%(confusesmile)Hm?\w8 Name what,\w4 my boy?\w8 \1\s[27]\i[3]\n\n[half]This tea we're drinking right now.\w8 The Layton Elixir!\w8 \0\s[9]%(concernsmile)\n\n[half]Well.\w8 \1\s[27]\i[6]\0I'm sorry to say this,\w4 but I wasn't exactly in my most coherent mind at the time.\w8 \1\s[27]\i[1]\0\s[9]%(sadsmile)I'm sure you remember that,\w4 considering you were right there with me.\w8 \1\s[27]\i[17]\n\n[half]I guess it did never strike me as strange until just now...\w8\e"
+			
+			"\1\b[0]\s[22]\i[7]The Layton Elixir...\w8\w8 \0\s[9]%(confusesmile)\1\s[19]\i[0]It's quite a marvellous brew,\w4 isn't it?\w8 \0\b[0]\s[9]%(calmsmile)Just a hint of spice,\w8 a dash of smokiness,\w8 and all from common ingredients you can find most anywhere.\w8 \1\s[27]\i[3]\n\n[half]Except for the Cinder Horse.\w8 \0\s[9]%(neutral)\n\n[half]\w8\w8\w8\1\s[27]\i[1]\0\s[9]%(confused)Is that not a common ingredient?\w8 \1\s[27]\i[9]\n\n[half]I sort of hope not?\w8\e"
+			
+			"\1\b[0]\s[27]\i[2]\w8\w8\w8\w8\0\b[0]\s[9]%(confused)Luke?\w8\w4 \1\s[27]\i[1]\0Is everything all right?\w8 \1\s[27]\i[12]Oh,\w4 sorry.\w8\w4 \0\s[9]%(concernsmile)\1\s[27]\i[17]It's just.\w8 This tea makes me so angry.\w8 \0\s[9]%(confused)\n\n[half]I...\w8\w8 thought you liked it?\w8 \1\s[27]\i[10]\n\n[half]I do!\w8\w4 \0\s[9]%(concernsmile)\1\s[27]\i[27]But it's so good that it makes me mad.\w8 \0\s[9]%(confusesmile)\n\n[half]Ah,\w4 I see.\w8 \1\s[27]\i[9]\0\s[9]%(concernsmile)You worried me for a moment there.\w8 \1\s[27]\i[7]\n\n[half]How is it possible for it to be this good and not even a lick of sweetness to it?\w8\e"
+			
+			"\1\b[0]\s[16]\i[17]Where do you think the Cinder Horse came from?\w8 \0\b[0]\s[9]%(confused)What do you mean?\w8 \1\s[22]\i[9]\n\n[half]In retrospect,\w4 it seems a little strange that we'd be able to brew a tea with a seahorse as an ingredient.\w8 \0\s[9]%(concernsmile)\n\n[half]A lot of our adventures in Folsense were quite strange.\w8 \1\s[16]\i[1]\0\s[5]%(confusesmile)I believe it was simply a trick of our minds,\w4 assuming it to be a seahorse when in actuality it was a much more common ingredient in a shape our minds interpreted as a seahorse.\w8 \1\s[16]\i[16]\n\n[half]You really think so?\w8 \0\s[9]%(happies)\n\n[half]How else would %(user) be serving us this tea were it not?\w8 \1\s[27]\i[9]\n\n[half]I suppose that's a good point,\w4 Professor.\w8\e"
+		}
+		
+		
+		/*
+		if timeslot == "earlymorning" //am5 to am8
+		if timeslot == "morning" //am9 to am11
+		if timeslot == "lunch" //pm12 to pm2
+		if timeslot == "afternoon" //pm3 to pm5
+		if timeslot == "evening" //pm6 to pm8
+		if timeslot == "night" //pm9 to pm11
+		if timeslot == "latenight" //am12 to am5
+		*/
+		{
+			"\0\b[0]\s[9]"
+			--
+			if timeslot == "earlymorning" {"%(concernsmile)It's a bit too early for tea,\w4 but this is "}
+			elseif timeslot == "morning" {"%(calmsmile)A nice cup of morning tea is "}
+			elseif timeslot == "lunch" {"%(happies)This luncheon tea is "}
+			elseif timeslot == "afternoon" {"%(calmsmile)Afternoon tea is "}
+			elseif timeslot == "evening" {"%(calmsmile)A nice cup of tea in the evening is "}
+			elseif timeslot == "night" {"%(calmsmile)Closing out the day with a warm cup of tea is "}
+			else {"%(concernsmile)It's a bit too late for a cup of tea,\w4 but this is "} //latenight
+			--
+			"%(good),\w4 wouldn't you say,\w4 Luke?\w8 \1\b[0]\s[27]"
+			--
+			if servedtea != "Oasis Berry"
+			{
+				"\i[27]Well,\w4 it's not my favourite,\w8 \0\s[9]%(confusesmile)\1\s[27]\i[22]but it is rather nice."
+				"\i[22]It was very nice of %(user) to share a cuppa with us."
+				"\i[18]Mm,\w4 quite,\w4 Professor."
+			}
+			else //Oasis Berry
+			{
+				"\i[21]Yeah!\w8 I really like this one!"
+				"\i[22]It's sooooo good,\w4 Professor!"
+			}
+			--
+			"\w8\e"
+		}
+		
+		{
+			"\1\b[0]\s[27]\i[21]This sort of tea is exactly the pep we need!\w8 \0\b[0]\s[9]%(happies)Getting an extra burst of pep "
+			--
+			if timeslot == "morning" {"this early in the morning"}
+			elseif timeslot == "lunch" || timeslot == "afternoon" {"just in time for lunch"}
+			elseif timeslot == "evening" || timeslot == "night" {"this late into the evening"}
+			else {"so late into the day"} //night, latenight, earlymorning
+			--
+			" is appreciated.\w8\e"
+		}
+		
+		{
+			"\0\b[0]\s[9]"
+			--
+			"%(happies)"
+			"%(calmsmile)"
+			"%(smiles)"
+			--
+			"This cup of %(servedtea) is quite good.\w8"
+			"I'm quite enjoying this cup of %(servedtea).\w8"
+			--
+			"\1\b[0]\s[27]"
+			--
+			if servedtea == "Citrus Classic" || servedtea == "Belle Classic" || servedtea == "Oasis Berry" || servedtea == "Cherry Boost"
+			{"\i[22]Mm!\w8 The flavour is pretty strong.\w8"}
+			elseif servedtea == "Sugar Smoke" || servedtea == "Root Remedy" || servedtea == "Dream Spice"
+			{"\i[21]Yeah!\w8\w4 \s[27]\i[22]The flavour is perfectly subtle.\w8"}
+			elseif servedtea == "Bitter Fruit" || servedtea == "Cinder Flower"
+			{"\i[21]It's a really strong flavour for sure!\w8"}
+			elseif servedtea == "Clover Quencher" || servedtea == "Radiance Blend" || servedtea == "Cayenne Twilight"
+			{"\i[18]It's really soothing.\w8 Perfectly so!\w8"}
+			else //The Layton Elixir
+			{"\i[22]It's such a harmonious flavour,\w4 you can't help but like it!\w8"}
+			--
+			" \0\s[9]%(smiles)\1\s[27]\i[0]You did a good job brewing it,\w4 %(user)!\w8 \0\s[3]%(calmsmile)\n\n[half]Yes.\w8 A puzzle well solved.\w8 \1\s[27]\i[17]\w8\w8\w8\0\s[3]%(neutral)\nI mean,\w8 \s[9]%(concernsmile)a job well done.\w8 \1\s[22]\i[7]\n\n[half]Which ingredients made up this brew again...?\w8\e"
+		}
+		
+		{
+			"\1\b[0]\s[22]\i[7]Hmm...\w8\w8 \0\s[9]%(confusesmile)\1%(ingredients)...\w8 \0\b[0]\s[9]%(happies)Are you cooking up a puzzle there,\w4 my boy?\w8 \1\s[27]\n\n[half]"
+			--
+			"\i[27]I might be...\w8\e"
+			
+			"\i[25]No,\w4 I'm cooking up some %(servedtea).\w8 \0\s[4]%(happies)\n\n[half]Hahaha!\w8\w4 \1\s[27]\i[22]\0\s[9]%(smiles)Good show,\w4 Luke.\w8 That was a clever one.\w8\e"
+		}
+		
+		{
+			"\0\b[0]\s[2]%(confused)That's %(ingredients)...\w8 \1\b[0]\s[27]"
+			--
+			"\i[27]Thinking over how %(servedtea) is made?\w8"
+			
+			"\i[3]Thinking up a puzzle to serve with our %(servedtea),\w4 Professor?\w8"
+			--
+			"\0\s[9]%(happies)\n\n[half]Haha,\w4 I might be,\w4 Luke.\w8\e"
+		}
+		
+		{
+			"\1\b[0]\s[27]\i[27]What's your perfect cup of tea look like,\w4 Professor?\w8 \0\b[0]\s[9]%(calmsmile)Right now,\w4 it looks like this delicious cup of %(servedtea) %(user) has given us.\w8 \1\s[27]\i[25]\n\n[half]I meant hypothetically!\w8"
+			--
+			"\0\s[9]%(happies)\e"
+			
+			"\0\s[9]%(confusesmile)\n\n[half]Hm.\w8\w8 \1\s[27]\i[27]\0\s[9]%(calmsmile)Still this cup of %(servedtea),\w4 I should think.\w8 \1\s[27]\i[3]\n\n[half]Aw,\w4 Professor!\w8\e"
+		}
+		
+		{
+			"\0\b[0]\s[2]%(confused)So %(favetea) is your preferred brew,\w4 %(user)...\w8 \1\b[0]\s[27]\i[27]"
+			--
+			if favetea != servedtea {"But you served us %(servedtea) instead.\w8 \0\s[2]%(concernsmile)\1\s[27]\i[9]Are you looking out for our tastes?\w8"}
+			else {"Is that why you served it to us?\w8 \0\s[2]%(happies)\1\s[27]\i[21]Wanted to share your favourite?\w8"}
+			--
+			"\0\s[4]%(smiles)\n\n[half]Thank you for your consideration.\w8 \1\s[27]\i[0]\0\s[4]%(calmsmile)I can tell you're a kind person.\w8 \1\s[27]\i[12]\n\n[half]At least,\w4 you are to us!\w8 \0\s[9]%(smiles)\1\s[27]\i[22]Making us tea and hosting us while we investigate,\w4 it's real generous of you!\w8\e"
+		}
+		
+		{
+			"\1\b[0]\s[27]\i[27]Professor,\w4 have we ever found a hint coin in our tea set?\w8 \0\b[0]\s[3]%(confusesmile)I do believe we have pulled at least two out of the case.\w8 \1\s[27]\i[0]\0\s[3]%(concernsmile)Though,\w4 not out of a cup while there's tea in it.\w8 \s[2]%(confusesmile)Have you found one now,\w4 Luke?\w8 \1\s[27]\n\n[half]"
+			--
+			"\i[21]Yeah,\w4 right here!\w8"
+			
+			"\i[27]Maybe not this cup,\w8 \s[27]\i[14]but I can see the sparkle on %(user)'s pot.\w8"
+			--
+			"\0\s[9]%(happies)\n\n[half]Hmm.\w8 I see.\w8\e"
+		}
+		
+		//hoo boy.
+		{
+			"\0\b[0]\s[9]%(concernsmile)Having little treats to go along with our tea would be nice,\w4 but I completely understand your limitations,\w4 %(user).\w8 \1\b[0]\s[27]\i[12]We wouldn't want to impose too much.\w8 \0\s[9]%(neutral)\1\s[22]\i[27]But what sorts of tea sarnies would you serve with %(servedtea),\w4 Professor?\w8 \0\s[2]%(confusesmile)\n\n[half]Hmm.\w8\w4 \s[3]"
+			--
+			"%(happies)"
+			"%(calmsmile)"
+			"%(smiles)"
+			"%(concernsmile)"
+			--
+			"Possibly cucumber?"
+			"Egg salad,\w4 perhaps?"
+			"Eggplant,\w4 definitely."
+			"Beets and radish?"
+			"Mini ham sandwiches,\w4 most likely."
+			"Tuna salad ones sound like they'd be good."
+			"Perhaps peanut butter and jelly?"
+			"Fairy bread sandwiches might match this one..."
+			"Nutmeg and jam might pair nicely."
+			"Vegemite and figs sound like a good pair."
+			"Melon finger sandwiches with cantaloupe would probably work."
+			"Turkey and tomato should be our choice."
+			"Potato salad sandwiches sound good as our choice."
+			"Why not shredded beef or chicken?"
+			"Pulled pork might work."
+			"Why not marmite sandwiches?"
+			"How about ice cream sandwiches?"
+			"How about cream cheese bagels instead?"
+			"Why not some shortbread biscuits instead?"
+			"Could have some cheese and crackers,\w4 couldn't we?"
+			--
+			"\w8\1\n\n[half]"
+			--
+			"\s[16]"
+			"\s[18]"
+			"\s[17]"
+			--
+			"\i[0]I could see that working.\w8\e"
+			"\i[21]I could see that working.\w8\e"
+			
+			"\i[3]Ew,\w4 that wouldn't work at all.\w8\e"
+			"\i[6]Ew,\w4 that wouldn't work at all.\w8\e"
+			
+			"\i[18]Mm,\w4 that makes me want a sarnie,\w4 too...\w8\e"
+			"\i[22]Mm,\w4 that makes me want a sarnie,\w4 too...\w8\e"
+			
+			"\i[16]You really think so??\w8\e"
+			"\i[29]You really think so??\w8\e"
+			
+			"\i[9]Sounds a bit odd to me,\w8 but I'd try it!\w8\e"
+			"\i[13]Sounds a bit odd to me,\w8 but I'd try it!\w8\e"
+		}
+		
+		//if teapassmin > 10
+		//if teapassmin > 30
+		//if teapassmin > 50
+		
+		//if ghostexcount > 0
+		
+		"\1\b[0]\s[27]\i[22]It's nice to take a rest every once in a while.\w8 \0\b[0]\s[9]%(happies)Indeed it is.\w8 \1\s[27]\i[0]\0\s[5]%(smiles)Ensuring you don't strain and hurt yourself is an important part of knowing one's self.\w8 \1\s[27]\i[21]\n\n[half]Thanks for giving us this nice break,\w4 %(user).\w8 \0\s[9]%(happies)\1\s[27]\i[14]We'll be nice and rejuvenated when we get back to it!\w8 \0\s[9]%(calmsmile)\n\n[half]It's also essential in keeping one's mind alert and capable of critical thinking.\w8\e"
+		
+		"\0\b[0]\s[9]%(calmsmile)Taking a break every now and then,\w4 \1\s[27]\i[22]\0even a small one,\w4 is essential in keeping the mind fresh.\w8 \1\b[0]\s[27]\i[27]Right.\w8\w4 \s[27]\i[9]Spending too long focusing on something can make your mind all strained and raspy.\w8 \0\s[9]%(smiles)\n\n[half]As such,\w8 \1\s[27]\i[21]\0\s[9]%(calmsmile)thank you,\w4 %(user),\w4 for providing us this moment to relax.\w8 \1\s[27]\i[22]\n\n[half]Yeah,\w4 thanks a bunch!\w8 \0\s[9]%(smiles)\1\s[27]\i[0]And we have a nice cuppa to enjoy to boot.\w8 \0\s[9]%(happies)\n\n[half]Haha,\w4 that does indeed sweeten the deal,\w8 \1\s[27]\i[12]\0\s[4]%(concernsmile)if you'll pardon the expression.\w8\e"
+	}
+	else //normal aitalk
+	{
+		"\1\b[0]\s[18]\i[0]Have you been on any archaeological digs recently,\w4 Professor?\w8 \0\b[0]\s[2]%(confusesmile)No,\w4 I don't believe so.\w8 \1\s[18]\i[1]\0Is there any reason in particular you're asking?\w8 \1\s[16]\i[27]\n\n[half]I was hoping I could go with you next time.\w8 \0\s[2]%(neutral)\1\s[16]\i[21]There's always a fun adventure to be had when we investigate ruins together!\w8 \0\s[4]%(confusesmile)\n\n[half]Yes,\w4 it's always a lot more fun to have you by my side on those ventures.\w8 \1\s[15]\i[22]\n\n[half]Heehee,\w4 yeah!\w8\e"
+		
+		"\1\b[0]\s[18]\i[0]We've been all over the world,\w4 so we've had a bunch of different kinds of cuisine,\w4 %(user).\w8 \0\b[0]\s[4]%(happies)I hope you've had the opportunity to taste different cuisines from different cultures as well.\w8 \1\s[21]\i[21]\n\n[half]It can be nice to try new things!\w8 \0\s[4]%(neutral)\1\s[21]\i[13]Even if it can be scary sometimes.\w8 \0\s[1]%(confusesmile)\n\n[half]I'm not sure I've ever seen you be scared of trying anything new.\w8 \1\s[16]\i[9]\n\n[half]I can be sometimes.\w8 \0\s[1]%(neutral)\1\s[16]\i[13]But I was thinking more about my friend.\w8 \0\s[4]%(concernsmile)\n\n[half]Ah,\w4 I see.\w8\e"
+		
+		"\1\b[0]\s[22]\i[27]Do you have a favourite food,\w4 %(user)?\w8 \0\b[0]\s[2]%(confusesmile)Perhaps you have a favourite type of meal?\w8 \1\s[22]\i[22]\0\s[3]%(happies)Or a favourite style of cuisine?\w8 \1\s[16]\i[27]\n\n[half]I think it's safe to say we have our own particular tastes when it comes to foods.\w8 \0\s[4]\i[18]\n\n[half]Yes,\w4 you have an insatiable sweet tooth,\w4 my boy.\w8 \1\s[17]\i[3]\n\n[half]And you're a proper English gentleman,\w4 Professor!\w8 \0\s[4]%(happies)\n\n[half]I suppose that's a fair assessment.\w8\e"
+		
+		"\1\b[0]\s[18]\i[0]Do you ever just stare up into the night sky,\w4 %(user)?\w8 \0\b[0]\s[4]%(calmsmile)Night can be very beautiful indeed.\w8 \1\s[22]\i[18]\n\n[half]The constellations are kind of like a puzzle.\w8 \0\s[4]%(neutral)\1\s[22]\i[11]Trying to connect them in the right way to form a picture is a nice way to pass the time.\w8 \0\s[1]%(sad)\n\n[half]\w8\w8\w8\1\s[22]\i[1]\0\s[1]%(closeeyes)How many constellations have you found,\w4 my boy?\w8 \1\s[16]\i[9]\n\n[half]Oh,\w4 just a few.\w8\w4 \0\s[1]%(sadsmile)\1\s[16]\i[27]I'm not very good at it.\w8\e"
+		
+		"\1\b[0]\s[16]\i[1]Do you ever suffer nightmares,\w4 %(user)?\w8 \0\s[1]%(neutral)\1\s[16]\i[9]The Professor tends to have them fairly frequently.\w8 \0\b[0]\s[4]%(concernsmile)It's rather unfortunate,\w4 but true.\w8 \1\s[16]\i[1]\0\s[4]%(sadsmile)Though,\w4 I try my best not to disturb you,\w4 misslayton,\w4 or pottyprof with any of them.\w8 \1\s[18]\i[24]\n\n[half]I think Alfendi has nightmares more often than he cares to admit,\w4 too.\w8 \0\s[4]%(sad)\1\s[25]And I have them on occasion.\w8 \0\s[7]\i[0]\n\n[half]We've all been through a lot,\w4 my boy.\w8 \1\s[18]\i[13]\0\s[4]%(concernsmile)Thankfully,\w4 we can be there for one another once we're awake.\w8 \1\s[16]\i[27]\n\n[half]That's true.\w8\w4 \0\s[4]%(confusesmile)\1\s[16]\i[12]Getting a good hug from Katrielle and seeing what new thing thegoldenapple made for breakfast helps a lot in setting all that aside.\w8\e"
+		
+		//allows myself some meta humour
+		"\1\b[0]\s[18]\i[17]Professor,\w4 how do you take your trunk everywhere with you?\w8 \0\b[0]\s[1]%(neutral)What do you mean,\w4 Luke?\w8 \1\s[19]\i[9]\n\n[half]You always have it with you,\w4 but it's a pretty hefty trunk!\w8 \0\s[1]%(confusesmile)\1\s[19]\i[27]I've got my satchel with me,\w4 so it just got me thinking.\w8 \0\s[3]%(calmsmile)\n\n[half]Well,\w4 you see,\w4 my boy.\w8 \1\s[19]\i[1]\0\s[5]%(smiles)First,\w4 you need to turn off your DS system.\w8 \1\s[16]\i[24]\0\s[5]%(calmsmile)Make sure to save your progress so you don't lose where you are in the story.\w8 \1\s[16]\i[6]\n\n[half]Oh,\w4 no.\w8 Not again.\w8 \0\s[3]%(smiles)\1\s[16]\i[13]Sorry,\w4 %(user),\w4 he'll snap out of it in a mo'.\w8\e"
+		
+		"\1\b[0]\s[19]\i[14]It's on the second screen,\w4 right?\w8 \0\b[0]\s[4]%(neutral)Pardon?\w8 \1\s[19]\i[3]\n\n[half]Your trunk.\w8\w4 \0\s[4]%(confused)\1\s[19]\i[14]That's where you keep it while we're investigating,\w4 isn't it?\w8 \0\s[1]%(concernsmile)\n\n[half]I'm sorry,\w4 Luke,\w4 but I haven't the faintest idea what you're talking about.\w8 \1\s[19]\i[1]\0\s[5]%(smiles)My trunk stays in the Laytonmobile's boot while we're off on a mystery.\w8 \1\s[18]\i[27]\n\n[half]Uh.\w8 Whoops!\w8\w4 \s[18]\i[12]Nevermind,\w4 Professor.\w8 \0\s[1]%(confusesmile)\e"
+		
+		//they are teasing each other (kinda)
+		"\1\b[0]\s[17]\i[3]Professor,\w4 you have to stop falling asleep at your desk.\w8 \0\b[0]\s[1]%(concernsmile)Oh,\w4 I'm sorry.\w8 \1\s[17]\i[0]\0\s[1]%(sadsmile)I just get so tied up in my work that I lose track of the time.\w8 \1\s[19]\i[25]\n\n[half]You should also stop waiting until the last minute to grade all your papers.\w8 \0\s[4]%(closeeyes)\n\n[half]That one is less doable,\w4 I'm afraid.\w8 \1\s[19]\i[9]\0\s[4]%(confusesmile)Whether we go looking for them or not,\w4 situations happen upon us at the strangest of times.\w8 \1\s[22]\i[17]\n\n[half]I suppose that's true...\w8\e"
+		
+		"\0\b[0]\s[2]%(concernsmile)I fear you've been taking after me of recent,\w4 my boy.\w8 \1\b[0]\s[16]\i[27]Huh?\w8 What do you mean,\w4 Professor?\w8 \0\s[5]%(confusesmile)\n\n[half]I found you asleep at your desk the other day.\w8 \1\s[16]\i[1]\0\s[5]%(concernsmile)Tuckered yourself out while doing your work.\w8 \1\s[18]\i[9]\n\n[half]Oh.\w8 Yeah,\w4 our last adventure happened so out of the blue that I almost missed the date to turn those in...\w8 \0\s[1]%(confusesmile)\n\n[half]I see.\w8\e"
+		
+		{
+			"\1\b[0]\s[19]\i[0]misslayton told me the other day\w8 \0\s[1]%(neutral)\1\s[19]\i[3]that she found you asleep with your hat on again.\w8 \0\b[0]\s[4]%(shock)Again?\w8\w8\w8 \1\s[17]\i[20]\0\s[4]%(neutral)Ah.\w8\w8 \s[3]%(confusesmile)Old habits die hard,\w4 I suppose.\w8 \1\s[17]\i[17]\n\n[half]I bet you were working late again,\w4 too.\w8 \0\n\n[half]Hahaha.\w8"
+			--
+			"\1\s[17]\i[20]\e"
+			
+			"\1\s[17]\i[17] \0\s[5]%(concernsmile)Quite right,\w4 I'm afraid.\w8 \1\s[21]\i[3]\n\n[half]Professor!\w8\e"
+		}
+		
+		"\1\b[0]\s[19]\i[17]You know,\w8 \0\s[4]%(neutral)\1\s[19]\i[3]pottyprof told me the other day that you were trying to give me a puzzle in your sleep!\w8 \0\b[0]\s[4]%(confusesmile)Was I?\w8 How fascinating.\w8\w4 \1\s[19]\i[27]\0\s[4]%(happies)I suppose,\w4 even in sleep my mind can't stop thinking up new puzzles.\w8 \1\s[16]\i[13]\n\n[half]I wish I'd been able to hear it.\w8 \0\s[4]%(confusesmile)\1\s[16]\i[9]It must have been a real doozy.\w8 \0\s[2]%(happies)\n\n[half]Oh,\w4 was Alfendi attempting to solve it when you saw him?\w8 \1\s[16]\i[7]\n\n[half]He wouldn't show it to me.\w8 \0\s[2]%(concernsmile)\1\s[22]\i[17]I think he wanted all the picarats.\w8 \0\s[3]%(smiles)\n\n[half]Hahaha,\w4 how delightful!\w8\e"
+		
+		"\0\b[0]\s[2]%(confusesmile)I wonder what sorts of puzzles we dream up in our sleep.\w8 \1\b[0]\s[21]\i[19]Ooh,\w4 I wonder that,\w4 too.\w8 \0\s[2]%(happies)\1\s[22]\i[22]They probably would make little sense,\w4 but it would be fun to see what we could come up with while asleep!\w8 \0\s[3]%(smiles)\n\n[half]I quite agree,\w4 my boy.\w8 \1\s[22]\i[0]\0\s[5]%(calmsmile)Dream logic would dictate an even more out of box thinking concerning these sorts of puzzles.\w8 \1\s[22]\i[1]\0\s[2]%(confusesmile)A sort of moon logic,\w4 one might even say.\w8 \1\s[22]\i[18]\n\n[half]Moon logic...\w8\w4 \0\s[4]%(happies)\1\s[22]\i[21]It sounds like so much fun!\w8\e"
+		
+		"\1\b[0]\s[19]\i[0]Hey,\w4 %(user).\w8\w4 \0\s[1]%(neutral)\1\s[19]\i[3]Did you know the Professor can fall asleep on his feet?\w8 \0\b[0]\s[3]%(confused)Luke.\w8 \1\s[19]\i[27]\0I don't fall asleep on my feet often enough to warrant telling %(user) about it.\w8 \1\s[16]\i[25]\n\n[half]But you have fallen asleep sitting up plenty of times.\w8 \0\s[1]%(confused)\1\s[16]\i[9]You're gonna hurt your back like that,\w4 Professor.\w8 \0\n\n[half]...\w8\w8\w8\1\s[16]\i[1]\0\s[3]%(concernsmile)I fear I've done much more detrimental things to my back than simply fall asleep while sitting up.\w8 \1\s[16]\i[9]\n\n[half]I guess that's true.\w8\e"
+		
+		"\0\b[0]\s[0]Oh,\w4 %(user).\w8\w4 \1\s[16]\i[1]\0\s[3]\i[18]Has Luke mentioned to you that he quite likes being pat on the head?\w8 \1\b[0]\s[18]\i[16]Professor!\w8 \0\s[3]%(happies)\1\s[18]\i[3]You're making me sound like a dog.\w8 \0\s[4]%(smiles)\n\n[half]Hahaha,\w4 sorry,\w4 my boy.\w8 \1\s[18]\i[27]\0\s[4]%(happies)I just think it's rather cute of you to share something with most of your animal friends.\w8 \1\s[16]\i[25]\n\n[half]I don't like being pet that much.\w8 \0\s[0]\1\s[16]\i[10]Just a pat on the head when I do a good job.\w8\e"
+		
+		"\1\b[0]\s[22]\i[18]You know,\w4 Professor,\w8 \0\s[1]%(neutral)\1\s[22]\i[25]I wouldn't expect all your workspaces to be so messy and cluttered.\w8 \0\b[0]\s[4]%(confusesmile)Oh?\w8 Why is that,\w4 Luke?\w8 \1\s[16]\i[3]\n\n[half]You're usually so neat!\w8 \0\s[4]%(concernsmile)\1\s[16]\i[27]And it's not like your home is a mess.\w8 \0\s[3]%(concernsmile)\n\n[half]Hahaha,\w4 well.\w8 \1\s[16]\i[0]\0\s[3]%(confusesmile)I'm often pulled away from my work more than I'd care to be.\w8 \1\s[16]\i[1]\0\s[5]%(calmsmile)Organising it a bit neater is often outside of my schedule.\w8 \1\s[16]\i[27]\n\n[half]Okay,\w4 if you say so.\w8\e"
+		
+		"\1\b[0]\s[18]\i[0]Do you eat salads,\w4 %(user)?\w8 \0\s[1]%(confusesmile)\1\s[18]\i[3]The Professor always orders a nice salad to go along with his meal.\w8 \0\b[0]\s[2]%(calmsmile)The croutons and tomatoes are usually what draw me to it.\w8 \1\s[18]\i[27]\0\s[2]%(smiles)As well as the spinach.\w8 \1\s[16]\i[6]\n\n[half]I like broccoli,\w4 but spinach is a little too bitter for me.\w8 \0\s[3]%(concernsmile)\n\n[half]That's why you tend to indulge in sweeter foods.\w8 \1\s[16]\i[27]\0\s[2]%(confused)Focusing on balancing your diet is a difficult puzzle to tackle...\w8 \1\s[17]\i[3]\n\n[half]I eat plenty of protein,\w4 at least!\w8 \0\s[2]%(neutral)\1\s[17]\i[14]I want to become as strong as you,\w4 after all!\w8 \0\s[4]%(concernsmile)\n\n[half]I suppose that's as good a goal to strive for as most.\w8\e"
+		
+		"\0\b[0]\s[1]%(calmsmile)Do you normally order one or two drinks with your meal,\w4 %(user)?\w8 \1\s[16]\i[1]\0\s[1]\i[18]Luke likes to get two usually.\w8 \1\b[0]\s[16]\i[27]I don't get two drinks.\w8 \0\s[1]%(confusesmile)\1\s[19]\i[6]I get a parfait and a drink.\w8 \0\s[2]%(neutral)\n\n[half]Parfait?\w8 I thought you were ordering milkshakes.\w8 \1\s[19]\i[0]\n\n[half]A milkshake is still different than a drink.\w8 \0\s[2]%(confusesmile)\1\s[19]\i[22]So is a float.\w8 \0\s[2]%(calmsmile)\n\n[half]This is beginning to sound like a puzzle.\w8 \1\s[18]\i[19]\n\n[half]Ooh,\w4 it is!\w8\e"
+		
+		"\0\b[0]\s[2]%(annoyed)We're running about so much,\w4 I suppose it does make sense...\w8 \1\b[0]\s[16]\i[27]What'cha talking about,\w4 Professor?\w8 \0\s[4]%(shock)\n\n[half]Oh,\w4 pardon me,\w4 Luke.\w8 \1\s[16]\i[1]\0\s[4]%(concernsmile)I was just musing over your eating habits.\w8 \1\s[16]\i[13]\n\n[half]Do you think I eat too much?\w8 \0\s[4]%(neutral)\n\n[half]Not at all.\w8 \1\s[16]\i[1]\0\s[4]%(concernsmile)It's more,\w4 trying to consider the same amount for my own meals causes a bit of confusion in my mind.\w8 \1\s[15]\i[27]\n\n[half]That makes sense.\w8 You're not at all a big eater.\w8 \0\s[3]%(confusesmile)\n\n[half]I've never been much of one,\w4 either,\w4 as surprising as that my sound.\w8 \1\s[16]\i[9]\n\n[half]That is a little surprising.\w8 \0\s[1]%(concernsmile)\1\s[16]\i[0]But I can see it.\w8\e"
+		
+		//friend talk
+		"\1\b[0]\s[18]\i[0]%(user),\w4 the Professor's got a real mechanical mind.\w8 \0\s[1]%(confusesmile)\1\s[18]\i[21]He and thegoldenapple are always chatting about gadgets and stuff while I'm taking care of pottyprof and misslayton.\w8 \0\b[0]\s[4]%(happies)Oh,\w4 has Flora told you about our chats?\w8 \1\s[16]\i[22]\n\n[half]A bit!\w8 \0\s[4]%(smiles)\1\s[16]\i[0]It sounds like a lot of fun.\w8 \s[16]\i[9]I'm better at driving machines rather than making them,\w4 though.\w8 \0\s[3]%(confusesmile)\n\n[half]You do have a mind for working heavy machinery for sure.\w8\e"
+		
+		"\1\b[0]\s[19]\i[0]thegoldenapple told me that she's working on a new flying machine.\w8 \0\s[1]%(neutral)\1\s[18]\i[21]And she wants me to test drive it!\w8 \0\b[0]\s[4]%(concernsmile)I do hope she'll complete a basic safety test before giving you free reign of it.\w8 \1\s[16]\i[24]\n\n[half]Aww.\w8\w8 \0\s[4]%(neutral)\1\s[16]\i[7]Where's the fun if I can't see it explode a little?\w8\e"
+		
+		"\1\b[0]\s[18]\i[0]Travelling with thegoldenapple is always interesting.\w8 \0\s[1]%(confusesmile)\1\s[18]\i[9]Can never tell if she's going to be cheerful about everything we see or if she'll stop me from saying hi to everyone we come across.\w8 \0\b[0]\s[3]%(concernsmile)You are much friendlier with others than is expected.\w8 \1\s[18]\i[1]\0\s[5]%(confusesmile)Both a show of your fearlessness and your naivete,\w4 I suppose.\w8 \1\s[16]\i[27]\n\n[half]I'm not that much of a child,\w4 Professor.\w8 \0\s[1]%(concernsmile)\1\s[16]\i[3]I just know that,\w4 to get all the information we need,\w4 talking to people is the best way to get it!\w8 \0\s[1]%(neutral)\1\s[19]\i[14]And we'd never get to hear so many fascinating puzzles if we didn't talk to everyone we could.\w8 \0\s[4]%(concernsmile)\n\n[half]You have a point there,\w4 my boy.\w8\e"
+		
+		"\0\b[0]\s[2]%(confused)Hmm...\w8 \1\b[0]\s[18]\i[0]What's on your mind,\w4 Professor?\w8 \0\s[4]%(concernsmile)\n\n[half]Oh,\w4 sorry.\w8\w4 \1\s[18]\i[27]\0\s[4]%(neutral)I was just thinking of maskedgent.\w8 \s[7]\i[0]I hope he's not giving \_a[HenryLedore]Henry\_a and \_a[AngelaLedore]Angela\_a too hard a time.\w8 \1\s[16]\i[9]\n\n[half]I think it's impossible for him not to at this point.\w8 \0\s[4]%(confused)\n\n[half]You...\w8\w8 \s[3]%(concernsmile)may be right.\w8\e"
+		
+		"\0\b[0]\s[2]%(closeeyes)I hope maskedgent's doing well.\w8 \1\b[0]\s[16]\i[27]Worrying about your old friend,\w4 Professor?\w8 \0\s[4]%(concernsmile)\n\n[half]I've always got something or other to worry about,\w4 I'm afraid.\w8 \1\s[21]\i[12]\n\n[half]Aw,\w4 Professor...\w8\e"
+		
+		{
+			"\0\b[0]\s[7]\i[0]It worries me how little concern pottyprof has for getting good marks sometimes...\w8 \1\b[0]\s[16]\i[27]He'll come around.\w8\w4 \0\s[4]%(confused)\1\s[16]\i[14]He'll have to if he wants to make detective one day.\w8 \0\n\n[half]"
+			--
+			"\s[4]%(concernsmile)I do hope so...\w8\e"
+			
+			"\s[4]%(happies)Hahaha,\w4 is that why you always make sure to get top marks in all of your own classes,\w4 my boy?\w8 \1\s[17]\i[3]\n\n[half]It might be!\w8\e"
+			
+			"\s[4]%(happies)Hahaha,\w4 is that why you always make sure to get top marks in all of your own classes,\w4 my boy?\w8 \1\s[16]\i[25]\n\n[half]Well,\w4 how else will I get all those picarats?\w8\e"
+		}
+		
+		"\1\b[0]\s[25]I had another tiff with pottyprof the other day.\w8 \0\b[0]\s[1]%(confused)Did you,\w4 now?\w8 \1\s[18]\i[7]\n\n[half]He tried to insist I solved the puzzle we were working on together wrong,\w4 but I had the right answer!\w8 \0\s[1]%(confusesmile)\1\s[16]\i[2]He was just being difficult.\w8 \0\s[3]%(concernsmile)\n\n[half]Unfortunately,\w4 he'll continue to be difficult for a while to come.\w8 \1\s[16]\i[1]\0\s[5]%(sadsmile)I'm sure,\w4 once he's had more time to acclimate,\w4 he'll stop being so difficult.\w8 \1\s[16]\i[17]\n\n[half]Somehow,\w4 I think being difficult's just in his personality...\w8\e"
+		
+		"\1\b[0]\s[15]\i[6]I tried cooking a pizza with pottyprof the other day.\w8 \0\b[0]\s[2]%(confusesmile)Oh?\w8 How did that go?\w8 \1\s[15]\i[27]\n\n[half]Not so great.\w8\w4 \0\s[1]%(concernsmile)\1\s[16]\i[7]He's still convinced it's better to just order one.\w8 \0\s[4]%(confusesmile)\n\n[half]He has an interesting reasoning,\w4 that's for sure.\w8 \1\s[22]\i[17]\n\n[half]It makes sense in a puzzle,\w8 \0\s[4]%(concernsmile)\1\s[22]\i[20]but when it comes to taste,\w4 I can't agree with him at all.\w8\e"
+		
+		"\1\b[0]\s[18]\i[16]Oh,\w8\w4 \0\s[4]%(confusesmile)\1\s[16]\i[0]it's about time I bake another cake with misslayton.\w8 \0\s[4]%(happies)\1\s[21]\i[22]She's fun to bake with.\w8 \0\b[0]\s[0]You truly enjoy spending time with her,\w4 don't you?\w8 \1\s[21]\i[19]\n\n[half]Of course!\w8\w4 \0\s[1]%(happies)\1\s[21]\i[21]She's a joy to be around.\w8\e"
+		
+		{
+			"\0\b[0]\s[2]%(confusesmile)It's both heartening and a bit fascinating how open misslayton can be with her emotions.\w8 \1\b[0]\s[19]\i[0]She's still a kid,\w4 Professor.\w8 \s[19]\i[21]Like me!\w8 \0\n\n[half]"
+			--
+			"\s[4]%(concernsmile)I suppose the two of you are quite alike.\w8\e"
+			
+			"\s[3]%(sad)You're not always open about how you feel,\w4 Luke.\w8 \1\s[16]\i[27]\n\n[half]I guess so.\w8\w4 \0\s[1]%(concernsmile)\1\s[16]\i[22]At least we're open with you most of the time!\w8 \0\s[1]%(sadsmile)\n\n[half]A fact I'm most grateful for.\w8\e"
+		}
+		
+		"\0\b[0]\s[2]%(closeeyes)I understand why you and misslayton are so close to one another,\w8 \1\s[18]\i[1]\0\s[2]%(smiles)but it's still quite heartening to see.\w8 \1\b[0]\s[18]\i[27]Aww,\w4 thanks,\w4 Professor.\w8 \0\s[2]%(happies)\1\s[21]\i[21]She's my favourite little girl,\w4 I gotta spoil her where I can.\w8\w8 \0\s[2]%(neutral)\1\s[21]\i[1]While I can.\w8 \s[15]\i[24]She's growing up so fast...\w8 \0\s[3]%(concernsmile)\n\n[half]Hahaha,\w4 she is indeed.\w8\w4 \1\s[15]\i[27]\0\s[3]%(sadsmile)Just as you are,\w4 my boy.\w8 \1\s[19]\i[3]\n\n[half]I gained another inch or two the other day!\w8 \s[19]\i[14]Can you tell?\w8 \0\s[4]\i[18]\n\n[half]I can,\w4 yes.\w8\e"
+		
+		"\0\b[0]\s[1]%(sad)I fear misslayton may be taking too much of a liking to thegoldenapple's cooking...\w8 \1\b[0]\s[16]\i[6]She's brave to try any of it at all.\w8 \0\s[1]%(concernsmile)\1\s[16]\i[27]I had no idea cake could be served with a fish on top.\w8 \0\s[3]%(confusesmile)\n\n[half]Flora certainly has a very unique sense of adventure when it comes to taste.\w8 \1\s[16]\i[9]\0\s[1]%(annoyedsmile)I'm not opposed to her passing that on to Katrielle,\w4 but it does make me worry...\w8 \1\s[17]\i[27]\n\n[half]I think it's fun,\w4 but I wouldn't want to be involved more when it comes to tasting everything.\w8 \0\s[1]%(confusesmile)\e"
+		
+		{
+			"\1\b[0]\s[22]\i[27]I think,\w4 on the rating scale,\w8 \0\s[1]%(neutral)\1\s[19]\i[6]misslayton gives the best hugs.\w8 \s[19]\i[0]As do \_a[BrendaTriton]my mum\_a and \_a[ClarkTriton]my dad\_a.\w8 \0\b[0]\s[2]%(confusesmile)This sounds like a proper puzzle you're brewing there.\w8 \1\s[18]\i[21]\n\n[half]I hope you give good hugs,\w4 too,\w4 %(user)!\w8 \0\s[2]%(concernsmile)\1\s[18]\i[13]At least,\w4 if you like hugs.\w8 \0\s[4]%(sadsmile)\n\n[half]It's quite all right if you don't.\w8 \1\s[18]\i[27]\0\s[4]%(concernsmile)As difficult as it is to admit such,\w4 I'm not one for tactile shows of affection.\w8"
+			--
+			"\e"
+			
+			"\1\s[21]\i[24]\n\n[half]I hope you don't mind me and Katrielle giving you hugs when we do.\w8 \0\s[4]%(sadsmile)\n\n[half]Oh,\w4 of course I don't.\w8 \s[7]\i[2]I'm sorry I'm not the best at reciprocating.\w8 \1\s[21]\i[12]\n\n[half]It's all right!\w8\w4 \0\s[4]%(sadsmile)\1\s[21]\i[13]I think we both understand.\w8\e"
+		}
+		
+		"\0\b[0]\s[1]%(confusesmile)How is dadtriton liking his position at the museum?\w8 \1\b[0]\s[16]\i[27]He enjoys it,\w4 I think?\w8 \0\s[1]%(concernsmile)\1\s[19]\i[9]He's out at his office a lot.\w8 \s[19]\i[0]And I'm here with you a lot,\w4 Professor.\w8 \0\s[3]%(confusesmile)\n\n[half]I suppose that's fair.\w8\e"
+		
+		"\1\b[0]\s[22]\i[7]I've been thinking of making \_a[ClarkTriton]my dad\_a's fish casserole recipe for misslayton and pottyprof again...\w8 \0\b[0]\s[1]%(happies)His fish casserole is rather delicious.\w8 \1\s[22]\i[0]\0\s[2]%(confusesmile)If I remember right,\w4 Alfendi was a huge fan of it.\w8 \1\s[16]\i[3]\n\n[half]He didn't want to admit it,\w4 but he was.\w8 \0\s[2]%(happies)\1\s[16]\i[27]The only problem is getting the fish for it...\w8 \0\s[4]%(smiles)\n\n[half]I can take care of that for you,\w4 Luke.\w8 \1\s[15]\i[1]\n\n[half]Are you sure?\w8 You don't have to.\w8 \0\s[3]%(calmsmile)\n\n[half]Perhaps we can swing by a market on our way home.\w8 \1\s[15]\i[27]\n\n[half]Well.\w8\w4 \0\s[3]%(smiles)\1\s[18]\i[21]If you want to,\w4 then that sounds like a plan!\w8\e"
+		
+		"\0\b[0]\s[1]%(confusesmile)Has momtriton been well?\w8 \1\s[16]\i[1]\0\s[1]%(concernsmile)When we last talked,\w4 she had been on another of her curio collecting sprees.\w8 \1\b[0]\s[16]\i[27]I still don't get why she likes those things.\w8 \0\s[1]%(confusesmile)\1\s[16]\i[3]But she's doing well!\w8\w4 \s[16]\i[22]She's always got a puzzle ready whenever I call home.\w8 \0\s[4]%(happies)\n\n[half]Haha,\w4 she does have a fantastic mind for puzzles.\w8 \1\s[16]\i[0]\0\s[4]\i[17]I suppose that's another thing you've inherited from her.\w8 \1\s[18]\i[21]\n\n[half]Yeah!\w8\e"
+		
+		"\1\b[0]\s[15]\i[22]\_a[BrendaTriton]My mum\_a made roast lamb for dinner the other night.\w8 \0\s[1]%(happies)\1\s[21]\i[21]It was soooo good!\w8 \0\b[0]\s[5]%(smiles)Hahaha,\w4 that is your favourite,\w4 isn't it?\w8 \1\s[21]\i[22]\n\n[half]Mm-hm!\w8\w4 \0\s[5]%(happies)\1\s[21]\i[0]I really like that she makes sandwiches with all the rest,\w4 too!\w8 \0\s[4]%(smiles)\n\n[half]Your two favourites!\w8 \1\s[21]\i[0]\0\s[4]\i[18]Pardon my presumptuousness.\w8 \1\s[16]\i[22]\n\n[half]Heehee,\w4 you can be silly sometimes,\w4 Professor.\w8 \0\s[1]%(happies)\e"
+		
+		"\1\b[0]\s[18]\i[0]You and mraceattorney send letters to one another,\w4 right?\w8 \0\b[0]\s[4]%(happies)Yes,\w4 he and I have become pen pals of sorts.\w8 \1\s[18]\i[22]\0\s[4]%(smiles)He said to wish you well in his last letter.\w8 \1\s[16]\i[27]\n\n[half]Aww.\w8 I should send him a letter of my own,\w4 too.\w8 \0\s[1]%(neutral)\1\s[22]\i[7]I want to ask how he's doing and if he needs any help.\w8 \0\s[3]%(concernsmile)\n\n[half]I'm sure he could always use a bit more help than he gets,\w4 but he wouldn't say so.\w8 \1\s[22]\i[13]\0\s[3]%(sadsmile)He's got a very kind heart.\w8 \1\s[16]\i[9]\n\n[half]He sure does.\w8\e"
+		
+		"\0\b[0]\s[5]%(smiles)mraceattorney mentioned that borgerfey would be finishing her training soon.\w8 \1\b[0]\s[21]\i[16]Woah,\w4 really?\w8\w4 \0\s[5]%(happies)\1\s[21]\i[21]That's amazing!\w8 \0\n\n[half]Yes.\w8 \1\s[21]\i[0]\0\s[2]%(closeeyes)Of course,\w4 from what I heard,\w4 her training can never really end.\w8 \1\s[21]\i[9]\0\s[3]%(smiles)But at the very least,\w4 she'll prove herself worthy of her position.\w8 \1\s[18]\i[0]\n\n[half]It'd be real neat to see her actually perform her spirit channeling technique sometime.\w8 \0\s[1]%(happies)\e"
+		
+		"\1\b[0]\s[22]\i[17]mraceattorney talks a lot about borgerfey.\w8 \0\s[4]%(confusesmile)\1\s[22]\i[3]You'd think she's his little sister or something!\w8 \0\b[0]\s[4]%(concernsmile)Yes,\w4 the two of them have quite an interesting sort of bond.\w8 \1\s[22]\i[1]\0\s[3]%(sadsmile)One born of tragedy and forged in how much trouble they've faced together.\w8 \1\s[21]\i[21]\n\n[half]Just like us,\w4 Professor!\w8 \0\s[2]%(neutral)\n\n[half]I suppose.\w8\w4 \1\s[21]\i[22]\0\s[2]%(concernsmile)It is a little similar,\w4 yes.\w8\e"
+		
+		"\1\b[0]\s[15]\i[13]borgerfey was so disappointed when you didn't even flinch at her all-American burger.\w8 \0\s[1]%(confusesmile)\1\s[19]\i[3]And even more so when you met her ramen bowl with all your poise and wit!\w8 \0\b[0]\s[4]%(happies)Hahaha,\w4 you give me far too much credit,\w4 my boy.\w8 \1\s[19]\i[27]\0\s[3]%(confident)I'm simply no stranger to burgers and ramen.\w8 \1\s[22]\i[6]\n\n[half]It's weird for me to think about,\w4 too,\w4 so I can't really blame her.\w8 \0\s[3]%(neutral)\1\s[22]\i[7]Seeing you eat a burger was so surreal...\w8 \0\s[5]%(confusesmile)\n\n[half]You've seen me eat sandwiches,\w4 it's much the same thing.\w8 \1\s[22]\i[17]\n\n[half]I guess.\w8\e"
+		
+		"\1\b[0]\s[22]\i[17]Hmm.\w8 \0\s[1]%(neutral)\1Professor,\w4 who do you think was more troublesome,\w4 desdes or paulpaolo?\w8 \0\b[0]\s[4]%(confused)Ah.\w8 That's a difficult question,\w4 actually.\w8 \1\s[18]\i[1]\0\s[3]%(annoyed)Both of them have enjoyed being thorns in our sides in different manners.\w8 \1\s[18]\i[27]\n\n[half]Yeah,\w4 I couldn't decide either.\w8 \0\s[4]\i[18]\n\n[half]Let's say they're both as bad as the other,\w4 then.\w8 \1\s[17]\i[3]\s[18]\i[21]\n\n[half]Works for me!\w8 \0\s[4]%(concernsmile)\e"
+		
+		
+		//shell specific dialogues
+		if SHIORI3FW.ShellName == "Puzzle Gentleman" //KFC shell
+		{
+			"\1\b[0]\s[18]\i[14]Both of us have our favourite hats on today!\w8 \0\b[0]\s[4]%(happies)That we do.\w8 \1\s[18]\i[0]\0\s[4]\i[18]Perhaps you have a favourite article of clothing as well,\w4 %(user)?\w8 \1\s[21]\i[21]\n\n[half]I'll bet it's lots of fun!\w8 \0\s[4]%(happies)\e"
+			
+			"\0\b[0]\s[2]%(confusesmile)I've always wondered,\w4 Luke...\w8 \1\s[18]\i[1]\0\s[2]%(concernsmile)How is it you manage to run about without getting your suspenders caught by anything?\w8 \1\b[0]Oh!\w8 \s[19]\i[21]That's a simple puzzle,\w4 Professor.\w8 \0\s[2]%(confusesmile)\1\s[19]\i[14]It just involves thinking about parallel universes!\w8 \0\s[2]%(calmsmile)\n\n[half]I see.\w8 How clever,\w4 \1\s[18]\i[22]\0I wouldn't have expected that sort of answer...\w8\e"
+		}
+		if SHIORI3FW.ShellName == "Luke and Layton" //Danganny shell
+		{
+			"\0\b[0]\s[2]%(confusesmile)What all are you carrying in your satchel today,\w4 my boy?\w8 \1\b[0]\s[19]\i[14]All the essentials we could ever need while on an investigation like this one!\w8 \0\s[2]%(happies)\1\s[19]\i[21]Like a couple of extra plasters,\w4 a bottle of water,\w4 and my journal!\w8 \0\s[2]%(confusesmile)\n\n[half]I see.\w8\w4 \1\s[18]\i[0]\0\s[3]%(happies)You are quite prepared,\w4 indeed.\w8 \1\s[18]\i[22]\n\n[half]Heehee.\w8\e"
+			
+			"\1\b[0]\s[16]\i[27]I've always thought your sweater looked really comfortable,\w4 Professor.\w8 \0\b[0]\s[4]%(confusesmile)Is that so?\w8 \1\s[16]\i[0]\0\s[4]%(happies)Well,\w4 I can safely say it is quite comfortable for me.\w8 \1\s[22]\i[22]\n\n[half]It's a nice colour,\w4 too.\w8 \0\s[4]%(confusesmile)\1\s[22]\i[14]I think I'd want a scarf in that colour.\w8 \0\s[2]%(happies)\n\n[half]It definitely would match your favourite colour nicely.\w8 \1\s[21]\i[21]\n\n[half]Right?\w8\e"
+		}
+		if SHIORI3FW.ShellName == "lukeluke" //Smooley! shell
+		{
+			"\0\b[0]\s[2]%(confusesmile)I must say I've grown rather curious over your sweater,\w4 my boy.\w8 \1\b[0]\s[18]\i[27]How so,\w4 Professor?\w8 \0\s[2]%(concernsmile)\n\n[half]It looks comfortable,\w4 but perhaps a touch big for you.\w8 \1\s[18]\i[1]\0\s[3]%(confusesmile)Did dadtriton or momtriton get it for you?\w8 \1\s[19]\i[0]\n\n[half]Oh,\w4 mum got it for me.\w8 \0\s[3]%(smiles)\1\s[19]\i[21]She also got me my hat!\w8 \0\s[2]%(happies)\n\n[half]I see.\w8 No wonder they're your favourites,\w4 then.\w8 \1\s[21]\i[22]\n\n[half]Yeah,\w4 mum's the best!\w8\e"
+			
+			"\1\b[0]\s[22]\i[14]What'cha thinking about,\w4 Professor?\w8 \0\b[0]\s[4]%(neutral)Pardon?\w8 \1\s[16]\i[12]\n\n[half]You've got such a serious expression,\w4 I was just wondering what's on your mind.\w8 \0\s[4]%(confusesmile)\n\n[half]Ah.\w8\w8 \1\s[16]\i[0]\0\s[2]%(annoyed)I do believe I was attempting to solve one of our past puzzles with a different method.\w8 \1\s[18]\i[3]\n\n[half]That's real serious,\w4 all right!\w8 \0\s[4]%(concernsmile)\e"
+		}
+
+		//special
+		if dayslot == userbirthday //for special bday dialogues
+		{
+			"\0\b[0]\s[1]%(sadsmile)I wish I had some sort of birthday puzzle for you,\w4 %(user),\w8 \1\s[16]\i[9]\0\s[1]%(concernsmile)but I'm afraid I'm freshly out of those.\w8 \1\b[0]\s[18]\i[12]Yeah,\w4 sorry!\w8 \0\s[1]%(confusesmile)\1\s[19]\i[13]For pottyprof's last birthday,\w4 we had to give him seven good puzzles before the end of the day.\w8 \0\s[5]%(concernsmile)\n\n[half]And not to mention the twelve others we had to give misslayton on her birthday.\w8 \1\s[16]\i[24]\n\n[half]It's a real shame.\w8\w4 \0\s[1]%(sad)\1\s[16]\i[11]Birthday puzzles are the best part of the day...\w8 \0\s[4]%(concernsmile)\n\n[half]Perhaps we'll have one for you next year.\w8\e"
+			
+			"\1\b[0]\s[16]\i[0]I really hope your day's going swell,\w4 %(user).\w8 \0\s[1]%(happies)\1\s[16]\i[22]Birthdays are meant to be loads of fun!\w8 \0\b[0]\s[3]%(smiles)Yes,\w4 I do hope you've received many well wishes from your loved ones.\w8 \1\s[16]\i[0]\0\s[5]%(calmsmile)The fact that you're here at all means that there are others out there who care about you very much.\w8 \1\s[17]\i[15]\n\n[half]And that includes us now!\w8 \0\s[4]%(happies)\n\n[half]Yes,\w4 it very much does.\w8 \1\s[17]\i[22]\e"
+		}
+		
+		//seasons!
+		if month == 1 || month == 2 || month == 12 //January, February, December; Winter
+		{
+			"\1\b[0]\s[16]\i[1]There's no snowfall in here.\w8 \0\b[0]\s[2]%(closeeyes)You're right.\w8\w4 \1\s[16]\i[0]\0\s[5]%(smiles)Back in our home,\w4 %(user),\w4 the streets are still covered white with snow.\w8 \1\s[18]\i[12]\n\n[half]But not here!\w8\w4 \0\s[1]%(confusesmile)\1\s[18]\i[27]I guess it's nice to have someplace warmer to stay in.\w8 \0\s[3]%(calmsmile)\n\n[half]True.\w8 We've been spared the biting cold for now.\w8\e"
+			
+			"\1\b[0]\s[22]\i[17]How long d'ya think the snow'll last this year,\w4 Professor?\w8 \0\b[0]\s[3]%(calmsmile)Oh,\w4 probably the same as most years.\w8 \1\s[22]\i[20]\0\s[5]%(smiles)Which would be midway through March.\w8 \1\s[21]\i[14]\n\n[half]That means plenty of time for a snowball fight.\w8 \0\s[1]%(neutral)\n\n[half]Now,\w4 my boy.\w8\w4 \1\s[21]\i[1]\0\s[5]%(closeeyes)A gentleman never starts a fight with ill intentions.\w8 \s[2]%(confusesmile)But,\w4 I suppose,\w8 \1\s[21]\i[19]\0\s[2]\i[18]it would be good fun to toss a few with dadtriton and momtriton.\w8 \1\s[18]\i[3]\n\n[half]We'll win against them for sure,\w4 Professor!\w8 \0\s[1]%(happies)\e"
+			
+			"\1\b[0]\s[16]\i[27]Have you ever built a snowman before,\w4 Professor?\w8 \0\b[0]\s[2]%(confusesmile)Once,\w4 I think,\w4 yes.\w8 \1\s[21]\i[14]\n\n[half]How about a snowgoon?\w8 \0\s[4]%(happies)\n\n[half]Goodness!\w8 That certainly sounds like it would be a character.\w8 \1\s[21]\i[21]\n\n[half]Let's make one together sometime!\w8 \0\s[3]%(smiles)\n\n[half]Haha,\w4 all right.\w8 \1\s[21]\i[22]\0\s[3]%(happies)I'm sure it will be a wonderful puzzle.\w8\e"
+			
+			{
+				"\1\b[0]\0\b[0]\s[2]%(confusesmile)What sorts of warm drinks do you prefer,\w4 %(user)?\w8"
+				--
+				if favetea != "Undecided"
+				{
+					"\1\s[19]\i[3]Definitely %(favetea),\w4 we know that!\w8 \n\n[half]\0\s[4]%(happies)\n\n[half]Yes,\w4 we certainly do.\w8"
+				}
+				--
+				"\1\s[16]\i[27]\0\s[2]%(confident) Perhaps you favour hot chocolate on cold days like these?\w8 \s[2]%(happies)Or maybe warmed milk?\w8 \1\s[18]\i[21]I like both of those!\w8 \0\n\n[half]\_q\![*]\q[Hot Chocolate,hotchocodrink] \n\![*]\q[Warm Milk,warmmlkdrink] \n\![*]\q[Still Tea,teadrink] \n\![*]\q[Coffee,coffeedrink] \n\![*]\q[All of the above,alldrink] \n\![*]\q[No comment,blankcancel]\w8\w8\w8\w8\w8\w8\e"
+			}
+			
+			"\1\b[0]\s[16]\i[13]It's pretty busy for us around this time of year,\w4 isn't it,\w4 Professor?\w8 \0\b[0]\s[1]%(concernsmile)Indeed it is.\w8\w4 \1\s[16]\i[9]\0\s[5]%(confusesmile)Many of our cases tend to come to a head around this time,\w4 not to mention the amount of holidays to keep track of.\w8 \1\s[18]\i[3]\n\n[half]There's never a dull moment for us,\w4 that's for sure!\w8 \0\s[4]%(concernsmile)\n\n[half]It does make for a much more exciting life than one would think.\w8\e"
+			
+			"\1\b[0]\s[16]\i[13]The cold can be nice,\w8 \0\s[1]%(confusesmile)\1\s[16]\i[3]but I'd prefer if it just warmed up all ready.\w8 \0\b[0]\s[4]%(concernsmile)Haha,\w4 you do seem to have a bit of difficulty warming up.\w8 \1\s[16]\i[1]\0\s[3]%(smiles)Perhaps we should light up the fireplace when we get back?\w8 \1\s[21]\i[19]\n\n[half]Ooh,\w4 that'd make everything all nice and toasty for sure!\w8 \0\s[1]%(happies)\e"
+		}
+		if month == 3 || month == 4 || month == 5 //March, April, May; Spring
+		{
+			"\1\b[0]\s[22]\i[27]Do you have a favourite flower,\w4 Professor?\w8 \0\b[0]\s[2]%(confusesmile)I'm not sure I've ever even thought about it before.\w8 \1\s[22]\i[9]\0\s[2]%(happies)Do you,\w4 Luke?\w8 \1\s[10]\n\n[half]Maybe not a favourite,\w8 \0\s[2]%(smiles)\1\s[15]\i[22]but I think those ones we saw in %(place) were pretty!\w8 \0\s[1]%(happies)\n\n[half]Those were fairly beautiful,\w4 I agree.\w8\e"
+			
+			"\0\b[0]\1\b[0]\s[16]\i[0]It gets a lot busier around your office this time of year,\w4 Professor.\w8 \0\s[1]%(confusesmile)\1\s[16]\i[21]Keeping it clean's a full time job!\w8 \0\s[4]%(happies)I'm very grateful both you and Rosa help out as much as you do with that.\w8 \1\s[16]\i[0]\0\s[4]%(confusesmile)Though,\w4 please,\w4 leave the sorting of my papers to me.\w8 \1\s[18]\i[21]\n\n[half]You'd know best on that!\w8 \0\s[4]%(concernsmile)\1\s[16]\i[6]Even if it leaves your desk such a mess.\w8\e"
+			
+			"\1\b[0]\s[22]\i[17]You don't have to deal with allergies,\w4 do you,\w4 Professor?\w8 \0\b[0]\s[4]%(concernsmile)Quite fortunately,\w4 no,\w4 I don't.\w8 \1\s[22]\i[9]\0\s[4]%(confusesmile)Is the spring making you think about it?\w8 \1\s[16]\i[13]\n\n[half]A little bit.\w8 \0\s[4]%(concernsmile)\1\s[16]\i[9]Take care out there if you do have to contend with allergies,\w4 %(user)!\w8\e"
+			
+			"\1\b[0]\0\b[0]\s[1]%(calmsmile)The cherry blossoms bloom for such a short amount of time,\w8 \1\s[16]\i[22]\0\s[1]\i[17]but they're quite the sight to see.\w8 \1\s[19]\i[0]There are a few planted near the Professor's home,\w4 %(user).\w8 \0\s[1]%(confusesmile)\1\s[19]\i[27]Not many 'round here,\w4 though.\w8 \0\s[3]%(happies)\n\n[half]They're a lovely shade of pink.\w8 \1\s[16]\i[22]\0\s[3]%(smiles)I would highly recommend seeing them if it's within your capabilities.\w8\w8\w8\w8 \1\s[16]\i[1]\0\s[2]%(confused)\n\n[half]...\w8\w8I think I have a shirt in their colour.\w8 \1\s[18]\i[16]\n\n[half]Oh,\w4 you do!\w8\e"
+			
+			"\1\b[0]\s[18]\i[0]You see a lot of pink and green around this time of year.\w8 \0\b[0]\s[2]%(confused)Hmm.\w8 \1\s[18]\i[27]\n\n[half]Do you think they're official spring colours?\w8 \s[18]\i[3]Oh,\w4 but then yellow is also used for spring.\w8 \0\s[2]%(closeeyes)\1\s[16]\i[17]Does spring have any official colours?\w8 \n...\w8\w8\w8\s[16]\i[1]Professor?\w8 \0\s[4]%(neutral)\n\n[half]What?\w8\w8 \1\s[16]\i[27]\0\s[4]%(concernsmile)Oh,\w4 sorry,\w4 my boy.\w8 \s[3]%(calmsmile)That just-- \1\s[16]\i[25]\n\n[half]It reminded you of a puzzle,\w4 didn't it?\w8 \0\s[4]%(happies)\n\n[half]Haha,\w4 took the words right out of my mouth.\w8\e"
+			
+			"\1\b[0]\s[22]\i[7]Seeing all this green and pink reminds me of something...\w8 \0\b[0]\s[4]%(confusesmile)Would it be a puzzle,\w4 my boy?\w8 \1\s[22]\i[1]\n\n[half]Huh?\w8\w8 \s[16]\i[27]Oh,\w4 I guess it could be considered that.\w8 \s[21]\i[0]Want to hear it,\w4 Professor?\w8 \0\s[3]%(happies)\n\n[half]Haha,\w4 of course I would.\w8\e"
+		}
+		if month == 6 || month == 7 || month == 8 //June, July, August; Summer
+		{
+			"\1\b[0]\s[18]\i[3]At least it's summertime now!\w8 \0\b[0]\s[1]%(confusesmile)Why do you say that,\w4 Luke?\w8 \1\s[16]\i[27]\n\n[half]Well,\w4 you're always a lot less busy during the summer!\w8 \0\s[1]%(neutral)\1\s[16]\i[14]There are less classes to attend for us both.\w8 \0\s[3]%(concernsmile)\n\n[half]I suppose that's a good way to look at it.\w8\e"
+			
+			"\1\b[0]\s[18]\i[13]Phew!\w8 \0\b[0]\s[1]%(confusesmile)\1Seems like we're not as free from the heat here as we are from the snow,\w4 Professor.\w8 \0\s[3]%(concernsmile)That's summer for you,\w4 I suppose.\w8\e"
+			
+			"\1\b[0]\0\b[0]\s[2]%(confusesmile)You know,\w4 my boy,\w8 \1\s[16]\i[1]\0I would think summer to be your favourite time of the year.\w8 \1\s[16]\i[16]Huh?\w8 Why's that?\w8 \0\s[3]%(concernsmile)\n\n[half]You're always drawn to warmth and fire.\w8 \1\s[16]\i[27]\0\s[3]%(confusesmile)To an alarming degree,\w4 actually.\w8 \1\s[16]\i[13]\n\n[half]I guess so.\w8\w4 \0\s[1]%(neutral)\1\s[16]\i[7]Summer heat's not really as fun as a candle's flame,\w4 though...\w8\e"
+			
+			"\1\b[0]\s[18]\i[0]Make sure you're staying cool over there,\w4 %(user).\w8 \0\b[0]\s[5]%(calmsmile)Yes,\w4 staying hydrated and taking precautions so as to not overheat yourself are very important things even outside of the summertime.\w8 \1\s[19]\i[14]\n\n[half]But especially so during the summer!\w8 \0\s[1]%(concernsmile)\e"
+			
+			"\0\b[0]\s[1]%(concernsmile)I do hope you're finding ways to stay cool,\w4 %(user).\w8 \1\b[0]\s[21]\i[12]Yeah!\w8\w4 \0\s[1]%(confusesmile)\1\s[21]\i[0]Sticking to the shade and staying hydrated are great at staving off the worst of it,\w8 \0\s[1]%(concernsmile)\1\s[21]\i[9]but make sure you're not pushing yourself too hard,\w4 as well!\w8 \0\s[5]%(smiles)\n\n[half]Knowing one's limits can be quite invaluable.\w8 \1\s[21]\i[13]\0\s[5]%(concernsmile)The less you break yourself down,\w4 the better off you'll be in the future.\w8 \1\s[16]\i[9]\n\n[half]Exactly.\w8\e"
+			
+			"\1\b[0]\s[16]\i[13]Professor,\w8 \0\s[1]%(neutral)\1are you staying cool enough in this heat?\w8 \0\b[0]\s[4]%(happies)I'm quite all right,\w4 thank you,\w4 my boy.\w8 \1\s[16]\i[27]\n\n[half]I guess.\w8\w4 \0\s[4]%(neutral)\1\s[16]\i[9]Even in San Grio and Torrido,\w4 you didn't seem too phased by the heat.\w8 \0\s[4]%(concernsmile)\1\s[16]\i[13]I'm just a little worried.\w8 \0\s[0]\n\n[half]I appreciate your concern,\w4 Luke.\w8 \s[1]%(calmsmile)I'll make sure to pace myself.\w8 \1\s[16]\i[22]\n\n[half]Okay.\w8\e"
+			
+			"\0\b[0]\s[4]%(neutral)How are you doing,\w4 Luke?\w8 \1\s[16]\i[1]\0Are you faring well in this heat?\w8 \1\b[0]\s[18]\i[21]I'm pretty okay,\w4 actually!\w8 \0\s[4]%(confusesmile)\1\s[18]\i[0]No need to worry too much about me,\w4 Professor.\w8 \0\s[1]%(concernsmile)\n\n[half]That's good to hear.\w8 Just make sure not to push yourself.\w8 \1\s[18]\i[21]\n\n[half]I won't.\w8 Promise.\w8\e"
+		}
+		if month == 9 || month == 10 || month == 11 //September, October, November; Autumn
+		{
+			"\1\b[0]\s[18]\i[0]It's always nice to see the dried leaves fluttering about in the winds this time of year.\w8 \0\b[0]\s[4]%(happies)Yes.\w8 Their splash of colour is always a welcome backdrop.\w8 \1\s[21]\i[21]\n\n[half]They all make a pleasing crunch,\w4 too!\w8 \0\s[1]%(confusesmile)\n\n[half]You do enjoy jumping about in the gathered up piles.\w8 \1\s[21]\i[22]\e"
+			
+			"\0\b[0]\s[11]It's growing colder again...\w8 \1\b[0]\s[19]\i[22]Soon,\w4 there should be snow,\w4 Professor!\w8 \0\s[1]%(happies)\n\n[half]Are you looking forward to it,\w4 Luke?\w8 \1\s[18]\i[14]\n\n[half]Always!\w8\w4 \0\s[0]\1\s[18]\i[22]And we'll make sure not to drag any in around here,\w4 %(user).\w8 \0\s[3]%(calmsmile)\n\n[half]Yes,\w4 we'll do our best to be conscientious guests while we're here investigating.\w8\e"
+			
+			"\1\b[0]\s[16]\i[27]It usually gets very chilly around this time,\w8 \0\b[0]\s[4]%(confusesmile)\1\s[16]\i[22]but the temperature here is absolutely perfect.\w8 \s[16]\i[0]Wouldn't you say,\w4 Professor?\w8 \0\s[1]%(calmsmile)It's quite comfortable for sure.\w8\e"
+			
+			"\0\b[0]\s[2]%(calmsmile)There is something rather comforting in a good breeze to blow your scarf along,\w4 isn't there?\w8 \1\b[0]\s[18]\i[21]Yeah!\w8\w4 \0\s[2]%(confusesmile)\1\s[18]\i[27]Though,\w4 you have to hold onto your hat to make sure it doesn't fly away,\w4 don't you,\w4 Professor?\w8 \0\s[4]%(concernsmile)\n\n[half]Well.\w8\w8 \1\s[18]\i[22]\0\s[4]\i[18]A gentlemen is always prepared for any hardship thrown his way.\w8 \1\n\n[half]You sure are.\w8 \0\s[4]%(happies)\e"
+			
+			"\1\b[0]\s[16]\i[8]It's getting colder again.\w8 \0\b[0]\s[1]%(closeeyes)It is indeed.\w8\w4 \1\s[16]\i[0]\0\s[1]%(confusesmile)You and I both have our work cut out for us,\w4 as well.\w8 \1\s[18]\i[9]\n\n[half]Yeah.\w8 Easy to stay indoors when you've got all those papers to grade!\w8 \0\s[4]%(concernsmile)\n\n[half]If we weren't here with %(user),\w4 at least.\w8\e"
+			
+			"\0\b[0]\s[2]%(annoyed)Hmm.\w8\w8 \1\b[0]\s[16]\i[3]Thinking of all those papers you've gotta grade once we finish up for the day,\w4 Professor?\w8 \0\s[2]%(neutral)\n\n[half]Hm?\w8\w8 \1\s[16]\i[9]\0\s[4]%(concernsmile)Oh,\w4 not quite,\w4 Luke.\w8 \1\s[16]\i[25]\0\s[4]%(confusesmile)Although I suppose I should be worried about that...\w8\e"
+		}
+		//specific days!
+		if month == 2 && day == 29
+		{
+			{
+				"\1\b[0]\s[22]\i[7]It extends Winter by a day...\w8 \0\b[0]\s[1]%(neutral)Hm?\w8 \1\s[16]\i[9]\n\n[half]Oh,\w4 sorry,\w4 Professor.\w8 \0\s[1]%(confusesmile)\1\s[16]\i[27]"
+				--
+				"Just thinking about how today's the leap year.\w8"
+				"Today just reminds me of my pen pal.\w8"
+				--
+				"\0\s[2]%(concernsmile)\n\n[half]Have a puzzle on your mind?\w8 \1\s[18]\i[9]\n\n[half]In a sense!\w8\e"
+			}
+			
+			"\1\b[0]\s[22]\i[7]An extra day of Winter...\w8 \0\b[0]\s[1]%(confusesmile)What's on your mind?\w8 \1\s[18]\i[13]\n\n[half]Sorry,\w4 just thinking about today.\w8 \0\s[1]%(neutral)\1\s[22]\i[6]There's a puzzle in there somewhere,\w4 don't you think,\w4 Professor?\w8 \0\s[4]%(happies)\n\n[half]Absolutely,\w4 my boy.\w8\e"
+		}
+		if month == 12 && day <= 24 //December before Holidays
+		{
+			"\0\b[0]\s[2]%(confusesmile)I've noticed you sneaking about recently,\w4 Luke.\w8 \1\b[0]\s[18]\i[9]\0\s[2]%(calmsmile)Getting all your holiday gifts in order?\w8 \1\s[18]\i[14]A gentleman-in-training never reveals his secrets,\w4 Professor.\w8 \0\s[4]%(happies)\n\n[half]Hahaha,\w4 of course,\w4 my boy.\w8 \1\s[18]\i[22]\0\s[4]%(smiles)Good show.\w8\e"
+			
+			{
+				"\1\b[0]\s[18]\i[22]Close to the holidays,\w4 Professor!\w8 \0\b[0]\s[1]%(confusesmile)Indeed it is,\w4 Luke.\w8 \1\s[21]\i[27]\n\n[half]Have you gotten all your gifts sorted?\w8 \s[21]\i[3]I know I have!\w8 \0\s[4]%(happies)\n\n[half]Haha.\w8 I see what you're doing.\w8 \1\s[21]\i[1]\0\s[4]\i[18]And I will not be giving you any sort of hints as to what I've gotten for you,\w4 unfortunately.\w8 \1\s[15]\i[24]\n\n[half]Aww.\w8 Not even "
+				--
+				"in the form of a puzzle"
+				"for a Hint Coin"
+				--
+				"?\w8 \0\s[1]%(happies)\n\n[half]You'll simply have to wait and see.\w8 \1\s[16]\i[7]\e"
+			}
+			
+			"\1\b[0]\s[18]\i[16]Oh!\w8\w8 \0\b[0]\s[4]%(neutral)\1\s[18]\i[0]Excuse me a moment,\w4 Professor!\w8 \s[-1]\0Luke,\w4 be careful!\w8 \1\b[-1]\0\s[4]%(confused)\n...\w8\w8\s[1]%(confusesmile)He must still be looking for gifts for the holidays.\w8 \s[1]%(happies)Quite the resourceful one,\w4 wouldn't you agree,\w4 %(user)?\w8\w8\w8\w8 \1\b[0]\s[15]\i[13]\cSorry,\w4 Professor.\w8 \0\s[0]\1Thought I saw something over there.\w8 \0\s[1]%(confusesmile)\n\n[half]Did you find anything of note?\w8 \1\s[16]\i[1]\n\n[half]Not really.\w8 \0\s[1]%(concernsmile)\1\s[16]\i[7]Kinda disappointing.\w8\e"
+			
+			"\0\b[0]\s[4]%(smiles)Have you got all your holiday shopping squared away,\w4 %(user)?\w8 \1\b[0]\s[16]\i[25]Have you,\w4 Professor?\w8 \0\s[4]%(neutral)\1\s[16]\i[3]I've got mine pretty much taken care of!\w8 \0\s[1]%(confused)\n\n[half]Hmm.\w8\w8 \1\s[16]\i[27]\0\s[1]%(concernsmile)Perhaps I'd best get on top of all that myself.\w8 \1\s[16]\i[12]\n\n[half]Aww,\w4 Professor!\w8\e"
+			
+			"\1\b[0]\s[16]\i[22]Are you enjoying the holidays,\w4 %(user)?\w8 \0\b[0]\s[1]%(concernsmile)Hopefully,\w4 they're not too stressful.\w8 \1\s[16]\i[27]\0\s[1]%(confusesmile)Although it is a time of togetherness,\w4 things can definitely get more than chaotic.\w8 \1\s[16]\i[1]\0\s[4]%(concernsmile)Especially if your family is anything like my own.\w8 \1\s[16]\i[9]\n\n[half]Good point.\w8\e"
+		}
+		//days of the week
+		if weekday == 1 //Monday
+		{
+			"\1\b[0]\s[18]\i[19]Professor!\w8 \0\s[1]%(confusesmile)\1Today's Moon day!\w8 \0\b[0]\s[3]%(happies)Hahaha,\w4 yes,\w8 \1\s[18]\i[22]\0\s[3]%(smiles)today is connected to the moon in many languages.\w8 \1\s[22]\i[14]\n\n[half]It's fascinating how common it is.\w8 \s[22]\i[22]What about today makes it the most moon-like?\w8 \0\s[4]%(smiles)\n\n[half]Well.\w8\w8 \1\s[22]\i[1]\0\s[4]\i[18]It is moon day.\w8 \1\s[17]\i[3]\n\n[half]Professor!\w8 \0\s[4]%(happies)\e"
+			
+			"\1\b[0]\s[22]\i[7]The moon...\w8 \0\b[0]\s[1]%(confusesmile)Thinking up a puzzle there,\w4 my boy?\w8 \1\s[18]\i[1]\n\n[half]Oh.\w8 Kinda?\w8 \0\s[1]%(neutral)\1\s[18]\i[27]It's not really a puzzle,\w4 more just.\w8 Thinking.\w8 \0\s[1]%(confusesmile)\n\n[half]I see.\w8 Today remind you of something specific,\w4 then?\w8 \1\s[16]\i[9]\n\n[half]Just the moon,\w4 that's all.\w8\e"
+			
+			"\1\b[0]\s[22]\i[27]Is today busy for you,\w8 \0\s[1]%(neutral)\1or is it less busy,\w4 Professor?\w8 \0\b[0]\s[1]%(confusesmile)What do you mean?\w8 \1\s[16]\i[3]\n\n[half]Your classes!\w8\w4 \0\s[1]%(concernsmile)\1\s[16]\i[27]Although,\w4 I guess it could both be busy and not busy.\w8 \0\s[4]%(smiles)\n\n[half]Hahaha,\w4 you're thinking a bit too hard about it,\w4 my boy.\w8 \1\s[16]\i[9]\n\n[half]I guess so.\w8\e"
+		}
+		if weekday == 2 //Tuesday
+		{
+			"\1\b[0]\s[22]\i[7]Tuesday is fire day.\w8 \0\b[0]\s[4]%(confusesmile)Ah,\w4 yes.\w8 I do believe that is correct.\w8 \1\s[16]\i[0]\n\n[half]I like Tuesday.\w8 \0\s[4]%(happies)\1\s[16]\i[22]It's probably my favourite day of the week.\w8 \0\s[3]%(confusesmile)\n\n[half]A day for sticking your hand into the flames,\w4 I suppose?\w8 \1\s[17]\i[3]\n\n[half]That's every day for me,\w4 Professor.\w8 \0\s[1]%(neutral)\e"
+			
+			"\0\b[0]\s[4]%(concernsmile)I hope you're not too overwhelmed so far,\w4 %(user).\w8 \1\b[0]\s[16]\i[13]Yeah.\w8 It can be easy to get overwhelmed with life and everything.\w8 \0\s[4]%(neutral)\n\n[half]Do you ever get overwhelmed that fast,\w4 Luke?\w8 \1\s[16]\i[9]\n\n[half]Sometimes.\w8\w4 \0\s[4]%(concernsmile)\1\s[16]\i[27]We do lead pretty hectic lives,\w4 Professor.\w8 \0\s[1]%(sadsmile)\n\n[half]I suppose that's true.\w8\e"
+			
+			"\1\b[0]\s[15]\i[11]I keep mistaking Tuesday for water day.\w8 \0\s[1]%(concernsmile)\1\s[15]\i[2]But that's tomorrow.\w8 \0\b[0]\s[2]%(confusesmile)I can see the confusion.\w8 \1\s[15]\i[1]\0\s[2]%(calmsmile)You like today a lot,\w4 so of course you want to assign it more to yourself.\w8 \1\s[16]\i[27]\n\n[half]Yeah,\w4 I am more water than fire,\w4 aren't I?\w8 \0\s[2]%(smiles)\1\s[16]\i[3]But today's for fire.\w8 \0\s[1]%(happies)\n\n[half]Haha,\w4 can't argue with that.\w8\e"
+		}
+		if weekday == 3 //Wednesday
+		{
+			"\1\b[0]\s[19]\i[0]Make sure you're drinking something,\w4 %(user).\w8 \0\s[1]%(confusesmile)\1\s[19]\i[3]Especially today.\w8 \0\b[0]\s[2]%(calmsmile)Because today is water day?\w8 \1\s[17]\i[15]\n\n[half]Because today's water day!\w8\e"
+			
+			"\1\b[0]\s[16]\i[17]Do you ever find yourself losing steam in the middle of the week,\w4 Professor?\w8 \0\b[0]\s[4]%(confusesmile)I think everyone's entitled to some burnout if they've been pushing themself too hard.\w8 \1\s[16]\i[9]\0\s[4]%(calmsmile)It's best usually to have yourself a rest and let your mind relax for a while,\w4 if you can't avoid it in the first place.\w8 \1\s[16]\i[24]\n\n[half]But what if you still can't find the time to rest?\w8 \0\s[5]%(neutral)\n\n[half]In that case,\w4 it's important to make the time to rest.\w8 \1\s[16]\i[1]\0\s[5]%(closeeyes)Even if it's less than you need,\w4 a little bit can help soothe your mind enough to get through the rest of the day.\w8 \1\s[16]\i[9]\n\n[half]It can be hard to find the time when you're always busy.\w8 \0\s[1]%(sadsmile)\n\n[half]It can be,\w4 yes.\w8\e"
+			
+			"\0\b[0]\s[4]%(concernsmile)Make sure not to burn yourself out,\w4 %(user),\w4 if you can help it.\w8 \1\b[0]\s[19]\i[9]Yeah,\w4 taking breaks is important for a sharp and keen mind!\w8 \0\s[3]%(smiles)\n\n[half]Take a rest,\w4 even if it's brief,\w4 when you need it.\w8 \1\s[18]\i[19]\n\n[half]And remember to stretch!\w8 \0\s[3]%(neutral)\1\s[18]\i[3]You never know when you'll be confronted by someone like paulpaolo!\w8 \0\s[1]%(concernsmile)\n\n[half]I'm certain %(user) doesn't have to worry about Don Paolo...\w8\e"
+		}
+		if weekday == 4 //Thursday
+		{
+			"\1\b[0]\s[16]\i[22]Today's a good day to sit beneath a tree and enjoy the forest.\w8 \0\b[0]\s[1]%(calmsmile)I agree.\w8 \1\s[16]\i[0]\0It's quite relaxing to sit in nature and listen to the world for a while.\w8 \s[1]\i[18]It may help you come up with some new puzzles.\w8 \1\s[16]\i[21]\n\n[half]All the more reason to give it a try,\w4 then!\w8 \0\s[1]%(happies)\e"
+			
+			"\1\b[0]\s[21]\i[13]You're almost there,\w4 %(user).\w8 \0\s[4]%(confusesmile)\1\s[21]\i[9]Just hold out a little longer.\w8 \0\b[0]\s[4]%(concernsmile)Is something going on,\w4 Luke?\w8 \1\s[16]\i[0]\n\n[half]Nothing too out of the ordinary,\w4 Professor.\w8 \0\s[4]%(neutral)\1\s[16]\i[9]It's almost the weekend is all.\w8 \0\s[2]%(concernsmile)\n\n[half]Ah.\w8 I suppose that is true.\w8 \1\s[17]\i[13]\n\n[half]You hang in there,\w4 too,\w4 Professor.\w8 \0\s[1]%(sadsmile)\n\n[half]Thank you,\w4 my boy.\w8\e"
+			
+			"\0\b[0]\s[3]%(calmsmile)Trees are wonderful,\w4 %(user).\w8 \1\s[18]\i[0]\0\s[5]%(smiles)They're vibrant pieces of life and deserve our gratitude for their place in our lives.\w8 \1\b[0]\s[18]\i[21]Trees are really cool.\w8 \0\s[5]%(happies)\1\s[18]\i[0]They hold all sorts of bugs and birds and other critters!\w8 \0\s[4]%(smiles)\n\n[half]Haha,\w4 how very true,\w4 Luke.\w8 \1\s[18]\i[22]\0\s[4]%(happies)I can see why you would be interested in that aspect the most.\w8\e"
+		}
+		if weekday == 5 //Friday
+		{
+			"\1\b[0]\s[19]\i[21]It's a golden day today,\w4 Professor!\w8 \0\b[0]\s[2]%(happies)It does seem like a promising day today,\w4 yes.\w8 \1\s[19]\i[0]\0\s[2]%(smiles)Do you have any plans in particular for the day,\w4 %(user)?\w8 \1\s[17]\i[21]\n\n[half]I hope they all go well for you!\w8\e"
+			
+			"\1\b[0]\s[22]\i[27]The general air today always seems to be a lot more relaxed than the rest of the week,\w4 don't you think,\w4 Professor?\w8 \0\b[0]\s[4]%(happies)That certainly does seem to be the case for the most part.\w8 \1\s[22]\i[22]\0\s[4]%(confusesmile)The other side of that relaxed atmosphere is usually one of anticipation,\w4 however.\w8 \1\s[18]\i[0]\n\n[half]Oh,\w4 because of the weekend?\w8 \0\s[1]%(calmsmile)\n\n[half]Because of the weekend.\w8\e"
+			
+			"\0\b[0]\s[2]%(confusesmile)Do you have any special associations for today,\w4 Luke?\w8 \1\b[0]\s[22]\i[7]Hmm.\w8 Maybe thegoldenapple?\w8\w8 \0\s[2]%(neutral)\1\s[16]\i[27]That's the best I can think of.\w8 \0\s[4]%(calmsmile)\n\n[half]Ah,\w4 I'm sure Flora would be delighted if we thought of Friday as her day.\w8 \1\s[16]\i[9]\n\n[half]I'm not so sure,\w4 but I hope so.\w8\e"
+		}
+		if weekday == 6 //Saturday
+		{
+			"\1\b[0]\s[21]\i[15]Today just makes you want to shove a handful of dirt into your mouth,\w4 doesn't it?\w8 \0\b[0]\s[4]%(shock)Not at all.\w8\w4 \1\s[21]\i[27]\0\s[5]%(confused)What makes you say that,\w4 Luke?\w8 \1\s[19]\i[22]\n\n[half]It's 'cause today's the day of dirt.\w8 \0\s[1]%(concernsmile)\n\n[half]Please,\w4 don't eat dirt...\w8\e"
+			
+			"\0\b[0]\s[2]%(closeeyes)A day for the soil...\w8\w8 \1\s[16]\i[1]\0\s[2]%(smiles)It sounds rather nice,\w4 doesn't it?\w8 \1\b[0]\s[18]\i[21]I'd never complain about getting to play in the mud a bit.\w8 \0\s[2]%(concernsmile)\1\s[18]\i[27]You and \_a[ClarkTriton]my dad\_a get to dig through the dirt when you go out on digs,\w4 though,\w4 don't you?\w8 \0\s[4]%(confusesmile)\n\n[half]Haha,\w4 you have a point there.\w8 \1\s[16]\i[9]\0\s[3]%(calmsmile)While on the job,\w4 every day is a day for the dirt.\w8\e"
+			
+			"\1\b[0]\s[15]\i[22]misslayton and pottyprof are always happier on the weekends.\w8 \0\b[0]\s[5]%(calmsmile)That's when they get to spend most of the day playing with their friends.\w8 \1\s[10]\n\n[half]That's true.\w8\w4 \0\s[5]%(smiles)\1\s[17]\i[21]I like going with them to give thegoldenapple a break from watching over them.\w8 \0\s[4]%(concernsmile)\n\n[half]I'm sure she appreciates it,\w4 since it gives her time to work on her own projects.\w8\e"
+		}
+		if weekday == 0 //Sunday
+		{
+			"\1\b[0]\s[22]\i[7]Sun day...\w8 \0\b[0]\s[5]\i[17]Or,\w4 perhaps,\w4 son day.\w8 \1\s[18]\i[17]\n\n[half]What?\w8\w8\w8\w8 \0\s[1]%(happies)\1\s[18]\i[0]Oh,\w4 I get it.\w8 \s[18]\i[3]That's silly,\w4 Professor.\w8 \0\s[1]%(confusesmile)\n\n[half]Thinking about the sun today,\w4 my boy?\w8 \1\s[16]\i[26]\n\n[half]In a sense.\w8\e"
+			
+			"\1\b[0]\s[22]\i[20]It's not a pun about the sun in most languages.\w8 \0\s[4]%(confused)\1\s[22]\i[17]Is it?\w8 \0\b[0]Pardon?\w8\w8\w8\w8 \1\s[16]\i[6]\0\s[4]%(concernsmile)Oh,\w4 you mean in the same vein as the moon for Monday.\w8 \1\s[16]\i[0]\n\n[half]Right.\w8\w8 \0\s[1]%(neutral)\1\s[22]\i[7]I know it's kinda there with nichi,\w4 but how does it figure with domingo...?\w8 \0\s[3]%(concernsmile)\n\n[half]Unfortunately,\w4 I cannot say.\w8 \1\s[15]\i[20]\n\n[half]Phooey.\w8\e"
+			
+			{
+				"\0\b[0]\s[4]%(concernsmile)We've got a lot of work to return to tomorrow.\w8 \1\b[0]\s[16]\i[9]We sure do.\w8 \0\s[4]%(confusesmile)\1\s[16]\i[0]It's okay,\w4 though.\w8 We always manage in the end,\w4 don't we,\w4 Professor?\w8 \0\s[3]%(calmsmile)\n\n[half]Yes,\w4 no puzzle could stand in our way.\w8 \1\s[21]\i[21]\n\n[half]You'd solve it too quick!\w8"
+				--
+				"\e"
+				"\0\s[3]%(smiles)\1\s[21]\i[14]\nIf I didn't get there first,\w4 at least.\w8\e"
+			}
+		}
+		//time of day
+		if timeslot == "earlymorning" //am5 to am8
+		{
+			"\0\b[0]\s[4]%(confused)Are you sure you're awake enough to be running about,\w4 Luke?\w8 \1\b[0]\s[16]\i[9]I'll be okay,\w4 Professor.\w8 \0\s[4]%(sad)\1\s[16]\i[14]The running about bit's what helps you wake up!\w8 \0\s[1]%(neutral)\n\n[half]Just take care.\w8 \1\s[16]\i[27]\0\s[1]%(concernsmile)I don't want to accidentally leave you somewhere we're not wholly familiar with.\w8 \1\s[17]\i[15]\n\n[half]You know I always stick to you like glue!\w8 \0\s[1]%(neutral)\e"
+			
+			{
+				"\1\b[0]\s[16]\i[11]I'll never understand how you aren't sleepy this early in the morning,\w4 Professor.\w8 \0\b[0]\s[4]%(concernsmile)Unfortunately,\w4 my boy,\w8 \1\s[16]\i[1]\0\s[4]%(confusesmile)no matter how much I try to keep my sleep schedule in check,\w4 I tend to err on late nights.\w8 \1\s[15]\i[7]\n\n[half]I stay up late,\w4 too,\w4 and I'm still sleepy.\w8"
+				--
+				"\0\s[4]%(closeeyes)\e"
+				"\0\s[1]%(concernsmile)\e"
+				
+				"\0\s[3]%(concernsmile)\n\n[half]You are a growing boy.\w8 \1\s[15]\i[1]\0\s[5]%(confusesmile)You need more sleep than you'd think.\w8 \1\s[16]\i[27]\n\n[half]I guess so...\w8\e"
+			}
+			
+			"\1\b[0]\s[16]\i[24]It's too bad that it's too early for anything to be open.\w8 \0\s[4]%(concernsmile)\1\s[16]\i[9]We could beat the breakfast rush and get our food right away.\w8 \0\b[0]\s[2]%(confused)That is true.\w8\w4 \1\s[16]\i[13]\0\s[3]%(concernsmile)Unfortunately,\w4 we'll simply have to wait before we can grab a bite to eat.\w8 \1\s[16]\i[26]\n\n[half]Such a shame.\w8\e"
+		}
+		if timeslot == "morning" //am9 to am11
+		{
+			"\0\b[0]\s[2]%(calmsmile)It's always quite fascinating to watch as the world wakes up.\w8 \1\b[0]\s[18]\i[22]I like seeing the sunrise,\w4 myself.\w8 \0\s[4]%(smiles)\n\n[half]Do you also enjoy the morning bustle,\w4 %(user)?\w8 \1\s[18]\i[19]\n\n[half]I'm sure %(they) wouldn't be up if %(they) didn't!\w8\e"
+			
+			"\1\b[0]\s[19]\i[27]Professor,\w8 \0\s[1]%(neutral)\1isn't it funny how you can see the moon during the morning depending on what phase it's in?\w8 \0\b[0]\s[2]%(confusesmile)Yes,\w4 Luke,\w4 it's quite a fascinating thing,\w4 isn't it?\w8 \1\s[18]\i[1]\0\s[3]%(happies)I do believe I have a puzzle concerning such a thing.\w8 \1\s[18]\i[3]\n\n[half]Haha,\w4 of course you do!\w8\e"
+			
+			"\0\b[0]\s[1]%(happies)Nice to be up early.\w8 \1\s[16]\i[22]\0\s[5]%(smiles)Means we can avoid some of the bustle later in the day.\w8 \1\b[0]\s[16]\i[0]It is nice.\w8 \0\s[5]%(happies)\1\s[16]\i[21]Also fun to watch what sorts of people are up in the mornings and who's more awake than the others.\w8 \0\s[2]%(confusesmile)\n\n[half]People watching is part of the process,\w4 indeed.\w8\e"
+		}
+		if timeslot == "lunch" //pm12 to pm2
+		{
+			"\1\b[0]\s[16]\i[11]Ugh...\w8 \0\b[0]\s[3]%(confusesmile)It's about lunch time,\w4 isn't it,\w4 Luke?\w8 \1\s[15]\i[7]\n\n[half]Soooo hungry...\w8 \0\s[1]%(neutral)\n\n[half]...\w8\w8\1\s[15]\i[20]\0\s[1]%(concernsmile)Shall we break for some food?\w8 \1\s[21]\i[1]\n\n[half]Yes!\w8 Erm.\w8 \s[21]\i[9]I mean,\w4 yes,\w4 please.\w8 \0\s[4]%(smiles)\n\n[half]You keep %(user) company while I nip off to get us both something.\w8 \1\s[18]\i[21]\n\n[half]You got it,\w4 Professor!\w8 \0\s[-1]\b[-1]\1\s[18]\i[0]\n...\w8\w4He'll be back soon.\w8 \s[18]\i[26]Hopefully.\w8\e"
+			
+			"\0\b[0]\s[2]%(confused)It's about lunch time,\w4 isn't it?\w8 \1\b[0]\s[16]\i[26]It is.\w8\w8 \0\s[2]%(shock)\1\s[16]\i[0]Are you hungry,\w4 Professor?\w8 I can go and get us both something to munch on while we work!\w8 \0\s[4]%(calmsmile)\n\n[half]I suppose a good lunch break might help us along.\w8 \1\s[16]\i[21]\0\s[4]%(smiles)I trust you'll get my favourite.\w8 \1\s[18]\i[14]\n\n[half]Of course!\w8\w8 \s[-1]\b[-1]\0\s[4]%(concernsmile)\n\n[half]Sorry about that,\w4 %(user).\w8 \s[4]%(smiles)Don't mind us,\w4 you eat on your own time.\w8\e"
+			
+			"\1\b[0]\s[16]\i[8]Mm...\w8 \0\b[0]\s[1]%(confusesmile)Something on your mind,\w4 my boy?\w8 \1\s[16]\i[16]\n\n[half]Oh,\w4 sorry,\w4 Professor.\w8 \0\s[1]%(neutral)\1\s[16]\i[26]I was just thinking about how nice it would be to have a jar of jam right about now.\w8 \0\s[4]%(concernsmile)\n\n[half]Ah,\w4 I suppose it is lunch time.\w8\e"
+		}
+		if timeslot == "afternoon" //pm3 to pm5
+		{
+			if teapassmin < 10
+			{
+				"\0\b[0]\s[2]%(calmsmile)It's about tea time,\w4 isn't it,\w4 Luke?\w8 \1\b[0]\s[18]\i[21]It is!\w8\w8 \0\s[2]%(smiles)\1\s[18]\i[0]I could go for a spot of something sweet,\w4 personally.\w8 \0\s[3]%(happies)\n\n[half]Haha,\w4 there's that sweet tooth of yours.\w8\e"
+				
+				"\1\b[0]\s[16]\i[22]Right now would be the perfect time for a good cuppa.\w8 \0\b[0]\s[4]%(happies)I couldn't agree with you more,\w4 my boy.\w8 \1\s[19]\i[14]\n\n[half]And I know just the blend you'd prefer!\w8 \0\s[4]%(smiles)\n\n[half]Sounds like you have the answer to the puzzle I was just about to give you.\w8 \1\s[17]\i[21]\n\n[half]That's the great Professor Layton's number one apprentice for you!\w8 \0\s[1]%(happies)\e"
+			}
+			
+			"\0\b[0]\s[1]%(confusesmile)Things appear to be slowing down for those who awoke early in the morning.\w8 \1\b[0]\s[18]\i[21]And they're picking up for everyone else who's up late!\w8 \0\s[2]%(calmsmile)\n\n[half]I do believe I have a puzzle in here about such a matter.\w8 \1\s[21]\i[19]\n\n[half]Ooh,\w4 let's hear it,\w4 Professor!\w8 \0\s[2]%(smiles)\n\n[half]Let's see...\w8\e"
+			
+			"\1\b[0]\s[16]\i[26]Afternoon's such a great time for a nap.\w8 \0\b[0]\s[2]%(confusesmile)Is that so?\w8 \1\s[18]\i[3]\n\n[half]Just look at any cat or dog!\w8 \s[18]\i[0]They'll always find a nice place to cuddle up and fall asleep.\w8 \0\s[0]\1\s[19]\i[21]I made a puzzle about it,\w4 I hear about it so often!\w8 \0\s[1]%(happies)\n\n[half]I see.\w8 Good show,\w4 Luke.\w8\e"
+			
+			"\0\b[0]\s[4]%(happies)Afternoon seems to be the perfect crossing between those who arise early and those who get started later in the day.\w8 \1\b[0]\s[16]\i[27]That's interesting,\w4 isn't it?\w8 \0\s[4]%(smiles)\1\s[16]\i[22]The other time would be early in the morning,\w4 I'd think.\w8 \0\s[1]%(happies)\n\n[half]Haha,\w4 true.\w8\w4 \1\s[16]\i[0]\0\s[2]%(calmsmile)Passing by someone just waking up as you head to bed is quite the difference in schedule,\w4 for sure.\w8 \1\s[16]\i[21]\n\n[half]It sure is!\w8\e"
+		}
+		if timeslot == "evening" //pm6 to pm8
+		{
+			"\1\b[0]\s[18]\i[9]The mood of the area always shifts once the sun goes down,\w4 doesn't it,\w4 Professor?\w8 \0\b[0]\s[1]%(confusesmile)It does,\w4 but that's not a bad thing.\w8 \1\s[18]\i[1]\0\s[5]%(calmsmile)After all,\w4 we tend to find different people and different lighting to the clues we've run across during the day once the evening hits.\w8 \1\s[16]\i[21]\n\n[half]True!\w8 \s[16]\i[0]That's a good point.\w8\e"
+			
+			"\1\b[0]\s[18]\i[22]It's always fun to walk around somewhere and watch the evening fall.\w8 \0\b[0]\s[3]%(calmsmile)Yes,\w4 seeing the way the mood in the air changes as the lights dim is a fascinating thing to see.\w8 \1\s[16]\i[0]\n\n[half]I'm glad your place has enough light for us to see,\w4 %(user)!\w8 \0\s[4]%(smiles)\n\n[half]Yes,\w4 thank you for providing adequate lighting.\w8 \1\s[16]\i[22]\0\s[4]%(happies)The both of us much appreciate it.\w8\e"
+			
+			"\1\b[0]\s[18]\i[21]It's about time for the transition to happen soon.\w8 \0\b[0]\s[1]%(neutral)Hm?\w8 What do you mean,\w4 my boy?\w8 \1\s[16]\i[19]\n\n[half]You know!\w8\w4 \0\s[1]%(confusesmile)\1\s[16]\i[0]The sun'll be setting!\w8 \0\n\n[half]I see.\w8 \s[3]%(calmsmile)Yes,\w4 we'll have to navigate by the streetlights soon enough.\w8\e"
+		}
+		if timeslot == "night" //pm9 to pm11
+		{
+			"\0\b[0]\s[2]%(calmsmile)Night time has such a different atmosphere than the daytime hours,\w4 doesn't it?\w8 \1\b[0]\s[16]\i[22]It sure does,\w4 Professor.\w8 \0\s[2]%(smiles)\1\s[16]\i[13]I used to think the night was scary,\w4 but it's actually pretty peaceful most of the time.\w8 \0\s[4]%(closeeyes)\n\n[half]Yes,\w4 lots of frightening things can happen during the night.\w8 \1\s[16]\i[1]\0\s[4]%(confusesmile)But many of those things can also happen during the day.\w8 \1\s[17]\i[14]\n\n[half]Right.\w8 And we can face them all head on together!\w8 \0\s[1]%(happies)\n\n[half]That we can.\w8\e"
+			
+			{
+				"\1\b[0]\s[22]\i[7]This place has a real "
+				--
+				"orgel"
+				"music box"
+				"piano"
+				"strings"
+				"violin"
+				"cello"
+				"viola"
+				"wind chime"
+				"flute"
+				"ocarina"
+				"keytar"
+				--
+				" vibe,\w4 %(user).\w8 "
+				--
+				"\0\s[1]%(neutral)\1\s[22]\i[14]Don't you think?\w8"
+				"\0\s[1]%(confused)\1\s[22]\i[4]Or would you prefer accordion?\w8"
+				--
+				"\0\b[0]Luke?\w8 Do you hear music coming from somewhere?\w8 \1\s[18]\i[0]\n\n[half]Don't worry about it,\w4 Professor.\w8 \0\s[4]%(confusesmile)\1\s[18]\i[21]I'm just leaning against the wall here with %(user).\w8 \0\n\n[half]Hm.\w8 All right,\w4 then.\w8 "
+				--
+				"\e"
+				
+				"\1\0\s[3]%(calmsmile)Just take care not to lean too hard,\w4 lest we bring down %(their) whole place.\w8 \1\s[18]\i[0]\n\n[half]I'll be careful.\w8 \s[18]\i[21]Promise!\w8\e"
+			}
+			
+			"\1\b[0]\s[18]\i[18]Night time always sounds so peaceful,\w4 doesn't it,\w4 Professor?\w8 \0\b[0]\s[4]%(calmsmile)Yes,\w4 depending on where we are,\w4 the night can be quite calming compared to day time.\w8\e"
+		}
+		if timeslot == "latenight" //am12 to am5
+		{
+			"\0\b[0]\s[1]%(confusesmile)We don't often stay out so late for our investigations.\w8 \1\b[0]\s[16]\i[13]Yeah.\w8 It gets even quieter this late,\w4 doesn't it?\w8 \0\s[5]%(calmsmile)\n\n[half]That's because most of the world is sleeping right about now.\w8 \1\s[16]\i[8]\n\n[half]I kinda wish I was sleeping,\w4 too...\w8 \0\s[1]%(confusesmile)\e"
+			
+			"\1\b[0]\s[16]\i[13]It's real late to be investigating.\w8 \0\s[1]%(concernsmile)\1\s[16]\i[9]We've got %(user) here with us,\w4 sure,\w4 but...\w8 \0\b[0]\s[4]%(confusesmile)Yes,\w4 it's much quieter now that most everyone else is asleep.\w8\e"
+			
+			"\0\b[0]\s[1]%(sad)Are you going to be okay,\w4 Luke?\w8 \1\b[0]\s[16]\i[12]I'm still good!\w8 \0\s[1]%(concernsmile)\1\s[16]\i[0]So long as we stick together,\w4 Professor,\w4 I can do just about anything!\w8 \0\s[3]%(sadsmile)\n\n[half]Just remember not to push yourself too hard.\w8 \1\s[16]\i[9]\0\s[3]%(smiles)That goes for you as well,\w4 %(user).\w8 \1\s[16]\i[26]\n\n[half]Okay...\w8\e"
+			
+			"\1\b[0]\s[18]\i[13]Are you okay to keep going,\w4 Professor?\w8 \0\b[0]\s[4]%(concernsmile)Yes,\w4 I'm no stranger to late nights as you know.\w8 \1\s[16]\i[9]\n\n[half]Well,\w4 okay.\w8 \0\s[4]%(neutral)\1\s[16]\i[24]But don't push yourself too hard.\w8 \0\s[3]%(calmsmile)\n\n[half]The moment it feels like we're getting overworked,\w4 we'll take a break.\w8 I promise you,\w4 Luke.\w8 \1\s[18]\i[22]\n\n[half]Thanks,\w4 Professor!\w8\e"
+		}
+		
+		
+		"\1\b[0]\s[16]\i[11]I really want to make roast lamb again,\w8 \0\s[1]%(neutral)\1\s[16]\i[24]but I don't think I can handle it by myself yet.\w8 \0\b[0]\s[5]%(happies)If you'd like,\w4 Luke,\w4 I can help you when we get back.\w8 \1\s[18]\i[0]\n\n[half]That'd be nice.\w8 \0\s[5]%(smiles)\1\s[18]\i[21]Cooking with you is always fun,\w4 Professor!\w8 \0\s[1]%(happies)\n\n[half]I'm glad you think so.\w8\e"
+		
+		"\0\b[0]\s[1]%(concernsmile)It's a good thing there aren't any candles or torches hanging on the walls in your place,\w4 %(user).\w8 \1\b[0]\s[16]\i[7]It's a right shame if you ask me.\w8 \0\s[1]%(confused)\n\n[half]I really am worried about you hurting yourself,\w4 Luke.\w8 \1\s[16]\i[27]\n\n[half]Aw,\w4 it's never so bad,\w4 Professor.\w8 \0\s[1]%(shock)\1\s[19]\i[9]It might hurt for a mo',\w4 but it's never too bad.\w8 \0\s[1]%(concernsmile)\n\n[half]If you say so...\w8\e"
+		
+		//puzzles and hint coins
+		"\0\b[0]\s[4]%(confusesmile)Still looking for hint coins while we work,\w4 Luke?\w8 \1\b[0]\s[18]\i[21]You bet!\w8 \0\s[4]%(happies)\1\s[18]\i[14]I'm up to a whopping %(num) now!\w8 \0\s[0]\n\n[half]I see.\w8 Marvellous work,\w4 my boy.\w8 \1\s[17]\i[21]\n\n[half]Heeheehee.\w8\e"
+		
+		"\1\b[0]\s[18]\i[13]Professor,\w8 \0\s[1]%(neutral)\1is it really okay to scatter our excess hint coins back into where we've been when we leave?\w8 \0\b[0]\s[0]Of course.\w8 \1\s[18]\i[1]\0\s[5]%(calmsmile)So long as we find hint coins,\w4 we must replace them for others who might need them more.\w8 \1\s[16]\i[27]\n\n[half]I guess it works the same way puzzles do,\w4 doesn't it?\w8 \0\s[1]%(confusesmile)\n\n[half]Something like that,\w4 yes.\w8\e"
+		
+		{
+			"\1\b[0]\s[22]\i[27]Professor,\w4 have you found any more hidden puzzles?\w8 \0\b[0]\s[4]%(concernsmile)Not since the last time you checked with me.\w8 \1\s[16]\i[20]\n\n[half]Phooey.\w8 \0\s[4]%(confusesmile)\1\s[16]\i[6]Seems it's pretty clean around here,\w4 %(user).\w8 Even despite all the great hiding places...\w8 \0\n\n[half]"
+			--
+			"\s[3]%(smiles)Let's keep searching.\w8 I'm sure we'll turn up something.\w8 \1\s[17]\i[21]\n\n[half]Yeah,\w4 we will!\w8\e"
+			
+			"\s[3]%(calmsmile)Perhaps this one will keep your mind occupied in the meantime?\w8 \1\s[22]\i[27]\n\n[half]Ooh,\w4 let's see...\w8\e"
+		}
+		
+		"\1\b[0]\s[22]\i[17]Professor,\w8 \0\s[4]%(neutral)\1who is it shoving all these puzzles into bushes and rivers?\w8 \0\b[0]\s[4]%(confusesmile)What do you mean?\w8 \1\s[22]\i[7]\n\n[half]Every time we find a hidden puzzle,\w4 it makes me wonder who's out there placing them all.\w8 \0\s[3]%(concernsmile)\n\n[half]Well.\w8 Sometimes,\w4 a puzzle gets lost from its intended placement.\w8 \1\s[22]\i[17]\0\s[3]%(smiles)Or it wanders out of someone's thoughts and gets snagged somewhere.\w8 \s[5]%(calmsmile)That's why there's always someone to provide a home for all these puzzles that get misplaced.\w8 \1\s[22]\i[7]\n\n[half]So the puzzles themselves are doing the hiding?\w8 \0\s[2]%(confused)\n\n[half]Hm.\w8\w8 \1\s[18]\i[1]\0\s[2]%(annoyed)Sometimes,\w4 you also just have a very stubborn friend who continually hides puzzles in your room and around the town...\w8 \1\s[16]\i[27]\n\n[half]So it's lots of reasons.\w8 \0\s[2]%(confusesmile)\1\s[16]\i[9]Huh.\w8\e"
+		
+		"\1\b[0]\s[21]\i[15]Sometimes,\w4 you need to just reach straight into a brook and pull out a puzzle!\w8 \0\b[0]\s[1]%(confused)Sometimes,\w4 you need to reach into a fire and burn yourself.\w8 \1\s[17]\i[2]\n\n[half]Well,\w4 why not?\w8 \0\s[1]%(concernsmile)\1\s[17]\i[3]Could be a hint coin in there.\w8 \0\s[4]%(confusesmile)\n\n[half]I suppose...\w8\e"
+		
+		
+		//Fave Games chatter!!
+		if favegame == "Curious Village"
+		{
+			"\1\b[0]\s[16]\i[12]We didn't really get a chance to stay in that hotel in St Mystere,\w4 did we,\w4 Professor?\w8 \0\b[0]\s[4]%(concernsmile)We didn't,\w4 but it was nice of them to offer us a place to rest all the same.\w8 \1\s[16]\i[13]\n\n[half]You didn't even have a bed for the first night!\w8 \0\s[7]\i[1]\n\n[half]An unfortunate thing I've become used to after some of the archaeological digs I've been on...\w8 \1\s[16]\i[9]\e"
+			
+			"\0\b[0]\s[4]%(concernsmile)It seems thegoldenapple enjoyed our pet much more than we did,\w4 in the end.\w8 \1\b[0]\s[18]\i[19]You mean our little robot dog project?\w8 \0\s[4]%(confusesmile)\1\s[18]\i[22]Yeah,\w4 she keeps him all fixed up and plays fetch with him all the time.\w8 \0\s[2]%(closeeyes)\n\n[half]I wonder if Bruno taught her how to work with that sort of machinery...\w8 \1\s[16]\i[27]\n\n[half]D'ya think she ever helped him maintain all the androids?\w8 \0\s[3]%(calmsmile)\n\n[half]I wouldn't be surprised if she helped at least a little bit.\w8 \1\s[17]\i[21]\n\n[half]Yeah,\w4 Flora's real great like that!\w8\e"
+			
+			"\1\b[0]\s[16]\i[27]Did you ever notice,\w4 Professor?\w8 \0\b[0]\s[4]%(neutral)Notice what,\w4 my boy?\w8 \1\s[16]\i[3]\n\n[half]While we were staying in that hotel in St Mystere,\w4 I kept trying to move all of the furniture over to your side.\w8 \0\s[1]%(happies)\n\n[half]Hahaha,\w4 I did notice that,\w4 yes.\w8 \1\s[16]\i[0]\0\s[3]%(smiles)And I always made sure to return it to your room.\w8 \1\s[15]\i[13]\n\n[half]I was fine with just the teddy.\w8 \0\s[3]%(confusesmile)\1\s[15]\i[9]You didn't even have a bed!\w8 \0\s[4]%(concernsmile)\n\n[half]A few days of sleeping on the floor aren't an entirely foreign concept to me,\w4 unfortunately.\w8 \1\s[17]\i[13]\n\n[half]Professor!\w8\e"
+			
+			"\1\b[0]\s[22]\i[8]Do you think they looked the same,\w4 Professor?\w8 \0\b[0]\s[4]%(neutral)Hm?\w8 Who looked the same,\w4 Luke?\w8 \1\s[19]\i[1]\n\n[half]thegoldenapple's mother and the android built to take her place.\w8 \0\s[1]%(neutral)\n\n[half]Ah.\w8\w8 \1\s[16]\i[9]\0\s[2]%(annoyed)Certainly,\w4 they bore a striking resemblance,\w4 but...\w8 \1\s[18]\i[6]\n\n[half]Right!\w8 They looked different enough to make them feel like completely different people!\w8 \0\s[4]%(confusesmile)\n\n[half]I suppose it's true what they say.\w8 \1\s[18]\i[1]\0\s[3]%(concernsmile)Personality can affect one's perception of a person as much as their actual appearance.\w8 \1\s[16]\i[9]\n\n[half]I guess so.\w8\e"
+			
+			"\1\b[0]\s[16]\i[9]thegoldenapple was happy to have that painting we pieced together.\w8 \0\b[0]\s[1]%(confusesmile)Oh,\w4 is that what happened to it?\w8 \1\s[16]\i[13]\n\n[half]Yeah.\w8 She keeps it in her room somewhere.\w8 \0\s[1]%(neutral)\1\s[16]\i[9]She said it's nice to look at every now and then when she's feeling homesick.\w8 \0\s[3]%(sadsmile)\n\n[half]It was kind of you to give it to her,\w4 then.\w8 \1\s[21]\i[13]\n\n[half]Flora says she can't remember much about her,\w8 but what she can seems to all be nice memories!\w8\e"
+			
+			"\0\b[0]\s[1]%(neutral)I have to ask,\w4 Luke.\w8 \1\s[18]\i[1]\0\s[3]%(confused)Why did you keep paulpaolo's mask?\w8 \1\b[0]\s[18]\i[27]What?\w8 That's an odd question,\w4 Professor.\w8 \0\s[1]%(neutral)\1\s[19]\i[6]Don't you think it's better to keep an easy tool away from Don Paolo so he can't impersonate \_a[InspectorChelmey]Inspector Chelmey\_a again?\w8 \0\s[2]%(confusesmile)\n\n[half]I suppose that's one way of looking at it...\w8 \1\s[17]\i[0]\n\n[half]Also,\w4 I just think they're neat.\w8 \s[17]\i[22]And funny.\w8 \0\s[1]%(concernsmile)\n\n[half]That's certainly another fair factor to it.\w8\e"
+		}
+		if favegame == "Diabolical Box" || favegame == "Pandora's Box"
+		{
+			"\1\b[0]\s[16]\i[27]You know,\w4 Professor,\w8 \0\s[4]%(confused)\1\s[16]\i[9]I don't think either one of us was really good at photography.\w8 \0\b[0]\s[4]%(confusesmile)Why do you say that,\w4 Luke?\w8 \1\s[22]\i[27]\n\n[half]The only thing we did with our pictures was simple spot the difference puzzles.\w8 \0\s[4]%(neutral)\1\s[22]\i[9]Piecing together that camera was a lot more fun than the actual end product.\w8 \0\s[3]%(concernsmile)\n\n[half]I suppose that's a fair way of looking at things...\w8\e"
+			
+			"\0\b[0]\s[2]%(confusesmile)How do you suppose our little hamster friend is doing?\w8 \1\b[0]\s[18]\i[21]Well,\w4 I'd hope!\w8 \0\s[2]%(happies)\1\s[18]\i[0]We got him right in shape thanks to our clever obstacle course designs.\w8 \0\s[4]%(smiles)\n\n[half]Yes,\w4 putting those together for him to run through was quite fun.\w8\e"
+			
+			"\1\b[0]\s[22]\i[11]I wonder how our hamster friend is doing...\w8 \0\b[0]\s[3]%(calmsmile)I'm sure he's back to snacking to his heart's content.\w8 \1\s[22]\i[27]\0\s[3]\i[18]While keeping up with his exercise,\w4 of course.\w8 \1\s[16]\i[21]\n\n[half]Yeah.\w8 \0\s[3]%(smiles)\1\s[16]\i[0]By the end of our adventures with him,\w4 he really came to enjoy the obstacle courses we'd make for him!\w8 \0\s[1]%(happies)\n\n[half]And Mr Macaroon cares greatly for his friend,\w4 we can both be assured of that.\w8 \1\s[16]\i[21]\n\n[half]They were a great duo!\w8\e"
+			
+			"\1\b[0]\s[16]\i[13]Even if we couldn't really take pictures with that camera,\w4 I'm glad we got it back to Sammy.\w8 \0\b[0]\s[4]%(happies)As am I,\w4 my boy.\w8 \1\s[16]\i[22]\0\s[4]%(smiles)I'm sure he and Mr Beluga were able to come to a bit better of an understanding afterwards,\w4 as well.\w8 \1\s[18]\i[13]\n\n[half]I sure hope so.\w8 \0\s[4]%(neutral)\1\s[18]\i[10]Having to fight with someone in your family isn't very much fun.\w8 \0\s[1]%(closeeyes)\n\n[half]Yes,\w4 I suppose the both of us can relate somewhat to that sentiment...\w8\e"
+			
+			"\1\b[0]\s[15]\i[22]Solving a mystery inside the Molentary Express sure was fun.\w8 \0\s[1]%(happies)\1\s[19]\i[0]We got to go through all the cars and see everyone else who got a ticket!\w8 \0\b[0]\s[4]%(smiles)Yes,\w4 and it gave us ample time to stretch our legs instead of being confined to our seats.\w8 \1\s[22]\i[27]\n\n[half]Thinking of you as being antsy at all is pretty funny,\w4 Professor.\w8 \0\s[1]%(neutral)\n\n[half]How so?\w8 \1\s[19]\i[3]\n\n[half]You can sit for hours at your desk researching,\w4 even falling asleep there.\w8 \0\s[1]%(confusesmile)\1\s[18]\i[14]But when there's a mystery afoot,\w4 you can't handle sitting still for even a mo'!\w8 \0\s[4]%(concernsmile)\n\n[half]Well.\w8 Both are quite simple to explain.\w8 \1\s[18]\i[0]\0\s[3]%(smiles)It's the love of a good puzzle.\w8 \1\s[17]\i[21]\n\n[half]Nothing like a good puzzle.\w8\e"
+			
+			"\1\b[0]\s[16]\i[22]It's nice to see thegoldenapple get along with all sorts of animals.\w8 \0\s[1]%(confusesmile)\1\s[16]\i[0]They really like her.\w8 \0\b[0]\s[1]%(happies)That is a very good thing.\w8 \1\s[16]\i[22]\0\s[1]%(confusesmile)Have many told you about it?\w8 \1\s[19]\i[27]\n\n[half]I mean,\w4 she found Tom all by herself and even carried him around!\w8 \0\s[1]%(happies)\1\s[19]\i[9]Not many dogs enjoy being carried,\w4 even if they love being in your lap.\w8 \0\s[2]%(confusesmile)\n\n[half]I see.\w8\w4 \1\s[16]\i[0]\0\s[2]%(calmsmile)Yes,\w4 she was trusted by Tom,\w4 wasn't she?\w8 \1\s[16]\i[22]\n\n[half]It's still kinda funny we all thought Tom was a boy when he was a dog the whole time.\w8 \0\s[3]%(confusesmile)\n\n[half]That was a rather unfortunate miscommunication for sure.\w8\e"
+		}
+		if favegame == "Unwound Future" || favegame == "Lost Future"
+		{
+			"\1\b[0]\s[18]\i[27]How do you think our parrot friend is doing?\w8 \0\b[0]\s[3]%(happies)Hopefully,\w4 still having fun making deliveries for everyone.\w8 \1\s[17]\i[21]\n\n[half]They were a real whiz at it!\w8 \0\s[3]%(smiles)\1\s[17]\i[0]And they were always fun puzzles to figure out,\w4 weren't they?\w8 \0\s[1]%(happies)\n\n[half]You did quite enjoy helping them through each one,\w4 yes.\w8\e"
+			
+			"\1\b[0]\s[16]\i[13]I hope our parrot friend and Subject 3 are doing well.\w8 \0\b[0]\s[1]%(sadsmile)I do as well.\w8 \1\s[16]\i[9]\0\s[2]%(closeeyes)If I remember right,\w4 Subject 3 was welcomed into an animal preserve,\w4 was he not?\w8 \1\s[18]\i[21]\n\n[half]Good memory,\w4 Professor!\w8 \0\s[2]%(confusesmile)\1\s[18]\i[13]He may not really trust humans anymore,\w4 but at least this way he's not about to get hurt out in the wild,\w4 either.\w8 \0\s[4]%(concernsmile)\n\n[half]It can be difficult,\w4 when you've been through so much.\w8 \1\s[25]\n\n[half]Yeah...\w8\e"
+			
+			"\1\b[0]\s[18]\i[0]Oh,\w4 Professor.\w8 \0\b[0]\s[4]%(confusesmile)Yes,\w4 my boy?\w8 \1\s[19]\i[21]\n\n[half]That deduction of yours about the Baron Reinhold's cat was quite brilliant.\w8 \0\s[4]%(concernsmile)\1\s[19]\i[0]It was fun hearing about some of your adventures with him.\w8 \0\s[3]%(smiles)\n\n[half]Just as it was fun hearing about your adventures in helping others.\w8 \1\s[21]\i[21]\n\n[half]Heeheehee.\w8 \0\s[3]%(happies)\1\s[21]\i[22]Those were some tasty fruits.\w8\e"
+			
+			"\1\b[0]\s[22]\i[27]You know.\w8 \0\b[0]\s[4]%(neutral)\1\s[22]\i[9]thegoldenapple and Granny Riddleton make a good team.\w8 \0\s[4]%(calmsmile)Yes,\w4 they did manage that cafe together quite well.\w8 \1\s[21]\i[21]\n\n[half]Best hot chocolate I had during that whole adventure!\w8\e"
+			
+			"\0\b[0]\s[1]%(happies)You enjoyed all of those toy car courses,\w4 didn't you,\w4 my boy?\w8 \1\b[0]\s[18]\i[21]I did!\w8\w4 \0\s[0]\1\s[18]\i[14]Figuring out how to use every single tile for each one was a fun little puzzle.\w8 \0\s[1]%(neutral)\1\s[17]\i[3]Even futureluke couldn't help contributing while we were waiting for\w8--\w4 \s[17]\i[1]oh.\w8 \0\s[1]%(sad)\n\n[half]\w8\w8\w8\1\s[24]\0\s[1]%(closeeyes)It's still rather unfortunate to think about,\w4 isn't it?\w8 \1\s[25]\n\n[half]I don't want to ever forgive him,\w4 but...\w8\e"
+			
+			"\1\b[0]\s[16]\i[24]...\w8\w8\w8 \0\b[0]\s[1]%(confused)What's on your mind,\w4 Luke?\w8 \1\s[16]\i[9]\n\n[half]Oh,\w4 sorry,\w4 Professor.\w8 \0\s[1]%(sad)\1\s[24]I was just thinking again about how futureluke thought it was too childish to play with things like toy cars and stuffed teddies.\w8 \0\n\n[half]...\w8\w8\w8\s[1]%(closeeyes)I see.\w8 \1\s[18]\i[24]\n\n[half]I suppose.\w8 \0\s[1]%(neutral)\1\s[18]\i[11]He never really had the chance to be a kid.\w8 Unlike me.\w8 \0\s[12]\n\n[half]It seems he didn't.\w8 \1\s[25]\e"
+		}
+		if favegame == "Last Spectre" || favegame == "Spectre's Call"
+		{
+			"\1\b[0]\s[22]\i[9]I hope the fishies are doing well.\w8 \0\b[0]\s[1]%(happies)You had a lot of fun helping them figure out how to move around in their tanks,\w4 didn't you?\w8 \1\s[18]\i[21]\n\n[half]I did!\w8 \0\s[0]\1\s[18]\i[0]They were smart swimmers and fantastic puzzle solvers.\w8 \0\s[1]%(happies)\n\n[half]Even fish can't deny the draw of a good puzzle.\w8 \1\s[18]\i[22]\0How delightful.\w8\e"
+			
+			"\1\b[0]\s[22]\i[7]Why was it coins...?\w8 \0\b[0]\s[1]%(confusesmile)What was coins?\w8 \1\s[18]\i[12]\n\n[half]Oh,\w4 sorry.\w8 \0\s[0]\1\s[18]\i[27]I was just wondering,\w4 why were the fish in the tank collecting coins?\w8 \0\s[4]%(happies)\n\n[half]Ah,\w4 are you talking about our venture back in Misthallery?\w8 \1\s[17]\i[3]\n\n[half]That's the one.\w8\w4 \0\s[1]%(confusesmile)\1\s[22]\i[7]I'd understand if they were hint coins,\w4 but they just sounded similar.\w8 \0\s[3]%(concernsmile)\n\n[half]I'm sorry to say I have no light to illuminate on the situation.\w8 \1\s[22]\i[1]\0\s[5]%(smiles)Perhaps it was the simplest thing to attract each fish.\w8 \1\s[18]\i[21]\n\n[half]Yeah.\w8 Could be!\w8\e"
+			
+			"\0\b[0]\s[2]%(confusesmile)Do you happen to still have those puppets from the theatre,\w4 my boy?\w8 \1\b[0]\s[16]\i[19]Oh,\w4 are you thinking of giving them to misslayton?\w8 \0\s[4]%(happies)\n\n[half]That was my thought,\w4 yes.\w8 \1\s[16]\i[22]\0\s[4]%(smiles)She might enjoy each set's puzzles.\w8 \1\s[22]\i[27]\n\n[half]I'll have to dig through my things at home to find them,\w8 \s[22]\i[22]but I'll bring them next time,\w4 Professor.\w8 \0\s[4]%(happies)\n\n[half]Thank you,\w4 Luke.\w8\e"
+			
+			"\0\b[0]\s[2]%(happies)That little train set was quite charming,\w4 wasn't it?\w8 \1\b[0]\s[21]\i[21]It was!\w8 \0\s[2]%(smiles)\1\s[21]\i[27]The tracks sort of remind me of that toy car we got,\w4 now that I think about it.\w8 \0\s[3]%(happies)\n\n[half]They do have a similar sort of mechanic,\w4 don't they?\w8 \1\s[21]\i[22]\0\s[2]%(confusesmile)How peculiar.\w8 \1\s[22]\i[27]\n\n[half]D'ya think pottyprof might be interested in them?\w8 \0\s[2]%(surprisesmile)\1\s[22]\i[3]I think I know where to find them if you think he might enjoy them.\w8 \0\s[3]%(happies)\n\n[half]I'd say it's worth letting him try them out,\w4 at the least.\w8\e"
+			
+			"\0\b[0]\s[2]%(calmsmile)Of all our mini puzzles we carry around,\w8 \1\s[16]\i[0]\0I do believe that train set was by far my favourite of the bunch.\w8 \1\s[16]\i[22]\0\s[2]%(confident)Having to plan around other moving parts and a limited amount of moves made for much more fun challenges.\w8 \1\b[0]\s[21]\i[21]Haha,\w4 I'm glad you enjoyed it so much,\w4 Professor!\w8 \0\s[2]%(smiles)\1\s[21]\i[0]I had a lot of fun playing around with it as well.\w8 \0\s[2]%(confused)\n\n[half]I wonder if misslayton would enjoy it the same as we have...\w8 \1\s[19]\i[22]\n\n[half]She,\w4 pottyprof,\w4 and thegoldenapple all might have fun having a go at it,\w4 I think!\w8\e"
+			
+			"\0\b[0]\s[2]%(confusesmile)Have you heard from the Black Ravens recently?\w8 \1\b[0]\s[16]\i[27]Uhh.\w8 Nope!\w8 \0\s[2]%(concernsmile)\1\s[16]\i[10]Did you need their help again for something,\w4 Professor?\w8 \0\s[4]%(confusesmile)\n\n[half]Ah,\w4 no.\w8 I was simply wondering.\w8 \1\s[16]\i[1]\0\s[4]%(happies)They all seemed like a good lot.\w8 \1\s[16]\i[27]\n\n[half]Yeah,\w4 they did seem that way.\w8 \0\s[4]%(neutral)\1I never played with any of them,\w4 so I can only say what they were like from our time investigating the black market.\w8 \0\s[2]%(confused)\n\n[half]I see...\w8\w8 \1\s[16]\i[1]\0\s[2]%(sadsmile)Was Finch your only friend in that town,\w4 Luke?\w8 \1\s[19]\i[9]\n\n[half]Arianna and Tony were my friends!\w8 \0\s[1]%(confused)\1\s[19]\i[13]Well,\w4 at least until their father died.\w8\e"
+		}
+		if favegame == "Miracle Mask"
+		{
+			"\1\b[0]\s[16]\i[18]Bnuuy...\w8\w4 \0\b[0]\s[1]%(neutral)Bnuuy?\w8\w4 \1\s[21]\i[14]\n\n[half]Bnuuy.\w8\w4 \0\s[1]%(calmsmile)\n\n[half]Ah.\w8 Bnuuy.\w8 \1\s[21]\i[21]\e"
+			//this is so fucking dumb but it makes me laugh XD
+			
+			"\0\b[0]\s[4]%(confusesmile)Have you heard from your little rabbit friends in a while?\w8 \1\b[0]\s[18]\i[21]Yeah,\w4 I have!\w8 \0\s[4]%(happies)\1\s[18]\i[0]They're doing all sorts of performances now.\w8 \0\s[4]%(smiles)\1\s[19]\i[18]Charming and perfectly adorable,\w4 as one review put it.\w8 \0\s[3]%(happies)\n\n[half]How delightful.\w8 \1\s[19]\i[0]\0I'm glad to hear it.\w8\e"
+			
+			"\1\b[0]\s[22]\i[27]Training our little rabbit friends kinda reminds me of how we had to exercise our hamster friend.\w8 \0\b[0]\s[1]%(calmsmile)Ah,\w4 yes.\w8 I can see the similarities.\w8 \1\s[22]\i[9]\n\n[half]Their personalities were really different,\w4 though.\w8 \0\s[1]%(confusesmile)\1\s[19]\i[14]For one,\w4 the rabbits enjoyed performing a lot more.\w8 \0\s[3]%(concernsmile)\n\n[half]Considering they were trained to be circus performers,\w4 I would hope they enjoyed it.\w8 \1\s[16]\i[21]\n\n[half]They were really cute,\w4 too.\w8 \0\s[3]%(smiles)\1\s[16]\i[0]I hope they're still having fun as they do their little skits.\w8 \0\s[1]%(calmsmile)\n\n[half]I hope so as well.\w8\e"
+			
+			"\0\b[0]\s[1]%(confusesmile)That robot was a fascinating little toy.\w8 \1\s[16]\i[27]\0\s[1]%(calmsmile)Able to process the rules of each course while simply operating on a crank windup system.\w8 \1\b[0]\s[16]\i[22]It was rather fun,\w4 wasn't it?\w8 \0\s[0]\1\s[18]\i[0]I liked all the little mice robots the best.\w8 \s[18]\i[3]I wanted to give them some mechanical cheese to nibble on.\w8 \0\s[3]%(happies)\n\n[half]Hahaha,\w4 I suppose a mechanical mouse would need mechanical cheese instead of actual cheese,\w4 wouldn't it?\w8\e"
+			
+			"\1\b[0]\s[15]\i[13]Why must robots fight?\w8 \0\s[1]%(shock)\1\s[18]\i[3]Because it's cool!\w8 \0\b[0]\s[2]%(confusesmile)Ah,\w4 are you thinking back on that toy robot you got from topassistant while we were in Monte d'Or?\w8 \1\s[19]\i[14]\n\n[half]Not only did it have the capabilities to run obstacle courses,\w4 it had cool robot brawls to join in,\w4 too!\w8 \0\s[1]%(happies)\n\n[half]Hahaha,\w4 I'm glad you enjoyed yourself with that.\w8 \1\s[16]\i[13]\n\n[half]I wish I still had it.\w8 I bet pottyprof would really enjoy it.\w8 \0\s[2]%(confused)\n\n[half]He might enjoy it a while before deconstructing it,\w4 I'm sure...\w8\e"
+			
+			"\1\b[0]\s[16]\i[13]Managing a shop is pretty difficult.\w8 \0\s[1]%(confusesmile)\1\s[16]\i[6]Especially when paying attention to making a customer buy as much as possible.\w8 \0\b[0]\s[5]%(smiles)It is,\w4 but it also presents such a fascinating puzzle.\w8 \1\s[16]\i[27]\0\s[5]%(calmsmile)Making sure to organise everything on the shelves to match their colours and shapes...\w8\w8 \1\s[16]\i[9]\0\s[2]%(confident)Quite the challenge.\w8 \1\s[15]\i[27]\n\n[half]I'm glad you and topassistant had fun with it.\w8 \0\s[2]%(concernsmile)\1\s[15]\i[10]I couldn't really make heads or tails of it all.\w8 \0\s[1]%(confusesmile)\n\n[half]And yet you're able to organise my office better than I can.\w8 \1\s[18]\i[3]\n\n[half]Well,\w4 yeah!\w8 \0\s[1]%(concernsmile)\1\s[18]\i[27]That's easy compared to a whole shop.\w8\e"
+		}
+		if favegame == "Azran Legacy"
+		{
+			"\1\b[0]\s[22]\i[14]Rolling all those nuts for the squirrels was a challenging puzzle.\w8 \0\s[4]%(confusesmile)\1\s[16]\i[9]I always felt bad I couldn't get them every single one.\w8 \0\b[0]\s[2]%(smiles)Ah,\w4 yes.\w8 \1\s[16]\i[27]\0\s[2]%(calmsmile)If I recall correctly,\w4 some of those courses had you use the extras to bridge the gaps between their lunch and the goal.\w8 \1\s[15]\i[9]\n\n[half]They got so stuck I couldn't even pull them out once the puzzle was done!\w8 \0\s[4]%(confusesmile)\n\n[half]Now that's dedication to the solution.\w8\e"
+			
+			"\0\b[0]\s[3]%(calmsmile)Those flower boxes of yours were all quite lovely.\w8 \1\b[0]\s[21]\i[19]They were,\w4 weren't they?\w8 \0\s[3]%(smiles)\1\s[18]\i[3]Figuring out how to make each one bloom was a fun puzzle each time.\w8 \s[18]\i[0]And all their colours were so pretty!\w8 \0\s[2]%(happies)\n\n[half]aurorazan was interested in each flower,\w4 too.\w8 \1\s[18]\i[13]\0\s[2]%(smiles)She had a vast wealth of knowledge on which species were common in her time.\w8 \1\s[21]\i[21]\n\n[half]Seeing her delight at each happy garden box was the best part,\w4 if you ask me.\w8\e"
+			
+			"\0\b[0]\s[2]%(happies)You really seemed to have a passion for creating outfits during our travels,\w4 Luke.\w8 \1\b[0]\s[18]\i[21]It was fun!\w8\w4 \0\s[2]%(confusesmile)\1\s[21]\i[27]Mostly,\w4 making people the ridiculous outfits that made them happiest.\w8 \0\n\n[half]I see.\w8 \1\s[21]\i[22]\0\s[3]%(concernsmile)I'm not one to judge fashion,\w4 so as long as it made them and you happy,\w4 I'm sure no one can complain.\w8 \1\s[19]\i[14]\n\n[half]Seeing everyone gain some confidence when they wore the outfit they wanted to wear was always the best part.\w8 \0\s[0]\n\n[half]Of course.\w8 \1\s[15]\i[22]\e"
+			
+			"\1\b[0]\s[24]Do you have any fondness for him?\w8 \0\b[0]\s[4]%(confused)Hm?\w8 For whom,\w4 Luke?\w8 \1\n\n[half]For desdes.\w8 \0\s[4]%(shock)\1\s[25]He is your brother,\w4 after all.\w8 \0\s[7]\i[0]\n\n[half]Ah.\w8 Hm.\w8\w8 \1\s[18]\i[17]\0\s[4]%(annoyed)It's rather complicated,\w4 the more I think it over.\w8 \1\n\n[half]How so?\w8 \0\s[12]\n\n[half]It's hard to have much fondness for a brother I can hardly remember.\w8 \1\s[18]\i[24]\n\n[half]Oh.\w8 \0\s[7]\i[2]\n\n[half]Much of that time in my childhood,\w4 I don't remember.\w8 \1\s[18]\i[23]\0I hardly remember the first few years I was Hershel Layton,\w4 in fact.\w8 \1\s[25]\n\n[half]I'm sorry,\w4 Professor.\w8 \0\s[4]%(concernsmile)\n\n[half]It's all right,\w4 my boy.\w8 \1\s[18]\i[24]\0\s[4]%(neutral)I understand why you harbour your own negative feelings towards him and I hold no ill will towards you for them.\w8 \1\s[16]\i[8]\n\n[half]It's all complicated in the end,\w4 isn't it?\w8 \0\s[1]%(closeeyes)\n\n[half]Much of life tends to be complicated,\w4 I'm afraid.\w8\e"
+			
+			"\1\b[0]\s[15]\i[13]Hey,\w4 %(user).\w8 \0\s[1]%(confused)\1\s[19]\i[9]Do you think it's possible for a robot to have something close to a human heart?\w8 \s[21]\i[13]That they can feel sadness and anger and.\w8 \0\s[1]%(shock)\1\s[21]\i[12]And love?\w8 \0\b[0]\s[1]%(sad)...\w8\w8\w8\1\s[21]\i[24]\0Thinking about aurorazan?\w8\w4 \1\s[25]\n\n[half]I just wish we could've spent more time with her.\w8 \0\s[1]%(closeeyes)\1Seen her grow and develop and live.\w8 \0\s[7]\i[0]\n\n[half]You and she did become such fast friends.\w8 \1\s[18]\i[24]\0\s[4]%(closeeyes)Despite everything,\w4 I'm glad that what time we did get to spend with her was mostly filled with happiness.\w8 \1\s[21]\i[13]\n\n[half]Yeah.\w8 Yeah,\w4 me,\w4 too.\w8 \0\s[4]%(sadsmile)\1\s[21]\i[12]And by continuing to live as we do,\w4 we're fulfilling her wish for us.\w8 \0\s[1]%(concernsmile)\n\n[half]So we are.\w8\e"
+			
+			"\1\b[0]\s[15]\i[1]I believe it's possible for a robot to feel emotions.\w8 \0\s[1]%(confused)\1\s[15]\i[9]Even if they're only approximations of those emotions,\w4 they're real to that robot.\w8 \s[19]\i[13]Which makes them real no matter what.\w8 \0\b[0]\s[3]%(concernsmile)I believe so as well,\w4 Luke.\w8 \1\s[19]\i[9]\0\s[3]%(confusesmile)What brought this line of thinking on?\w8 \1\s[16]\i[13]\n\n[half]I was wondering what aurorazan might have thought of all the residents of St Mystere.\w8 \0\s[3]%(neutral)\1\s[16]\i[12]If she'd find them similar to her or completely foreign.\w8 \0\s[2]%(sadsmile)\n\n[half]I see.\w8 What an interesting question to ponder on.\w8 \1\s[16]\i[24]\n\n[half]...\w8\w8\w8\0\s[2]%(shock)\1\s[24]I miss her,\w4 Professor.\w8 \0\s[1]%(closeeyes)\n\n[half]Yes,\w4 I do as well,\w4 my boy.\w8\e"
+		}
+		if favegame == "Professor Layton vs Phoenix Wright"
+		{
+			"\1\b[0]\s[18]\i[13]Those witch trials we had to sit through in Labyrinthia were something else,\w8 \0\s[4]%(neutral)\1\s[18]\i[12]weren't they,\w4 Professor?\w8 \0\b[0]\s[4]%(concernsmile)They certainly were.\w8 \1\s[18]\i[0]\0\s[5]%(smiles)It's a good thing we had mraceattorney there to handle the courtroom proceedings,\w4 even if it was all a farce in the end.\w8 \1\s[16]\i[3]\n\n[half]Yeah,\w4 having someone as experienced as him in how ridiculous things could get was helpful for sure.\w8 \0\s[5]%(happies)\1\s[16]\i[27]I think we'd both have been a bit too lost to be much help had we had to defend \_a[EspellaCantabella]Espella\_a on our own for that first trial.\w8 \0\s[2]%(confusesmile)\n\n[half]Being able to observe how he handled things was helpful for sure.\w8\e"
+			
+			"\1\b[0]\s[16]\i[24]I'm still a bit shocked that Labyrinthia was a real place.\w8 \0\b[0]\s[1]%(neutral)Why is that,\w4 my boy?\w8 \1\s[22]\i[9]\n\n[half]Well,\w4 because of the way we got there,\w4 I was convinced we'd been transported inside of a fairytale world!\w8 \0\s[1]%(confusesmile)\1\s[22]\i[27]It wouldn't have been the first time we wound up in a strange place that seemed more storybook than reality.\w8 \0\s[3]%(concernsmile)\n\n[half]I suppose that's a fair way of looking at things.\w8 \1\s[16]\i[9]\0\s[2]%(confusesmile)I'll admit,\w4 it took a bit of our usual investigating before I understood the true nature of the place.\w8 \1\s[16]\i[19]\n\n[half]You even got to explore their archaeological site!\w8 \0\s[4]%(happies)\n\n[half]That was truly a highlight of our time there.\w8 \1\s[16]\i[22]\e"
+			
+			"\0\b[0]\s[1]%(sadsmile)I really am grateful to mraceattorney for watching after you while I was indisposed.\w8 \1\b[0]\s[21]\i[9]He helped me out during that awful trial,\w4 so I'm pretty grateful that he was there with me as well.\w8 \0\s[1]%(neutral)\1\s[21]\i[24]I still feel bad for suspecting borgerfey of actually being a witch and hurting you...\w8 \0\s[3]%(confusesmile)\n\n[half]You weren't necessarily in your right mind and emotions were running quite high.\w8 \1\s[21]\i[1]\0\s[3]%(calmsmile)And I know for certain that she doesn't blame you for it.\w8 \1\s[16]\i[27]\n\n[half]She seems like such an easygoing person.\w8 \0\s[3]%(confusesmile)\1\s[16]\i[3]I kinda admire how cool she can be despite all the responsibilities she has to handle.\w8 \0\s[4]%(concernsmile)\n\n[half]It's quite the personality to have,\w4 for sure.\w8\e"
+			
+			"\1\b[0]\s[18]\i[19]Getting to meet mraceattorney's friend was a real treat,\w4 wasn't it,\w4 Professor?\w8 \0\b[0]\s[2]%(confusesmile)Ah,\w4 yes.\w8 \1\s[18]\i[22]\0\s[2]%(happies)It was a fascinating conversation we had for sure with his old friend.\w8 \1\s[16]\i[13]\n\n[half]I can't even imagine dropping everything and changing my whole career around one person.\w8 \0\s[2]%(confusesmile)\1\s[16]\i[21]Mr Wright is a really dedicated friend!\w8 \0\s[4]%(concernsmile)\n\n[half]It is a bit unbelievable at first glance,\w4 but we're certainly no strangers to such a subject.\w8 \1\s[16]\i[1]\0\s[7]\i[0]Even if that turned out to be somewhat of a lie in the end.\w8 \1\n\n[half]Oh.\w8 Oh,\w4 right.\w8 \0\s[4]%(concernsmile)\1\s[16]\i[26]I guess I can imagine it.\w8\e"
+			
+			"\0\b[0]\s[1]%(concernsmile)It truly worries me,\w4 hearing about some of the mischief borgerfey has gotten herself up to.\w8 \1\b[0]\s[19]\i[27]Oh,\w4 do you mean that story mraceattorney told us about her hitting him upside the head with a pipe?\w8 \0\s[1]%(shock)\1\s[19]\i[3]In the middle of a trial,\w4 no less!\w8 \0\s[2]%(confusesmile)\n\n[half]That is one of them,\w4 yes.\w8 \1\s[19]\i[0]\0\s[2]%(concernsmile)It sounds as though she has a penchant for disregarding the rules.\w8 \1\s[16]\i[6]\n\n[half]Sounds like she's just having her own kind of fun to me.\w8 \0\s[2]%(neutral)\1\s[21]\i[15]Like getting to bounce on the furniture!\w8 \0\s[1]%(confusesmile)\n\n[half]I suppose she's not quite an adult yet in spite of the many responsibilities upon her shoulders...\w8 \1\s[21]\i[22]\e"
+			
+			"\0\b[0]\s[3]%(happies)It seems that Mr Barnham,\w4 Ms Belduke,\w4 and \_a[EspellaCantabella]Espella\_a are all doing much better now that things have settled over there.\w8 \1\b[0]\s[18]\i[12]That's good to hear!\w8 \0\s[3]%(confusesmile)\1\s[18]\i[13]I'm glad they all get time to figure things out more and be friends again.\w8 \0\s[4]%(calmsmile)\n\n[half]Yes,\w4 I'm also glad they're all able to find forgiveness in each other now that they're no longer acting for the sake of their town.\w8 \1\s[16]\i[27]\n\n[half]It's kinda a shame magic turned out to not be real,\w8 \0\s[4]%(confusesmile)\1\s[16]\i[21]but it's real impressive just how far they had to go to make it look real!\w8 \0\s[2]%(concernsmile)\n\n[half]Impressive might not be the right word for it...\w8\e"
+		}
+		//if favegame == "New World of Steam"
+		if favegame == "Layton Brothers Mystery Room"
+		{
+			"\1\b[0]\s[22]\i[27]What's your opinion on pickles,\w4 Professor?\w8 \0\b[0]\s[4]%(confusesmile)Pickles?\w8 What brought this on?\w8 \1\s[19]\i[9]\n\n[half]pottyprof and his friend were arguing about it the other day.\w8 \0\s[4]%(concernsmile)\1\s[19]\i[14]He's in favour of pickles,\w4 she hates them.\w8 \0\s[4]%(confusesmile)\n\n[half]I see.\w8\w4 \1\s[19]\i[0]\0\s[3]%(calmsmile)Well,\w4 I don't mind pickles myself.\w8 \1\s[17]\i[21]\n\n[half]I like them,\w4 too.\w8 They're a little sour and a little sweet!\w8 \0\s[1]%(confusesmile)\1\s[17]\i[27]But I understand why his friend doesn't like them.\w8 The taste lingers even if you take them out!\w8 \0\s[2]%(concernsmile)\n\n[half]Ah.\w8 I do remember momtriton having a similar complaint about them...\w8\e"
+			
+			"\1\b[0]\s[22]\i[17]Do you like pineapple,\w4 Professor?\w8 \0\b[0]\s[4]%(confusesmile)Not particularly,\w4 but I wouldn't turn it away were I offered it.\w8 \1\s[22]\i[14]\n\n[half]Ooh,\w4 that's interesting.\w8 \s[19]\i[3]pottyprof hates it.\w8 \0\s[4]%(concernsmile)\1\s[19]\i[22]His friend had a sarnie the other day that he wanted until he found out it had pineapple in it.\w8 \0\n\n[half]I see.\w8 \1\s[19]\i[0]\0\s[2]%(confusesmile)He and this friend of his are rather close,\w4 aren't they?\w8 \1\s[17]\i[21]\n\n[half]They're always working together on solving mysteries.\w8 \0\s[2]%(smiles)\1\s[17]\i[0]She can really handle him at his worst,\w4 too,\w4 which is impressive to watch.\w8 \0\s[4]%(happies)\n\n[half]Haha,\w4 I'm glad he has such a spirited friend,\w4 then.\w8\e"
+			
+			"\1\b[0]\s[22]\i[27]Can you imagine using a knife made of ice,\w4 Professor?\w8 \0\s[4]%(neutral)\1\s[22]\i[3]And then boiling it in with your pasta to get rid of the evidence?\w8 \0\b[0]Goodness.\w8 \1\s[22]\i[0]\0\s[3]%(confusesmile)Is this a case you've worked on before,\w4 my boy?\w8 \1\s[16]\i[22]\n\n[half]Nah,\w4 it's one of the scenarios pottyprof and his friend thought up.\w8 \0\s[3]%(concernsmile)\1\s[16]\i[0]It's a real interesting plot for a killer,\w4 innit?\w8 \0\s[1]%(confusesmile)\n\n[half]Sounds perfectly within his interests for sure.\w8\e"
+			
+			"\1\b[0]\s[22]\i[17]Did you ever study the Aztec,\w4 Professor?\w8 \0\b[0]\s[1]%(confused)The Aztec?\w8 \s[1]%(confusesmile)That's all the way in South America,\w4 my boy.\w8 \1\s[19]\i[22]\n\n[half]I heard pottyprof and his friend talking about the masks of the culture.\w8 \0\s[1]%(concernsmile)\1\s[19]\i[27]Or,\w4 something like that.\w8 \0\s[1]%(confusesmile)\n\n[half]I see.\w8 \1\s[19]\i[22]\0\s[2]%(calmsmile)He certainly likes to make up complicated little games,\w4 doesn't he?\w8 \1\s[18]\i[21]\n\n[half]Of course!\w8 He's got the stuff for it.\w8\e"
+			
+			"\0\b[0]\s[4]%(confused)The other day,\w8 \1\s[16]\i[1]\0\s[4]%(sad)I heard pottyprof talking about getting shot and nearly dying...?\w8 \1\b[0]\s[19]\i[9]Oh,\w4 that's the explanation as to why he's got a brother.\w8 \0\s[1]%(confused)\n\n[half]He's...\w8\w8\w8\1\s[19]\i[1]\0got a brother?\w8 \1\s[18]\i[12]\n\n[half]In the game he and his friend play.\w8 \0\s[1]%(concernsmile)\1\s[19]\i[27]When they can get the other kids to join,\w4 it's usually as potential culprits and other Yardsmen.\w8 \0\s[1]%(sad)\n\n[half]He's more familiar with hardship than I'd like for him to be.\w8 \1\s[16]\i[13]\n\n[half]Not much you can do about what he went through before he came to us.\w8 \0\s[1]%(concernsmile)\1\s[16]\i[26]Just gotta help him feel comfortable where he is now.\w8 \0\s[1]%(sadsmile)\n\n[half]I suppose that's true...\w8\e"
+			
+			"\1\b[0]\s[17]\i[14]Things are heating up for pottyprof and his friend.\w8 \0\b[0]\s[4]%(confusesmile)Oh?\w8 \1\s[19]\i[3]\n\n[half]They had a case where someone came to them with a confession and they ended up proving it was their recurring nemesis!\w8 \0\s[2]%(concernsmile)\n\n[half]Ah.\w8 I see.\w8 \1\s[19]\i[0]\0\s[2]%(confusesmile)It's quite fascinating how many different scenarios he and his friend can come up with.\w8 \1\s[18]\i[21]\n\n[half]They say they work in the Mystery Room!\w8 \0\s[2]%(concernsmile)\1\s[18]\i[0]Gotta have fun cases for them to solve in there.\w8 \0\s[1]%(calmsmile)\n\n[half]Haha,\w4 perfect logic.\w8\e"
+		}
+		if favegame == "Layton Mystery Journey"
+		{
+			"\1\b[0]\s[22]\i[7]It seems that talking dog misslayton found has quite a mystery attached to him...\w8 \0\b[0]\s[4]%(confused)Talking dog?\w8 \1\s[22]\i[1]\0\s[4]%(confusesmile)You mean,\w4 it's not only you who can understand what he's saying?\w8 \1\s[18]\i[3]\n\n[half]See?\w8 Quite the mystery!\w8 \0\s[2]%(annoyedsmile)\n\n[half]I'm curious what this dog is saying now...\w8 \1\s[16]\i[0]\n\n[half]Maybe she and her friend will bring him around sometime!\w8 \0\s[2]%(confusesmile)\1\s[16]\i[21]I bet pottyprof and thegoldenapple would also love seeing what he's like.\w8 \0\s[1]%(happies)\n\n[half]I'm sure.\w8\e"
+			
+			"\0\b[0]\s[1]%(confused)misslayton seems to be going out a lot.\w8 \1\s[16]\i[27]\0\s[1]%(confusesmile)She's off playing with her friends,\w4 isn't she?\w8 \1\b[0]\s[19]\i[22]She and them are investigating their own mysteries!\w8 \0\s[1]%(happies)\1\s[19]\i[0]Right now,\w4 they're after a supposedly haunted house with her investigative rival.\w8 \0\s[2]%(confusesmile)\n\n[half]I see.\w8 \1\s[19]\i[22]\0\s[2]%(concernsmile)I do hope they know to stick together.\w8 \1\s[17]\i[3]\n\n[half]Katrielle's a smart kid.\w8 \s[17]\i[19]And her friends are no slouches,\w4 either!\w8 \0\s[1]%(confusesmile)\1\s[17]\i[22]They'll be fine,\w4 Professor.\w8 \0\s[1]%(concernsmile)\n\n[half]I hope so...\w8\e"
+			
+			"\1\b[0]\s[16]\i[21]We should invite misslayton's little friend over so we can bake a cake together.\w8 \0\b[0]\s[1]%(happies)That sounds like fun.\w8 \1\s[16]\i[0]\0\s[2]%(confusesmile)But I fear you're going to intimidate the poor lad too much if you go right into that.\w8 \s[3]%(calmsmile)Perhaps inviting him over for a cup of tea first might be a better start?\w8 \1\s[21]\i[21]\n\n[half]But cake is such a welcoming gesture.\w8 \0\s[3]%(confusesmile)\1\s[21]\i[14]Especially when it's homemade cake!\w8 \s[19]\i[6]Besides,\w4 you can never be in too bad a mood when there's cake!\w8 \0\s[4]%(happies)\n\n[half]Haha,\w4 if you say so.\w8\e"
+			
+			"\1\b[0]\s[18]\i[22]I heard that No Sub for Love's in theatres right now,\w4 Professor.\w8 \0\b[0]\s[2]%(confusesmile)Is that so?\w8 Were you interested in seeing it?\w8 \1\s[19]\i[19]\n\n[half]misslayton and her friend are!\w8 \0\s[2]%(happies)\1\s[19]\i[0]We should take thegoldenapple and all go as a group!\w8 \0\s[1]%(confusesmile)\n\n[half]Ah.\w8 I take it that it's not the type of story pottyprof would enjoy?\w8 \1\s[16]\i[9]\n\n[half]Not enough murder mystery,\w4 I don't think.\w8 \0\n\n[half]I see.\w8 \s[1]%(happies)Well,\w4 I'll definitely think about it.\w8 \1\s[21]\i[21]\n\n[half]Yippee!\w8\e"
+			
+			"\1\b[0]\s[16]\i[9]I feel bad for that poor iguana...\w8 \0\b[0]\s[1]%(neutral)What iguana,\w4 Luke?\w8 \1\s[17]\i[0]\n\n[half]Oh,\w4 misslayton and her friends were investigating a mysterious disappeared pet!\w8 \0\s[1]%(confusesmile)\1\s[19]\i[3]Turned out it was an iguana who was afraid of all the cat dolls his owner placed around her house.\w8 \0\n\n[half]I see.\w8 \1\s[19]\i[13]\0\s[4]%(concernsmile)Goodness,\w4 for an iguana,\w4 that does sound terrifying.\w8 \1\s[16]\i[6]\n\n[half]Thankfully,\w4 Katrielle figured it all out.\w8 \0\s[4]%(smiles)\1\s[16]\i[0]Her deductions are always fun to listen to.\w8 \0\s[3]%(happies)\n\n[half]She has that certain flair that makes her a delight,\w4 I agree.\w8\e" //we're not biased at all noooooo
+			
+			"\0\b[0]\s[2]%(confusesmile)misslayton met her friend at school,\w4 is that correct?\w8 \1\b[0]\s[17]\i[21]She did!\w8\w4 \0\s[2]%(neutral)\1\s[19]\i[27]One of their teachers accused him of something he didn't even do and she proved his innocence!\w8 \0\s[4]%(concernsmile)\1\s[19]\i[21]Since then,\w4 they've almost been inseparable.\w8 \0\n\n[half]I see.\w8 \1\s[19]\i[0]\0\s[4]%(smiles)I'm glad she's able to make friends with her keen puzzle solving skills.\w8 \1\s[17]\i[3]\n\n[half]She takes after the best,\w4 you know!\w8 \0\s[1]%(confusesmile)\e"
+		}
+		if favegame == "Eternal Diva"
+		{
+			"\1\b[0]\s[22]\i[17]I wonder if we could see that opera again...\w8 \0\b[0]\s[5]%(confusesmile)You mean the one Janice sang in on the Royal Crown?\w8 \1\s[17]\i[21]\n\n[half]Yeah,\w4 that's the one!\w8 \0\s[5]%(happies)\1\s[17]\i[0]I think thegoldenapple and misslayton might enjoy the story as much as I did.\w8 \0\s[2]%(confusesmile)\n\n[half]If I recall correctly,\w4 you were brought to tears by it.\w8 \1\s[21]\i[13]\n\n[half]It was touching and sad all at the same time.\w8 \0\s[1]%(concernsmile)\1\s[21]\i[9]They really respected their queen and wanted to save her before she died,\w4 but they just didn't make it in time...\w8\e"
+			
+			"\0\b[0]\s[1]%(sad)I do hope Janice is doing well.\w8 \1\s[16]\i[1]\0\s[1]%(closeeyes)It must be difficult for her,\w4 losing someone as precious as Melina was to her...\w8 \1\b[0]\s[16]\i[13]She and Mr Whistler both have each other still,\w4 at least.\w8 \0\s[1]%(sadsmile)\n\n[half]That is true.\w8 \1\s[16]\i[9]\0\s[1]%(concernsmile)They can both take comfort in someone who loved Melina as much as the other.\w8 \1\s[16]\i[13]\n\n[half]Right!\w8\e"
+			
+			"\1\b[0]\s[18]\i[27]D'ya think Janice would be able to come over for tea sometime?\w8 \0\b[0]\s[2]%(confusesmile)She's quite busy,\w4 but we could send her a letter and see if she has the time for it.\w8 \1\s[21]\i[21]\n\n[half]I think misslayton,\w4 thegoldenapple,\w4 and even pottyprof would enjoy meeting her.\w8 \0\s[2]%(happies)\1\s[21]\i[0]I'll bet she has all sorts of stories from being in productions.\w8 \0\s[4]%(smiles)\n\n[half]I suppose that would be interesting for everyone to hear about.\w8 \1\s[21]\i[19]\0\s[3]%(happies)I'll make sure to send her something once we've returned.\w8 \1\s[21]\i[21]\n\n[half]Yippee!\w8\e"
+		}
+		
+		//tea stuffs
+		if teapassmin > 30
+		{
+			"\0\b[0]\s[1]%(calmsmile)Ahh,\w4 our last cup of %(servedtea) is still on my mind.\w8 \1\b[0]\s[16]\i[22]Mine,\w4 too.\w8 \0\s[0]\1\s[16]\i[6]I bet you could come up with at least three puzzles about it!\w8 \0\s[1]%(happies)\n\n[half]That does sound like a worthwhile venture.\w8 \1\s[18]\i[0]\0\s[2]%(confusesmile)Let's see here...\w8\e"
+			
+			"\1\b[0]\s[16]\i[18]Mm,\w4 I've still got the taste of %(servedtea) in my mouth.\w8 \0\b[0]\s[3]%(calmsmile)Hard to forget a good cup of tea,\w4 Luke.\w8 \1\s[17]\i[14]\n\n[half]I bet I have a puzzle in here somewhere about that!\w8 \0\s[2]%(confident)\n\n[half]Let's see if we can find it,\w4 then.\w8 \1\s[17]\i[21]\e"
+		}
+		//if servedtea != "Undecided"
+		if teapassmin == 0
+		{
+			"\0\b[0]\s[2]%(annoyed)Hmm.\w8 \1\s[18]\i[1]\w8\0\s[2]%(confusesmile)I think it would be a nice time for a cup of tea,\w4 don't you think?\w8 \1\b[0]\s[18]\i[3]I'd never turn down a good cuppa!\w8 \0\s[3]%(happies)\n\n[half]Haha,\w4 neither would I,\w4 my boy.\w8\e"
+			
+			"\1\b[0]\s[16]\i[7]I think I'm getting a bit thirsty...\w8 \0\b[0]\s[3]%(happies)In the mood for a nice cup of tea?\w8 \1\s[18]\i[0]\n\n[half]That does sound good,\w4 yeah.\w8\e"
+		}
+		
+		//more hint coin silliness
+		if Laytonaffect > 30
+		{
+			"\1\b[0]\s[18]\i[21]Ooh,\w4 Professor.\w8 \0\s[1]%(confusesmile)\1\s[18]\i[0]Have you found any hint coins yet?\w8 \0\b[0]\s[3]%(happies)Hahaha,\w4 I have.\w8 \1\s[18]\i[21]\0Several,\w4 in fact.\w8 \s[3]%(smiles)How about you?\w8 \1\s[19]\i[14]\n\n[half]I've got at least %(num)!\w8 \0\s[1]%(happies)\n\n[half]Marvellous.\w8\w8 \1\s[16]\i[13]\n\n[half]I hope you don't mind us picking them all up,\w4 %(user).\w8 \0\s[1]%(confusesmile)\n\n[half]Yes,\w4 we'll make sure to replace the excess ones we don't spend.\w8\e"
+			
+			"\0\b[0]\s[2]%(happies)I see you've found some hint coins to add to our collection,\w4 Luke.\w8 \1\b[0]\s[18]\i[21]Yup!\w8\w4 \0\s[2]%(smiles)\1\s[18]\i[0]Gotta pick them up just in case we come across a really difficult puzzle!\w8 \0\s[3]%(happies)\n\n[half]Haha,\w4 that is what they're for.\w8 \1\s[18]\i[27]\0\s[3]%(confusesmile)Although,\w4 we should leave some for %(user).\w8 \1\s[16]\i[21]\n\n[half]We will!\w8 \0\s[3]%(happies)\1\s[16]\i[22]Promise!\w8\e"
+			
+			"\1\b[0]\s[16]\i[27]With all our poking and prodding,\w8 \0\s[4]%(concernsmile)\1\s[16]\i[9]I'm glad we haven't damaged anything yet.\w8 \0\b[0]\s[4]%(confusesmile)That does seem to be a habit of ours.\w8 \1\s[16]\i[13]\0\s[5]%(concernsmile)The search for clues,\w4 hint coins,\w4 and hidden puzzles can be a little destructive if we take things too far.\w8 \1\s[18]\i[12]\n\n[half]We'll make sure to take care around your things,\w4 %(user),\w4 like we have been so far.\w8 \0\s[1]%(neutral)\1\s[21]\i[14]And maybe you can tell us some locations to hidden puzzles!\w8 \0\s[1]%(concernsmile)\n\n[half]I wouldn't bother %(them) about that...\w8\e"
+		}
+		if Lukeaffect > 30
+		{
+			"\1\b[0]\s[16]\i[13]We've been through a lot of strange things in our lives,\w4 haven't we,\w4 Professor?\w8 \0\b[0]\s[2]%(concernsmile)I wouldn't call it strange,\w4 personally,\w4 but yes.\w8 \1\s[16]\i[9]\0\s[2]%(confusesmile)We've had many different experiences in our lives.\w8 \1\s[19]\i[14]\n\n[half]You especially,\w4 but I'm no slouch,\w4 either!\w8 \0\s[4]%(neutral)\1\s[19]\i[27]From being chased down by a Ferris Wheel to travelling to the future,\w4 it's hard to call any of our life normal from now on.\w8 \0\s[4]%(concernsmile)\n\n[half]Now that,\w4 I can more readily agree with.\w8 \1\s[19]\i[1]\0\s[3]%(smiles)Of course,\w4 normal is fairly relative,\w4 anyway.\w8 \1\s[16]\i[27]\0\s[5]%(calmsmile)From our perspective,\w4 what we've been through is our normal.\w8 \1\s[16]\i[9]\n\n[half]I'd hope we wouldn't consider finding the last of their species in archaeological finds as our usual...\w8\e"
+			
+			"\0\b[0]\s[1]%(neutral)It's strange,\w4 how much you've been through all ready,\w4 Luke.\w8 \1\b[0]\s[22]\i[17]Is it?\w8 \0\s[1]%(concernsmile)\1\s[22]\i[9]You went through plenty by the time you were my age,\w4 Professor.\w8 \0\s[3]%(neutral)\n\n[half]Yes,\w4 but I would hope you hadn't experienced as much as I had.\w8 \1\s[16]\i[1]\0\s[5]%(concernsmile)It's important to have adventures,\w4 but the kind we tend to take turn out far more dangerous than I'd like.\w8 \1\s[16]\i[13]\n\n[half]We got through all of it together,\w4 though.\w8 \0\s[5]%(neutral)\1\s[16]\i[9]That should count for something.\w8 \0\s[4]%(sadsmile)\n\n[half]I suppose...\w8\w8 \1\s[16]\i[13]\0\s[4]%(calmsmile)We do have each other now.\w8 \1\s[21]\i[21]\n\n[half]Thanks for being there for me,\w4 Professor.\w8 \0\s[4]%(sadsmile)\1\s[21]\i[13]I really do appreciate having you as my best friend.\w8 \0\s[1]%(calmsmile)\n\n[half]And I appreciate you being by my side through it all as well.\w8 \1\s[17]\i[22]\e"
+		}
+		
+		//--Double Envelopes
+		/*{
+		_korean = lessonkor
+		_korword = _korean[0]
+		_kormean = _korean[1]
+		
+		"\1\s[10]Here is an example of a double envelope. The Korean word is %(_korword).\w8\0\s[0]The word means %(_kormean).\e"
+		}*/
+		
+		"\1\b[0]\s[22]\i[27]How does this one sound,\w4 Professor?\w8 \0\b[0]\s[1]%(confusesmile)Cooking up a puzzle there,\w4 my boy?\w8 \1\s[22]\i[7]\n\n[half]I just can't figure out how to word it properly so it's not too obvious what the solution is.\w8 \0\s[1]%(concernsmile)\n\n[half]I see.\w8\w4 \1\s[22]\i[1]\0\s[3]%(smiles)Let's start with this part here...\w8 \1\s[16]\i[19]\n\n[half]Ooh,\w4 I see!\w8\e"
+		
+		"\0\b[0]\s[2]%(annoyedsmile)Luke,\w4 take this idea for a spin.\w8 \1\b[0]\s[18]\i[19]Ooh!\w8 Constructing a puzzle,\w4 Professor?\w8 \0\s[3]%(confusesmile)\n\n[half]Yes,\w4 I'm just trying to figure out where I need to lead it to make the answer a bit more obvious.\w8 \1\s[16]\i[21]\n\n[half]I think it's pretty clear as it is!\w8 \0\s[3]%(shock)\1\s[19]\i[27]But maybe if you changed the way that bit's worded...\w8 \0\s[2]%(confusesmile)\n\n[half]Ah,\w4 I see.\w8 \s[2]%(happies)That would work,\w4 thank you,\w4 my boy.\w8 \1\s[18]\i[22]\e"
+		
+		"\1\b[0]\s[22]\i[14]Have you solved many puzzles lately,\w4 %(user)?\w8 \0\s[4]%(surprisesmile)\1\s[22]\i[21]Anything interesting you think you can tell us about?\w8 \0\b[0]\s[4]%(happies)I'll bet you've encountered quite a few that would be fascinating to hear about.\w8 \1\s[22]\i[0]\0\s[3]%(smiles)Say,\w4 Luke,\w4 that reminds me of this particular one...\w8 \1\s[21]\i[21]\n\n[half]Ooh,\w4 let's hear it,\w4 Professor!\w8\e"
+		
+		"\0\b[0]\s[2]%(confusesmile)I'll bet you enjoy a slew of different puzzles than the ones we've encountered here,\w4 %(user).\w8 \1\b[0]\s[16]\i[21]Yeah!\w8\w4 \0\s[2]%(happies)\1\s[16]\i[0]We've all ready found so many here that are different from our other adventures.\w8 \s[16]\i[22]It's really neat!\w8 \0\s[4]%(smiles)\n\n[half]Perhaps you could tell us about them,\w4 sometime.\w8 \1\s[16]\i[0]\0\s[4]%(calmsmile)We're always interested in hearing a good puzzle.\w8 \1\s[17]\i[14]\n\n[half]Always!\w8\e"
+		
+		"\1\b[0]\s[22]\i[27]You know,\w4 thegoldenapple told me about this puzzle the other day...\w8 \0\b[0]\s[2]%(confusesmile)She gives quite fascinating puzzles,\w4 doesn't she?\w8 \1\s[16]\i[3]\n\n[half]Yeah,\w4 they're always so technical!\w8 \0\s[2]%(concernsmile)\1\s[16]\i[0]It really shows how much she learned while she was growing up in St Mystere.\w8 \0\n\n[half]It does.\w8 \1\s[18]\i[1]\0\s[3]%(confident)Now,\w4 my boy,\w4 you were saying?\w8 \1\s[16]\i[3]\n\n[half]All right,\w4 all right.\w8 \0\s[2]%(confusesmile)\1\s[22]\i[27]I think it went like...\w8\e"
+		
+		"\0\b[0]\s[2]%(confusesmile)misslayton handed me a rather intriguing puzzle the other day.\w8 \1\b[0]\s[21]\i[19]Ooh,\w4 did she?\w8 \0\s[2]%(concernsmile)\1\s[21]\i[21]I always find her puzzles to be a lot of fun.\w8 They're so bouncy!\w8 \0\s[4]%(smiles)\n\n[half]I couldn't describe it better myself.\w8 \1\s[16]\i[0]\0\s[3]%(calmsmile)They have a certain reflection of her personality that's just perfect,\w4 don't they?\w8 \1\s[16]\i[21]\n\n[half]They do!\w8 \0\s[3]%(smiles)\1\s[22]\i[14]So,\w4 how did it go?\w8 \0\s[5]%(happies)\n\n[half]Hahaha,\w4 it went something like this...\w8\e"
+		
+		"\1\b[0]\s[16]\i[20]pottyprof always hands me the most infuriating puzzles.\w8 \0\b[0]\s[1]%(neutral)Is he handing you purposely vague puzzles again?\w8 \1\s[16]\i[6]\n\n[half]No,\w4 it's solvable,\w4 but there are always tricks he points out that annoy me to no end.\w8 \0\s[1]%(concernsmile)\n\n[half]That sounds rather like him.\w8 \1\s[16]\i[1]\0\s[2]%(confusesmile)Shall I have a go at it?\w8 I can probably figure out where he added his obfuscation of the solution to his own liking.\w8 \1\s[16]\i[22]\n\n[half]All right.\w8 \s[22]\i[27]I think it went like...\w8\e"
+		
+		"\0\b[0]\s[2]%(concernsmile)pottyprof always has the strangest puzzles I get to hear in the day.\w8 \1\b[0]\s[16]\i[3]Boy,\w4 does he ever!\w8 \0\s[2]%(confusesmile)\1\s[16]\i[27]What'd he give you this time?\w8 \0\s[3]%(calmsmile)\n\n[half]There was an odd loophole that nearly made it unsolvable,\w4 had I not noticed it as he was explaining it.\w8 \1\s[16]\i[9]\0\s[2]%(confused)It reminded me of that card suits one given to me in that casino.\w8 \1\s[18]\i[27]\n\n[half]That sounds like a doozy,\w4 all right.\w8 \s[18]\i[19]Can I hear it?\w8 \0\s[1]%(confusesmile)\1I want to see if I can catch where the loophole is,\w4 too!\w8 \0\s[1]%(happies)\n\n[half]Haha,\w4 all right.\w8 \1\s[18]\i[14]\0\s[3]%(smiles)I'm sure it went something like this...\w8\e"
+		
+		"\0\b[0]\s[2]%(concernsmile)He certainly is trying his best,\w4 you can't deny that...\w8 \1\b[0]\s[16]\i[27]What'cha got there,\w4 Professor?\w8 \0\s[1]%(neutral)\n\n[half]Ah,\w4 pardon my mumbling.\w8 \1\s[16]\i[0]\0\s[3]%(happies)It's just this puzzle mraceattorney sent me in the mail.\w8 \1\s[18]\i[21]\n\n[half]Ooh,\w4 I wanna see what he came up with!\w8 \0\s[1]%(confusesmile)\n\n[half]Perhaps after I proofread it a bit more.\w8 \1\s[18]\i[1]\0\s[1]%(concernsmile)It's a touch...\w8\w8 \1\s[18]\i[12]\0illegible at the moment.\w8 \1\s[16]\i[27]\n\n[half]That makes sense.\w8 \0\s[1]%(neutral)\1\s[22]\i[17]I think Mr Wright has trouble spelling.\w8 \0\s[4]%(concernsmile)\n\n[half]It does seem that way,\w4 yes.\w8\e"
+		
+		"\1\b[0]\s[18]\i[19]Wanna hear about this puzzle borgerfey sent me?\w8 \0\b[0]\s[3]%(happies)You know I would like nothing else,\w4 Luke.\w8 \1\s[21]\i[21]\n\n[half]Heehee,\w4 get ready for this one.\w8 \0\s[1]%(confusesmile)\1\s[21]\i[14]She went all out with it and I still knew the answer before I finished reading the instructions.\w8 \0\n\n[half]Oh dear.\w8 \1\s[21]\i[22]\0\s[4]%(happies)Let's hear it,\w4 then.\w8\e"
+		
+		
+		////Other ghost dialogue
+		if ghostexcount == 0 //there are no other ghosts open
+		{
+			"\0\b[0]\s[1]%(calmsmile)Having this space to ourselves right now is rather nice.\w8 \1\b[0]\s[16]\i[22]Yeah.\w8 We get to see %(user) in %(their) natural element!\w8 \0\s[3]%(smiles)\n\n[half]It's certainly helpful to our investigation,\w8 \1\s[16]\i[0]\0\s[3]%(happies)I can say that for certain.\w8\e"
+			
+			"\1\b[0]\s[18]\i[22]It's nice to have the place to ourselves for the mo'.\w8 \0\s[1]%(happies)\1\s[18]\i[3]We can investigate without anyone besides %(user) trying to stop us!\w8 \0\b[0]\s[4]%(confusesmile)Yes,\w4 but don't get too carried away,\w4 Luke.\w8 \1\s[18]\i[1]\0\s[3]%(concernsmile)We don't want to cause any trouble for %(user),\w4 after all.\w8 \1\s[16]\i[9]\n\n[half]I know,\w4 Professor.\w8\e"
+		}
+		//if more than your ghost is open
+		if ghostexcount > 0
+		{
+			"\0\b[0]\s[4]%(happies)Seems like %(user)'s invited over someone we can ask for more information.\w8 \1\b[0]\s[15]\i[21]Yeah!\w8\w4 \0\s[4]%(smiles)\1\s[18]\i[0]Let's say hi when we get the chance!\w8 \0\s[4]%(happies)\n\n[half]Sounds like a plan.\w8\e"
+			
+			"\1\b[0]\s[21]\i[19]Ooh,\w4 Professor!\w8 \0\s[4]%(surprisesmile)\1\s[21]\i[21]We can get some more intel from %(user)'s friends now!\w8 \0\b[0]\s[4]%(calmsmile)We can,\w4 indeed,\w4 Luke.\w8 \1\s[21]\i[0]\0\s[2]%(confusesmile)It's also fascinating just seeing who else %(user) has in %(their) company.\w8 \1\s[19]\i[22]\n\n[half]There's a lot we can tell just from the company you keep,\w4 %(user)!\w8 \0\s[2]%(concernsmile)\1\s[19]\i[28]In a good way,\w4 promise.\w8\e"
+			
+			"\![raise,OnStartTalking]\e"
+		}
+		/*
+		//specific ghosts
+		if "Defence" _in_ ghostexlist
+		{
+			""
+		}
+		if "RGB Puzzlers" _in_ ghostexlist
+		{
+			""
+		}
+		if "Moomintroll" _in_ ghostexlist
+		{
+			""
+		}
+		if "Moomins" _in_ ghostexlist
+		{
+			""
+		}
+		*/
+		if "Needle" _in_ ghostexlist
+		{
+			"\0\b[0]\s[2]%(confused)A Needle...\w8 \1\b[0]\s[18]\i[1]Professor?\w8 \0\s[2]%(concernsmile)\n\n[half]Oh,\w4 sorry.\w8 \1\s[18]\i[27]\0\s[3]%(smiles)I was simply reminded of my fencing classes for a moment.\w8 \s[3]%(happies)It seems the perfect size for you to wield,\w4 my boy.\w8 \1\s[17]\i[3]\n\n[half]No way!\w8\e"
+			
+			"\1\b[0]\s[22]\i[17]A Needle...?\w8 \0\b[0]\s[4]%(confusesmile)Is something the matter,\w4 Luke?\w8 \1\s[22]\i[6]\n\n[half]Professor,\w4 do you think this Needle might work well as your next fencing partner?\w8 \0\s[4]%(happies)\n\n[half]Haha,\w4 I suppose it might!\w8 \1\s[22]\i[27]\0\s[2]%(confusesmile)I'm just not sure how either of us would go about it.\w8 \1\s[16]\i[26]\n\n[half]Yeah,\w4 I wouldn't know,\w4 either.\w8\e"
+		}
+		//if "" _in_ ghostexlist
+		
+		
+		"\1\b[0]\s[22]\i[7]There's always a rational explanation for everything.\w8 \0\b[0]\s[1]%(confused)What do you mean,\w4 Luke?\w8 \1\s[16]\i[12]\n\n[half]Oh,\w4 sorry,\w4 Professor.\w8 \0\s[1]%(confusesmile)\1\s[16]\i[27]I was just thinking back on all our adventures.\w8 \s[19]\i[6]Nothing is magic,\w4 it's all science!\w8 \0\s[4]%(concernsmile)\n\n[half]When you put it that way,\w4 it does make everything sound much less fantastical than it felt at the time.\w8\e"
+		
+		"\1\b[0]\s[16]\i[22]It's nice to have a break every now and then.\w8 \0\b[0]\s[3]%(calmsmile)Yes,\w4 it's best to keep yourself rested for when you do need to be on your toes.\w8 \1\s[16]\i[27]\0\s[1]%(confused)Hopefully,\w4 that doesn't come very often,\w4 but...\w8 \1\s[18]\i[9]\n\n[half]In our line of work,\w4 it tends to happen more often than not.\w8 \0\s[4]%(concernsmile)\n\n[half]Rather strange how we seem to always end up in these scenarios.\w8 \1\s[19]\i[0]\n\n[half]It's exciting,\w4 though,\w4 isn't it?\w8 \0\s[4]%(confusesmile)\1\s[19]\i[22]Sometimes,\w4 you need some excitement in your life to balance out all the breaks!\w8 \0\s[1]%(concernsmile)\1\s[16]\i[13]Even if it gets a bit too exciting...\w8 \0\s[1]%(confusesmile)\n\n[half]I suppose so.\w8\e"
+	}
+	//hooray!!
+}
+
+
+//--Chains
+//achain
+//{{CHAIN
+	//"\e:chain=end"
+//}}CHAIN
+
+
+
+//----dialogue choices
+//hot drinks!
+Select.hotchocodrink
+{
+	"\0\b[0]\1\b[0]\s[18]\i[21]Hot choclate sure is tasty,\w4 innit?\w8 \0\s[1]%(calmsmile)It can be nice to have that sort of rich taste to help and stave off the cold.\w8 \1\s[19]\i[27]\n\n[half]The Professor likes his hot chocolate kinda bitter,\w8 \0\s[1]%(confusesmile)\1\s[19]\i[21]but I like mine with lots of whipped cream and marshmallows!\w8 \0\s[3]%(happies)\n\n[half]And you never fail to make a mess of it.\w8 \1\s[21]\i[14]\n\n[half]Hey!\w8 Drinking without making a mess is quite difficult,\w4 I'll have you know.\w8 \0\s[4]%(happies)\n\n[half]Hahaha,\w4 indeed it can be.\w8 \1\s[21]\i[6]\e"
+}
+
+Select.warmmlkdrink
+{
+	"\0\b[0]\1\b[0]\s[16]\i[9]Even if it's a childish drink,\w8 \0\s[4]%(concernsmile)\1I still really like that one as well.\w8 \0\s[3]%(smiles)No need to be ashamed,\w4 my boy.\w8 \1\s[16]\i[27]\0\s[3]%(calmsmile)A good cup of warm milk can be just the comfort one needs on a restless night.\w8 \1\s[15]\i[9]\n\n[half]Do you drink it on occasion as well,\w4 Professor?\w8 \0\s[1]%(neutral)\n\n[half]Well,\w4 no.\w8 \1\s[15]\i[25]\0\s[2]%(concernsmile)I prefer a good cup of tea,\w4 as you know.\w8 \1\s[16]\i[22]\n\n[half]Of course,\w4 Professor.\w8\e"
+}
+
+Select.teadrink
+{
+	"\1\b[0]\0\b[0]\s[4]%(happies)Hahaha,\w4 then we share that in common,\w4 %(user).\w8 \1\s[16]\i[27]Tea is real nice,\w4 but I think I prefer something sweeter before bed.\w8 \0\s[3]%(smiles)\n\n[half]Yes,\w4 you certainly have quite the sweet tooth,\w4 my boy.\w8 \1\s[16]\i[1]\0\s[3]%(calmsmile)And putting so much sugar into your tea would ruin the point of having it before bed.\w8 \1\s[18]\i[21]\n\n[half]Pretty much!\w8\e"
+}
+
+Select.coffeedrink
+{
+	"\1\b[0]\0\b[0]\s[4]%(confusesmile)Ah.\w8 I hadn't considered that,\w8 \1\s[16]\i[27]\0but you're right.\w8 \1\s[22]\i[6]Didn't mraceattorney drink coffee,\w4 Professor?\w8 \0\s[3]%(calmsmile)\n\n[half]He did.\w8 \s[3]%(smiles)He and borgerfey both.\w8 \1\s[16]\i[27]\n\n[half]Why don't you drink coffee,\w4 Professor?\w8 \0\s[5]%(happies)\n\n[half]Because a gentleman's drink is undoubtedly tea.\w8 \1\s[22]\i[17]\n\n[half]Hm.\w8 \0\s[4]%(happies)\1I guess that makes sense.\w8\e"
+}
+
+Select.alldrink
+{
+	"\0\b[0]\1\b[0]\s[16]\i[27]So you don't mind any of them being offered to you?\w8\0\s[5]"
+	--
+	"%(calmsmile)"
+	"%(happies)"
+	"%(smiles)"
+	--
+	"Variety is the spice of life,\w4 so they say.\w8 \1\s[18]\i[21]\n\n[half]At least you have plenty of options to choose from!\w8\e"
+}
+
+
+
+//-OnMinuteChange
+//Keeps track of if an hour has passed.
+HourCheck
+{
+	if passmin >= 59
+	{
+		passmin = 0
+		passhour = passhour + 1
+		
+		if offscreen == 1 && outside != 0 //on and offscreen
+		{}
+		else {Laytonaffect += 2; Lukeaffect += 2}
+	}
+}
+
+//teatime check!
+TeatimeCheck
+{
+	if teatime == 1 //on
+	{
+		teapassmin = teapassmin + 1
+		
+		if teapassmin >= 60 {teatime = 0}
+	}
+	else //0; off
+	{
+		teatime = 0
+		
+		if teapassmin > 0 {teapassmin = teapassmin - 1}
+		else {teapassmin = 0}
+	}
+}
+
+
+//Runs every minute!
+OnMinuteChange
+{
+	HourCheck
+	TeatimeCheck
+}
+
+
+//--OnSecondChange
+//reference1 is if the ghost is offscreen or not
+OnSecondChange
+{
+	if passsec == 59
+	{
+	 	passsec = 0
+ 		passmin = passmin + 1
+	}
+ 	else
+	{
+	 	passsec = passsec + 1
+	}
+	
+	if overlap == 1 //on
+	{
+		if reference2 == 1
+		{
+			if teatime == 1 //on
+			{
+				teatime = 0 //they spill their tea lmao
+				
+				"\0\b[0]\s[4]%(shockopen)Ah--\w4 \1\b[0]\s[23]\i[29]Woah!\w8\w8\w8\w8 \0\s[4]%(concernsmile)%(Laymove)\n\n[half]My apologies,\w4 Luke.\w8 \1\s[16]\i[13]\0\s[4]%(sadsmile)I didn't realise we were standing so close to one another.\w8 \1\s[16]\i[9]\n\n[half]No,\w4 I'm sorry,\w4 Professor.\w8 That was my fault.\w8 \0\s[3]%(concernsmile)\n\n[half]We may have dropped our tea,\w4 but at least we didn't break your cups,\w4 %(user).\w8 \1\s[15]\i[13]\n\n[half]Yeah.\w8 Sorry about the tea,\w4 though.\w8\e"
+				
+				"\1\b[0]\s[23]\i[29]Ack!\w4 \0\b[0]\s[4]%(shockopen)Ah,\w4 Luke!\w8\w8\w8\w8 \1\s[18]\i[9]\0\s[4]%(concernsmile)%(Laymove)\nSorry,\w4 I didn't mean to jostle you.\w8 \1\s[16]\i[13]\n\n[half]I'm sorry,\w4 too,\w4 Professor.\w8 \0\s[4]%(confusesmile)\1\s[18]\i[0]At least we didn't break %(user)'s cups!\w8 \0\s[1]%(neutral)\n\n[half]But we did spill our tea.\w8 \1\s[16]\i[24]\0\s[1]%(concernsmile)Our apologies,\w4 %(user).\w8 \1\s[18]\i[9]\n\n[half]Yeah,\w4 sorry about that!\w8\e"
+			}
+			else //off
+			{
+				{
+					"\0\b[0]\1\b[0]"
+					--
+					"\0\s[4]%(shock)"
+					"\0\s[4]%(shockopen)"
+					--
+					"\1\s[23]\i[29]"
+					"\1\s[23]\i[16]"
+					"\1\s[18]\i[29]"
+					"\1\s[18]\i[16]"
+					--
+					"\1Oh!"
+					
+					"\1Woah!"
+					
+					"\0Ah,\w4 Luke--\w8 \1Whoops!"
+					
+					"\0Luke--\w8 \1Oops!"
+					--
+					"\w8 %(Lukemove)"
+					--
+					"\0\s[4]%(concernsmile)"
+					"\0\s[4]%(confusesmile)"
+					--
+					"\1\s[18]"
+					"\1\s[16]"
+					"\1\s[17]"
+					--
+					"\i[12]"
+					"\i[28]"
+					"\i[9]"
+					"\i[13]"
+					--
+					"Sorry,\w4 Professor!\w8\e"
+				}
+				
+				"\0\b[0]\s[4]%(neutral)Luke?\w8 \1\s[18]\i[16]\0\s[4]%(concernsmile)You're going to make me trip if you stand that close to me.\w8 \1\b[0]Oh!\w8 %(Lukemove)\s[18]\i[12]Sorry,\w4 Professor!\w8 \0\s[4]%(confusesmile)\1\s[18]\i[13]Didn't realise I'd gotten that close to you.\w8 \0\s[3]%(happies)\n\n[half]Were you looking to hold my hand for a bit?\w8 \1\s[21]\i[14]\n\n[half]No,\w4 I'm okay!\w8 \0\s[1]%(confusesmile)\1\s[21]\i[22]Nothing scary around here!\w8\e"
+				
+				"\0\s[4]%(shockopen)\1\b[0]\s[18]\i[16]Oh,\w4 Professor!\w8 %(Lukemove)\0\s[4]%(concernsmile)\1\s[18]\i[9]Sorry about that.\w8 \0\b[0]\s[1]%(happies)Haha,\w4 got a bit too close there,\w4 I see.\w8 \1\s[16]\i[27]\n\n[half]I might've been thinking about holding your hand.\w8 \0\s[1]%(neutral)\1\s[16]\i[9]Y'know,\w4 so we can keep sticking together.\w8 \0\s[3]%(calmsmile)\n\n[half]Perhaps while we're on our way home.\w8 \1\s[16]\i[0]\0\s[3]\i[18]It can be a bit of a winding path.\w8 \1\s[18]\i[21]\n\n[half]Sounds good,\w4 then!\w8 \0\s[1]%(happies)\e"
+				
+				"\0\b[0]\s[5]%(confusesmile)Luke,\w8 \1\s[16]\i[16]\0a gentleman never stands so close.\w8 \1\b[0]\s[18]\i[12]You're right,\w4 Professor!\w8 %(Lukemove)\0\s[1]%(neutral)\1\s[18]\i[3]A gentleman also never clips into his best friend.\w8 \0\s[1]%(confused)\n\n[half]...\w8\w8Clips into?\w8 \1\s[16]\i[0]\n\n[half]We're not anymore,\w4 don't worry about it.\w8\e"
+			}
+		}
+	}
+}
+// \4 -> moves away; \5 -> moves towards (if they can; if too close, also moves away)
+// %screenwidthx%screenheight
+// \![move,--base=0,--x=-150,--time=50]
+
+
+
+//------- On Offscreen!! ------------------------------------------------------------
+//handles all putting offscreen / onscreen stuff!
+OnOffscreen
+{
+	if offscreen == 1 //on
+	{
+		if teatime == 1 //on
+		{teatime = 0}
+		--
+		if reference0 == 0 //the Sakura
+		{
+			outside = 1
+			
+			"\0\b[0]\s[4]%(neutral)Ah.\w8 \1\b[0]\s[21]\i[29]Professor!\w8 \0\s[4]%(confusesmile)\n\n[half]Are you trying to show me something,\w4 %(user)?\w8\e"
+			
+			"\1\b[0]\s[23]\i[29]Professor!\w8 \0\b[0]\s[4]%(confused)Ah.\w8\w8 \1\s[21]\i[24]\0\s[4]%(concernsmile)I'm all right,\w4 my boy.\w8 \s[4]%(confusesmile)%(user) has just shown me outside for the moment,\w4 it seems.\w8 \1\s[16]\i[24]\e"
+		}
+		elseif reference0 == 1 //the Kero
+		{
+			outside = 2
+			
+			"\1\b[0]\s[23]\i[29]Woah!\w8 \0\b[0]\s[4]%(shockopen)Luke!\w8 \1\s[18]\i[9]\n\n[half]Time to investigate over here,\w4 I guess.\w8 \0\s[1]%(confused)\e"
+			
+			"\0\b[0]\s[4]%(shockopen)Luke!\w8 \1\b[0]\s[18]\i[1]Oh.\w8\w8 \0\s[4]%(confused)\1\s[18]\i[9]I've been put outside,\w4 Professor.\w8\e"
+		}
+		else //moving them back onscreen
+		{
+			outside = 0
+			
+			if reference1 == 1 //the Kero
+			{
+				"\0\b[0]\s[3]%(neutral)Are you all right,\w4 Luke?\w8 \1\b[0]\s[18]\i[9]I think so?\w8 \0\s[3]%(confused)\1\s[18]\i[19]Professor,\w4 I found this puzzle over there!\w8 \0\s[4]%(concernsmile)\n\n[half]Did you now?\w8 \1\s[18]\i[0]\0\s[4]%(confusesmile)I'd say you really are just fine,\w4 then.\w8 \1\s[16]\i[22]\n\n[half]I sure am!\w8\e"
+				
+				"\0\s[1]%(neutral)\1\b[0]\s[18]\i[12]Thanks for letting me back in,\w4 %(user)!\w8 \0\b[0]\s[3]%(sad)Are you sure you're all right,\w4 my boy?\w8 \1\s[18]\i[27]\n\n[half]I'm okay.\w8 \0\s[3]%(confusesmile)\1\s[16]\i[21]I even found a puzzle or two you might find interesting!\w8 \0\s[1]%(concernsmile)\n\n[half]I'm\w8 glad you're all right.\w8 \1\s[16]\i[13]\0\s[1]%(confusesmile)Now,\w4 let's hear that puzzle.\w8 \1\s[18]\i[21]\n\n[half]You bet!\w8\e"
+			}
+			else //0; the Sakura
+			{
+				"\1\b[0]\s[21]\i[24]Professor,\w4 are you okay?\w8 \0\b[0]\s[4]%(concernsmile)I am,\w4 Luke.\w8 No need to worry about me.\w8 \1\s[21]\i[9]\0\s[3]%(smiles)In fact,\w4 I do believe I encountered a rather strange puzzle during that small venture.\w8 \1\s[16]\i[3]\n\n[half]Hahaha,\w4 how like you,\w4 Professor.\w8 \s[16]\i[19]Let's hear it then!\w8 \0\s[5]%(calmsmile)\n\n[half]Well,\w4 you see...\w8\e"
+				
+				"\1\s[16]\i[24]\0\b[0]\s[4]%(confusesmile)Thank you for letting me back inside,\w4 %(user).\w8 \1\b[0]\s[16]\i[7]That was right weird,\w4 %(user).\w8 \0\s[4]%(neutral)\1\s[16]\i[24]I'm glad you're okay,\w4 Professor.\w8 \0\s[1]%(concernsmile)\n\n[half]I'm glad you are as well,\w4 my boy.\w8 \1\s[22]\i[27]\n\n[half]At least you found some interesting puzzles out there,\w4 didn't you?\w8 \0\s[4]%(happies)\n\n[half]I did.\w8 \1\s[22]\i[22]\0\s[4]%(smiles)It was a worthwhile venture.\w8\e"
+			}
+		}
+	}
+}
+
+
+//**** OnSurfaceRestore *****************************************************************
+//Sakura is reference0, Kero is reference1.
+OnSurfaceRestore
+{
+	if teatime == 1 //on
+	{
+		"\0\s[9]%(smiles)\1\s[27]\i[0]"
+	}
+	else
+	{
+		{
+			"\0\s[0]\1"
+			--
+			"\s[10]"
+			"\s[16]\i[0]"
+			"\s[17]\i[0]"
+		}
+		
+		{
+			"\0\s[2]"
+			--
+			"%(neutral)"
+			"%(confused)"
+			"%(closeeyes)"
+			--
+			"\1\s[22]"
+			--
+			"\i[1]"
+			"\i[7]"
+			"\i[8]"
+			"\i[11]"
+			"\i[17]"
+		}
+	}
+}
+
+
+//--OnKeyPress
+OnKeyPress
+{
+	if reference0 == "t"
+	{ OnAiTalk }
+	elseif reference0 == "r"
+	{ OnLastTalk }
+	elseif reference0 == "f1"
+	{ "\![open,readme]" }
+}
+
+
+//another puzzle solved!

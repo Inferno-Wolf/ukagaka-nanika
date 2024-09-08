@@ -1,0 +1,32 @@
+﻿//This sets the character set for your ghost
+charset,UTF-8
+
+
+//The full name of the ghost
+name,Professor Layton and Luke Triton
+type,ghost
+
+//Sakura and Kero names of ghost
+sakura.name,Layton
+kero.name,Luke
+
+
+//author credits
+craftman,KFC
+craftmanw,KFC
+craftmanurl,https://characteroulette.tumblr.com/
+
+
+sstp.allowunspecifiedsend,0
+shiori,yaya.dll
+
+
+//icon for task tray
+icon,PL_coin.ico
+
+
+//specified balloon!
+balloon,Professor Layton Speech
+
+//specified shell for onfirstboot
+seriko.defaultsurfacedirectoryname,danganny_art

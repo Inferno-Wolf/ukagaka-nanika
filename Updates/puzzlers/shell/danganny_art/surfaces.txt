@@ -1,0 +1,697 @@
+//---------------------------Surfaces.txt--------------------------
+//SURFACE CODE!!
+
+
+
+//-------------Layton Poses--------------------------------------------
+
+//Layton arms cross neutral smile
+surface0
+{
+collision0,144,9,287,133,Tophat
+collision1,166,128,247,202,LayFace
+}
+
+//Layton arms cross
+surface1
+{
+collision0,144,9,287,133,Tophat
+collision1,166,128,247,202,LayFace
+
+}
+
+//Layton thinkin
+surface2
+{
+collision0,144,9,287,133,Tophat
+collision1,166,128,247,202,LayFace
+
+}
+
+//Layton gestures
+surface3
+{
+collision0,144,9,287,133,Tophat
+collision1,166,128,247,202,LayFace
+
+}
+
+//Layton holds hat
+surface4
+{
+collision0,144,9,287,133,Tophat
+collision1,166,128,247,202,LayFace
+
+}
+
+//Layton inform point
+surface5
+{
+collision0,144,9,287,133,Tophat
+collision1,166,128,247,202,LayFace
+
+}
+
+//Layton puzzle point
+surface6
+{
+collision0,146,12,290,130,Tophat
+collision1,171,127,249,206,LayFace
+
+
+//neutral smile
+0interval,never
+0pattern0,60,0,overlay,0,0
+
+//neutral 1
+1interval,never
+1pattern0,61,0,overlay,0,0
+
+//neutral 2
+2interval,never
+2pattern0,62,0,overlay,0,0
+
+//eyes close smile
+3interval,never
+3pattern0,63,0,overlay,0,0
+
+//confident
+4interval,never
+4pattern0,64,0,overlay,0,0
+
+//confused 1
+5interval,never
+5pattern0,65,0,overlay,0,0
+
+//confused 2
+6interval,never
+6pattern0,66,0,overlay,0,0
+
+//confused smile
+7interval,never
+7pattern0,67,0,overlay,0,0
+
+//eyes closed
+8interval,never
+8pattern0,68,0,overlay,0,0
+
+//sad
+9interval,never
+9pattern0,69,0,overlay,0,0
+
+//concerned smile
+10interval,never
+10pattern0,70,0,overlay,0,0
+
+//sad smile
+11interval,never
+11pattern0,71,0,overlay,0,0
+
+//shock 1 open mouth
+12interval,never
+12pattern0,72,0,overlay,0,0
+
+//shock 2
+13interval,never
+13pattern0,73,0,overlay,0,0
+
+//calm smile
+14interval,never
+14pattern0,74,0,overlay,0,0
+
+//surprise smile
+15interval,never
+15pattern0,75,0,overlay,0,0
+
+//upset
+16interval,never
+16pattern0,76,0,overlay,0,0
+
+//wink smiles
+17interval,never
+17pattern0,77,0,overlay,0,0
+
+//winks
+18interval,never
+18pattern0,78,0,overlay,0,0
+}
+
+//Layton pull down hat
+surface7
+{
+
+//neutral
+0interval,never
+0pattern0,80,0,overlay,0,0
+
+//smiles
+1interval,never
+1pattern0,81,0,overlay,0,0
+
+//frowns
+2interval,never
+2pattern0,82,0,overlay,0,0
+}
+
+//Layton with journal
+surface8
+{
+collision0,144,9,287,133,Tophat
+collision1,166,128,247,202,LayFace
+
+
+33interval,rarely
+33pattern0,86,200,replace,0,0
+33pattern1,-1,200,overlay,0,0
+
+34interval,periodic,40
+34pattern0,85,200,overlay,0,0
+34pattern1,-1,200,overlay,0,0
+}
+
+//Layton hold tea
+surface9
+{
+collision0,144,9,287,133,Tophat
+collision1,166,128,247,202,LayFace
+
+
+//DRINK TEA
+35interval,sometimes
+35pattern0,90,200,replace,0,0
+35pattern1,-1,200,overlay,0,0
+}
+
+
+//Layton look away pensive
+surface11
+{
+
+}
+
+//Layton look away sad
+surface12
+{
+
+}
+
+
+
+
+
+//-------------------Luke poses------------------
+
+//Luke neutral smiles
+surface10
+{
+collision0,70,17,186,65,Hat
+collision1,95,60,175,121,LukeFace
+}
+
+
+//Luke neutral
+surface15
+{
+collision0,70,17,186,65,Hat
+collision1,95,60,175,121,LukeFace
+
+}
+
+//Luke cross arms
+surface16
+{
+collision0,70,17,186,65,Hat
+collision1,95,60,175,121,LukeFace
+
+}
+
+//Luke hands on hips
+surface17
+{
+collision0,70,17,186,65,Hat
+collision1,95,60,175,121,LukeFace
+
+}
+
+//Luke holds hat
+surface18
+{
+collision0,70,17,186,65,Hat
+collision1,95,60,175,121,LukeFace
+
+}
+
+//Luke informative points
+surface19
+{
+collision0,70,17,186,65,Hat
+collision1,95,60,175,121,LukeFace
+
+}
+
+//Luke puzzle solved!
+surface20
+{
+collision0,74,17,181,66,Hat
+collision1,97,62,168,123,LukeFace
+
+
+//smiles
+0interval,never
+0pattern0,200,0,overlay,0,0
+
+//neutral
+1interval,never
+1pattern0,201,0,overlay,0,0
+
+//angery
+2interval,never
+2pattern0,202,0,overlay,0,0
+
+//annoyed 1 close grin
+3interval,never
+3pattern0,203,0,overlay,0,0
+
+//annoyed 2 close grit
+4interval,never
+4pattern0,204,0,overlay,0,0
+
+//annoyed 3 happy close neutral
+5interval,never
+5pattern0,205,0,overlay,0,0
+
+//annoyed 4 close smile twitches
+6interval,never
+6pattern0,206,0,overlay,0,0
+
+//annoyed 5 close frown
+7interval,never
+7pattern0,207,0,overlay,0,0
+
+//closed / sleepy...
+8interval,never
+8pattern0,208,0,overlay,0,0
+
+//closed smile concern
+9interval,never
+9pattern0,209,0,overlay,0,0
+
+//closed concerned
+10interval,never
+10pattern0,210,0,overlay,0,0
+
+//closed frown concern
+11interval,never
+11pattern0,211,0,overlay,0,0
+
+//grin eheheh...
+12interval,never
+12pattern0,212,0,overlay,0,0
+
+//concerned smile
+13interval,never
+13pattern0,213,0,overlay,0,0
+
+//confident smile
+14interval,never
+14pattern0,214,0,overlay,0,0
+
+//confident grin
+15interval,never
+15pattern0,215,0,overlay,0,0
+
+//confused concern
+16interval,never
+16pattern0,216,0,overlay,0,0
+
+//confused neutral
+17interval,never
+17pattern0,217,0,overlay,0,0
+
+//content smile
+18interval,never
+18pattern0,218,0,overlay,0,0
+
+//excited grin
+19interval,never
+19pattern0,219,0,overlay,0,0
+
+//fed-up
+20interval,never
+20pattern0,220,0,overlay,0,0
+
+//happies grin
+21interval,never
+21pattern0,221,0,overlay,0,0
+
+//happies
+22interval,never
+22pattern0,222,0,overlay,0,0
+
+//regretful sads
+23interval,never
+23pattern0,223,0,overlay,0,0
+
+//sad stare
+24interval,never
+24pattern0,224,0,overlay,0,0
+
+//sassy smile
+25interval,never
+25pattern0,225,0,overlay,0,0
+
+//smiles sighs
+26interval,never
+26pattern0,226,0,overlay,0,0
+
+//sympathetic smile
+27interval,never
+27pattern0,227,0,overlay,0,0
+
+//wuh-oh
+28interval,never
+28pattern0,228,0,overlay,0,0
+
+//DISTRESS
+29interval,never
+29pattern0,229,0,overlay,0,0
+
+//wink smiles
+30interval,never
+30pattern0,230,0,overlay,0,0
+
+//wink grins
+31interval,never
+31pattern0,231,0,overlay,0,0
+
+//winks
+32interval,never
+32pattern0,232,0,overlay,0,0
+}
+
+//Luke fisticuffs
+surface21
+{
+collision0,70,17,186,65,Hat
+collision1,95,60,175,121,LukeFace
+
+}
+
+//Luke thinking
+surface22
+{
+collision0,70,17,186,65,Hat
+collision1,95,60,175,121,LukeFace
+
+}
+
+//Luke PANICS
+surface23
+{
+collision0,76,15,185,71,Hat
+
+}
+
+//Luke head arms down
+surface24
+{
+
+}
+
+//Luke head down hold hat
+surface25
+{
+
+}
+
+//Luke journal
+surface26
+{
+
+33interval,rarely
+33pattern0,30,200,overlay,0,0
+33pattern1,-1,200,overlay,0,0
+
+34interval,periodic,40
+34pattern0,31,200,overlay,118,106
+34pattern1,-1,200,overlay,0,0
+}
+
+//Luke tea
+surface27
+{
+
+//DRINK TEA
+35interval,random,6
+35pattern0,0,0,alternativestart,[36.37]
+
+36interval,never
+36pattern0,32,200,replace,0,0
+36pattern1,-1,200,overlay,0,0
+
+37interval,never
+37pattern0,33,200,replace,0,0
+37pattern1,-1,200,overlay,0,0
+}
+
+//
+//surface
+//{
+//element0,overlay,.png,0,0
+//element1,overlay,.png,0,0
+//}
+
+
+
+//--surface.append-------------------------------------------------------------------
+
+//Layton faces
+surface.append1-5,8-9
+{
+//neutral smile
+0interval,never
+0pattern0,40,0,overlay,0,0
+
+//neutral 1
+1interval,never
+1pattern0,41,0,overlay,0,0
+
+//neutral 2
+2interval,never
+2pattern0,42,0,overlay,0,0
+
+//eyes close smile
+3interval,never
+3pattern0,43,0,overlay,0,0
+
+//confident
+4interval,never
+4pattern0,44,0,overlay,0,0
+
+//confused 1
+5interval,never
+5pattern0,45,0,overlay,0,0
+
+//confused 2
+6interval,never
+6pattern0,46,0,overlay,0,0
+
+//confused smile
+7interval,never
+7pattern0,47,0,overlay,0,0
+
+//eyes closed
+8interval,never
+8pattern0,48,0,overlay,0,0
+
+//sad
+9interval,never
+9pattern0,49,0,overlay,0,0
+
+//concerned smile
+10interval,never
+10pattern0,50,0,overlay,0,0
+
+//sad smile
+11interval,never
+11pattern0,51,0,overlay,0,0
+
+//shock 1 open mouth
+12interval,never
+12pattern0,52,0,overlay,0,0
+
+//shock 2
+13interval,never
+13pattern0,53,0,overlay,0,0
+
+//calm smile
+14interval,never
+14pattern0,54,0,overlay,0,0
+
+//surprise smile
+15interval,never
+15pattern0,55,0,overlay,0,0
+
+//upset
+16interval,never
+16pattern0,56,0,overlay,0,0
+
+//wink smiles
+17interval,never
+17pattern0,57,0,overlay,0,0
+
+//winks
+18interval,never
+18pattern0,58,0,overlay,0,0
+}
+
+//Luke expressions
+surface.append15-19,21-23,26-27
+{
+//smiles
+0interval,never
+0pattern0,100,0,overlay,0,0
+
+//neutral
+1interval,never
+1pattern0,101,0,overlay,0,0
+
+//angery
+2interval,never
+2pattern0,102,0,overlay,0,0
+
+//annoyed 1 close grin
+3interval,never
+3pattern0,103,0,overlay,0,0
+
+//annoyed 2 close grit
+4interval,never
+4pattern0,104,0,overlay,0,0
+
+//annoyed 3 happy close neutral
+5interval,never
+5pattern0,105,0,overlay,0,0
+
+//annoyed 4 close smile twitches
+6interval,never
+6pattern0,106,0,overlay,0,0
+
+//annoyed 5 close frown
+7interval,never
+7pattern0,107,0,overlay,0,0
+
+//closed / sleepy...
+8interval,never
+8pattern0,108,0,overlay,0,0
+
+//closed smile concern
+9interval,never
+9pattern0,109,0,overlay,0,0
+
+//closed concerned
+10interval,never
+10pattern0,110,0,overlay,0,0
+
+//closed frown concern
+11interval,never
+11pattern0,111,0,overlay,0,0
+
+//grin eheheh...
+12interval,never
+12pattern0,112,0,overlay,0,0
+
+//concerned smile
+13interval,never
+13pattern0,113,0,overlay,0,0
+
+//confident smile
+14interval,never
+14pattern0,114,0,overlay,0,0
+
+//confident grin
+15interval,never
+15pattern0,115,0,overlay,0,0
+
+//confused concern
+16interval,never
+16pattern0,116,0,overlay,0,0
+
+//confused neutral
+17interval,never
+17pattern0,117,0,overlay,0,0
+
+//content smile
+18interval,never
+18pattern0,118,0,overlay,0,0
+
+//excited grin
+19interval,never
+19pattern0,119,0,overlay,0,0
+
+//fed-up
+20interval,never
+20pattern0,120,0,overlay,0,0
+
+//happies grin
+21interval,never
+21pattern0,121,0,overlay,0,0
+
+//happies
+22interval,never
+22pattern0,122,0,overlay,0,0
+
+//regretful sads
+23interval,never
+23pattern0,123,0,overlay,0,0
+
+//sad stare
+24interval,never
+24pattern0,124,0,overlay,0,0
+
+//sassy smile
+25interval,never
+25pattern0,125,0,overlay,0,0
+
+//smiles sighs
+26interval,never
+26pattern0,126,0,overlay,0,0
+
+//sympathetic smile
+27interval,never
+27pattern0,127,0,overlay,0,0
+
+//wuh-oh
+28interval,never
+28pattern0,128,0,overlay,0,0
+
+//DISTRESS
+29interval,never
+29pattern0,129,0,overlay,0,0
+
+//wink smiles
+30interval,never
+30pattern0,130,0,overlay,0,0
+
+//wink grins
+31interval,never
+31pattern0,131,0,overlay,0,0
+
+//winks
+32interval,never
+32pattern0,132,0,overlay,0,0
+}
+
+
+//--Tooltips------------------
+
+sakura.tooltips 
+{ 
+Tophat,A gentleman never removes his hat.
+LayFace,:-)
+}
+
+kero.tooltips
+{
+Hat,Give him a little pat on the head.
+LukeFace,The most pinchable cheeks.
+}

@@ -1,0 +1,2079 @@
+﻿//---------------------------Menus--------------------------
+//This .dic file is primarily concerned with the double-click menus for each of your ghosts.
+
+
+//--Test Variable --------------------------------------------------------
+
+Select.testvariable
+{
+	"\1\b[0]\s[10]Testing!\e"
+}
+
+
+//--OpenSakuraMenu
+OpenSakuraMenu
+{
+	"\1\s[10]"
+	"\1\s[16]\i[0]"
+	"\1\s[18]\i[0]"
+	--
+	"\0\b[2]"
+	--
+	if teatime == 1 //on
+	{
+		"\s[9]"
+	}
+	else //off
+	{
+		"\s[4]"
+		"\s[1]"
+		"\s[2]"
+	}
+	--
+	"%(happies)"
+	"%(surprisesmile)"
+	"%(confident)"
+	--
+	"How can I help you?"
+	
+	"Looking to change some things?"
+	
+	"Let's see what my suitcase holds."
+	--
+	OnMenuRun
+}
+
+//--MenuRun
+OnMenuRun
+{	
+	"\0\b[2]\n\n\_q"
+	--
+	if lastTalk != ""
+	{
+	  "\![*]\__q[OnLastTalk]Can you please say that again?\__q\n"
+	  "\![*]\__q[OnLastTalk]Sorry, what did you say?\__q\n"
+	  "\![*]\__q[OnLastTalk]Can you please repeat that?\__q\n"
+	  //"\![*]\q[,OnLastTalk]\n"
+	}
+	--
+ 	"\![*]\q[What's on your mind?,OnAiTalk]"
+	"\![*]\q[Got something to say?,OnAiTalk]"
+	"\![*]\q[Any thoughts to share?,OnAiTalk]"
+	//"\![*]\q[,OnAiTalk]"
+	--
+	if ghostexcount > 0
+	{
+		"\n\![*]\__q[OnStartTalking]Greet the company!\__q"
+		"\n\![*]\__q[OnStartTalking]Say hello to the company!\__q"
+	}
+	--
+	if teatime == 0 //off
+	{
+		"\n\n[half]\![*]\__q[teastart]Time for tea!\__q"
+		"\n\n[half]\![*]\__q[teastart]Would you like some tea?\__q"
+		"\n\n[half]\![*]\__q[teastart]Time to have some tea!\__q"
+	}
+	else //1; on
+	{
+		"\n\n[half]\![*]\q[Tea time over!,endtea]"
+		//"\n\n[half]\![*]\__q[endtea]\__q"
+	}
+	--
+	"\n\![*]\__q[Oncheckmystery]How's the investigation going so far?\__q"
+	"\n\![*]\__q[Oncheckmystery]Thoughts on the mystery here?\__q"
+	"\n\![*]\__q[Oncheckmystery]Thoughts on your investigation?\__q"
+	//\n\n[half]\![*]\__q[Oncheckmystery]\__q
+	--
+	"\n\n[half]\![*]\q[Personal Preferences,configmenu] \n\![*]\q[Functions,dosomething] \n\n[half]\![*]\q[Nevermind,CANCEL]\e"
+}
+
+//\![*]\q[,]
+//\![*]\__q[]\__q
+
+
+//Leave this alone
+OnLastTalk
+{
+	"%(lastTalk)\e"
+}
+
+
+//Have a cuppa!
+Select.teastart
+{
+	"\0\b[0]\1\b[0]"
+	--
+	if teapassmin > 30 //give us a minute to settle!
+	{
+		"\1\s[16]\i[1]\0\s[4]%(shockopen)Woah,\w4 \s[4]%(concernsmile)hold on there,\w4 %(user).\w8 \1\s[16]\i[12]We're still full up from the last pot you served us!\w8 \0\s[3]%(confusesmile)\n\n[half]Perhaps allow us a few more minutes to settle.\w8 \1\s[18]\i[9]\n\n[half]Please and thank you!\w8\e"
+		
+		"\0\s[1]%(neutral)\1\s[16]\i[27]Bit too eager there,\w4 %(user).\w8 \0\s[3]%(concernsmile)While we most definitely appreciate the sentiment,\w4 \s[3]%(confusesmile)I'm not quite sure either of us is ready for another pot so soon.\w8 \1\s[18]\i[12]\n\n[half]Give us another few minutes to settle maybe,\w4 thanks!\w8 \0\s[1]%(concernsmile)\e"
+	}
+	elseif timeslot == "earlymorning"
+	{
+		"\0\s[1]%(confusesmile)It's a bit early to start the day,\w4 isn't it?\w8 \1\s[17]\i[0]It's okay,\w4 Professor!\w8 \0\s[0]\1\s[19]\i[22]A cuppa will wake you up in no time!\w8 \0\s[2]%(confusesmile)\n\n[half]I suppose...\w8"
+		
+		"\1\s[18]\i[27]Starting off with a bit of extra pep,\w4 huh?\w8 \0\s[1]%(concernsmile)It's certainly early enough to where we could use it.\w8"
+	}
+	elseif timeslot == "morning"
+	{
+		"\0\s[4]%(smiles)A nice cup of tea to start the day?\w8 \1\s[17]\i[0]\0\s[4]%(calmsmile)Sounds quite lovely.\w8 \1\s[17]\i[21]Thank you,\w4 %(user)!\w8 \0\s[1]%(happies)\n\n[half]Yes,\w4 thank you.\w8"
+		
+		"\1\s[18]\i[19]Time for a nice cuppa to start off the morning!\w8 \0\s[3]%(happies)Sounds rather lovely,\w4 wouldn't you say?\w8"
+	}
+	elseif timeslot == "lunch"
+	{
+		"\0\s[2]%(confusesmile)I suppose it is about time for some lunch.\w8 \1\s[19]\i[21]A spot of tea'll really whet the appetite,\w4 \s[18]\i[19]right,\w4 Professor?\w8 \0\s[3]%(happies)\n\n[half]It certainly will,\w4 Luke.\w8"
+		
+		"\1\s[17]\i[21]Tea time!\w8 \0\s[3]%(calmsmile)A nice spot of tea will do good to whet the appetite.\w8 \1\s[21]\i[13]\n\n[half]If only we could have tea cakes and sandwiches as well...\w8"
+	}
+	elseif timeslot == "afternoon"
+	{
+		"\0\s[3]%(calmsmile)It's the perfect time to have a nice cup of afternoon tea.\w8 \1\s[18]\i[19]It sure is,\w4 Professor!\w8"
+		
+		"\1\s[16]\i[22]Mm,\w6 \s[16]\i[0]it's the perfect time for a spot of tea,\w4 isn't it,\w4 Professor?\w8 \0\s[5]%(happies)%(user) certainly thinks so,\w8 \1\s[16]\i[21]\0\s[3]%(calmsmile)and who are we to argue with %(them)?\w8"
+	}
+	elseif timeslot == "evening"
+	{
+		"\0\s[2]%(confusesmile)A last cup of tea before bed,\w4 then?\w8 \1\s[16]\i[0]That sounds lovely.\w8 \0\s[2]%(happies)\1\s[16]\i[22]And warm.\w8 \0\s[5]%(concernsmile)\n\n[half]It sounds like you could use the boost,\w4 Luke.\w8 \1\s[16]\i[27]\n\n[half]Maybe a little...\w8"
+		
+		"\1\s[18]\i[0]Ooh,\w4 \s[18]\i[21]a nice and warm cuppa sounds real good right about now.\w8 \0\s[2]%(happies)It will stave off the evening chill,\w4 certainly.\w8"
+	}
+	elseif timeslot == "night"
+	{
+		"\0\s[3]%(calmsmile)A good cup of tea is a wonderful way to end out the day.\w8 \1\s[18]\i[9]It does sound rather lovely.\w8"
+		
+		"\1\s[19]\i[22]The best way to end out a day is with a good cuppa.\w8 \0\s[1]%(happies)\1\s[18]\i[0]Right,\w4 Professor?\w8 \0\s[3]%(smiles)It also might help us continue through the night.\w8 \1\s[22]\i[9]\n\n[half]Ooh,\w4 yeah.\w8"
+	}
+	else //latenight
+	{
+		"\0\s[0]I suppose...\w8it's not too late yet for a spot of tea.\w8 \1\s[10]I could certainly use the pep...\w8"
+		
+		"\1\s[10]Mm,\w4 tea...\w8 \0\s[0]A nice pick me up would be well appreciated,\w4 %(user).\w8"
+	}
+	--
+	"\w8\1\s[16]\i[0]"
+	"\w8\1\s[18]\i[0]"
+	"\w8\1\s[10]"
+	"\w8\1\s[22]\i[17]"
+	--
+	"\c\b[-1]\0\b[2]\c"
+	--
+	"\s[0]"
+	"\s[3]%(smiles)"
+	"\s[4]%(smiles)"
+	"\s[2]%(confusesmile)"
+	--
+	"What will you serve us,\w4 %(user)?\w8"
+	
+	"What's on the menu,\w4 %(user)?\w8"
+	--
+	"\![set,autoscroll,disable]\n\n\*\_q\![*]\q[Citrus Classic,OnServetea,citrus] / \![*]\q[Belle Classic,OnServetea,belle] \n\![*]\q[Oasis Berry,OnServetea,berry] \n\![*]\q[Sugar Smoke,OnServetea,smoke] \n\![*]\q[Root Remedy,OnServetea,root] \n\![*]\q[Cherry Boost,OnServetea,boost] \n\![*]\q[Bitter Fruit,OnServetea,bitter] \n\![*]\q[Dream Spice,OnServetea,dream] \n\![*]\q[Clover Quencher,OnServetea,clover] \n\![*]\q[Radiance Blend,OnServetea,blend] \n\![*]\q[Cayenne Twilight,OnServetea,twilight] \n\![*]\q[Cinder Flower,OnServetea,cinder] \n\![*]\q[The Layton Elixir,OnServetea,elixir] \n\n\![*]\q[Back to Main Menu,OnServetea,menu] \n\![*]\q[Cancel,OnServetea,cancel]\e"
+}
+
+//Tea has been served!
+//I owe my sister (AgeofZero) my life for transcribing all the in-game dialogue for me aaaaa ;A; ;;;
+OnServetea
+{
+	teatime = 1
+	teapassmin ++
+	
+	"\0\b[0]\1\b[0]"
+	--
+	if reference0 == "citrus"
+	{
+		servedtea = "Citrus Classic"
+		Laytonaffect += 5
+		Lukeaffect += 5
+		
+		if favetea == servedtea
+		{
+			Laytonaffect ++
+			Lukeaffect ++
+			
+			"%(servefavetea)"
+		}
+		--
+		"\0\s[9]%(calmsmile)You really can't beat a good Citrus Classic.\w8 \1\s[27]\i[27]It's your favourite,\w4 isn't it,\w4 Professor?\w8 \0\s[9]%(happies)\n\n[half]The light sourness mixed with its sweetness is simply a refreshing taste.\w8 \1\s[27]\i[9]\0\s[4]%(happies)I tip my hat to you,\w4 %(user),\w4 for preparing it so well.\w8 \1\s[27]\i[21]\n\n[half]It's real yummy!\w8\e"
+		
+		"\1\s[27]\i[18]Mm,\w4 it's such a nice and light tea,\w4 \s[27]\i[0]isn't it,\w4 Professor?\w8 \0\s[9]%(calmsmile)Indeed it is.\w8 \1\s[27]\i[22]\0\s[9]%(calmsmile)I must admit,\w4 I'm quite partial to this particular blend.\w8 \1\s[27]\i[19]\n\n[half]%(user) did a great job of preparing it,\w4 too!\w8 \0\s[9]%(smiles)\1\s[27]\i[22]The sweetness and sourness are just the right balance to make it extra refreshing!\w8 \0\s[9]%(happies)\n\n[half]Indeed.\w8 \1\s[27]\i[0]\0\s[4]%(calmsmile)I tip my hat to you on a particularly tasty tea,\w4 %(user).\w8 \1\s[27]\i[21]\n\n[half]Thanks much!\w8\e"
+		/*
+		citrus classic - oasis leaf, brisk berry, citronia seed; A classic tea with the added twist of Citronia Seed. This special ingredient gives an unique flavour.
+		Luke: Oh, it’s a little sour and a little sweet. Yum.
+		Layton: I certainly have to tip my hat to this tea’s drinkability. I imagine it would be delicious iced as well.
+		Luke: Yep, and since it’s nice and light, I bet just about anyone would be happy to have a cup.
+		Layton: Mmm, yes. I myself am partial to its lovely fruity aftertaste.
+		*/
+	}
+	elseif reference0 == "belle"
+	{
+		servedtea = "Belle Classic"
+		Laytonaffect += 5
+		Lukeaffect += 5
+		
+		if favetea == servedtea
+		{
+			Laytonaffect ++
+			Lukeaffect ++
+			
+			"%(servefavetea)"
+		}
+		--
+		"\0\s[9]%(calmsmile)You really can't beat a good Belle Classic.\w8 \1\s[27]\i[27]It's your favourite,\w4 isn't it,\w4 Professor?\w8 \0\s[3]%(calmsmile)\n\n[half]The light sourness mixed with its sweetness is simply a refreshing taste.\w8 \1\s[27]\i[9]\0\s[4]%(happies)I tip my hat to you,\w4 %(user),\w4 for preparing it so well.\w8 \1\s[27]\i[21]\n\n[half]It's real yummy!\w8\e"
+		
+		"\1\s[27]\i[18]Mm,\w4 it's such a nice and light tea,\w4 \s[27]\i[21]isn't it,\w4 Professor?\w8 \0\s[9]%(happies)Indeed it is.\w8 \1\s[27]\i[0]\0\s[2]%(calmsmile)I must admit,\w4 I'm quite partial to this particular blend.\w8 \1\s[27]\i[21]\n\n[half]%(user) did a great job of preparing it,\w4 too!\w8 \0\s[9]%(calmsmile)\1\s[27]\i[18]The sweetness and sourness are just the right balance to make it extra refreshing!\w8 \0\s[9]%(smiles)\n\n[half]Indeed.\w8 \1\s[27]\i[0]\0\s[4]%(happies)I tip my hat to you on a particularly tasty tea,\w4 %(user).\w8 \1\s[27]\i[21]\n\n[half]Thanks much!\w8\e"
+		/*
+		belle classic - oasis leaf, brisk berry, belle tart seed; A classic tea with the added twist of Belle Tart Seed. This special ingredient imparts a unique flavour.
+		Luke: Oh, it’s a little sour and a little sweet. Yum.
+		Layton: I certainly have to tip my hat to this tea’s drinkability. I imagine it would be delicious cold as well.
+		Luke: Yep, and since it’s nice and light, I bet just about anyone would be happy to have a cup.
+		Layton: Mmm, yes. I myself am partial to its lovely fruity aftertaste.
+		*/
+	}
+	elseif reference0 == "berry"
+	{
+		servedtea = "Oasis Berry"
+		Laytonaffect += 5
+		Lukeaffect += 7
+		
+		if favetea == servedtea
+		{
+			Laytonaffect ++
+			Lukeaffect ++
+			
+			"%(servefavetea)"
+		}
+		--
+		"\0\s[9]%(smiles)Ah,\w4 this is your favourite,\w4 Luke.\w8 \1\s[27]\i[21]It sure is!\w8 \0\s[9]%(happies)\1\s[27]\i[22]It's so sweet and \![set,balloonwait,4]deeee\![set,balloonwait,1]\w6licious!\w8 \0\n\n[half]Hahaha,\w4 \s[9]%(smiles)I'm glad to see you enjoying yourself.\w8 \1\s[27]\i[0]\n\n[half]If you can't finish your cup,\w4 don't worry,\w4 Professor.\w8 \0\s[9]%(concernsmile)\1\s[27]\i[9]I know you don't have the same sweet tooth as I do.\w8 \0\s[9]%(smiles)\n\n[half]Thank you,\w4 Luke.\w8 \1\s[27]\i[0]\0\s[9]%(confusesmile)Just make sure to pace yourself.\w8 \1\s[27]\i[21]\n\n[half]Of course,\w4 Professor!\w8\e"
+		
+		"\1\s[27]\i[18]Mm,\w8 \0\s[1]%(concernsmile)\1\s[27]\i[21]Oasis Berry is my absolute favourite!\w8 \0\s[9]%(confusesmile)You have quite the powerful sweet tooth,\w4 my boy.\w8 \1\s[27]\i[0]\n\n[half]Sweets are just\w8 \s[27]\i[21]\![set,balloonwait,4]soooo\![set,balloonwait,1]\w8 good,\w4 Professor!\w8 \0\s[9]%(concernsmile)\1\s[27]\i[22]And this tea is refreshing,\w4 too!\w8 \0\s[9]%(confusesmile)\n\n[half]I might not enjoy it quite as much as you,\w4 \s[9]%(happies)but it's nice to see you enjoying it as much as you do.\w8 \1\s[27]\i[21]\n\n[half]Heehee,\w4 thanks,\w4 Professor.\w8\e"
+		/*
+		oasis berry - oasis leaf, brisk berry, brisk berry; A tea loved by women and children. It's refreshing sweetness is the secret to its popularity.
+		Luke: Deeeelicious! I just love how sweet this tea is, Professor!
+		Layton: Well, it’s a bit too sweet for me, but I understand why so many children enjoy it.
+		Luke: I think I could drink a whole pot of this stuff myself. Just watch me!
+		Layton: Ha ha ha! You’ve got quite the sweet tooth, Luke. Just try not to drink it too fast.
+		*/
+	}
+	elseif reference0 == "smoke"
+	{
+		servedtea = "Sugar Smoke"
+		Laytonaffect += 5
+		Lukeaffect += 5
+		
+		if favetea == servedtea
+		{
+			Laytonaffect ++
+			Lukeaffect ++
+			
+			"%(servefavetea)"
+		}
+		--
+		"\0\s[9]%(calmsmile)A good Sugar Smoke.\w8 \1\s[22]\i[25]Are you divining your love life,\w4 %(user)?\w8 \0\s[9]%(confusesmile)\n\n[half]Or perhaps %(theyre) trying to predict ours.\w8 \1\s[17]\i[21]\n\n[half]Maybe!\w8 \0\s[9]%(concernsmile)\1\s[27]\i[0]Not sure how well that'll go for you,\w4 %(user),\w4 \s[27]\i[22]but at least the tea's good.\w8 \0\s[9]%(happies)\n\n[half]Yes,\w4 thank you for sharing an interesting blend with us.\w8\e"
+		
+		"\1\s[27]\i[18]Mm,\w4 this one's got a nice fruity and smokiness to it.\w8 \0\s[5]%(calmsmile)That's the Cinder Horse for you.\w8 \1\s[27]\i[0]\n\n[half]All the blends using that ingredient have a real unique flavour to them,\w4 don't they?\w8 \0\s[9]%(smiles)\n\n[half]They certainly do.\w8 \1\s[27]\i[27]\0\s[9]%(happies)At the very least,\w4 it's a rather delicious uniqueness.\w8 \1\s[27]\i[21]\n\n[half]That's for sure!\w8\e"
+		/*
+		sugar smoke - oasis leaf, belle tart / citronia seed, cinder horse; A unique blend of fruity flavour with spicy undertones. Read the leaves to see the future of your love life. / The leaves show the future of your love life.
+		Layton: Hmm. What an interesting blend of fruitiness and subtle smokiness.
+		Luke: I’ve heard you can use the tea leaves from this blend to predict your love life.
+		Layton: I’m impressed, Luke. That’s the first I’ve heard on that subject. Have you been studying up on tea?
+		// I'm impressed, Luke. It heartens me that you take such interest in the blending of tea.
+		Luke: But of course, Professor! I couldn’t rightly call myself your apprentice if I didn’t!
+		*/
+	}
+	elseif reference0 == "root"
+	{
+		servedtea = "Root Remedy"
+		Laytonaffect += 5
+		Lukeaffect += 4
+		
+		if favetea == servedtea
+		{
+			Laytonaffect ++
+			Lukeaffect ++
+			
+			"%(servefavetea)"
+		}
+		--
+		"\0\s[9]%(confusesmile)It's nice to get a headstart on any potential colds,\w4 isn't it,\w4 my boy?\w8 \1\s[16]\i[9]It's so bitter though...\w8 \0\s[9]%(concernsmile)\1\s[27]\i[0]\nIt definitely leaves you feeling nice and warm on the inside,\w4 \s[27]\i[10]but the bitterness is hard to get past.\w8 \0\s[9]%(happies)\n\n[half]Hahaha,\w4 \s[9]%(smiles)that's an unfortunate thing about good medicine.\w8 \1\s[27]\i[17]\n\n[half]Is this a medicinal tea?\w8 \0\s[9]%(neutral)\n\n[half]I'm...\w8\w8 \1\s[27]\i[9]\0\s[2]%(confused)not actually sure about that.\w8\e"
+		
+		"\1\s[16]\i[24]Oof.\w8 \0\s[1]%(concernsmile)\1\s[27]\i[9]Once you get past the bitter taste,\w4 this Root Remedy makes you all nice and warm on the inside.\w8 \0\s[9]%(calmsmile)Quite perfect for our continued investigation here,\w4 wouldn't you say?\w8 \1\s[27]\i[17]\n\n[half]Not really sure either of us were on the verge of a cold,\w8 \0\s[9]%(concernsmile)\1\s[27]\i[0]but I'll never say no to something that warms you up!\w8 \0\s[9]%(confusesmile)\n\n[half]You certainly are attracted to things that are warm.\w8\e"
+		/*
+		root remedy - oasis leaf, joy root clover, tonic flower; Refined in flavour, this tea warms the body and improves circulation. Drink it at the start of a cold. // Rich in flavour, this tea warms the body, improves circulation and is ideal if you feel a cold coming on.
+		Layton: This tea seems like just the thing for driving away the chills when you feel a cold coming on.
+		Luke: Maybe so, Professor, but it’s a little bitter for my tastes.
+		Layton: That’s how you know it works, my boy. The Japanese say that good medicine is bitter to the taste.
+		// Now then Luke, no good medicine is ever easy to drink! That's how you know this is effective.
+		Luke: Oh, I think you might be onto something there, Professor! I feel all warm inside now!
+		*/
+	}
+	elseif reference0 == "boost"
+	{
+		servedtea = "Cherry Boost"
+		Laytonaffect += 5
+		Lukeaffect += 5
+		
+		if favetea == servedtea
+		{
+			Laytonaffect ++
+			Lukeaffect ++
+			
+			"%(servefavetea)"
+		}
+		--
+		"\0\s[9]%(calmsmile)It always amazes me how a good Cherry Boost has just the right amount of spiciness to it.\w8 \1\s[27]\i[21]It's really impressive!\w8 \0\s[9]%(smiles)\1\s[27]\i[0]It can be such an easy thing to get wrong,\w4 too.\w8 \0\s[9]%(happies)\1\s[27]\i[21]You did a real good job with this one,\w4 %(user)!\w8 \0\s[9]%(smiles)\n\n[half]Yes.\w8 \s[9]%(calmsmile)I dare say this particular blend has the perfect amount of kick to it.\w8 \1\s[27]\i[22]\n\n[half]It's tasty.\w8 \s[27]\i[15]I'm all fired up now!\w8\e"
+		
+		"\1\s[27]\i[22]Ooh,\w4 \s[27]\i[21]that is spicy!\w8 \0\s[9]%(happies)That certainly is the kick we needed to get the gears turning again.\w8 \1\s[27]\i[27]\n\n[half]Professor,\w4 \0\s[9]%(smiles)\1are your gears ever not turning?\w8 \0\s[9]%(happies)\n\n[half]Hahaha.\w8 \1\s[27]\i[25]\0\s[9]%(smiles)%(user),\w4 thank you for this delicious pick-me-up.\w8 \1\s[27]\i[22]\0\s[9]%(calmsmile)It's well appreciated.\w8 \1\s[27]\i[21]\n\n[half]Yeah,\w4 thanks!\w8 \s[27]\i[0]I feel all chirpy now.\w8\e"
+		/*
+		cherry boost - oasis leaf, peppercherry, peppercherry; The spicy kick of Peppercherry makes this tea an ideal pick-me-up if you're feeling a little down.
+		Luke: Ooh, spicy! My entire mouth is all tingly now!
+		Layton: Yes, there’s quite a healthy dose of Peppercherry in there. No doubt about it.
+		Luke: I kind of like it. It makes me feel very peppy / chirpy. Next time I’m feeling down, I know what to reach for.
+		Layton: Yes, a good cup of Cherry Boost can be quite nice every once in a while.
+		*/
+	}
+	elseif reference0 == "bitter"
+	{
+		servedtea = "Bitter Fruit"
+		Laytonaffect += 5
+		Lukeaffect += 3
+		
+		if favetea == servedtea
+		{
+			Laytonaffect ++
+			Lukeaffect ++
+			
+			"%(servefavetea)"
+		}
+		--
+		"\0\s[9]%(calmsmile)Mm,\w4 the depth of the flavour in a good Bitter Fruit is still hard to come by elsewhere.\w8 \1\s[16]\i[24]It's so bitter,\w4 though.\w8 \0\s[9]%(concernsmile)\1\s[27]\i[17]I think I've gotten better at discerning what all's in there,\w4 \s[27]\i[10]but the bitterness is a bit overpowering.\w8 \0\s[9]%(confusesmile)\n\n[half]You might not have the taste yet for bitter things,\w4 Luke.\w8 \1\s[27]\i[1]\0\s[9]%(concernsmile)I'm sure you'll get there as you grow older.\w8 \1\s[27]\i[9]\n\n[half]I'm not sure I want to get there.\w8\e"
+		
+		"\1\s[27]\i[9]Ooh,\w4 that is bitter.\w8 \0\s[9]%(happies)Hahaha,\w4 \s[9]%(concernsmile)you don't have to force yourself to drink it if it's too much for you,\w4 Luke.\w8 \1\s[27]\i[2]\n\n[half]No,\w4 I want to keep trying.\w8 \0\s[9]%(neutral)\1\s[27]\i[14]There's a sweet and sourness in there somewhere!\w8 \0\s[9]%(confusesmile)\n\n[half]Perhaps with familiarity you'll find it.\w8 \1\s[27]\i[1]\0\s[9]%(calmsmile)Until then,\w4 that subdued bitterness will be our companion.\w8 \1\s[27]\i[9]\n\n[half]At least you enjoy it,\w4 Professor.\w8\e"
+		/*
+		bitter fruit - brisk berry, belle tart / citronia seed, tonic flower; Sweet and sour with a subdued, bitter flavour. This complex tea is ideal for discerning adults.
+		Layton: Oh, this is simply exquisite. There’s a depth of flavor here I haven’t found in many other teas.
+		Luke: Really? Gosh, maybe my tongue’s just broken or something. I didn’t really see stars or anything…
+		Layton: Ha ha! You may be a bit young for this one. It’s what some might call a tea for the experienced palate.
+		Luke: Well, I don’t know about that. As far as I’m concerned, it’s too bitter to be tasty. 
+		*/
+	}
+	elseif reference0 == "dream"
+	{
+		servedtea = "Dream Spice"
+		Laytonaffect += 5
+		Lukeaffect += 5
+		
+		if favetea == servedtea
+		{
+			Laytonaffect ++
+			Lukeaffect ++
+			
+			"%(servefavetea)"
+		}
+		--
+		"\0\s[9]%(calmsmile)A more subtle blend of spicy and sweet.\w8 \1\s[27]\i[22]\0\s[9]%(smiles)Dream Spice is a good choice,\w4 %(user).\w8 \1\s[27]\i[21]I really like the sweet part,\w4 \s[27]\i[0]but I think I enjoy the spiciness just as much.\w8 \0\s[9]%(confusesmile)\n\n[half]Have you grown a taste for spicy things,\w4 Luke?\w8 \1\s[27]\i[21]\n\n[half]I might have!\w8 \0\s[9]%(happies)\1\s[27]\i[14]Just gotta drink more tea to make sure.\w8 \0\n\n[half]Hahaha,\w4 \s[9]%(smiles)there is plenty of it.\w8 \1\s[27]\i[21]\e"
+		
+		"\1\s[27]\i[18]Mm,\w4 I love that kick of sweet right at the end.\w8 \0\s[1]%(happies)\1\s[27]\i[21]That's probably my favourite part about this tea.\w8 \0\s[9]%(calmsmile)The peculiar manner in which that sweetness mixes with its spicy and milder notes is definitely a fascinating thing to behold.\w8 \1\s[27]\i[0]\n\n[half]Spicy and sweet mix about as well as salty and sweet,\w4 \s[27]\i[14]wouldn't you say,\w4 Professor?\w8 \0\s[9]%(happies)\n\n[half]I would say,\w4 indeed.\w8 \1\s[27]\i[21]\0\s[9]%(confusesmile)Though,\w4 I'm not sure how well mixing salt into your tea would go.\w8\e"
+		/*
+		dream spice - brisk berry, dream fluff, peppercherry; This mysterious blend melds sweet and mild notes with a fantastic spiciness.
+		Layton: My, what a peculiar blend this is. Subtle and spicy all at once.
+		Luke: And sweet at the end to boot / as well.
+		Layton: I especially like how the initial heat helps to balance out the sweetness that comes later.
+		Luke: I never imagined spicy and sweet could work together so well.
+		*/
+	}
+	elseif reference0 == "clover"
+	{
+		servedtea = "Clover Quencher"
+		Laytonaffect += 3
+		Lukeaffect += 5
+		
+		if favetea == servedtea
+		{
+			Laytonaffect ++
+			Lukeaffect ++
+			
+			"%(servefavetea)"
+		}
+		--
+		"\0\s[4]%(concernsmile)Ah,\w4 I fear I'm less inclined to enjoy this one...\w8 \1\s[27]\i[27]You only need one sip,\w4 don't you,\w4 Professor?\w8 \0\s[9]%(confusesmile)\n\n[half]At the very least,\w4 this will stave off our thirst while we have it.\w8 \1\s[27]\i[21]\n\n[half]Right!\w8 \s[27]\i[0]And it's a nice smoky sweetness to boot.\w8 \0\s[9]%(concernsmile)\n\n[half]I am glad you enjoy it at least,\w4 my boy.\w8 \1\s[27]\i[9]\e"
+		
+		"\1\s[27]\i[18]Mm,\w4 that sweet sort of smokiness is a taste I've really grown to enjoy.\w8 \0\s[1]%(concernsmile)You certainly do have quite the sweet tooth,\w4 don't you?\w8 \1\s[27]\i[21]\n\n[half]Sweets are good!\w8 \0\s[1]%(confusesmile)\n\n[half]I suppose I can't much argue with that.\w8 \1\s[27]\i[13]\n\n[half]Sorry this one's not as much to your taste,\w4 Professor.\w8 \0\s[1]%(concernsmile)\n\n[half]It's quite all right.\w8 \1\s[27]\i[9]\0\s[9]%(smiles)It's a good way to quench our thirst.\w8\e"
+		/*
+		clover quencher - brisk berry, joy root clover, cinder horse; Smokiness and a sweetness coexist in this peculiar tea. It's perfect for quenching thirst.
+		Layton: Impressive. One sip and I feel rejuvinated. It’s smoky, yet it has a wonderful sweetness to it.
+		Luke: This is a whole new flavor to me, Professor. I’ve never tried anything quite like it.
+		Layton: It’s interesting, and I’m sure it’s good for you when you’ve worked up a thirst, but it’s not quite my taste / thing.
+		Luke: Really? Well, I for one think it’s rather tasty.
+		*/
+	}
+	elseif reference0 == "blend"
+	{
+		servedtea = "Radiance Blend"
+		Laytonaffect += 5
+		Lukeaffect += 5
+		
+		if favetea == servedtea
+		{
+			Laytonaffect ++
+			Lukeaffect ++
+			
+			"%(servefavetea)"
+		}
+		--
+		"\0\s[9]%(calmsmile)Ah,\w4 Radiance Blend.\w8 \1\s[27]\i[22]\0\s[9]%(happies)Now this is quite the treat.\w8 \1\s[27]\i[27]I suppose,\w4 instead of getting our pep,\w4 \s[27]\i[21]we're being soothed to sleep!\w8 \0\s[9]%(smiles)\n\n[half]It certainly is one way to rejuvenate our energies.\w8 \1\s[27]\i[27]\n\n[half]Just make sure not to fall asleep standing up again,\w4 Professor.\w8 \0\s[9]%(shock)\1\s[27]\i[3]Don't want to spill tea all over %(user)'s place!\w8 \0\s[9]%(happies)\n\n[half]Hahaha,\w4 same to you,\w4 my boy.\w8 \1\s[27]\i[22]\e"
+		
+		"\1\s[27]\i[18]Now that's a soothing aroma,\w4 Professor!\w8 \0\s[9]%(calmsmile)Indeed it is.\w8 \1\s[27]\i[22]\0\s[9]%(happies)The mild tones of fruitiness are quite delicious as well.\w8 \1\s[27]\i[0]\n\n[half]Yeah.\w8 \s[27]\i[21]This is the best way to take a nap and get our energy back for sure.\w8 \0\s[9]%(calmsmile)\n\n[half]Indeed it is.\w8 \1\s[27]\i[0]\0\s[9]%(concernsmile)Hopefully,\w4 not soothing enough that we fall asleep.\w8 \1\s[27]\i[3]\n\n[half]Heehee,\w4 hopefully not!\w8\e"
+		/*
+		radiance blend - belle tart / citronia seed, dream fluff, joy root clover; Soothing in scent and mildly fruity in flavour, this vitamin-packed tea addresses all kinds of beauty woes.
+		Luke: Mmm, now this smells nice.
+		Layton: Indeed. There’s something about the aroma of this tea that’s quite soothing.
+		Luke: You hit that one / the nail on the head, Professor. I think it’s making me sleepy. Yaaaaaawn…
+		Layton: I suppose that’s further proof of its relaxing effect. It does seem— yaaaawn— rather potent, eh?
+		*/
+	}
+	elseif reference0 == "twilight"
+	{
+		servedtea = "Cayenne Twilight"
+		Laytonaffect += 5
+		Lukeaffect += 5
+		
+		if favetea == servedtea
+		{
+			Laytonaffect ++
+			Lukeaffect ++
+			
+			"%(servefavetea)"
+		}
+		--
+		"\0\s[9]%(calmsmile)Ahh,\w4 smell that relaxing aroma.\w8 \1\s[27]\i[18]This really is a great way to rejuvenate ourselves.\w8 \0\s[9]%(happies)\1\s[27]\i[21]Thanks,\w4 %(user)!\w8 \0\s[9]%(smiles)\n\n[half]Once we've driven off all our weariness with this wonderful cup of Cayenne Twilight,\w4 \s[9]%(happies)we can get back to our work with fresh eyes.\w8 \1\s[27]\i[22]\n\n[half]Sounds like a delicious plan,\w4 Professor!\w8\e"
+		
+		"\1\s[27]\i[22]Mm!\w8 \s[27]\i[0]How can something with just the right amount of spice be so relaxing,\w4 Professor?\w8 \0\s[2]%(confusesmile)It is quite the fascinating sort of puzzle,\w4 isn't it?\w8 \1\s[27]\i[9]\0\s[3]%(concernsmile)Were I more versed in the food sciences,\w4 I might have an answer.\w8 \1\s[27]\i[18]\0\s[9]%(calmsmile)For now,\w4 all we can do is enjoy this refreshingly light and spicy tea with %(user).\w8 \1\s[27]\i[19]\n\n[half]It's doing a good job of driving away our weariness,\w4 \s[27]\i[21]I can say that for certainty!\w8\e"
+		/*
+		cayenne twilight - dream fluff, joy root clover, peppercherry; The initial light taste of this tea soon transforms into something spicy. Perfect for unwinding.
+		Layton: Ahhh, just take in that aroma. It’s incredibly relaxing!
+		Luke: Kind of makes you forget all your troubles for a minute, eh, Professor?
+		Layton: I must confess, this is rather nice. It’s like the tea drove all the weariness from me.
+		Luke: Wow, all that with just a couple of sips? The good a cup of herb tea can do never fails to amaze me!
+		*/
+	}
+	elseif reference0 == "cinder"
+	{
+		servedtea = "Cinder Flower"
+		Laytonaffect += 5
+		Lukeaffect += 2
+		
+		if favetea == servedtea
+		{
+			Laytonaffect ++
+			Lukeaffect ++
+			
+			"%(servefavetea)"
+		}
+		--
+		"\0\s[9]%(confusesmile)That's quite the strong taste.\w8 \1\s[16]\i[9]\0\s[9]%(calmsmile)A bit of smokiness added to its herbal earthiness.\w8 \1\s[16]\i[13]I'm still not really fond of this one,\w8 \0\s[9]%(concernsmile)\1\s[27]\i[9]but I'm glad you enjoy it,\w4 Professor.\w8 \0\n\n[half]Haha,\w4 \s[9]%(sadsmile)still not quite your cup of tea,\w4 Luke?\w8 \1\s[27]\i[9]\n\n[half]Nope.\w8 \s[27]\i[0]But that's okay.\w8 \0\s[9]%(concernsmile)\1\s[27]\i[12]I can tell %(user) made it really well,\w4 \s[27]\i[14]and I can drink at least one cup.\w8 \0\s[9]%(confusesmile)\n\n[half]I'm glad to hear that,\w4 then.\w8\e"
+		
+		"\1\s[27]\i[10]Mm...\w8\w8 \0\s[4]%(concernsmile)\1\s[27]\i[13]Nope,\w4 still not my cup of tea.\w8 \0\s[3]%(concernsmile)Hahaha,\w4 at least you gave it an honest try,\w4 Luke.\w8 \1\s[27]\i[0]\0\s[9]%(calmsmile)I,\w4 for one,\w4 think its herbal and smoky flavour grows on you the more you drink it.\w8 \1\s[27]\i[27]\n\n[half]You like complex flavours like this.\w8 \0\s[9]%(confusesmile)\1\s[27]\i[9]I'm glad you're enjoying it,\w4 Professor.\w8 \0\s[9]%(calmsmile)\n\n[half]%(user),\w4 you did a fantastic job of blending this one just right.\w8\e"
+		/*
+		cinder flower - dream fluff, tonic flower, cinder horse; This blend works wonders against sickness of all kinds, though the taste can be off-puttingly strong.
+		Luke: Um… What’s this flavor? It’s a bit… odd.
+		Layton: It certainly has a distinct taste, but you know, Luke, the more I drink of it, the more I like it. (wow run-on sentence)
+		Luke: If you’re that fond of it, you’re more than welcome to the cup I’ve been drinking.
+		Layton: Sorry to hear that Cinder Flower isn’t your cup of tea, Luke. // your...erm...cup of tea, Luke.
+		*/
+	}
+	elseif reference0 == "elixir"
+	{
+		servedtea = "The Layton Elixir"
+		Laytonaffect += 5
+		Lukeaffect += 5
+		
+		if favetea == servedtea
+		{
+			Laytonaffect ++
+			Lukeaffect ++
+			
+			"%(servefavetea)"
+		}
+		--
+		"\0\s[9]%(calmsmile)Ah,\w4 this harmony of flavours is quite something.\w8 \1\s[18]\i[14]It's a little spicy,\w4 a little smoky,\w4 \s[18]\i[21]and out of this world!\w8 \0\s[9]%(confusesmile)\1\s[16]\i[14]You could even call it the perfect tea!\w8 \0\s[9]%(happies)\n\n[half]Hahaha,\w4 it certainly tastes like it deserves that title.\w8 \1\s[27]\i[14]\0\s[9]%(smiles)And %(user) brewed it to its absolute best as well.\w8 \1\s[27]\i[21]\n\n[half]It's really good,\w4 %(user).\w8 \0\s[9]%(happies)\1\s[27]\i[14]Thank you so much!\w8 \0\s[9]%(calmsmile)\n\n[half]Yes,\w4 thank you for this delicious treat.\w8\e"
+		
+		"\1\s[20]\i[15]That's your tea,\w4 Professor!\w8 \0\s[4]%(confused)\1\s[21]\i[14]Brewed to perfection,\w4 too!\w8 \0\s[9]%(calmsmile)Yes,\w4 this harmonious blend of flavours is masterful,\w4 %(user).\w8 \1\s[27]\i[22]\0\s[9]%(confusesmile)I'm still amazed you can get such depth out of these ingredients.\w8 \1\s[27]\i[21]\n\n[half]Just think of it like a puzzle,\w4 Professor!\w8 \0\s[9]%(happies)\n\n[half]Haha,\w4 I suppose that is what it is in the end,\w4 isn't it?\w8\e"
+		/*
+		the layton elixir - root clover, peppercherry, cinder horse; A single sip will capture your heart. The harmony of unlikely flavours results in a miraculous beverage.
+		Luke: Wow! This tea is out of this world!
+		Layton: I agree, Luke, but I do have to wonder how common ingredients can make something like this.
+		// I agree, Luke. I'm amazed that it's possible to make something like this with common ingredients.
+		Luke: Beats me, Professor. The world’s just full of mysteries like that, I suppose. / isn't it, Professor?
+		Layton: Aptly put / Indeed, my boy. Well, consider me mystified…
+		*/
+	}
+	elseif reference0 == "menu"
+	{
+		teatime = 0
+		teapassmin --
+		OnMenuRun
+	}
+	elseif reference0 == "keromenu"
+	{
+		teatime = 0
+		teapassmin --
+		OnKeroMenuRun
+	}
+	else //cancel
+	{
+		teatime = 0
+		teapassmin --
+		
+		"\e"
+	}
+}
+
+//faves dialogues!
+servefavetea
+{
+	"\0\b[0]\1\b[0]"
+	--
+	"\1\s[18]\i[19]Ooh,\w4 serving us some of your own favourite,\w4 %(user)?\w8 \0\s[1]%(happies)How very thoughtful of you."
+	
+	"\0\s[3]%(calmsmile)Ah,\w4 sharing your own favourite with us?\w8 \1\s[16]\i[21]Aww,\w4 that's real sweet of you!"
+	
+	"\1\s[18]\i[19]Hey,\w4 this is your favourite,\w4 %(user)!\w8 \0\s[3]%(happies)Quite thoughtful of you to share your favourite with us,\w4 I must say."
+	
+	"\0\s[4]%(confusesmile)Your favourite?\w8 \1\s[16]\i[21]Aww,\w4 you're sharing your favourite with us!"
+	--
+	"\1\n\n[half]\0\n\n[half]\w8\w8"
+}
+
+//put it away!!
+Select.endtea
+{
+	teatime = 0
+	
+	"\0\b[0]\1\b[0]"
+	--
+	if teapassmin >= 55
+	{
+		"\0\s[4]%(concernsmile)Yes,\w4 I think we're done for now.\w8 \1\s[18]\i[19]That was some really good tea,\w4 %(user).\w8 \0\s[1]%(happies)\1\s[18]\i[21]Thanks again for having it with us!\w8"
+		
+		"\1\s[16]\i[12]I'm all tea'd out,\w4 Professor!\w8 \0\s[4]%(concernsmile)As am I,\w4 just for now.\w8 \1\s[16]\i[0]\0\s[3]%(happies)Thank you again,\w4 %(user),\w4 for offering us such lovely accommodations.\w8 \1\s[17]\i[21]\n\n[half]Yeah,\w4 thank you!\w8"
+	}
+	elseif teapassmin < 55 && teapassmin > 30
+	{
+		"\0\s[4]%(smiles)Yes,\w4 I suppose now is a good time to finish up and get back to our investigation here.\w8 \1\s[18]\i[21]Thanks again for the tea,\w4 %(user)!\w8 \0\s[1]%(happies)\1\s[18]\i[22]It was really good!\w8"
+		
+		"\1\s[17]\i[22]I'm all good and full of tea now.\w8 \0\s[3]%(happies)As am I,\w4 my boy.\w8 \1\s[17]\i[0]\0\s[4]%(smiles)Thank you for giving us this nice break from our investigation,\w4 %(user).\w8 \1\s[18]\i[21]\n\n[half]Thanks much!\w8"
+	}
+	elseif teapassmin <= 30 && teapassmin > 10
+	{
+		"\0\s[5]%(calmsmile)We should wrap up for now and get back to our investigation,\w4 Luke.\w8 \1\s[16]\i[0]I suppose so,\w4 Professor.\w8 \0\s[5]%(smiles)\1\s[16]\i[12]It'd be a shame to come out all this way for %(user) and spend our whole day drinking tea with %(them).\w8 \0\s[4]%(happies)\n\n[half]Thank you again for the delicious cup,\w4 %(user).\w8 \1\s[18]\i[19]\n\n[half]Thank you!\w8"
+		
+		"\1\s[16]\i[0]Are you about ready to wrap up and get back to our investigation,\w4 Professor?\w8 \0\s[1]%(confusesmile)I suppose so.\w8 \1\s[16]\i[9]\0\s[5]%(happies)It wouldn't do to spend all of our time here simply chatting and having tea.\w8 \1\s[18]\i[14]\n\n[half]Back to it,\w4 then!\w8"
+	}
+	else //less than 10 min
+	{
+		"\0\s[4]%(confusesmile)Ah.\w8 \1\s[15]\i[16]All ready?\w8 \0\s[3]%(concernsmile)\n\n[half]Well,\w4 it was nice while it lasted.\w8 \1\s[15]\i[17]\0\s[4]%(smiles)Come,\w4 Luke.\w8 \s[4]%(calmsmile)Let's return to our investigation.\w8 \1\s[18]\i[27]\n\n[half]Okay,\w4 Professor.\w8"
+		
+		"\1\s[15]\i[16]Huh?\w8 \0\s[3]%(happies)Haha,\w4 this really was a quick cup of tea.\w8 \1\s[16]\i[17]\0\s[3]%(smiles)We'll get back to our investigation now,\w4 thank you,\w4 %(user).\w8 \1\s[16]\i[7]\n\n[half]We barely had any time to enjoy our tea,\w4 though...\w8"
+	}
+	--
+	"\n\n\![*]\q[Back to Main Menu,BACKTOMENU]   \![*]\q[Cancel,CANCEL]\e"
+}
+
+
+//investigation check!
+Oncheckmystery
+{
+	"\0\b[0]\1\b[0]"
+	--
+	if Laytonaffect <= 10
+	{
+		"\0\s[2]%(confused)Hmm.\w8 \1\s[16]\i[1]\0\s[2]%(concernsmile)Unfortunately,\w4 I haven't had much time to take a good look around.\w8 \1\s[16]\i[2]We haven't even gotten the mystery to pop,\w4 yet!\w8 \0\s[2]%(neutral)\n\n[half]...\w8\w8\s[1]%(confused)to pop?\w8 \1\s[16]\i[0]\n\n[half]Yeah.\w8 \0\s[1]%(confusesmile)\1\s[16]\i[3]You know,\w4 when you note it down in your journal!\w8 \0\s[1]%(confused)\n\n[half]I...\w8\w8 see.\w8 \1\s[16]\i[0]\0\s[3]%(concernsmile)Well,\w4 either way,\w4 we don't have enough information to even begin forming any theories,\w4 %(user).\w8 My apologies.\w8 \1\s[18]\i[12]\n\n[half]Yeah,\w4 give us a bit more time,\w4 please!\w8"
+		
+		"\1\s[18]\i[0]Any theories yet,\w4 Professor?\w8 \0\s[1]%(concernsmile)Not yet,\w4 I'm afraid.\w8 \1\s[18]\i[1]\0\s[3]%(concernsmile)We haven't quite yet had the time to explore proficiently.\w8 \1\s[16]\i[13]\n\n[half]I suppose that's fair.\w8 \0\s[1]%(concernsmile)\1\s[16]\i[14]We haven't even encountered our first hint coin!\w8 \0\s[1]%(happies)\n\n[half]Haha,\w4 that is a good point.\w8 \1\s[16]\i[0]\0\s[0]Our apologies,\w4 %(user).\w8 \s[3]%(concernsmile)You'll have to give us some more time.\w8 \1\s[18]\i[21]\n\n[half]You'll probably know when the mystery's popped!\w8"
+	}
+	elseif Laytonaffect <= 30 && Laytonaffect > 10
+	{
+		"\0\s[2]%(confused)Hmm.\w8 \1\s[18]\i[1]\0\s[3]%(concernsmile)While we've had time to get the lay of the land,\w8 I'm not sure we've had the time to gather enough clues to begin explaining much of anything.\w8 \1\s[16]\i[13]Aww.\w8 \0\s[3]%(smiles)\1\s[16]\i[12]Not even a hint from your famous intuition,\w4 Professor?\w8 \0\s[2]%(confusesmile)\n\n[half]Well.\w8 \1\s[16]\i[0]\0\s[2]%(calmsmile)I may have an inkling as to what's behind this mystery,\w8 \1\s[16]\i[1]\0\s[3]%(concernsmile)but we have no way to prove anything one way or the other yet.\w8 \1\s[18]\i[12]\n\n[half]I suppose that's fair!\w8 \0\s[0]\1\s[18]\i[0]I don't have any ideas yet,\w4 either.\w8 \s[16]\i[21]It's a nice place you've got here,\w4 %(user)!\w8 \0\s[1]%(happies)\n\n[half]Yes,\w4 thank you again for providing us this mystery in the first place.\w8 \1\s[16]\i[0]\0\s[3]%(calmsmile)It has a rather large amount of dimension to it.\w8"
+		
+		"\1\s[22]\i[17]Hmm.\w8 \0\s[1]%(neutral)\1\s[22]\i[9]I'm not sure we've seen enough yet to get anything.\w8 \0\s[1]%(shock)\1\s[18]\i[0]What do you think,\w4 Professor?\w8 \0\s[3]%(concernsmile)I'm of the same mind.\w8 \1\s[16]\i[1]\0\s[2]%(annoyed)While we've had time to understand the layout of your place,\w4 %(user),\w4 \s[3]%(confusesmile)we're still gathering our bearings here.\w8 \1\s[16]\i[13]\n\n[half]You'll have to forgive our slow start.\w8 \0\s[3]%(concernsmile)\1\s[16]\i[0]This is our first time encountering a mystery of this nature.\w8 \0\s[5]%(calmsmile)\n\n[half]Thankfully,\w4 things should speed up soon.\w8 \1\s[16]\i[1]\0\s[2]%(confusesmile)I have an inkling as to what's behind this.\w8 \1\s[18]\i[19]\n\n[half]Ooh,\w4 looks like that famous intuition of yours is in high gear!\w8 \0\s[3]%(happies)\n\n[half]Haha,\w4 it may well be.\w8"
+	}
+	elseif Laytonaffect <= 50 && Laytonaffect > 30
+	{
+		"\0\s[2]%(confusesmile)If I had to put it into words,\w8 \1\s[15]\i[1]\0\s[3]%(calmsmile)then I'd say we're rather close to the mechanism behind this mystery right now.\w8 \1\s[15]\i[16]Have you figured it all out,\w4 Professor?\w8 \0\s[4]%(happies)\n\n[half]Haha,\w4 we've gathered enough evidence to substantiate our hunch.\w8 \1\s[15]\i[1]\0\s[3]%(happies)Don't you agree?\w8 \1\s[18]\i[27]\n\n[half]I'm not sure I'm quite there yet,\w8 \0\s[3]%(concernsmile)\1\s[21]\i[19]but that's impressive!\w8 \s[21]\i[21]I'd expect nothing less from you.\w8 \0\s[1]%(happies)\n\n[half]Thank you,\w4 my boy.\w8"
+		
+		"\1\s[22]\i[17]Hmm.\w8 \0\s[1]%(shock)\1\s[22]\i[25]You've got it all figured out all ready,\w4 haven't you,\w4 Professor?\w8 \0\s[2]%(confusesmile)I have a hunch we're a lot closer to the answer here than you'd think.\w8 \1\s[22]\i[0]\0\s[3]%(calmsmile)That's all.\w8 \1\s[18]\i[3]\n\n[half]Haha,\w4 that's the great Professor Layton for you!\w8 \0\s[1]%(concernsmile)\1\s[18]\i[19]Able to solve a mystery before we even find all the clues!\w8 \0\n\n[half]It's just a hunch.\w8 \1\s[18]\i[0]\0\s[5]%(calmsmile)It's always best to wait until we have all the evidence to substantiate our theories,\w4 as they could be completely wrong.\w8 \1\s[16]\i[22]\n\n[half]Good point!\w8 \0\s[5]%(neutral)\1\s[16]\i[25]But you're usually right,\w4 aren't you?\w8 \0\s[4]%(concernsmile)\n\n[half]I wouldn't say usually...\w8"
+	}
+	elseif Laytonaffect <= 70 && Laytonaffect > 50
+	{
+		{
+			"\0\s[2]%(confusesmile)Well.\w8\w8 \1\s[18]\i[1]\0\s[3]%(calmsmile)I can definitely say this isn't the most complicated of our mysteries.\w8 \1\s[18]\i[27]What?\w8 \0\s[3]%(smiles)\1You mean %(user)'s case isn't as strange as "
+			--
+			if favegame == "Undecided" {"half of our other cases"}
+			if favegame == "Curious Village" {"a village filled with androids"}
+			if favegame == "Diabolical Box" || favegame == "Pandora's Box" {"a box that can kill you just by opening it"}
+			if favegame == "Unwound Future" || favegame == "Lost Future" {"a future London and a time travel device"}
+			if favegame == "Last Spectre" || favegame == "Spectre's Call" {"a mysterious spectre meant to protect a town in times of need"}
+			if favegame == "Miracle Mask" {"a parade of miracles performed by a masked gentleman"}
+			if favegame == "Azran Legacy" {"an emissary frozen in ice for thousands of years"}
+			if favegame == "Professor Layton vs Phoenix Wright" {"a storybook town where witch trials are held"}
+			if favegame == "New World of Steam" {"a city run on steam and technology"}
+			if favegame == "Layton Brothers Mystery Room" {"a literal hand sandwich"}
+			if favegame == "Layton Mystery Journey" {"a whole cult surrounding a peanut butter bandit"}
+			if favegame == "Eternal Diva" {"a three part song to reveal a long lost city"}
+			--
+			"?\w8 \0\s[4]%(calmsmile)\n\n[half]As hard as it is to believe.\w8 \1\s[16]\i[25]\n\n[half]How long ago did you figure it out,\w4 Professor?\w8 \0\s[3]%(happies)\n\n[half]Haha,\w4 not so long ago.\w8 \1\s[16]\i[21]\n\n[half]That's the Professor for you,\w4 %(user).\w8 \0\s[1]%(confusesmile)"
+		}
+		
+		"\1\s[22]\i[14]It's definitely not as complicated as one of our previous mysteries,\w8 \0\s[4]%(smiles)\1\s[18]\i[12]but I'm not quite there yet,\w4 I don't think.\w8 \0\s[5]%(calmsmile)We need just a few more clues then,\w4 sounds like.\w8 \1\s[16]\i[20]\n\n[half]I need them.\w8 \0\s[5]%(shock)\1\s[16]\i[27]You've probably had it figured out for ages now.\w8 \0\s[4]%(concernsmile)\n\n[half]Hahaha,\w4 I may have,\w4 yes.\w8 \1\s[17]\i[3]\n\n[half]That's the great Professor Layton for you,\w4 %(user).\w8 \0\s[4]%(confusesmile)\1\s[17]\i[14]He won't even tell you what the answer is until the perfect moment to reveal the truth!\w8"
+	}
+	elseif Laytonaffect <= 90 && Laytonaffect > 70
+	{
+		"\0\s[3]%(calmsmile)Have you figured it out yet,\w4 Luke?\w8 \1\s[18]\i[19]I think so!\w8 \0\s[3]%(smiles)\1\s[16]\i[27]I'm not one hundred percent sure,\w8 \0\s[3]%(happies)\1\s[19]\i[14]but it's the only thing that makes sense when you look at everything we've learned.\w8 \0\s[1]%(sadsmile)\n\n[half]It can be difficult to be completely sure.\w8 \1\s[16]\i[0]\0\s[3]%(calmsmile)But we've uncovered enough clues,\w4 I think.\w8 \1\s[16]\i[21]\n\n[half]We sure have!\w8 \0\s[3]%(smiles)\1\s[21]\i[19]It's amazing to think such a thing even exists!\w8 \0\s[4]%(happies)\n\n[half]Haha,\w4 it has been a rather fascinating case,\w4 hasn't it?\w8 \1\s[16]\i[22]\0\s[3]%(calmsmile)Nothing we're strangers to,\w4 of course,\w4 but interesting all the same.\w8 \1\s[17]\i[21]\n\n[half]Of course!\w8"
+		
+		"\1\s[18]\i[14]I think I've figured out the mystery behind this case,\w4 Professor!\w8 \0\s[1]%(happies)Haha,\w4 well done,\w4 my boy.\w8 \1\s[18]\i[21]\0\s[3]%(calmsmile)I'm glad to see your deduction skills have grown as sharp as my own.\w8 \1\n\n[half]Heehee,\w4 thanks.\w8 \0\s[0]\1\s[22]\i[27]There's a lot of clues we picked up that didn't make sense at first,\w4 \s[19]\i[14]but now we've got a fuller sense of the puzzle,\w4 they form a clear picture!\w8 \0\s[1]%(happies)\n\n[half]That they do.\w8 \1\s[16]\i[22]\0\s[3]%(calmsmile)A rather elegant puzzle,\w4 if I do say so myself.\w8 \1\s[21]\i[19]\n\n[half]It's amazing what exists out there in the world,\w4 %(user).\w8 \0\s[4]%(happies)\1\s[21]\i[21]Thanks for giving us this mystery to crack!\w8 \0\s[4]%(smiles)\n\n[half]Yes,\w4 thank you for such a fascinating opportunity.\w8"
+	}
+	else //90 or more
+	{
+		"\0\s[2]%(confusesmile)With the mystery solved,\w4 \1\s[15]\i[9]\0\s[2]%(concernsmile)now it feels as if we're simply investigating for the sake of investigating.\w8 \1\s[15]\i[27]A little.\w8 \0\s[1]%(concernsmile)\1\s[18]\i[0]But it's nice hanging out here with %(user),\w4 don't you think?\w8 \0\s[0]\n\n[half]That's true.\w8 \1\s[18]\i[21]\0\s[3]%(calmsmile)We've made a fine friend in you,\w4 %(user).\w8 \1\s[21]\i[15]\n\n[half]Besides,\w4 I'm fairly certain we still have a hint coin or two to uncover around here somewhere!\w8 \0\s[1]%(happies)\n\n[half]Haha,\w4 \s[0]then I suppose you'll have to excuse our nosiness,\w4 %(user).\w8 \1\s[18]\i[21]\n\n[half]Yeah,\w4 thanks for letting us keep poking around!\w8"
+		
+		"\1\s[19]\i[0]Since we solved the mystery,\w4 \0\s[0]\1\s[19]\i[27]d'ya think we're just here to spend time with %(user)?\w8 \0\s[3]%(calmsmile)Haha,\w4 that's certainly one way of looking at it.\w8 \1\s[16]\i[0]\0\s[3]%(smiles)As long as %(user) doesn't mind our company,\w4 \s[3]%(happies)then I doubt either of us mind being here as well.\w8 \1\s[16]\i[22]\n\n[half]Yeah.\w8 \0\s[3]%(smiles)\1\s[21]\i[19]And we can keep searching for any hint coins or hidden puzzles we might have missed!\w8 \0\s[2]%(confusesmile)\n\n[half]You do enjoy a good scavenger hunt.\w8 \1\s[21]\i[21]\0\s[3]%(calmsmile)And I must say I'm quite fond of them as well.\w8 \1\s[19]\i[22]\n\n[half]They are another form of puzzle,\w4 aren't they?\w8 \0\s[1]%(happies)\n\n[half]They are.\w8"
+	}
+	--
+	"\n\n\![*]\q[Back to Main Menu,BACKTOMENU]   \![*]\q[Cancel,CANCEL]\e"
+}
+
+
+//If someone selects an option linked to BACKTOMENU, it will go back to MenuRun.
+Select.BACKTOMENU
+{
+	OnMenuRun
+}
+
+//If someone selects configmenu, this will lead to TalkConfig.
+Select.configmenu
+{
+	OnTalkConfig
+}
+
+
+//--TalkConfig
+OnTalkConfig : all
+{
+	"\0\b[2]\![set,autoscroll,disable]\_q"
+	
+	"\![*]\q[Your name,TEACHNAME]: %(user)"
+	
+	"\n\![*]\q[Preferred pronouns,TEACHPRONOUN]: %(they)/%(them)/%(their)"
+	
+	"\n\![*]\q[Your birthday,TEACHBDAY]: %(birthdayprint)"
+	
+	"\n\![*]\q[Favourite Tea,teaprefs]: %(favetea)"
+	
+	"\n\![*]\q[Favourite Game,topgame]: %(favegame)"
+	
+	"\n\nTalk Rate: %(talktime) \n\![*]\q[1min,OnTalkrate,high]  \![*]\q[3min,OnTalkrate,norm]  \![*]\q[5min,OnTalkrate,poor]  \![*]\q[10min,OnTalkrate,max] \n\![*]\q[Silent,OnTalkrate,none]"
+	
+	if SHIORI3FW.BalloonName == "Professor Layton Speech"
+	{"\n\n\![*]\__q[OnBalloonMenu.Customize]Balloon Menu\__q"}
+	
+	"\n\n\![*]\q[Offscreen Notifications,offscreentoggle]: "
+	if offscreen == 1 {"On"}
+	else {"Off"}
+	
+	"\n\![*]\q[Overlap Notifications,overlaptoggle]: "
+	if overlap == 1 {"On"}
+	else {"Off"}
+	
+	"\n\n\![*]\q[Back to Main Menu,BACKTOMENU]   \![*]\q[Cancel,CANCEL]\e"
+}
+
+
+//linked to the functions in nameteach.dic
+Select.TEACHNAME
+{
+	OnTeachName	
+}
+
+//pronouns! shoots over to nameteach.dic
+Select.TEACHPRONOUN
+{
+	"\0\b[0]\_q\![*]\q[He/Him/His,OnPronouns,masc] \n\![*]\q[She/Her/Hers,OnPronouns,fem] \n\![*]\q[They/Them/Their,OnPronouns,undef] \n\![*]\q[Personal Pronouns,OnPronouns,own] \n\n[half]\![*]\q[No change,OnPronouns,cancel] \n\![*]\q[Back to Main menu,OnPronouns,menu] \n\![*]\q[Back to Preferences menu,OnPronouns,config]\e"
+}
+
+
+//--Talk Rate
+OnTalkrate
+{
+	if reference0 == "high" {aitalkinterval = 60}
+	elseif reference0 == "norm" {aitalkinterval = 180}
+	elseif reference0 == "poor" {aitalkinterval = 300}
+	elseif reference0 == "max" {aitalkinterval = 600}
+	elseif reference0 == "none" {aitalkinterval = 0}
+	else //cancel
+	{OnTalkConfig}
+	--
+	OnTalkConfig
+}
+
+
+//offscreen toggle
+Select.offscreentoggle
+{
+	if offscreen == 0 //off
+	{offscreen = 1}
+	else //1; on
+	{offscreen = 0}
+	OnTalkConfig
+}
+
+//overlap toggle
+Select.overlaptoggle
+{
+	if overlap == 0 //off
+	{overlap = 1}
+	else //1; on
+	{overlap = 0}
+	OnTalkConfig
+}
+
+
+//I grabbed this from SSP Angel's code, which was written by Zi (and then Zi helped me figure it out thanks Zi ;;;; )
+OnBalloonMenu.Customize : all
+{
+	if reference0 != ""; _styles = reference0
+	
+	_stylelist = IARRAY
+	
+	_stylelist = ("Curious Village,0","Diabolical Box,1","Lost Future,2","Spectre's Call,3","Miracle Mask,4","Azran Legacy,5")
+	//,"Professor Layton vs Phoenix Wright,6","New World of Steam,7","Layton Brothers Mystery Room,8","Layton's Mystery Journey,9"
+	
+	"\C\0\![lock,balloonrepaint]\c\![set,autoscroll,disable]\1\![lock,balloonrepaint]\c\![set,autoscroll,disable]\_q\*"
+	
+	"\0\b[2]\1\b[2]"
+	for _char = 0; _char < 2; _char++
+	{
+		"\%(_char)"
+		_i = 0
+		foreach _stylelist; _styles
+		{
+			if _char == 0 && Balloon.Layton[0] == _styles[1]; "\![*]"
+			if _char == 1 && Balloon.Luke[0] == _styles[1]; "\![*]"
+			"\__q[OnBalloonMenu.ChangeColor,%(_styles[1]),%(_char)]%(_styles[0])\__q\n"
+		}
+	}
+	"\1\n\n[half]\![*]\__q[OnBalloonMenu.RandomColor,1]Random\__q"
+	"\0\n\n[half]\![*]\__q[OnBalloonMenu.RandomColor,0]Random\__q"
+	
+	"\n\n[half]\![*]\__q[OnTalkConfig]Back\__q   \![*]\__q[OnBlank]Close\__q\0\![unlock,balloonrepaint]\1\![unlock,balloonrepaint]"
+}
+
+OnBalloonMenu.ChangeColor
+{
+	if reference1 == "0"; Balloon.Layton[0] = reference0
+	else; Balloon.Luke[0] = reference0
+	
+	"\C\![raise,OnBalloonMenu.Customize]"
+}
+
+OnBalloonMenu.RandomColor
+{
+	_num = 0
+	_num = RAND(5)
+	
+	if reference0 == "0"; Balloon.Layton[0] = _num
+	else; Balloon.Luke[0] = _num
+	
+	"\C\![raise,OnBalloonMenu.Customize]"
+}
+
+
+
+//This next set of functions handles inputting the user's birthday.
+Select.TEACHBDAY
+{
+	"\0\b[0]\1\b[0]"
+	--
+	if birthdayprint == "????"
+	{
+		"\0\s[4]%(confusesmile)Ah,\w4 yes.\w8 \1\s[18]\i[9]\0\s[4]%(concernsmile)That would be nice information to know.\w8 \1\s[18]\i[12]Yeah!\w8\w4 \0\s[0]\1\s[26]\i[0]Tell us what month you were born in!\w8"
+		
+		"\1\s[16]\i[19]Ooh,\w4 that's an important thing to know all right.\w8 \0\s[8]%(calmsmile)Tell us which month you were born in,\w4 please.\w8"
+	}
+	elseif dayslot == userbirthday
+	{
+		"\0\s[1]%(confusesmile)But today is your birthday,\w4 %(user).\w8 \1\s[17]\i[21]Happy birthday!\w8\w4 \0\s[8]%(confusesmile)\1\s[22]\i[17]Unless we have something wrong here?\w8"
+		
+		"\1\s[26]\i[27]Today's your birthday,\w4 isn't it?\w8 \0\s[3]%(happies)Happy birthday,\w4 %(user).\w8 \1\s[26]\i[6]\0\s[3]%(confusesmile)Did you need us to change anything?\w8"
+		--
+		"\n\n\![*]\q[Change your birthday,teachagain] \n\n[half]\![*]\q[Back to Main menu,BACKTOMENU] \n\![*]\q[Back to Preferences,OnTalkConfig] \n\![*]\q[Cancel,CANCEL]\w8\w8\w8\w8\w8\e"
+	}
+	else
+	{
+		"\0\s[8]%(confusesmile)Did you need to change the date?\w8 \1\s[18]\i[12]I guess we got something wrong!\w8 \0\s[8]%(calmsmile)\n\n[half]Start with the month,\w4 if you please.\w8"
+		
+		"\1\s[26]\i[27]Needed to change what we've got written down here?\w8 \0\s[3]%(concernsmile)Start with the month for us,\w4 if you'd please.\w8"
+	}
+	--
+	"\![open,inputbox,OnUserBornMonth,-1]\![set,balloontimeout,-1]\e"
+}
+
+//here's to teach again
+Select.teachagain
+{
+	"\0\b[0]\s[4]%(confusesmile)All right.\w8 \1\s[16]\i[9]\0\s[8]%(calmsmile)Tell us which month you were born,\w4 then.\w8"
+	
+	"\1\b[0]\s[18]\i[27]Okay.\w8\w4 \0\s[1]%(concernsmile)\1\s[26]\i[0]Which month's your birthday,\w4 then?\w8"
+	--
+	"\![open,inputbox,OnUserBornMonth,-1]\![set,balloontimeout,-1]\e"
+}
+
+//--OnUserBornMonth
+OnUserBornMonth
+{
+	_tempmonth = TOSTR(reference0) //this stores what the user put in as a variable called _tempmonth
+	_tempmonth = TOLOWER(_tempmonth) //changes it to lowercase
+	
+	//this is attaching the right value to the input from the user
+	if _tempmonth == "january" || _tempmonth == "1" {bornmonth = 1; bornmonthprint = "January"}
+	elseif _tempmonth == "february" || _tempmonth == "2" {bornmonth = 2; bornmonthprint = "February"}
+	elseif _tempmonth == "march" || _tempmonth == "3" {bornmonth = 3; bornmonthprint = "March"}
+	elseif _tempmonth == "april" || _tempmonth == "4" {bornmonth = 4; bornmonthprint = "April"}
+	elseif _tempmonth == "may" || _tempmonth == "5" {bornmonth = 5; bornmonthprint = "May"}
+	elseif _tempmonth == "june" || _tempmonth == "6" {bornmonth = 6; bornmonthprint = "June"}
+	elseif _tempmonth == "july" || _tempmonth == "7" {bornmonth = 7; bornmonthprint = "July"}
+	elseif _tempmonth == "august" || _tempmonth == "8" {bornmonth = 8; bornmonthprint = "August"}
+	elseif _tempmonth == "september" || _tempmonth == "9" {bornmonth = 9; bornmonthprint = "September"}
+	elseif _tempmonth == "october" || _tempmonth == "10" {bornmonth = 10; bornmonthprint = "October"}
+	elseif _tempmonth == "november" || _tempmonth == "11" {bornmonth = 11; bornmonthprint = "November"}
+	elseif _tempmonth == "december" || _tempmonth == "12" {bornmonth = 12; bornmonthprint = "December"}
+	
+	else //if the month isn't a valid month, like 32 or something.
+	{
+		"\1\s[16]\i[20]\0\b[0]\s[8]%(happies)Hahaha,\w8 \1\s[16]\i[17]\0\s[8]%(smiles)I'm quite certain that's not an actual month,\w4 %(user).\w8 \1\s[22]\i[17]\0\s[8]%(confused)At least,\w4 not in our calendar.\w8 \1\s[22]\i[1]\0\s[8]%(happies)Try again.\w8"
+		
+		"\0\s[1]%(neutral)\1\b[0]\s[26]\i[20]%(user),\w4 that's not a real month.\w8 \0\b[0]\s[2]%(confusesmile)At least,\w4 not one we know about.\w8 \1\s[26]\i[27]\n\n[half]Wanna give that another go?\w8"
+		--
+		"\![open,inputbox,OnUserBornMonth,-1]\![set,balloontimeout,-1]\e"
+	}
+	--
+	//If it's a valid month
+	"\0\b[0]\s[2]%(confusesmile)%(bornmonthprint),\w4 you say?\w8 \1\b[0]\s[26]\i[0]What day in %(bornmonthprint)?\w8"
+	
+	"\1\b[0]\s[22]\i[14]%(bornmonthprint),\w4 huh?\w8 \0\b[0]\s[8]%(happies)What day of %(bornmonthprint) was it?\w8"
+	--
+	"\![open,inputbox,OnUserBornDay,-1]\![set,balloontimeout,-1]\e"
+}
+
+//This adds an appropriate suffix to the number for the day. No need to mess with this.
+Printday
+{
+	if bornday == 1 || bornday == 21 || bornday == 31 {	"%(bornday)st"	}
+	elseif bornday == 2 || bornday == 22 {	"%(bornday)nd"	}
+	elseif bornday == 3 || bornday == 23 {	"%(bornday)rd"	}
+	else {	"%(bornday)th"	}
+}
+
+//--OnUserBornDay
+OnUserBornDay
+{
+	_tempday = reference0 //storing the input in _tempday
+	_tempday = TOLOWER(_tempday) //changes it to lowercase
+	_tempday = REPLACE(_tempday,"st","")
+	_tempday = REPLACE(_tempday,"nd","")
+	_tempday = REPLACE(_tempday,"rd","")
+	_tempday = REPLACE(_tempday,"th","")
+	//if the user types something like 2nd, 3rd, etc, this will make it just the number. It'll just add the suffix back later on the one that actually shows.
+	_tempday = TOINT(_tempday) //Converts it to an integer
+	
+	if ((bornmonth == 1 || bornmonth == 3 || bornmonth == 5 || bornmonth == 7 || bornmonth == 8 || bornmonth == 10 || bornmonth == 12) && _tempday >= 1 && _tempday <= 31) || (bornmonth == 2 && _tempday >= 1 && _tempday <= 29) || ((bornmonth == 4 || bornmonth == 6 || bornmonth == 9 || bornmonth == 11) && _tempday >= 1 && _tempday <= 30)
+	//This ugly function checks if the day falls into a valid range. If it does, we set some variables and continue down.
+	{
+		bornday = _tempday
+		borndayprint = Printday
+		userbirthday = "%(bornmonth)month %(bornday)day"
+		birthdayprint = "%(bornmonthprint) %(borndayprint)"
+		
+		"%(birthchecked)"
+	}
+	else //If the day isn't valid, like the 10046th or something
+	{
+		"\0\b[0]\s[3]%(happies)Hahaha,\w8 \1\s[16]\i[20]\0\s[3]%(smiles)I'm not sure our calendar goes that far,\w4 %(user).\w8 \1\s[16]\i[17]\0\s[8]%(smiles)Perhaps try that again.\w8"
+		
+		"\1\b[0]\s[26]\i[17]I'm not sure %(bornmonthprint) has that day in it,\w4 %(user).\w8 \0\b[0]\s[3]%(calmsmile)Perhaps try that again.\w8"
+		--
+		"\![open,inputbox,OnUserBornDay,-1]\![set,balloontimeout,-1]\e"
+	}
+}
+
+//--birthchecked
+birthchecked
+{
+	"\0\b[0]\1\b[0]"
+	--
+	if userbirthday == dayslot //if today is the user's birthday
+	{
+		"\1\s[18]\i[16]\0\s[1]%(shockopen)Why,\w4 that's today!\w8 \1\s[18]\i[21]Happy birthday,\w4 %(user)!\w8 \0\s[1]%(smiles)\1\s[18]\i[0]Hope you're having a great day so far.\w8 \0\s[4]%(happies)\n\n[half]We're glad we're able to spend it with you.\w8"
+		
+		"\0\s[1]%(shockopen)\1\s[23]\i[16]Hey,\w4 that's today!\w8 \0\s[5]%(happies)Happy birthday,\w4 %(user).\w8 \1\s[18]\i[21]\n\n[half]Yeah,\w4 happy birthday!\w8 \0\s[4]%(smiles)\n\n[half]Hopefully,\w4 your day so far has gone well.\w8 \1\s[16]\i[22]"
+	}
+	elseif dayslot == "2month 15day" //Feb 15; Curious Village release in JP! (Layton bday)
+	{
+		"\0\s[2]%(confusesmile)How peculiar.\w8 \1\s[18]\i[19]Professor,\w4 %(their) birthday's the same as yours!\w8 \0\s[3]%(calmsmile)\n\n[half]Quite the coincidence,\w4 wouldn't you say?\w8 \1\s[21]\i[21]\n\n[half]That means you'll both be able to celebrate together!\w8 \0\s[4]%(confusesmile)"
+		
+		"\0\s[1]%(shockopen)\1\s[17]\i[19]Hey,\w4 that's the same day as yours,\w4 Professor!\w8 \0\s[4]%(confusesmile)So it is.\w8 \1\s[17]\i[21]\0\s[3]%(calmsmile)Quite an interesting coincidence,\w4 wouldn't you say,\w4 Luke?\w8 \1\s[18]\i[0]\n\n[half]That definitely makes it easy to remember,\w4 too.\w8 \0\s[4]%(concernsmile)"
+	}
+	elseif dayslot == "2month 19day" //Feb 19; AJ release in US! (Apollo bday)
+	{
+		"\0\s[2]%(confusesmile)February the 19th?\w8 \1\s[17]\i[19]Hey,\w4 that's my pen pal's birthday!\w8 \0\s[2]%(neutral)\1\s[18]\i[22]That's neat,\w4 %(user).\w8 \0\s[2]%(happies)\1\s[18]\i[21]I'll definitely remember your birthday!\w8"
+		
+		"\1\s[21]\i[19]Oh,\w4 that's the same birthday as my pen pal!\w8 \0\s[4]%(confusesmile)Is it,\w4 now?\w8 \1\s[21]\i[22]\0\s[2]%(calmsmile)What an interesting coincidence.\w8 \1\s[18]\i[0]\n\n[half]I'll say.\w8 \0\s[1]%(happies)\1Don't worry,\w4 %(user).\w8 \s[18]\i[21]We'll remember that for sure.\w8"
+	}
+	elseif dayslot == "7month 20day" //July 20; LMJ release in JP! (Katrielle bday)
+	{
+		"\0\s[2]%(confusesmile)July the 20th?\w8 \s[2]%(calmsmile)I see.\w8 \1\s[21]\i[19]That's the same as misslayton's!\w8 \0\s[3]%(happies)\n\n[half]Haha,\w4 so it is.\w8 \1\s[21]\i[0]\0\s[3]%(calmsmile)What a fortunate coincidence.\w8 \1\s[18]\i[21]\n\n[half]I'll say!\w8"
+		
+		"\1\s[21]\i[19]Hey,\w4 that's misslayton's birthday,\w4 too!\w8 \0\s[1]%(happies)It is indeed.\w8 \1\s[21]\i[22]\0\s[3]%(happies)We'll have no trouble remembering that,\w4 %(user).\w8 \1\s[21]\i[21]\n\n[half]Yeah!\w8"
+	}
+	elseif dayslot == "8month 8day" //August 8; Comet in Moominland Release date! (Snufkin bday)
+	{
+		"\0\s[2]%(confusesmile)August the 8th,\w4 is it?\w8 \1\s[22]\i[17]That sounds kinda familiar.\w8 \0\s[1]%(confusesmile)\n\n[half]Do you know someone else with the same birthday?\w8 \1\s[16]\i[27]\n\n[half]I think I do.\w8 \0\s[1]%(concernsmile)\1\s[17]\i[21]And now we know it's %(user)'s,\w4 too!\w8 \0\s[0]\n\n[half]Haha,\w4 quite true.\w8"
+		
+		"\1\s[22]\i[17]August 8th?\w8 \s[22]\i[7]That sounds familiar...\w8 \0\s[1]%(confusesmile)Is it the same as that pen pal of yours,\w4 perhaps?\w8 \1\s[22]\i[27]\n\n[half]Maybe his friend?\w8 \0\s[1]%(concernsmile)\1\s[15]\i[22]Either way,\w4 it's %(user)'s birthday,\w4 so we can keep it in mind.\w8 \0\s[3]%(calmsmile)\n\n[half]That,\w4 we can do.\w8"
+	}
+	elseif dayslot == "9month 12day" //Sep 12; Unwound Future release in US! (Flora bday)
+	{
+		"\0\s[2]%(calmsmile)Ah,\w4 September the 12th.\w8 \1\s[21]\i[19]That's the same as thegoldenapple!\w8 \0\s[4]%(happies)\n\n[half]So it is.\w8 \1\s[21]\i[22]\0\s[3]%(calmsmile)Not to worry,\w4 %(user).\w8 We'll remember this date.\w8 \1\s[16]\i[0]\n\n[half]I'll bet Flora'll be happy to hear she's got a birthday buddy!\w8"
+		
+		"\1\s[21]\i[19]Hey,\w4 that's the same as thegoldenapple's!\w8 \0\s[2]%(confusesmile)It is,\w4 isn't it?\w8 \1\s[21]\i[21]\0\s[3]%(happies)What a pleasant happenstance that is.\w8 \1\s[18]\i[0]\n\n[half]I hope you won't mind if we tell her about it,\w4 %(user).\w8 \0\s[1]%(happies)\1\s[18]\i[21]She'd be real happy to hear she's got a birthday buddy.\w8"
+	}
+	elseif dayslot == "9month 21day" //Sep 21; LBMR release in JP! (Alfendi bday)
+	{
+		"\0\s[2]%(confusesmile)Hmm,\w4 September the 21st,\w4 is it?\w8 \1\s[17]\i[19]That's the same as pottyprof's!\w8 \0\s[3]%(happies)\n\n[half]Haha,\w4 it is indeed.\w8 \1\s[22]\i[14]\n\n[half]I wonder if he'd be interested to know he's got a birthday buddy...\w8"
+		
+		"\1\s[18]\i[0]Oh,\w4 that's the same as pottyprof's,\w4 %(user)!\w8 \0\s[1]%(happies)Haha,\w4 so it is!\w8 \1\s[18]\i[22]\0\s[2]%(calmsmile)What an interesting coincidence.\w8 \1\s[16]\i[27]\n\n[half]I bet he'd just say it's only natural we found him a birthday buddy.\w8 \s[16]\i[3]Only so many birthdays,\w4 and all.\w8 \0\s[1]%(concernsmile)"
+	}
+	elseif dayslot == "10month 12day" //Oct 12; AA1 release in JP! (Phoenix bday)
+	{
+		"\0\s[2]%(calmsmile)So that's October the 12th?\w8 \1\s[19]\i[22]I think that's the same as mraceattorney's,\w4 Professor.\w8 \0\s[2]%(happies)\n\n[half]I do believe you're right,\w4 my boy.\w8 \1\s[19]\i[21]\0\s[3]%(happies)Quite the fortunate coincidence,\w4 isn't it?\w8 \1\s[18]\i[19]\n\n[half]Sounds lucky to me!\w8"
+		
+		"\1\s[18]\i[19]Hey,\w4 that's the same as mraceattorney's!\w8 \s[22]\i[27]I think.\w8 \0\s[3]%(happies)Haha,\w4 you're correct,\w4 Luke.\w8 \1\s[22]\i[22]\0\s[4]%(smiles)We'll be sure to remember it,\w4 %(user).\w8 \1\s[21]\i[21]\n\n[half]Yeah,\w4 there's no way we could forget!\w8"
+	}
+	elseif dayslot == "11month 7day" //Nov 7; Curious Village release in UK! (Luke bday)
+	{
+		"\1\0\s[3]%(calmsmile)Ah,\w4 the 7th of November.\w8 \1\s[16]\i[22]\0\s[3]%(smiles)That's a date we know well.\w8 \1\s[21]\i[21]Yeah!\w8 \s[21]\i[19]That makes us birthday buddies,\w4 %(user)!\w8 \s[21]\i[21]Isn't that neat?\w8 \0\s[1]%(happies)\n\n[half]I'd say so.\w8"
+		
+		"\1\s[18]\i[0]Oh,\w4 that's the same as mine,\w4 %(user)!\w8 \0\s[1]%(happies)\1\s[18]\i[21]That makes us birthday buddies!\w8 \0\s[5]%(calmsmile)I'm sure we'll have no troubles at all remembering that.\w8 \1\s[21]\i[19]\n\n[half]I hope we can celebrate together!\w8"
+	}
+	elseif dayslot == "11month 26day" //Nov 26; Last Spectre release in JP! (Luke bday)
+	{
+		"\0\s[2]%(confusesmile)The 26th of November,\w4 is it?\w8 \1\s[21]\i[19]That's the same as mine!\w8 \0\s[2]%(happies)\1\s[21]\i[21]We're birthday buddies,\w4 %(user)!\w8 \0\s[3]%(happies)\n\n[half]Hahaha,\w4 \1\s[21]\i[0]\0that means we can celebrate your birthdays together if you'd like.\w8 \1\s[21]\i[21]\n\n[half]Yippee!\w8"
+		
+		"\1\s[21]\i[19]Hey,\w4 that's the same as mine!\w8 \0\s[3]%(happies)Hahaha,\w4 you have yourself a friend there,\w4 Luke.\w8 \1\s[21]\i[21]\n\n[half]Yeah!\w8 \0\s[3]%(smiles)\1\s[21]\i[0]If you want,\w4 %(user),\w4 we can celebrate together.\w8 \s[21]\i[21]It'll be lots of fun!\w8"
+	}
+	elseif dayslot == "11month 29day" //Nov 29; Diabolical Box / Unwound Future / PL vs PW release in JP!
+	{
+		"\0\s[2]%(calmsmile)So that's November the 29th...\w8 \1\s[15]\i[27]That's a busy day.\w8 \0\s[2]%(concernsmile)\1\s[18]\i[12]Hopefully not too busy for you,\w4 though!\w8 \0\s[3]%(calmsmile)\n\n[half]We'll remember for when the date rolls around.\w8"
+		
+		"\1\s[22]\i[27]The 29th of November,\w4 huh...?\w8 \0\s[4]%(concernsmile)We've been quite busy on that day in particular in the past.\w8 \1\s[22]\i[9]\0\s[3]%(smiles)Oh,\w4 but don't worry,\w4 %(user).\w8 \s[3]%(happies)We'll make sure to remember.\w8 \1\s[18]\i[21]\n\n[half]Yeah,\w4 we'll be there if you wanna see us!\w8"
+	}
+	else //if the birthday is not listed above. %(bornmonthprint) %(borndayprint)
+	{
+		"\0\s[2]%(confusesmile)So that's %(bornmonthprint) the %(borndayprint)...?\w8 \1\s[26]\i[21]You got it,\w4 %(user)!\w8 \0\s[3]%(happies)\n\n[half]We'll make sure to remember to wish you well on your day.\w8 \1\s[26]\i[25]\n\n[half]We'll wish you well on every other day,\w4 too!\w8"
+		
+		"\1\s[22]\i[17]The %(borndayprint) of %(bornmonthprint)?\w8 \0\1\s[26]\i[21]You got it!\w8 \0\s[3]%(calmsmile)We'll remember when it rolls around.\w8"
+		
+		"\0\s[8]%(confusesmile)The %(borndayprint) of %(bornmonthprint),\w4 is it?\w8 \1\s[18]\i[19]We'll make sure to remember that!\w8 \0\1\s[21]\i[21]Oh,\w4 Professor,\w4 I can hardly wait!\w8 \0\s[5]%(calmsmile)\n\n[half]A gentleman must know when to be patient,\w4 my boy.\w8 \1\s[21]\i[22]"
+		
+		"\1\s[26]\i[27]%(bornmonthprint) %(borndayprint),\w4 huh?\w8 \0\s[4]%(calmsmile)We'll keep it in mind.\w8 \1\s[26]\i[21]\n\n[half]Yeah!\w8"
+	}
+	--
+	"\n\n[half]\![*]\q[Back to Main menu,BACKTOMENU] \n\![*]\q[Back to Preferences,configmenu] \n\![*]\q[Cancel,CANCEL]\w8\w8\w8\w8\w8\e"
+}
+
+
+//tea prefs!
+Select.teaprefs
+{
+	"\0\b[2]\![set,autoscroll,disable]\*\_q\![*]\q[Citrus Classic,Onfavetea,citrus] / \![*]\q[Belle Classic,Onfavetea,belle] \n\![*]\q[Oasis Berry,Onfavetea,berry] \n\![*]\q[Sugar Smoke,Onfavetea,smoke] \n\![*]\q[Root Remedy,Onfavetea,root] \n\![*]\q[Cherry Boost,Onfavetea,boost] \n\![*]\q[Bitter Fruit,Onfavetea,bitter] \n\![*]\q[Dream Spice,Onfavetea,dream] \n\![*]\q[Clover Quencher,Onfavetea,clover] \n\![*]\q[Radiance Blend,Onfavetea,blend] \n\![*]\q[Cayenne Twilight,Onfavetea,twilight] \n\![*]\q[Cinder Flower,Onfavetea,cinder] \n\![*]\q[The Layton Elixir,Onfavetea,elixir] \n\n\![*]\q[Back to Main Menu,Onfavetea,menu] \n\![*]\q[Back to Preferences,Onfavetea,config] \n\![*]\q[Cancel,Onfavetea,cancel]\e"
+}
+
+//TEA CHANGER
+Onfavetea
+{
+	if reference0 == "citrus" {favetea = "Citrus Classic"}
+	elseif reference0 == "belle" {favetea = "Belle Classic"}
+	elseif reference0 == "berry" {favetea = "Oasis Berry"}
+	elseif reference0 == "smoke" {favetea = "Sugar Smoke"}
+	elseif reference0 == "root" {favetea = "Root Remedy"}
+	elseif reference0 == "boost" {favetea = "Cherry Boost"}
+	elseif reference0 == "bitter" {favetea = "Bitter Fruit"}
+	elseif reference0 == "dream" {favetea = "Dream Spice"}
+	elseif reference0 == "clover" {favetea = "Clover Quencher"}
+	elseif reference0 == "blend" {favetea = "Radiance Blend"}
+	elseif reference0 == "twilight" {favetea = "Cayenne Twilight"}
+	elseif reference0 == "cinder" {favetea = "Cinder Flower"}
+	elseif reference0 == "elixir" {favetea = "The Layton Elixir"}
+	elseif reference0 == "menu" {OnMenuRun}
+	elseif reference0 == "config" {OnTalkConfig}
+	else //cancel
+	{
+		"\e"
+	}
+	--
+	OnTalkConfig
+}
+
+
+//game prefs!
+Select.topgame
+{
+	"\0\b[2]\![set,autoscroll,disable]\*\_q\![*]\q[Curious Village,Onfavegame,pl1] \n\![*]\q[Pandora's Box,Onfavegame,pl2] / \![*]\q[Diabolical Box,Onfavegame,pl2us] \n\![*]\q[Lost Future,Onfavegame,pl3] / \![*]\q[Unwound Future,Onfavegame,pl3us] \n\![*]\q[Spectre's Call,Onfavegame,pl4] / \![*]\q[Last Spectre,Onfavegame,pl4us] \n\![*]\q[Miracle Mask,Onfavegame,pl5] \n\![*]\q[Azran Legacy,Onfavegame,pl6] \n\![*]\__q[Onfavegame,plvspw]Professor Layton vs Phoenix Wright\__q \n\![*]\q[New World of Steam,Onfavegame,pl7] \n\![*]\__q[Onfavegame,lbmr]Layton Brothers Mystery Room\__q \n\![*]\q[Layton Mystery Journey,Onfavegame,lmj] \n\![*]\q[Eternal Diva,Onfavegame,movie] \n\n\![*]\q[Back to Main Menu,Onfavegame,menu] \n\![*]\q[Back to Preferences,Onfavegame,config] \n\![*]\q[Cancel,Onfavegame,cancel]\e"
+}
+
+//GAME CHANGER
+Onfavegame
+{
+	if reference0 == "pl1" {favegame = "Curious Village"}
+	elseif reference0 == "pl2" {favegame = "Pandora's Box"}
+	elseif reference0 == "pl2us" {favegame = "Diabolical Box"}
+	elseif reference0 == "pl3" {favegame = "Lost Future"}
+	elseif reference0 == "pl3us" {favegame = "Unwound Future"}
+	elseif reference0 == "pl4" {favegame = "Spectre's Call"}
+	elseif reference0 == "pl4us" {favegame = "Last Spectre"}
+	elseif reference0 == "pl5" {favegame = "Miracle Mask"}
+	elseif reference0 == "pl6" {favegame = "Azran Legacy"}
+	elseif reference0 == "plvspw" {favegame = "Professor Layton vs Phoenix Wright"}
+	elseif reference0 == "pl7" {favegame = "New World of Steam"}
+	elseif reference0 == "lbmr" {favegame = "Layton Brothers Mystery Room"}
+	elseif reference0 == "lmj" {favegame = "Layton Mystery Journey"}
+	elseif reference0 == "movie" {favegame = "Eternal Diva"}
+	elseif reference0 == "menu" {OnMenuRun}
+	elseif reference0 == "config" {OnTalkConfig}
+	else //cancel
+	{
+		"\e"
+	}
+	--
+	OnTalkConfig
+}
+
+
+////Feelings checks
+//Layton
+OnLaytoncheck
+{
+	"\t\1\s[26]\i[17]\0\b[4]\s[8]%(confusesmile)"
+	--
+	"\![set,autoscroll,disable]\_qIt seems Luke and I have found ourselves embroiled in yet another mystery. I'm looking forward to dissecting this one, same as our many others. \n\n[half]Although our host, %(user), has been very accommodating so far, I can't help but wonder how %(theyre) tied into all of this. It appears as if %(theyre) the one in control here, able to call us and dismiss us at %(their) will. \n\n[half]We simply have to gather more information during our stay here. I'm grateful to have Luke here with me and that he seems to be having a fun time of it.\x[noclear]"
+	--
+	"\![set,autoscroll,enable]\n\n[half]\![*]\q[Back to Journal,OnJournalMenu] \n\![*]\q[Back to Main Menu,OnKeroMenuRun]   \![*]\q[Cancel,CANCEL]"
+	--
+	if Laytonaffect < 80 && Laytonaffect > 20
+	{"\n\n[half]\![*]\__q[Laytoncheck2]Layton's thoughts cont.-->\__q\e"}
+	elseif Laytonaffect >= 80
+	{
+		"\n\n[half]\![*]\q[Layton's thoughts 2,Laytoncheck2] \n\![*]\q[Layton's thoughts 3,Laytoncheck3] \n\![*]\q[Layton's thoughts 4,Laytoncheck4] \n\![*]\q[Layton's thoughts 5,Laytoncheck5]\e"
+	}
+	else //should be below 20
+	{"\e"}
+}
+
+Select.Laytoncheck2
+{
+	"\t\1\s[26]\i[0]\0\b[4]\s[8]%(surprisesmile)"
+	--
+	"\![set,autoscroll,disable]\_qAh, is this how it works...? Quite fascinating! \n\n[half]I do believe this show of technological prowess is as impressive as "
+	--
+	if favegame == "Undecided" {"many of the complicated mechanisms we've come across before in our adventures"}
+	if favegame == "Curious Village" {"all of the workings in St Mystere"}
+	if favegame == "Diabolical Box" || favegame == "Pandora's Box" {"the Molentary Express itself"}
+	if favegame == "Unwound Future" || favegame == "Lost Future" {"that fantastic trick that convinced us we'd travelled through time"}
+	if favegame == "Last Spectre" || favegame == "Spectre's Call" {"that amalgam of mining equipment we had to face"}
+	if favegame == "Miracle Mask" {"the traps protecting the Akbadain Ruins"}
+	if favegame == "Azran Legacy" {"the Bostonius which carted us around the world"}
+	if favegame == "Professor Layton vs Phoenix Wright" {"the entirety of Labyrinthia"}
+	if favegame == "New World of Steam" {"that fantastic workshop of Mr Eggmuffin"}
+	if favegame == "Layton Brothers Mystery Room" {"that fantastic piece at the Yard which recreates a miniature of the crime scene"}
+	if favegame == "Layton Mystery Journey" {"concealing a sign in a fountain by swapping a single stone"}
+	if favegame == "Eternal Diva" {"the Royal Crown's part in its puzzle"}
+	--
+	"! One part trick, another part technology. \n\n[half]I truly do admire the work that went into the process of how we ended up here. Perhaps it's even inspired a bit of newfound admiration in this environment %(user) has set up for us. \n\n[half]But I'm getting ahead of myself. I shouldn't reveal the trick before Luke can work it out. I'm sure he'll find it as interesting as I have. And we can't forget to thank %(user) for %(their) part as well.\x[noclear]"
+	--
+	"\![set,autoscroll,enable]\n\n[half]\![*]\q[Back to Journal,OnJournalMenu] \n\![*]\q[Back to Main Menu,OnKeroMenuRun]   \![*]\q[Cancel,CANCEL] \n\n\![*]\q[<--Layton's thoughts prev.,OnLaytoncheck]"
+	--
+	if Laytonaffect > 40
+	{"\n\n[half]\![*]\__q[Laytoncheck3]Layton's thoughts cont.-->\__q\e"}
+}
+
+Select.Laytoncheck3
+{
+	"\t\1\s[26]\i[22]\0\b[4]\s[8]%(calmsmile)"
+	--
+	"\![set,autoscroll,disable]\_qHaving spent what I would call an adequate amount of time here now, I can safely say that %(user) means us no harm. In fact, all it seems %(user) wants to do is to befriend us. Perhaps the greater mystery as to why we've been called here has been solved, but I believe there is still much to learn about this environment. And a gentleman cannot in good conscience leave a friend in need. \n\n[half]...no. I believe it's still a touch early to declare such a thing. But soon, that type of language I'm sure will come quite naturally. \n\n[half]Thank you, %(user), for bringing us along in this great adventure.\x[noclear]"
+	--
+	"\![set,autoscroll,enable]\n\n[half]\![*]\q[Back to Journal,OnJournalMenu] \n\![*]\q[Back to Main Menu,OnKeroMenuRun]   \![*]\q[Cancel,CANCEL] \n\n\![*]\q[<--Layton's thoughts prev.,Laytoncheck2]"
+	--
+	if Laytonaffect > 60
+	{"\n\n[half]\![*]\q[Layton's thoughts cont.-->,Laytoncheck4]\e"}
+}
+
+Select.Laytoncheck4
+{
+	"\t\1\s[26]\i[19]\0\b[4]\s[8]%(smiles)"
+	--
+	"\![set,autoscroll,disable]\_qIf there is one thing I appreciate most about this space, it is being able to have Luke by my side. I'm sure he's worked out the mystery at last and I cannot be prouder of him. \n\n[half]There is something to say about %(user) allowing us this space to meet up and continue working together. There are quite a few fascinating puzzles which come along with it, of course, but I feel as if we've come to know one another to the point where Luke and I would consider %(them) a friend. Perhaps the feeling is mutual, perhaps not. It is, after all, not as if %(theyre) allowed to do us any cruelty. \n\n[half]But I digress. We've nearly seen all we can see here.\x[noclear]"
+	--
+	"\![set,autoscroll,enable]\n\n[half]\![*]\q[Back to Journal,OnJournalMenu] \n\![*]\q[Back to Main Menu,OnKeroMenuRun]   \![*]\q[Cancel,CANCEL] \n\n\![*]\q[<--Layton's thoughts prev.,Laytoncheck3]"
+	--
+	if Laytonaffect > 80
+	{"\n\n[half]\![*]\q[Layton's thoughts cont.-->,Laytoncheck5]\e"}
+}
+
+//FINAL THOUGHTS!!
+Select.Laytoncheck5
+{
+	"\t\1\s[26]\i[21]\0\b[4]\s[8]%(happies)"
+	--
+	"\![set,autoscroll,disable]\_qThank you, %(user). I feel this is the most appropriate sentiment to lead with, and so I shall say it once more: Thank you, %(user). \n\n[half]Even as we come to the end of our investigation here, it appears we shall be welcome back whenever. And so I have to thank you for providing us with this place to stay while we're here. It has been an extreme pleasure figuring out the puzzle to how we were brought here and then spending time here with you and Luke. \n\n[half]I believe this place is still rather fascinating, and so if you will have us, I would still like to continue our observations here. I look forward to what comes next either way.\x[noclear]"
+	--
+	"\![set,autoscroll,enable]\n\n[half]\![*]\q[Back to Journal,OnJournalMenu] \n\![*]\q[Back to Main Menu,OnKeroMenuRun]   \![*]\q[Cancel,CANCEL] \n\n\![*]\q[<--Layton's thoughts prev.,Laytoncheck4]\e"
+}
+
+
+//Luke
+OnLukecheck
+{
+	"\t\0\s[8]%(confusesmile)\1\b[4]\s[26]\i[7]"
+	--
+	"\![set,autoscroll,disable]\_qThe Professor and I have found ourselves somewhere completely separate from our homes. It's quite an odd sort of place, one where we're mostly kept at the whims of this %(user) who seems to hold all the control over it. \n\n[half]%(Capitalise(theyre)) not a bad person, as far as I can tell. The Professor seems to trust %(them), at least. So I suppose we'll just have to see how things shake out from here. \n\n[half]If it's a mystery to be solved, then you can leave it to the great Professor Layton and his apprentice, number one! \n\n[half]Though I do wish we could still see thegoldenapple, pottyprof, and misslayton. I wonder if we can get mail here...\x[noclear]"
+	--
+	"\![set,autoscroll,enable]\n\n[half]\![*]\q[Back to Journal,OnJournalMenu] \n\![*]\q[Back to Main Menu,OnKeroMenuRun]   \![*]\q[Cancel,CANCEL]"
+	--
+	if Lukeaffect < 80 && Lukeaffect > 20
+	{"\n\n[half]\![*]\q[Luke's thoughts cont.-->,Lukecheck2]\e"}
+	elseif Lukeaffect >= 80
+	{
+		"\n\n[half]\![*]\q[Luke's thoughts 2,Lukecheck2] \n\![*]\q[Luke's thoughts 3,Lukecheck3] \n\![*]\q[Luke's thoughts 4,Lukecheck4] \n\![*]\q[Luke's thoughts 5,Lukecheck5]\e"
+	}
+	else //should be below 20
+	{"\e"}
+}
+
+Select.Lukecheck2
+{
+	"\t\0\s[8]%(surprisesmile)\1\b[4]\s[26]\i[0]"
+	--
+	"\![set,autoscroll,disable]\_qSuch a fascinating place! I'm sure the Professor finds it just as interesting as I do, but while we're aware of time and seem to have a space to ourselves, there's so much to see here we've never come across before. \n\n[half]The puzzle to it still eludes me, but I think I'm starting to get it. At least we can still have tea. And %(user) seems interested in listening to us reminisce on our previous adventures! If there's one thing I really don't mind, it's being able to stand here with the Professor and talk with him. He's always got a trick or two up his sleeve when it comes to conversations.\x[noclear]"
+	--
+	"\![set,autoscroll,enable]\n\n[half]\![*]\q[Back to Journal,OnJournalMenu] \n\![*]\q[Back to Main Menu,OnKeroMenuRun]   \![*]\q[Cancel,CANCEL] \n\n\![*]\q[<--Luke's thoughts prev.,OnLukecheck]"
+	--
+	if Lukeaffect > 40
+	{"\n\n[half]\![*]\q[Luke's thoughts cont.-->,Lukecheck3]\e"}
+}
+
+Select.Lukecheck3
+{
+	"\t\0\s[8]%(concernsmile)\1\b[4]\s[26]\i[7]"
+	--
+	"\![set,autoscroll,disable]\_qUgh, I'm so close to understanding this mystery! I can see the solution in my head, but I can't quite figure out how to reach it! This is so frustrating. \n\n[half]At least %(user)'s been real nice to us. And I get to be here with the Professor. After everything we've been through together, I'd like to think he needs me just as much as I need him. We're the perfect team, after all! You can't deny that, %(user). \n\n[half]I do miss my mum and dad a little, though. And thegoldenapple, misslayton, and pottyprof, too. We do get to see them when we return home from here, but I still miss them. And that's okay for me to do. It means I love them a lot. \n\n[half]But it doesn't seem we can get our own mail here. I hope my pen pal isn't too upset about my taking a while to respond...\x[noclear]"
+	--
+	"\![set,autoscroll,enable]\n\n[half]\![*]\q[Back to Journal,OnJournalMenu] \n\![*]\q[Back to Main Menu,OnKeroMenuRun]   \![*]\q[Cancel,CANCEL] \n\n\![*]\q[<--Luke's thoughts prev.,Lukecheck2]"
+	--
+	if Lukeaffect > 60
+	{"\n\n[half]\![*]\q[Luke's thoughts cont.-->,Lukecheck4]\e"}
+}
+
+Select.Lukecheck4
+{
+	"\t\0\s[8]%(happies)\1\b[4]\s[26]\i[19]"
+	--
+	"\![set,autoscroll,disable]\_qI think I've worked out this mystery now! \n\n[half]It's a real clever trick, not one I've ever seen before. Oh, I bet the Professor figured it out ages ago. But I've got it! I've solved this puzzle! I do hope he'll be proud of me, even if it took me longer than him. \n\n[half]%(user)'s been nice to both of us well enough that I'd call %(them) a friend! I hope that's not too presumptuous of me. I think the Professor agrees with me on this one. %(Capitalise(theyre)) not exactly allowed to be mean to us, but even still, it's not like %(theyre) doing all this out of mere politeness, either. \n\n[half]Well! Either way, thanks for keeping us around, %(user)! It was a fantastic puzzle, I really enjoyed figuring this one out!\x[noclear]"
+	--
+	"\![set,autoscroll,enable]\n\n[half]\![*]\q[Back to Journal,OnJournalMenu] \n\![*]\q[Back to Main Menu,OnKeroMenuRun]   \![*]\q[Cancel,CANCEL] \n\n\![*]\q[<--Luke's thoughts prev.,Lukecheck3]"
+	--
+	if Lukeaffect > 80
+	{"\n\n[half]\![*]\q[Luke's thoughts cont.-->,Lukecheck5]\e"}
+}
+
+//FINAL THOUGHTS!!
+Select.Lukecheck5
+{
+	"\t\0\s[8]%(calmsmile)\1\b[4]\s[26]\i[9]"
+	--
+	"\![set,autoscroll,disable]\_qIt's always a touch melancholic to come to the end of a mystery. We make so many new friends and see so many new things. And go through a ton of fun adventures! But even the most fantastic of adventures has to end eventually. The Professor and I have to get back to our family, after all. \n\n[half]It doesn't mean we can't come and visit, of course! As long as %(user)'s okay with it, I think we'd rather enjoy seeing %(them) again. %(Capitalise(theyre)) our friend, after all! And I'm sure there's still a puzzle or two to be had here. If there's one thing you can count on, it's that the Professor and I will solve any puzzle that comes our way! \n\n[half]Well. Thanks a bunch, %(user)! I had a lot of fun. Let's keep being friends!\x[noclear]"
+	--
+	"\![set,autoscroll,enable]\n\n[half]\![*]\q[Back to Journal,OnJournalMenu] \n\![*]\q[Back to Main Menu,OnKeroMenuRun]   \![*]\q[Cancel,CANCEL] \n\n\![*]\q[<--Luke's thoughts prev.,Lukecheck4]\e"
+}
+
+
+
+//If the user selects cancel in a menu.
+Select.CANCEL
+{
+	"\0\b[0]\1\b[0]"
+	--
+	if teatime == 1 //on
+	{
+		"\0\s[9]%(confusesmile)All right then.\w8\e"
+		
+		"\0\s[9]%(happies)All finished?\w8\e"
+		
+		"\0\s[5]%(calmsmile)Now,\w4 Luke.\w8 \1\s[27]\i[22]\0\s[9]%(calmsmile)Where were we?\w8\e"
+		
+		{
+			"\0\s[9]%(calmsmile)Shall we continue,\w4 Luke?\w8"
+			
+			"\0\s[9]%(calmsmile)Are you ready to continue,\w4 Luke?\w8"
+			--
+			"\1\s[27]\i[21]You bet,\w4 Professor!\w8\e"
+		}
+		
+		"\1\s[27]\i[14]Ready to get back to it,\w4 Professor?\w8 \0\s[9]%(calmsmile)As ready as you are,\w4 my boy.\w8\e"
+		
+		"\1\s[27]\i[27]Where were we again,\w4 Professor?\w8 \0\s[9]%(calmsmile)Let me see...\w8\e"
+		
+		"\1\s[27]\i[21]Let's continue,\w4 Professor!\w8\e"
+		
+		"\1\s[27]\i[14]Time to get back to it,\w4 Professor!\w8\e"
+		
+		"\1\s[27]\i[21]All done!\w8 \0\s[9]%(happies)But not yet with our tea.\w8\e"
+	}
+	else //off
+	{
+		{
+			"\0\s[1]"
+			"\0\s[4]"
+			--
+			"%(confusesmile)All right then.\w8\e"
+		}
+		
+		{
+			"\0\s[1]"
+			"\0\s[3]"
+			"\0\s[4]"
+			--
+			"%(happies)All finished?\w8\e"
+		}
+		
+		{
+			"\0\s[5]"
+			"\0\s[1]"
+			"\0\s[4]"
+			--
+			"%(calmsmile)Now,\w4 Luke.\w8 "
+			--
+			"\1\s[18]"
+			"\1\s[16]"
+			"\1\s[17]"
+			"\1\s[22]"
+			--
+			"\i[0]"
+			"\i[22]"
+			"\i[21]"
+			"\i[14]"
+			"\i[27]"
+			"\i[18]"
+			--
+			"\0\s[3]"
+			"\0\s[2]"
+			--
+			"%(calmsmile)Where were we?\w8\e"
+		}
+		
+		{
+			"\0\s[1]%(happies)"
+			"\0\s[3]%(calmsmile)"
+			"\0\s[4]%(happies)"
+			--
+			"Shall we get back to it,\w4 Luke?\w8"
+			
+			"Are you ready to continue,\w4 Luke?\w8"
+			--
+			"\1\s[18]"
+			"\1\s[17]"
+			"\1\s[21]"
+			--
+			"\i[21]"
+			"\i[19]"
+			"\i[14]"
+			"\i[15]"
+			"\i[22]"
+			--
+			"You bet,\w4 Professor!\w8\e"
+		}
+		
+		{
+			"\1\s[18]"
+			"\1\s[21]"
+			--
+			"\i[19]"
+			"\i[14]"
+			"\i[15]"
+			"\i[21]"
+			--
+			"Ready to get back to it,\w4 Professor?\w8"
+			--
+			"\0\s[4]%(happies)"
+			"\0\s[3]%(calmsmile)"
+			--
+			"As ready as you are,\w4 my boy.\w8\e"
+		}
+		
+		{
+			"\1\s[22]"
+			--
+			"\i[17]"
+			"\i[14]"
+			"\i[7]"
+			--
+			"Professor,\w4 where were we again?\w8"
+			--
+			"\0\s[2]"
+			--
+			"%(confusesmile)"
+			"%(happies)"
+			"%(calmsmile)"
+			--
+			"Let's see...\w8\e"
+		}
+		
+		{
+			"\1\s[18]"
+			"\1\s[17]"
+			--
+			"\i[15]"
+			"\i[14]"
+			"\i[21]"
+			"\i[19]"
+			"\i[0]"
+			--
+			"Let's get back to it,\w4 Professor!\w8\e"
+		}
+		
+		{
+			"\1\s[18]"
+			"\1\s[16]"
+			"\1\s[17]"
+			"\1\s[19]"
+			--
+			"\i[0]"
+			"\i[22]"
+			"\i[21]"
+			"\i[27]"
+			--
+			"Time to get back to it!\w8\e"
+		}
+		
+		{
+			"\1\s[18]"
+			"\1\s[15]"
+			"\1\s[16]"
+			"\1\s[17]"
+			--
+			"\i[21]"
+			"\i[22]"
+			"\i[0]"
+			--
+			"All done!\w8\e"
+		}
+	}
+}
+
+
+//if someone selects the Functions option
+Select.dosomething
+{
+	"\0\b[2]\1\b[0]"
+	--
+	if teatime == 1 //on
+	{
+		"\1\s[16]\i[1]\0\s[2]%(confusesmile)Hold on,\w4 let's put this away before we have to do something...\w8\w8"
+		
+		"\1\s[19]\i[9]Professor,\w4 we should put away our tea for now.\w8 \0\s[3]%(concernsmile)Quite right,\w4 my boy.\w8 \1\s[18]\i[0]\0\s[4]%(smiles)Now,\w4 %(user),\w4 how can we help you?\w8"
+	}
+	else //off
+	{
+		{
+			"\0\s[4]"
+			"\0\s[2]"
+			"\0\s[3]"
+			--
+			"%(concernsmile)"
+			"%(smiles)"
+			"%(happies)"
+			"%(calmsmile)"
+			--
+			"What can we help you with?\w8"
+			
+			"Need our help with a task?\w8"
+		}
+		
+		{
+			"\1\s[18]"
+			"\1\s[16]"
+			"\1\s[22]"
+			"\1\s[19]"
+			--
+			"\i[0]"
+			"\i[22]"
+			"\i[27]"
+			"\i[14]"
+			--
+			"Got something we can do for you?\w8"
+			
+			"Have a task we can help with?\w8"
+			--
+			"\0\s[1]%(concernsmile)"
+			"\0\s[4]%(smiles)"
+			"\0\s[0]"
+		}
+	}
+	--
+	OnFunctionsmenu
+	
+}
+
+//functions menu
+OnFunctionsmenu : all
+{
+	"\0\b[2]\_q\n\n\![*]\q[Open Calendar,CALENDAR]"
+	
+	"\n\n[half]\![*]\q[Check Email,MailCheck]"
+	
+	"\n\n[half]\![*]\q[Open SSP Preferences,sspconfig]"
+	
+	"\n\n[half]\![*]\q[Empty Recycle Bin,areyousure]"
+	
+	"\n\n[half]\![*]\q[Report a Bug,bugreport]"
+	
+	"\n\n\n\![*]\q[Back to Main menu,BACKTOMENU]   \![*]\q[Cancel,CANCEL]\e"
+}
+
+//back to functions!
+Select.backtofunctions
+{
+	OnFunctionsmenu
+}
+
+
+//When the user clicks Open Calender.
+Select.CALENDAR
+{
+	"\0\b[0]\1\b[0]"
+	--
+	if userbirthday == dayslot //if today is the user's birthday
+	{
+		"\0\s[4]%(happies)Ah,\w4 today is your birthday,\w4 %(user).\w8 \1\s[18]\i[21]Happy birthday,\w4 %(user)!\w8 \0\s[2]%(confusesmile)\1\s[22]\i[27]Let's see what you got planned...\w8"
+		
+		"\1\s[16]\i[19]Oh,\w4 \s[16]\i[21]I guess today is your birthday.\w8 \0\s[1]%(happies)\1\s[16]\i[0]Have a lot planned?\w8 \0\s[2]%(confusesmile)Let's see here...\w8"
+	}
+	elseif dayslot == "2month 15day" //Feb 15; Curious Village release in JP! (Layton bday)
+	{
+		"\0\s[4]%(shockopen)Ah.\w8 \1\s[16]\i[1]Professor?\w8 \0\s[4]%(concernsmile)\1\s[16]\i[27]Did you forget today was your birthday?\w8 \0\s[1]%(concernsmile)\n\n[half]I might have...\w8 \1\s[16]\i[9]\0\s[0]\nAnyway.\w8\w4 \0\s[3]%(happies)Here is your calendar,\w4 %(user).\w8"
+		
+		"\0\s[1]%(shockopen)\1\s[18]\i[19]Today's your birthday,\w4 Professor.\w8 \0\s[1]%(confusesmile)So it is.\w8 \1\s[18]\i[21]\0\s[3]%(concernsmile)Have you anything planned for your day today,\w4 %(user)?\w8"
+	}
+	elseif dayslot == "2month 19day" //Feb 19; AJ release in US! (Apollo bday)
+	{
+		"\0\s[2]%(confusesmile)Let's see...\w8 \1\s[15]\i[1]Ah.\w8 \0\s[2]%(neutral)\1\s[22]\i[17]I'll have to remember to send my pen pal a message later...\w8"
+		
+		"\1\s[15]\i[1]Oh.\w8 \0\s[1]%(neutral)\1\s[22]\i[9]Today's my pen pal's birthday.\w8 \0\s[1]%(confusesmile)You'll have to get a message to him later.\w8 \1\s[16]\i[9]\0\s[3]%(calmsmile)For now,\w4 let's see what's on your schedule,\w4 %(user).\w8"
+	}
+	elseif dayslot == "7month 20day" //July 20; LMJ release in JP! (Katrielle bday)
+	{
+		"\0\s[5]%(happies)Oh,\w4 today is misslayton's birthday.\w8 \1\s[17]\i[21]It is!\w8 \0\s[1]%(happies)\1\s[17]\i[19]Got anything else on your calendar,\w4 %(user)?\w8"
+		
+		"\1\s[18]\i[19]It's misslayton's birthday today!\w8 \0\s[4]%(happies)Haha,\w4 it is.\w8 \1\s[17]\i[21]\0\s[3]%(happies)Let's see what %(user) has on %(their) calendar for today.\w8"
+	}
+	elseif dayslot == "8month 8day" //August 8; Comet in Moominland Release date! (Snufkin bday)
+	{
+		"\0\s[2]%(calmsmile)Today seems to be a magnificent one.\w8 \1\s[18]\i[21]It sure does!\w8"
+		
+		"\1\s[18]\i[0]Something extraordinary happening today,\w4 %(user)?\w8 \0\s[3]%(calmsmile)Only one way to find out.\w8"
+	}
+	elseif dayslot == "9month 12day" //Sep 12; Unwound Future release in US! (Flora bday)
+	{
+		"\0\s[4]%(shockopen)Ah.\w8 \1\s[17]\i[25]Did you almost forget it was thegoldenapple's birthday?\w8 \0\s[3]%(concernsmile)\n\n[half]Almost.\w8 \1\s[17]\i[9]\0\s[3]%(confusesmile)What do you have planned,\w4 %(user)?\w8"
+		
+		"\1\s[18]\i[19]Hey,\w4 today's thegoldenapple's birthday!\w8 \0\s[1]%(happies)So it is.\w8 \1\s[18]\i[21]\0\s[5]%(calmsmile)Let's see what else is on %(user)'s calendar.\w8"
+	}
+	elseif dayslot == "9month 21day" //Sep 21; LBMR release in JP! (Alfendi bday)
+	{
+		"\0\s[4]%(surprisesmile)Ah,\w4 \s[4]%(happies)today is pottyprof's birthday.\w8 \1\s[18]\i[21]It sure is.\w8 \0\s[4]%(smiles)\1\s[18]\i[0]What else have you got on your calendar,\w4 %(user)?\w8"
+		
+		"\1\s[19]\i[22]Today's pottyprof's birthday.\w8 \0\s[1]%(happies)It is indeed.\w8 \1\s[17]\i[0]\0\s[3]%(calmsmile)Now,\w4 %(user),\w4 your calendar.\w8"
+	}
+	elseif dayslot == "10month 12day" //Oct 12; AA1 release in JP! (Phoenix bday)
+	{
+		"\0\s[5]%(surprisesmile)Ah,\w4 today is mraceattorney's birthday,\w4 \s[5]%(happies)isn't it?\w8 \1\s[18]\i[21]I think so.\w8 \0\s[0]\1\s[18]\i[0]What've you got planned today,\w4 %(user)?\w8"
+		
+		"\1\s[19]\i[0]Today's mraceattorney's birthday,\w4 \s[19]\i[21]isn't that right,\w4 Professor?\w8 \0\s[1]%(happies)It is,\w4 Luke.\w8 \1\s[18]\i[22]\0\s[2]%(confusesmile)Now,\w4 let's see what your calendar says,\w4 %(user).\w8"
+	}
+	elseif dayslot == "11month 7day" //Nov 7; Curious Village release in UK! (Luke bday)
+	{
+		"\0\s[5]%(happies)Today is Luke's birthday,\w4 %(user).\w8 \1\s[17]\i[21]It sure is!\w8 \0\s[1]%(happies)\1\s[17]\i[19]Hope you've got something fun planned for yourself today,\w4 too!\w8"
+		
+		"\1\s[16]\i[21]Heehee.\w8 \0\s[4]%(happies)It's your birthday today,\w4 my boy,\w4 isn't it?\w8 \1\s[16]\i[19]\n\n[half]Yeah,\w4 but I bet %(user) has other things planned.\w8"
+	}
+	elseif dayslot == "11month 26day" //Nov 26; Last Spectre release in JP! (Luke bday)
+	{
+		"\0\s[2]%(confusesmile)Isn't today your birthday,\w4 Luke?\w8 \1\s[17]\i[21]It is!\w8 \0\s[2]%(happies)\1\s[17]\i[0]I'm sure %(user)'s got something of %(their) own planned.\w8"
+		
+		"\1\s[21]\i[21]Hehe,\w4 today's my birthday.\w8 \0\s[4]%(happies)So it is.\w8 \1\s[21]\i[22]\0\s[3]%(smiles)Have you any plans of your own,\w4 %(user)?\w8"
+	}
+	//elseif dayslot == "11month 29day" //Nov 29; Diabolical Box / Unwound Future / PL vs PW release in JP!
+	else //any other date
+	{
+		"\0\s[4]%(smiles)Checking the date?\w8 \1\s[22]\i[27]\0\s[2]%(confusesmile)Let's see here...\w8"
+		
+		"\1\s[22]\i[14]Got something planned?\w8 \0\s[3]%(calmsmile)Let's take a look and see,\w4 shall we?\w8"
+	}
+	--
+	"\![open,calendar]\e"
+}
+
+//When the user chooses SSP preferences.
+Select.sspconfig
+{
+	"\0\s[2]%(confusesmile)\1\s[22]\i[27]"
+	"\0\s[4]%(smiles)\1\s[18]\i[0]"
+	--
+	"\![open,configurationdialog]\e"
+}
+
+
+//garbage check
+Select.areyousure
+{
+	"\0\b[0]\1\b[0]"
+	--
+	"\0\s[1]%(confusesmile)You'd like us to take out your trash for you?\w8 \1\s[16]\i[27]Kinda odd,\w8 \s[16]\i[21]but sure!\w8 \0\s[1]%(shock)\1\s[18]\i[14]I bet we can find a few clues in there as well!\w8 \0\s[1]%(confused)\n\n[half]Hmm...\w8"
+	
+	"\1\s[15]\i[17]You want us to...\w8\w4 take out your trash?\w8 \0\s[4]%(confusesmile)I suppose we can do that for you.\w8 \1\s[16]\i[17]\0\s[5]%(calmsmile)A gentleman always assists a friend in need,\w4 after all.\w8 \1\s[16]\i[27]\n\n[half]I guess that's true.\w8"
+	--
+	"\n\n\_q\![*]\__q[ChoiceGarbagecan]Yes, please take out the trash\__q"
+	"\n\n\_q\![*]\__q[ChoiceGarbagecan]Yes, thank you for taking out the trash for me\__q"
+	--
+	"\n\![*]\__q[garbagecancel]On second thought, no don't take out the trash\__q"
+	"\n\![*]\__q[garbagecancel]Actually, please don't take out the trash\__q"
+	--
+	"\n\n\![*]\q[Back to Functions Menu,backtofunctions] \n\![*]\q[Back to Main Menu,BACKTOMENU]\e"
+}
+
+Select.garbagecancel
+{
+	"\0\b[0]\1\b[0]"
+	--
+	"\0\s[4]%(shockopen)Ah.\w8 \1\s[16]\i[1]Oh.\w8 \0\s[4]%(confusesmile)\1\s[16]\i[12]Okay then!\w8\e"
+	
+	"\1\s[15]\i[16]Huh?\w8 \0\s[1]%(confusesmile)Well.\w8 \1\s[15]\i[17]\0\s[4]%(concernsmile)All right,\w4 then.\w8\e"
+}
+
+//If the user chooses to empty the recycle bin.
+Select.ChoiceGarbagecan
+{
+	_gomicheck = FUNCTIONEX("gomi.dll", "-n")
+	
+	"\0\b[0]\1\b[0]"
+	--
+	"\0\s[4]%(confident)Let's get going,\w4 Luke.\w8 \1\s[17]\i[21]We got this,\w4 %(user)!"
+	
+	"\1\s[21]\i[14]Time to get our hands dirty,\w4 Professor!\w8 \0\s[5]%(happies)We'll make short work of things,\w4 %(user)."
+	--
+	"\w8\w4\1\s[-1]\0\s[-1]\w8\w8\w8\w8"
+	--
+	if _gomicheck == 0 //If the recycle bin is empty.
+	{
+		{
+			"\1\s[18]\i[1]\0\s[1]%(neutral)\n\n[half]%(user).\w8 \0\s[3]%(confusesmile)It appears there's nothing for us to throw out.\w8 \1\s[17]\i[2]\n\n[half]Aw,\w4 what gives!\w8 \0\s[5]%(closeeyes)\n\n[half]Keeping your place clean is a hard feat.\w8 \1\s[17]\i[20]\0\s[4]%(calmsmile)I have to applaud you for it,\w4 %(user).\w8"
+			--
+			"\1\s[16]\i[3]\n\n[half]Yeah,\w4 you're doing better than the Professor on that one.\w8 \0\s[4]%(confusesmile)\e"
+			
+			"\s[2]%(confused) This reminds me of a puzzle,\w4 actually.\w8 \1\s[16]\i[1]\n\n[half]Oh.\w8 \s[16]\i[27]Well,\w4 at least there's that.\w8\e"
+		}
+		
+		"\0\s[1]%(confused)\1\s[17]\i[2]\n\n[half]Hey!\w8 \1\s[16]\i[7]There's nothing to throw out in the first place!\w8 \0\s[2]%(confused)\n\n[half]Hm.\w8 \1\s[16]\i[20]\0\s[2]%(concernsmile)I suppose you must have been mistaken,\w4 %(user).\w8 \1\s[16]\i[24]\n\n[half]Aww...\w8\w4 \s[16]\i[11]I wanted to toss out the garbage...\w8\e"
+	}
+	elseif _gomicheck >= 1 //If the recycle bin is full.
+	{
+		"\![raise,OnGarbagecanEmpty]"
+		--
+		"\1\s[18]\i[0]\0\s[3]%(calmsmile)\n\n[half]And there you have it.\w8 \1\s[18]\i[19]\n\n[half]That was a brilliant one,\w4 Professor.\w8 \0\s[1]%(happies)\1\s[18]\i[21]65 picarats for sure!\w8 \0\s[4]%(smiles)\n\n[half]Hopefully,\w4 we helped out even a little bit,\w4 %(user).\w8\e"
+		
+		"\0\s[0]\1\s[20]\i[15]\n\n[half]There!\w8 \s[17]\i[21]All taken care of!\w8 \0\s[3]%(happies)\n\n[half]Good show,\w4 Luke.\w8 \1\s[21]\i[21]\n\n[half]Heh heh.\w8 \0\s[4]%(smiles)\1\s[21]\i[19]Glad to help out,\w4 %(user)!\w8\e"
+	}
+}
+
+//This is for the SAORI, don't touch it.
+OnGarbagecanEmpty
+{
+	_gomi = FUNCTIONEX("gomi.dll", "-f")
+}
+
+
+//bug report.
+Select.bugreport
+{
+	"\0\b[0]\1\b[0]"
+	--
+	"\1\s[16]\i[13]Uh-oh!\w8 \0\s[4]%(concernsmile)Oh dear.\w8 \1\s[19]\i[27]\n\n[half]If something's wrong,\w4 you can take it to \_a[https://characteroulette.tumblr.com/]KFC\_a.\w8 \0\s[1]%(confusesmile)\1\s[19]\i[0]He put together the mechanism that got us here!\w8 \0\s[4]%(concernsmile)\n\n[half]Hopefully,\w4 whatever broke isn't too catastrophic...\w8 \1\s[18]\i[12]\n\n[half]Yeah,\w4 I'd hate to have spooked you without meaning to,\w4 %(user).\w8"
+	--
+	"\*\t\n\n\_q\![*]\q[Back to Functions menu,backtofunctions] \n\![*]\q[Back to Main menu,BACKTOMENU] \n\n[half]\![*]\q[Cancel,CANCEL]\e"
+}
+
+
+//This is when the user chooses to check their email. The rest of this function plays out in etc.dic.
+Select.MailCheck
+{
+	"\![biff]\e"
+}
+
+
+	
+//---- OnChoiceTimeout ---------------------------------------------------------
+OnChoiceTimeout
+{
+	if teatime == 1 //on
+	{
+		"\0\s[9]"
+		--
+		"%(confusesmile)"
+		"%(concernsmile)"
+		"%(confused)"
+		--
+		"\1\s[27]"
+		--
+		"\i[27]"
+		"\i[24]"
+		"\i[23]"
+		"\i[20]"
+		"\i[17]"
+		"\i[11]"
+		"\i[10]"
+		"\i[7]"
+		"\i[1]"
+	}
+	else //off
+	{
+		"\0\s[4]"
+		"\0\s[1]"
+		"\0\s[2]"
+		--
+		"%(confusesmile)"
+		"%(concernsmile)"
+		"%(shock)"
+		"%(confused)"
+		--
+		"\1\s[15]"
+		"\1\s[16]"
+		"\1\s[17]"
+		"\1\s[18]"
+		"\1\s[22]"
+		--
+		"\i[27]"
+		"\i[24]"
+		"\i[23]"
+		"\i[20]"
+		"\i[17]"
+		"\i[11]"
+		"\i[10]"
+		"\i[7]"
+		"\i[1]"
+	}
+}
+
+
+
+//---- Secondary Character Menu ---------------------------------------------------------
+OpenKeroMenu
+{
+	"\0\s[0]"
+	"\0\s[1]%(happies)"
+	"\0\s[1]%(neutral)"
+	--
+	"\1\b[2]"
+ 	--
+	if teatime == 1 //on
+	{
+		"\s[27]"
+	}
+	else //off
+	{
+		"\s[18]"
+		"\s[18]"
+		"\s[18]"
+		"\s[16]"
+	}
+	--
+	"\i[15]"
+	"\i[0]"
+	"\i[21]"
+	--
+	"What can the Professor's number one apprentice do for you?\w8"
+	
+	"Didja need something,\w4 %(user)?\w8"
+	
+	"How can a gentleman-in-training help out,\w4 %(user)?\w8"
+	
+	"How can I be of assistance today?\w8"
+ 	--
+	OnKeroMenuRun
+}
+
+OnKeroMenuRun
+{
+	"\1\b[2]\_q\n\n"
+	--
+	if user == "KFC" {"\![*]\q[Test variable,testvariable]\n\n[half]"}
+	--
+	if teatime == 0 //off
+	{
+		"\![*]\q[Time for a cuppa!,Luketeastart]"
+	}
+	else //1; on
+	{
+		"\![*]\q[Tea time over!,endtea]"
+	}
+	--
+	"\n\n[half]\![*]\__q[Lukejournal]What's in your journal?\__q"
+	"\n\n[half]\![*]\__q[Lukejournal]Can I see what's in your journal?\__q"
+	"\n\n[half]\![*]\__q[Lukejournal]Let's check your journal\__q"
+	//"\n\n[half]\![*]\__q[Lukejournal]\__q"
+	--
+	"\n\n[half]\![*]\q[Check for Updates,keroupdatecheck]"
+	--
+	"\n\n\![*]\q[Nothing,CANCEL]\e"
+}
+
+
+//Luke serve the tea!!
+Select.Luketeastart
+{
+	"\0\b[0]\1\b[0]"
+	--
+	if teapassmin > 30 //give us a minute to settle!
+	{
+		"\1\s[16]\i[16]All ready?\w8 \0\s[3]%(concernsmile)Perhaps give us a bit more time to settle,\w4 %(user).\w8 \1\s[16]\i[9]\n\n[half]Yeah,\w4 I've still got the taste of %(servedtea) in my mouth.\w8\e"
+		
+		"\0\s[4]%(shockopen)Oh!\w8 \1\s[18]\i[16]Wow,\w4 that was fast!\w8 \0\s[4]%(concernsmile)\1\s[19]\i[9]I think the Professor and I need a bit more time to let our last serving of %(servedtea) settle.\w8 \0\s[3]%(concernsmile)\n\n[half]Yes,\w4 that would be much appreciated,\w4 thank you.\w8\e"
+	}
+	elseif timeslot == "earlymorning"
+	{
+		"\1\s[21]\i[0]Oh,\w4 perfect idea,\w4 %(user)!\w8 \0\s[1]%(confusesmile)Luke?\w8 \1\s[19]\i[21]\n\n[half]A good cuppa will wake you right up,\w4 Professor!\w8 \0\s[2]%(confusesmile)\n\n[half]I suppose I couldn't turn down a cup of tea so long as %(user)'s offering...\w8"
+		
+		"\1\s[19]\i[21]A nice cuppa would be great to help us stay awake!\w8 \0\s[5]%(happies)Or help us relax and regain our energy.\w8 \1\s[21]\i[19]\n\n[half]Yeah,\w4 it just depends on which you brew,\w4 %(user)!\w8"
+	}
+	elseif timeslot == "morning"
+	{
+		"\1\s[18]\i[21]A nice morning cuppa sounds wonderful.\w8 \0\s[1]%(surprisesmile)\1\s[18]\i[19]Right,\w4 Professor?\w8 \0\s[3]%(happies)Indeed it does,\w4 Luke.\w8"
+		
+		"\1\s[16]\i[22]Mm,\w4 a nice morning cuppa is a great way to start the morning.\w8 \0\s[3]%(calmsmile)I heartily concur,\w4 Luke.\w8"
+	}
+	elseif timeslot == "lunch"
+	{
+		"\1\s[21]\i[14]I could probably drink the whole pot for lunch,\w8 \0\s[1]%(concernsmile)\1\s[18]\i[6]but a gentleman makes sure to share his tea with everyone!\w8 \0\s[3]%(confusesmile)We can get something to eat later,\w4 Luke.\w8"
+		
+		"\1\s[21]\i[21]A nice cuppa will help to keep us going until we can grab some nosh!\w8 \0\s[4]%(happies)It certainly will.\w8 \1\s[16]\i[0]\0\s[2]%(confusesmile)Though,\w4 it's no substitute for an actual meal.\w8 \1\s[16]\i[13]\n\n[half]That's for sure.\w8"
+	}
+	elseif timeslot == "afternoon"
+	{
+		"\1\s[18]\i[19]You're right,\w4 %(user)!\w8 \0\s[1]%(shock)\1\s[18]\i[21]It's the perfect time for a warm cuppa!\w8 \0\s[1]%(happies)I very much agree.\w8"
+		
+		"\1\s[16]\i[0]I suppose it is the perfect time for a good cuppa.\w8 \0\s[3]%(calmsmile)A spot of afternoon tea does sound lovely.\w8"
+	}
+	elseif timeslot == "evening"
+	{
+		"\1\s[16]\i[0]It does sound nice,\w8 \0\s[1]%(happies)\1\s[16]\i[18]winding down the day with a good cuppa.\w8 \0\s[3]%(concernsmile)Perhaps it'll add some pep back into you,\w4 Luke.\w8 \1\s[18]\i[9]\n\n[half]I could really use it!\w8"
+		
+		"\1\s[18]\i[19]Ooh,\w4 good thinking,\w4 %(user).\w8 \0\s[1]%(confusesmile)\1\s[18]\i[21]A nice cuppa can help us get our pep back!\w8 \0\s[2]%(calmsmile)I'd prefer something relaxing and rejuvenating for this time of day,\w4 \1\s[18]\i[0]\0\s[3]%(smiles)but I wouldn't turn down something energising,\w4 either.\w8 \1\s[18]\i[22]"
+	}
+	elseif timeslot == "night"
+	{
+		"\1\s[16]\i[9]A nice cuppa before bed does sound perfect,\w8 \0\s[1]%(concernsmile)\1\s[16]\i[0]doesn't it,\w4 Professor?\w8 \0\s[3]%(smiles)It does indeed,\w4 Luke.\w8"
+		
+		"\1\s[16]\i[18]Winding down with a nice cuppa as night falls sounds lovely.\w8 \0\s[1]%(concernsmile)\1\s[18]\i[21]Doesn't it,\w4 Professor?\w8 \0\s[4]%(calmsmile)Yes,\w4 I think %(user) has the right idea here.\w8"
+	}
+	else //latenight
+	{
+		"\1\s[18]\i[0]Good idea,\w4 %(user).\w8 \0\s[1]%(concernsmile)\1\s[18]\i[21]That'll definitely help us wake up a bit more!\w8 \0\s[3]%(concernsmile)We're unfortunately not strangers to pulling all nighters.\w8"
+		
+		"\1\s[16]\i[9]Mm,\w4 I really could use a good cuppa right about now...\w8 \0\s[3]%(concernsmile)It does sound nice.\w8 \1\s[16]\i[27]\0\s[5]%(calmsmile)And hopefully,\w4 it will help us through the night.\w8"
+	}
+	--
+	"\w8\0\s[0]\c\b[-1]\1\b[2]\c"
+	--
+	"\s[18]\i[0]What'll you be serving,\w4 %(user)?\w8"
+	
+	"\s[17]\i[0]What're we serving,\w4 %(user)?\w8"
+	--
+	"\![set,autoscroll,disable]\n\n\*\_q\![*]\q[Citrus Classic,OnServetea,citrus] / \![*]\q[Belle Classic,OnServetea,belle] \n\![*]\q[Oasis Berry,OnServetea,berry] \n\![*]\q[Sugar Smoke,OnServetea,smoke] \n\![*]\q[Root Remedy,OnServetea,root] \n\![*]\q[Cherry Boost,OnServetea,boost] \n\![*]\q[Bitter Fruit,OnServetea,bitter] \n\![*]\q[Dream Spice,OnServetea,dream] \n\![*]\q[Clover Quencher,OnServetea,clover] \n\![*]\q[Radiance Blend,OnServetea,blend] \n\![*]\q[Cayenne Twilight,OnServetea,twilight] \n\![*]\q[Cinder Flower,OnServetea,cinder] \n\![*]\q[The Layton Elixir,OnServetea,elixir] \n\n\![*]\q[Back to Main Menu,OnServetea,keromenu] \n\![*]\q[Cancel,OnServetea,cancel]\e"
+}
+
+
+//Luke Journal!!
+Select.Lukejournal
+{
+	if teatime == 1 //on
+	{
+		teatime = 0
+		
+		"\0\s[9]%(smiles)\1\b[4]"
+		--
+		"\s[27]\i[1]Oh,\w4 hold on.\w8 \0\s[1]%(concernsmile)\1\s[26]\i[27]Let me put away this tea so I can get my journal out...\w8"
+	}
+	else //off
+	{
+		"\0\s[0]\1\b[4]"
+		--
+		"\s[18]\i[19]Oh,\w4 sure,\w4 %(user)!\w8 \s[26]\i[0]What'cha want to see?\w8"
+		"\s[26]\i[21]Yeah,\w4 let's see what I've got in here!\w8"
+		"\s[26]\i[27]Oh,\w4 did'ja want to hear about something specific?\w8"
+	}
+	--
+	OnJournalMenu
+	
+}
+
+OnJournalMenu
+{
+	"\1\b[4]\t\*\![set,autoscroll,disable]\_q"
+	--
+	"\n\n\__q[OnLaytoncheck]\_b[Layton_click.png,inline,--option=use_self_alpha]\__q \_l[150]\__q[OnLukecheck]\_b[Luke_click.png,inline,--option=use_self_alpha]\__q"
+	--
+	"\n\n\![*]\_a[RandallAscot]Randall Ascot\_a \![*]\_a[ClaireFoley]Claire Foley\_a \n\![*]\_a[DesmondSycamore]Jean Descole\_a  \![*]\_a[FloraReinhold]Flora Reinhold\_a \n\![*]\_a[KatrielleLayton]Katrielle Layton\_a \n\![*]\_a[AlfendiLayton]Alfendi Layton\_a \n\![*]\_a[ClarkTriton]Clark Triton\_a  \![*]\_a[BrendaTriton]Brenda Triton\_a \n\![*]\_a[EmmyAltava]Emmy Altava\_a  \![*]aurorazan \n\![*]\_a[CliveDove]Clive Dove\_a     \![*]paulpaolo \n\![*]mraceattorney       \![*]borgerfey"
+	--
+	"\n\n\![*]"
+	--
+	"\__q[tidbits]Tell me about one of your adventures!\__q"
+	"\__q[tidbits]Let's hear about one of your adventures!\__q"
+	"\__q[tidbits]Give me an adventure anecdote!\__q"
+	--
+	"\n\n\![*]\q[Back to Main Menu,OnKeroMenuRun]   \![*]\q[Cancel,CANCEL]\w8\e"
+}
+
+//anecdotes!
+Select.tidbits
+{
+	"\0\b[0]\1\b[0]"
+	--
+	if favegame == "Curious Village"
+	{
+		"\1\s[26]\i[16]Oh,\w8 \0\s[1]%(confusesmile)\1\s[19]\i[22]have we told you about the time we got chased by a Ferris Wheel?\w8 \0\s[4]%(concernsmile)That was a rather strange occurrence.\w8 \1\s[16]\i[0]\0\s[3]%(calmsmile)Our first real encounter with paulpaolo.\w8 \1\s[21]\i[17]\n\n[half]I told you it was chasing us,\w4 Professor.\w8 \0\s[4]%(concernsmile)\n\n[half]I'm sorry,\w4 my boy.\w8 \1\s[21]\i[25]\0\s[4]%(sadsmile)I really should have believed you,\w8 \s[4]%(annoyedsmile)but at the time,\w4 I was hoping you weren't correct about that.\w8 \1\s[16]\i[12]\n\n[half]It's all right.\w8 \0\s[4]%(confusesmile)\1\s[16]\i[27]Any other time,\w4 it would be a really ridiculous thing to think.\w8"
+		
+		"\0\s[3]%(happies)You have a real fondness for cats,\w4 my boy.\w8 \1\s[26]\i[27]\0\s[3]%(sadsmile)But they don't seem to like you all that much.\w8 \1\s[16]\i[13]Aww,\w4 you don't have to bring that up,\w4 Professor!\w8 \0\s[5]%(concernsmile)\n\n[half]Hahaha,\w4 I'm sorry.\w8 \1\s[16]\i[0]\0\s[3]%(calmsmile)You see,\w4 %(user),\w4 while trying to catch Mrs Reinhold's cat,\w4 Luke was given a nasty scratch.\w8 \1\s[18]\i[9]\n\n[half]She was pretty adamant about finding the source of that crash and telling it off for spooking her so.\w8 \0\s[3]%(concernsmile)\1\s[19]\i[27]She also didn't trust us,\w4 since we were outsiders.\w8 \0\s[2]%(confusesmile)\n\n[half]I see...\w8 \1\s[19]\i[9]\0\s[2]%(concernsmile)That's sound logic.\w8 \1\s[17]\i[12]\n\n[half]It sure is!\w8"
+		
+		"\1\s[21]\i[13]I didn't get a chance to ride on your glider with you,\w4 Professor!\w8 \0\s[4]%(concernsmile)I'm glad for it,\w4 honestly.\w8 \1\s[21]\i[24]\0\s[4]%(sadsmile)Too many times you've been tossed about in the air.\w8 \1\s[16]\i[9]\n\n[half]I guess you did have paulpaolo chasing after you.\w8 \0\s[1]%(concernsmile)\1\s[16]\i[21]thegoldenapple had to be real brave to not even scream through that whole ordeal.\w8 \0\s[3]%(happies)\n\n[half]Yes,\w4 Flora handled the whole thing with the grace of a proper gentlewoman.\w8 \1\s[26]\i[22]\w8"
+		
+		"\1\s[16]\i[24]It was real alarming to witness a kidnapping!\w8 \0\s[1]%(neutral)Yes.\w8 \1\s[16]\i[9]\0\s[1]%(sadsmile)As well as a murder of sorts.\w8 \1\s[17]\i[0]\n\n[half]Thankfully,\w4 in both cases,\w8 \0\s[1]%(concernsmile)\1\s[17]\i[21]the victims turned out just fine.\w8 \0\s[5]%(confusesmile)\n\n[half]A rather strange outcome for what was described,\w8 \1\s[17]\i[0]\0\s[5]%(calmsmile)but we unfortunately can't give you more details than that,\w4 %(user).\w8 \1\s[16]\i[13]\n\n[half]Yeah,\w4 sorry.\w8 \0\s[4]%(confusesmile)\1\s[16]\i[12]We made a promise not to reveal those secrets.\w8"
+		
+		"\1\s[22]\i[14]To think,\w8 \0\s[1]%(neutral)\1paulpaolo gave himself away from such a simple lack of attention to details...\w8 \0\s[1]%(confusesmile)Rather unlike him,\w4 as he's normally so attentive to those types of things.\w8 \1\s[22]\i[27]\0\s[2]%(confident)Unfortunately for him,\w4 \_a[InspectorChelmey]Inspector Chelmey\_a is good at his job.\w8 \1\s[22]\i[9]\0\s[3]%(concernsmile)Though I do believe Paul has always struggled with the finer details.\w8 \1\s[18]\i[21]\n\n[half]I'll say!\w8 \s[18]\i[27]He named you as his arch nemesis without even checking if you remembered him!\w8 \0\s[2]%(confused)\n\n[half]I'm not sure dadtriton or momtriton would remember him if they saw him again,\w4 either.\w8 \1\s[16]\i[9]\0\s[2]%(concernsmile)He's changed quite a bit from his university days.\w8"
+		
+		"\1\s[16]\i[24]It must have been pretty lonely for thegoldenapple before we showed up...\w8 \0\s[1]%(sad)Yes,\w4 I agree.\w8 \s[2]%(closeeyes)Despite her father's best efforts to surround her with their constructed family and friends,\w4 \s[2]%(sad)there was hardly anyone else she could speak to outside of him and Bruno.\w8 \1\s[25]\n\n[half]And then the Baron Reinhold died...\w8 \0\s[1]%(shock)\1\s[21]\i[2]But she has us now!\w8 \0\s[1]%(confusesmile)\1\s[21]\i[12]And everyone else,\w4 too!\w8 \0\s[5]%(concernsmile)\n\n[half]She has enjoyed having misslayton and pottyprof around,\w4 I do believe.\w8 \1\s[21]\i[13]\0\s[5]%(smiles)Along with all the puzzles our lives bring.\w8 \1\s[18]\i[27]\n\n[half]After all that training,\w4 \0\s[1]%(happies)\1\s[18]\i[22]it's no wonder she's brilliant at them!\w8"
+	}
+	if favegame == "Diabolical Box" || favegame == "Pandora's Box"
+	{
+		"\1\s[17]\i[2]I still can't believe paulpaolo kidnapped thegoldenapple AND pretended to be her right under our noses!\w8 \0\s[4]%(confusesmile)I can't help being impressed,\w4 in all honesty.\w8 \1\s[17]\i[20]\0\s[5]%(happies)He nearly pulled the wool over our eyes for sure.\w8 \1\s[22]\i[27]\n\n[half]Are you saying you fell for it,\w4 too,\w4 Professor?\w8 \0\s[5]%(smiles)\n\n[half]Under any other circumstances,\w4 I'm sure neither of us could have been fooled for even a minute.\w8 \1\s[22]\i[1]\0\s[2]%(confused)But considering everything with Folsense...\w8 \1\s[16]\i[13]\n\n[half]It was a real strange situation for sure.\w8"
+		
+		"\1\s[21]\i[19]The Molentary Express was amazing!\w8 \0\s[4]%(confusesmile)\1\s[17]\i[21]I can still hardly believe we got to ride on it.\w8 \0\s[3]%(calmsmile)It was quite luxurious.\w8 \1\s[17]\i[22]\0\s[2]%(confusesmile)Although,\w4 you seem to always enjoy the furniture the most.\w8 \1\s[17]\i[14]\n\n[half]The meals weren't anything to scoff at,\w4 either!\w8 \0\s[2]%(concernsmile)\1\s[15]\i[1]But,\w4 I am sorry,\w4 Professor.\w8 \0\s[1]%(sad)\1\s[24]I know it's not very gentlemanly to bounce on the seats.\w8 \0\s[3]%(concernsmile)\n\n[half]It's all right,\w4 my boy.\w8 \1\s[15]\i[9]\0\s[3]%(confusesmile)I understand,\w4 you're still young.\w8"
+		
+		"\1\s[22]\i[13]Do you think \_a[InspectorChelmey]Inspector Chelmey\_a felt bad about what happened with Sammy Thunder?\w8 \0\s[3]%(concernsmile)I'm sure he took the time to apologise for the misunderstanding.\w8 \1\s[16]\i[27]\0\s[5]%(confusesmile)Considering the circumstances,\w4 we all should be given some leniency in regards to that adventure.\w8 \1\s[16]\i[9]\n\n[half]Good point,\w4 Professor.\w8"
+		
+		"\1\s[18]\i[13]I hope Katia and Anton are doing well.\w8 \0\s[3]%(sad)Folsense may be uninhabitable for the time being,\w4 \1\s[18]\i[9]\0\s[3]%(concernsmile)but I know they'll get it all sorted now that they have each other again.\w8 \1\s[21]\i[12]\n\n[half]Yeah,\w4 you're right!\w8 \0\s[1]%(happies)\1\s[21]\i[0]They have Mr Beluga to help out,\w4 too!\w8 \0\s[5]%(happies)\n\n[half]It's really rather fortunate that everything ended up working out as well as it did.\w8 \1\s[26]\i[22]\w8"
+		
+		"\1\s[18]\i[21]That festival in Drop Stone was a lot of fun!\w8 \0\s[1]%(happies)You and thegoldenapple did seem to enjoy yourselves.\w8 \1\s[21]\i[15]\n\n[half]Of course!\w8 \0\s[0]\1\s[21]\i[22]Plenty of fun puzzles,\w4 good food,\w4 \s[21]\i[19]and it was Flora who was actually there with us!\w8 \0\s[4]%(concernsmile)\n\n[half]I suppose those are all rather important factors towards your enjoyment...\w8 \1\s[26]\i[22]\w8"
+		
+		{
+			"\1\s[22]\i[27]]What sort of tea do you think Katia would've enjoyed?\w8 \0\s[2]%(confused)Oh,\w4 that's an intriguing puzzle.\w8 \1\s[22]\i[22]\0\s[3]%(confusesmile)We never did have the chance to find out,\w4 did we?\w8"
+			--
+			if favetea != "Undecided"
+			{
+				"\1\s[19]\i[14]\n\n[half]Maybe she'd enjoy %(favetea),\w4 \s[19]\i[21]same as %(user)!\w8 \0\s[2]%(happies)\n\n[half]It's certainly possible.\w8"
+			}
+		}
+		
+		"\1\s[16]\i[24]That forest surrounding Anton's castle was scary...\w8 \0\s[3]%(confused)Everything was probably a lot more terrifying than it was in actuality due to our altered states of mind.\w8 \1\s[16]\i[9]\0\s[3]%(concernsmile)Still,\w4 I'm glad I had you there with me,\w4 Luke.\w8 \1\s[18]\i[16]\n\n[half]Professor...\w8 \s[18]\i[9]Don't tell me you were scared,\w4 too!\w8 \0\s[2]%(confusesmile)\n\n[half]Is that so surprising?\w8 \1\s[18]\i[1]\0\s[4]%(calmsmile)We were in an unfamiliar place dealing with what seemed like a truly formidable puzzle.\w8 \1\s[16]\i[9]\n\n[half]Well!\w8 \0\s[4]%(smiles)\1\s[16]\i[12]Then I'm glad we were holding hands the whole way through.\w8 \0\s[3]%(calmsmile)\n\n[half]As am I.\w8"
+	}
+	if favegame == "Unwound Future" || favegame == "Lost Future"
+	{
+		"\1\s[25]I really did think we were transported ten years into the future...\w8 \0\s[12]It was a rather convincing display.\w8 \1\s[18]\i[24]\0\s[3]%(concernsmile)And no wonder,\w4 considering it took five years of planning.\w8 \1\s[25]\n\n[half]I definitely would have preferred it being the future than how it actually turned out.\w8 \0\s[3]%(sad)\n\n[half]\w8\w8\s[7]\i[2]That's a sentiment I have to agree with whole-heartedly,\w4 my boy.\w8"
+		
+		"\1\s[24]I can't even imagine being so angry that I'd build a whole fake London just to get back at someone.\w8 \0\s[12]\1\s[25]Or build a mobile fortress like that.\w8 \0\s[5]%(closeeyes)That's one reason futureluke's plan never could have succeeded.\w8 \1\s[15]\i[16]\n\n[half]Huh?\w8 \0\s[3]%(calmsmile)\n\n[half]You're far too kind and clever to have grown up to be the sort of person he was masquerading you to be.\w8 \1\s[16]\i[1]\n\n[half]Um.\w8\w8 \s[16]\i[27]Thanks,\w4 I think?\w8 \0\s[4]%(concernsmile)\w8"
+		
+		"\1\s[22]\i[17]That future London may have been fake,\w8 \0\s[4]%(neutral)\1\s[19]\i[9]but it's really possible to travel through time.\w8 \0\s[7]\i[2]\1\s[16]\i[27]I can still hardly believe it.\w8 \0Yes.\w8 \1\s[16]\i[1]\0\s[3]%(concernsmile)It seems that,\w4 in the end,\w4 clairedelune's research bore fruit.\w8 \1\s[16]\i[24]\0\s[12]A cursed sort of fruit.\w8 \1\s[25]\n\n[half]...\w8 \s[18]\i[24]\nSorry,\w4 %(user).\w8 \0\s[1]%(concernsmile)\1\s[26]\i[10]Let's talk about something else.\w8"
+		
+		"\1\s[16]\i[24]Miss clairedelune was a real wonderful person,\w4 Professor.\w8 \0\s[1]%(confused)Luke?\w8 \1\s[25]\n\n[half]Despite how much harm he caused everyone,\w8 \0\s[1]%(shock)\1\s[18]\i[2]she still went and saved him.\w8 \0\s[1]%(sad)\1\s[25]She believed he could be better if he got another chance...\w8 \0\s[12]\n\n[half]...\w8\w8\1\s[18]\i[24]\0\s[7]\i[2]She was,\w4 indeed,\w4 beyond wonderful.\w8 \1\s[18]\i[13]\0\s[4]%(concernsmile)And she knew how important it was for even a single person to forgive your mistakes.\w8 \1\s[25]\n\n[half]...\w8I guess.\w8 \0\s[1]%(concernsmile)\1\s[18]\i[9]That does make sense.\w8"
+		
+		"\1\s[16]\i[27]That pagoda was pretty impressive.\w8 \0\s[3]%(concernsmile)Yes,\w4 although I'm not sure I would call it imposing.\w8 \1\s[16]\i[14]\n\n[half]Or within your tastes!\w8 \0\s[3]%(neutral)\1\s[22]\i[7]If you truly had turned towards evil,\w4 \s[22]\i[20]then you would have come up with something much cooler and more refined than that pagoda for sure.\w8 \0\s[1]%(confusesmile)\1\s[19]\i[7]And with better puzzles inside.\w8 \0\s[1]%(happies)\n\n[half]Hahaha,\w4 I see you've put some thought into this.\w8 \1\s[18]\i[2]\n\n[half]Well.\w8 Yeah!\w8 \0\s[1]%(confusesmile)\1\s[18]\i[17]It doesn't make much sense,\w4 looking back on it.\w8 \s[22]\i[7]I think they just wanted a pagoda.\w8 \0\s[5]%(calmsmile)\n\n[half]I think,\w4 for what it was,\w4 it was a fascinating choice.\w8"
+		
+		"\1\s[22]\i[7]Dr Stahngun...\w8\w8 \0\s[1]%(neutral)\1\s[22]\i[17]Where do you think he came up with that name?\w8 \0\s[2]%(confusesmile)Now that's an interesting puzzle.\w8 \1\s[16]\i[1]\0\s[3]%(calmsmile)It certainly sounds like the name of a scientist who's made a time machine.\w8 \1\s[16]\i[27]\n\n[half]I guess so.\w8 \0\s[0]\1\s[22]\i[17]I remember hearing about a Dr Harebrain during history lessons,\w8 \0\s[1]%(concernsmile)\1\s[22]\i[27]so I guess it's not the most ridiculous name I've ever heard.\w8"
+		
+		"\1\s[26]\i[14]You were right in the end,\w4 Professor.\w8 \0\s[2]%(confusesmile)Was I?\w8 \1\s[19]\i[14]\n\n[half]That lighthouse really shouldn't have been placed there.\w8 \0\s[1]%(concernsmile)\n\n[half]Ah.\w8\w4 \1\s[19]\i[0]\0\s[3]%(concernsmile)Yes,\w4 that was one of the more obvious signs that there was something deeper behind futreluke's plan.\w8 \1\s[18]\i[12]\n\n[half]Who knew that basic infrastructure knowledge could help disprove a whole future London?\w8"
+	}
+	if favegame == "Last Spectre" || favegame == "Spectre's Call"
+	{
+		"\1\s[19]\i[12]Arianna's still doing well,\w4 \s[19]\i[0]as far as I've heard.\w8 \0\s[2]%(confusesmile)Is she?\w8 \s[2]%(happies)That's very good to hear.\w8 \1\s[18]\i[21]\n\n[half]Yeah!\w8 \s[18]\i[27]Although it means that Golden Garden is open to others for exploration.\w8 \0\s[1]%(neutral)\1\s[19]\i[0]They're making lots of interesting discoveries about all the plants and its ecology.\w8 \0\s[2]%(confusesmile)\n\n[half]Ah,\w4 yes.\w8 I've read about some of those in the papers.\w8 \1\s[16]\i[22]\0\s[3]%(calmsmile)Quite fascinating,\w4 indeed.\w8 \1\s[16]\i[27]\n\n[half]You sure you're okay with not getting the credit for discovering it?\w8 \0\s[4]%(concernsmile)\n\n[half]It's fine.\w8 \1\s[16]\i[9]\0\s[3]%(calmsmile)The joy is in solving the puzzle,\w4 after all.\w8 \1\s[26]\i[27]\n\n[half]If you say so.\w8"
+		
+		"\1\s[18]\i[13]Since Loosha was the last of her kind,\w8 \0\s[1]%(confusesmile)\1\s[18]\i[9]it's probably not likely that Gourdy could really be out there.\w8 \0\s[1]%(confused)Gourdy?\w8 \1\s[19]\i[19]\n\n[half]borgerfey told me about it!\w8 \0\s[2]%(confusesmile)\1\s[19]\i[0]How one of the cases she and mraceattorney handled involved the whole mystery behind a creature called Gourdy.\w8 \0\s[4]%(concernsmile)\n\n[half]Unless there was a nearby archaeological site,\w4 I doubt this Gourdy even existed in the first place.\w8 \1\s[16]\i[13]\n\n[half]Yeah.\w8 \s[16]\i[12]It's fun thinking about it,\w4 though.\w8"
+		
+		"\1\s[16]\i[2]I'm still kinda peeved we never got to see the Black Market in action...\w8 \0\s[4]%(confusesmile)It was difficult enough gaining entry,\w4 what with the Black Ravens attempting to ward us off.\w8 \1\s[18]\i[14]\n\n[half]Not that topassistant was discouraged in the slightest!\w8 \0\s[4]%(happies)\n\n[half]Hahaha.\w8 \1\s[18]\i[22]\0\s[3]%(concernsmile)In truth,\w4 I'm rather glad we didn't have the time to attend one of their auctions.\w8 \1\s[16]\i[1]\n\n[half]Why's that,\w4 Professor?\w8 \0\s[5]%(calmsmile)\n\n[half]Because dissuading you or Emmy from purchasing anything would be a near impossible feat,\w4 I'm sure.\w8 \1\s[17]\i[2]\n\n[half]Hey!\w8 \0\s[1]%(happies)\1\s[17]\i[3]Professor!\w8"
+		
+		"\1\s[15]\i[16]Did topassistant really pull right out in front of the Laytonmobile?\w8 \0\s[1]%(shock)\1On her scooter?\w8 \0\s[4]%(confusesmile)She did.\w8 \1\s[15]\i[1]\0\s[4]%(concernsmile)Gave me a rather nasty fright,\w4 too.\w8 \1\s[18]\i[27]\n\n[half]That's exactly like her,\w4 though.\w8 \0\s[4]%(confusesmile)\1\s[18]\i[12]Always charging straight into situations without thinking ahead.\w8 \0\s[2]%(calmsmile)\n\n[half]Yes.\w8 I knew very well from the start that she'd be a fearless and stubborn sort of person.\w8 \1\s[16]\i[0]\0\s[3]%(sadsmile)She really was a delight to work with.\w8 \1\s[16]\i[24]\n\n[half]She was...\w8 \0\s[1]%(sad)\1\s[16]\i[7]Even if she didn't believe me at first.\w8"
+		
+		"\1\s[25]Did you know the whole time?\w8 \0\s[1]%(confused)Hm?\w8 \1\s[18]\i[1]\n\n[half]About Doland.\w8 \s[25]And,\w4 about my dad,\w4 I guess...\w8 \0\s[3]%(concernsmile)\n\n[half]I wouldn't say I knew the whole time,\w8 \1\s[18]\i[1]\0\s[3]%(neutral)but enough pieces fell into place for me to form the whole picture once you showed me your journal.\w8 \1\s[15]\i[16]\n\n[half]So I helped you crack the mystery?\w8 \0\s[5]%(calmsmile)\n\n[half]You were the most important piece,\w4 my boy.\w8 \1\s[17]\i[21]\n\n[half]Even back then,\w4 we made a great team!\w8 \0\s[3]%(calmsmile)\n\n[half]I couldn't agree more.\w8"
+		
+		"\0\s[1]%(confusesmile)Why were you so interested in that cat,\w4 my boy?\w8 \1\s[26]\i[17]What?\w8 \0\s[4]%(concernsmile)\n\n[half]Don't you remember?\w8 \1\s[22]\i[17]\0\s[4]%(smiles)When you chased after Keats.\w8 \1\s[22]\i[16]\n\n[half]Oh!\w8 \s[18]\i[12]Well,\w4 it was my first time outside in almost six months.\w8 \0\s[1]%(confused)\1\s[16]\i[9]Toppy was pretty much my only friend that whole time.\w8 \0\s[1]%(sad)\n\n[half]I see...\w8 \1\s[19]\i[22]\n\n[half]Plus,\w4 cats are really interesting.\w8 \s[19]\i[27]They may not always like me,\w4 \s[19]\i[9]but they usually have some really good information to share.\w8 \0\s[2]%(confusesmile)\n\n[half]That does make sense.\w8 \1\s[10]\0\s[3]%(happies)If they're not running from you,\w4 then they're usually a great help.\w8 \1\s[15]\i[21]\n\n[half]They sure are!\w8"
+		
+		"\1\s[22]\i[17]That whole combination of mining equipment was impressive...\w8 \0\s[1]%(confused)You mean the one desdes used to attack the town square?\w8 \1\s[19]\i[6]\n\n[half]That's the one!\w8 \0\s[1]%(concernsmile)\1\s[22]\i[7]I've always wondered how he had the time to design the thing,\w4 let alone construct it to work as he did.\w8 \0\s[3]%(concernsmile)\n\n[half]Need I remind you of his other mechanical feats we've seen?\w8 \1\s[22]\i[1]\0\s[2]%(confusesmile)He seems to share an interest in mechanics not unlike paulpaolo.\w8 \1\s[25]\n\n[half]Not unlike someone else we've seen,\w4 too.\w8"
+	}
+	if favegame == "Eternal Diva"
+	{
+		"\0\s[1]%(confused)I fear I may never truly believe what happened during our attempts to put a stop to desdes's rampage with that mobile fortress of his.\w8 \1\s[26]\i[17]Why not?\w8 \0\s[1]%(neutral)\1\s[19]\i[25]It's not the only mobile fortress we've destroyed in our adventures.\w8 \0\s[3]%(concernsmile)\n\n[half]Yes,\w4 but at least the second one we had a less cobbled together means of scaling it.\w8 \1\s[16]\i[1]\0\s[4]%(confused)You simply ran your way up this one to help save Janice.\w8 \1\s[16]\i[9]\n\n[half]I don't think I've ever run so fast in my life before or since.\w8 \0\s[3]%(shock)\n\n[half]And to do it all without getting injured!\w8 \1\s[16]\i[27]\0\s[7]\i[0]Oh,\w4 dadtriton and momtriton would have my head if they heard all the details on this one...\w8 \1\s[21]\i[12]\n\n[half]It turned out fine in the end!\w8 \0\s[4]%(concernsmile)\1\s[18]\i[14]We solved the whole mystery and stopped Descole from finding what he was after.\w8"
+		
+		"\1\s[21]\i[27]Has Janice been in any other productions that you know of,\w4 Professor?\w8 \0\s[2]%(confusesmile)I'm afraid I haven't heard,\w4 my boy.\w8 \1\s[21]\i[13]\0\s[3]%(concernsmile)She did take a break to assist Mr Whistler in making amends for his part in that distasteful game we played inside the Royal Crown.\w8 \1\s[18]\i[27]\n\n[half]It's nice he's doing better,\w4 at least.\w8 \0\s[1]%(confusesmile)\1\s[18]\i[14]But you should let her know,\w4 we'll be the first in line to cheer for her in whatever she does next!\w8 \0\s[4]%(happies)\n\n[half]Haha,\w4 sounds like we're due for another visit to the theatre.\w8 \1\s[21]\i[21]\n\n[half]Yippee!\w8"
+		
+		"\1\s[21]\i[19]That flying contraption you made was really something else,\w4 Professor!\w8 \0\s[4]%(concernsmile)Oh,\w4 thank you.\w8 \1\s[21]\i[22]\0\s[3]%(calmsmile)It was fairly unrefined due to our circumstances,\w4 but it did its job well enough.\w8 \1\s[16]\i[13]\n\n[half]I near had a heart attack when it was destroyed!\w8 \0\s[1]%(concernsmile)\1\s[16]\i[21]But you still managed to get onto desdes's mobile fortress and fight him anyway!\w8 \0\s[4]%(confusesmile)\n\n[half]Yes,\w4 well.\w8 \1\s[16]\i[22]\0\s[4]%(concernsmile)That was certainly one of my less proud achievements.\w8"
+		
+		"\1\s[17]\i[19]topassistant has a real knack for detective work!\w8 \0\s[1]%(happies)That she does.\w8 \1\s[17]\i[0]\0\s[3]%(calmsmile)I had absolute faith in her finding the answer behind Mr Whistler's scheme.\w8 \1\s[18]\i[14]\n\n[half]She could be a real ace reporter,\w4 don't you think?\w8 \0\s[3]%(confusesmile)\1\s[18]\i[21]Like Taboras Lloyd or Douglas Dert!\w8 \0\s[4]%(confusesmile)\n\n[half]Or someone else we know,\w4 yes.\w8 \1\s[18]\i[27]\n\n[half]...\w8\w8\0\s[4]%(neutral)\1\s[25]wherever she is,\w4 I hope she's doing well.\w8 \0\s[1]%(sad)\n\n[half]As do I,\w4 my boy.\w8"
+		
+		"\1\s[18]\i[0]Those were some really clever puzzles we had to solve.\w8 \0\s[2]%(confusesmile)You mean,\w4 while we were aboard the Royal Crown?\w8 \1\s[18]\i[22]\n\n[half]Yeah.\w8 \0\s[2]%(smiles)\1\s[18]\i[27]Kinda makes me sad that desdes was the one who made all of those.\w8 \0\s[2]%(confused)\1\s[18]\i[1]And just to get us separated from the rest of the crowd.\w8 \0\s[3]%(closeeyes)\n\n[half]Past all his pain and questionable actions,\w4 I do believe there is someone in there with the joy of puzzles in his heart.\w8 \1\s[16]\i[20]\n\n[half]Doesn't make how he tried to hurt you okay.\w8 \0\s[3]%(shock)\n\n[half]\w8\w8\s[7]\i[0]No,\w4 I suppose it doesn't.\w8"
+		
+		"\1\s[16]\i[0]Once we freed those wolves from desdes's control,\w4 \0\s[1]%(happies)\1\s[16]\i[22]they were such nice and friendly guys!\w8 \0\s[3]%(calmsmile)Yes,\w4 I do recall having some trouble pulling you away from them.\w8 \1\s[16]\i[0]\0\s[5]%(smiles)topassistant certainly teased you for a long while after about that.\w8 \1\s[17]\i[12]\n\n[half]She sure did.\w8 \0\s[5]%(happies)\1\s[17]\i[0]But I didn't really mind.\w8 \s[17]\i[9]Bickering with her was always kinda fun.\w8 \0\s[1]%(confusesmile)\n\n[half]The two of you did have a closeness with one another that was heartening to watch develop.\w8 \1\s[18]\i[27]\n\n[half]...\w8\w8\w8\0\s[1]%(shock)\1\s[25]it's easier to remember her like that.\w8 \0\s[1]%(sad)\1\s[24]Showing up to help me when I needed it most.\w8 Rather than...\w8 \0\s[12]\n\n[half]...\w8It's a complicated feeling.\w8 \s[7]\i[2]One I very much share with you there.\w8"
+		
+		"\1\s[17]\i[14]Figuring out that third way to read the music was brilliant,\w4 Professor!\w8 \0\s[3]%(calmsmile)Haha,\w4 it was simply finding another perspective with which to look at things.\w8 \1\s[17]\i[21]\0\s[5]%(smiles)A great gentleman always keeps his mind open to the possibilities around him.\w8 \1\s[21]\i[19]\n\n[half]A great gentleman is also a fantastic piano player,\w4 then!\w8 \0\s[4]%(concernsmile)\n\n[half]Oh,\w4 that was just leaning on my lessons from long ago.\w8 \1\s[21]\i[0]\0\s[4]%(smiles)It was Melina who was the real star in that equation.\w8 \1\s[19]\i[22]\n\n[half]She did sing the final part to bring it all together.\w8 \0\s[1]%(happies)\1\s[16]\i[18]Janice has such a beautiful voice.\w8 \0\s[3]%(calmsmile)\n\n[half]Truly,\w4 she does.\w8"
+	}
+	if favegame == "Miracle Mask"
+	{
+		"\1\s[22]\i[17]What was with all the rhyming?\w8 \0\s[1]%(neutral)Hm?\w8 What do you mean,\w4 Luke?\w8 \1\s[22]\i[25]\n\n[half]You know.\w8 The whole,\w8 \0\s[1]%(shock)\1\s[19]\i[3]'One,\w4 two,\w4 three,\w4 four,\w8 \0\s[7]\i[0]\1\s[19]\i[15]Did you miss me,\w4 Monte d'Or?\w8 \0\n\n[half]Ah.\w8 \s[4]%(concernsmile)You mean while maskedgent was pretending to be the Masked Gentleman.\w8 \1\s[15]\i[27]\n\n[half]It's very catchy,\w4 but I never really understood it.\w8 \0\s[4]%(sadsmile)\1\s[18]\i[9]Do you,\w4 Professor?\w8 \0\s[3]%(concernsmile)\n\n[half]Randall always had a flair for the dramatics.\w8 \1\s[18]\i[27]\0\s[2]%(confused)I'm pretty sure he was just playing up his part in the mystery he was presenting to us.\w8 \1\s[26]\i[27]\n\n[half]Hm.\w8"
+		
+		"\1\s[22]\i[0]How d'ya suppose Mr Ledore and Mrs Ledore are doing?\w8 \0\s[1]%(calmsmile)I have faith that \_a[HenryLedore]Henry\_a and \_a[AngelaLedore]Angela\_a are able to keep Monte d'Or running smoothly,\w4 as well as looking after maskedgent.\w8 \1\s[22]\i[9]\0\s[4]%(concernsmile)As much of a handful I know he can be,\w4 he wouldn't attempt destroying the city again,\w4 I'm sure.\w8 \1\s[10]\n\n[half]Yeah.\w8 They're all probably doing well.\w8 \0\s[5]%(smiles)\n\n[half]We should make time to visit them all.\w8 \1\s[15]\i[27]\0\s[5]%(calmsmile)I think thegoldenapple,\w4 misslayton,\w4 and pottyprof would enjoy getting to meet them.\w8 \1\s[18]\i[0]\n\n[half]It does sound like it would make a fun trip.\w8"
+		
+		"\1\s[19]\i[14]The secret behind the Masks of Order and Chaos was a real brilliant deduction,\w4 Professor!\w8 \0\s[4]%(concernsmile)Ah,\w4 thank you,\w4 my boy.\w8 \1\s[19]\i[21]\0\s[2]%(confusesmile)I believe my way of handling the situation with desdes was a much more clever solution,\w4 however.\w8 \1\s[17]\i[12]\n\n[half]That was pretty great,\w4 too.\w8 \0\s[2]%(concernsmile)\1\s[21]\i[15]He didn't even realise you had found him out!\w8 \0\n\n[half]Well.\w8 \s[5]%(calmsmile)A gentleman always pays close attention to how his friends are feeling.\w8 \1\s[21]\i[22]\0\s[5]%(smiles)It was simply that his act as \_a[AngelaLedore]Angela\_a wasn't as airtight as he'd hoped.\w8 \1\s[18]\i[21]\n\n[half]That's the Professor for you!\w8 \0\s[1]%(concernsmile)\1\s[18]\i[0]Always paying attention to the smallest of details.\w8"
+		
+		"\1\s[16]\i[13]It's a right shame we didn't get to see more of Akbadain ourselves.\w8 \0\s[4]%(concernsmile)Yes,\w4 I would have liked to have seen if anything changed since maskedgent and I went down there.\w8 \1\s[19]\i[0]\n\n[half]All the traps would've been deactivated,\w4 right?\w8 \0\s[4]%(confused)\1\s[19]\i[3]Since you personally took care of them all.\w8 \0\s[2]%(confusesmile)\n\n[half]Perhaps.\w8 \s[2]%(calmsmile)The Azran technology works in rather mysterious ways.\w8 \1\s[16]\i[0]\0\s[3]%(concernsmile)Though,\w4 I'm sure \_a[HenryLedore]Henry\_a would have made sure it was as safe as he could make it for further exploration teams.\w8 \1\s[16]\i[22]\n\n[half]Yeah.\w8 \0\s[3]%(smiles)\1\s[16]\i[0]At least you have the firsthand experience of seeing it all yourself!\w8 \0\s[4]%(happies)\n\n[half]Quite right,\w4 my boy.\w8"
+		
+		"\1\s[15]\i[24]We should have explored more of Pumpkin Park while we were in Monte d'Or...\w8 \0\s[4]%(happies)Hahaha,\w4 you really enjoyed the rides there,\w4 didn't you?\w8 \1\s[17]\i[2]\n\n[half]Of course!\w8 \0\s[4]%(smiles)\1\s[17]\i[3]We could see the whole city from the top of that roller coaster.\w8 \0\s[2]%(confusesmile)\n\n[half]The puzzles we had to solve there were fun as well.\w8 \1\s[17]\i[0]\0\s[3]%(happies)If we do make it back out there on a trip,\w4 I wouldn't mind taking you,\w4 pottyprof,\w4 and misslayton to see some more of it.\w8 \1\s[21]\i[21]\n\n[half]Yippee!\w8"
+		
+		"\1\s[26]\i[27]Those stories Mr Ascot was writing weren't very good,\w4 were they?\w8 \0\s[1]%(confusesmile)Ah,\w4 you mean the ones detailing desdes's lies to maskedgent about what happened with \_a[HenryLedore]Henry\_a and \_a[AngelaLedore]Angela\_a.\w8 \1\s[16]\i[17]\n\n[half]None of them had a proper ending.\w8 \0\s[1]%(concernsmile)\1\s[16]\i[7]And they all had the same message,\w4 just to hammer in the point!\w8 \0\s[3]%(sadsmile)\n\n[half]Well.\w8 He did have a point he wanted to make.\w8 \1\s[16]\i[17]\0\s[7]\i[2]Even if it was terribly misguided...\w8"
+	}
+	if favegame == "Azran Legacy"
+	{
+		"\1\s[18]\i[19]Riding around in the Bostonius was amazing!\w8 \0\s[1]%(happies)\1\s[18]\i[21]Do you think desdes and Mr Raymond built it themselves?\w8 \0\s[2]%(confusesmile)I wouldn't doubt it.\w8 \1\s[21]\i[0]\0\s[5]%(calmsmile)Descole is very good with mechanics,\w4 as far as we've seen.\w8 \1\s[16]\i[27]\n\n[half]Seems we end up facing a bunch of people who are good with mechanics.\w8 \0\s[4]%(concernsmile)\n\n[half]It is a strange coincidence,\w4 certainly.\w8 \1\s[16]\i[9]\0\s[3]%(calmsmile)And it helps,\w4 then,\w4 that we have our own knowledge on the subject.\w8 \1\s[21]\i[19]\n\n[half]It does!\w8 \0\s[3]%(smiles)\1\s[21]\i[12]Though,\w4 I'm still learning.\w8 \0\s[4]%(happies)\n\n[half]I believe we both are,\w4 my boy.\w8"
+		
+		"\1\s[18]\i[0]Travelling around the world was quite the adventure,\w8 \0\s[1]%(happies)\1\s[18]\i[21]wasn't it,\w4 Professor?\w8 \0Indeed it was.\w8 \1\s[18]\i[22]\0\s[3]%(calmsmile)We were able to see a rather fascinating spread of cultures while pursuing the keys we needed.\w8 \1\s[18]\i[0]\n\n[half]Did you have a favourite amongst them?\w8 \0\s[1]%(confusesmile)\1\s[21]\i[21]Mine was definitely speaking to Big Red in Torrido.\w8 \0\s[1]%(happies)\1\s[21]\i[19]Oh,\w4 and seeing the tropical beach of San Grio!\w8 \0\s[4]%(happies)\n\n[half]Hahaha,\w4 I'm glad you had fun during our travels.\w8 \1\s[16]\i[22]\0\s[2]%(confusesmile)It's difficult to pick just one,\w4 \s[2]%(happies)but I think I have it narrowed down between our stops in Froenborg and Phong Gi.\w8 \1\s[16]\i[21]\n\n[half]Those were good ones!\w8"
+		
+		"\1\s[16]\i[13]Even if we didn't know her for very long,\w8 \0\s[4]%(confusesmile)\1I think aurorazan was a really great travelling companion.\w8 \0\s[4]%(concernsmile)It was fun to see her experience the world around her.\w8 \1\s[16]\i[9]\0\s[2]%(closeeyes)It's a shame most of our time was spent in search of the keys we needed.\w8 \1\s[21]\i[13]\n\n[half]Yeah.\w8 It would have been a lot more fun if we could teach her more things.\w8 \0\s[2]%(sadsmile)\1\s[21]\i[12]And had more time to pet those sheep in Hoogland.\w8 \0\s[4]%(happies)\n\n[half]Hahaha,\w4 she was quite taken with them.\w8 \1\s[21]\i[0]\0\s[4]%(smiles)Even more so when you began translating for her.\w8 \1\s[17]\i[19]\n\n[half]They were so nice to her,\w4 \s[17]\i[21]I just had to let her know!\w8"
+		
+		"\1\s[25]I still don't really understand it...\w8 \0\s[1]%(confused)What's that,\w4 my boy?\w8 \1\s[18]\i[24]\n\n[half]Back then,\w4 desdes saved me.\w8 \0\s[1]%(sad)\1From that trap in the sanctuary.\w8 \s[25]After everything,\w4 why would he do that?\w8 \0\s[2]%(closeeyes)\n\n[half]It does seem an odd action,\w4 taking everything into account.\w8 \1\s[18]\i[1]\0\s[5]%(neutral)But I'm not sure you should worry over it being a contradiction.\w8 \1\s[18]\i[2]\n\n[half]But he was a horrible person.\w8 \0\s[1]%(confused)\1\s[25]He hurt you and me both!\w8 \0\s[5]%(closeeyes)\n\n[half]Which,\w4 I'm sure,\w4 is why he left like he did.\w8 \1\s[18]\i[24]\0\s[3]%(neutral)He chose to protect you,\w4 to protect the world alongside us,\w4 but it doesn't excuse the actions he took to get there.\w8 \1\s[25]\0\s[1]%(confused)Perhaps...\w8\s[1]%(closeeyes)he knew it best to escape as cleanly as he could.\w8 \1\s[18]\i[1]\n\n[half]...\w8\w8\s[18]\i[11]Maybe.\w8"
+		
+		"\1\s[24]So topassistant was working with Targent the whole time...\w8 \0\s[1]%(closeeyes)It seems like it.\w8 \1\n\n[half]...\w8\w8\w8\0\s[1]%(neutral)\1\s[15]\i[1]Is it weird?\w8 \0\s[1]%(sad)\1\s[16]\i[1]That both of you knew Mr Leon at one point or another?\w8 \0\s[7]\i[2]\n\n[half]I think Targent is the bigger sticking point to me.\w8 \1\s[16]\i[24]\0\s[3]%(annoyed)They broke apart my family and made an asset out of her instead of giving any of us a chance to live our lives.\w8 \1\s[15]\i[11]\n\n[half]That's...\w8\w8\s[24]a good point.\w8 \0\s[1]%(sad)\1You're right,\w4 Professor.\w8 \s[21]\i[2]Targent is the one behind all this.\w8 \0\s[1]%(closeeyes)\n\n[half]It's regrettable,\w4 of course,\w4 how everything turned out.\w8 \1\s[25]\0\s[3]%(concernsmile)But you and I still have each other.\w8 \1\s[18]\i[13]\n\n[half]Yeah.\w8 \s[18]\i[12]We'll be friends forever,\w4 Professor.\w8"
+		
+		"\1\s[25]It was amazing,\w4 what aurorazan did for us.\w8 \0\s[7]\i[0]Indeed it was.\w8 \1\s[18]\i[13]\0\s[4]%(concernsmile)Even more amazing was your readiness to give your life for the sake of the world.\w8 \1\s[18]\i[27]\n\n[half]Well,\w4 yeah!\w8 \0\s[4]%(neutral)\1\s[18]\i[14]A gentleman wouldn't allow the world to be destroyed so long as he could do whatever he could to prevent it!\w8 \0\s[4]%(concernsmile)\n\n[half]Well.\w8 Your eagerness was certainly something.\w8 \1\s[16]\i[27]\0\s[7]\i[2]As sad as we all were to see Aurora go,\w4 I'm quite glad you were okay in the end.\w8 \1\s[16]\i[13]\n\n[half]Yeah.\w8\w8 \0\s[4]%(sad)\1\s[25]I miss her,\w4 though.\w8 \0\s[1]%(closeeyes)\n\n[half]As do I,\w4 my boy.\w8"
+	}
+	if favegame == "Professor Layton vs Phoenix Wright"
+	{
+		"\1\s[16]\i[0]It's still real amazing to think about all the technology and tricks Mr Cantabella used to create Labyrinthia.\w8 \0\s[1]%(concernsmile)\1\s[18]\i[12]I really thought it was magic at first!\w8 \0\s[2]%(confusesmile)It was a rather clever trick.\w8 \1\s[18]\i[0]\0\s[5]%(calmsmile)One specifically designed to make sure we would be completely fooled.\w8 \1\s[18]\i[9]\n\n[half]Yeah.\w8\w4 \0\s[0]\1\s[16]\i[27]Reminds you a bit of our adventures in Folsense,\w4 doesn't it?\w8 \0\s[2]%(concernsmile)\n\n[half]There are a few similarities,\w4 yes.\w8"
+		
+		"\1\s[22]\i[27]I wonder if Eve and Constantine have learned to get along better...\w8 \0\s[3]%(happies)Haha,\w4 that's right.\w8 \1\s[22]\i[9]\0\s[3]%(smiles)You said you and borgerfey helped the two with a puzzle while looking for her.\w8 \1\s[16]\i[21]\n\n[half]It was a fun one!\w8 \0\s[1]%(happies)\1\s[19]\i[22]And since Mr Barnham and \_a[EspellaCantabella]Espella\_a can be on good terms now,\w8 \s[19]\i[19]so should Eve and Constantine!\w8 \0\s[3]%(calmsmile)\n\n[half]Then I do hope the two were able to reconcile their differences.\w8"
+		
+		"\1\s[22]\i[17]It's hard to think of her as Eve Belduke when we knew her as High Inquisitor Darklaw the whole time.\w8 \0\s[3]%(concernsmile)I can see why you'd have some troubles with it,\w4 certainly,\w8 \1\s[15]\i[1]\0\s[3]%(confusesmile)considering you were more well acquainted with her than I.\w8 \1\s[23]\i[29]\n\n[half]And I wasn't even there for the trial where you and mraceattorney revealed everything.\w8 \0\s[5]%(concernsmile)\n\n[half]But I must admit,\w4 \1\s[23]\i[1]\0I,\w4 too,\w4 tend to think of Espella's cat when I hear the name Eve.\w8 \1\s[22]\i[14]\n\n[half]They even kinda looked the same,\w4 didn't they?\w8 \0\s[1]%(confusesmile)\n\n[half]Perhaps a bit.\w8"
+		
+		"\0\s[2]%(confusesmile)I'm still rather curious about that trial where you all thought I had been transformed into a golden statue.\w8 \1\s[16]\i[24]It was...\w8\w8\0\1\s[2]%(shock)\s[25]a lot,\w4 to be sure.\w8 \0\s[3]%(concernsmile)\n\n[half]Ah,\w4 I'm sorry to dredge up those unpleasant memories.\w8 \1\s[18]\i[1]\0\s[3]%(sadsmile)borgerfey did tell me you had a difficult time of it.\w8 \1\s[18]\i[13]\n\n[half]It's all right.\w8 \0\s[1]%(concernsmile)\1\s[18]\i[9]I'm just glad you turned out to be okay in the end.\w8 \0\s[1]%(sadsmile)\n\n[half]As I am with you.\w8 \1\s[16]\i[9]\0\s[2]%(annoyedsmile)Though,\w4 that still doesn't absolve my curiosity.\w8 \1\s[16]\i[3]\n\n[half]Professor!\w8"
+		
+		"\1\s[21]\i[19]mraceattorney was really cool to watch in those witch trials.\w8 \0\s[1]%(surprisesmile)\1\s[21]\i[27]Especially knowing how we all weren't completely in our right minds.\w8 \0\s[2]%(calmsmile)Yes,\w4 he was quite impressive,\w4 \1\s[21]\i[0]\0cutting a formidable figure.\w8 \s[3]%(smiles)I very much enjoyed our battle against one another.\w8 \1\s[16]\i[21]\n\n[half]It must have been really something!\w8 \0\s[3]%(happies)\1\s[16]\i[13]I can't believe I had to miss it.\w8 \0\s[5]%(smiles)\n\n[half]You had your own important role to play in the unfolding of this mystery.\w8 \1\s[16]\i[22]\0\s[5]%(calmsmile)Which,\w4 might I say,\w4 you did quite marvellously.\w8 \1\s[16]\i[21]\n\n[half]Thanks,\w4 Professor!\w8 \0\s[1]%(happies)\1\s[22]\i[17]I think I'd still have liked to have seen that last trial,\w4 though...\w8"
+		
+		"\1\s[21]\i[21]Getting to show mraceattorney and borgerfey around London once we got back was lots of fun!\w8 \0\s[3]%(concernsmile)Yes,\w4 though explaining everything behind our sudden absences was a bit of a hassle...\w8 \1\s[16]\i[27]\n\n[half]It was a bit terrifying to hear how much legalese Mr Wright actually knew.\w8 \0\s[1]%(concernsmile)\1\s[16]\i[0]Really makes me want to see him in an actual trial.\w8 \0\s[0]\n\n[half]I'd very much like to see that as well.\w8 \1\0\s[3]%(concernsmile)But it was nice to have a bit of a break from all that courtroom drama after everything.\w8 \1\s[22]\i[9]\n\n[half]I guess that's true.\w8"
+		
+		"\1\s[18]\i[13]I sure hope \_a[EspellaCantabella]Espella\_a's doing better now.\w8 \0\s[1]%(concernsmile)\1\s[18]\i[12]She's got her father and friend back,\w4 and we uncovered the truth behind what happened.\w8 \0\s[3]%(concernsmile)I hope she's able to get the help she needs as well.\w8 \1\s[18]\i[13]\0\s[3]%(sadsmile)The past while must have truly been difficult for her,\w4 with everything we learned.\w8 \1\s[16]\i[24]\n\n[half]I wish we could have stayed a bit longer to help ourselves.\w8 \0\s[1]%(sad)\1\s[24]I understand what it's like to feel completely alone like she was.\w8 \0\s[1]%(concernsmile)\n\n[half]I'm sure she would have appreciated you offering that understanding to her,\w4 Luke.\w8 \1\s[21]\i[12]\n\n[half]Maybe we can pay them a visit sometime!\w8 \0\s[2]%(concernsmile)\n\n[half]Yes,\w4 perhaps.\w8"
+	}
+	if favegame == "New World of Steam" //I can add more accurate ones once the game is out. for now, nonsense!
+	{
+		"\1\s[18]\i[19]Wasn't Mr Eggmuffin's workshop such a fantastical place?\w8 \0\s[4]%(smiles)All of the devices inside were certainly a sight to see.\w8 \1\s[18]\i[21]\0\s[3]%(happies)As was that puzzle we had to complete in order to gain entry.\w8 \1\s[19]\i[14]\n\n[half]Even in Steam Bison,\w4 you can't beat a trusty puzzle lock!\w8 \0\s[4]%(happies)\n\n[half]Haha,\w4 it seems not.\w8"
+		
+		{
+			"\1\s[21]\i[19]How did you like Steam Bison,\w4 Professor?\w8 \0\s[1]%(happies)It's a rather fascinating place.\w8 \1\s[21]\i[21]\0\s[2]%(calmsmile)Reminds me of reading history books which detail the technological prowess of old London.\w8 \1\s[18]\i[14]\n\n[half]With all the cool machines,\w4 right?\w8 \0\s[2]%(smiles)\1\s[18]\i[21]It gives the place a lot of personality.\w8 \0\s[4]%(happies)\n\n[half]Hahaha,\w4 "
+			--
+			"it certainly does"
+			"that's a good way of putting it"
+			--
+			".\w8"
+		}
+		
+		"\1\s[16]\i[27]Being a detective is a lot of work.\w8 \0\s[1]%(happies)\1\s[18]\i[21]But being able to solve so many mysteries is great!\w8 \0\s[0]You seem to be doing quite well for yourself.\w8 \1\s[18]\i[0]\0\s[3]%(happies)I hope you know how proud I am of you,\w4 my boy.\w8 \1\s[18]\i[13]\n\n[half]Aww,\w4 Professor...\w8 \0\s[0]\1\s[21]\i[15]\nI'll do my best to keep surpassing your expectations!\w8 \0\s[1]%(happies)\1\s[18]\i[3]It's what your star apprentice is capable of!\w8 \0\s[3]%(calmsmile)\n\n[half]Then I look forward to being witness to it every step of the way.\w8"
+	}
+	if favegame == "Layton Brothers Mystery Room"
+	{
+		"\1\s[26]\i[0]Has pottyprof told you much about his new friend?\w8 \0\s[1]%(neutral)\1\s[18]\i[21]She's a real spitfire for sure!\w8 \0\s[2]%(confusesmile)Is that so?\w8 \1\s[16]\i[9]\n\n[half]Seemed like she was walking all over him at first,\w8 \0\s[2]%(confused)\1\s[16]\i[21]but the two work really well together!\w8 \s[16]\i[27]Took her a bit to get used to him,\w4 though.\w8 \0\s[4]%(confusesmile)\n\n[half]Well,\w4 I'm glad he's making friends either way.\w8 \1\s[16]\i[0]\0\s[3]%(concernsmile)Moreso if it's someone who can understand his unique approach to his work.\w8 \1\s[17]\i[21]\n\n[half]Yeah,\w4 he really lucked out.\w8"
+		
+		"\1\s[22]\i[17]I can't tell if pottyprof heard one too many stories about desdes\w8 \0\s[1]%(confusesmile)\1\s[22]\i[7]or if he heard about what happened to mraceattorney.\w8 \0Ah.\w8 \1\s[15]\i[1]\0\s[3]%(confusesmile)Both would explain his rather\w8 \1\s[15]\i[27]\0\s[3]%(concernsmile)uncouth behaviour as of recent.\w8 \1\s[16]\i[3]\n\n[half]As annoying as it can get,\w4 \s[16]\i[27]I think I like this side to him much better.\w8 \0\s[1]%(concernsmile)\1\s[16]\i[9]Feels like he's being more truthful to himself.\w8 \0\s[1]%(confusesmile)\n\n[half]It's a bit disheartening to see,\w4 but I suppose I have to agree.\w8 \1\s[16]\i[1]\0\s[7]\i[0]Having to hide who you truly are would be a cruel fate to impose onto anyone.\w8 \1\s[18]\i[9]\n\n[half]It sure would!\w8"
+		
+		"\0\s[3]%(calmsmile)It was a privilege to get to see the reconstruction machine in action at the Yard.\w8 \1\s[21]\i[21]Yeah!\w8 \0\s[3]%(smiles)\1\s[21]\i[0]Constable Barton was right to be so proud of it,\w4 too.\w8 \s[22]\i[1]Say,\w4 Professor.\w8 \0\s[1]%(confusesmile)\1\s[22]\i[27]D'ya think he'd ever make Commissioner?\w8 \0\s[1]%(happies)\n\n[half]That would certainly be the day.\w8 \1\s[22]\i[0]\0\s[3]%(calmsmile)I think \_a[InspectorChelmey]Inspector Chelmey\_a could rest easy if Barton could take charge like that.\w8 \1\s[16]\i[22]\n\n[half]I'd hope so!\w8 \0\s[3]%(smiles)\1\s[16]\i[27]Though I can't even imagine the good Inspector retiring.\w8 \0\s[1]%(concernsmile)\n\n[half]No,\w4 I suppose not.\w8 \1\s[16]\i[9]\0\s[2]%(confusesmile)At least,\w4 not for a long while yet.\w8"
+		
+		"\1\s[22]\i[17]So pottyprof doesn't like pineapple,\w8 \0\s[1]%(neutral)\1\s[22]\i[6]but he does like pickles.\w8 \0\s[1]%(confused)Yes?\w8 \1\s[19]\i[22]\n\n[half]His friend's the exact opposite!\w8 \0\s[1]%(concernsmile)\1\s[16]\i[0]It just got me to thinking about different ingredients you can use in a sarnie.\w8 \0\s[2]%(confusesmile)\n\n[half]I see.\w8 \s[5]%(confusesmile)But,\w4 Luke,\w8 \1\s[16]\i[1]\0\s[5]%(concernsmile)you like everything on your sandwiches,\w4 don't you?\w8 \1\s[18]\i[27]\n\n[half]I wouldn't say everything,\w8 \s[18]\i[21]but I do like a lot of things.\w8 \0\s[1]%(confusesmile)\1\s[19]\i[0]And you like pretty traditional fillings,\w4 Professor.\w8 \0\s[1]%(concernsmile)\n\n[half]Of course.\w8 \1\s[19]\i[22]\0\s[2]%(calmsmile)Constructing a proper sandwich is rather like constructing the perfect puzzle.\w8 \1\s[18]\i[21]\n\n[half]We have had our fair share of fun puzzles on them!\w8"
+		
+		"\1\s[16]\i[13]It's such a shame how little pottyprof enjoys helping out in the kitchen.\w8 \0\s[4]%(concernsmile)I certainly understand his reasonings,\w8 \1\s[16]\i[9]\0\s[4]%(sadsmile)but it is,\w4 indeed,\w4 a little disheartening.\w8 \1\s[16]\i[27]\n\n[half]Well.\w8 \s[18]\i[14]I like helping out with the cooking and cleaning,\w4 Professor.\w8 \0\s[1]%(happies)\1\s[18]\i[21]As do thegoldenapple and misslayton,\w8 \s[18]\i[17]even if Flora likes taking creative liberties with the recipes.\w8 \0\s[4]%(smiles)\n\n[half]Yes,\w4 and I appreciate all of your help.\w8 \1\s[18]\i[19]\0\s[2]%(happies)We make quite the team when it comes to meal time,\w4 wouldn't you say?\w8 \1\s[17]\i[21]\n\n[half]We sure do!\w8 \0\s[3]%(concernsmile)\n\n[half]At least he knows the basics.\w8 \1\s[17]\i[0]\0\s[3]%(confusesmile)Perhaps he'll come to appreciate it someday.\w8 \1\s[22]\i[17]\n\n[half]On the other hand,\w8 \0\s[1]%(concernsmile)\1\s[19]\i[9]pizza does always sound good.\w8"
+		
+		"\1\s[22]\i[23]Sometimes,\w4 \0\s[1]%(neutral)\1pottyprof says something about his time before we found him that makes me worry...\w8 \0\s[1]%(sad)I know what you mean.\w8 \1\s[22]\i[24]\0\s[7]\i[2]Saying he's survived being shot and his mind being torn in half...\w8 \1\s[18]\i[27]\n\n[half]It's about as bad as some of our adventures,\w4 innit?\w8 \0\s[3]%(concernsmile)\n\n[half]Haha,\w4 I suppose that does hardly give us a leg to stand on.\w8 \1\s[18]\i[9]\0\s[2]%(sad)But still,\w4 it makes me grateful that we can offer him a place to find some safety in...\w8 \1\s[16]\i[13]\n\n[half]Yeah.\w8 \s[16]\i[12]He's slowly realising that he's able to trust us!\w8 \0\s[4]%(sadsmile)\n\n[half]While it won't make up for those past traumas,\w8 \1\s[16]\i[9]\0\s[3]%(concernsmile)it can be a relief to have people who will help when needed.\w8"
+		
+		"\0\s[2]%(confusesmile)Say,\w4 Luke.\w8 \1\s[18]\i[0]Yes,\w4 Professor?\w8 \0\s[3]%(concernsmile)\n\n[half]You've seen more of pottyprof's friends than I have.\w8 \1\s[18]\i[27]\0\s[3]%(confusesmile)How would you describe them?\w8 \1\s[22]\i[27]\n\n[half]Heehee,\w4 getting a bit too curious there?\w8 \0\s[1]%(concernsmile)\1\s[17]\i[22]Well,\w4 I can say that they're all really clever!\w8 \0\s[1]%(neutral)\1\s[17]\i[0]Every time I see them all together,\w4 they're working on some puzzle or other.\w8 \0\s[2]%(confusesmile)\n\n[half]Is that so?\w8 \1\s[17]\i[21]\n\n[half]Yeah!\w8 \0\s[2]%(happies)\1\s[10]Alfendi's not always the one participating in the debates,\w4 but he likes to be the one to present the solution.\w8 \0\s[0]\1\s[15]\i[21]It's kinda fun,\w4 seeing him use some of your methods in his own style.\w8 \0\s[4]%(happies)\n\n[half]I'm glad to hear he's having fun,\w4 at least.\w8 \1\s[10]\0\s[1]%(confusesmile)I know he can struggle with others refusing to see him for the brilliant young man he is.\w8"
+	}
+	if favegame == "Layton Mystery Journey"
+	{
+		"\1\s[22]\i[17]That dog misslayton has been hanging around with is a rather odd character.\w8 \0\s[2]%(confusesmile)Is he,\w4 now?\w8 \1\s[19]\i[9]\n\n[half]Not in a bad way,\w4 of course!\w8 \0\s[2]%(concernsmile)\1\s[19]\i[27]He's just not like most other dogs I've had a chance to talk with.\w8 \0\s[3]%(confident)\n\n[half]Sounds like there's a puzzle to be had there.\w8 \1\s[16]\i[3]\n\n[half]Of course you'd be able to find a puzzle in that,\w4 Professor!\w8"
+		
+		"\0\s[2]%(confused)Those friends misslayton made recently...\w8 \1\s[18]\i[0]What about them?\w8 \0\s[4]%(concernsmile)\n\n[half]Oh,\w4 sorry.\w8 \1\s[18]\i[27]\0\s[4]%(confusesmile)I just think the both of them have a deeper puzzle to their persons.\w8 \1\s[16]\i[3]\n\n[half]That's just like you,\w4 Professor.\w8 \0\s[3]%(calmsmile)\n\n[half]Of course,\w4 I know that Katrielle can handle them on her own.\w8 \1\s[16]\i[0]\0\s[3]%(smiles)She's become such an independent young gentlewoman.\w8 \1\s[17]\i[21]\n\n[half]And she's almost as good as you are at puzzles!\w8"
+		
+		{
+			"\1\s[16]\i[22]Seeing misslayton grow up and seeing what sorts of characteristics she's taken from you has been fun.\w8 \0\s[3]%(happies)Haha,\w4 I only hope she's taking my more charitable traits.\w8 \1\s[17]\i[21]\n\n[half]I'd say so!\w8 \0\s[3]%(smiles)\1\s[17]\i[0]The way she reveals the true culprit behind a case...\w8 \1\s[17]\i[3]She's got your flair for the dramatics!\w8 \0\s[4]%(confusesmile)\n\n[half]Well.\w8 \s[4]%(concernsmile)I'm not so sure "
+			--
+			"I'd agree with that"
+			"about that"
+			--
+			".\w8"
+		}
+		
+		"\1\s[16]\i[13]The way misslayton always offers her understanding to everyone around her in the end...\w8 \0\s[1]%(confusesmile)\1\s[16]\i[12]She really inherited your kindness,\w4 Professor.\w8 \0\s[2]%(concernsmile)She does offer her hand to others quite freely...\w8 \1\s[16]\i[0]\0\s[3]%(calmsmile)But I'd say she's inherited much more of your headstrong nature and jolliness than my own.\w8 \1\s[15]\i[16]\n\n[half]What?\w8 \s[15]\i[9]That's ridiculous.\w8 \0\s[3]%(happies)\1\s[18]\i[12]She's your daughter!\w8 \0\s[5]%(smiles)\n\n[half]The both of you are also united in your unwillingness to pack lightly.\w8 \1\s[18]\i[27]\0\s[3]%(calmsmile)And how could I fail to mention that incurable sweet tooth you share?\w8 \1\s[21]\i[14]\n\n[half]Sweets are so good,\w4 though!\w8 \0\s[1]%(happies)\1\s[21]\i[12]Every kid agrees with that.\w8"
+		
+		"\0\s[3]%(shock)How did you manage to help deliver a baby \1\s[16]\i[1]\0while on a sinking ship in the middle of a storm,\w4 my boy?\w8 \1\s[18]\i[12]It wasn't easy,\w4 I can tell you that much.\w8 \0\s[5]%(shock)\n\n[half]And then you managed to both survive being adrift until you were rescued!\w8 \1\s[18]\i[9]\0\s[1]%(neutral)Quite honestly,\w4 the whole of it is nothing short of being rather miraculous.\w8 \1\s[16]\i[13]\n\n[half]I'm definitely glad for it.\w8 \0\s[1]%(confusesmile)\1\s[16]\i[12]misslayton is a wonderful person whom I'm grateful I got the chance to get to know.\w8 \0\s[4]%(concernsmile)\n\n[half]I'm quite grateful for it as well.\w8 \1\s[16]\i[9]\0\s[4]%(confusesmile)I suppose that's the most important thing in the end.\w8 \1\s[18]\i[12]\n\n[half]Suppose so!\w8"
+		
+		"\1\s[19]\i[9]misslayton keeps saying she wants to take over the family business once she's older.\w8 \0\s[2]%(confusesmile)She's rather spirited about it,\w4 as well.\w8 \1\s[19]\i[27]\0\s[4]%(concernsmile)However,\w4 I'm afraid she has the wrong idea about what that business actually is.\w8 \1\s[18]\i[12]\n\n[half]Yeah,\w4 she thinks you run a detective agency when that's more my thing.\w8 \0\s[2]%(confused)\n\n[half]I'm not sure I'd want her going into archaeology,\w4 though.\w8 \1\s[18]\i[1]\0\s[7]\i[0]Based on what we know about her true parentage...\w8 \1\s[19]\i[9]\n\n[half]I doubt she'd have the patience for it,\w4 anyway.\w8 \0\s[4]%(concernsmile)\n\n[half]I suppose I can't disagree with that.\w8"
+		
+		"\1\s[26]\i[0]Oh,\w4 Professor,\w8 \0\s[1]%(neutral)\1\s[26]\i[27]you've helped out the Dragons at least once each,\w4 haven't you?\w8 \0\s[2]%(confused)Dragons?\w8 \1\s[26]\i[17]\w8\w8\0\s[2]%(concernsmile)Ah,\w4 I take it you mean the Seven Dragons.\w8 \1\s[17]\i[27]\0\s[5]%(smiles)Yes,\w4 I've assisted one or two of them recently.\w8 \1\s[19]\i[0]\n\n[half]They're all well on their way to becoming quite important to London,\w4 from what I've heard.\w8 \0\s[1]%(confusesmile)\1\s[22]\i[14]Kinda makes you wonder what all their plans are once they get there.\w8 \0\s[1]%(concernsmile)\n\n[half]It does,\w4 definitely.\w8 \1\s[16]\i[0]\0\s[3]%(calmsmile)Perhaps misslayton will be able to continue helping them in my stead.\w8 \1\s[16]\i[25]\n\n[half]You make it sound like you'd ever retire,\w4 Professor.\w8 \0\s[3]%(confusesmile)\1\s[16]\i[3]Which I know you'd never do willingly.\w8 \0\s[4]%(annoyedsmile)\n\n[half]Hahaha,\w4 and you make it sound like I'm some thrill seeker.\w8 \1\s[22]\i[14]\n\n[half]Perhaps not thrills,\w8 \0\s[4]%(confusesmile)\1\s[19]\i[3]but puzzles for sure.\w8"
+		
+		"\1\s[16]\i[13]It's a bit sad how distant pottyprof can be with misslayton,\w8 \0\s[1]%(confusesmile)\1\s[16]\i[27]isn't it,\w4 Professor?\w8 \0\s[3]%(concernsmile)Alfendi has never been one to easily accept anyone new in his life.\w8 \1\s[16]\i[9]\0\s[5]%(calmsmile)You remember hearing how long it took him to settle in with me.\w8 \1\s[16]\i[27]\0\s[5]%(confusesmile)And he's still not quite used to you.\w8 \1\s[18]\i[3]\n\n[half]True enough!\w8 \0\s[5]%(concernsmile)\1\s[18]\i[27]Kinda stings,\w4 having to accept it,\w4 though.\w8 \0\s[3]%(smiles)\n\n[half]Katrielle is sweet past all her rambunctious energy.\w8 \1\s[18]\i[0]\0\s[3]%(calmsmile)I'm sure,\w4 given more time,\w4 the two of them will be as close as you and thegoldenapple were.\w8 \1\s[21]\i[21]\n\n[half]Closer,\w4 I'd hope!\w8"
+	}
+	
+	"\1\s[18]\i[19]Oh,\w4 Professor!\w8 \0\s[1]%(surprisesmile)\1\s[18]\i[21]Remember that one time when...\w8 \0\s[2]%(confusesmile)Ah,\w4 yes,\w4 I do recall that.\w8 \1\s[18]\i[22]\0\s[5]%(calmsmile)It was the time you went and...\w8 \1\s[21]\i[21]\n\n[half]Exactly!\w8 \s[21]\i[13]Um,\w4 sorry about that.\w8 \0\s[3]%(concernsmile)\n\n[half]Everything turned out all right in the end.\w8 \1\s[21]\i[9]\0\s[5]%(confident)We even figured out the answer to our mystery.\w8 \1\s[18]\i[27]\n\n[half]We sure had a time of it,\w4 though!\w8"
+	
+	"\1\s[22]\i[14]Professor,\w8 \0\s[1]%(shock)\1\s[22]\i[6]wasn't there this one time where...?\w8 \0\s[1]%(confusesmile)Ah,\w4 yes.\w8 \1\s[22]\i[22]\0\s[5]%(calmsmile)Where the answer to the puzzle was...\w8 \1\s[21]\i[21]\n\n[half]Right!\w8 \0\s[5]%(smiles)\1\s[19]\i[14]Except then it turned out that...\w8 \0\s[4]%(happies)\n\n[half]Haha,\w4 it certainly took the both of us by surprise.\w8 \1\s[18]\i[21]\n\n[half]Which is pretty rare for you!\w8 \0\s[4]%(smiles)\1\s[18]\i[14]But then you had it all solved in the very next move!\w8 \0\s[5]%(calmsmile)\n\n[half]Once that fact came to light,\w4 the rest of the puzzle fell quickly into place.\w8 \1\s[18]\i[21]\n\n[half]That was a fun one!\w8"
+	
+	"\0\s[2]%(calmsmile)Luke,\w8 \1\s[18]\i[0]\0do you remember that time we travelled out to...?\w8 \1\s[18]\i[21]Oh,\w4 yeah!\w8 \0\s[2]%(smiles)\1\s[19]\i[14]It was a wild mystery we ran into for sure.\w8 \s[19]\i[21]Got your name on the front page for that one.\w8 \0\s[1]%(confusesmile)\n\n[half]That part I remember less well.\w8 \1\s[19]\i[0]\0\s[5]%(calmsmile)What struck me was this particular puzzle with its peculiar solution.\w8 \1\s[16]\i[3]\n\n[half]Of course that's the most important takeaway you got from all that!\w8"
+	
+	"\1\s[22]\i[27]So that puzzle back then...\w8 \0\s[5]%(calmsmile)It was quite the challenge,\w4 wasn't it?\w8 \1\s[22]\i[22]\0\s[5]%(smiles)I do enjoy when a puzzle stops us in our tracks like that.\w8 \1\s[18]\i[0]\n\n[half]You really had a fun time solving it,\w4 that's for sure.\w8 \0\s[2]%(confusesmile)\n\n[half]Perhaps we should go over it again.\w8 \1\s[17]\i[21]\n\n[half]I'm up for a refresher!\w8"
+	
+	"\0\s[2]%(confusesmile)Say,\w4 Luke.\w8 \1\s[18]\i[0]\0\s[3]%(happies)Do you remember our time in--?\w8 \1\s[18]\i[19]I do!\w8 \0\s[3]%(smiles)\1\s[18]\i[14]With all the gadgets and mist everywhere.\w8 \0\s[5]%(calmsmile)\n\n[half]And a difficult to crack case to top it all off.\w8 \1\s[16]\i[17]\n\n[half]But didn't you figure it out the day after we arrived?\w8 \0\s[1]%(confused)\n\n[half]Did I?\w8 \1\s[16]\i[1]\0\n...\w8\w8\w8\w8\s[4]%(confusesmile)Ah,\w4 I see.\w8 \1\s[16]\i[16]\0\s[3]%(concernsmile)We've confused our stories.\w8 \1\s[18]\i[12]\n\n[half]Oh,\w4 whoops!\w8 \s[18]\i[27]Sorry,\w4 Professor.\w8 \0\s[3]%(confusesmile)\n\n[half]It was bound to happen eventually.\w8"
+	
+	"\1\s[18]\i[19]Professor,\w8 \0\s[1]%(surprisesmile)\1do you remember when--?\w8 \0\s[1]%(happies)I believe I do.\w8 \1\s[18]\i[21]\0\s[3]%(concernsmile))You were quite upset about it,\w4 of course.\w8 \1\s[16]\i[14]\n\n[half]Well,\w4 it wasn't very fair of the mastermind to take such dirty methods!\w8 \0\s[4]%(confused)\n\n[half]...\w8I beg your pardon?\w8 \1\s[16]\i[17]\n\n[half]Wait.\w8\w8 \0\s[4]%(confusesmile)\1\s[16]\i[27]I think we're talking about two different things.\w8 \0\s[3]%(concernsmile)\n\n[half]Sorry,\w4 my boy.\w8 I must have misunderstood you.\w8 \1\s[18]\i[12]\n\n[half]It's all right!\w8 \0\s[1]%(concernsmile)\1\s[18]\i[27]Just have to straighten it all out for next time.\w8"
+	--
+	"\0\s[0]\1\s[26]\i[0]"
+	--
+	"\1\_q\n\n\![*]\__q[tidbits]%(againoptions)\__q \n\n[half]\![*]\q[Back to Journal,OnJournalMenu] \n\![*]\q[Back to Main Menu,OnKeroMenuRun]   \![*]\q[Cancel,CANCEL]\w8\e"
+}
+
+againoptions
+{
+	"Tell me another?"
+	"Got any more tidbits to share?"
+	"Any more adventure stories?"
+}
+
+
+
+//updates! rest is in etc.dic
+Select.keroupdatecheck
+{
+	"\1\![updatebymyself]\e"
+}
+
+
+//Another puzzle solved!

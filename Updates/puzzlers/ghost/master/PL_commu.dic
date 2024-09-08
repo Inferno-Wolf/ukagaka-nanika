@@ -1,0 +1,353 @@
+//---------------------------Communication--------------------------
+//Some ghosts have a feature where they will speak to your ghost, usually saying "hello" or "hi" or something like that. This file mostly handles how your ghost will reply when another ghost talks to them like that.
+
+
+//--OnCommunicate
+//OnCommunicate is called when your ghost is either targeted by another ghost for a conversation, or when your ghost is targeting another ghost for conversation. There's no need to touch any of this.
+OnCommunicate
+{
+	if reference0 == "user" || reference0 == "User"
+	{
+		//nope
+	}
+	else //---- answering another ghost
+	{
+		ReplyToGhost
+	}
+}
+
+
+
+//This is your ghost starting a conversation with another ghost. It will choose a random one from the currently open ghosts.
+OnStartTalking
+{
+	AlreadyResponded = 1
+	if ghostexcount > 0
+	{
+		_randghost = ANY(ghostexlist) //this simplifies the process!! thanks again, Zi!!
+		_randghost = _randghost[0,C_BYTE1] //and this removes the garble that comes after it, also thanks to Zi
+		
+		//Checks for the Sakura name
+		case _randghost
+		{
+			when "Defence" //AJ Trial Sims
+			{
+				res_reference0 = "Defence"
+				
+				"\1\b[0]\s[15]\i[16]Hey,\w8 \s[18]\i[21]that's my pen pal over there!\w8 \0\b[0]\s[2]%(confusesmile)Oh?\w8 \1\s[18]\i[19]\n\n[half]AJ,\w4 hello!\w8\e lilblue1"
+			}
+			when "RGB Puzzlers"
+			{
+				res_reference0 = "RGB Puzzlers"
+				
+				if teatime == 1 //on
+				{"\e teamodecheck"}
+				else //off
+				{"\e modecheck"}
+			}
+			//when "Moomintroll" //Moomin and Snufkin
+			//when "Moomins" //Moominhousehold
+			//when ""
+			//when "Layton" //themselves
+			others //Ghosts there is no specific response to.
+			{
+				res_reference0 = _randghost
+				
+				if teatime == 1 //on
+				{teatime = 0}
+				
+				"\0\b[0]\s[4]%(happies)Hello there,\w4 %(_randghost).\w8 \1\b[0]\s[17]\i[21]Hello!\w8\e"
+				
+				"\1\b[0]\s[16]\i[19]Professor,\w4 we have company!\w8 \0\b[0]\s[4]%(confusesmile)So we do.\w8 \1\s[18]\i[21]\0\s[4]%(happies)Hello there,\w4 %(_randghost)!\w8\e"
+			}
+		}
+	}
+	else //If no ghosts are open.
+	{
+		"\0\b[0]\s[1]%(confusesmile)I think we're the only ones here at the moment,\w4 %(user).\w8 \1\b[0]\s[16]\i[17]Unless you're saying we're not?\w8\e"
+		
+		"\1\b[0]\s[23]\i[29]Is there someone else here??\w8 \0\b[0]\s[3]%(concernsmile)I think we're very much alone with %(user),\w4 my boy.\w8 \1\s[17]\i[7]\n\n[half]Are you trying to scare us,\w4 %(user)?\w8 \0\s[3]%(neutral)\1\s[21]\i[2]Knock it off!\w8 ...\w8\0\s[4]%(concernsmile)\1\s[21]\i[24]please.\w8\e"
+	}
+}
+
+
+//--ReplyToGhost
+//all of this is pretty much Zi code!! everyone say thanks to Zi for figuring all this out!!
+ReplyToGhost
+{
+	_Speech = SPLIT(reference1,"\e")[0] //Everything the ghost said that the user can see
+	ConvoTag = SPLIT(reference1,"\e")[1] //Everything after the \e, which will be the invisible tags that track the conversation
+	_Last = SPLIT(reference1,"::")[1] //Ghosts using the reflect system send ":%(_Speech)" at the end of every communication, so _Last is what THIS ghost last said. See below.
+	
+	_Last = RemovePauses(_Last) //Removes pauses and quicksection tags so it can display properly
+	
+	case reference0
+	{
+		when "Defence"
+		{
+			"\![quicksection,true]%(_Last)\![quicksection,false]" //Only add this for ghosts that use the reflect system
+			--
+			"%(TrialSimsChats)"
+			--
+			"::%(_Speech)" //Reflects back what the other ghost said, only put it here if you're talking to a ghost that uses the same system or things may break
+		}
+		when "RGB Puzzlers"
+		{
+			"\![quicksection,true]%(_Last)\![quicksection,false]"
+			--
+			"%(rgbchats)"
+			--
+			"::%(_Speech)"
+		}
+		//when "Moomintroll"
+		//when "Moomins"
+		//when ""
+		//when "Layton"
+		others //Responses to unknown ghosts. AlreadyResponded keeps them from getting stuck in a loop.
+		{
+			if AlreadyResponded == 0 //didn't start the conversation
+			{
+				AlreadyResponded = 2
+				res_reference0 = reference0
+				
+				if teatime == 1 //on
+				{teatime = 0}
+				
+				"\0\b[0]\s[4]%(happies)Hello,\w4 %(reference0).\w8 \1\b[0]\s[18]\i[21]Hi there!\w8\e"
+				
+				"\1\b[0]\s[18]\i[21]Hello,\w4 %(reference0)!\w8 \0\b[0]\s[4]%(happies)Hello there.\w8 \1\s[18]\i[0]\0\s[3]%(smiles)I hope we don't get in your way.\w8 \1\s[17]\i[21]\n\n[half]Yeah,\w4 don't mind us!\w8 \0\s[1]%(concernsmile)\1\s[17]\i[15]We're on the tracks of a mystery!\w8\e"
+			}
+			elseif AlreadyResponded == 2 //for being pinged twice in a row
+			{
+				AlreadyResponded = 0
+				res_reference0 = ""
+				
+				"\0\b[0]\s[4]%(happies)Hello there.\w8 \1\b[0]\s[21]\i[19]We're really investigating here,\w4 aren't we,\w4 Professor?\w8 \0\s[3]%(calmsmile)\n\n[half]We sure are,\w4 my boy.\w8 \1\s[21]\i[21]\e"
+				
+				"\1\b[0]\s[18]\i[21]Hello hello!\w8 \0\b[0]\s[2]%(calmsmile)Ah,\w4 what a puzzle we have before us.\w8 \1\s[17]\i[22]\n\n[half]It is a lot like a puzzle,\w4 isn't it?\w8\e"
+			}
+			else //did start the conversation!
+			{
+				AlreadyResponded = 0
+				res_reference0 = ""
+				
+				"\0\b[0]\s[0]It will be interesting to have some company while we work at this mystery,\w4 \s[3]%(happies)won't it,\w4 Luke?\w8 \1\b[0]\s[22]\i[14]Maybe they'll be able to help us figure it out!\w8 \0\s[1]%(happies)\n\n[half]Perhaps.\w8\e"
+				
+				"\1\b[0]\s[16]\i[21]It's nice to meet another of %(user)'s friends.\w8 \0\b[0]\s[2]%(confusesmile)It is fascinating to see the type of company invited here alongside us,\w4 I agree.\w8 \1\s[16]\i[22]\e"
+			}
+		}
+	}
+}
+
+//Removes pauses and quicksections
+RemovePauses
+{
+	_argv[0] = RE_REPLACE(_argv[0],"\\!\[quicksection,(true|false|1|0)\]","")
+	_argv[0] = REPLACE(_argv[0],"\_q","")
+	_argv[0] = RE_REPLACE(_argv[0],"\\w\d","") //\w
+	_argv[0] = RE_REPLACE(_argv[0],"\\_w\[\d+\]","") //\_w[]
+	_argv[0]
+}
+
+
+//and Needle, of course. reference1 is the name of Needle's current shell
+OnNeedlePoke
+{
+	"\0\b[0]\1\b[0]"
+	--
+	if reference0 == 1 //Kero
+	{
+		if teatime == 1 //on
+		{
+			"\1\s[23]\i[29]Yowch!\w8 \0\s[4]%(shock)Luke,\w4 are you all right?\w8 \1\s[17]\i[2]\n\n[half]That hurt!\w8 \0\s[9]%(sad)\1%(user),\w4 be careful with that.\w8 \0\s[9]%(concernsmile)\1\s[27]\i[7]I'll spill my tea.\w8\e"
+			
+			"\0\s[9]%(shock)\1\s[23]\i[2]%(user),\w4 stop it!\w8 \0\s[9]%(upset)%(user),\w4 that's quite rude.\w8 \1\s[27]\i[20]\0\s[9]%(annoyed)We're in the middle of having our tea.\w8\e"
+		}
+		else //off
+		{
+			"\1\s[23]\i[29]Ow!\w8 \0\s[4]%(shockopen)Luke?\w8 \1\s[16]\i[17]\n\n[half]That was weird...\w8 \0\s[4]%(confused)\1\s[16]\i[5]Didn't hurt more than any burns I've gotten,\w4 though.\w8 \0\s[3]%(annoyed)\n\n[half]Perhaps take care with that Needle,\w4 %(user).\w8\e"
+			
+			"\1\s[23]\i[29]Hey!\w8 \0\s[4]%(shockopen)\1\s[23]\i[2]%(user),\w4 that hurts!\w8 \0\s[1]%(upset)%(user),\w4 I must ask you not to stick my friend here with that Needle.\w8 \1\s[16]\i[2]\0\s[1]%(annoyed)That's quite rude.\w8\e"
+		}
+	}
+	else //0; the Sakura
+	{
+		if teatime == 1 //on
+		{
+			"\0\s[7]\i[2]Ah--!\w8 \1\s[23]\i[29]Professor!\w8 \0\s[4]%(concernsmile)\1\s[21]\i[29]Are you okay?\w8 \0\s[3]%(concernsmile)\n\n[half]I'm all right.\w8 \1\s[21]\i[24]\0\s[9]%(concernsmile)It was just a small prick.\w8 \1\s[27]\i[27]\n\n[half]I guess so.\w8 \s[27]\i[9]You didn't even spill a drop of your tea!\w8 \0\s[9]%(upset)\n\n[half]%(user),\w4 \1\s[27]\i[10]\0I would appreciate it if you refrained from such juvenile behaviour.\w8\e"
+			
+			"\0\s[7]\i[2]Hm.\w8 \1\s[23]\i[29]Professor!\w8 \0\s[4]%(concernsmile)\1\s[21]\i[29]Are you all right?\w8 \0\s[3]%(concernsmile)\n\n[half]I'm fine,\w4 Luke.\w8 \1\s[21]\i[24]\0\s[9]%(smiles)See?\w8 \s[9]%(calmsmile)I haven't even spilled a drop of my %(servedtea).\w8 \1\s[27]\i[17]\n\n[half]I suppose so...\w8 \0\s[9]%(closeeyes)\1\s[27]\i[2]%(user),\w4 that was very rude!\w8 \0\s[9]%(sad)\n\n[half]Yes,\w4 please refrain from poking us in the middle of our tea,\w4 if you please.\w8\e"
+		}
+		else //off
+		{
+			"\0\s[7]\i[2]Ah--!\w8 \1\s[21]\i[2]Hey!\w8 %(user)!\w8 \0\s[4]%(concernsmile)\1\s[17]\i[2]You should be more careful with that Needle!\w8 \0\s[3]%(concernsmile)\n\n[half]It's all right,\w4 Luke.\w8 \1\s[16]\i[20]\0\s[3]%(sadsmile)Mostly,\w4 I was just startled.\w8 \1\s[16]\i[7]\n\n[half]Okay,\w8 if you say so,\w4 Professor...\w8\e"
+			
+			"\0\s[7]\i[2]Hm.\w8 \1\s[21]\i[2]%(user)!\w8 \0\s[4]%(concernsmile)\1\s[17]\i[2]You shouldn't poke the Professor with that Needle!!\w8 \0\s[3]%(concernsmile)\n\n[half]It's all right,\w4 Luke.\w8 \1\s[16]\i[20]\0\s[5]%(annoyedsmile)If you're attempting to swordfight me,\w4 %(user),\w4 I'm afraid I must decline.\w8 \1\s[18]\i[24]\n\n[half]As long as you're forgiving them,\w4 I guess I can't be angry at %(them)...\w8 \0\s[1]%(concernsmile)\e"
+		}
+	}
+}
+
+
+//AJ Trio talks
+//TrialSimsChats
+//{
+	//if "" _in_ ConvoTag
+	//{
+		//res_reference0 = ""
+		
+		//""
+	//}
+	//elseif "" _in_ ConvoTag
+	//{
+		//res_reference0 = ""
+		
+		//""
+	//}
+	//else //end of line
+	//{
+		//res_reference0 = ""
+		
+		//""
+	//}
+//}
+
+
+//RGB boys talks
+rgbchats
+{
+	//RGB started convos
+	if "rgbthree1" _in_ ConvoTag
+	{
+		res_reference0 = "RGB Puzzlers"
+		
+		"\1\b[0]\s[10]Hi,\w4 big me!\w8 \0\b[0]\s[0]And hello,\w4 of course,\w4 to your friends as well.\w8 \1\n\n[half]It is a bit weird to see an older me,\w4 innit?\w8 \0\n\n[half]At the very least,\w4 we don't have to worry about this place being a faked future version of our home.\w8 \1\n\n[half]That's true!\w8\e rgbthree2"
+	}
+	elseif "bgduo1" _in_ ConvoTag
+	{
+		res_reference0 = "RGB Puzzlers"
+		
+		"\1\b[0]\s[10]Professor,\w4 it's big me!\w8 \0\b[0]\s[0]And one of your friends as well.\w8 \1\n\n[half]Hi big me and AJ's friend!\w8 \0\n\n[half]It's nice to see the two of you.\w8\e bgduo2"
+	}
+	elseif "rgduo1" _in_ ConvoTag
+	{
+		res_reference0 = "RGB Puzzlers"
+		
+		"\1\b[0]\s[10]Hi,\w4 AJ!\w8 \0\b[0]\s[0]Hello to you both.\w8 \1\n\n[half]It's great seeing you!\w8\e rgduo2"
+	}
+	elseif "rbduo1" _in_ ConvoTag
+	{
+		res_reference0 = "RGB Puzzlers"
+		
+		"\1\b[0]\s[10]That's big me over there!\w8 \0\b[0]\s[0]And your pen pal as well.\w8 \1\n\n[half]You and AJ have %(user)'s mystery all figured out,\w4 don't you,\w4 big me?\w8 \0\e rbduo2"
+	}
+	elseif "solog1" _in_ ConvoTag
+	{
+		res_reference0 = "RGB Puzzlers"
+		
+		"\1\b[0]\s[10]It's AJ's friend,\w4 Professor!\w8 \0\b[0]\s[0]So it is.\w8 \1\0Pleasure to see you again,\w4 sir.\w8 \1\n\n[half]How're big me and AJ doing?\w8\e solog2"
+	}
+	elseif "solob1" _in_ ConvoTag
+	{
+		res_reference0 = "RGB Puzzlers"
+		
+		"\1\b[0]\s[10]Professor,\w4 it's the real big me!\w8 \0\b[0]\s[0]So it is.\w8 \1\0Hello there,\w4 Luke.\w8 It's nice to see you doing well.\w8 \1\n\n[half]Yeah!\w8\e solob2"
+	}
+	elseif "solor1" _in_ ConvoTag
+	{
+		res_reference0 = "RGB Puzzlers"
+		
+		"\1\b[0]\s[10]Heehee,\w4 and you're bigger!\w8 \0\b[0]\s[0]Hello there,\w4 Mr Justice.\w8 \1\0Is big Luke doing well over there?\w8\e solor2"
+	}
+	
+	//Layton started convos
+	elseif "rgball1" _in_ ConvoTag
+	{
+		res_reference0 = "RGB Puzzlers"
+		
+		"\1\b[0]\s[10]Look,\w4 Professor!\w8 \0\b[0]\s[0]\1That's a big me with my pen pal!\w8 \0I see.\w8 Hello there,\w4 you three.\w8 \1\n\n[half]Hi!\w8\e rgball2"
+	}
+	elseif "bgtwo1" _in_ ConvoTag
+	{
+		res_reference0 = "RGB Puzzlers"
+		
+		"\1\b[0]\s[10]Hey,\w4 big me!\w8 \0\b[0]\s[0]\1That's our pen pal's friend with you!\w8 \0How fascinating...\w8\e bgtwo2"
+	}
+	elseif "rgtwo1" _in_ ConvoTag
+	{
+		res_reference0 = "RGB Puzzlers"
+		
+		"\1\b[0]\s[10]It's my pen pal,\w4 Professor!\w8 \0\b[0]\s[0]He has his friend with him as well,\w4 looks like.\w8 \1\n\n[half]Hi,\w4 AJ!\w8\e rgtwo2"
+	}
+	elseif "rbtwo1" _in_ ConvoTag
+	{
+		res_reference0 = "RGB Puzzlers"
+		
+		"\1\b[0]\s[10]Hey,\w4 it's big me and my pen pal!\w8 \0\b[0]\s[0]So it is.\w8 \1\0Hello,\w4 you two.\w8\e rbtwo2"
+	}
+	elseif "gone1" _in_ ConvoTag
+	{
+		res_reference0 = "RGB Puzzlers"
+		
+		"\1\b[0]\s[10]Oh,\w4 Professor!\w8 \0\b[0]\s[0]\1I think that's my pen pal's friend over there.\w8 \0Is it,\w4 now?\w8 \1\n\n[half]Hello!\w8\e gone2"
+	}
+	elseif "bone1" _in_ ConvoTag
+	{
+		res_reference0 = "RGB Puzzlers"
+		
+		"\1\b[0]\s[10]An actual big me!\w8 \0\b[0]\s[0]So it is.\w8 \1\0Hello again,\w4 Luke.\w8 It still amazes me just how much you grew up to look like Clark.\w8 \1\n\n[half]Do I really look that much like my dad...?\w8\e bone2"
+	}
+	elseif "rone1" _in_ ConvoTag
+	{
+		res_reference0 = "RGB Puzzlers"
+		
+		"\1\b[0]\s[10]Oh,\w4 AJ!\w8 \0\b[0]\s[0]Your pen pal?\w8 \1\n\n[half]Yeah!\w8 It's nice to see you over here!\w8\e rone2"
+	}
+	/*
+	elseif "" _in_ ConvoTag
+	{
+		res_reference0 = ""
+		
+		""
+	}
+	*/
+	else //end of line
+	{
+		res_reference0 = ""
+		
+		if teatime == 1 //on
+		{
+			"\0\b[0]\cWe'll have to catch up more later.\w8 \1\b[0]\cIt really is a shame we can't share any of our tea with them...\w8\e"
+			
+			"\1\b[0]\cShame we can't share some of our tea with them.\w8 \0\b[0]\cYes,\w4 but at the very least we have their company for the moment.\w8 \1\n\n[half]That's true!\w8\e"
+		}
+		else //off
+		{
+			"\0\b[0]\s[0]\cPerhaps we can chat more later.\w8 \1\b[0]\s[10]\cYeah,\w4 we'll be here in case you wanna talk some more!\w8\e"
+			
+			"\1\b[0]\s[10]\cHeehee,\w4 it really is nice seeing them.\w8 \0\b[0]\s[0]\cIt is a nice happenstance being here.\w8\e"
+		}
+	}
+}
+
+
+//talks
+//{
+	//if "" _in_ ConvoTag
+	//{
+		//res_reference0 = ""
+		
+		//""
+	//}
+	//elseif "" _in_ ConvoTag
+	//{
+		//res_reference0 = ""
+		
+		//""
+	//}
+	//else //end of line
+	//{
+		//res_reference0 = ""
+		
+		//""
+	//}
+//}

@@ -1,0 +1,58 @@
+charset,UTF-8
+version,1
+option,DisableNoDefineSurfaces
+
+
+group,Lay
+{
+scope,0
+//this defines which character these are for!
+
+0,Neutral
+1,Arms Crossed
+2,Thinking
+3,Gestures
+4,Holds Hat
+5,Teacher Point
+6,Puzzle Solved!
+7,Hide under Hat
+8,Journal
+9,Tea
+11,Look away pensive
+12,Look away sad
+}
+
+
+group,Luke
+{
+scope,1
+//this defines which character these are for!
+
+10,Neutral
+15,Arms Down
+16,Cross Arms
+17,Hands on Hips
+18,Holds Hat
+19,Points
+20,Puzzle Solved!
+21,Fisticuffs
+22,Thinking
+23,PANICS
+24,Head Down
+25,Down Hat
+26,Journal
+27,Tea
+}
+
+
+
+//You can also use this to disable surfaces you don't want to appear in the surfacetable.txt list. Now, disabling a group of surfaces is pretty simple. You don't have to add a disabled group if you don't need one. But if you do, here's how.
+
+//group,__disabled
+//{
+//9999,__parts
+//}
+
+//In this case, we made a group called __disabled. Any surfaces you don't want to appear in Surface Test, you can put into the __disabled group. I don't think nicknames are really necessary for them, I just called this one __parts for no reason, but it probably doesn't hurt.
+
+//Once you've set up this file, you're all set! You should see the changes in the surface test immediately once you reload your shell.

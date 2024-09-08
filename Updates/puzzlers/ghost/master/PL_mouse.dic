@@ -1,0 +1,156 @@
+﻿//---------------------------Mouse Functions--------------------------
+//pat the bebe....
+
+
+//--OnMouseMove
+//---- reference3 determines the character in question
+OnMouseMove
+{
+	if reference3 == 0 // 0, aka the main character
+	{
+		MouseMoveSakura
+	}
+	else // not 0, then it must be the side character.
+	{
+		MouseMoveKero
+	}
+}
+
+
+//******************Movements!! (as explained by Zi)*********************
+//\![move,--base=1,--x=-80,--time=2000]
+//With the new specifications for the move command, you can add or omit any options as you see fit. I've included only 3 options.
+
+//The first is --base=1. This means that the move command will move the character in reference to character 1, the kero. I've set this command up so the sakura moves to the kero, if you want it the other way around, change base to 0 and make sure that the move command happens while a \1 tag is active.
+
+//The second is --x=-80. That's a -80, it's hard to tell since there isn't spacing. So, since we're moving in reference to the kero character, this will take the sakura 80 to pixels left of the kero.  Left is negative numbers, and right is positive numbers. If you wanted the sakura to be on the right side of the kero, you'd get rid of the negative sign. You can adjust the number of pixels as needed until your characters overlap how you want.
+
+//The third is --time=2000. This is the time it will take to move, in milliseconds. Play around with it until it feels good. This is why they may dart across the screen; no matter how far apart they are, it will always take the amount of time specified here XD
+//***********************************************************************
+
+
+//--MouseMoveSakura
+/*
+MouseMoveSakura
+{
+	if reference4 != ""
+ 	{
+ 		stroke++
+ 		if stroke >= 40
+		{
+ 			stroke = 0
+			if reference4 == "Head"
+ 			{
+				""
+ 			}
+ 			elseif reference4 == "Face"
+ 			{
+ 				""
+ 			}
+ 		}
+	}
+ 	else
+	{
+		stroke = 0
+ 	}
+}
+*/
+
+
+//---- MouseMoveKero -----------------------------------------------------------------
+MouseMoveKero
+{
+	if reference4 != ""
+ 	{
+ 		stroke++
+ 		if stroke >= 40
+		{
+			stroke = 0
+			if reference4 == "Hat"
+ 			{
+				if Lukeaffect > 60
+				{
+					"\0\b[0]\s[1]%(confusesmile)\1\b[0]\s[21]\i[21]Heeheehee.\w8 \0\s[1]%(concernsmile)\1\s[21]\i[22]Have I done well recently,\w4 %(user)?\w8 \s[21]\i[0]Is that why you're patting my head?\w8 \0\s[3]%(happies)You've done a marvellous job,\w4 my boy.\w8 \s[5]%(calmsmile)I can attest to that.\w8 \1\s[21]\i[21]\n\n[half]Yay!\w8\e"
+					
+					"\0\s[1]%(confusesmile)\1\b[0]\s[15]\i[27]Aww.\w8 \s[18]\i[21]Thanks,\w4 %(user).\w8 \0\s[1]%(concernsmile)\1\s[18]\i[0]I appreciate it.\w8\e"
+					
+					"\0\b[0]\s[1]%(shock)\1\b[0]\s[15]\i[1]\w8\w8\w8\w8\s[15]\i[17]Hm.\w8 \0\s[1]%(sad)Is something wrong?\w8 \1\s[16]\i[1]\n\n[half]How come you don't pat my head like this,\w4 Professor?\w8 \0\s[4]%(confused)\n\n[half]...\w8\w8\s[4]%(confusesmile)Did you want me to?\w8 \1\s[16]\i[27]\n\n[half]I guess it's okay.\w8 \0\s[4]%(confused)\1\s[16]\i[9]You're not really the type,\w4 are you?\w8 \0\s[1]%(sadsmile)\n\n[half]I suppose I'm not.\w8 \s[11]I'm\w8\w8 \1\s[16]\i[1]\0\s[7]\i[2]sorry,\w4 Luke.\w8 \1\s[15]\i[27]\n\n[half]It's okay.\w8 \0\s[4]%(sadsmile)\1\s[21]\i[12]We're still a team,\w4 after all!\w8 \0\s[1]%(concernsmile)\n\n[half]How very true.\w8\e"
+				}
+				
+				"\0\b[0]\s[1]%(shockopen)\1\b[0]\s[15]\i[16]Oh!\w8\w8 \0\s[1]%(confusesmile)\1\s[18]\i[27]Are you interested in my hat,\w4 %(user)?\w8 \0\s[1]%(concernsmile)\1\s[18]\i[21]It's my favourite hat!\w8 \0\s[2]%(confusesmile)I'm not sure I've ever seen you wear another hat.\w8 \1\s[17]\i[14]\n\n[half]Which is why it's my favourite!\w8 \0\s[2]%(happies)\e"
+				
+				{
+					"\0\b[0]\s[1]%(shockopen)\1\b[0]\s[15]\i[16]Oh,\w8 \0\s[1]%(confusesmile)\1\s[16]\i[9]I'm okay without any headpats,\w4 %(user).\w8 \0\s[1]%(concernsmile)\1\s[16]\i[14]I'm not exactly a child anymore.\w8 \0\s[3]%(calmsmile)I think dadtriton,\w4 momtriton,\w4 and I would beg to differ.\w8 \1\s[17]\i[2]\n\n[half]If I'm allowed to drive an excavator,\w4 then I can't be considered a child.\w8 \0\s[1]%(happies)\n\n[half]Hahaha,\w8 \1\s[17]\i[1]\0\s[3]%(happies)"
+					--
+					"I suppose you have a point there"
+					"quite some interesting logic you have there"
+					--
+					",\w4 my boy.\w8 \1\s[15]\i[27]\e"
+				}
+				
+				"\0\b[0]\s[1]%(neutral)\1\b[0]\s[15]\i[17]Erm.\w8 \0\s[1]%(confusesmile)\1\s[18]\i[27]Sorry,\w4 %(user),\w4 but I'm not about to take off my hat for you.\w8 \0\s[1]%(shock)\1\s[18]\i[21]A gentleman never removes his hat,\w4 after all!\w8 \0\s[1]%(neutral)Ah.\w8 Yes.\w8 \1\s[18]\i[27]\0\s[4]%(sad)I suppose.\w8 \s[7]\i[0]I have said that before,\w4 haven't I?\w8 \1\s[21]\i[9]\n\n[half]You have!\w8\w8 \0\s[1]%(concernsmile)\e"
+ 			}
+			elseif reference4 == "LukeFace"
+			{
+				if Lukeaffect > 60
+				{
+					"\0\s[1]%(shock)\1\b[0]\s[21]\i[19]Heeheehee.\w8 \0\s[1]%(concernsmile)\1\s[21]\i[21]That feels funny,\w4 %(user).\w8\e"
+					
+					{
+						"\0\s[1]%(shock)\1\b[0]\s[15]\i[1]Mm.\w8 "
+						--
+						"\s[22]"
+						"\s[19]"
+						--
+						"\i[7]Usually,\w4 \0\s[1]%(concernsmile)\1I don't like anyone pinching my cheeks or anything.\w8 \0\s[1]%(confusesmile)\1\s[16]\i[27]But I guess I know you well enough by now,\w4 %(user).\w8\e"
+					}
+				}
+				
+				"\0\s[1]%(confused)\1\b[0]\s[15]\i[17]Are you...\w8\s[15]\i[27]trying to pinch my cheeks?\w8 \0\s[2]%(confused)\1\s[16]\i[27]Um.\w8 \s[16]\i[9]Okay?\w8\e"
+				
+				"\0\b[0]\s[1]%(shockopen)\1\b[0]\s[21]\i[2]%(user)!!\w8 \0\s[1]%(neutral)Now,\w4 Luke.\w8 \1\s[16]\i[20]\n\n[half]Sorry.\w8 \s[16]\i[7]I don't really like my face being smooshed around like that,\w4 %(user).\w8 \0\s[3]%(confusesmile)\n\n[half]It may be hard to resist,\w4 \s[3]%(concernsmile)but I would appreciate it if you respected Luke's boundaries,\w4 %(user).\w8 \1\s[16]\i[16]\n\n[half]Hard to resist??\w8 \0\s[4]%(concernsmile)\e"
+			}	
+ 		}
+	}
+ 	else
+	{
+		stroke = 0
+ 	}
+}
+
+
+//---- OnMouseDoubleClick -------------------------------------------------------
+//reference5 checks which button is being used for the click
+OnMouseDoubleClick
+{
+	if reference5 == 0
+	{
+	 	if reference3 == 0 //if the character is 0, aka your main character
+		{
+			MouseDoubleClickSakura
+		}
+		else
+		{
+			MouseDoubleClickKero
+		}
+	}
+}
+
+
+//---- MouseDoubleClickSakura ----------------------------------------------------------
+MouseDoubleClickSakura
+{
+	OpenSakuraMenu
+}
+
+
+//---- MouseDoubleClickKero -----------------------------------------------------------
+MouseDoubleClickKero
+{
+	OpenKeroMenu
+}
+
+
+//*********************Advanced User Info*******************************
+//There are other mouse related functions you could set up much like the above, such as OnMouseDragStart, OnMouseDragEnd, OnMouseWheel, and others which correspond to various things you can do with your mouse. You can probably guess what those functions do just by their names - OnMouseWheel would be if someone spun their mouse wheel over a certain area, for example. If you're interested in these, I'd recommend doing some reading at the CROW-SSP Encyclopedia to get a better idea of them and settle down for some trial and error learning as you try to put them in.
+//***********************************************************************
