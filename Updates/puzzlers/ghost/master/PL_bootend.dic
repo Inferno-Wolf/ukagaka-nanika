@@ -848,7 +848,7 @@ OnShellChanging
 		
 		"\1\s[16]\i[17]You want us to change back into our usual clothes?\w8 \0\s[3]%(happies)Give us just a minute,\w4 then.\w8\e"
 	}
-	elseif reference0 == "Luke and Layton" //Danganny Shell
+	elseif reference0 == "Gentlemen Duo" //Danganny Shell
 	{
 		"\0\s[3]%(happies)Shall we get changed,\w4 Luke?\w8 \1\s[18]\i[21]You've gotta tuck your hair in better,\w4 Professor!\w8\e"
 		
@@ -888,7 +888,7 @@ OnShellChanged
 		
 		"\1\s[18]\i[21]And we're back!\w8 \0\s[4]%(concernsmile)Hopefully,\w4 there's nothing we need to outrun here.\w8 \1\s[17]\i[0]\n\n[half]If there is,\w4 \s[17]\i[15]we'll be prepared for it now!\w8 \0\s[1]%(concernsmile)\e"
 	}
-	elseif reference0 == "Luke and Layton" //Danganny Shell
+	elseif reference0 == "Gentlemen Duo" //Danganny Shell
 	{
 		"\0\s[3]%(calmsmile)Here we are,\w4 %(user).\w8 \1\s[18]\i[19]That better for ya?\w8 \0\1\s[19]\i[22]I'll bet we can explore more of your place like this.\w8 \0\s[1]%(concernsmile)\e"
 		

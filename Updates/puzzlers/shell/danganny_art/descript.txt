@@ -18,7 +18,7 @@ seriko.use_self_alpha,1
 
 charset,UTF-8
 type,shell
-name,Luke and Layton
+name,Gentlemen Duo
 craftman,danganny_art
 craftmanurl,https://www.instagram.com/danganny_art/
 

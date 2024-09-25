@@ -263,7 +263,7 @@ kb4
 // %(Laymove)
 Laymove
 {
-	if SHIORI3FW.ShellName == "Luke and Layton"
+	if SHIORI3FW.ShellName == "Gentlemen Duo"
 	{"\![move,--base=1,--x=-310,--time=130]"; "\![move,--base=1,--x=310,--time=130]"}
 	elseif SHIORI3FW.ShellName == "lukeluke"
 	{"\![move,--base=1,--x=-110,--time=130]"; "\![move,--base=1,--x=110,--time=130]"}

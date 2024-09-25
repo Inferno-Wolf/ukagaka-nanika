@@ -547,7 +547,7 @@ RandomTalk : nonoverlap_pool
 			
 			"\0\b[0]\s[2]%(confusesmile)I've always wondered,\w4 Luke...\w8 \1\s[18]\i[1]\0\s[2]%(concernsmile)How is it you manage to run about without getting your suspenders caught by anything?\w8 \1\b[0]Oh!\w8 \s[19]\i[21]That's a simple puzzle,\w4 Professor.\w8 \0\s[2]%(confusesmile)\1\s[19]\i[14]It just involves thinking about parallel universes!\w8 \0\s[2]%(calmsmile)\n\n[half]I see.\w8 How clever,\w4 \1\s[18]\i[22]\0I wouldn't have expected that sort of answer...\w8\e"
 		}
-		if SHIORI3FW.ShellName == "Luke and Layton" //Danganny shell
+		if SHIORI3FW.ShellName == "Gentlemen Duo" //Danganny shell
 		{
 			"\0\b[0]\s[2]%(confusesmile)What all are you carrying in your satchel today,\w4 my boy?\w8 \1\b[0]\s[19]\i[14]All the essentials we could ever need while on an investigation like this one!\w8 \0\s[2]%(happies)\1\s[19]\i[21]Like a couple of extra plasters,\w4 a bottle of water,\w4 and my journal!\w8 \0\s[2]%(confusesmile)\n\n[half]I see.\w8\w4 \1\s[18]\i[0]\0\s[3]%(happies)You are quite prepared,\w4 indeed.\w8 \1\s[18]\i[22]\n\n[half]Heehee.\w8\e"
 			

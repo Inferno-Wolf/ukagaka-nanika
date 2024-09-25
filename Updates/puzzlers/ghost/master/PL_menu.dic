@@ -672,7 +672,14 @@ OnTalkConfig : all
 	
 	"\n\![*]\q[Favourite Game,topgame]: %(favegame)"
 	
-	"\n\nTalk Rate: %(talktime) \n\![*]\q[1min,OnTalkrate,high]  \![*]\q[3min,OnTalkrate,norm]  \![*]\q[5min,OnTalkrate,poor]  \![*]\q[10min,OnTalkrate,max] \n\![*]\q[Silent,OnTalkrate,none]"
+	"\n\nTalk Rate: %(talktime) \n"
+	_talktimes = ("1min,high,60","3min,norm,180","5min,poor,300","10min,max,600","Silent,none,0")
+	foreach _talktimes; _times
+	{
+		if TOINT(_times[2]) == aitalkinterval {"\![*]\__q[OnTalkrate,%(_times[1])]%(_times[0])\__q"}
+		else {"\_a[OnTalkrate,%(_times[1])]%(_times[0])\_a"}
+		"  "
+	}
 	
 	if SHIORI3FW.BalloonName == "Professor Layton Speech"
 	{"\n\n\![*]\__q[OnBalloonMenu.Customize]Balloon Menu\__q"}
