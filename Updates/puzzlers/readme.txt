@@ -32,7 +32,7 @@ Puzzle solved! Correct! 20/20 Picarats earned!
 Professor Layton series belongs to Level-5 (https://www.laytonseries.com/naen/)
 made for the Professor Layton Big Bang 2024 (https://proflaytonbigbang.tumblr.com/)
 
-Gentlemen Duo Shell by danganny_art (https://www.instagram.com/danganny_art/)
+Distinguished Duo Shell by danganny_art (https://www.instagram.com/danganny_art/)
 Shell by Fischer / Nel (https://www.instagram.com/smoodlesdoodles/) (https://smooley.tumblr.com/)
 Coding and Dialogue by KFC (https://characteroulette.tumblr.com/)
 Puzzloon made by AgeofZero (https://ageofzeroart.tumblr.com)
