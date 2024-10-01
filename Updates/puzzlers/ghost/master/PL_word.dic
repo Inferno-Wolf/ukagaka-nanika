@@ -265,8 +265,8 @@ Laymove
 {
 	if SHIORI3FW.ShellName == "Distinguished Duo"
 	{"\![move,--base=1,--x=-310,--time=130]"; "\![move,--base=1,--x=310,--time=130]"}
-	elseif SHIORI3FW.ShellName == "lukeluke"
-	{"\![move,--base=1,--x=-110,--time=130]"; "\![move,--base=1,--x=110,--time=130]"}
+	elseif SHIORI3FW.ShellName == "Mystery Pair"
+	{"\![move,--base=1,--x=-310,--time=130]"; "\![move,--base=1,--x=310,--time=130]"}
 	else //KFC shell here??
 	{"\![move,--base=1,--x=-110,--time=130]"; "\![move,--base=1,--x=110,--time=130]"}
 }
@@ -274,10 +274,10 @@ Laymove
 // %(Lukemove)
 Lukemove
 {
-	if SHIORI3FW.ShellName == "Luke and Layton"
+	if SHIORI3FW.ShellName == "Distinguished Duo"
 	{"\![move,--base=0,--x=-310,--time=60]"; "\![move,--base=0,--x=310,--time=60]"}
-	elseif SHIORI3FW.ShellName == "lukeluke"
-	{"\![move,--base=0,--x=-110,--time=60]"; "\![move,--base=0,--x=110,--time=60]"}
+	elseif SHIORI3FW.ShellName == "Mystery Pair"
+	{"\![move,--base=0,--x=-310,--time=60]"; "\![move,--base=0,--x=310,--time=60]"}
 	else //KFC shell here??
 	{"\![move,--base=0,--x=-110,--time=60]"; "\![move,--base=0,--x=110,--time=60]"}
 }

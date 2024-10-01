@@ -854,7 +854,7 @@ OnShellChanging
 		
 		"\1\s[18]\i[19]Let's get changed,\w4 Professor!\w8 \0\s[4]%(happies)Yes,\w4 I do believe I have to tidy up a bit.\w8\e"
 	}
-	elseif reference0 == "lukeluke" //Smooley! Shell
+	elseif reference0 == "Mystery Pair" //Smooley! Shell
 	{
 		"\0\s[3]%(calmsmile)Time to get changed,\w4 Luke.\w8 \1\s[18]\i[21]You got it,\w4 Professor!\w8 \0\s[3]%(smiles)\1\s[18]\i[30]Be right back,\w4 %(user)!\w8\e"
 		
@@ -894,7 +894,7 @@ OnShellChanged
 		
 		"\1\s[18]\i[19]And we're back!\w8 \0\s[4]%(concernsmile)I hope I've made myself a bit more presentable now.\w8 \1\s[16]\i[27]\n\n[half]Aw,\w4 you're always presentable,\w4 Professor.\w8 \0\s[4]%(neutral)\1\s[16]\i[12]%(user) and I were just teasing,\w4 you know.\w8 \0\s[1]%(concernsmile)\n\n[half]That's...\w8\w4 good to hear.\w8\e"
 	}
-	elseif reference0 == "Another" //Smooley! Shell
+	elseif reference0 == "Mystery Pair" //Smooley! Shell
 	{
 		"\0\s[3]\i[18]Here we are,\w4 %(user).\w8 \1\s[18]\i[21]I'll bet you just wanted us all cute and bite-sized.\w8 \0\s[1]\n\n[half]%(confusesmile)Bite-sized...?\w8 \1\s[18]\i[0]\n\n[half]Yeah!\w8 \0\s[1]%(concernsmile)\e"
 		

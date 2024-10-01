@@ -33,7 +33,7 @@ Professor Layton series belongs to Level-5 (https://www.laytonseries.com/naen/)
 made for the Professor Layton Big Bang 2024 (https://proflaytonbigbang.tumblr.com/)
 
 Distinguished Duo Shell by danganny_art (https://www.instagram.com/danganny_art/)
-Shell by Fischer / Nel (https://www.instagram.com/smoodlesdoodles/) (https://smooley.tumblr.com/)
+Mystery Pair Shell by Fischer / Nel (https://www.instagram.com/smoodlesdoodles/) (https://smooley.tumblr.com/)
 Coding and Dialogue by KFC (https://characteroulette.tumblr.com/)
 Puzzloon made by AgeofZero (https://ageofzeroart.tumblr.com)
 professor-layton font by innards333 (https://fontstruct.com/fontstructions/show/2256110) (**originally cloned (copied) from the FontStruction “Prof. Layton” (https://fontstruct.com/fontstructions/show/483213) by "ocheung")

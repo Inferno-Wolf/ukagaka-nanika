@@ -553,7 +553,7 @@ RandomTalk : nonoverlap_pool
 			
 			"\1\b[0]\s[16]\i[27]I've always thought your sweater looked really comfortable,\w4 Professor.\w8 \0\b[0]\s[4]%(confusesmile)Is that so?\w8 \1\s[16]\i[0]\0\s[4]%(happies)Well,\w4 I can safely say it is quite comfortable for me.\w8 \1\s[22]\i[22]\n\n[half]It's a nice colour,\w4 too.\w8 \0\s[4]%(confusesmile)\1\s[22]\i[14]I think I'd want a scarf in that colour.\w8 \0\s[2]%(happies)\n\n[half]It definitely would match your favourite colour nicely.\w8 \1\s[21]\i[21]\n\n[half]Right?\w8\e"
 		}
-		if SHIORI3FW.ShellName == "lukeluke" //Smooley! shell
+		if SHIORI3FW.ShellName == "Mystery Pair" //Smooley! shell
 		{
 			"\0\b[0]\s[2]%(confusesmile)I must say I've grown rather curious over your sweater,\w4 my boy.\w8 \1\b[0]\s[18]\i[27]How so,\w4 Professor?\w8 \0\s[2]%(concernsmile)\n\n[half]It looks comfortable,\w4 but perhaps a touch big for you.\w8 \1\s[18]\i[1]\0\s[3]%(confusesmile)Did dadtriton or momtriton get it for you?\w8 \1\s[19]\i[0]\n\n[half]Oh,\w4 mum got it for me.\w8 \0\s[3]%(smiles)\1\s[19]\i[21]She also got me my hat!\w8 \0\s[2]%(happies)\n\n[half]I see.\w8 No wonder they're your favourites,\w4 then.\w8 \1\s[21]\i[22]\n\n[half]Yeah,\w4 mum's the best!\w8\e"
 			
