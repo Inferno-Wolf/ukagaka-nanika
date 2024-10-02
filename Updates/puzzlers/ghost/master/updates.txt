@@ -10,7 +10,7 @@ file,ghost/master/PL_etc.dic99cc6914aa0982cb6f2c21c522fee80esize=96274date=20
 file,ghost/master/PL_menu.dic2de00887878b98341a9b6bfafab5e924size=156261date=2024-09-09T22:28:25
 file,ghost/master/PL_mouse.dic4fe8b09427452083c28c6aba6a034404size=7399date=2024-08-19T20:02:11
 file,ghost/master/PL_nameteach.dic02e15fe8f17a1908aa26fd2463d833b6size=21056date=2024-06-13T23:56:42
-file,ghost/master/PL_string.dic18c79f6e3060c743104b4d4532bb17d6size=6969date=2024-10-01T00:22:17
+file,ghost/master/PL_string.dic52bc36d3df924ac9c3fdb90f2b6ca9ecsize=6955date=2024-10-01T19:50:24
 file,ghost/master/PL_word.dicd52fea53aa27279bed30c370a4eca80bsize=9613date=2024-10-01T00:23:26
 file,ghost/master/descript.txte58189e7ab9a139084733c70027351f2size=559date=2024-09-08T12:36:19
 file,ghost/master/gomi.dll51fe9597398db01e684a0f9d52c63242size=13312date=2004-06-01T18:00:04
@@ -22,7 +22,7 @@ file,ghost/master/yaya_base/config.dicd07874f4b1ba03ba111df8f2fa3cd6dbsize=259
 file,ghost/master/yaya_base/optional.dicff4da728a656a8aa6a38939e654c51f2size=9953date=2023-05-05T00:37:40
 file,ghost/master/yaya_base/shiori3.dic1020638d5e3881c23cc9baabc366e730size=52209date=2023-05-05T00:37:40
 file,install.txtda3f30b60fcd6d1a4484b989a358fb41size=936date=2024-08-28T16:45:12
-file,readme.txt568f1ad191dcaacc4ee1979b461406besize=3597date=2024-10-01T00:24:25
+file,readme.txt3ccf7cdb4a8d481cfeee371fb3af6089size=3592date=2024-10-01T19:50:32
 file,shell/danganny_art/descript.txt0a05e495a1bc7530e05623a86b85fcd6size=5499date=2024-09-25T15:21:03
 file,shell/danganny_art/menu_background.pngcb9080cd49f711685e04ed16f8aa3aa4size=926date=2024-08-24T02:19:57
 file,shell/danganny_art/menu_foreground.png4efcdbe6c2dbcf5b44318f4c3d3e1405size=924date=2024-08-24T02:20:25
@@ -275,4 +275,4 @@ file,shell/master/thumbnail.pngf1f552240c422395c5af52237168ada2size=35769date
 file,shell/master/tophat_1.pngc40515ee0dc86ad4aea25f8ff02a02aesize=3400date=2024-02-08T22:26:41
 file,shell/master/tophat_2.png5b1f00b27f1686f9f0bcba467540129dsize=4417date=2024-02-08T23:35:29
 file,tea_dialogues.txt45f075b0035dc4682f6e4626c488e51bsize=11522date=2024-07-16T00:21:13
-file,thumbnail.png1377f5a03c76dba939ee510503914848size=348317date=2024-10-01T00:12:40
+file,thumbnail.png6b6350cddefcbcc98873340b50b4bc9asize=484392date=2024-10-01T19:53:14
