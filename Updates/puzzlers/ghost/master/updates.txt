@@ -22,7 +22,7 @@ file,ghost/master/yaya_base/config.dicd07874f4b1ba03ba111df8f2fa3cd6dbsize=259
 file,ghost/master/yaya_base/optional.dicff4da728a656a8aa6a38939e654c51f2size=9953date=2023-05-05T00:37:40
 file,ghost/master/yaya_base/shiori3.dic1020638d5e3881c23cc9baabc366e730size=52209date=2023-05-05T00:37:40
 file,install.txtda3f30b60fcd6d1a4484b989a358fb41size=936date=2024-08-28T16:45:12
-file,readme.txt3ccf7cdb4a8d481cfeee371fb3af6089size=3592date=2024-10-01T19:50:32
+file,readme.txtaab14d7ecf7dcf459d721890c970c328size=3606date=2024-10-03T01:40:49
 file,shell/danganny_art/descript.txt0a05e495a1bc7530e05623a86b85fcd6size=5499date=2024-09-25T15:21:03
 file,shell/danganny_art/menu_background.pngcb9080cd49f711685e04ed16f8aa3aa4size=926date=2024-08-24T02:19:57
 file,shell/danganny_art/menu_foreground.png4efcdbe6c2dbcf5b44318f4c3d3e1405size=924date=2024-08-24T02:20:25
