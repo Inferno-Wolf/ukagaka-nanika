@@ -11,7 +11,7 @@ craftman,Tega
 craftmanw,Tega
 craftmanurl,https://ageofzeroart.tumblr.com
 
-//homeurl,
+homeurl,https://raw.githubusercontent.com/Inferno-Wolf/ukagaka-nanika/main/Updates/puzzloon/
 origin.x,20
 origin.y,53
 
