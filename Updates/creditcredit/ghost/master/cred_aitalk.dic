@@ -42,6 +42,22 @@ RandomTalk : nonoverlap_pool
 	
 	"\0\s[0]Fishing minigames...\w8\w8 \s[1]\n\n[half]Gotta have at least one fishing minigame,\w4 right?\w8\e"
 	
+	"\0\s[0]Knowing how Visual Novels work can be really helpful in seeing how other game systems work...\w8\w8 \s[1]\n\n[half]Easier to see where the seams are for dialogue choices when you've seen 'em a bunch in VNs.\w8\e"
+	
+	"\0\s[0]Visual Novels are fascinating in their construction...\w8\w8 \n\n[half]Want to change settings?\w8 Scene transition.\w8 Imply an action?\w8 Scene transition.\w8 Whether it's a fade to black,\w4 a full wipe,\w4 fluttering shutters,\w4 dissolve,\w4 whatever,\w8 it's neat to see how change is conveyed in such a limited manner.\w8 \s[1]Crazier still,\w4 it works.\w8\e"
+	
+	"\0\s[1]Meta horror is always really fun to see,\w4 huh?\w8 Whether it's through a Visual Novel or an RPG,\w4 when the game reaches out to address you,\w4 the player,\w4 it can be such a fun spook.\w8\e"
+	
+	"\0\s[4]Mm...\w8\w8 You might have to pull up the dialogue history.\w8 Think I dozed off for a minute there...\w8\e"
+	
+	"\0\s[0]Lots of things you can do with a Visual Novel.\w8 \s[1]Excited to see where this one's going.\w8\e"
+	
+	"\0\s[0]Turning the traversal into a turn-based system isn't a new idea.\w8 That's basically how strategy games work.\w8 \n\n[half]Having to divvy out Turn Points in order to perform actions to interact with your environment on each screen,\w4 though.\w8 That's the type of system that gets the gears turning.\w8 \s[4]\n\n[half]Glad I don't have to worry about the puzzle aspect of it...\w8\e"
+	
+	"\0\s[3]Turn Points!\w8\w8 \s[0]That's what TP stands for.\w8 \n\n[half]Wonder how that sort of interacting with your environment in a turn-based sort of system might work in juxtaposition with more real time combat...\w8\e"
+	
+	"\0\s[4]I really wish they'd invent a first person gameplay that didn't give me mad motion sickness...\w8\w8\w8 \n\n[half]I want to be able to play these games,\w4 too...\w8\e"
+	
 	{
 		"\0\s[0]Hmm...\w8\w8 I think you needed to "
 		--
@@ -141,6 +157,20 @@ RandomTalk : nonoverlap_pool
 	"\0\s[4]\_a[OnFF,ffx]Auron my favourite grandpa Auron\_a...\w8\w8 \s[1]\n\n[half]He hits things real hard.\w8 Is good.\w8\e"
 	
 	"\0\s[1]\_a[OnFF,ffx]Kimahri\_a is such a friend shape.\w8 Love him and his spear.\w8 We need to get him to Auron's side of the grid so he can start really destroying everything.\w8\e"
+	
+	"\0\s[4]\_a[OnFF,ff7]Tifa Lockheart\_a gets a bum rap sometimes...\w8\w8\w8 \s[0]\n\n[half]She kicks ass and is a hell of a teammate.\w8 Both in the remake and the original.\w8\e"
+	
+	"\0\s[4]Oh \_a[OnFF,ff7]Cloud Strife\_a,\w4 we're really in it now...\w8\e"
+	
+	"\0\s[0]I cannot fault \_a[OnFF,ff7]Cloud Strife\_a for being as surly as he is or acting so aloof.\w8 Guy's barely an adult and suffering some severe trauma.\w8 And he's not equipped to open up about it to anyone,\w4 considering the root of that trauma.\w8 \s[1]\n\n[half]Also,\w4 his surliness is more cute than annoying.\w8 That's kinda important.\w8\e"
+	
+	"\0\s[4]\_a[OnFF,ff7]Aerith my girl Aerith\_a...\w8\w8\w8 \n\n[half]Could'a had a great healer on the team.\w8 Could'a made her into the most overpowered girlie of all time...\w8\e"
+	
+	"\0\s[0]It is interesting how \_a[OnFF,ff7]Final Fantasy VII\_a introduces us to Aerith versus how \_a[OnFF,ff6]Final Fantasy VI\_a introduces us to its main girl.\w8 \n\n[half]Both have a lot of fight and both are powerful mages.\w8 Different narrative utility,\w4 but it's interesting all the same.\w8\e"
+	
+	"\0\s[0]From an Octopus battle to a straight up musical moment...\w8\w8\w8 \s[1]\n\n[half]Gotta love the wacky times of \_a[OnFF,ff6]Final Fantasy VI\_a.\w8\e"
+	
+	"\0\s[0]You should probably just use a \_a[OnFF,ff6]Phoenix Down on that Ghost Train\_a,\w8 \s[1]but it would be so much more satisfying if you suplexed it.\w8 Just for me.\w8\e"
 	
 	"\0\s[2]You know,\w4 it took me a while to get to grips with creature raising games outside of just \_a[OnPokemon]Pokemon\_a.\w8 \s[0]But they can be really fun once you let go of the fact that they're not going to be Pokemon.\w8\e"
 	
@@ -334,7 +364,7 @@ RandomTalk : nonoverlap_pool
 	
 	"\0\s[0]\_a[OnAA]The Ace Attorney series\_a really is all about legacy...\w8\w8 \n\n[half]From Phoenix upholding everything imparted on him to everything about \_a[OnDGS]Dai Gyakuten Saiban\_a,\w4 it's always been about legacy.\w8\e"
 	
-	"\0\s[4]No one is immune to \_a[OnDGS]Kazuma Asougi\_a...\w8\w8 \s[2]\n\n[half]I mean.\w8 They are,\w8 \s[4]but our grief is a person and that person is Kazuma...\w8\e"
+	"\0\s[4]No one is immune to \_a[OnDGS]Kazuma Asougi\_a...\w8\w8 \s[2]\n\n[half]I mean.\w8 You can be,\w8 \s[4]but our grief is a person and that person is Kazuma...\w8\e"
 	
 	"\0\s[4]The dead will come back from their graves just to haunt you...\w8\w8 \s[0]\n\n[half]That's really what \_a[OnDGS]Dai Gyakuten Saiban\_a\f[default] is about.\w8\e"
 	
@@ -396,19 +426,33 @@ RandomTalk : nonoverlap_pool
 	
 	"\0\s[4]\_a[OnEverhood]There will be reconciliation,\w8 no matter how ugly\_a...\w8\w8\w8 \n\n[half]Sheesh,\w4 do they sure mean it...\w8\e"
 	
-	"\0\s[4]Maybe one day...\w8\w8 One day I'll actually finish \f[color,default.anchor]\__q[OnEverhood]Everhood\__q\f[default].\w8\e"
+	"\0\s[4]Maybe one day...\w8\w8 One day I'll actually finish \_a[OnEverhood]Everhood\_a.\w8\e"
+	
+	"\0\s[0]It's going to hurt,\w4 but it must be done.\w8 \s[4]I understand now what you mean,\w4 \_a[OnEverhood]Frog\_a...\w8\e"
+	
+	"\0\s[1]Glad to hear the bangers never stop in \_a[OnEverhood]Everhood\_a.\w8\e"
+	
+	"\0\s[2]I really wish there was a little more direction in \_a[OnEverhood,2]Everhood 2\_a...\w8\w8 \s[0]\n\n[half]Really intrigued by where things are going so far.\w8 \s[2]Not so thrilled by having to search each area again when trying to figure out how to advance it.\w8\e"
+	
+	"\0\s[0]Really neat you can just skip straight to getting your soul weapon.\w8 \s[1]\n\n[half]\_a[OnEverhood,2]Everhood 2\_a off to a fun start so far.\w8\e"
+	
+	"\0\s[0]It's neat to see that \_a[OnEverhood,2]Irvine and Sam\_a were just Travelers and not,\w4 like,\w4 actual citizens of the Everhood.\w8 Explains their presences only in specific instances of the game.\w8\e"
+	
+	"\0\s[3]Of all things,\w4 I was not expecting actual character development to happen in \_a[OnEverhood,2]Everhood 2\_a...\w8\w8 \s[2]\n\n[half]Excited to see how this'll tie up in the end.\w8\e"
 	
 	"\0\s[2]I think people missed the overt Buddhist themes in \_a[OnEverhood]Everhood\_a.\w8 \s[0]Or just didn't understand them.\w8 \n\n[half]I played \_a[OnPersona,pq]Persona Q\_a,\w4 though.\w8 I was prepared for a story all about stagnation and the struggle to return those souls to the cycle of rebirth and life.\w8\e"
 	
 	"\0\s[0]So \_a[OnEverhood]Everhood\_a is in conversation with \_a[OnUndertale]Undertale\_a,\w4 but not in the way most people think.\w8 \n\n[half]It's more asking what does Mercy truly mean for immortal beings who have stagnated and turned cruel in their eternal lives?\w8 Can you really say that sparing them is merciful,\w4 or is it in actuality a cruelty you enforce upon them?\w8\e"
-	
-	"\0\s[0]It's going to hurt,\w4 but it must be done.\w8 \s[4]I understand now what you mean,\w4 \_a[OnEverhood]Frog\_a...\w8\e"
 	
 	"\0\s[4]\_a[OnSTP]You're on a path in the woods\_a...\w8\w8\w8 \s[1]\n\n[half]I won't recite the whole thing again.\w8 Spare ya from my brainrot.\w8\e"
 	
 	"\0\s[4]\_a[OnSTP]Contrarian our buddy Voice of the Contrarian\_a...\w8\w8 \n\n[half]The intrinsic urge to defy the Narrator lives in us all,\w4 it's true...\w8\e"
 	
 	"\0\s[0]To \_a[OnSTP]Slay the Princess\_a or not to Slay...\w8\w8 \s[4]\n\n[half]She is very cute in an uncanny sort of way...\w8\w8 Tough decision on our hands here...\w8\e"
+	
+	"\0\s[0]Do you have a favourite \_a[OnSTP]Princess form\_a?\w8 \s[1]Mine's gotta be the Stranger.\w8 Though,\w4 Razor and Beast and Witch are close seconds.\w8\e"
+	
+	"\0\s[3]I can't believe we really horrified the Narrator so much he left us.\w8 \s[1]\n\n[half]Score one for \_a[OnSTP]the Voice of the Smitten\_a.\w8 I knew I had a weird fondness for that one for a reason.\w8\e"
 	
 	"\0\s[4]\_a[OnCKSH]Yuu my daughter Yuu\_a my girl who has both a dragon dad and a hero dad...\w8\e"
 	
@@ -454,9 +498,13 @@ RandomTalk : nonoverlap_pool
 	
 	"\0\s[4]\_a[OnPersona]Persona\_a...\w8\e"
 	
-	"\0\s[2]It really is a tragedy,\w4 what \_a[OnPersona,p5]Persona 5\_a did to Ryuji.\w8 \n\n[half]He's our main guy and yet his trauma never gets used as more than a plot point and then a passing joke.\w8 \s[4]\n\n[half]Then again,\w4 that's just a Persona problem,\w4 isn't it...?\w8\e"
+	"\0\s[0]Okay,\w4 but \_a[OnPersona,p1p2]Persona 2\_a was really cooking with its dual protagonist thing.\w8 \s[4]Why did it also have to lean in to the older woman romancing a teen thing...?\w8 Pain and suffering...\w8\e"
 	
-	"\0\s[4]\_a[OnPersona,p4]Yosuke my guy Yosuke\_a why did they finish your romance route like 90% of the way and then cut it without scrubbing the evidence?\w8\e"
+	"\0\s[0]\_a[OnPersona,p1p2]Chatting with Demons\_a is such a fascinating system...\w8\w8 \s[2]\n\n[half]You should make motorcycle noises at them again.\w8 It's gotta work this time.\w8\e"
+	
+	"\0\s[1]Gotta say,\w4 I've got a soft spot for \_a[OnPersona,p1p2]Tatsuya Suou\_a's conversation options with demons.\w8 Something about imitating loud machine noises,\w4 talking with passion on what it means to be a man,\w4 and singing enka just say a lot about him as a character.\w8 Endears me.\w8\e"
+	
+	"\0\s[2]It really is a tragedy,\w4 what \_a[OnPersona,p5]Persona 5\_a did to Ryuji.\w8 \n\n[half]He's our main guy and yet his trauma never gets used as more than a plot point and then a passing joke.\w8 \s[4]\n\n[half]Then again,\w4 that's just a Persona problem,\w4 isn't it...?\w8\e"
 	
 	{
 		"\0\s[0]We should have been able to date Akechi in \_a[OnPersona,p5]Persona 5\_a.\w8\w8"
@@ -470,17 +518,33 @@ RandomTalk : nonoverlap_pool
 	
 	"\0\s[2]Fuck \_a[OnPersona,p5]Takuto Maruki\_a.\w8 All our homies hate Maruki.\w8\w8\w8 \s[4]\n\n[half]That's a lie Maruki is so damn popular actually.\w8\e"
 	
-	"\0\s[0]Hear those rattling chains...?\w8\w8 \s[4]\n\n[half]\_a[OnPersona]Reaper\_a's coming.\w8 Better get a move on to the next floor.\w8\e"
+	"\0\s[2]So \_a[OnPersona,p5]Persona 5\_a's whole theme being rebellion against society is kinda a lie,\w4 huh?\w8 \s[0]\n\n[half]We go through the whole thing with a bunch of talk about being outcasts and fighting the rotten adults ruling the system,\w4 but in the end,\w4 our whole team would have no problem reintegrating into the society they so shun.\w8 There's no significant change,\w4 only a return to the status quo.\w8 \s[2]\n\n[half]Kinda ruins a lot of the story,\w8 \s[0]but the game is still pretty fun.\w8\e"
 	
-	"\0\s[2]\_a[OnPersona,p3]Persona 3\_a is so overrated.\w8 \s[4]\n\n[half]I mean,\w4 I get it.\w8 It's the first in the series after the jump in style,\w4 so of course it's a lot of people's favourites.\w8 \s[0]\n\n[half]It's not like I dislike the characters in it.\w8 \s[4]It's just so exhausting to get through on the strict time limit given...\w8\e"
-	
-	"\0\s[0]Persona spin-offs have a near total success rate when it comes to their new characters.\w8 At least,\w4 they do in my opinion.\w8 \n\n[half]\_a[OnPersona,pq]Zen and Rei\_a are absolutely heartbreaking and cute,\w8 \_a[OnPersona,pscram]Sophia\_a gets the coolest arc ever,\w8 \_a[OnPersona,ptact]Toshiro\_a was way more compelling than I expected him to be...\w8\w8 \n\n[half]Yeah.\w8 If there's one thing Persona can do,\w4 it's make compelling characters.\w8\e"
+	"\0\s[4]\_a[OnPersona,p4]Yosuke my guy Yosuke\_a why did they finish your romance route like 90% of the way and then cut it without scrubbing the evidence?\w8\e"
 	
 	"\0\s[0]Out of all the Persona protags,\w4 I have to say that \_a[OnPersona,p4]Persona 4\_a's my favourite.\w8 \s[2]\n\n[half]Yes,\w4 I know this makes me look incredibly silly.\w8 \s[0]Can't help it.\w8 He's just so deadpan humour,\w4 you gotta love him.\w8\e"
 	
 	"\0\s[0]\_a[OnPersona,p4]Teddie\_a kinda gets a bum rap?\w8 And it's partially the translation's fault.\w8 \n\n[half]See,\w4 Teddie is just a Shadow.\w8 An aspect of humanity detached from his human,\w4 if he ever had one.\w8 He learns from our Investigation Team,\w4 who are all just a bunch of teens,\w4 and he learns from their Shadows which are the worst aspects of them exaggerated by ten.\w8 He learns wrong and right things in equal measures.\w8 \s[2]\n\n[half]He is very annoying,\w4 though.\w8 Can't defend him there.\w8\e"
 	
-	"\0\s[0]Okay,\w4 but \_a[OnPersona,p1p2]Persona 2\_a was really cooking with its dual protagonist thing.\w8 \s[4]Why did it also have to lean in to the older woman romancing a teen thing...?\w8 Pain and suffering...\w8\e"
+	"\0\s[0]Reaching out to the truth,\w4 accepting even our ugliest parts,\w4 lifting the fog of comfortable lies which has settled over the collective heart of this whole small town...\w8\w8\w8 \s[1]\n\n[half]There's a lot going on in \_a[OnPersona,p4]Persona 4\_a.\w8\e"
+	
+	"\0\s[0]\_a[OnPersona]Shadows\_a as a concept are really cool.\w8 \n\n[half]Imagine,\w4 having to face the ugliest part of yourself,\w4 cranked all the way up to 11 and spewing truths you can't make yourself agree with at first instinct.\w8 \s[4]Rad as hell thing to chew on.\w8\e"
+	
+	"\0\s[0]Hear those rattling chains...?\w8\w8 \s[4]\n\n[half]\_a[OnPersona]Reaper\_a's coming.\w8 Better get a move on to the next floor.\w8\e"
+	
+	"\0\s[2]\_a[OnPersona,p3]Persona 3\_a is so overrated.\w8 \s[4]\n\n[half]I mean,\w4 I get it.\w8 It's the first in the series after the jump in style,\w4 so of course it's a lot of people's favourites.\w8 \s[0]\n\n[half]It's not like I dislike the characters in it.\w8 \s[4]It's just so exhausting to get through on the strict time limit given...\w8\e"
+	
+	"\0\s[0]Memento Mori.\w8 Remember,\w4 you will die.\w8 \s[4]\n\n[half]Gotta love how the whole of \_a[OnPersona,p3]Persona 3\_a revolves around that core theme...\w8\e"
+	
+	"\0\s[0]There really is something to say about how \_a[OnPersona,p3]Persona 3\_a revolves around the idea of Death and Beginnings.\w8 So much so that it's almost implied to be our protagonist's default tarot sign.\w8 \s[4]\n\n[half]It's a part of every single Social Link and every major character,\w8 \s[0]kinda like how it's just a fact of everyone's life.\w8 Death is inevitable.\w8 \s[4]\n\n[half]This one really earns its ending,\w4 even with all the bullshit in the way...\w8\e"
+	
+	"\0\s[2]I can't believe they dampened the raw sick as hell visual of \_a[OnPersona,p3]Thanatos ripping its way out of Orpheus\_a in Reload.\w8 \n\n[half]My disappointment is immeasurable and my day is ruined.\w8\e"
+	
+	"\0\s[0]Persona spin-offs have a near total success rate when it comes to their new characters.\w8 At least,\w4 they do in my opinion.\w8 \n\n[half]\_a[OnPersona,pq]Zen and Rei\_a are absolutely heartbreaking and cute,\w8 \_a[OnPersona,pscram]Sophia\_a gets the coolest arc ever,\w8 \_a[OnPersona,ptact]Toshiro\_a was way more compelling than I expected him to be...\w8\w8 \n\n[half]Yeah.\w8 If there's one thing Persona can do,\w4 it's make compelling characters.\w8\e"
+	
+	"\0\s[4]\_a[OnPersona,pq]Zen and Rei\_a my absolute beloveds...\w8\w8\w8 \n\n[half]Halves who cannot exist without the other are just so good every time...\w8\e"
+	
+	"\0\s[0]They really nailed it with the tone shift in \_a[OnPersona,pq]Persona Q\_a.\w8 Those Labyrinths do be shadowed.\w8\e"
 	
 	"\0\s[0]Enough \_a[OnPersona,smt]Persona\_a.\w8 \s[2]When will the Megami Shin my Tensei?\w8\e"
 	
@@ -493,6 +557,8 @@ RandomTalk : nonoverlap_pool
 	"\0\s[0]If you want a solid silent protagonist,\w8 \s[1]can't really argue with \_a[OnDarkCloud]Toan\_a.\w8 \n\n[half]He's got poncho physics,\w4 after all.\w8 The most amusing way to waste our time.\w8\e"
 	
 	"\0\s[0]\_a[OnDarkCloud]Mardan Garyan\_a really is the fish of all time.\w8 \s[1]The only one that can compare is \_a[OnPokemon]Bruxish\_a.\w8\e"
+	
+	"\0\s[2]It really is a crime that \_a[OnDarkCloud]Mardan Garyan\_a won't fit in the character limit for \_a[OnPokemon]Pokemon\_a nicknames...\w8\w8 \s[4]\n\n[half]Let me name my Bruxish after it you cowards...\w8\e"
 	
 	"\0\s[0]They really didn't think about planning these dungeons in \_a[OnDarkChronicle]Dark Chronicle\_a around their golf system.\w8 \n\n[half]Fishing makes sense,\w4 but golf?\w8 Half of these are too easy to get a void out in.\w8\e"
 	
@@ -636,6 +702,14 @@ RandomTalk : nonoverlap_pool
 	
 	"\0\s[0]Where do you think \_a[OnBuddy]our Buddy\_a gets the names for their world?\w8 Where in their programming did they grab these names?\w8 \s[4]Tell us your secrets,\w4 Buddy...\w8\e"
 	
+	"\0\s[0]I wish we could just chat with \_a[OnSolatorobo]Chocolat or Elh\_a some more.\w8 The girls are just so fascinating,\w4 weird puppy who works as your counsel and immortal mage cat...\w8\e"
+	
+	"\0\s[0]Not sure how I feel about the conceit behind the whole mission system to \_a[OnSolatorobo]Solatorobo\_a...\w8\w8 \n\n[half]It's a neat concept,\w4 making you go off and do side missions to gain enough clout and experience so you can advance the main story.\w8 \s[2]At the same time,\w4 it seems like a bit of needless filler.\w8 \s[0]There's a time and place for fleshing out the world...\w8\e"
+	
+	"\0\s[0]So,\w4 how old is \_a[OnSolatorobo]Red Savine\_a anyway,\w4 do you think?\w8 \n\n[half]They said he was created only nine years ago,\w4 but he does act like any strong headed nineteen year old...\w8\e"
+	
+	"\0\s[0]\_a[OnSolatorobo]Solatorobo\_a's got an interesting core concept for its battle system,\w4 huh?\w8 \n\n[half]You can only do damage by throwing the enemies' attacks back at them.\w8 Or just straight suplexing them.\w8 It all works off your mech's hydraulics.\w8 Fascinating...\w8\e"
+	
 	//bad game opinions corner
 	"\0\s[1]Looks like we got another category \_a[OnFNAF,sb]Quantum Freddy\_a event again.\w8\e"
 	
@@ -643,11 +717,15 @@ RandomTalk : nonoverlap_pool
 	
 	"\0\s[0]\_a[OnRiviera]Ein or Ecthel\_a...\w8\w8 Hard to decide between them.\w8 \s[2]They both fit this blunder angel perfectly.\w8\e"
 	
+	"\0\s[2]I can't believe we got Yuri Lowenthal'd again...\w8\w8 \s[0]\n\n[half]Just goes to show how wide his range is,\w4 being \_a[OnRiviera]a fail angel like Ein\_a...\w8\e"
+	
 	"\0\s[0]\_a[OnRiviera]Riviera\_a has gotta have one of the most complicated plots for a game with wacky dating sim moments.\w8 \s[4]\n\n[half]You can barely taste the tonal dissonance.\w8\e"
 	
 	"\0\s[0]Okay,\w4 but \_a[OnRiviera]Serene\_a is pretty cool.\w8 \n\n[half]Last of her species,\w4 on a vengeance quest to her own detriment...\w8\w8 \s[1]You know I'm all on board with those types from the word go.\w8\e"
 	
 	"\0\s[0]The first time I experienced \_a[OnRiviera]Riviera\_a,\w4 I think I liked Fia the best.\w8 \s[1]She is a green girl who is polite and so cute.\w8\e"
+	
+	"\0\s[0]So,\w4 what do you think about this TP system so far?\w8 Having to ration your actions with turns in the overworld to mirror turn-based combat,\w4 even having how much TP you gain dependant on your performance in said turn-based battles,\w4 is really fascinating.\w8 \n\n[half]I think,\w4 with a bit more refinement,\w4 a system like this might be better suited to a series like \_a[OnPersona]Persona\_a rather than in this \_a[OnRiviera]Riviera: The Promised Land\_a.\w8\e"
 	
 	"\0\s[0]See,\w4 \_a[OnYIIK]YIIK\_a has a great idea in there at the core of the thing.\w8 \s[2]\n\n[half]The problem is the rest of the game surrounding it,\w4 both in mechanics and writing.\w8\e"
 	

@@ -420,7 +420,7 @@ OnGhostChanging
 		
 		"\0\s[4]Play Robo's theme for me at least once...\w8"
 		
-		"\0\s[0]Gonna try your hand at the final battle again?\w8 \s[4]Good luck.\w8"
+		"\0\s[0]Gonna try your hand at the Lavos battle again?\w8 \s[4]Good luck.\w8"
 	}
 	elseif reference0 == "Herlock Sholmes"
 	{

@@ -1,10 +1,10 @@
 charset,OSNative
-file,ghost/master/cred_aitalk.dic79d02f62384bb88a397323bc6b1190b7size=56156date=2024-06-07T13:32:07
-file,ghost/master/cred_boot.dic0f515ceb18b38da68e55637b3a39ffd4size=21331date=2024-06-07T00:22:30
+file,ghost/master/cred_aitalk.dic5a7d60f3a29d54c12669a3d10c2ecf75size=65579date=2025-03-20T21:58:38
+file,ghost/master/cred_boot.dicd307f67122991a8ef4a6379e74b23011size=21331date=2025-03-20T19:18:36
 file,ghost/master/cred_meta.dic9906981000e5b2b4c728610b46cc4f7esize=4667date=2024-05-30T13:15:35
 file,ghost/master/cred_mouse.dic0864133ce68ef4921a58f91b43c749f8size=945date=2024-05-30T12:32:34
 file,ghost/master/cred_other.dicfa4e5bebfa4b44a66c931bfcfc577ff4size=3967date=2024-05-30T13:21:55
-file,ghost/master/cred_sakura_menu.dic1ce82f2f9cb02262418a3fe373f9b4a9size=41769date=2024-06-07T00:33:50
+file,ghost/master/cred_sakura_menu.dic9cd68f02a1bf42377d026aa144c79a83size=43222date=2025-03-20T21:51:04
 file,ghost/master/cred_word.dic3642d17ccca82076f6f9b857b63bb3besize=925date=2024-06-06T16:34:07
 file,ghost/master/descript.txt51d9dd0ab711cd3e7404fa457db928d9size=256date=2024-05-30T13:27:45
 file,ghost/master/emerg.dicc7cb6eacd3262003fef909c382a6fefesize=351date=2023-04-14T12:45:50

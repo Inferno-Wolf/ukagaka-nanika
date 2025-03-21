@@ -178,6 +178,14 @@ OnFF
 	{
 		"\n\n[half]Final Fantasy 14 is also an online multiplayer where you design your player character.\w8 Due to the online aspect of it,\w4 its battle system is different from the usual RPG fare.\w8"
 	}
+	elseif reference0 == "ff7"
+	{
+		"\n\n[half]Final Fantasy VII involves the fight between those who wish to save their Planet,\w4 the giant corporation draining their Planet of its natural energy source,\w4 and a toxic alien from a meteor using the big bad as a proxy until they take over the world destroying plan.\w8 It was originally released on the PlayStation 1,\w4 but is getting a remake released in parts that greatly expand the story and characters.\w8"
+	}
+	elseif reference0 == "ff6"
+	{
+		"\n\n[half]Final Fantasy VI involves mages who are more akin to summons than humans and an evil clown hell bent on destroying the world.\w8"
+	}
 	--
 	"\n\n[half]Since Credit's a big RPG sort of person,\w4 they've devoured each and every one of these...\w8\e"
 }
@@ -514,6 +522,11 @@ OnEverhood
 	
 	"A game about the ineffable tales of the inexpressible divine moments of truth.\w8 At least,\w4 that's what the subtitle says.\w8"
 	--
+	if reference0 == 2
+	{
+		"\n\n[half]The sequel,\w4 simply titled 'Everhood 2',\w4 expands on the battle aspect of the rhythm-like gameplay and takes place in a similarly dream-like,\w4 confusing state.\w8"
+	}
+	--
 	"\n\n[half]Credit says this one changed their whole brain chemistry.\w8\e"
 }
 
@@ -528,7 +541,7 @@ OnSTP
 	
 	"A game about the constant battle between life and death and those who wish to control the narrative.\w8"
 	--
-	"\n\n[half]\w8\e"
+	"\n\n[half]Credit absolutely adores this one,\w4 always wanting to wave at the Princess...\w8\e"
 }
 
 
@@ -925,6 +938,20 @@ OnYearWalk
 	"A game about the dangers of grasping the future and closing the loop before it can hurt someone outside of it.\w8"
 	--
 	"\n\n[half]Credit's crazy about this one.\w8 Even if it's basically a walking simulator at times.\w8\e"
+}
+
+
+OnSolatorobo
+{
+	"\1Solatorobo...\w8\w8\n\n[half]"
+	--
+	"An Action RPG developed by CyberConnect2 and published by Namco Bandai for the Nintendo DS.\w8"
+	
+	"A game in the Little Tail Bronx series about a pair of Hunters stumbling onto a world-ending plot.\w8"
+	
+	"A game about two Hunters believing in their world and working to save it against every odd thrown their way.\w8"
+	--
+	"\n\n[half]Credit maybe enjoyed this one.\w8 They certainly ended up really liking the characters...\w8\e"
 }
 
 
