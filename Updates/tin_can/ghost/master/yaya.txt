@@ -11,6 +11,7 @@ dicif, yaya_base/optional.dic, UTF-8
 dicif, yaya_base/compatible.dic, UTF-8
 dic, tin_aitalk.dic
 dic, tin_boot.dic
+dic, tin_commu.dic
 dic, tin_mouse.dic
 dic, tin_meta.dic
 dic, tin_other.dic
