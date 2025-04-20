@@ -1,0 +1,282 @@
+//inter-ghost communication things!!
+
+//Tin Can hitting others
+tonk
+{
+	"\0%(tinging)("
+	"\0%(sloshing)("
+	"\0("
+	--
+	"Bap bap"
+	"Bap baps"
+	"Baps"
+	"Bapping"
+	"Bapping"
+	"Bap bapping"
+	"Bapping bap"
+	"Bapping baps"
+	"Baps bapping"
+	
+	"Clank clank"
+	"Clanks"
+	"Clank clonk"
+	"Clonks"
+	"Clangs"
+	"Clang clong"
+	"Clang clang"
+	"Clanking clink clang"
+	"Clanking"
+	"Clinking"
+	"Clonging"
+	"Clonking"
+	"Clang clanging"
+	"Clanging clang"
+	"Clanging clank"
+	"Clanking clang"
+	
+	"Tonk"
+	"Tinka tonk"
+	"Tink tank"
+	"Tap tap"
+	"Tink tonk"
+	"Tink tank"
+	"Tinka tank"
+	"Tonk tonk"
+	"Tonks"
+	"Tap tap"
+	"Tip tap"
+	"Tip tapping"
+	"Tippy tappy"
+	"Tippy tappa"
+	"Tippy tap tap"
+	"Tap tap tapping"
+	"Tip tap tapping"
+	
+	"Smacked"
+	"Smacks"
+	"Smack smack"
+	"Smacking"
+	"Bonk"
+	"Bonks"
+	"Bonked"
+	"Bonking"
+	
+	"Rude"
+	"Still won't open"
+	"Not going to open"
+	"Can't can't"
+	"Won't won't"
+	"Can't open"
+	"Impossible to dent"
+	"Not going to work"
+	
+	"Tossed"
+	"Catch"
+	"Caught"
+	"Handed off"
+	"Hands can"
+	"Hands can't"
+	"It's %(canfood)"
+	"It's not %(canfood)"
+	"Reads label"
+	"Label read"
+	"Informed now"
+	--
+	".)"
+	"!)"
+}
+
+
+
+/*
+//when you call another ghost. activates immediately
+OnGhostCalling
+{
+	case reference0
+	{
+		when "" //Sakura name
+		{
+			""
+		}
+		when ""
+		{
+			""
+		}
+		others
+		{
+			"%(reference0)"
+		}
+	}
+}
+
+//when you change another ghost. activates after they've finished swapping.
+//reference0 = ghost before switch; reference1 = ghost switched to; reference4 = name of previous ghost; reference5 = name of switched to ghost
+OnOtherGhostChanged
+{
+	if reference0 == ""
+	{
+		if reference4 == ""
+		{
+			""
+		}
+		else
+		{
+			"%(reference4)"
+		}
+	}
+	elseif reference0 == ""
+	{
+		if reference4 == ""
+		{
+			""
+		}
+		else
+		{
+			"$(reference4)"
+		}
+	}
+	else
+	{
+		"Swapped %(reference0) for %(reference4)."
+		
+		"Swapped %(reference1) for %(reference5)."
+	}
+}
+
+//when you close another ghost. Only activates after the other ghost is gone.
+OnOtherGhostClosed
+{
+	case reference0
+	{
+		when "" //Sakura name
+		{
+			""
+		}
+		when ""
+		{
+			""
+		}
+		others
+		{
+			"%(reference0)"
+		}
+	}
+}
+*/
+
+
+/*
+THIS WHOLE SYSTEM IS WRITTEN BY ZI (Zichqec)!!!!! https://ukagaka.zichqec.com/
+
+if you want to toss Tin Can at your ghost, simply add this event into your ghost (doesn't matter which .dic file, but it does need to be outside of any other functions or brackets) --
+
+//reference0 is which character (0 for Sakura, 1 for Kero, etc), reference1 is the name of Tin Can's current shell (ex, default is Presentable Default)
+OnCanToss
+{
+	""
+}
+
+this will then trigger when Tin Can overlaps your ghost! simple as that.
+*/
+
+//toss a tin can at someone's head why don't you
+OnOtherOverlap : all
+{
+	_cantoss = SPLIT(reference.raw[0],C_BYTE1)
+	_canttoss = SPLIT(reference.raw[1],C_BYTE1)
+	
+	_newtonk = IARRAY
+	_command = ""
+
+	foreach _cantoss; _tonk
+	{
+		if "Tin Can/0" _in_ _tonk && ASEARCH(_tonk,_canttoss) == -1 //if there is overlap and it isn't in the past overlap array
+		{
+			//figuring out if started the overlap or not and running the event either way
+			_char = ""
+			if "-Tin Can" _in_ _tonk; _char = REPLACE(_tonk,"-Tin Can/0","")
+			else; _char = REPLACE(_tonk,"Tin Can/0-","")
+			
+			//this is making sure a ghost with a slash in its name doesn't mess up the system. it also grabs the character number for the final command
+			_char = SPLIT(_char,"/")
+			_num = ""
+			_final = ""
+			for _i = 0; _i < ARRAYSIZE(_char); _i++
+			{
+				if _i == (ARRAYSIZE(_char) - 1)
+				{
+					_num = _char[_i]
+					break
+				}
+				
+				if _i != 0; _final += "/"
+				_final += _char[_i]
+			}
+			
+			//this is what will be sent to the other ghost so they have the information with which to react accodringly; it includes the information on which ghost it's overlapping, which character in that ghost, and which shell it's using
+			_command += "\![raiseother,%(_final),OnCanToss,%(_num),""%(SHIORI3FW.ShellName)""]"
+		}
+	}
+	if _command != ""
+	{
+		//this is the final execution of the event! the command is what is sent to the other ghost and isn't seen by the user, then the other envelope is what's said by this ghost. the offender, if you will.
+		"%(_command)"
+		"%(tonk)"
+	}
+}
+
+
+
+//and Needle, of course. reference1 is the name of Needle's current shell
+//reference0 is which character; 0 for Sakura, 1 for Kero
+OnNeedlePoke
+{
+	"\0\s[0]%(tinging)("
+	--
+	"Ting ting"
+	"Tink"
+	"Tinking"
+	"Tink tink"
+	"Tink tonk"
+	"Tinks can"
+	"Tinks can't"
+	"Clanks"
+	"Clangs"
+	"Clangs off"
+	"Clang clang"
+	"Klink clang"
+	"Klinking"
+	"Klink klang"
+	"Klink klang klink klang"
+	"Keyed"
+	"Needled"
+	"Needle needle"
+	"Needle Needle"
+	"Needle,\w4 not opener"
+	"Needle can"
+	"Needles can"
+	"Needle can't"
+	"Needles can't"
+	"Needle wants %(canfood)"
+	"It's %(canfood) for Needle"
+	"Can't for Needle"
+	"Can for Needle"
+	"Needle Needle Needle Needle Needle Needle Needle Needle Needle Needle Needle Needle"
+	"Needle can't can't can't can't can't can't can't can't can't can't can't can't can't"
+	"Needle can can can can can can can can can can can can can can can can can can can"
+	"Chips can"
+	"Chips can't"
+	"Chip chip"
+	"Keep chipping"
+	"Not a can opener"
+	"Pry pry"
+	"Prying"
+	"Pries"
+	"Doesn't count"
+	"No use"
+	"It's no use"
+	"Isn't working"
+	"Why"
+	--
+	".)\w8\e"
+}

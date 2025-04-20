@@ -6,7 +6,7 @@ type,ghost
 shiori,yaya.dll
 
 craftman,KFC
-craftmanurl,http://www.characteroulette.tumblr.com/
+craftmanurl,https://characteroulette.tumblr.com/
 
 sakura.name,Tin Can
 kero.name,Money

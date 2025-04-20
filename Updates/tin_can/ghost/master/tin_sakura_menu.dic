@@ -1,13 +1,75 @@
 //oof okay
 
-OnSakuraMenu
+OnSakuraMenu : all
 {
-	"\0\s[0]"
-	--
-	"(Current count:\w8 %(ting) )"
-	--
-	"\w8\w8\w8\w8\e"
+	"\0\s[0]\_q\*\t\![set,autoscroll,disable]"
+	
+	"(Current count: %(ting) )"
+	
+	if ting > 0 {"\n\n[half]\![*]\__q[OnResetting]Reset Count\__q"}
+	
+	"\n\n[half]\![*]\__q[OnSoundToggle]Sounds are\__q: "
+	if sounds == 0 {"Off"}
+	else {"On"}
+	
+	"\nVolume: %(volume)\n"
+	"\__q[OnVolumeup]\![*]+5\__q  \__q[OnVolumedown]\![*]-5\__q  \__q[OnVolumefix]\![*]Default\__q"
+	
+	"\n\n[half]\__q[OnCancel]Close Menu\__q\e"
 }
+
+//reset tings
+OnResetting
+{
+	ting = 0
+	
+	"\0\s[0]("
+	--
+	"Fresh can."
+	"Start over."
+	"Undented."
+	"Untinged."
+	"Start again."
+	"Again again!"
+	"Again,\w4 again!"
+	"Again.\w8 Again."
+	"Once more."
+	"Once more,\w4 with feeling."
+	"Once more a can't."
+	"Once more a can."
+	--
+	")\w8\w8\w8\w8\e"
+}
+
+//sound options
+OnSoundToggle
+{
+	if sounds == 0 {sounds = 1} //off to on
+	else {sounds = 0} //on to off
+	OnSakuraMenu
+}
+
+OnVolumeup
+{
+	volume += 5
+	if volume > 100 {volume = 100}
+	OnSakuraMenu
+}
+
+OnVolumedown
+{
+	volume -= 5
+	if volume < 0 {volume = 0}
+	OnSakuraMenu
+}
+
+OnVolumefix
+{
+	volume = 50
+	OnSakuraMenu
+}
+
+
 
 /*
 SakuraMenuGreetings : nonoverlap

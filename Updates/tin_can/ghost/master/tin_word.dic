@@ -4,6 +4,7 @@
 canfood
 {
 	"beans"
+	"pinto beans"
 	"lima beans"
 	"green beans"
 	"black beans"
@@ -11,6 +12,7 @@ canfood
 	"kidney beans"
 	"garbanzo beans"
 	"corn"
+	"sweet corn"
 	"asparagus"
 	"mixed vegetables"
 	"spinach"
@@ -21,10 +23,13 @@ canfood
 	"carrots"
 	"pumpkin"
 	"peas"
+	"sweet peas"
 	"olives"
+	"black olives"
 	
 	"pineapple"
 	"peaches"
+	"pears"
 	"tomatoes"
 	"jackfruit"
 	"green chile"
@@ -33,10 +38,22 @@ canfood
 	"coconut milk"
 	"linguine"
 	"chili"
+	"chili without beans"
+	"chili with beans"
 	"soup"
+	"cream of soup"
+	"cream of cheese soup"
 	"stew"
+	"beef stew"
 	"broth"
+	"chicken broth"
+	"beef broth"
 	"sauce"
+	"marinara sauce"
+	"tomato sauce"
+	"alfredo sauce"
+	"chili sauce"
+	"pepper sauce"
 	
 	"tuna"
 	"chicken"
@@ -67,4 +84,49 @@ timeslot
 	{ "night" }
 	else
 	{ "latenight" }
+}
+
+
+//FINALLY some noises
+tinging
+{
+	if sounds == 1 //on
+	{
+		_tings = tinktink
+		"\![sound,play,%(_tings),--volume=%(volume)]"
+	}
+}
+
+tinktink
+{
+	"cantap"
+	--
+	"1"
+	"2"
+	"3"
+	"4"
+	"5"
+	"6"
+	--
+	".wav"
+}
+
+
+sloshes
+{
+	if sounds == 1 //on
+	{
+		_slosh = sloshing
+		"\![sound,play,%(_slosh),--volume=%(volume)]"
+	}
+}
+
+sloshing
+{
+	"canslosh"
+	--
+	"1"
+	"2"
+	--
+	".wav"
 }

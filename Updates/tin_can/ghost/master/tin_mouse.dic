@@ -40,84 +40,112 @@ OnMouseMove.Sakura
 {
 	if reference4 == "body"
 	{
-		"\0\s[0]"
+		"\0\s[0]%(sloshes)"
 		--
 		if ting < 50
 		{
 			"(Won't open.)"
-			
 			"(Refuses.)"
-			
 			"(Refuses to open.)"
-			
 			"(Can't have.)"
-			
 			"(Can't open.)"
 		}
 		if ting > 100 && ting < 500
 		{
 			"(You can not have.)"
-			
 			"(You cannot have.)"
-			
+			"(Can't have it.)"
+			"(Can't have can't have.)"
 			"(Can't take it.)"
-			
+			"(Can't take can't take.)"
 			"(No opening.)"
-			
+			"(Can't open.)"
+			"(Can't can't open.)"
 			"(Not even a drop.)"
-			
 			"(Not even a sip.)"
 		}
 		if ting > 500
 		{
 			"(Desperation.)"
-			
-			"(Starving.)"
-			
-			"(Clawing.)"
-			
-			"(Scraping.)"
-			
 			"(Desperate.)"
-			
+			"(Crying sobbing desperation.)"
+			"(Crying sobbing wailing.)"
+			"(Starving.)"
+			"(Starving and starving and starving.)"
 			"(Starvation.)"
-			
+			"(Starvation taking hold.)"
 			"(Failing.)"
 			
-			"(Starvation taking hold.)"
-			
-			"(Crying sobbing desperation.)"
-			
-			"(Pristine.)"
-			
-			"(Can't dent.)"
+			"(Clawing.)"
+			"(Clawing and clawing and clawing.)"
+			"(Scraping.)"
+			"(Scraping and clawing and begging.)"
+			"(Clawing and scraping and begging.)"
 			
 			"(Wringing.)"
-			
+			"(Wringing and wringing and wringing.)"
 			"(Nothing to wring.)"
-			
 			"(Burns.)"
+			"(Burns and burns and burns.)"
+			"(Cold to the touch.)"
+			"(Cold and burning.)"
+			
+			"(Pristine.)"
+			"(Can't dent.)"
+			"(Not a dent to be seen.)"
+			"(Still no dents.)"
+			"(Undented.)"
+			"(Ridges remain.)"
+			"(All the same dents.)"
+			"(Sensation remains the same.)"
 		}
 		
 		"(Stroke stroke.)"
-		
+		"(Stroking.)"
 		"(Gleam gleam.)"
-		
+		"(Gleaming.)"
 		"(Shine shine.)"
+		"(Shining.)"
+		"(Polish polish.)"
+		"(Polishing.)"
+		"(Rubs and strokes and shines.)"
+		"(Strokes and rubs and shines.)"
+		"(Shines and shines and shines.)"
+		"(Polishes and polishes and polishes.)"
+		"(Strokes and strokes and strokes.)"
+		"(Rubs and rubs and rubs.)"
+		"(Can't rub it clean.)"
+		"(Can rub it clean.)"
+		
+		"(Sloshing.)"
+		"(Sloshing and sloshing and sloshing.)"
+		"(Sloshes around.)"
+		"(Shaking.)"
+		"(Shake shake.)"
+		"(Shaking and shaking and shaking.)"
+		"(Shaking and sloshing.)"
+		"(Shaking and sloshing and shaking.)"
+		"(Sloshing and shaking and sloshing.)"
+		"(Shakes it and shakes it and shakes it.)"
+		"(Can shake and slosh.)"
+		"(Can't shake and slosh.)"
 		
 		"(Contents unknown.)"
-		
 		"(It is a mystery.)"
-		
 		"(It's a mystery.)"
-		
 		"(A mystery.)"
-		
 		"(Remains a mystery.)"
+		"(Won't reveal itself.)"
 		
-		"(Polishing.)"
-		
-		"(Shining.)"
+		"(Grants no wishes.)"
+		"(Can't grant wishes.)"
+		"(Contains no genies.)"
+		"(Contains no genie.)"
+		"(Can't make a wish.)"
+		"(Wish for more %(canfood).)"
+		"(Wishing for more %(canfood).)"
+		"(Make a wish.\w8 Won't come true.)"
+		"(Make a wish.\w8 Can't come true.)"
 	}
 }
 

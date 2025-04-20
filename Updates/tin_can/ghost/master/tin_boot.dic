@@ -10,6 +10,8 @@ OnFirstBoot
 	aitalkinterval = 600
 	stroke = 0
 	LastTalk = ""
+	volume = 50
+	sounds = 0 //off
 	ting = 0
 	mode = 0
 	
@@ -39,20 +41,24 @@ OnBoot
 	_user_birthday = "%(_temp[2])/%(_temp[1])" // D/M
 	_today = "%(_day)/%(_month)"
 	
-	"\1\s[10]\0\s[0]"
+	"\1\s[-1]\0\s[0]"
 	--
 	if _today == _user_birthday
 	{
 		"(Looks like %(canfood) today.)"
 		
 		"(Lucky %(canfood).)"
+		
+		"(It's %(canfood) for you.)"
+		
+		"(Wanted some %(canfood)?)"
+		
+		"(Have some %(canfood).)"
+		
+		"(It's %(canfood)!\w8 It's %(canfood)!)"
+		
+		"(Surely,\w4 you can get its %(canfood) today.)"
 	}
-	/*
-	elseif _today == "1/1" //You can add whatever cool dates you want with more elseifs here
-	{
-		"\0\s[0]It's new year's day.\w8 Happy %(year),\w4 %(username)."
-	}
-	*/
 	else //Normal boot
 	{
 		"(Can here.)"
@@ -68,6 +74,42 @@ OnBoot
 		"(It's out of your cupboard.)"
 		
 		"(It's out.)"
+		
+		"(Placed down for you.)"
+		
+		"(Placed down.)"
+		
+		"(Sits pretty.)"
+		
+		"(Still unopenable.)"
+		
+		"(Still won't open.)"
+		
+		"(It refuses.\w8 But it stays.)"
+		
+		"(Shining can is here.)"
+		
+		"(Sparkling can.)"
+		
+		"(Sparkling can't.)"
+		
+		"(Dull can is here.)"
+		
+		"(Wanted can.\w8 Wanted can't.)"
+		
+		"(Wanted can.)"
+		
+		"(Wanted can't.)"
+		
+		"(Knocks but cannot be opened.)"
+		
+		"(Knocks but cannot.)"
+		
+		"(Knocks but can't.)"
+		
+		"(Can't can't is here.)"
+		
+		"(Can can is here.)"
 	}
 	--
 	"\w8\e"
@@ -79,17 +121,65 @@ OnClose
 	--
 	"(Placed back in the pantry.)"
 	
-	"(Back to the money machine with you.)"
-	
 	"(Back to the pantry,\w4 then.)"
 	
-	"(No more can.)"
+	"(Returned to the pantry.)"
+	
+	"(Returned can to pantry.)"
+	
+	"(Returned can't to pantry.)"
+	
+	"(Back to the money machine with you.)"
+	
+	"(Money machine won't refund your purchase.)"
+	
+	"(Money machine can't refund your purchase.)"
+	
+	"(Money machine can't take it back.)"
+	
+	"(Money machine won't refund your can.)"
+	
+	"(Refunded can.)"
+	
+	"(Refunded can't.)"
 	
 	"(Placed back in the cupboard.)"
 	
 	"(Back to the cupboard.)"
 	
+	"(Returned to the cupboard.)"
+	
+	"(Returned can to the cupboard.)"
+	
+	"(Returned can't to the cupboard.)"
+	
+	"(Put back where it belongs.)"
+	
+	"(Placed back where it belongs.)"
+	
+	"(Returned to sender.\w8 If only.)"
+	
+	"(Put away that wishful thinking.)"
+	
+	"(Filed away for later.)"
+	
+	"(Perhaps later.)"
+	
+	"(No more can.)"
+	
+	"(No more can't.)"
+	
 	"(Unopened.)"
+	
+	"(Still starving.)"
+	
+	"(Try again later.)"
+	
+	"(Try to open it again later.)"
+	
+	"(For later,\w4 then.)"
+	
+	"(Dream of %(canfood) instead.)"
 	
 	"(Canned can.)"
 	--
@@ -100,175 +190,151 @@ OnClose
 // %(reference0) ; Sakura name of ghost (or full name of ghost if no Sakura defined)
 OnGhostChanging
 {
-	"\0\s[0]"
+	"\0\s[0]("
 	--
 	if reference0 == "Tin Can"
 	{
-		"(In and out.)"
+		"In and out."
 		
-		"(Shining up.)"
+		"Shining up."
 		
-		"(Holding out for a change.)"
+		"Holding out for a change."
 		
-		"(Renewing expiration dates.)"
+		"Renewing expiration dates."
 		
-		"(Stuffing more in.)"
+		"Stuffing more in."
 	}
 	//elseif reference0 == ""
 	else
 	{
-		"(Thrown to %(reference0).)"
+		"Thrown to %(reference0)."
 		
-		"(Heads up,\w4 %(reference0).)"
+		"Heads up,\w4 %(reference0)."
 		
-		"(Rolls to %(reference0).)"
+		"Rolls to %(reference0)."
 		
-		"(Can to %(reference0).)"
+		"Can to %(reference0)."
 		
-		"(Taken by %(reference0).)"
+		"Taken by %(reference0)."
 	}
 	--
-	"\w8\w8\e"
+	")\w8\w8\e"
 }
 
 // %(reference0) ; Sakura name of ghost (or full name of ghost if no Sakura defined)
 OnGhostChanged
 {
-	"\0\s[0]"
+	"\0\s[0]("
 	--
 	if reference0 == "Tin Can"
 	{
-		"(Present.)"
+		"Present."
 		
-		"(Renewed.)"
+		"Renewed."
 		
-		"(Back from the factory.)"
+		"Back from the factory."
 		
-		"(Stuffed full.)"
+		"Stuffed full."
 		
-		"(Holding more %(canfood).)"
+		"Holding more %(canfood)."
 	}
 	//elseif reference0 == ""
 	else
 	{
-		"(Left by %(reference0).)"
+		"Left by %(reference0)."
 		
-		"(Returned from %(reference0).)"
+		"Returned from %(reference0)."
 		
-		"(Given back.)"
+		"Given back."
 		
-		"(Returned by %(reference0).)"
+		"Returned by %(reference0)."
 		
-		"(%(reference0) forgot something.)"
+		"%(reference0) forgot something."
 	}
 	--
-	"\w8\e"
+	")\w8\e"
 }
 
 
 // %(reference0) ; defined in descript.txt of shell
 OnShellChanging
 {
-	"\0\s[0]"
+	"\0\s[0]%(sloshes)("
 	--
 	if reference0 == "Presentable Default"
 	{
-		"(Ripping label off.)"
+		"Ripping label off."
 	}
 	//elseif reference0 == ""
 	else
 	{
-		"(Swapping labels.)"
+		"Swapping labels."
 	}
 	--
-	"\w8\w8\e"
+	")\w8\w8\e"
 }
 
 // %(reference[0])
 OnShellChanged
 {
-	"\0\s[0]"
+	"\0\s[0]%(sloshes)("
 	--
 	if reference0 == "Presentable Default"
 	{
-		"(Tin can once more.)"
+		"Tin can once more."
 		
-		"(It's a tin can.)"
+		"It's a tin can."
 	}
 	elseif reference0 == "Gourmet Ravioli"
 	{
 		mode = 0
 		
-		"(Ravioli ravioli.)"
-		
-		"(Give the formuoli.)"
-		
-		"(Pockets full of pasta.)"
-		
-		"(Can full of pasta.)"
-		
-		"(Can't full of pasta.)"
-		
-		"(Can of pasta.)"
-		
-		"(Can't of pasta.)"
-		
-		"(Stuffed pockets.)"
-		
-		"(Stuffed into pockets.)"
-		
-		"(Sauce and meat.\w8 Not glitter and treasure.)"
-		
-		"(Tap tap.\w8 It's ravioli.)"
-		
-		"(Some sort of ravioli song.)"
-		
-		"(Some sort of ravioli art.)"
+		"Ravioli ravioli."
+		"Give the formuoli."
+		"Pockets full of pasta."
+		"Can full of pasta."
+		"Can't full of pasta."
+		"Can of pasta."
+		"Can't of pasta."
+		"Stuffed pockets."
+		"Stuffed into pockets."
+		"Sauce and meat.\w8 Not glitter and treasure."
+		"Tap tap.\w8 It's ravioli."
+		"Some sort of ravioli song."
+		"Some sort of ravioli art."
 	}
 	elseif reference0 == "Old Beans"
 	{
 		mode = 0
 		
-		"(Can't be eating those beans.)"
-		
-		"(This is beans.)"
-		
-		"(This is beans!)"
-		
-		"(More beans.)"
-		
-		"(Are they good?)"
-		
-		"(Baked can.)"
-		
-		"(Time for beans.)"
-		
-		"(Unambiguously beans.)"
-		
-		"(Need a spoon to scoop it all out.)"
-		
-		"(Slorp slorp.)"
-		
-		"(Clang clang.\w8 It's beans.)"
-		
-		"(Slorp it all up.)"
-		
-		"(Beans beans beans.)"
+		"Can't be eating those beans."
+		"This is beans."
+		"This is beans!"
+		"More beans."
+		"Are they good?"
+		"Baked can."
+		"Time for beans."
+		"Unambiguously beans."
+		"Need a spoon to scoop it all out."
+		"Slorp slorp."
+		"Clang clang.\w8 It's beans."
+		"Slorp it all up."
+		"Beans beans beans."
 	}
 	//elseif reference0 == ""
 	else
 	{
-		"(New label.)"
+		"New label."
 		
-		"(Still a tin can.)"
+		"Still a tin can."
 	}
 	--
-	"\w8\e"
+	")\w8\e"
 }
 
 
 //Happens when the ghost is unminimized.
 OnWindowStateRestore
 {
-	"\1\s[10]\0\s[0]"
+	"\1\s[-1]\0\s[0]"
 }

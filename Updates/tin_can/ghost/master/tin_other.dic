@@ -30,7 +30,7 @@ OnKeyPress
 //Happens about 30 seconds after a script ends, by default, to bring them back to normal poses
 OnSurfaceRestore
 {
-	"\1\s[10]\0\s[0]"
+	"\1\s[-1]\0\s[0]"
 }
 
 
@@ -63,7 +63,7 @@ On_sakura.recommendsites
 //These are the websites linked in the top option of the sakura's right click menu. The format is simple; write the label of the link on the left followed by a semicolon, and then on the right, the url to link to. These should be separate strings.
 recommendsites_sakura : array
 {
-	"Creator";	"http://www.characteroulette.tumblr.com/"
+	"Creator";	"https://characteroulette.tumblr.com/"
 }
 
 On_sakura.portalsites 
@@ -74,8 +74,8 @@ On_sakura.portalsites
 //These are the websites linked in the second option of the sakura's right click menu. Same as above
 portalsites_sakura : array
 {
-	"Simplicity Template";	"https://github.com/Zichqec/simplicity_template"
-	"Template Creator";	"https://zichqec.github.io/s-the-skeleton/"
+	"Simplicity Template";	"https://ukagaka.zichqec.com/template/simplicity_template"
+	"Template Creator";	"https://ukagaka.zichqec.com/"
 	"Ghost Walkthrough"; "http://www.ashido.com/ukagaka/"
 	"Ukagaka Dream Team"; "https://ukagakadreamteam.tumblr.com/"
 }

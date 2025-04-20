@@ -1,14 +1,11 @@
+//Aitalk time let's gooooo
+
+
 OnAiTalk
 {
-	if CHAIN.IDName == ""
-	{
-		LastTalk = RandomTalk
-	}
-	else
-	{
-		LastTalk = ChainTalk
-	}
-	LastTalk
+	if CHAIN.IDName != "" { lastTalk = ChainTalk }
+	else { lastTalk = RandomTalk }
+	lastTalk
 }
 
 RandomTalk : nonoverlap_pool
@@ -17,15 +14,35 @@ RandomTalk : nonoverlap_pool
 	
 	"(Sitting around.)"
 	
+	"(Sits pretty.)"
+	
+	"(Taunts you.)"
+	
+	"(Sitting pretty.)"
+	
 	"(Echoes gently.)"
 	
 	"(Upsets.)"
 	
 	"(Rattling.)"
 	
+	"(Rattle rattle.)"
+	
+	"(Rattles around.)"
+	
 	"(Rattles bones.)"
 	
 	"(Sloshes bones.)"
+	
+	"(Slosh slosh.)"
+	
+	"(Sloshing sloshing.)"
+	
+	"(Sloshes sloshing.)"
+	
+	"(Can shake.\w8 Won't help.)"
+	
+	"(Can't shake.\w8 Can't shake.)"
 	
 	"(Just a can.)"
 	
@@ -110,59 +127,213 @@ RandomTalk : nonoverlap_pool
 		"(Not %(canfood) at all.)"
 	}
 	
-	if timeslot == "earlymorning" //hour >= 5 && hour <= 8
-	{
-		"(Mystery can...)"
-		
-		"(Wondering what it holds.)"
-		
-		"(There's no knowing what's inside.)"
-		
-		"(Too dark to see.)"
-	}
-	if timeslot == "morning" //hour >= 9 && hour <= 11
-	{
-		"(Can to start the day?)"
-		
-		"(Need some %(canfood) for the day.)"
-		
-		"(Holding something.)"
-		
-		"(Can't tell what's inside.)"
-	}
-	if timeslot == "lunch" //hour >= 12 && hour <= 14
-	{
-		"(Holding %(canfood).)"
-		
-		"(Desires %(canfood).)"
-		
-		"(Starving.)"
-		
-		"(It's %(canfood) again.)"
-	}
-	if timeslot == "afternoon" //hour >= 15 && hour <= 17
-	{
-		"(Past time for %(canfood).)"
-		
-		"(No longer holds %(canfood).)"
-		
-		"(Empty.)"
-		
-		"(Contents may surprise you.)"
-	}
-	if timeslot == "evening" //hour >= 18 && hour <= 20
-	{
-		"(Tapping out a tune.)"
-		
-		"(Contains traces of %(canfood).)"
-		
-		"(Produced in the same factory as %(canfood).)"
-		
-		"(Should not be consumed.)"
-		
-		"(Getting darker.)"
-	}
-	if timeslot == "night" //hour >= 21 && hour <= 24
+	//moved out of time specific dialogues
+	"(Mystery can...)"
+	
+	"(Wondering what it holds.)"
+	
+	"(There's no knowing what's inside.)"
+	
+	"(Too dark to see.)"
+	
+	"(It's too dark.)"
+	
+	"(Can to start the day?)"
+	
+	"(Starving.)"
+	
+	"(Holding something.)"
+	
+	"(Can't tell what's inside.)"
+	
+	"(Empty.)"
+	
+	"(Contents may surprise you.)"
+	
+	"(Tapping out a tune.)"
+	
+	"(Need some %(canfood) for the day.)"
+	
+	"(Could be %(canfood).)"
+	
+	"(Could it be %(canfood)?)"
+	
+	"(Might be %(canfood).)"
+	
+	"(Want some %(canfood)?)"
+	
+	"(Holding %(canfood).)"
+	
+	"(Desires %(canfood).)"
+	
+	"(It's %(canfood) again.)"
+	
+	"(Past time for %(canfood).)"
+	
+	"(No longer holds %(canfood).)"
+	
+	"(Contains traces of %(canfood).)"
+	
+	"(Produced in the same factory as %(canfood).)"
+	
+	"(We've got %(canfood) and %(canfood) and %(canfood) and %(canfood) and %(canfood) and %(canfood) and %(canfood) and %(canfood) and %(canfood) and .\w8 .\w8 .\w8 )"
+	
+	"(Contains %(canfood) and %(canfood) and %(canfood) and %(canfood) and %(canfood) and %(canfood) and .\w8 .\w8 .\w8 )"
+	
+	"(It's %(canfood) and %(canfood) and %(canfood) and %(canfood) and %(canfood) and %(canfood) and and and and and)"
+	
+	"(Got %(canfood) and %(canfood) and %(canfood) and %(canfood) and %(canfood) and %(canfood) and %(canfood) and and and and and and and and)"
+	
+	"(Wants %(canfood).\w8 Wants it so bad.)"
+	
+	"(Needs %(canfood).\w8 Needs it so bad.)"
+	
+	"(Wants %(canfood) wants %(canfood) wants %(canfood) wants %(canfood) wants %(canfood) wants %(canfood) wants %(canfood) wants %(canfood) wants %(canfood) wants wants wants wants)"
+	
+	"(Needs %(canfood) needs %(canfood) needs %(canfood) needs %(canfood) needs %(canfood) needs %(canfood) needs %(canfood) needs %(canfood) needs %(canfood) needs needs needs needs)"
+	
+	"(Wanted %(canfood) once.\w8 No more.)"
+	
+	"(Needed %(canfood) once.\w8 No more.)"
+	
+	"(Needed %(canfood).\w8 Needed it.)"
+	
+	"(Once held %(canfood).\w8 No more.)"
+	
+	"(Could hold %(canfood).\w8 Could hold %(canfood).\w8 Don't know,\w4 don't know.)"
+	
+	"(Cannot hold %(canfood).\w8 Cannot hold %(canfood).)"
+	
+	"(Stuffed full of %(canfood)?\w8 Stuffed full of %(canfood)?)"
+	
+	"(Should not be consumed.)"
+	
+	"(Can't consume.)"
+	
+	"(Can't consume can't consume can't consume can't consume can't consume can't consume can't consume can't consume can't can't can't cant can't)"
+	
+	"(Consume can.\w8 Can't can't.)"
+	
+	"(Getting darker.)"
+	
+	"(Darker darker.)"
+	
+	"(Darker and darker.)"
+	
+	"(Ring ring ring.)"
+	
+	"(Ringing.)"
+	
+	"(Can hear ringing.)"
+	
+	"(Can't hear ringing.)"
+	
+	"(Hello hello?)"
+	
+	"(Hello hello.)"
+	
+	"(Ring ring.)"
+	
+	"(Ringing and ringing and ringing and ringing and ringing and ringing and ringing and ringing and ringing and ringing and ringing and ringing and ringing and ringing and ringing and ringing.)"
+	
+	"(Phone's ringing.)"
+	
+	"(Mailbox is ringing.)"
+	
+	"(Calling.)"
+	
+	"(Someone is calling.)"
+	
+	"(You've got something.)"
+	
+	"(Is it mail?\w8 Is it can't?)"
+	
+	"(Is it %(canfood)?\w8 Is it mail?)"
+	
+	"(Can eat paper.)"
+	
+	"(Can't eat paper.)"
+	
+	"(Letter for you.)"
+	
+	"(Letter for can.)"
+	
+	"(Letter for can't.)"
+	
+	"(No more letters.)"
+	
+	"(No letters.\w8 Nevermore.)"
+	
+	"(No games for you.)"
+	
+	"(Can't any games.)"
+	
+	"(Time to put down the game.)"
+	
+	"(It's too expensive for you.)"
+	
+	"(Too expensive.\w8 Costs a lung.)"
+	
+	"(It's the cost of an arm and a lung.)"
+	
+	"(Costs more than an arm and a lung.)"
+	
+	"(It's the cost of the lungs and a heart.)"
+	
+	"(Costs more than lungs and a heart.)"
+	
+	"(It's the cost of a spade and a heart.)"
+	
+	"(It's the cost of a club and a heart.)"
+	
+	"(It's the cost of a failed diamond.)"
+	
+	"(It costs more than %(canfood),\w4 that's for sure.)"
+	
+	"(It costs as much as fur and a whisker.)"
+	
+	"(It costs more than a kitty that loved you.)"
+	
+	"(Is the cost really worth it?)"
+	
+	"(Can handle the costs.)"
+	
+	"(Can't handle the costs.)"
+	
+	"(Costing more than a .png)"
+	
+	"(Costs too many organs.)"
+	
+	"(Organs can't be generated from a box.)"
+	
+	"(Organs can be generated from a box.)"
+	
+	"(The money machine keeps on generating.)"
+	
+	"(The money machine can't stop.)"
+	
+	"(The money machine never stops.)"
+	
+	"(The money machine is broken and broken.)"
+	
+	"(The money machine is broken,\w4 broken,\w4 broken.)"
+	
+	"(It's broken it's broken it will never work again it's broken it's broken it can't it can't it can't it's broken it's broken it's broken it's broken it's broken it's broken it's broken.)"
+	
+	"(It's broken it's broken it's broken.)"
+	
+	"(No more surprises.)"
+	
+	"(Out of time.)"
+	
+	"(Can't have any more time.)"
+	
+	"(Can have any more time.)"
+	
+	"(Holding out a little longer.)"
+	
+	//song refs stay a night time event
+	if timeslot == "night" || timeslot == "latenight" //hour >= 21 && hour <= 24, hour >=0 && hour <=4
 	{
 		"(Sounds of a glockenspiel.)"
 		
@@ -171,16 +342,6 @@ RandomTalk : nonoverlap_pool
 		//actual song lol
 		"(Sounds of Sonatina.)"
 		
-		"(Goodnight.)"
-		
-		"(Out of time.)"
-		
-		"(Holding out a little longer.)"
-		
-		"(Darker darker.)"
-	}
-	if timeslot == "latenight" //hour >=0 && hour <=4
-	{
 		//songs that fit the vibes
 		"(Sounds of Duet Musette.)"
 		
@@ -194,13 +355,9 @@ RandomTalk : nonoverlap_pool
 		
 		"(Sounds of Dance of Questionable Tuning.)"
 		
+		"(Goodnight.)"
+		
 		"(Past curfew.)"
-		
-		"(Ring ring ring.)"
-		
-		"(No games for you.)"
-		
-		"(No more surprises.)"
 	}
 	
 	//related to modes
@@ -219,6 +376,10 @@ RandomTalk : nonoverlap_pool
 		"(He's gone.)"
 		
 		"(Club can't be saved.)"
+		
+		"(Red lights for a broken club.)"
+		
+		"(Backup lights for a broken club.)"
 	}
 	if spade == 1 //Happy Buddy
 	{
@@ -237,6 +398,10 @@ RandomTalk : nonoverlap_pool
 		"(Spade no longer breathing.)"
 		
 		"(Removes spade lungs.)"
+		
+		"(Broken laughter of a spade.)"
+		
+		"(Never truly your buddy.)"
 	}
 	if heart == 1 //Charlotte
 	{
@@ -255,6 +420,10 @@ RandomTalk : nonoverlap_pool
 		"(Can't save her.)"
 		
 		"(She's dead.)"
+		
+		"(The cake is rotten.)"
+		
+		"(The cake is empty.)"
 	}
 	if diamond == 1 //Dr Money
 	{
@@ -271,15 +440,24 @@ RandomTalk : nonoverlap_pool
 		"(Diamond still bleeds.)"
 	}
 	
-	"(Hello hello?)"
 	
-	"(Hello hello.)"
+	"(One more one more one more.)"
 	
-	"(Ring ring.)"
+	"(Cannot resist.)"
 	
-	"(Calling.)"
+	"(Can't resist.)"
 	
-	"(Someone is calling.)"
+	"(Can resist.)"
+	
+	"(Can't resist?\w8 Can't resist.)"
+	
+	"(Can't open.)"
+	
+	"(Can't have it.)"
+	
+	"(Not allowed.)"
+	
+	"(There's no opening.)"
 	
 	{
 		"(Once more?\w8 "
@@ -315,6 +493,8 @@ RandomTalk : nonoverlap_pool
 		"(Pick one.)"
 		
 		"(Dent dent.)"
+		
+		"(Taunting you.)"
 	}
 	if ting > 100 && ting < 500
 	{
@@ -409,13 +589,39 @@ RandomTalk : nonoverlap_pool
 	
 	"(Can't contain %(canfood).)"
 	
-	"(Upset organs.)"
+	"(There's a virus.)"
+	
+	"(There's a plague.)"
 	
 	"(Stay inside.\w8 Don't go out.)"
 	
 	"(Can't be worse than what's out there.)"
 	
+	"(Upset organs.)"
+	
+	"(Organs fail.\w8 Can remains.)"
+	
+	"(Organs fail.\w8 Can't remain.)"
+	
+	"(Organs are failing organs are failing organs are failing organs are failing organs are failing organs are failing organs are failing.)"
+	
+	"(Organs are failing and failing and failing and failing and failing and failing and failing and failing and failing and failing and failing.)"
+	
+	"(Failing failing organs are failing help can't failing failing failing organs are failing can't won't help need help failing failing organs are failing need organs can't can't can't.)"
+	
+	"(Help help help help help help help \ncannot help.)"
+	
+	"(Help help help help help help help \ncan't help.)"
+	
 	"(Failing?)"
+	
+	"(There's blood everywhere.)"
+	
+	"(Still clean of blood.)"
+	
+	"(Can't get blood on it.)"
+	
+	"(Refuses blood.)"
 	
 	"(Failure.\w8 Failure.\w8 Surely not.)"
 	
@@ -444,38 +650,6 @@ HourCheck
 OnMinuteChange
 {
 	HourCheck
-	--
- 	if minute == 0
-	{
-		if hour == 12 //noon time
-		{
-			"\0\s[0]"
-			--
-			"(Could be %(canfood).)"
-			
-			"(Could it be %(canfood)?)"
-			
-			"(Might be %(canfood).)"
-			
-			"(Want some %(canfood)?)"
-			--
-			"\w8\e"
-		}
-		elseif hour == 0 //midnight time
-		{
-			"\0\s[0]"
-			--
-			"(Can't open.)"
-			
-			"(Can't have it.)"
-			
-			"(Not allowed.)"
-			
-			"(There's no opening.)"
-			--
-			"\w8\e"
-		}
-	}
 }
 
 OnSecondChange
@@ -489,26 +663,4 @@ OnSecondChange
  	{
 	 	passsec = passsec + 1
 	}
-}
-
-
-//and Needle, of course. reference1 is the name of Needle's current shell
-//reference0 is which character; 0 for Sakura, 1 for Kero
-OnNeedlePoke
-{
-	"\0\s[0]%(tinging)"
-	--
-	"(Ting ting.)"
-	
-	"(Clangs off.)"
-	
-	"(Needled.)"
-	
-	"(Clang clang.)"
-	
-	"(Tink tink.)"
-	
-	"(Doesn't count.)"
-	--
-	"\w8\e"
 }
