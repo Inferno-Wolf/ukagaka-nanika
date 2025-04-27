@@ -71,9 +71,17 @@ tonk
 	"Not going to work"
 	
 	"Tossed"
+	"Tossed can"
+	"Tossed can't"
 	"Catch"
+	"Catch it if you can"
+	"Catch it if you can't"
 	"Caught"
+	"Caught can"
+	"Caught can't"
 	"Handed off"
+	"Handed can"
+	"Handed can't"
 	"Hands can"
 	"Hands can't"
 	"It's %(canfood)"
@@ -182,46 +190,50 @@ this will then trigger when Tin Can overlaps your ghost! simple as that.
 //toss a tin can at someone's head why don't you
 OnOtherOverlap : all
 {
-	_cantoss = SPLIT(reference.raw[0],C_BYTE1)
-	_canttoss = SPLIT(reference.raw[1],C_BYTE1)
-	
-	_newtonk = IARRAY
-	_command = ""
-
-	foreach _cantoss; _tonk
+	if tossing == 1 //so this only plays when Tin Can starts the overlap
 	{
-		if "Tin Can/0" _in_ _tonk && ASEARCH(_tonk,_canttoss) == -1 //if there is overlap and it isn't in the past overlap array
+		_cantoss = SPLIT(reference.raw[0],C_BYTE1)
+		_canttoss = SPLIT(reference.raw[1],C_BYTE1)
+		
+		_newtonk = IARRAY
+		_command = ""
+
+		foreach _cantoss; _tonk
 		{
-			//figuring out if started the overlap or not and running the event either way
-			_char = ""
-			if "-Tin Can" _in_ _tonk; _char = REPLACE(_tonk,"-Tin Can/0","")
-			else; _char = REPLACE(_tonk,"Tin Can/0-","")
-			
-			//this is making sure a ghost with a slash in its name doesn't mess up the system. it also grabs the character number for the final command
-			_char = SPLIT(_char,"/")
-			_num = ""
-			_final = ""
-			for _i = 0; _i < ARRAYSIZE(_char); _i++
+			if "Tin Can/0" _in_ _tonk && ASEARCH(_tonk,_canttoss) == -1 //if there is overlap and it isn't in the past overlap array
 			{
-				if _i == (ARRAYSIZE(_char) - 1)
+				//figuring out if started the overlap or not and running the event either way
+				_char = ""
+				if "-Tin Can" _in_ _tonk; _char = REPLACE(_tonk,"-Tin Can/0","")
+				else; _char = REPLACE(_tonk,"Tin Can/0-","")
+				
+				//this is making sure a ghost with a slash in its name doesn't mess up the system. it also grabs the character number for the final command
+				_char = SPLIT(_char,"/")
+				_num = ""
+				_final = ""
+				for _i = 0; _i < ARRAYSIZE(_char); _i++
 				{
-					_num = _char[_i]
-					break
+					if _i == (ARRAYSIZE(_char) - 1)
+					{
+						_num = _char[_i]
+						break
+					}
+					
+					if _i != 0; _final += "/"
+					_final += _char[_i]
 				}
 				
-				if _i != 0; _final += "/"
-				_final += _char[_i]
+				//this is what will be sent to the other ghost so they have the information with which to react accodringly; it includes the information on which ghost it's overlapping, which character in that ghost, and which shell it's using
+				_command += "\![raiseother,%(_final),OnCanToss,%(_num),""%(SHIORI3FW.ShellName)""]"
 			}
-			
-			//this is what will be sent to the other ghost so they have the information with which to react accodringly; it includes the information on which ghost it's overlapping, which character in that ghost, and which shell it's using
-			_command += "\![raiseother,%(_final),OnCanToss,%(_num),""%(SHIORI3FW.ShellName)""]"
 		}
-	}
-	if _command != ""
-	{
-		//this is the final execution of the event! the command is what is sent to the other ghost and isn't seen by the user, then the other envelope is what's said by this ghost. the offender, if you will.
-		"%(_command)"
-		"%(tonk)"
+		if _command != ""
+		{
+			//this is the final execution of the event! the command is what is sent to the other ghost and isn't seen by the user, then the other envelope is what's said by this ghost. the offender, if you will.
+			"%(_command)"
+			//"\_qref0:  ""%(reference.raw[0])""\ncantoss: %(_cantoss)\_q\n\n" //debug info
+			"%(tonk)"
+		}
 	}
 }
 
@@ -277,6 +289,105 @@ OnNeedlePoke
 	"It's no use"
 	"Isn't working"
 	"Why"
+	--
+	".)\w8\e"
+}
+
+//for Phanta overlaps
+OnPhantaEepy
+{
+	"\0\s[0]%(sloshes)("
+	--
+	"Rest atop a can"
+	"Rest atop a can't"
+	"Cuddling the favourite %(canfood)"
+	"Hard place to land"
+	"Can place to land"
+	"Can't place to land"
+	"Can't have a soft place to land"
+	"Can have a soft place to land"
+	"Contains edible zzzzzzzz"
+	"Contains edible phanta"
+	"Contains edible dreams"
+	"Holding zzzzzzzz juice"
+	"Holding zzzzzzzz soup"
+	"Holding phanta soup"
+	"Holding sleepy juice"
+	"Holding sleepy soup"
+	"Holding dream juice"
+	"Holding dream soup"
+	"Sloshing like a dream"
+	"Sloshing like a nightmare"
+	"Dreaming of %(canfood)"
+	"Dreaming of can"
+	"Dreaming of can't"
+	"Not pillowed enough"
+	"Can't pillowed"
+	"Can pillowed"
+	"Still too good to be a pillow"
+	--
+	".)\w8\e"
+}
+
+//for LOBO howls
+OnLoboHowl
+{
+	"\0\s[0]("
+	--
+	//if reference0 == "pain" //pained howls //I guess more aren't implemented yet?? I can't find any others...
+	{
+		//Heart
+		"That's the sound of bleeding heart"
+		"That's the sound of wailing heart"
+		"That's the sound of lonely heart"
+		"Sound of her lonely heart"
+		"Sound of her wailing heart"
+		"Sound of her bleeding heart"
+		"Sound her lonely heart makes"
+		"Sound her bleeding heart makes"
+		"Sound her wailing heart makes"
+		"Sound of wailing"
+		"Sound of loneliness"
+		"Sound of bleeding"
+		"Calling out for glockenspiel"
+		"Calling out for cakes and shops"
+		"Calling out for anyone to hear"
+		
+		//Spade
+		"Sound of laughter"
+		"Spade's laughing"
+		"Spade's laughing again"
+		"Deceased laughter"
+		"Deceased laughter can be heard"
+		"A spade's a spade's a spade"
+		"He's laughing even now,\w4 that spade"
+		"Spade gave up his lungs for this"
+		"Spade gave up his family for this"
+		"Spade still searching for his family"
+		"Spade still calling for his family"
+		
+		//Club
+		"Sound of club destroying the generator"
+		"Sound of the generator being destroyed"
+		"That's the sound of never reuniting with club"
+		"That's the sound of club being set free"
+		"Sound of never watching the river change ever again"
+		"That's what he gets for his freedom"
+		"He'll never see the river change directions again"
+		"He'll never travel in his favourite cardinal direction again"
+		
+		//generic
+		"Sound of organ failure"
+		"Sounds of organ failure"
+		"Sound of the plague"
+		"Sounds of the plague"
+		"Many wailing echoes"
+		"Do you hear them crying?"
+		"They're still crying even now"
+		"This place is still haunted"
+		"Can hear the wailing of the dead"
+		"Graves are meant to be silent"
+	}
 	--
 	".)\w8\e"
 }

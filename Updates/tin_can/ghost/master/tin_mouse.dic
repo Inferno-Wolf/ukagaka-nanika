@@ -154,3 +154,10 @@ OnMouseLeaveAll
 {
 	stroke = 0
 }
+
+
+
+//for onotheroverlap use
+OnMouseDragStart {tossing = 1} //on
+
+OnMouseDragEnd {tossing = 0} //off
