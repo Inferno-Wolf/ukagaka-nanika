@@ -129,9 +129,9 @@ OnTalkConfig : all
 	
 	"\n\n-- Toggles --\n\n[half]\![*] "
 	if CasHat == 1 //on
-	{"\__q[OnHatToggle]Put her hat on\__q"}
-	else //0; off
 	{"\__q[OnHatToggle]Take her hat off\__q"}
+	else //0; off
+	{"\__q[OnHatToggle]Put her hat on\__q"}
 	
 	"\n\n[half]\![*]\q[Hourly Notifications,timetoggle]: "
 	if timenotif == 1 {"On"}

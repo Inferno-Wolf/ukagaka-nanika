@@ -8,7 +8,7 @@ file,ghost/master/cas_anchor.diceb18b3e8bfd0700523d4099c71d7354fsize=5364date
 file,ghost/master/cas_bootend.dica785b4418bc164eb504aa8a982382de9size=8792date=2025-04-26T22:34:38
 file,ghost/master/cas_commu.dic5426e23af7730900aedaee4d12a70e06size=5259date=2025-04-26T20:45:31
 file,ghost/master/cas_etc.dicff2755e1b64bbf8417016f28ec03d137size=17720date=2025-04-26T21:29:57
-file,ghost/master/cas_menu.dica5ed669cb687d1afbd4bda03b5762c73size=16151date=2025-04-26T22:28:56
+file,ghost/master/cas_menu.dic8825cb1e6e82b3183e419065b186fc9esize=16151date=2025-04-26T22:46:41
 file,ghost/master/cas_mouse.dic7195a670052ec3451070b44242a24020size=3544date=2025-04-26T20:56:48
 file,ghost/master/cas_nameteach.dic93dc39b5a44455f3e892bf3f33907fd5size=8023date=2025-04-26T21:01:52
 file,ghost/master/cas_string.dic8d485973c998b18190e01bf12fa1d91bsize=6027date=2025-04-26T21:04:09
