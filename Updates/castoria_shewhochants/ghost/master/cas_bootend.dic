@@ -10,14 +10,7 @@ OnFirstBoot
 	
 	"\t\*\1\s[10]"
 	--
-	if reference0 == 0 //if you've just installed them
-	{
-		"\0\s[40]Oh,\w4 h-hi!\w8 \s[41]I,\w4 uh,\w8 \s[28]didn't expect anyone else to be here.\w8 \s[44]\n\n[half]It's very quiet,\w4 isn't it?\w8 \s[33]The perfect place to wind down,\w8 away from people.\w8 \s[41]\n\n[half]...\w8\w8 Eh?\w8 \s[41]This is your place?\w8 \s[36]\n\n[half]Ah,\w4 shucks.\w8 I swear I didn't break in or anything!\w8 \s[20]I-\w4 I just-\w8 \s[35]walked in!\w8 I didn't see any fence or bounded field,\w4 so I thought-\w8\w8 \s[40]\n\n[half]Eh?\w8 \s[44]You don't mind me here?\w8 \s[41]\n\n[half]Oh...\w8 Oh,\w4 that's very nice...\w8 \s[4]Thank you,\w4 uh...\w8\w8 \s[35]\n\n[half]...\w8\w8\w8 \s[0]What should I call you?\w8"
-	}
-	else //if they're being reinstalled after being uninstalled before
-	{
-		"\0\s[40]Oh,\w4 h-hi!\w8 \s[41]I,\w4 uh,\w8 \s[28]didn't expect anyone else to be here.\w8 \s[44]\n\n[half]It's very quiet,\w4 isn't it?\w8 \s[33]The perfect place to wind down,\w8 away from people.\w8 \s[41]\n\n[half]...\w8\w8 Eh?\w8 \s[41]This is your place?\w8 \s[36]\n\n[half]Ah,\w4 shucks.\w8 I swear I didn't break in or anything!\w8 \s[20]I-\w4 I just-\w8 \s[35]walked in!\w8 I didn't see any fence or bounded field,\w4 so I thought-\w8\w8 \s[40]\n\n[half]Eh?\w8 \s[44]You don't mind me here?\w8 \s[41]\n\n[half]Oh...\w8 Oh,\w4 that's very nice...\w8 \s[4]Thank you,\w4 uh...\w8\w8 \s[35]\n\n[half]...\w8\w8\w8 \s[0]What should I call you?\w8"
-	}
+	"\0\b[0]\s[40]Oh,\w4 h-hi!\w8 \s[41]I,\w4 uh,\w8 \s[28]didn't expect anyone else to be here.\w8 \s[44]\n\n[half]It's very quiet,\w4 isn't it?\w8 \s[33]The perfect place to wind down,\w8 away from people.\w8 \s[41]\n\n[half]...\w8\w8 Eh?\w8 \s[41]This is your place?\w8 \s[36]\n\n[half]Ah,\w4 shucks.\w8 I swear I didn't break in or anything!\w8 \s[20]I-\w4 I just-\w8 \s[35]walked in!\w8 I didn't see any fence or bounded field,\w4 so I thought-\w8\w8 \s[40]\n\n[half]Eh?\w8 \s[44]You don't mind me here?\w8 \s[41]\n\n[half]Oh...\w8 Oh,\w4 that's very nice...\w8 \s[4]Thank you,\w4 uh...\w8\w8 \s[35]\n\n[half]...\w8\w8\w8 \s[0]What should I call you?\w8"
 	--
 	"\![open,inputbox,OnNameTeach,-1]\e"
 }
@@ -37,12 +30,25 @@ FirstBootVars
 	talktime = "5 minutes"
 	deleteshitai = "OFF"
 	firstboot = 1
+	CasHat = 1 //on
 	timenotif = 1 //on
 	offscreen = 1 //on
 	overlap = 1 //on
 	mode = 0
 	choicet = 0 //default
 	choiceb = 0 //default
+	Balloon.Sakura = ("0") //just in case I need this one, too
+}
+
+//for added variables
+OnInitialize
+{
+	if !ISVAR("CasHat") {CasHat = 1}
+	
+	if reference0 != "reload" //For things you want to reset EXCEPT when just reloading; a convenience for you the dev, basically
+	{
+		LastTalk = ""
+	}
 }
 
 //the regular boot values!
@@ -61,16 +67,13 @@ OnBoot
 {
 	Bootvals //don't forget this it's kinda important
 	
-	"\1\s[10]\0\s[0]"
+	"\1\s[10]\0\b[0]\s[0]"
 	--
 	if dayslot == userbirthday //%(bornmonthprint) %(borndayprint)
 	{
-		"\0%(talkb)\s[3]Hello again,\w4 %(user)!\w8 \s[4]\n\n[half]I remember,\w4 today marks the day you were born,\w4 right?\w8 \n\n[half]I'm told it's very important for some people,\w4 so:\w8 \s[3]congratulation on being alive!\w8\e"
+		"\0\s[3]Hello again,\w4 %(user)!\w8 \s[4]\n\n[half]I remember,\w4 today marks the day you were born,\w4 right?\w8 \n\n[half]I'm told it's very important for some people,\w4 so:\w8 \s[3]congratulation on being alive!\w8\e"
 	}
 	/*elseif dayslot == "8month 28day" //August 28
-	{
-		"\0\s[0]Files indicate it is Model 02's date of creation.\w8\e"
-	}
 	elseif dayslot == "" //
 	*/
 	else
@@ -85,9 +88,8 @@ normalboottalk
 {
 	//if RAND(100) < 5
 	//{
-		//"\0%(talkb)\s[0]The random number generator picked a number lower than five.\w8\e"
+		//"\0\b[0]\s[0]The random number generator picked a number lower than five.\w8\e"
 	//}
-	//elseif weekday == 6 && hour >= 19 //Ohhhh, it's Saturday night, yeah!
 	//else
 	//{
 		/*
@@ -100,14 +102,14 @@ normalboottalk
 		*/
 		if timeslot == "earlymorning" //am5 to am8
 		{
-			"\0%(talkb)\s[0]Are you trying to watch the sun rise?\w8 \s[3]Do tell me how it goes!\w8\e"
+			"\0\b[0]\s[0]Are you trying to watch the sun rise?\w8 \s[3]Do tell me how it goes!\w8\e"
 		}
 		
-		"\0%(talkb)\s[3]Hello again,\w8 %(user)!\w8 \s[0]\n\n[half]Thanks for inviting me in.\w8\e"
+		"\0\b[0]\s[3]Hello again,\w8 %(user)!\w8 \s[0]\n\n[half]Thanks for inviting me in.\w8\e"
 		
-		"\0%(talkb)\s[0]Oh,\w4 I'm back here.\w8 \s[4]\n\n[half]Seems like we're to hang out again,\w4 huh?\w8\e"
+		"\0\b[0]\s[0]Oh,\w4 I'm back here.\w8 \s[4]\n\n[half]Seems like we're to hang out again,\w4 huh?\w8\e"
 		
-		"\0%(talkb)\s[4]Don't mind me,\w4 I'm just chilling.\w8\e"
+		"\0\b[0]\s[4]Don't mind me,\w4 I'm just chilling.\w8\e"
 	//}
 }
 
@@ -121,7 +123,7 @@ OnClose
 	{
 		//if RAND(100) < 5
 		//{
-			//"\0%(talkb)\s[0]The random number generator pulled something less than five as we closed.\w8"
+			//"\0\b[0]\s[0]The random number generator pulled something less than five as we closed.\w8"
 		//}
 		//else
 		//{
@@ -137,19 +139,19 @@ OnClose
 			*/
 			if timeslot == "night" || timeslot == "latenight" || timeslot == "earlymorning"
 			{
-				"\0%(talkb)\s[0]Goodnight!\w8 Have pleasant dreams.\w8"
+				"\0\b[0]\s[0]Goodnight!\w8 Have pleasant dreams.\w8"
 			}
 			
-			"\0%(talkb)\s[0]Alright,\w4 I'm going back to Avalon.\w8 \s[3]See you later,\w4 %(user).\w8"
+			"\0\b[0]\s[0]Alright,\w4 I'm going back to Avalon.\w8 \s[3]See you later,\w4 %(user).\w8"
 			
-			"\0%(talkb)\s[0]Oh,\w4 seems like the dream is over.\w8 \s[3]See you in another dream,\w4 maybe!\w8"
+			"\0\b[0]\s[0]Oh,\w4 seems like the dream is over.\w8 \s[3]See you in another dream,\w4 maybe!\w8"
 			
-			"\0%(talkb)\s[22]That's enough socialisation for me today.\w8 \s[4]See you,\w4 %(user)!\w8"
+			"\0\b[0]\s[22]That's enough socialisation for me today.\w8 \s[4]See you,\w4 %(user)!\w8"
 		//}
 	}
 	else //if they haven't been open for at least ten minutes
 	{
-		"\0%(talkb)\s[41]Oh,\w4 was I not meant to be here?\w8 \s[45]Sorry,\w4 sorry!\w8 I'm leaving.\w8"
+		"\0\b[0]\s[41]Oh,\w4 was I not meant to be here?\w8 \s[45]Sorry,\w4 sorry!\w8 I'm leaving.\w8"
 	}
 	--
 	"\w8\-\e"
@@ -159,15 +161,15 @@ OnClose
 //OnWindowStateMinimize
 OnWindowStateMinimize
 {
-	"\0%(talkb)\s[0]I'll hide over there.\w8 \s[0]Tell me when it's safe to come out again.\w8\e"
+	"\0\b[0]\s[0]I'll hide over there.\w8 \s[0]Tell me when it's safe to come out again.\w8\e"
 }
 
 //OnWindowStateRestore
 OnWindowStateRestore
 {
-	"\1\s[10]\0\s[0]"
+	"\1\s[10]\0\b[0]\s[0]"
 	--
-	"\0%(talkb)\s[4]Hey,\w4 check this out!\w8 \s[3]I found %(anobject) under your task bar!\w8\e"
+	"\0\s[4]Hey,\w4 check this out!\w8 \s[3]I found %(anobject) under your task bar!\w8\e"
 }
 
 
@@ -178,20 +180,20 @@ OnGhostChanging
 {
 	if reference0 == "Castoria"
 	{
-		"\0%(talkb)\s[4]Be right back!\w8\e"
+		"\0\b[0]\s[4]Be right back!\w8\e"
 	}
 	elseif reference0 == "Herlock Sholmes"
 	{
-		"\0%(talkb)\s[36]The great detective is here?!\w8 \s[28]\n\n[half]Ahh,\w4 I'd love to talk to him one day,\w4 lockpicker to lockpicker...\w8 \s[4]\n\n[half]Not today,\w4 though!\w8 I don't feel like having my secrets exposed to the world.\w8 \s[3]\n\n[half]See you,\w4 %(user)!\w8 \s[4]Tell me when it's safe to come back in!\w8\e"
+		"\0\b[0]\s[36]The great detective is here?!\w8 \s[28]\n\n[half]Ahh,\w4 I'd love to talk to him one day,\w4 lockpicker to lockpicker...\w8 \s[4]\n\n[half]Not today,\w4 though!\w8 I don't feel like having my secrets exposed to the world.\w8 \s[3]\n\n[half]See you,\w4 %(user)!\w8 \s[4]Tell me when it's safe to come back in!\w8\e"
 	}
 	elseif reference0 == "Needle"
 	{
-		"\0%(talkb)\s[35]...\w8\w8 What are you doing with this big needle?\w8 \s[41]\n\n[half]Huh?\w8 Rabies shots?\w8 \n\n[half]Oh,\w4 I am OUT of here.\w8\e"
+		"\0\b[0]\s[35]...\w8\w8 What are you doing with this big needle?\w8 \s[41]\n\n[half]Huh?\w8 Rabies shots?\w8 \n\n[half]Oh,\w4 I am OUT of here.\w8\e"
 	}
 	//elseif reference0 == ""
 	else //unspecified ghosts; %(reference0)
 	{
-		"\0%(talkb)\s[41]Oh,\w4 is someone else here?\w8 \s[17]\n\n[half]I should go,\w4 then.\w8 I don't deal well with crowds.\w8 \s[3]You guys have fun!\w8\e"
+		"\0\b[0]\s[41]Oh,\w4 is someone else here?\w8 \s[17]\n\n[half]I should go,\w4 then.\w8 I don't deal well with crowds.\w8 \s[3]You guys have fun!\w8\e"
 	}
 }
 
@@ -199,16 +201,16 @@ OnGhostChanging
 //again, %(reference0) is the name of the Sakura of the ghost you're switching from.
 OnGhostChanged
 {
-	"\1\s[10]\0\s[0]"
+	"\1\s[10]\0\b[0]\s[0]"
 	--
 	if reference0 == "Castoria"
 	{
-		"\0%(talkb)\s[4]Alright,\w4 I'm good to go.\w8\e"
+		"\0\s[4]Alright,\w4 I'm good to go.\w8\e"
 	}
 	//elseif reference0 == ""
 	else //unspecified ghosts; %(reference0)
 	{
-		"\0%(talkb)\s[0]Is %(reference0) gone?\w8 \s[47]Alright,\w4 don't mind me slithering back in then.\w8\e"
+		"\0\s[0]Is %(reference0) gone?\w8 \s[47]Alright,\w4 don't mind me slithering back in then.\w8\e"
 	}
 }
 
@@ -220,22 +222,22 @@ OnShellChanging
 {
 	if reference0 == "Official Caster"
 	{
-		"\0%(talkb)\s[0]Those are my clothes alright!\w8 \s[20]Guess you want to see me change back into them...?\w8\e"
+		"\0\b[0]\s[0]Those are my clothes alright!\w8 \s[20]Guess you want to see me change back into them...?\w8\e"
 		
-		"\0%(talkb)\s[41]Ah,\w4 Muramasa chose that outfit for me.\w8 We needed something that would look dignified and noble.\w8 \s[28]\n\n[half]Makes me look like a real hero from prophecy,\w4 doesn't it?\w8\e"
+		"\0\b[0]\s[41]Ah,\w4 Muramasa chose that outfit for me.\w8 We needed something that would look dignified and noble.\w8 \s[28]\n\n[half]Makes me look like a real hero from prophecy,\w4 doesn't it?\w8\e"
 	}
 	elseif reference0 == "Farmer Caster"
 	{
-		"\0%(talkb)\s[28]Back in my old clothes I go!\w8 \s[0]\n\n[half]I've had these forever.\w8 They're not really showy or comfy,\w4 but they're practical.\w8 \s[3]And I can hide sooo many explosives in these pockets.\w8\e"
+		"\0\b[0]\s[28]Back in my old clothes I go!\w8 \s[0]\n\n[half]I've had these forever.\w8 They're not really showy or comfy,\w4 but they're practical.\w8 \s[3]And I can hide sooo many explosives in these pockets.\w8\e"
 	}
 	elseif reference0 == "Summer Berserker"
 	{
-		"\0%(talkb)\s[47]Hot girl summer here I COME!\w8 \s[27]\n\n[half]It's a bit embarrassing,\w4 but it's the second outfit I ever got to choose for myself.\w8 \s[24]\n\n[half]The first one...\w8\w8 \s[20]a certain someone stole it before I got to wear it.\w8\e"
+		"\0\b[0]\s[47]Hot girl summer here I COME!\w8 \s[27]\n\n[half]It's a bit embarrassing,\w4 but it's the second outfit I ever got to choose for myself.\w8 \s[24]\n\n[half]The first one...\w8\w8 \s[20]a certain someone stole it before I got to wear it.\w8\e"
 	}
 	//elseif reference0 == ""
 	else //other unspecified shells; %(reference0)
 	{
-		"\0%(talkb)\s[41]Oh?\w8 I don't recognise %(reference0)...\w8 \s[35]\n\n[half]But sure,\w4 why not?\w8 I could use a change.\w8\e"
+		"\0\b[0]\s[41]Oh?\w8 I don't recognise %(reference0)...\w8 \s[35]\n\n[half]But sure,\w4 why not?\w8 I could use a change.\w8\e"
 	}
 }
 
@@ -243,14 +245,14 @@ OnShellChanging
 //%(reference[0]) should be the name of your shell as you put it in the descript.txt of that shell's folder
 OnShellChanged
 {
-	"\1\s[10]\0\s[0]"
+	"\1\s[10]\0\b[0]\s[0]"
 	--
 	if reference0 == "Official Caster"
 	{
-		"\0%(talkb)\s[4]And I'm back!\w8\w8 \n\n[half]See?\w8 \s[22]Just the same me.\w8\e"
+		"\0\s[4]And I'm back!\w8\w8 \n\n[half]See?\w8 \s[22]Just the same me.\w8\e"
 		
 		{
-			"\0%(talkb)"
+			"\0"
 			--
 			"\s[32]"
 			"\s[33]"
@@ -260,7 +262,7 @@ OnShellChanged
 	}
 	elseif reference0 == "Farmer Caster"
 	{
-		"\0%(talkb)"
+		"\0"
 		--
 		"\s[32]"
 		"\s[33]"
@@ -269,47 +271,15 @@ OnShellChanged
 	}
 	elseif reference0 == "Summer Berserker"
 	{
-		"\0%(talkb)\s[47]It!\w8 Is!\w8 HOLIDAYS TIME!\w8 \s[48]\n\n[half]Ahhh I've always dreamed of this!\w8 I'm gonna frolic in the waters and breakdance on the beach and wrestle chickens to the ground!\w8\e"
+		"\0\s[47]It!\w8 Is!\w8 HOLIDAYS TIME!\w8 \s[48]\n\n[half]Ahhh I've always dreamed of this!\w8 I'm gonna frolic in the waters and breakdance on the beach and wrestle chickens to the ground!\w8\e"
 	}
 	//elseif reference0 == ""
 	else //other unspecified shells; %(reference[0])
 	{
-		"\0%(talkb)\s[0]Okay,\w4 I've put %(reference[0]) on.\w8 Whatever it is...\w8 \s[0]\n\n[half]Um.\w8\w8 \s[28]How's it look?\w8\e"
+		"\0\s[0]Okay,\w4 I've put %(reference[0]) on.\w8 Whatever it is...\w8 \s[0]\n\n[half]Um.\w8\w8 \s[28]How's it look?\w8\e"
 	}
 }
 
 
-
-//OnDressupChanged
-//I'll be honest, I have no idea how dressup stuff works with modes. All I can do is guess here, sorry ;;;
-//if you're not gonna be using Dressup items, then go ahead and remove all this!
-/*
-OnDressupChanged
-{
-	if reference0 == 0 //for the Sakura character
-	{
-		if reference1 == "Hat" //This is the name of the clothing item in the descript.txt file, pretty sure.
-		{
-			if reference2 == 1 //This checks if you're putting it on.
-			{
-				""
-			}
-			else // This checks if you're taking it off.
-			{
-				""
-			}
-		}
-	}
-	else //for the Kero character (or anything outside of the Sakura)
-	{
-		if reference1 == "Shadow Friend" //The name of the item of clothing in the descript.txt file in your shell folder.
-			if reference2 == 1 //If you put it on
-			else //When you take it off.
-		elseif reference1 == "Headless Prince-san"
-			if reference2 == 1 //if you're putting it on
-			else //when you take it off
-	}
-}
-*/
 
 //that should be it!

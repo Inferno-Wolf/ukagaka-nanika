@@ -29,7 +29,7 @@ Some notes to use on how ghosts work:
 
 Castoria is owned by TYPE-MOON (https://fate-go.us/)
 Dialogue all written by Verse (https://versegm.neocities.org/)
-Shell and coding by KFC (http://www.characteroulette.tumblr.com/)
+Shell and coding by KFC (https://characteroulette.tumblr.com/)
 
 First Template was built on top of GT Template (found here -> http://www.ashido.com/ukagaka/), which was in turn based off of a ghost written by cindysuke (which has since been taken down or stored; her site -> cindysuke.deviantart.com).
 Huge thanks to the Ukagaka community (https://ukagakadreamteam.tumblr.com/), as always.

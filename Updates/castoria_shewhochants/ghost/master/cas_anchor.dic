@@ -21,6 +21,42 @@ OnTranslate
 	
 	//_talk = REPLACE(_talk, "", "\_a[]\_a")
 	
+	if SHIORI3FW.BalloonName == "FGO Text"
+	{
+		if choicet == 0 //0; default
+		{
+			_talk = REPLACE(_talk,"\0\b[0]","\0\b[%(Balloon.Sakura[0])0]")
+		}
+		if choicet == 1 //b4
+		{
+			_talk = REPLACE(_talk,"\0\b[0]","\0\b[%(Balloon.Sakura[0])4]")
+		}
+		if choicet == 2 //b10
+		{
+			_talk = REPLACE(_talk,"\0\b[0]","\0\b[%(Balloon.Sakura[0])10]")
+		}
+		if choicet == 3 //b12
+		{
+			_talk = REPLACE(_talk,"\0\b[0]","\0\b[%(Balloon.Sakura[0])12]")
+		}
+		if choicet == 4 //b14
+		{
+			_talk = REPLACE(_talk,"\0\b[0]","\0\b[%(Balloon.Sakura[0])14]")
+		}
+		if choiceb == 0 //0; default
+		{
+			_talk = REPLACE(_talk,"\0\b[2]","\0\b[%(Balloon.Sakura[0])2]")
+		}
+		if choiceb == 1 //b6
+		{
+			_talk = REPLACE(_talk,"\0\b[2]","\0\b[%(Balloon.Sakura[0])6]")
+		}
+		if choiceb == 2 //b8
+		{
+			_talk = REPLACE(_talk,"\0\b[2]","\0\b[%(Balloon.Sakura[0])8]")
+		}
+	}
+	
 	//send input box : no event (ref2) , no special flag (ref1)
 	if reference1 == "" && reference2 == ""
 	{
@@ -48,7 +84,7 @@ OnAnchorSelect
 		{
 			when "Morgan"
 			{
-				"\0%(talkb)\s[0]A ruthless tyrant who conquered Fairy Britain all on her own.\w8 \n\n[half]Many were those who wanted her gone.\w8 The Queen had no mercy for fairies that did not pull their weight."
+				"\0\b[0]\s[0]A ruthless tyrant who conquered Fairy Britain all on her own.\w8 \n\n[half]Many were those who wanted her gone.\w8 The Queen had no mercy for fairies that did not pull their weight."
 				--
 				"\w8\e"
 				
@@ -56,43 +92,43 @@ OnAnchorSelect
 			}
 			when "Gawain"
 			{
-				"\0%(talkb)\s[1]A rude,\w4 entitled customer who doesn't look where she's stepping.\w8 \s[13]\n\n[half]Seriously,\w4 who steps into a shop and completely ignores the workers there?\w8\e"
+				"\0\b[0]\s[1]A rude,\w4 entitled customer who doesn't look where she's stepping.\w8 \s[13]\n\n[half]Seriously,\w4 who steps into a shop and completely ignores the workers there?\w8\e"
 			}
 			when "Lancelot"
 			{
-				"\0%(talkb)\s[0]Don't underestimate her just because she's small!\w8 She's the most powerful and handsome member of the Fairy Round Table!\w8\e"
+				"\0\b[0]\s[0]Don't underestimate her just because she's small!\w8 She's the most powerful and handsome member of the Fairy Round Table!\w8\e"
 			}
 			when "Tristan"
 			{
-				"\0%(talkb)\s[4]A rude,\w4 entitled brat who collects bloodsoaked shoes.\w8\w8\w8 \s[0]\n\n[half]Mh?\w8 It's an odd thing to smile about?\w8 \s[4]\n\n[half]Haha,\w4 I can't help it.\w8 \s[46]I can't hate her.\w8 \s[3]I like straightforward people!\w8\e"
+				"\0\b[0]\s[4]A rude,\w4 entitled brat who collects bloodsoaked shoes.\w8\w8\w8 \s[0]\n\n[half]Mh?\w8 It's an odd thing to smile about?\w8 \s[4]\n\n[half]Haha,\w4 I can't help it.\w8 \s[46]I can't hate her.\w8 \s[3]I like straightforward people!\w8\e"
 			}
 			when "Saber"
 			{
-				"\0%(talkb)\s[0]It's all in the title.\w8 People who use swords,\w4 or otherwise deal with blades.\w8 \s[48]\n\n[half]I know a blacksmith who qualifies for Saber!\w8\e"
+				"\0\b[0]\s[0]It's all in the title.\w8 People who use swords,\w4 or otherwise deal with blades.\w8 \s[48]\n\n[half]I know a blacksmith who qualifies for Saber!\w8\e"
 			}
 			when "Archer"
 			{
-				"\0%(talkb)\s[0]It's all in the title.\w8 People who use bows,\w4 or otherwise long-range weapons.\w8 \s[48]\n\n[half]I know an archer who fires soundwaves at people!\w8\e"
+				"\0\b[0]\s[0]It's all in the title.\w8 People who use bows,\w4 or otherwise long-range weapons.\w8 \s[48]\n\n[half]I know an archer who fires soundwaves at people!\w8\e"
 			}
 			when "Lancer"
 			{
-				"\0%(talkb)\s[0]It's all in the title.\w8 People who use spears,\w4 lances,\w4 or otherwise sticks with blades at the tip.\w8 \n\n[half]...\w8\w8 I wonder if a roomba would qualify if you taped a knife on it...?\w8\e"
+				"\0\b[0]\s[0]It's all in the title.\w8 People who use spears,\w4 lances,\w4 or otherwise sticks with blades at the tip.\w8 \n\n[half]...\w8\w8 I wonder if a roomba would qualify if you taped a knife on it...?\w8\e"
 			}
 			when "Rider"
 			{
-				"\0%(talkb)\s[0]It's all in the title.\w8 People with mounts,\w4 or vehicles.\w8 \s[20]\n\n[half]I don't actually know any Rider myself...\w8 \1%(bigb)\_b[habetrot.png,0,0,--option=use_self_alpha]\0\s[0]\n\n[half]Maybe Habetrot could qualify?\w8 She was always riding this little balloon thing.\w8\e"
+				"\0\b[0]\s[0]It's all in the title.\w8 People with mounts,\w4 or vehicles.\w8 \s[20]\n\n[half]I don't actually know any Rider myself...\w8 \1%(bigb)\_b[habetrot.png,0,0,--option=use_self_alpha]\0\s[0]\n\n[half]Maybe Habetrot could qualify?\w8 She was always riding this little balloon thing.\w8\e"
 			}
 			when "Caster"
 			{
-				"\0%(talkb)\s[0]It's all in the title.\w8 Scholars and people of magecraft.\w8 \s[48]\n\n[half]Like me!\w8 Or,\w4 well,\w4 my regular self.\w8\e"
+				"\0\b[0]\s[0]It's all in the title.\w8 Scholars and people of magecraft.\w8 \s[48]\n\n[half]Like me!\w8 Or,\w4 well,\w4 my regular self.\w8\e"
 			}
 			when "Assassin"
 			{
-				"\0%(talkb)\s[0]It's all in the title.\w8 Sneaky snakes who steal lives.\w8 \s[22]\n\n[half]I don't actually know any...\w8\w8\w8 \s[0]\n\n[half]Well,\w4 Muramasa WAS an assassin,\w8 but he wasn't of the assassin CLASS.\w8\e"
+				"\0\b[0]\s[0]It's all in the title.\w8 Sneaky snakes who steal lives.\w8 \s[22]\n\n[half]I don't actually know any...\w8\w8\w8 \s[0]\n\n[half]Well,\w4 Muramasa WAS an assassin,\w8 but he wasn't of the assassin CLASS.\w8\e"
 			}
 			when "Berserker"
 			{
-				"\0%(talkb)\s[0]It's all in the title.\w8 People with a loose grasp on their sanity.\w8 \s[48]\n\n[half]I'm a Berserker,\w4 though I have no idea why!\w8 \s[4]\n\n[half]As far as I can tell,\w4 I'm perfectly fine and normal.\w8 \s[0]\n\n[half]I guess my madness enhancement is fairly low.\w8\e"
+				"\0\b[0]\s[0]It's all in the title.\w8 People with a loose grasp on their sanity.\w8 \s[48]\n\n[half]I'm a Berserker,\w4 though I have no idea why!\w8 \s[4]\n\n[half]As far as I can tell,\w4 I'm perfectly fine and normal.\w8 \s[0]\n\n[half]I guess my madness enhancement is fairly low.\w8\e"
 			}
 		}
 	}

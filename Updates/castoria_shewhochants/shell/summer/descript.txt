@@ -20,7 +20,7 @@ charset,UTF-8
 type,shell
 name,Summer Berserker
 craftman,KFC
-craftmanurl,http://www.characteroulette.tumblr.com/
+craftmanurl,https://characteroulette.tumblr.com/
 
 
 //Balloon Co-ordinates

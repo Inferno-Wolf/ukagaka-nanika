@@ -30,7 +30,7 @@ MouseMoveSakura
 			if reference4 == "CasHat"
 			{
 				{
-					"\0%(talkb)"
+					"\0\b[0]"
 					--
 					"\s[41]"
 					"\s[43]"
@@ -40,13 +40,13 @@ MouseMoveSakura
 					"Oh!\w8 ...\w8\w8\w8 \s[3]This feels nice,\w4 actually.\w8\e"
 				}
 				
-				"\0%(talkb)\s[3]Hehe...\w8 keep doing that...\w8\e"
+				"\0\b[0]\s[3]Hehe...\w8 keep doing that...\w8\e"
 			}
 			elseif reference4 == "CasFace"
 			{
-				"\0%(talkb)\s[47]Ah-hah!\w8 Careful,\w4 %(user),\w4 or I'll catch your hand!\w8\e"
+				"\0\b[0]\s[47]Ah-hah!\w8 Careful,\w4 %(user),\w4 or I'll catch your hand!\w8\e"
 				
-				"\0%(talkb)\s[48]Shake my hand,\w4 shake my hand!\w8\e"
+				"\0\b[0]\s[48]Shake my hand,\w4 shake my hand!\w8\e"
 			}
 		}
 	}
@@ -110,13 +110,13 @@ MouseDoubleClickSakura
 {
  	if reference4 == "CasHat"
 	{
-		"\0%(talkb)\s[35]\w8\e"
+		"\0\b[0]\s[35]\w8\e"
  	}
 	elseif reference4 == "CasFace"
 	{
-		"\0%(talkb)\s[19]\w8\e"
+		"\0\b[0]\s[19]\w8\e"
 		
-		"\0%(talkb)\s[26]\w8\e"
+		"\0\b[0]\s[26]\w8\e"
 	}
 	else
  	{
@@ -158,10 +158,10 @@ OnMouseDragEnd
 	{
 		if reference4 == "CasHat"
 		{
-			"\0%(talkb)\s[1]Hey!\w8 \s[2]That's MY hat!\w8\e"
+			"\0\b[0]\s[1]Hey!\w8 \s[2]That's MY hat!\w8\e"
 		}
-		"\0%(talkb)\s[47]Ooh,\w4 what's over here?\w8\e"
+		"\0\b[0]\s[47]Ooh,\w4 what's over here?\w8\e"
 		
-		"\0%(talkb)\s[26]Alright,\w4 alright,\w4 I'm moving aside.\w8\e"
+		"\0\b[0]\s[26]Alright,\w4 alright,\w4 I'm moving aside.\w8\e"
 	}
 }

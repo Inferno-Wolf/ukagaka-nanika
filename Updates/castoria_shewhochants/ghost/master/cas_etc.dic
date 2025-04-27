@@ -14,23 +14,23 @@ OnFileDrop2
 		{
 			Wallpaperfile = reference0
 			
-			"\0%(talkb)\s[0]What an intriguing painting...\w8 do you want me to hang it in the background?\w8"
+			"\0\b[0]\s[0]What an intriguing painting...\w8 do you want me to hang it in the background?\w8"
 			--
 			"\n\n\![*]\q[Center it as Wallpaper,OnWallpaper,center] \n\![*]\q[Tile it as Wallpaper,OnWallpaper,tile] \n\![*]\q[Stretch it as Wallpaper,OnWallpaper,stretch] \n\n[half]\![*]\q[No action necessary,OnWallpaper,cancel]\e"
 		}
 		when ".mid", ".wav", ".mp3", ".wma", ".au"
 		{
-			"\0%(talkb)\s[0]%(_filename)?\w8 Is that music...?\w8\e"
+			"\0\b[0]\s[0]%(_filename)?\w8 Is that music...?\w8\e"
 		}
 		others
 		{
 			if _fileext == "" //\_?%(_filepath[1])\_?
 			{
-				"\0%(talkb)\s[39]Oof!\w8 This is heavy!\w8\e"
+				"\0\b[0]\s[39]Oof!\w8 This is heavy!\w8\e"
 			}
 			else //If it's a file
 			{
-				"\0%(talkb)\s[18]...\w8\w8\w8 I don't think I can eat this...\w8\e"
+				"\0\b[0]\s[18]...\w8\w8\w8 I don't think I can eat this...\w8\e"
 			}
 		}
 	}
@@ -56,7 +56,7 @@ OnWallpaper
 		"\0\s[35]\w8\e"
 	}
 	--
-	"\0%(talkb)\s[35]There you go!\w8\e"
+	"\0\b[0]\s[35]There you go!\w8\e"
 }
 
 
@@ -66,11 +66,11 @@ OnShellScaling
 {
 	if reference0 == 100 //default
 	{
-		"\0%(talkb)\s[20]Mh...\w8 Are you SURE you don't want to keep me a bit taller?\w8\e"
+		"\0\b[0]\s[20]Mh...\w8 Are you SURE you don't want to keep me a bit taller?\w8\e"
 	}
 	elseif reference0 > reference1 || reference2 > reference3 //bigger
 	{
-		"\0%(talkb)"
+		"\0\b[0]"
 		--
 		"\s[41]"
 		"\s[43]"
@@ -81,11 +81,11 @@ OnShellScaling
 	}
 	elseif reference0 < reference1 || reference2 < reference3 //smaller
 	{
-		"\0%(talkb)\s[6]H-hey!\w8 Aren't I already small enough?!\w8\e"
+		"\0\b[0]\s[6]H-hey!\w8 Aren't I already small enough?!\w8\e"
 	}
 	else //others
 	{
-		"\0%(talkb)\s[40]I'm...\w8 not even going to ask how you did that!\w8\e"
+		"\0\b[0]\s[40]I'm...\w8 not even going to ask how you did that!\w8\e"
 	}
 }
 
@@ -94,7 +94,7 @@ OnShellScaling
 //anything with an install.txt will trigger this dialogue
 OnInstallBegin
 {
-	"\0%(talkb)\s[3]Leave it to me!\w8 My magecraft will have this installed in no time!\w8\e"
+	"\0\b[0]\s[3]Leave it to me!\w8 My magecraft will have this installed in no time!\w8\e"
 }
 
 //---- OnInstallComplete -------------------------------------------------------
@@ -105,12 +105,12 @@ OnInstallComplete
 	{
 		if reference1 == "Castoria"
 		{
-			"\0%(talkb)\s[40]Hey,\w4 but that's-\w8 that's me!\w8 \s[44]I mean,\w4 I knew I had copies of myself going around,\w4 but I didn't expect to see one of them...\w8\e"
+			"\0\b[0]\s[40]Hey,\w4 but that's-\w8 that's me!\w8 \s[44]I mean,\w4 I knew I had copies of myself going around,\w4 but I didn't expect to see one of them...\w8\e"
 		}
 		//elseif reference1 == ""
 		else //all other ghosts
 		{
-			"\0%(talkb)\s[41]Oh!\w8 Welcoming new folks in,\w4 are we?\w8"
+			"\0\b[0]\s[41]Oh!\w8 Welcoming new folks in,\w4 are we?\w8"
 		}
 		--
 		"\*\n\n\![*]\q[Call %(reference1),CallGhost]\n\![*]\q[Change to %(reference1),ChangeToGhost]\n\n\![*]\q[No action needed,cancelnodialogue]\e"
@@ -128,7 +128,7 @@ OnInstallComplete
 	//elseif reference0 == "headline" || reference0 == "rss"
 	else
 	{
-		"\0%(talkb)\s[4]Theeere you go!\w8\e"
+		"\0\b[0]\s[4]Theeere you go!\w8\e"
 	}
 }
 
@@ -157,7 +157,7 @@ OnInstallFailure
 		//elseif reference0 == "invalid type" //install.txt isn't set up properly
 		//else
 		//{
-			"\0%(talkb)\s[20]Mmh...\w8\w8 Sorry,\w8 I couldn't install this...\w8 \s[0]\n\n[half]It seems to be an issue with '%(reference0)'?\w8\e"
+			"\0\b[0]\s[20]Mmh...\w8\w8 Sorry,\w8 I couldn't install this...\w8 \s[0]\n\n[half]It seems to be an issue with '%(reference0)'?\w8\e"
 		//}
 	//}
 }
@@ -166,7 +166,7 @@ OnInstallFailure
 //reference0 is the Sakura name of the ghost the item was meant for, reference1 (since SSP 2.4.85) is the type of item you tried to install
 OnInstallRefuse
 {
-	"\0%(talkb)\s[20]I don't think I can install that...\w8\e"
+	"\0\b[0]\s[20]I don't think I can install that...\w8\e"
 }
 
 
@@ -176,45 +176,45 @@ OnInstallRefuse
 //When you select the uninstall option in the menu.
 OnVanishSelecting
 {
-	"\0%(talkb)\s[41]Oh?\w8 Do you want me to uninstall that?\w8\e"
+	"\0\b[0]\s[41]Oh?\w8 Do you want me to uninstall that?\w8\e"
 	
-	"\0%(talkb)\s[0]Oh?\w8 Is it time for me to leave?\w8\e"
+	"\0\b[0]\s[0]Oh?\w8 Is it time for me to leave?\w8\e"
 }
 
 //OnVanishSelected
 //When you decide to uninstall them. 
 OnVanishSelected
 {
-	"\0%(talkb)\s[3]Alright then!\w8 \s[47]My magecraft will make short work of this.\w8\e"
+	"\0\b[0]\s[3]Alright then!\w8 \s[47]My magecraft will make short work of this.\w8\e"
 	
-	"\0%(talkb)\s[34]Alright then.\w8 All dreams end eventually.\w8 \s[46]\n\n[half]Thank you for this life,\w4 even if it was a fake one.\w8\e"
+	"\0\b[0]\s[34]Alright then.\w8 All dreams end eventually.\w8 \s[46]\n\n[half]Thank you for this life,\w4 even if it was a fake one.\w8\e"
 }
 
 //--OnVanishCancel
 //If you select Uninstall from the menu, but decide not to do it.
 OnVanishCancel
 {
-	"\0%(talkb)\s[3]Noted!\w8 Let me know if you change your mind.\w8\e"
+	"\0\b[0]\s[3]Noted!\w8 Let me know if you change your mind.\w8\e"
 	
-	"\0%(talkb)\s[4]I can stay longer,\w4 no problem.\w8 \s[28]Turns out ghosts have a lot of time on their hands,\w4 hah!\w8\e"
+	"\0\b[0]\s[4]I can stay longer,\w4 no problem.\w8 \s[28]Turns out ghosts have a lot of time on their hands,\w4 hah!\w8\e"
 }
 
 //--OnVanishButtonHold
 //If you double click to cancel the balloon.
 OnVanishButtonHold
 {
-	"\0%(talkb)\s[4]Changed your mind?\w8 No problem!\w8 \s[20]I'm glad I didn't bring the pipe bombs from the get-go...\w8\e"
+	"\0\b[0]\s[4]Changed your mind?\w8 No problem!\w8 \s[20]I'm glad I didn't bring the pipe bombs from the get-go...\w8\e"
 	
-	"\0%(talkb)\s[44]O-\w4oh!\w8 Did,\w4 uh.\w8 Something go wrong?\w8 \s[36]\n\n[half]I-\w4I said such embarassing stuff too...\w8 \s[37]Aaaah!\w8\e"
+	"\0\b[0]\s[44]O-\w4oh!\w8 Did,\w4 uh.\w8 Something go wrong?\w8 \s[36]\n\n[half]I-\w4I said such embarassing stuff too...\w8 \s[37]Aaaah!\w8\e"
 }
 
 //---- OnVanished -----------------------------------------
 //if they're called after you've uninstalled a different ghost. reference0 is the name of the uninstalled ghost.
 OnVanished
 {
-	"\1\s[10]\0\s[0]"
+	"\1\s[10]\0\b[0]\s[0]"
 	--
-	"%(talkb)\s[39]Huh?\w8 Did someone leave?\w8\e"
+	"\s[39]Huh?\w8 Did someone leave?\w8\e"
 }
 
 
@@ -226,7 +226,7 @@ OnVanished
 //this will play every time you ask them to update, whether by menu or ssp right click menu
 OnUpdateBegin
 {
-	"\0%(talkb)\s[24]Do you hear those bells...?\w8 \s[0]I think an update is incoming.\w8\e"
+	"\0\b[0]\s[24]Do you hear those bells...?\w8 \s[0]I think an update is incoming.\w8\e"
 }
 
 //---- OnUpdateReady ---------------------------------------------------------
@@ -237,7 +237,7 @@ OnUpdateReady
 	_s = ""; if reference0 != 1; _s = "s"
 	_are = "is"; if reference0 != 1; _are = "are" //Plural checks
 	
-	"\0%(talkb)\s[47]Time to get stronger!\w8 \s[4]There %(_are) %(reference0) file%(_s) to download for this update.\w8\e"
+	"\0\b[0]\s[47]Time to get stronger!\w8 \s[4]There %(_are) %(reference0) file%(_s) to download for this update.\w8\e"
 }
 
 
@@ -248,40 +248,16 @@ OnUpdateReady
 //reference2 - overall number of files to download, counting zero. so if there are ten files, it'll display as 9.
 //reference3 - what's being updated - ghost, shell, balloon, plugin, headline, baseware
 
-//Big thanks to Malakin for helping me figure it out.
-
-//okay, you can use the %(reference) envelope here to display the value, but you can't actually DO anything with it as is. You have to convert it into an integer using TOINT, THEN you can use it in functions and such.
-//+ 1 because otherwise the count starts at 0 and it looks weird. Basic format is variablename = TOINT(target you're turning into an integer, in this case the references)
+//anyway. I removed most of it. now she just tells you which files she's downloading.
 OnUpdate.OnDownloadBegin
 {
-	"\_q%(bigb)Downloading %(reference0)...\n\n"
+	"\0\b[0]\_qDownloading %(reference0)...\n\n"
 	--
 	Update_Process = TOINT(reference1) + 1
 	Update_Total = TOINT(reference2) + 1
-	Update_Remaining = Update_Total - Update_Process
-	
-	//defining starting points
-	PointA = 1 
-	PointB = 1
-	
-	//defining text buffers beforehand, otherwise they don't display right
-	_txt = ""
-	
-	//loop calculates how many check boxes to display based on the variables above
-	while PointA <= Update_Process 
-	{
-		_txt += "☑" 
-		PointA++ 
-	} 
-	//see above except for blank boxes
-	while PointB <= Update_Remaining 
-	{
-		_txt += "☐" 
-		PointB++ 
-	}
+	//Update_Remaining = Update_Total - Update_Process
 	--
-	//using the text buffers to display the correct number of boxes
-	"%(_txt)\n\n%(Update_Process) of %(Update_Total)"
+	"\_l[,6lh]%(Update_Process) of %(Update_Total)"
 	--
 	"\w5\e"
 }
@@ -292,7 +268,7 @@ OnUpdate.OnMD5CompareFailure
 {
 	_remaining = Update_Remaining + 1
 	
-	"\0%(talkb)"
+	"\0\b[0]"
 	--
 	"\s[36]"
 	"\s[39]"
@@ -310,7 +286,7 @@ OnUpdateFailure
 	//elseif reference0 == "artificial" //If the user cancels the update by double clicking the balloon
 	//else //for other errors
 	//{
-		"\0%(talkb)\s[0]Ah...\w8\w8 \s[20]I couldn't update.\w8 \s[0]It seems like the issue was '%(reference0)'?\w8\e"
+		"\0\b[0]\s[0]Ah...\w8\w8 \s[20]I couldn't update.\w8 \s[0]It seems like the issue was '%(reference0)'?\w8\e"
 	//}
 }
 
@@ -320,11 +296,11 @@ OnUpdateComplete
 {
 	if reference0 == "none" //if the ghost had nothing to update with; this will play directly after the beginning to update dialogue
 	{
-		"\0%(talkb)\s[28]Seems like there was nothing new after all.\w8\e"
+		"\0\b[0]\s[28]Seems like there was nothing new after all.\w8\e"
 	}
 	else //this will be the final dialogue after the update process finishes successfully
 	{
-		"\0%(talkb)\s[3]Aaand I'm all up to date!\w8\e"
+		"\0\b[0]\s[3]Aaand I'm all up to date!\w8\e"
 	}
 }
 
@@ -334,13 +310,13 @@ OnUpdateComplete
 //---- OnUpdatedataCreating -----------------------------------------------------------
 OnUpdatedataCreating
 {
-	"\0%(talkb)\s[35]\_qNow creating the updates2.dau file.\_q\w8\e"
+	"\0\b[0]\s[35]\_qNow creating the updates2.dau file.\_q\w8\e"
 }
 
 //---- OnUpdatedataCreated -------------------------------------------------------------
 OnUpdatedataCreated
 {
-	"\0%(talkb)\s[4]\_qUpdates2.dau created.\_q\w8\w8\w8\e"
+	"\0\b[0]\s[4]\_qUpdates2.dau created.\_q\w8\w8\w8\e"
 }
 
 
@@ -352,12 +328,12 @@ OnNarCreating
 	//elseif reference2 == "balloon"
 	if reference0 == "Artoria Caster" //I like having a check here for the ghost itself
 	{
-		"\0%(talkb)\s[43]Oh!\w8 Are you sending me out in the world?\w8 \s[3]Now that's a pilgrimage I can get behind!\w8\e"
+		"\0\b[0]\s[43]Oh!\w8 Are you sending me out in the world?\w8 \s[3]Now that's a pilgrimage I can get behind!\w8\e"
 	}
 	//elseif reference0 == ""
 	else //anything else
 	{
-		"\0%(talkb)\s[47]My magecraft will make short work of this!\w8\e"
+		"\0\b[0]\s[47]My magecraft will make short work of this!\w8\e"
 	}
 }
 
@@ -367,12 +343,12 @@ OnNarCreated
 {
 	if reference0 == "Artoria Caster" //your personal ghost name here
 	{
-		"\0%(talkb)\s[48]There I go!\w8 \s[46]At least,\w4 another me.\w8\e"
+		"\0\b[0]\s[48]There I go!\w8 \s[46]At least,\w4 another me.\w8\e"
 	}
 	//elseif reference0 == ""
 	else //all others
 	{
-		"\0%(talkb)\s[3]Tada!\w8\w8 \s[4]Told you I'd make quick work of it.\w8 \s[20]Just,\w4 uh,\w4 don't mind the shape...\w8\e"
+		"\0\b[0]\s[3]Tada!\w8\w8 \s[4]Told you I'd make quick work of it.\w8 \s[20]Just,\w4 uh,\w4 don't mind the shape...\w8\e"
 	}
 }
 
@@ -383,7 +359,7 @@ OnNarCreated
 //---- OnBIFFBegin ---------------------------------------------------------------
 OnBIFFBegin
 {
-	"\0%(talkb)\s[4]Email check!\w8 Ah,\w4 I've always wondered what's it like to receive mail.\w8\e"
+	"\0\b[0]\s[4]Email check!\w8 Ah,\w4 I've always wondered what's it like to receive mail.\w8\e"
 }
 
 //---- OnBIFFComplete ---------------------------------------------------------------
@@ -392,9 +368,9 @@ OnBIFFComplete
 {
 	if reference0 == 0 //If you have no new mail.
 	{
-		"\0%(talkb)\s[14]Aw,\w4 no mail.\w8\e"
+		"\0\b[0]\s[14]Aw,\w4 no mail.\w8\e"
 		
-		"\0%(talkb)\s[46]Aw,\w4 nothing new.\w8\e"
+		"\0\b[0]\s[46]Aw,\w4 nothing new.\w8\e"
 	}
 	elseif reference0 < 100 //less than 100 new emails
 	{
@@ -411,7 +387,7 @@ OnBIFFComplete
 		--
 		_s = ""; if reference0 != 1; _s = "s" //Plural check, adds an s if the number of emails is not 1
 		--
-		"\0%(talkb)\s[4]\_q%(reference0) new message%(_s).\w8"
+		"\0\b[0]\s[4]\_q%(reference0) new message%(_s).\w8"
 		--
 		if reference7 != "" //Same as above, no need to ask if there are no headers
 		{
@@ -424,14 +400,14 @@ OnBIFFComplete
 	}
 	else //For any other number of emails.
 	{
-		"\0%(talkb)\s[40]Whoa!\w8 So many letters!\w8 \s[41]How many is that,\w4 over a hundred?\w8\e"
+		"\0\b[0]\s[40]Whoa!\w8 So many letters!\w8 \s[41]How many is that,\w4 over a hundred?\w8\e"
 	}
 }
 
 //Displaying the headers. Reference0 is the list of headers
 OnSeeHeaders
 {
-	"\0\s[0]"
+	"\0\b[2]\s[0]"
 	--
 	if reference0 == "yes" //It's set up this way so that the headers variable will still be erased if the user says no. If they say no, it'll just erase the headers and say nothing
 	{
@@ -443,7 +419,7 @@ OnSeeHeaders
 			_display += "\n\n[half]"
 		}
 		
-		"%(bigb)\![set,autoscroll,disable]\*\_q"
+		"\![set,autoscroll,disable]\*\_q"
 		--
 		"\![*]\q[Done,cancelnodialogue]\n\n"
 		--
@@ -465,7 +441,7 @@ OnBIFFFailure
 	//elseif reference0 == "artificial" //if the user double clicks on the balloon to stop it
 	//else //if there's some other kind of error.
 	//{
-		"\0%(talkb)\s[20]Ah...\w8\w8 I couldn't get your mail.\w8 \s[44]It seems like the issue was '%(reference[0])'?\w8\e"
+		"\0\b[0]\s[20]Ah...\w8\w8 I couldn't get your mail.\w8 \s[44]It seems like the issue was '%(reference[0])'?\w8\e"
 	//}
 }
 
@@ -476,7 +452,7 @@ OnBIFFFailure
 //I guess reference0 is the name of whatever RSS feed??
 OnHeadlinesenseBegin
 {
-	"\0%(talkb)\s[0]\_qRunning %(reference0).\_q\w8\e"
+	"\0\b[0]\s[0]\_qRunning %(reference0).\_q\w8\e"
 }
 
 //---- OnHeadlinesense.OnFind --------------------------------------------------------
@@ -484,7 +460,7 @@ OnHeadlinesenseBegin
 OnHeadlinesense.OnFind
 {
 	//---- Headlines
-	"\0%(bigb)%(reference0):\n\n%(reference3)\n"
+	"\0\b[2]%(reference0):\n\n%(reference3)\n"
  	--
 	//---- Pages
  	if reference2 == "First" || reference2 == "Next"
@@ -501,14 +477,14 @@ OnHeadlinesense.OnFind
 
 Select.Headline_Cancel
 {
-	"\0%(talkb)\s[4]All done with that!\w8\e"
+	"\0\b[0]\s[4]All done with that!\w8\e"
 }
 
 //---- OnHeadlinesenseComplete -------------------------------------------------------
 //reference0 here supposedly always stores the value no update?
 OnHeadlinesenseComplete
 {
-	"\0%(talkb)\s[35]\_q%(reference0).\w8\w8\e"
+	"\0\b[0]\s[35]\_q%(reference0).\w8\w8\e"
 }
 
 //---- OnHeadlinesenseFailure ---------------------------------------------------------
@@ -518,7 +494,7 @@ OnHeadlinesenseFailure
 	//elseif reference0 == "can't analyze" //if they can't read the file for some reason
 	//else //other errors
 	
-	"\0%(talkb)\s[20]Ah...\w8\w8 I couldn't get the headlines.\w8 \s[44]It seems like the issue was '%(reference[0])'?\w8\e"
+	"\0\b[0]\s[20]Ah...\w8\w8 I couldn't get the headlines.\w8 \s[44]It seems like the issue was '%(reference[0])'?\w8\e"
 }
 
 
@@ -532,11 +508,11 @@ OnGhostCalling
 	{
 		when "Inferno"
 		{
-			"\0%(talkb)\s[28]Hey there,\w4 Inferno!\w8\e"
+			"\0\b[0]\s[28]Hey there,\w4 Inferno!\w8\e"
 		}
 		when "Needle"
 		{
-			"\0%(talkb)\s[35]...\w8\w8\w8 Fairies can't get sick.\w8 No need to vaccinate me.\w8 You can keep that needle away from me.\w8 Forever.\w8\e"
+			"\0\b[0]\s[35]...\w8\w8\w8 Fairies can't get sick.\w8 No need to vaccinate me.\w8 You can keep that needle away from me.\w8 Forever.\w8\e"
 		}
 		//when ""
 		//{
@@ -545,7 +521,7 @@ OnGhostCalling
 		//when "Castoria" //themself
 		others //all other unrecognised ghosts!
 		{
-			"\0%(talkb)\s[44]Ah!\w8 Is that %(reference0)?\w8\e"
+			"\0\b[0]\s[44]Ah!\w8 Is that %(reference0)?\w8\e"
 		}
 	}
 }
@@ -558,7 +534,7 @@ OnOtherGhostChanged
 	{
 		when "Inferno"
 		{
-			"\0%(talkb)\s[41]Oh,\w4 Inferno's here?\w8 \n\n[half]What happened to %(reference0)?\w8\e"
+			"\0\b[0]\s[41]Oh,\w4 Inferno's here?\w8 \n\n[half]What happened to %(reference0)?\w8\e"
 		}
 		//when ""
 		//{
@@ -567,7 +543,7 @@ OnOtherGhostChanged
 		//when "Castoria"
 		others //all other unknown ghosts!
 		{
-			"\0%(talkb)\s[41]Oh,\w4 hi %(reference1)!\w8 \n\n[half]...\w8\w8 where did %(reference0) go?\w8\e"
+			"\0\b[0]\s[41]Oh,\w4 hi %(reference1)!\w8 \n\n[half]...\w8\w8 where did %(reference0) go?\w8\e"
 		}
 	}
 }
@@ -579,7 +555,7 @@ OnOtherGhostClosed
 	{
 		when "Inferno"
 		{
-			"\0%(talkb)\s[46]Guess Inferno's dream has ended...\w8\e"
+			"\0\b[0]\s[46]Guess Inferno's dream has ended...\w8\e"
 		}
 		//when ""
 		//{
@@ -588,7 +564,7 @@ OnOtherGhostClosed
 		//when "Castoria"
 		others //all other unspecified ghosts!
 		{
-			"\0%(talkb)\s[4]See you,\w4 %(reference0)!\w8\e"
+			"\0\b[0]\s[4]See you,\w4 %(reference0)!\w8\e"
 		}
 	}
 }

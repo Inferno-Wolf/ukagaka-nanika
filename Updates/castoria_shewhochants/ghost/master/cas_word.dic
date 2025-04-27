@@ -42,41 +42,42 @@ userfolder
 
 
 //----------Balloon mode
-// %(talkb)
-talkb
+//regular dialogue
+sb0
 {
 	if SHIORI3FW.BalloonName == "FGO Text"
 	{
 		if choicet == 1 //b4
-		{"\b[4]"}
+		{"\b[%(Balloon.Sakura[0])4]"}
 		elseif choicet == 2 //b10
-		{"\b[10]"}
+		{"\b[%(Balloon.Sakura[0])10]"}
 		elseif choicet == 3 //b12
-		{"\b[12]"}
+		{"\b[%(Balloon.Sakura[0])12]"}
 		elseif choicet == 4 //b14
-		{"\b[14]"}
+		{"\b[%(Balloon.Sakura[0])14]"}
 		else //0; default
-		{""}
+		{"\b[%(Balloon.Sakura[0])0]"}
 	}
-	else //is not the actual balloon
-	{""}
+	else //NOT their balloon
+	{"\b[0]"}
 }
 
-// %(bigb)
-bigb
+//big balloon
+sb2
 {
 	if SHIORI3FW.BalloonName == "FGO Text"
 	{
 		if choiceb == 1 //b6
-		{"\b[6]"}
+		{"\b[%(Balloon.Sakura[0])6]"}
 		elseif choiceb == 2 //b8
-		{"\b[8]"}
+		{"\b[%(Balloon.Sakura[0])8]"}
 		else //0; default
-		{"\b[2]"}
+		{"\b[%(Balloon.Sakura[0])2]"}
 	}
-	else //is not the actual balloon
+	else //NOT their balloon
 	{"\b[2]"}
 }
+
 
 
 //---------------------Capitalisation-----------------------------
@@ -186,13 +187,6 @@ theyre
 
 
 
-
-//this is because we changed the ghostexlist thing
-GhostIsOpen
-{
-	if ASEARCH(_argv[0],ghostexlist) != -1; 1
-	else; 0
-}
 
 //**** Don't touch this ***************************************************************
 //This bit of code is what makes menu options that don't start with On direct to Select.options instead. Remove or comment it out if you prefer!

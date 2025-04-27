@@ -88,10 +88,10 @@ On_sakura.portalsites
 	
 	"KFC's Tumblr"
 	--
-	"%ASC(1)http://www.characteroulette.tumblr.com/%ASC(2)"
+	"%ASC(1)https://characteroulette.tumblr.com/%ASC(2)"
 	--
 	
-	"FGO Official Site"
+	"FGO Official Site (Not a Dev Site)"
 	--
 	"%ASC(1)https://fate-go.us/%ASC(2)"
 }
@@ -204,11 +204,11 @@ On_vanishbutton.visible
 }
 
 //---- 딳벍뭷궻뫜궻긕?긚긣뼹롦벦 -------------------------------------------------------
-//wellp okay Zi rewrote this to be an array, so. it's an array now
+//Written by Zichqec https://ukagaka.zichqec.com/
 On_otherghostname
 {
 	ghostexlist = IARRAY
-	foreach reference; _ref
+	foreach reference.raw; _ref
 	{
 		ghostexlist ,= _ref[0,C_BYTE1]
 	}
@@ -217,6 +217,20 @@ On_otherghostname
 ghostexcount
 {
 	ARRAYSIZE(ghostexlist)
+}
+
+
+//this uses the Sakura name of the ghost
+GhostIsOpen
+{
+	if ASEARCH(_argv[0],ghostexlist) != -1; 1
+	else; 0
+}
+
+//This uses the full name of the ghost
+GhostIsInstalled
+{
+	ASEARCH(_argv[0],installedghostlist) != -1
 }
 
 //---- SHIORI 듫쁀륃뺪 ------------------------------------------------------------------

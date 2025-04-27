@@ -5,41 +5,41 @@
 //sleeping dreamin
 Select.cassleep
 {
-	"\0%(talkb)\s[20]Ah...\w8 yes.\w8 I suppose I don't really look the part,\w4 but I am...\w8\w8 \s[28]kind of dead right now!\w8 Burnt to a crisp,\w4 in fact!\w8 \s[18]\n\n[half]Terrible way to die,\w4 by the way.\w8 0/10.\w8 Do not reccommend.\w8 \s[33]\n\n[half]...\w8\w8\w8 \s[34]\n\n[half]I would do it again,\w4 though.\w8 \s[46]\n\n[half]The one thing I ever got to choose for myself was what I would die for.\w8 I don't regret it.\w8\e"
+	"\0\b[0]\s[20]Ah...\w8 yes.\w8 I suppose I don't really look the part,\w4 but I am...\w8\w8 \s[28]kind of dead right now!\w8 Burnt to a crisp,\w4 in fact!\w8 \s[18]\n\n[half]Terrible way to die,\w4 by the way.\w8 0/10.\w8 Do not reccommend.\w8 \s[33]\n\n[half]...\w8\w8\w8 \s[34]\n\n[half]I would do it again,\w4 though.\w8 \s[46]\n\n[half]The one thing I ever got to choose for myself was what I would die for.\w8 I don't regret it.\w8\e"
 }
 
 Select.casdream
 {
-	"\0%(talkb)\s[46]Sometimes I dream of a hill of swords,\w4 and the stubborn king who held onto her ideals until the very end.\w8 \s[45]\n\n[half]Sometimes I dream of a busy beach,\w4 a summer with friends that could never happen.\w8 \s[0]\n\n[half]And sometimes I dream of being inside your computer.\w8 \s[4]\n\n[half]It's not a terrible dream.\w8\e"
+	"\0\b[0]\s[46]Sometimes I dream of a hill of swords,\w4 and the stubborn king who held onto her ideals until the very end.\w8 \s[45]\n\n[half]Sometimes I dream of a busy beach,\w4 a summer with friends that could never happen.\w8 \s[0]\n\n[half]And sometimes I dream of being inside your computer.\w8 \s[4]\n\n[half]It's not a terrible dream.\w8\e"
 }
 
 
 //fairy types
 Select.earthfairy
 {
-	"\0%(talkb)\s[3]I see,\w4 I see!\w8 \s[4]\n\n[half]I've always wanted to get a beard like an Earth clan fairy,\w4 but I can't seem to get it to grow...\w8 \s[28]best I ever got was sideburns.\w8\e"
+	"\0\b[0]\s[3]I see,\w4 I see!\w8 \s[4]\n\n[half]I've always wanted to get a beard like an Earth clan fairy,\w4 but I can't seem to get it to grow...\w8 \s[28]best I ever got was sideburns.\w8\e"
 }
 
 Select.windfairy
 {
-	"\0%(talkb)\s[4]I see,\w4 I see!\w8 \n\n[half]I wish I was as tall as a wind clan fairy...\w8 \s[24]or even just a couple centimeters taller...\w8\e"
+	"\0\b[0]\s[4]I see,\w4 I see!\w8 \n\n[half]I wish I was as tall as a wind clan fairy...\w8 \s[24]or even just a couple centimeters taller...\w8\e"
 }
 
 Select.fangfairy
 {
-	"\0%(talkb)\s[0]I see,\w4 I see!\w8 \s[20]\n\n[half]Honestly,\w4 all that fur seems pretty hard to take care of.\w8 Best of luck to you!\w8\e"
+	"\0\b[0]\s[0]I see,\w4 I see!\w8 \s[20]\n\n[half]Honestly,\w4 all that fur seems pretty hard to take care of.\w8 Best of luck to you!\w8\e"
 }
 
 Select.wingfairy
 {
-	"\0%(talkb)\s[4]I see,\w4 I see!\w8 \s[0]\n\n[half]Wings sound so convenient...\w8 I wonder if I could figure out how to float with magecraft...?\w8\e"
+	"\0\b[0]\s[4]I see,\w4 I see!\w8 \s[0]\n\n[half]Wings sound so convenient...\w8 I wonder if I could figure out how to float with magecraft...?\w8\e"
 }
 
 
 //on heroes
 Select.admirehero
 {
-	"\0%(talkb)\s[35]...\w8\w8 Aren't they!\w8"
+	"\0\b[0]\s[35]...\w8\w8 Aren't they!\w8"
 	--
 	"\e"
 	
@@ -48,7 +48,7 @@ Select.admirehero
 
 Select.mehero
 {
-	"\0%(talkb)\s[35]...\w8\w8 Do you now!\w8 \n\n[half]That's pretty admirable of you.\w8"
+	"\0\b[0]\s[35]...\w8\w8 Do you now!\w8 \n\n[half]That's pretty admirable of you.\w8"
 	--
 	"\e"
 	
@@ -57,61 +57,61 @@ Select.mehero
 
 Select.nohero
 {
-	"\0%(talkb)\s[4]...\w8\w8 \s[3]Pfft!\w8 Hah!\w8 Fair enough!\w8 \s[34]\n\n[half]Not like they're useful in a normal life,\w4 am I right?\w8\e"
+	"\0\b[0]\s[4]...\w8\w8 \s[3]Pfft!\w8 Hah!\w8 Fair enough!\w8 \s[34]\n\n[half]Not like they're useful in a normal life,\w4 am I right?\w8\e"
 }
 
 
 //pets!
 Select.dogdog
 {
-	"\0%(talkb)\s[3]Dogs are great!\w8 \s[4]They can warn you against threats,\w8 defend you if things go sour...\w8 \s[3]A good choice!\w8\e"
+	"\0\b[0]\s[3]Dogs are great!\w8 \s[4]They can warn you against threats,\w8 defend you if things go sour...\w8 \s[3]A good choice!\w8\e"
 }
 
 Select.catcat
 {
-	"\0%(talkb)\s[41]A cat?\w8 \s[0]\n\n[half]I didn't know those could be kept as pets...\w8\w8 \s[44]I thought they just walked around and did whatever they wanted,\w4 honestly.\w8\e"
+	"\0\b[0]\s[41]A cat?\w8 \s[0]\n\n[half]I didn't know those could be kept as pets...\w8\w8 \s[44]I thought they just walked around and did whatever they wanted,\w4 honestly.\w8\e"
 }
 
 Select.ratrat
 {
-	"\0%(talkb)\s[43]A rodent?\w8 Like, a rat?\w8 \s[0]\n\n[half]I didn't know those could be kept as pets.\w8 \s[44]\n\n[half]...\w8\w8 Maybe I could have befriended those mice as a kid?\w8\e"
+	"\0\b[0]\s[43]A rodent?\w8 Like, a rat?\w8 \s[0]\n\n[half]I didn't know those could be kept as pets.\w8 \s[44]\n\n[half]...\w8\w8 Maybe I could have befriended those mice as a kid?\w8\e"
 }
 
 Select.lizliz
 {
-	"\0%(talkb)\s[39]A reptile?\w8 Like,\w4 a snake?\w8 \s[0]\n\n[half]I didn't know those could be kept as pets.\w8 \s[44]\n\n[half]Maybe I would look more intimidating with a python around my shoulders...?\w8 \s[20]Though it could get pretty heavy...\w8\e"
+	"\0\b[0]\s[39]A reptile?\w8 Like,\w4 a snake?\w8 \s[0]\n\n[half]I didn't know those could be kept as pets.\w8 \s[44]\n\n[half]Maybe I would look more intimidating with a python around my shoulders...?\w8 \s[20]Though it could get pretty heavy...\w8\e"
 }
 
 Select.hooorse
 {
-	"\0%(talkb)\s[3]Horses are great!\w8 They're big and strong and sooo warm!\w8\e"
+	"\0\b[0]\s[3]Horses are great!\w8 They're big and strong and sooo warm!\w8\e"
 }
 
 Select.nopets
 {
-	"\0%(talkb)\s[0]No pet,\w4 huh?\w8 \n\n[half]Fair enough.\w8 I figure it takes quite a lot of resources to take care of one.\w8\e"
+	"\0\b[0]\s[0]No pet,\w4 huh?\w8 \n\n[half]Fair enough.\w8 I figure it takes quite a lot of resources to take care of one.\w8\e"
 }
 
 Select.petplay
 {
-	"\0%(talkb)\s[40]Eh?\w8 If I had any pets?\w8 \s[0]\n\n[half]...\w8\w8\w8 \s[38]\n\n[half]...\w8 I-\w8 I guess I owned,\w4 uh...\w8\w8 \s[27]\n\n[half]Y-\w4You know.\w8 \s[21]\n\n[half]A h-\w4human.\w8\w8 \s[5]\n\n[half]Th-\w4They agreed to it!\w8 It was a life-threatening situation and...\w8 \s[23]\n\n[half]\w8\w8\w8pleasestopstaringatmelikethat\w8\e"
+	"\0\b[0]\s[40]Eh?\w8 If I had any pets?\w8 \s[0]\n\n[half]...\w8\w8\w8 \s[38]\n\n[half]...\w8 I-\w8 I guess I owned,\w4 uh...\w8\w8 \s[27]\n\n[half]Y-\w4You know.\w8 \s[21]\n\n[half]A h-\w4human.\w8\w8 \s[5]\n\n[half]Th-\w4They agreed to it!\w8 It was a life-threatening situation and...\w8 \s[23]\n\n[half]\w8\w8\w8pleasestopstaringatmelikethat\w8\e"
 }
 
 
 //explains!
 Select.whyfairy
 {
-	"\0%(talkb)\s[0]Fairy Britain is a land of fairies.\w8 Faes,\w4 fair folks,\w4 you know the likes.\w8 \n\n[half]Naturally,\w4 the land is named after them!\w8\e"
+	"\0\b[0]\s[0]Fairy Britain is a land of fairies.\w8 Faes,\w4 fair folks,\w4 you know the likes.\w8 \n\n[half]Naturally,\w4 the land is named after them!\w8\e"
 }
 
 Select.whybrit
 {
-	"\0%(talkb)\s[43]...\w8\w8\w8 \s[0]That's actually a very good question.\w8 As far as I know,\w4 it's always been the name of the island?\w8 \n\n[half]Ritsuka told me that in their world,\w4 there were plenty of countries with a lot of other names.\w8 \s[3]\n\n[half]To be honest,\w4 the concept is pretty hard for me to imagine!\w8\e"
+	"\0\b[0]\s[43]...\w8\w8\w8 \s[0]That's actually a very good question.\w8 As far as I know,\w4 it's always been the name of the island?\w8 \n\n[half]Ritsuka told me that in their world,\w4 there were plenty of countries with a lot of other names.\w8 \s[3]\n\n[half]To be honest,\w4 the concept is pretty hard for me to imagine!\w8\e"
 }
 
 Select.whatlike
 {
-	"\0%(talkb)\s[35]...\w8\w8\w8 \n\n[half]It's pretty great!\w8 Good food,\w4 kind people,\w4 great scenery...\w8 what's not to like?"
+	"\0\b[0]\s[35]...\w8\w8\w8 \n\n[half]It's pretty great!\w8 Good food,\w4 kind people,\w4 great scenery...\w8 what's not to like?"
 	--
 	"\w8\e"
 	
@@ -122,7 +122,7 @@ Select.whatlike
 //glamours!
 Select.huhglamour
 {
-	"\0%(talkb)\s[35]I wouldn't want to freak people out!\w8 I want to be friends with everyone.\w8"
+	"\0\b[0]\s[35]I wouldn't want to freak people out!\w8 I want to be friends with everyone.\w8"
 	--
 	"\w8\e"
 	
@@ -131,42 +131,59 @@ Select.huhglamour
 
 Select.huhhuman
 {
-	"\0%(talkb)\s[44]You thought I was?\w8 \s[0]\n\n[half]Good to know my glamour holds up that well.\w8 \n\n[half]But no,\w4 I'm not a human.\w8\e"
+	"\0\b[0]\s[44]You thought I was?\w8 \s[0]\n\n[half]Good to know my glamour holds up that well.\w8 \n\n[half]But no,\w4 I'm not a human.\w8\e"
 }
 
 
 //riddles!
 Select.montyhall
 {
-	"\0%(talkb)\s[0]Suppose there are three doors in front of me.\w8 One of them has a big prize.\w8 If I can guess the right door,\w4 I get the prize.\w8 \n\n[half]When I point at one at random,\w4 I'm told that one of the two remaining door contained nothing.\w8 \n\n[half]With that additional information,\w4 I'm given the possibility to change my choice.\w8 \n\n[half]Do I...?\w8\w8 \s[33]\n\n[half]Mmh...\w8\w8 This problem is way too vague.\w8 \s[24]\n\n[half]Who is running the doors?\w8 Who is telling me about the door that has nothing in it?\w8 How many people are there?\w8 Did I have access to the doors beforehand?\w8 \s[25]\n\n[half]If only one person is present,\w4 then you might be able to knock them out and open both doors at the same time.\w8\e"
+	"\0\b[0]\s[0]Suppose there are three doors in front of me.\w8 One of them has a big prize.\w8 If I can guess the right door,\w4 I get the prize.\w8 \n\n[half]When I point at one at random,\w4 I'm told that one of the two remaining door contained nothing.\w8 \n\n[half]With that additional information,\w4 I'm given the possibility to change my choice.\w8 \n\n[half]Do I...?\w8\w8 \s[33]\n\n[half]Mmh...\w8\w8 This problem is way too vague.\w8 \s[24]\n\n[half]Who is running the doors?\w8 Who is telling me about the door that has nothing in it?\w8 How many people are there?\w8 Did I have access to the doors beforehand?\w8 \s[25]\n\n[half]If only one person is present,\w4 then you might be able to knock them out and open both doors at the same time.\w8\e"
 	//*Family Feud voice* good answer!!
 }
 
 Select.troubletrolley
 {
-	"\0%(talkb)\s[0]Suppose there is a horse carriage incoming.\w8 The horse is running really fast,\w4 and can't stray off the path as a result.\w8 \n\n[half]On one branch of the path,\w4 where the horse is headed,\w4 five people are tied down.\w8 \n\n[half]On the other branch,\w4 only one person is tied down.\w8 \n\n[half]I don't have the time to free any of them.\w8 All I can do is force the horse to change course,\w4 and trample the other path to death if I so wish.\w8 \n\n[half]Do I make the horse change course...?\w8 \s[35]\n\n[half]...\w8\w8\w8"
+	"\0\b[0]\s[0]Suppose there is a horse carriage incoming.\w8 The horse is running really fast,\w4 and can't stray off the path as a result.\w8 \n\n[half]On one branch of the path,\w4 where the horse is headed,\w4 five people are tied down.\w8 \n\n[half]On the other branch,\w4 only one person is tied down.\w8 \n\n[half]I don't have the time to free any of them.\w8 All I can do is force the horse to change course,\w4 and trample the other path to death if I so wish.\w8 \n\n[half]Do I make the horse change course...?\w8 \s[35]\n\n[half]...\w8\w8\w8"
 	--
 	"\*\s[0]\n\n[half]I have an additional question for you,\w4 %(user).\w8 \n\n[half]Say there is no other path.\w8 The horse will trample these five people regardless.\w8 \n\n[half]In front of you,\w4 you see someone rushing to get in front of the horse,\w4 hoping they can stop the horse with their own body.\w8 \n\n[half]This will,\w4 of course,\w4 kill them.\w8 But it would save five people.\w8 \n\n[half]Would you let them?\w8 \n\n\_q\![*]\q[Yes,yestrolley]     \![*]\q[No,notrolley] \n\![*]\q[I would sacrifice myself before they can.,selfsacrifice]\w8\e"
 }
 
 Select.yestrolley
 {
-	"\0%(talkb)\s[19]So you won't save a life even if it's perfectly within your abilities.\w8 \n\n[half]Does it make you better,\w4 or worse than the one who let five people die?\w8\e"
+	"\0\b[0]\s[19]So you won't save a life even if it's perfectly within your abilities.\w8 \n\n[half]Does it make you better,\w4 or worse than the one who let five people die?\w8\e"
 }
 
 Select.notrolley
 {
-	"\0%(talkb)\s[19]So you would let five people die.\w8 \n\n[half]Does that make you better,\w4 or worse than the one who sat back and let things happen?\w8\e"
+	"\0\b[0]\s[19]So you would let five people die.\w8 \n\n[half]Does that make you better,\w4 or worse than the one who sat back and let things happen?\w8\e"
 }
 
 Select.selfsacrifice
 {
-	"\0%(talkb)\s[35]...\w8\w8\w8 \n\n[half]I just remembered,\w8 I left my sword on the stove.\w8 I should go back to Avalon.\w8 \n\n[half]See you later.\w8\w8\-\e"
+	"\0\b[0]\s[35]...\w8\w8\w8 \n\n[half]I just remembered,\w8 I left my sword on the stove.\w8 I should go back to Avalon.\w8 \n\n[half]See you later.\w8\w8\-\e"
 }
 
 Select.prisondilemma
 {
-	"\0%(talkb)\s[0]Suppose I'm caught for some crime,\w4 along with an accomplice.\w8 \n\n[half]We are kept away from each other,\w4 and asked to tattle on each other.\w8 \n\n[half]If we both keep silent,\w4 we both get a light punishment.\w8 \n\n[half]If one tattles,\w4 but not the other,\w4 the tattler has no punishment and the other gets a heavy punishment.\w8 \n\n[half]If both tattle,\w4 they both get a medium punishment.\w8 \n\n[half]Do I tattle or not...?\w8 \s[24]\n\n[half]...\w8\w8\w8 Obviously yes?\w8 \n\n[half]Even if my jailers SAY they won't hurt me if I don't tattle,\w4 there's no guarantee they won't try to force me to tattle regardless.\w8 \s[26]\n\n[half]Besides,\w4 tattling means you can avoid the heaviest punishment.\w8\w8\w8 \s[28]\n\n[half]Well,\w4 if you both tattle it would get really awkward when you both get out of jail,\w4 though.\w8\e"
+	"\0\b[0]\s[0]Suppose I'm caught for some crime,\w4 along with an accomplice.\w8 \n\n[half]We are kept away from each other,\w4 and asked to tattle on each other.\w8 \n\n[half]If we both keep silent,\w4 we both get a light punishment.\w8 \n\n[half]If one tattles,\w4 but not the other,\w4 the tattler has no punishment and the other gets a heavy punishment.\w8 \n\n[half]If both tattle,\w4 they both get a medium punishment.\w8 \n\n[half]Do I tattle or not...?\w8 \s[24]\n\n[half]...\w8\w8\w8 Obviously yes?\w8 \n\n[half]Even if my jailers SAY they won't hurt me if I don't tattle,\w4 there's no guarantee they won't try to force me to tattle regardless.\w8 \s[26]\n\n[half]Besides,\w4 tattling means you can avoid the heaviest punishment.\w8\w8\w8 \s[28]\n\n[half]Well,\w4 if you both tattle it would get really awkward when you both get out of jail,\w4 though.\w8\e"
+}
+
+
+//snow!
+Select.yessnow
+{
+	"\0\b[0]\s[41]You have?\w8 \s[33]So it is something people actually do...\w8\w8 \n\n[half]\s[3]What did you do?\w8 Snowmen?\w8 Snow angels?\w8 \s[4]Don't tell me...\w8\w8 \s[47]snow ball fights?\w8\w8\w8 \n\n[half]\s[44]Uhm?\w8 If I've played in the snow?\w8 \n\n[half]\s[22]No...\w8\w8 \s[28]I was too afraid of losing fingers,\w4 haha!\w8\e"
+}
+
+Select.nosnow
+{
+	"\0\b[0]\s[34]So you haven't either?\w8 \n\n[half]\s[28]That's right,\w4 that's right!\w8 \s[47]The snow is so cold,\w4 it can't be comfortable to play in,\w4 can it?\w8\e"
+}
+
+Select.nosnowatall
+{
+	"\0\b[0]\s[43]It...\w8\w8\w8 doesn't?\w8 \n\n[half]\s[41]You must live somewhere fairly warm!\w8 \n\n[half]\s[20]How lucky...\w8\w8 \s[2]cold nights are the worst.\w8\e"
 }
 
 
