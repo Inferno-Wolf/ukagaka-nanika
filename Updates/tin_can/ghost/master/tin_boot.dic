@@ -13,6 +13,7 @@ OnFirstBoot
 	volume = 50
 	sounds = 0 //off
 	tossing = 0 //off
+	tosscount = 0
 	ting = 0
 	mode = 0
 	
@@ -24,6 +25,7 @@ OnInitialize
 	if !ISVAR("volume") {volume = 50}
 	if !ISVAR("sounds") {sounds = 0}
 	if !ISVAR("tossing") {tossing = 0}
+	if !ISVAR("tosscount") {tosscount = 0}
 	
 	if reference0 != "reload" //For things you want to reset EXCEPT when just reloading; a convenience for you the dev, basically
 	{

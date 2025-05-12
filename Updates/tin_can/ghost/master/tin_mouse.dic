@@ -160,4 +160,4 @@ OnMouseLeaveAll
 //for onotheroverlap use
 OnMouseDragStart {tossing = 1} //on
 
-OnMouseDragEnd {tossing = 0} //off
+OnMouseDragEnd {tosscount += 5} //5secs to off

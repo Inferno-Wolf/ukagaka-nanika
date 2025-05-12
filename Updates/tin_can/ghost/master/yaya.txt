@@ -15,7 +15,7 @@ dic, tin_commu.dic
 dic, tin_mouse.dic
 dic, tin_meta.dic
 dic, tin_other.dic
-dic, tin_sakura_menu.dic
+dic, tin_menu.dic
 dic, tin_word.dic
 
 msglang,english

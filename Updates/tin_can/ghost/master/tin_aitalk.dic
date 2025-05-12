@@ -663,4 +663,11 @@ OnSecondChange
  	{
 	 	passsec = passsec + 1
 	}
+	
+	if tosscount > 0
+	{
+		tosscount = tosscount - 1
+		if tosscount < 0 {tosscount = 0}
+	}
+	if tosscount == 0 {tossing = 0} //turns it off
 }
