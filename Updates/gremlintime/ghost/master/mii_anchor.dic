@@ -1,0 +1,127 @@
+//---------------------------Anchors and OnTranslate--------------------------
+//explanation time!!
+
+
+
+//--OnTranslate
+OnTranslate
+{
+	_talk = reference0
+ 	//_talk = REPLACE(_talk, "Anch1", "\_a[anchor1]Anchor 1\_a")
+ 	//_talk = REPLACE(_talk, "Anch2", "\_a[anchor2]Anchor 2\_a")
+ 	//_talk = REPLACE(_talk, "Anch3", "\_a[anchor3]Anchor 3\_a")
+	
+	//send input box : no event (ref2) , no special flag (ref1)
+	if reference1 == "" && reference2 == ""
+	{
+		EVAL('"' + REPLACE(_talk,'"','" + CHR(0x22) + "') + '"')
+	}
+	//event result from ghost
+	else
+	{
+		TOSTR(_talk)
+	}
+}
+
+
+//--OnAnchorSelect
+OnAnchorSelect
+{
+	if "http://" _in_ reference0 || "https://" _in_ reference0 //checking to see if the link is a web address
+	{
+		"\j[%(reference0)]\e"
+	// \j is a tag that will open a specified url in the user's browser of choice.
+	}
+	else //if it's NOT a web address
+	{
+		case reference0
+		{
+			//canon stuff
+			when "Moomintroll"
+			{
+				"\0\s[141]Moomintroll!!\w8\w8\w8 \s[4]\n\n[half]Sorry.\w8 His name's just fun to shout sometimes.\w8\w8\w8 \c\s[87]Moomintroll is kind of my best friend,\w4 now that I think about it.\w8 \s[16]His house tends to be where we all meet up since it's nice and his parents are always around for some fun and goodies to eat.\w8 \s[33]The Moomins are well known around the valley for being the ones to go to when you need some help.\w8 \s[31]And Moomintroll's no exception in that.\w8 \s[44]Almost everyone loves the Moomins.\w8 \s[40]It's hard not to!\w8"
+			}
+			when "Moominmamma"
+			{
+				"\0\s[44]Moominmamma is the best.\w8 \s[85]She can make any remedy you can think up and cooks the best pancakes and stuff.\w8 \s[24]She cares a lot about her garden and Moomintroll,\w4 \s[4]and she was even an adventurer before she and Moominpappa got hitched.\w8"
+			}
+			when "Moominpappa"
+			{
+				"\0\s[101]Moominpappa reminds me a lot of my mum,\w4 honestly.\w8 \s[106]Not in personality or anything,\w4 because Moominpappa is far more obsessed with himself.\w8 \s[7]But their tendency to be concerned more with their own adventures than their kids kinda rings the same.\w8 \s[62]\n\n[half]Where it matters,\w4 though,\w4 Moominpappa is a good one.\w8 \s[30]Even if he deserves more than a few bites to keep him humble.\w8"
+			}
+			when "theMymble"
+			{
+				"\0\s[8]That's my mum.\w8 \s[19]She's a bit flighty,\w4 but she's all right.\w8"
+			}
+			when "MymbleJr"
+			{
+				"\0\s[56]My big sister!!\w8 \s[33]I live with her for most of the year,\w4 but she also likes going off to help mum where she can.\w8 \s[94]\n\n[half]She's doing her best.\w8 \s[86]That's the most she can do when mum and I are often no help.\w8"
+			}
+			when "Snufkin"
+			{
+				"\0\s[40]That's my cute little brother!\w8 \s[1]I've had stints where I lived in his hat or his pocket and he was none the wiser.\w8 \s[20]He can be silly like that.\w8 \s[101]\n\n[half]Although,\w4 he's mostly silly about Moomin nowadays.\w8 \s[88]He likes to travel,\w4 but he always returns at least once in the year to see Moomin.\w8 \s[19]They're best friends,\w4 according to them.\w8"
+				
+				"\0\s[3]Snufkin's an odd one,\w4 for sure.\w8 \s[19]He may seem all jovial and carefree,\w4 but he's been willing to kill someone before.\w8 \s[2]I've seen it with my own eyes.\w8 \s[33]\n\n[half]Oh,\w4 but you don't need to worry so much about that,\w4 %(user).\w8 \s[32]Not unless you're making signs and destroying the environment.\w8 \s[94]So long as he's got his Moomin,\w4 he's usually pretty chill.\w8"
+			}
+			when "Sniff"
+			{
+				"\0\s[101]Sniff is...\w8\w8 \s[105]a friend.\w8 \s[32]Certainly a creature,\w4 can say that much.\w8 \s[7]\n\n[half]He may act cowardly and be obsessed with shiny treasures,\w4 \s[5]but he's not so bad.\w8 \s[44]He's always fun when we play hide and seek or leapfrog.\w8 \s[40]And his schemes can be really amusing to watch go wrong.\w8 \s[98]Or go right,\w4 on the off chance he hits a good one.\w8"
+			}
+			when "SnorkMaiden"
+			{
+				"\0\s[5]Snork Maiden is Moomin's girlfriend.\w8 \s[7]Most days,\w4 at least.\w8 \s[50]Sometimes it can be hard to tell with those two...\w8\w8 \s[34]\n\n[half]Anyway,\w4 she likes pretty things and is kinda vain,\w4 \s[29]but she's got the bite and punch to back her up.\w8 \s[44]She's always a delight to hang out with.\w8 \s[40]And she usually invites me to the fun parties where I get to be a menace!\w8 \s[18]So I like making her happy.\w8"
+			}
+			when "theSnork"
+			{
+				"\0\s[5]That's Snork Maiden's older brother.\w8 \s[90]Snork is obsessed with building things.\w8 \s[95]Mostly flying machines.\w8 \s[32]I don't really get him,\w4 but it's always fun to see him test out his inventions.\w8 \s[44]He's gotta be smart to make 'em work,\w4 too.\w8"
+			}
+			when "InvisibleGirl"
+			{
+				"\0\s[33]Ninny is great.\w8 \s[36]She used to be invisible because her caretaker ignored her,\w4 \s[68]but she came to Moominhouse and learned to be comfortable in being seen!\w8 \s[52]She bit Moominpappa's tail and it was the best thing.\w8 \s[39]I can't wait to see her come around again,\w4 I've been needing another playmate who will get into mischief with me.\w8"
+			}
+			when "Tooticky"
+			{
+				"\0\s[16]Tooticky is my sister's friend!\w8 \s[4]She lives down by the house on the dock and can talk fishing with Snufkin like no one else.\w8 \s[94]She's wise and calm and collected,\w4 \s[85]talking with her always helps me or Moomin feel better.\w8"
+			}
+			when "Toffle"
+			{
+				"\0\s[101]Not really sure what Toffle's about,\w4 \s[96]but they're a friend of Moomin and Snufkin.\w8 \s[52]They like telling scary stories and spooked Sniff something fierce,\w4 from what I heard.\w8 \s[29]So they're okay in my book.\w8"
+			}
+			//when "Stinky"
+			when "Muskrat"
+			{
+				"\0\s[8]I'll be honest,\w4 I'm not sure who the Muskrat really is.\w8 \s[106]He used to live in the river where Moominpappa built the bridge,\w4 \s[99]so he ended up sticking around the house and just mooching off the Moomins.\w8 \s[22]He and Moominpappa like talking philosophy,\w4 \s[2]but I don't really get that stuff so I just focus on enriching his time here in other ways.\w8 \s[28]My current record for spins I've got him in on his hammock is eight!\w8"
+			}
+			//when "theFillyjonk"
+			when "Hemulin"
+			{
+				"\0\s[9]Hemulin are strange folk.\w8 \s[98]The one we know best used to be a stamp collector,\w4 then he got into collecting plants.\w8 \s[89]And there was that one who collected insects we ran into on one adventure who was really snooty about it.\w8 \s[5]\n\n[half]The two are cousins,\w4 apparently,\w4 and have some weird rivalry with one another.\w8 \s[47]But most folk you see around are Hemulin,\w4 so there have to be ones who are less weird than those two.\w8"
+			}
+			when "Hattifatners"
+			{
+				"\0\s[100]Hattifatners look like worms and grow out of seeds.\w8 \s[106]Snufkin showed me how to sow them once and it wasn't what I was expecting.\w8 \s[90]They like lightning storms?\w8 \s[8]And once they burnt Snork Maiden's hair while we were out on an adventure.\w8 \s[101]\n\n[half]Moominpappa tried living among them for a turn,\w4 so I think he'd know better what they're about than most.\w8"
+				//they can sail rafts and boats and you think they'd be fish, but their weird frills are their paws. weird lil things.
+			}
+			//RGB side
+			when "ApolloJustice"
+			{
+				"\0\s[2]Apollo's pretty all right.\w8 \s[40]He can meet my bite with his own,\w4 so I have to respect him at least a little bit.\w8 \s[47]Dunno why he's obsessed with my brother,\w4 though.\w8 That will forever remain a mystery to me.\w8 \s[4]\n\n[half]But anyway.\w8 \s[3]He's a lawyer or something.\w8 \s[22]Really weird to think about if you ask me.\w8 \s[89]Snufkin likes calling him things like Sunshine and Dragon,\w4 \s[122]because he's disgustingly in love.\w8 \s[115]Personally,\w4 I don't see it.\w8 \s[49]But that's how it goes sometimes.\w8"
+			}
+			when "GSnufkin"
+			{
+				"\0\s[laughs]Hah!\w8 \s[128]He really thinks he can just get away from me.\w8 \s[56]It's really fun to watch him squirm,\w4 \s[43]and mum genuinely wants to reconnect with him,\w4 so I get sent out to beat it into his head that we're here and not about to leave him alone anymore.\w8 \s[2]\n\n[half]But anyway.\w8 Snufkin's my half-brother.\w8 Same mum,\w4 different dads.\w8 \s[18]Most of my siblings are like that.\w8 \s[33]He helped our older sister out at her wedding,\w4 which is how we found out he existed.\w8 \s[101]Mum really needs to keep better track of things like that if you ask me.\w8"
+			}
+			when "LukeTriton"
+			{
+				"\0\s[106]Luke is a prissy one.\w8 \s[86]Didn't think I could throw him and I proved him wrong!\w8 \s[38]No real idea what he's on about,\w4 though.\w8 \s[101]He's from London?\w8 And pals around with some Professor who's like three times his age?\w8 \s[7]Mighty strange if you ask me.\w8 \s[3]He and Apollo are friends and that makes my brother really show his fangs.\w8 \s[31]It can be fun to watch him fume over having to share,\w4 \s[55]but their drama is not mine,\w4 so thank goodness for that.\w8 \s[4]\n\n[half]The important thing to me is that Luke's not-sister is Flora.\w8 \s[98]So I have to make nice to him at least somewhat because of that.\w8"
+			}
+			when "FloraReinhold"
+			{
+				"\0\s[105]Flora is...\w8\w8 \s[96]really something else.\w8 \s[52]\n\n[half]She's helping out at the Wright Anything Agency right now and she's fantastic.\w8 \s[0]As much as she looks like a prim and proper gentlewoman,\w4 she's not afraid to bite back or dish out her own hits.\w8 \s[19]Knowing what she went through,\w4 you really have to admire her for it.\w8 \s[40]Like a field of flowers that still have thorns to keep you from plucking all of them.\w8 \s[1]\n\n[half]I...\w8\w8 might like her more than you'd expect,\w4 considering how opposite we are.\w8 \s[24]Can't help it.\w8 \s[11]She's just really fierce and beautiful.\w8"
+			}
+			//when ""
+			--
+			"\*\_q\n\n[half]\![*]\_a[%(reference0)]Can you say that again?\_a \n\![*]\__q[OnExplainMenu]Ask about someone else\__q \n\n[half]\![*]\__q[OnMenuRun]Back to Main Menu\__q \n\![*]\__q[CANCEL]All finished\__q\w8\e"
+		}
+	}
+}

@@ -1,0 +1,637 @@
+﻿//---------------------------AI Talk--------------------------
+//This is where all their random conversations are stored.
+
+
+
+//--AiTalk
+OnAiTalk
+{
+	if CHAIN.IDName != "" { lastTalk = ChainTalk }
+	else { lastTalk = RandomTalk }
+	lastTalk
+}
+
+
+//--RandomTalk 
+
+
+//--helpful copy/pastes
+
+/// \f[color,default.anchor] will change the colour of the text to the one set as the anchor for the balloon!
+// \f[default] returns everything back to normal.
+
+// \_a[link/functionname]text\_a can make a link / anchor text in dialogue.
+// \0\s[0]\1\s[0]\_stalking here\_s has characters say dialogue at the same time. Using \_s[0,1](text here)\_s specifies which characters are speaking at the same time (in this case, the Sakura, 0, and the Kero, 1).
+// \_b[name.png,50,50,centerxy] displays an image in the balloon.
+// \![set,balloontimeout,-1] makes it so the balloon doesn't disappear / time out.
+// \![set,autoscroll,disable] exactly as it says, disables autoscroll. helpful for long menus!
+// \![set,balloonwait,0.1] controls the speed of the text. default set at 1, 0.1 is faster, 2+ are slower
+// \c[char,6] clears the previous 6 characters; basically deleting specific things!!
+
+
+//Envelopes
+// %(user) // %(they) // %(them) // %(their) // %(theyre)
+// %(edibles)
+
+//SURFACE GUIDE
+// 0 -> First
+// 1 -> Vektoria
+// 2 -> Vektor
+
+
+RandomTalk : nonoverlap_pool
+{
+	if rgbcheck == 1 //RGB guys open
+	{
+		"\0\s[0]Weird neck of the woods you chose here,\w4 bro.\w8 But I can see why.\w8 Lots of goodies around here to forage and snack on.\w8\e"
+		
+		//--Chains
+		//"\e:chain=achain1"
+		
+		
+		//shell specific dialogues
+		/*
+		if SHIORI3FW.ShellName == "Little Gremlin" //the name of your shell as defined in its descript.txt
+		{
+			""
+		}
+		if SHIORI3FW.ShellName != "Little Gremlin"
+		{
+			""
+		}
+		
+		
+		//dialogues which cannot be shared
+		if mode == 1 //she can see you
+		{
+			"\0\s[0]Have you ever seen a strawberry field covered in foil?\w8 From far away,\w4 doesn't it look kinda like a lake?\w8 \n\n[half]I like telling my little siblings that it is,\w4 just to see their faces when we can pull strawberries out of them.\w8 Their faces are always priceless!\w8\e"
+			
+			"\0\s[0]Have you ever seen a cranberry bog in-person?\w8 That's two drinks in one,\w4 what with all the spiders and cranberries!\w8\e"
+		}
+		if mode == 0 //alone
+		{
+			""
+		}
+		
+		
+		//special
+		if dayslot == userbirthday //for special bday dialogues
+		{
+			""
+		}
+		
+		
+		//Seasonal dialogue
+		if month == 1 || month == 2 || month == 12 //January, February, December; Winter
+		{
+			//if month == 1 //January
+			//if month == 2 //February
+				//if day == 13
+			//if month >= 12 //December
+			
+			""
+		}
+		if month == 3 || month == 4 || month == 5 //March, April, May; Spring
+		{
+			//if month == 3 //March
+			//if month == 4 //April
+			//if month == 5 //May
+			
+			""
+		}
+		if month == 6 || month == 7 || month == 8 //June, July, August; Summer
+		{
+			//if month == 6 //June
+			//if month == 7 //July
+			//if month == 8 //August
+			
+			""
+		}
+		if month == 9 || month == 10 || month == 11 //September, October, November; Autumn
+		{
+			//if month == 9 //September
+			//if month == 10 //October
+			//if month == 11 //November
+			
+			""
+		}
+		
+		if moves == 1 //allowed to shmoove
+		{
+			""
+		}
+		
+		//Weekday checks
+		//if weekday == 1 //Monday
+		//if weekday == 2 //Tuesday
+		//if weekday == 3 //Wednesday
+		//if weekday == 4 //Thursday
+		//if weekday == 5 //Friday
+		//if weekday == 6 //Saturday
+		//if weekday == 0 //Sunday
+		
+		//Time of day checks!
+		//if timeslot == "earlymorning" //am5 to am9
+		//if timeslot == "morning" //am9 to am12
+		//if timeslot == "lunch" //pm12 to pm3
+		//if timeslot == "afternoon" //pm3 to pm6
+		//if timeslot == "evening" //pm6 to pm9
+		//if timeslot == "night" //pm9 to pm11
+		//if timeslot == "latenight" //am12 to am5
+		
+		
+		////Other ghost dialogue
+		if ghostexcount == 0 //there are no other ghosts open
+		{
+			""
+		}
+		
+		//if more than your ghost is open
+		if ghostexcount > 0
+		{
+			"\![raise,OnStartTalking]\e"
+		}
+		
+		//specific ghosts
+		if GhostIsOpen("RGB Puzzlers")
+		{
+			""
+		}
+		//if GhostIsOpen("")
+		
+		//specific ghost installed
+		//if GhostIsInstalled("Inferno and Wolf")
+		//if GhostIsInstalled("Shadow Children")
+		//if GhostIsInstalled("")
+		*/
+		
+		"\0\s[0]I know mum isn't gonna be able to use any of this.\w8 But maybe I can convince one of the little ones to try it...\w8\e"
+	}
+	else //0; no rgb guys
+	{
+		"\0\s[97]If I were a fun and tasty treat,\w4 where would I be hiding...?\w8\e"
+		
+		"\0\s[32]It's not exactly pirate treasure,\w4 but I'm certain I hit the motherload here.\w8 \s[141]So many places to squeeze into and creepy crawlies to startle!\w8\e"
+		
+		{
+			"\0\s[33]Oh,\w4 %(edibles)!\w8 \s[44]Nice.\w8 \n\n[half]...\w8\w8\s[101]hmm.\w8 The question is,\w4 do I "
+			--
+			"cram it straight in"
+			"give it a good bite"
+			"give it a good taste test"
+			--
+			"\s[97] or wait until I can "
+			--
+			"hide it in Moomin's bed"
+			"give it to Moominmamma"
+			"have Moominmamma cook it into something yummy"
+			"sneak it into Snufkin's stew"
+			"sneak it into Snufkin's hat"
+			"see if Sniff wants it for his next get rich quick scheme"
+			"hide it under Moominpappa's hat"
+			"hand it off to the Fillyjonk's kids and see how long it takes her to notice this time"
+			"wrap it into the Muskrat's hammock"
+			"replace one of the Hemulin's things with it"
+			"divvy it up amongst the siblings"
+			"make Moomin taste test it for me"
+			"get Snork Maiden's advice on who to prank with it"
+			--
+			"...?\w8\e"
+		}
+		
+		{
+			"\0"
+			--
+			"\s[128]"
+			"\s[129]"
+			"\s[130]"
+			"\s[132]"
+			"\s[133]"
+			"\s[134]"
+			--
+			"You can't hide from my paws,\w4 you "
+			--
+			"tasty treat"
+			"nasty bits"
+			"nasty things"
+			"tasty delights"
+			"creepy crawly things"
+			--
+			"!\w8\e"
+		}
+		
+		"\0\s[98]A good pawful of dirt'll help get this bad taste out.\w8 \s[29]Just gotta find the best looking pile of it...\w8\e"
+		
+		"\0\s[37]Rolling around in a bed of flowers just gets pollen and grass all over your smock.\w8 \s[22]I'm not that much of an animal.\w8\e"
+		
+		"\0\s[101]Hmm.\w8 Wonder if you could make a stew out of all the cobwebs around here.\w8 \s[97]Some of them are certainly sweet enough.\w8\e"
+		
+		"\0\s[106]Stew of %(edibles)...\w8\w8 \s[8]\n\n[half]Hmm.\w8 Not sure if I like the sound of that or not.\w8\e"
+		
+		//friends talk
+		{
+			"\0\s[45]Snufkin only wishes he had my foraging skills.\w8 \s[29]I've all ready found "
+			--
+			"a whole bunch"
+			"a lot"
+			"a whole armful"
+			"twenty and counting"
+			"several whole"
+			--
+			" new "
+			--
+			"bugs"
+			"goodies"
+			"tasty treats"
+			"snacks"
+			"snackies"
+			--
+			"\s[53] and I haven't even had time to check "
+			--
+			"that next trunk"
+			"over in the river"
+			"down at the bottom of the lake"
+			"the bottom of that dilapitated well"
+			"over at the shores"
+			"in that cave over there"
+			"in this friendly little web"
+			--
+			"!\w8\e"
+		}
+		
+		"\0\s[50]Moomin should thank me for all the extra foraging I'm doing.\w8 \s[40]Moominmamma will be making fantastic meals for the next while to come.\w8\e"
+		
+		"\0\s[8]Moomin's just a big ol' softie.\w8 \s[1]A real marshmallow fluff butt.\w8 \s[47]Always trying to help others or getting into trouble and all that.\w8 \s[40]He's got my teeth on his side for sure.\w8\e"
+		
+		"\0\s[22]Bet Moomin'd be crying right about now,\w4 all homesick.\w8 \s[8]Or worried about Moominmamma and Moominpappa.\w8 \s[127]Or wanting to see Snufkin.\w8 \s[126]\n\n[half]...\w8\w8\s[99]or he'd be happy on another adventure.\w8 \s[106]Hard to tell which way it'll go with him sometimes.\w8\e"
+		
+		"\0\s[116]Moomin's too much of a wuss to duel with me.\w8 \s[50]So I guess I'll have to ask Snufkin for a good one later.\w8 \s[101]Though,\w4 I guess I'll have to find a pair of swords first...\w8\e"
+		
+		"\0\s[29]Moomin should really try being a terror more often.\w8 \s[53]It's really an underrated way to live.\w8 \s[86]Snufkin knows it as well as I do,\w4 \s[94]but I guess that just makes sense from the way we've lived.\w8\e"
+		
+		"\0\s[99]Hmm.\w8 \s[101]No hot springs,\w4 huh?\w8 \s[50]Shame.\w8\w8 \s[36]Would've loved to lord that one over Snufkin and Moomin.\w8 \s[53]Guess they'll just have to deal with sharing some more.\w8\e"
+		
+		{
+			"\0\s[18]Snufkin's pockets are pretty comfortable.\w8 \s[3]So is his hat.\w8 \n\n[half]...\w8\w8\s[121]ugh,\w4 no.\w8 I can't fit me and all this "
+			--
+			"neat"
+			"tasty"
+			"great"
+			--
+			" stuff in there.\w8 \s[116]He'd notice the extra weight for sure.\w8\e"
+		}
+		
+		"\0\s[21]Might be worrying,\w4 \s[9]but Snufkin gets it.\w8\w4 \s[45]Gotta really sink your teeth into something to understand it.\w8 \s[40]A good bite always does well with that.\w8\e"
+		
+		"\0\s[101]Maybe there are some melons around here...?\w8\w8 \s[31]\n\n[half]If there are,\w4 I should roll one over to Snufkin.\w8 \s[27]Bet he'd get a real kick out of that.\w8\e"
+		
+		"\0\s[9]I've seen Snufkin chew on dirt before.\w8 \s[22]And he chews up straw.\w8 \s[41]Ain't nothing wrong with grabbing up a pawful of it.\w8\e"
+		
+		"\0\s[119]Ugh.\w8 \s[123]His stupid tune's stuck in my head.\w8 \s[36]If the birds didn't pick it up so immediately,\w4 I wouldn't have to hear it half as often.\w8\e"
+		
+		"\0\s[7]Snufkin's been on his own too long again.\w8 \s[50]He wants to tell all his stories and have a gay old time with Moomin,\w4 \s[37]but then he'll straight up leave once he gets it all out of his system.\w8 \s[89]\n\n[half]Wise,\w4 they say.\w8 \s[143]Pah!\w8\w4 \s[35]Snufkin's younger than me and I'm no wise sage.\w8 \s[7]Folk really can be so easily convinced when it sounds like you know what you're talking about.\w8\e"
+		
+		"\0\s[101]I wonder if Moominmamma can make some fun pancakes with this one...\w8\w8 \s[98]\n\n[half]Or maybe Snufkin can make something weird with it.\w8\w4 \s[18]Hmm.\w8\w4 \s[27]Choices,\w4 choices...\w8\e"
+		
+		"\0\s[7]Hmph.\w8 I can't believe Moominmamma took Snufkin to the secret cherry grove.\w8 \s[121]Out of everyone!!\w8 \s[30]\n\n[half]Guess he'll have to look forward to more mushrooms stuffed in his things for the next while.\w8\e"
+		
+		"\0\s[36]Too bad there aren't so many pretty things.\w8 \s[40]But the hunt makes them extra worth it!\w8 \s[2]Snork Maiden would get it.\w8\e"
+		
+		"\0\s[98]I haven't seen Snork Maiden turn any fun colours lately.\w8 \s[94]Must be settling things well with Moomin.\w8 \s[2]Bet Snufkin'll love hearing about that.\w8\e"
+		
+		"\0\s[19]Sniff's really missing out here.\w8 \s[29]There's loads of things he could figure out the value of just littering the nooks and crannies.\w8\e"
+		
+		"\0\s[22]Poor Sniff's all in a tizzy about Richard again.\w8 \s[8]He keeps forgetting he gave the poor guy away.\w8 \s[98]\n\n[half]Well,\w4 maybe some nice mushrooms will help him cheer up.\w8 \s[105]Or get him to just stop wailing all ready.\w8 \s[29]One or the other works for me.\w8\e"
+		
+		"\0\s[40]Moominpappa's due for another good bite,\w4 I think.\w8 \s[55]Not that I can be the one to give it to him.\w8 \s[97]Where's Ninny when you need her...?\w8\e"
+		
+		"\0\s[37]Moominpappa's gotten too comfortable.\w8 \s[55]Gotta see if another bite'll do him some good.\w8 \s[1]His yelps are always the funniest.\w8\e"
+		
+		"\0\s[22]Mmnrgh,\w4 I know I should be taking most of this back to mum,\w4 \s[7]but dealing with all of that's just so...\w8\w8 \s[124]ugh.\w8\e"
+		
+		"\0\s[97]I bet I could make sis really scream if she saw me bite the head off one of these creepy crawlies.\w8 \s[41]Now,\w4 which one would make the best crunch...?\w8\e"
+		
+		"\0\s[90]I wonder if Snork's flying machine would be useful for grabbing the fruits off the trees here.\w8 \s[106]\n\n[half]\w8\w8\s[97]How well is it guarded?\w8 \s[47]Something to check once I get back.\w8\e"
+		
+		"\0\s[101]Surprised I haven't run into Stinky around here even on accident.\w8 \s[32]Seems like his kind of place.\w8\e"
+		
+		"\0\s[87]I wonder if Ninny would be able to find more mushrooms than I can around here.\w8 \s[46]She was really good at it.\w8 \s[3]Kinda wish I had her nose for it.\w8\e"
+		
+		
+		//dialogues which cannot be shared
+		if mode == 1 //she can see you
+		{
+			"\0\s[8]This dirt's not as good as the stuff around the volcano.\w8 \s[22]Real shame if you ask me.\w8 \n\n[half]Which.\w8 \s[59]You can't ask me,\w4 because I'm not gonna let you.\w8\e"
+			
+			"\0\s[35]Being unapologetically yourself is underrated,\w4 \s[29]in my very correct opinion.\w8 \s[22]You're gonna take up space no matter what you try,\w8 \s[59]so don't let anyone make you feel like you have to apologise for it.\w8 \s[90]They're the real jerks for wanting to take up your space on top of their own in that scenario.\w8\e"
+			
+			"\0\s[83]A good bite is simply underrated.\w8 \s[68]You can understand so much with your teeth,\w4 after all.\w8 \s[29]\n\n[half]...\w8\w8\s[22]yeah,\w4 yeah.\w8 \s[8]Folk understand with their hands,\w4 beasts use their teeth.\w8 \s[50]I know all about that.\w8 \s[29]That's why I'm saying it's underrated.\w8 \s[43]Even folk gotta use their teeth to navigate the world at times,\w4 after all.\w8\e" //go read The Serpent Must Die by Verse Atoui
+			
+			"\0\s[45]If you want my opinion,\w4 then I suppose I'll just have to give it.\w8 \s[59]If you didn't want my opinion,\w4 too bad.\w8 You're getting it anyway.\w8\e"
+			
+			"\0\s[95]This should go without saying,\w4 but,\w4 uh.\w8 \s[73]Don't actually try and eat random bugs you find around here,\w4 %(user).\w8 \s[60]Not unless your stomach's built for it like mine.\w8 \s[53]And don't eat the mushrooms or flowers unless you know how to identify everything properly.\w8 \s[1]That's how to end up poisoned and laid out in bed for a week.\w8\e"
+			
+			"\0\s[115]D'ya know how many times we've all accidentally picked poisonous mushrooms?\w8 \s[122]Too many times!\w8 \s[142]They look exactly the same as the safe ones to eat way too often!!\w8 \s[36]It's ridiculous is what it is.\w8 \s[47]The poisonous ones should be bright green with purple spots so we can see them easier.\w8\e"
+			
+			"\0\s[99]Do I come off as starving?\w8 \s[106]I shouldn't.\w8 \s[38]Moominmamma does a good job of keeping all of us properly fed.\w8 \s[30]I just like gnawing and chomping on whatever I can get my paws on.\w8 \s[25]It's a fun way to stave off the bigger mischiefs.\w8\e"
+			
+			"\0\s[36]Be lucky you don't have a whole gaggle of siblings to worry about.\w8 \n\n[half]...\w8\w8\s[34]unless you do.\w8 \s[66]Are you another Mymble?\w8 \s[90]I highly doubt it,\w4 but.\w8 \s[22]Moominmamma says we can't judge folk based on appearance alone.\w8 \s[7]And then Moominpappa usually goes off on one of his stories from his memoirs or whatever.\w8 \s[50]\n\n[half]Anyway.\w8 \s[57]I'm keeping my eye on you.\w8 \s[30]Until I find my next treat,\w4 at least.\w8\e"
+			
+			"\0\s[60]You get what I'm saying,\w4 right?\w8 \s[81]About shoving a pawful of dirt into your mouth.\w8 \s[107]It's so disgusting and awful,\w4 isn't it?\w8 \s[25]Top ten worst mouth feels you'll ever experience.\w8 \s[0]Right up there with eating pawfuls of raw flour and slurping up fresh from the ocean seaweed.\w8\e"
+			
+			"\0\s[90]Beaches are nice and all,\w4 \s[86]but the real appeal is digging for treasures.\w8 \s[18]Or tasting the sand.\w8 \s[laughs]Or maybe even tricking an antlion into a magic hat.\w8 \s[61]\n\n[half]If there's ever a shipwreck around here,\w4 you tell me first,\w4 okay?\w8 \s[41]I want to be able to rub it in to Sniff's snout that I found the treasure first this time.\w8\e"
+			
+			"\0\s[19]Moomin can be such a baby.\w8 \s[3]All worried about things like a wuss puss.\w8 \s[55]He can get his head in the game where it counts,\w4 though,\w4 so I can't exactly call him that to his face anymore.\w8\w8 \s[7]\n\n[half]He's also,\w4 like Moominpappa said,\w4 a magnet for trouble.\w8 \s[22]Which is why you can't leave him alone for a minute.\w8 \s[34]And why I like sticking around.\w8 \s[29]Always a good time seeing what he gets into next.\w8\e"
+			
+			"\0\s[100]Caring for others is supposed to make you wise and responsible.\w8 \s[106]That's what they always say,\w4 isn't it?\w8 \s[136]\n\n[half]Well,\w4 I say hah to that!\w8 \s[6]Having to take care of others just means you've had to take care of others.\w8 \s[22]You learn actions and behaviours,\w4 \s[7]but it can't change who you are.\w8 \s[63]I'd know that best,\w4 I'd think.\w8 \s[36]After all,\w4 keeping all my siblings in line never made me a better person.\w8 \s[27]I'm still the same Little My as I was when I was their age.\w8\e"
+			
+			"\0\s[62]You can't let something change you unless you're open to letting it change you.\w8 \s[90]Hard lesson to learn,\w4 I know,\w4 but a valuable one all the same.\w8\e"
+			
+			"\0\s[22]It's easier to throw up your hands and say you can't work with something.\w8 \s[3]And maybe sometimes it's more fun that way.\w8 \s[29]But the real satisfaction comes when you really dig in your paws and make it work anyway.\w8 \s[44]At least,\w4 that's how I see it.\w8\e"
+			
+			"\0\s[34]Hard work's hard.\w8 Them's the breaks.\w8 \s[87]Wouldn't be called hard work if it wasn't and all.\w8 \s[25]\n\n[half]But easy work can be just as satisfying sometimes.\w8 \s[0]So who am I to say anything one way or another?\w8\e"
+			
+			"\0\s[88]Trying to understand other folk's preferences is always a difficult thing.\w8 \s[21]Sometimes,\w4 they're not open enough to get a good read on 'em.\w8 \s[2]And sometimes they just have bad taste.\w8 \s[32]\n\n[half]Just focus on the folk you truly care about.\w8 \s[44]If they matter to you,\w4 then knowing 'em well enough to make them laugh or jump is an accomplishment in itself.\w8 \s[1]It's what always makes Moomin and Snork Maiden fun,\w4 knowing where to press to get them to play with me.\w8\e"
+			
+			"\0\s[101]Snork Maiden can be kinda a hard read for me at times.\w8 \s[38]She likes all this nice and pretty stuff,\w4 like hand mirrors and jewelry,\w4 \s[50]and I just don't get it.\w8 \s[101]She also spends way more time grooming herself than I think Moomin,\w4 Snufkin,\w4 and I have done in our whole lives combined.\w8 \s[5]So looking good matters to her.\w8 \s[46]\n\n[half]But even if I don't understand it really,\w4 she's important to me.\w8 \s[29]So I try to find pretty things she might like to make her gasp and squeal and have fun.\w8 \s[52]And she gives some really enthusiastic hugs.\w8\e"
+			
+			"\0\s[22]You really can't blame Moomin for how silly he can be about Snufkin.\w8 \s[36]For all I harp on the guy,\w4 there is something real special about him.\w8 \s[34]About both of them,\w4 really.\w8 \s[19]Learning to appreciate that's just another step they gotta figure out how to take,\w4 I think.\w8\e"
+			
+			"\0\s[100]Of all the places a wandering tramp could have chosen,\w4 it had to be Moominvalley.\w8 \s[106]What a way for all that trouble to have turned out.\w8 \n\n[half]\w8\w8\s[34]Oh,\w4 right.\w8 This place isn't near enough for the panic over the comet to have hit it.\w8 \s[32]Count yourself lucky,\w4 %(user).\w8 \s[1]Or unlucky,\w4 since it was a pretty wild ride.\w8\e"
+			
+			"\0\s[88]Sniff's not really all bad.\w8 \s[94]Just mostly bad.\w8 \s[32]It's fun to make him jump and scream,\w4 but he's got his head about him when you least expect it.\w8 \s[1]Always makes him interesting to watch.\w8\e"
+			
+			"\0\s[87]Looks like you're pretty safe from floods here,\w4 %(user).\w8 \s[45]Which means you'll never have to worry about living on a theatre stage.\w8 \s[36]Not like that stops folk from treating their lives like a performance,\w4 \s[29]but better to have your space where you can be yourself,\w4 I say.\w8\e"
+			
+			"\0\s[101]You know,\w4 for supposedly not being able to sing,\w4 \s[105]the whole lot of them sing pretty well.\w8 \s[33]Moomin and his family,\w4 I mean.\w8 \s[18]Moominmamma especially has the best lullabies.\w8 \s[4]They really make you feel like everything's gonna be all right in the morning.\w8\e"
+			
+			"\0\s[68]Can't underestimate me,\w4 %(user).\w8 \s[130]I can climb my way up any tree or cliff around here.\w8 \s[133]No branches,\w4 no problem!!\w8\e"
+		}
+		if mode == 0 //alone
+		{
+			"\0\s[8]This dirt's not as good as the stuff around the volcano.\w8 \s[22]Real shame if you ask me.\w8\e"
+			
+			"\0\s[101]Let's see...\w8\w8 \s[88]\n\n[half]Follow that cobweb to the next tree and then...\w8\w8 \s[106]\n\n[half]Hmm...\w8\e"
+			
+			"\0\s[107]Stomp stomp!!!\w8 \s[120]Time to shout!!\w8 \s[132]Take up space!!\w8 \s[141]And be proud of it!!\w8 \n\n[half]...\w8\w8\s[46]yeah,\w4 that sounds good.\w8 \s[29]Next I see Ninny,\w4 we can shout together.\w8 \s[56]Bet she'll have a blast with that.\w8\e"
+			
+			"\0\s[6]Cream of mushrooms,\w4 \s[7]cream of eggs!\w8 \s[50]Bury it all and see what comes next!\w8 \s[37]Winter hibernation,\w4 \s[51]Winter preparations!!\w8 \n\n[half]\w8\w8\s[8]Hmph.\w8\w4 \s[7]Still a silly song.\w8\e"
+			
+			"\0\s[46]All small beasts should have bows in their tails,\w4 \s[41]or you'll find yourself locked in Hemulin jail...\w8\e:chain=smallbeasts"
+			
+			{
+				"\0\s[29]"
+				"\0\s[40]"
+				--
+				"No one can tell me off for snacking around here.\w8 \s[22]Not that I have much need for snacking.\w8 \s[109]But the point of the matter is that no one can stop me from "
+				--
+				"chomping down on a whole pinecone"
+				"snapping the top off an acorn to get at its meat"
+				"chowing on %(edibles)"
+				"indulging in the tree salsa"
+				--
+				".\w8\e"
+			}
+			
+			{
+				"\0\s[101]Any worms buried around here?\w8 \s[106]\n\n[half]...\w8\w8\w8\s[5]worms make good bait,\w4 right?\w8 \s[21]I should ask "
+				--
+				"Snufkin"
+				"Tooticky"
+				"Moominpappa"
+				--
+				" about that again.\w8\e"
+			}
+			
+			"\0\s[128]Wriggly little larva!!\w8\w8 \s[53]Bet the birds love snacking on you lot.\w8\e"
+			
+			"\0\s[100]This dirt's not nearly as rich as the stuff around the volcano.\w8 \s[22]Real shame if you ask me.\w8 \s[7]The ash just adds something to it.\w8\e"
+		}
+		
+		if moves == 1 //allowed to shmoove
+		{
+			"\0%(schmoovin)Have I checked over here yet...?\w8\e"
+			
+			"\0%(schmoovin)Heehee,\w4 what's over here then?\w8\e"
+			
+			"\0%(schmoovin)What's over here...?\w8\e"
+			
+			"\0%(schmoovin)\w8\w8\s[22]Hmm,\w4 nope.\w8 \s[7]Can't find anything good in there this time.\w8\e"
+			
+			"\0%(schmoovin)What's hiding from me over here...?\w8\e"
+			
+			"\0%(schmoovin)You can't hide from my paws forever!\w8\e"
+			
+			"\0%(schmoovin)What have we got over here?\w8\e"
+		}
+		
+		
+		"\0\s[99]Maybe there's no golden or rainbow fish here,\w4 \s[29]but I bet I can still get something tasty out of the lake.\w8 \s[33]Or the ocean.\w8\w4 \s[52]Depends on what wriggly bait I can find around here.\w8\e"
+		
+		"\0\s[4]Being a pirate sounds like loads of fun.\w8 \s[40]Gallivanting around the ocean and discovering treasure and getting to be called a scallywag!!\w8 \s[22]\n\n[half]But every time we've met actual pirates,\w4 \s[8]they're always so disappointing.\w8\w4 \s[130]One day,\w4 I'll get my own ship and crew and show 'em how it should be done.\w8\e"
+		
+		
+		//shell specific dialogues
+		/*
+		if SHIORI3FW.ShellName == "Little Gremlin" //the name of your shell as defined in its descript.txt
+		{
+			""
+		}
+		if SHIORI3FW.ShellName != "Little Gremlin"
+		{
+			""
+		}
+		
+		
+		//special
+		if dayslot == userbirthday //for special bday dialogues
+		{
+			""
+		}
+		
+		
+		//Seasonal dialogue
+		if month == 1 || month == 2 || month == 12 //January, February, December; Winter
+		{
+			""
+		}
+		if month == 3 || month == 4 || month == 5 //March, April, May; Spring
+		{
+			""
+		}
+		if month == 6 || month == 7 || month == 8 //June, July, August; Summer
+		{
+			""
+		}
+		if month == 9 || month == 10 || month == 11 //September, October, November; Autumn
+		{
+			""
+		}
+		
+		//Time of day checks!
+		//if timeslot == "earlymorning" //am5 to am9
+		//if timeslot == "morning" //am9 to am12
+		//if timeslot == "lunch" //pm12 to pm3
+		//if timeslot == "afternoon" //pm3 to pm6
+		//if timeslot == "evening" //pm6 to pm9
+		//if timeslot == "night" //pm9 to pm11
+		//if timeslot == "latenight" //am12 to am5
+		
+		
+		////Other ghost dialogue
+		if ghostexcount == 0 //there are no other ghosts open
+		{
+			""
+		}
+		
+		//if more than your ghost is open
+		if ghostexcount > 0
+		{
+			"\![raise,OnStartTalking]\e"
+		}
+		
+		//specific ghosts
+		if GhostIsOpen("RGB Puzzlers")
+		{
+			""
+		}
+		//if GhostIsOpen("")
+		
+		//specific ghost installed
+		//if GhostIsInstalled("RGB Puzzlers")
+		//if GhostIsInstalled("")
+		*/
+		
+		{
+			"\0\s[99]...\w8\w8\s[101]hmm.\w8 That cloud looks like a big ol' "
+			--
+			"puff pastry"
+			"mushroom puff"
+			"bowl of cotton candy"
+			"cotton candy spinner"
+			"juicer with a wedge stuffed in it"
+			--
+			".\w8\e"
+		}
+		
+		"\0\s[99]Sky's real pretty out here,\w4 actually.\w8 \s[105]Guess Snufkin's right about that as well.\w8\e"
+	}
+}
+
+
+//--Chains
+//Pay careful attention to the CHAIN text and double brackets for these.
+//Note also it ends with \e:chain=end, basically ending the chain.
+smallbeasts
+{{CHAIN
+	"\0\s[68]If you make a mistake,\w8 \s[40]get ready to pay.\w8 \s[47]You can't blame another and then run\w8 away...\w8\e"
+	
+	"\0\s[116]I should get Snufkin to play that one for me again.\w8 \s[22]Maybe then it'll get dislodged from my brain.\w8\e:chain=end"
+}}CHAIN
+
+
+
+//-OnMinuteChange
+
+
+//Keeps track of if an hour has passed.
+HourCheck
+{
+	if passmin >= 59
+	{
+		passmin = 0
+		passhour = passhour + 1
+	}
+}
+
+//checking for RGB guys
+RGBPuzzlersCheck
+{
+	if GhostIsOpen("RGB Puzzlers")
+	{
+		rgbcheck = 1 //on
+		
+		//"\![set,otherghosttalk,true]"
+	}
+	else //not open
+	{
+		rgbcheck = 0 //off
+		
+		//"\![set,otherghosttalk,false]"
+	}
+}
+
+//This is what will trigger time-based dialogue for your Ghost.
+OnMinuteChange
+{
+	HourCheck
+	RGBPuzzlersCheck
+}
+
+
+//--OnSecondChange
+//reference1 is if the ghost is offscreen or not
+OnSecondChange
+{
+	if passsec == 59
+	{
+	 	passsec = 0
+ 		passmin = passmin + 1
+	}
+ 	else
+	{
+	 	passsec = passsec + 1
+	}
+}
+
+
+
+//**** OnSurfaceRestore *****************************************************************
+//Sakura is reference0, Kero is reference1.
+OnSurfaceRestore
+{
+	//if mode == 1 //she can see you
+		//if rgbcheck == 1 //RGB guys open
+		//else //0; no rgb guys
+	//else //0; alone
+		//if rgbcheck == 1 //RGB guys open
+		//else //0; no rgb guys
+	"\1\s[-1]\0"
+	--
+	"\s[0]"
+	"\s[1]"
+	"\s[2]"
+	"\s[3]"
+	"\s[4]"
+	"\s[5]"
+	"\s[9]"
+	"\s[29]"
+	"\s[30]"
+	"\s[31]"
+	"\s[32]"
+	"\s[33]"
+	"\s[34]"
+	"\s[86]"
+	"\s[90]"
+	"\s[97]"
+	"\s[98]"
+	"\s[101]"
+	"\s[128]"
+	"\s[129]"
+	"\s[130]"
+}
+
+
+//--OnKeyPress
+OnKeyPress
+{
+	if reference0 == "t"
+	{ OnAiTalk }
+	elseif reference0 == "r"
+	{ OnLastTalk }
+	elseif reference0 == "f1"
+	{ "\![open,readme]" }
+}
+
+
+//that's the end of aitalk!

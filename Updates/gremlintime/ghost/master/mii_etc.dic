@@ -1,0 +1,464 @@
+﻿//---------------------------Miscellaneous Functions--------------------------
+//etc time whoooo!!
+
+
+//--OnFileDrop2
+OnFileDrop2
+{
+	if mode == 1 //she can see you
+	{
+		"\0\s[9]What's this?\w8 \s[0]Something tasty I bet!\w8\e"
+		
+		"\0\s[61]Ooh,\w4 looks like you found something good,\w4 %(user)!\w8\e"
+		
+		"\0\s[44]Thanks for the snack!\w8 \s[40]Can't wait to get my teeth into this thing.\w8\e"
+		
+		"\0\s[9]Whatever this is,\w4 looks like it crunches.\w8 \s[45]Ideal for me!\w8\e"
+	}
+	else //0; alone
+	{
+		"\0\s[34]Oh,\w4 what's this?\w8\w8 \s[89]\n\n[half]Pah.\w8 Just another not %(edibles).\w8\e"
+		
+		"\0\s[37]Well this isn't %(edibles) at all.\w8\e"
+		
+		"\0\s[101]Hmm.\w8 Will it taste as good as %(edibles)?\w8\e"
+	}
+}
+
+
+//---- OnInstallBegin -------------------------------------------------------
+//anything with an install.txt will trigger this dialogue
+OnInstallBegin
+{
+	if mode == 1 //she can see you
+	{
+		"\0\s[3]Laying out some groundwork?\w8 \s[85]What'cha making over here?\w8\e"
+		
+		"\0\s[29]Ooh,\w4 what'cha adding to the mix?\w8\e"
+	}
+	else //0; alone
+	{
+		"\0\s[96]Oh,\w4 I haven't seen where this leads yet...\w8\e"
+		
+		"\0\s[34]A new path?\w8 \s[97]What're you holding for me?\w8\e"
+	}
+}
+
+//---- OnInstallComplete -------------------------------------------------------
+//reference0 is what is being installed, reference1 is the name of it
+OnInstallComplete
+{
+	if reference0 == "ghost"
+	{
+		if reference1 == "Little My"
+		{
+			if mode == 1 //she can see you
+			{
+				"\0\s[38]Huh.\w8 Guess you wanna get bit by more than one set of teeth.\w8"
+			}
+			else //0; alone
+			{
+				"\0\s[116]Ugh,\w4 this just leads back to Moominvalley!\w8"
+			}
+		}
+		//elseif reference1 == "RGB Puzzlers"
+		else //all other ghosts
+		{
+			if mode == 1 //she can see you
+			{
+				"\0\s[3]A place for %(reference1)?\w8 \s[27]Well,\w4 I suppose it is your space.\w8"
+			}
+			else //0; alone
+			{
+				"\0\s[101]%(reference1)...?\w8 \s[7]Not a folk I've heard of before.\w8 \s[0]Maybe I should knock and see who my competition is...\w8"
+			}
+		}
+		--
+		"\*\n\n\![*]\q[Call %(reference1),CallGhost]\n\![*]\q[Change to %(reference1),ChangeToGhost]\n\n\![*]\q[No action needed,cancelnodialogue]\e"
+	}
+	else
+	{
+		if mode == 1 //she can see you
+		{
+			"\0\s[9]%(reference1),\w4 huh?\w8 \s[19]Doesn't sound like any food I'd eat.\w8\e"
+			
+			"\0\s[101]%(reference1)...\w8\w8 \s[2]\n\n[half]You know,\w4 Snufkin hates signs.\w8 \s[25]He'd rip this one right out.\w8\e"
+		}
+		else //0; alone
+		{
+			"\0\s[101]%(reference1)...\w8\w8 \s[9]\n\n[half]Okay.\w8 Duly noted.\w8\e"
+			
+			"\0\s[9]%(reference1),\w4 huh?\w8 \s[7]Doesn't sound like any food I could eat.\w8 \s[22]Drat.\w8\e"
+		}
+	}
+}
+
+//Calling the ghost that was just installed.
+Select.CallGhost
+{
+	"\![call,ghost,lastinstalled]\e"
+}
+
+//Opening the ghost that was just installed.
+Select.ChangeToGhost
+{
+	"\![change,ghost,lastinstalled]\e"
+}
+
+
+//---- OnInstallFailure -------------------------------------------------------
+//for when the install fails. can be safely removed if undesired.
+OnInstallFailure
+{
+	if mode == 1 //she can see you
+	{
+		"\0\s[34]Oh.\w8 Looks like you didn't set it up right.\w8 \s[3]You should probably try that again if you're serious about it.\w8\e"
+		
+		"\0\s[5]Huh.\w8\w8 \s[60]Looks like '%(reference0)' got put down instead of what you intended.\w8\e"
+		
+		"\0\s[98]Not sure what '%(reference0)' is supposed to be,\w4 \s[53]but I'm fairly certain that won't make for very good eats.\w8\e"
+	}
+	else //0; alone
+	{
+		"\0\s[123]Aww,\w4 just a dead end.\w8 \s[36]I was hoping to find a new place to search for goodies.\w8\e"
+		
+		"\0\s[116]Ugh,\w4 this just leads back to the same areas.\w8 \s[50]Boring.\w8\e"
+	}
+}
+
+
+//---- OnVanished -----------------------------------------
+//if they're called after you've uninstalled a different ghost. reference0 is the name of the uninstalled ghost.
+OnVanished
+{
+	"\1\s[-1]\0\s[0]"
+	--
+	"%(normalboottalk)"
+}
+
+
+
+//------ Network Updates!
+
+
+//---- OnUpdateBegin -------------------------------------------------------------
+//this will play every time you ask them to update, whether by menu or ssp right click menu
+OnUpdateBegin
+{
+	if mode == 1 //she can see you
+	{
+		"\0\s[3]Something new in the pipeline?\w8 \s[57]All right.\w8 Impress me.\w8\e"
+		
+		"\0\s[3]Got something new for me,\w4 %(user)?\w8 \s[40]Let's see it,\w4 then.\w8\e"
+	}
+	else //0; alone
+	{
+		{
+			"\0\s[left]"
+			"\0\s[right]"
+			--
+			"What's this?\w8 Something new over here?\w8\e"
+		}
+		
+		"\0\s[139]Did I just discover something?\w8 \s[40]Is there treasure over here?\w8\e"
+	}
+}
+
+//---- OnUpdateReady ---------------------------------------------------------
+//reference0 here storing the number of new files. this plays if there is 1 file or more to update
+OnUpdateReady
+{
+	if mode == 1 //she can see you
+	{
+		{
+			"\0\s[33]Ooh,\w4 you weren't lying!\w8 "
+			--
+			"\s[left]"
+			"\s[right]"
+			--
+			"There really is something new to see!\w8\e"
+		}
+		
+		"\0\s[139]Woah,\w4 there is something new!\w8 \s[25]C'mon,\w4 %(user),\w4 hurry it up!\w8\e"
+	}
+	else //0; alone
+	{
+		"\0\s[131]Woah,\w4 what's this?\w8 \s[132]A new place to explore?\w8\e"
+		
+		"\0\s[52]New things to sink my teeth into!!\w8\e"
+	}
+}
+
+
+//all this documentation comes from Zarla, Maskin, and Zi!! if you understand it, great! I do not lol.
+//---- OnUpdate.OnDownloadBegin ------------------------------------------------
+//reference0 - file being downloaded
+//reference1 - number of file being downloaded, as in "this is file 1 out of 9"
+//reference2 - overall number of files to download, counting zero. so if there are ten files, it'll display as 9.
+//reference3 - what's being updated - ghost, shell, balloon, plugin, headline, baseware
+OnUpdate.OnDownloadBegin
+{
+	"\0\_q\b[2]Downloading %(reference0)..."
+	--
+	Update_Process = TOINT(reference1) + 1
+	Update_Total = TOINT(reference2) + 1
+	Update_Remaining = Update_Total - Update_Process
+	
+	"\n\n\n\n%(Update_Process) of %(Update_Total)"
+	--
+	"\w5\e"
+}
+
+//---- OnUpdate.OnMD5CompareFailure ---------------------------------------------------
+//_remaining should be the number of the file that's giving the error, in the order they're being downloaded. currentfile will be the file path.
+OnUpdate.OnMD5CompareFailure
+{
+	"\0\s[101]Mm.\w8 Actually,\w4 that doesn't look very good.\w8\e"
+}
+
+//---- OnUpdateFailure -------------------------------------------------------------
+OnUpdateFailure
+{
+	if mode == 1 //she can see you
+	{
+		"\0\s[37]Well.\w8 You tried your best,\w4 %(user),\w4 but it looks like it just wasn't meant to be.\w8 \s[90]Maybe it'll work out next time.\w8\e"
+		
+		"\0\s[127]Aww.\w8 \s[116]Looks like we'll need to find another way into that new area.\w8 \s[34]Good luck figuring that out on your own,\w4 %(user).\w8\e"
+	}
+	else //0; alone
+	{
+		"\0\s[121]Ugh,\w4 there's too much stuff in the way!!\w8 \s[115]I can't get over there!!\w8\e"
+		
+		"\0\s[121]I can't reach that new place!!\w8 \s[7]Ugh.\w8 Worst day ever.\w8\e"
+	}
+}
+
+
+//---- OnUpdateComplete -------------------------------------------------------------
+OnUpdateComplete
+{
+	if reference0 == "none" //if the ghost had nothing to update
+	{
+		if mode == 1 //she can see you
+		{
+			"\0\s[122]Aww,\w4 I've seen that all ready,\w4 %(user)!!\w8 \s[117]That's not new at all.\w8 \s[7]\n\n[half]I suppose.\w8 \s[19]Thanks for trying.\w8\e"
+			
+			"\0\s[8]Seen it all ready.\w8 Sorry,\w4 %(user).\w8 \s[32]\n\n[half]Don't feel too bad,\w4 though.\w8 \s[47]Sometimes,\w4 things just don't work out how you want 'em to.\w8 That's life.\w8\e"
+		}
+		else //0; alone
+		{
+			"\0\s[37]No,\w4 wait,\w4 I recognise this.\w8 \s[50]Damn.\w8 \s[9]Maybe I'll find something new elsewhere...\w8\e"
+		}
+	}
+	else //update process finished successfully
+	{
+		if mode == 1 //she can see you
+		{
+			"\0\s[52]Nice!\w8 \s[41]Can't wait to get my teeth into all these new things.\w8\e"
+			
+			"\0\s[33]Consider me impressed,\w4 %(user).\w8 \s[132]Now,\w4 where should we dig first?\w8\e"
+		}
+		
+		"\0\s[52]Yes!!\w8 \s[40]New things I can sink my teeth into!!\w8 \s[44]This is the best.\w8\e"
+		
+		"\0\s[53]All right,\w4 it was a new area!!\w8 \s[1]Knew sniffing around would pay off eventually.\w8\e"
+	}
+}
+
+
+//------ Creating .nar and Updates.dau!
+
+
+//---- OnUpdatedataCreating -----------------------------------------------------------
+OnUpdatedataCreating
+{
+	if mode == 1 //she can see you
+	{
+		"\0\s[61]What'cha making over there,\w4 %(user)?\w8 \s[43]Does it taste good?\w8\e"
+		
+		"\0\s[98]Those don't look like letters.\w8 \s[47]But I guess you can mail all sorts of things out into the world.\w8\e"
+	}
+	
+	"\0\s[90]Oh,\w4 these need a bit of shining before I can figure out whether they're edible or not...\w8\e"
+}
+
+//---- OnUpdatedataCreated -------------------------------------------------------------
+OnUpdatedataCreated
+{
+	if mode == 1 //she can see you
+	{
+		"\0\s[87]Whatever it was,\w4 \s[92]looks like it's ready now!\w8\w8 \s[8]Doesn't look very edible,\w4 though.\w8 \s[7]Boo.\w8\e"
+		
+		"\0\s[101]Yep.\w8 Not mail at all.\w8 \s[3]Good luck shipping that off to where it's needed,\w4 %(user).\w8\e"
+	}
+	
+	"\0\s[122]Aww,\w4 \s[116]it's not something I can eat.\w8 \s[22]You're spared my teeth today,\w4 weird package.\w8\e"
+}
+
+
+//---- OnNarCreating ------------------------------------------------------------------
+//reference0 is the name of what you're making a nar for (which is the name of your ghost as specified in install.txt), reference2 is what you're making (balloon/ghost/etc)
+OnNarCreating
+{
+	if reference2 == "ghost" //splitting it up between categories just because
+	{
+		if reference0 == "Little My"
+		{
+			if mode == 1 //she can see you
+			{
+				"\0\s[40]Think you can cram all of me into a package?\w8 \s[132]Think again!!\w8\e"
+			}
+			
+			"\0\s[101]A box with my name on it...\w8\w8 \s[8]\n\n[half]Is it meant to mail me?\w8\e"
+		}
+		elseif reference0 == "RGB Puzzlers"
+		{
+			if mode == 1 //she can see you
+			{
+				"\0\s[37]Good luck fitting all that pining and yearning into one box.\w8 \s[55]There's hardly enough room left for Apollo and Luke.\w8\e"
+			}
+			
+			"\0\s[90]A box with my brother's name on it...\w8\w8 \s[128]\n\n[half]Deserves a good kick if you ask me!\w8\e"
+		}
+		//elseif reference0 == ""
+		else //any other ghosts
+		{
+			if mode == 1 //she can see you
+			{
+				"\0\s[38]Never heard of a box named '%(reference0)' before.\w8 \s[19]You're definitely a strange one,\w4 %(user).\w8\e"
+			}
+			
+			"\0\s[101]'%(reference0)'...?\w8\w8 \s[8]That's a weird name for a box.\w8\e"
+			
+			"\0\s[116]A box...?\w8\w8 \s[128]What's inside it,\w4 then?\w8\e"
+		}
+	}
+	else //all other files
+	{
+		if mode == 1 //she can see you
+		{
+			"\0\s[0]Got a lot of boxes around here,\w4 %(user).\w8 What's inside 'em,\w4 anyway?\w8\e"
+			
+			"\0\s[0]Well,\w4 don't hand me this box!\w8 \n\n[half]...\w8\w8not unless you want me to grab whatever's inside.\w8\e"
+		}
+		
+		"\0\s[0]Boxes...\w8\w8 \n\n[half]Always check inside before kicking them off to the side.\w8\e"
+		
+		"\0\s[0]Weird box.\w8 What's in it?\w8\e"
+	}
+}
+
+//---- OnNarCreated -------------------------------------------------------------------
+//reference0 here will be the filename of the nar you just created.
+OnNarCreated
+{
+	if reference0 == "Little My"
+	{
+		if mode == 1 //she can see you
+		{
+			"\0\s[57]Tell whoever you want about me.\w8 \s[40]I'll still be here,\w4 looking for goodies to eat.\w8\e"
+		}
+		
+		"\0\s[101]Hmm.\w8 Box with my name.\w8 \s[97]Looks about as comfortable as Snufkin's hat,\w4 at least.\w8\e"
+		
+		"\0\s[90]Well,\w4 doesn't look like it's got anything good in it.\w8 \s[100]Even if it's got my name on it.\w8\e"
+	}
+	elseif reference0 == "RGB Puzzlers"
+	{
+		if mode == 1 //she can see you
+		{
+			"\0\s[31]Told you they'd hardly fit.\w8 \s[19]But,\w4 I guess you made it work.\w8 \s[68]So good on you for that one.\w8\e"
+		}
+		
+		"\0\s[37]All right,\w4 enough kicking boxes.\w8 \s[130]Back to looking for goodies.\w8\e"
+	}
+	//elseif reference0 == ""
+	else //all others
+	{
+		if mode == 1 //she can see you
+		{
+			"\0\s[119]Ugh,\w4 \s[115]these are filled with the unfun kind of spaghetti.\w8 \s[36]Good luck with that,\w4 %(user).\w8\e"
+			
+			"\0\s[122]Eww!\w8 \s[115]Why are these boxes filled with the worst kind of spaghetti?\w8 \s[22]You keep those to yourself,\w4 %(user).\w8 \s[7]I'm all good.\w8\e"
+		}
+		
+		"\0\s[122]Eww,\w4 \s[116]slimy spaghetti...\w8\w8 \s[22]\n\n[half]On second thought,\w4 these boxes can remain unsearched.\w8\e"
+	}
+}
+
+
+
+//------- Mail Time!
+
+//---- OnBIFFBegin ---------------------------------------------------------------
+OnBIFFBegin
+{
+	if mode == 1 //she can see you
+	{
+		"\0\s[3]You afraid of the mailman?\w8 \s[130]No worries,\w4 I can always get a good chase or two out of him.\w8\e"
+		
+		"\0\s[33]Oh!\w8 \s[128]You stay here.\w8 \s[134]I've got a mailman to chase!\w8\w8 \s[-1]\e"
+	}
+	
+	"\0\s[98]Here comes the mailman.\w8 \s[134]He has no idea what I've got in store for him.\w8\e"
+	
+	"\0\s[98]The mailman even comes all the way out here?\w8 \s[40]I'd be impressed if I didn't now have a new target.\w8\e"
+}
+
+//---- OnBIFFComplete ---------------------------------------------------------------
+//just taking the code from Zi's stuff (and then touched up by Zi) and not messing any further with it because I do not use this nor understand it
+OnBIFFComplete
+{
+	if reference0 == 0 //If you have no new mail.
+	{
+		if mode == 1 //she can see you
+		{
+			"\0\s[123]Aww.\w8 False alarm.\w8 \s[6]He didn't come close enough for a chase.\w8\e"
+			
+			"\0\s[115]No good.\w8 \s[22]He ran away as soon as he saw me.\w8 \s[90]Didn't look like there was anything for you,\w4 anyway.\w8\e"
+		}
+		
+		"\0\s[115]Nope,\w4 false alarm.\w8 \s[37]Doesn't look like he's coming over here.\w8 \s[22]Shame.\w8\e"
+	}
+	elseif reference0 == 1 //a single letter
+	{
+		if mode == 1 //she can see you
+		{
+			"\0\s[68]Got one thing for you,\w4 %(user)!\w8 \s[53]Snatched it with my teeth before the coward could run away.\w8\e"
+		}
+		
+		"\0\s[98]Only one letter,\w4 huh?\w8 \s[8]And it's not even from mum or sis.\w8 \s[50]Boo,\w4 how boring.\w8\e"
+	}
+	else //For any other number of emails.
+	{
+		if mode == 1 //she can see you
+		{
+			"\0\s[53]I grabbed the whole lot!\w8 \s[33]He dropped it and ran as soon as he saw me coming,\w4 \s[52]so it's all for you now!\w8\e"
+		}
+		
+		"\0\s[34]Oh,\w4 he dropped all of his stuff.\w8 \s[101]\n\n[half]Hmm....\w8\w8 \s[8]Doesn't look like anything from mum or sis is in here.\w8 \s[19]Shame.\w8\e"
+	}
+}
+
+
+//---- OnBIFFFailure ---------------------------------------------------------------
+//reference0 here stores the error message the email server would have given the ghost, hopefully. can also be axed if unneeded.
+OnBIFFFailure
+{
+	if mode == 1 //she can see you
+	{
+		"\0\s[7]Ugh,\w4 he got away from me,\w4 %(user).\w8 \s[22]And I had a good pit trap all prepared and everything...\w8\e"
+		
+		"\0\s[8]Didn't work out this time,\w4 %(user).\w8 \s[22]\n\n[half]He didn't even drop anything,\w4 that's not fun.\w8\e"
+	}
+	else //0; alone
+	{
+		"\0\s[115]Aww.\w8 \s[123]He knew better than to get close enough for me to chase.\w8 \s[36]Maybe next time I'll catch him in my traps.\w8\e"
+		
+		"\0\s[115]Ugh,\w4 he saw me.\w8 \s[37]Ain't gonna get him now.\w8 \s[142]\n\n[half]You win this round,\w4 mailmain!!\w8\e"
+	}
+}
+
+
+
+//that's it I am free

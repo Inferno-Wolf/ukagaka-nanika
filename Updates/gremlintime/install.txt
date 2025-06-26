@@ -1,0 +1,15 @@
+//the file that helps other ghost programs actually know your ghost needs to be installed.
+//pretty sure charset has something to do with the language...? type is what type of program. also informs the ghost installing it that info so it can be used in the etc.dic stuff.
+//name is the name of your ghost as you want it to appear in the "Switch Ghost" right-click menu, directory is the name of the folder all your ghost's files are stored in.
+
+
+charset,UTF-8
+type,ghost
+name,Little My
+directory,gremlintime
+
+
+//leaving Zarla's notes on this here because /shrugs loudly
+//This tells the program what balloon your ghost will be using. You should only uncomment this line if you're bundling a balloon with your ghost. Meaning, inside your ghost folder, you have ghost, shell, and your balloon's folder (like z_simple, balloontime, newsreport). If your balloon folder in there, it will install with your ghost. If you do NOT have a balloon included with your ghost, then leave this line commented.
+
+balloon.directory,miiloon

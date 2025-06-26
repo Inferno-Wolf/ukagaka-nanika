@@ -1,0 +1,162 @@
+﻿//--Envelopes go here--
+//moved a bunch of the backend code stuff here whooooop
+
+
+// %(edibles)
+edibles
+{
+	"a mushroom"; "some mushrooms"; "some \_a[Hattifatners]Hattifatner\_a seeds"; "some pumpkin seeds"; "some sunflower seeds"; "seaweed"; "kelp"; "a starfish"; "some prickly pears"; "a handful of blueberries"; "some strawberries"; "cherry pits"; "cherry flesh"; "fresh onions"; "umami flavour"; "edamame"; "some peas"; "coffee grains"; "unground coffee beans"; "coffee bean leaves"; "some frozen spaghetti"; "spaghetti straight from the tree"; "a rhinocerous beetle"; "a lightning bug"; "a scale from a sea dragon"; "some juicy cobwebs"; "cotton candy webs"; "some mental fluff"; "dragonfly wings"; "shimmering dragon scales"; "fish cakes"; "fresh mustard"; "leek stalks"; "green onion stalks"; "some fuzzy cattails"; "whistling grass"; "bird grass"; "cat grass"; "volcano peppers"; "some milk from a stone"; "some spider juice"; "applesauce"; "apple cores"
+}
+
+
+// %(schmoovin)
+schmoovin
+{
+	{
+		"\s[left]"
+		"\s[lowleft]"
+		--
+		"\![move,--X=%(xcordp),--Y=-%(ycord),--time=%(timin),--base=screen,--base-offset=left.bottom,--move-offset=left.bottom]"
+		
+		"\![move,--X=%(xcordp),--time=%(timin),--base=screen,--base-offset=left.bottom,--move-offset=left.bottom]"
+		
+		"\![move,--X=%(xcordp),--time=%(timin),--base=screen,--base-offset=left.bottom,--move-offset=left.bottom]"
+		
+		"\![move,--X=%(xcordp),--time=%(timin),--base=screen,--base-offset=left.bottom,--move-offset=left.bottom]"
+	}
+	
+	{
+		"\s[right]"
+		"\s[lowright]"
+		--
+		"\![move,--X=-%(xcordn),--Y=-%(ycord),--time=%(timin),--base=screen,--base-offset=right.bottom,--move-offset=right.bottom]"
+		
+		"\![move,--X=-%(xcordn),--time=%(timin),--base=screen,--base-offset=right.bottom,--move-offset=right.bottom]"
+		
+		"\![move,--X=-%(xcordn),--time=%(timin),--base=screen,--base-offset=right.bottom,--move-offset=right.bottom]"
+		
+		"\![move,--X=-%(xcordn),--time=%(timin),--base=screen,--base-offset=right.bottom,--move-offset=right.bottom]"
+	}
+}
+
+xcordp
+{
+	_rand = RAND(200)
+	_rand += 14
+	
+	"%(_rand)"
+}
+
+xcordn
+{
+	_rand = RAND(200)
+	_rand += 19
+	
+	"%(_rand)"
+}
+
+ycord
+{
+	_rand = RAND(200)
+	_rand += 10
+	
+	"%(_rand)"
+}
+
+timin
+{
+	_rand = RAND(2500)
+	_rand += 100
+	
+	"%(_rand)"
+	"0"
+}
+
+
+//%(timeslot)
+timeslot
+{
+	if hour >= 5 && hour <=8
+	{ "earlymorning" } //from am5 to am8
+	elseif hour >= 9 && hour <= 11
+	{ "morning" } //from am9 to am11
+	elseif hour >= 12 && hour <= 14
+	{ "lunch" } //from pm12 to pm2
+	elseif hour >= 15 && hour <= 17
+	{ "afternoon" } //from pm3 to pm5
+	elseif hour >= 18 && hour <= 20
+	{ "evening" } //from pm6 to pm8
+	elseif hour >= 21 && hour <= 24
+	{ "night" } //from pm9 to am12
+	else
+	{ "latenight" } //am12 to am5
+}
+
+//%(dayslot)
+dayslot
+{
+	"%(month)month %(day)day"
+}
+
+
+//Pronouns stuff
+they
+{
+	if presuffix == "masculine" {"he"}
+	elseif presuffix == "feminine" {"she"}
+	elseif presuffix == "own" {xthey}
+	else //undefined
+	{"they"}
+}
+
+
+them
+{
+	if presuffix == "masculine" {"him"}
+	elseif presuffix == "feminine" {"her"}
+	elseif presuffix == "own" {xthem}
+	else //undefined
+	{"them"}
+}
+
+their
+{
+	if presuffix == "masculine" {"his"}
+	elseif presuffix == "feminine" {"her"}
+	elseif presuffix == "own" {xtheir}
+	else //undefined
+	{"their"}
+}
+
+theyre
+{
+	if presuffix == "masculine" {"he's"}
+	elseif presuffix == "feminine" {"she's"}
+	elseif presuffix == "own" {xtheyre}
+	else //undefined
+	{"they're"}
+}
+
+
+//Talktime
+talktime
+{
+	if aitalkinterval == 120 {"2 minutes"}
+	elseif aitalkinterval == 180 {"3 minutes"}
+	elseif aitalkinterval == 300 {"5 minutes"}
+	elseif aitalkinterval == 420 {"7 minutes"}
+	elseif aitalkinterval == 600 {"10 minutes"}
+	else //0
+	{"Silent"}
+}
+
+
+
+
+
+//**** Don't touch this ***************************************************************
+//This bit of code is what makes menu options that don't start with On direct to Select.options instead. Remove or comment it out if you prefer!
+OnChoiceSelect
+{
+    EVAL("Select.%(reference0)")
+}

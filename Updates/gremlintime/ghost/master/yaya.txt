@@ -1,0 +1,45 @@
+﻿//gonna leave Zarla's notes in here as well just 'cause it's a better explanation than I could try at.
+//These define what character set your ghost will be using. Don't touch any of them.
+
+charset, UTF-8
+charset.dic, UTF-8
+charset.output, UTF-8
+charset.file, UTF-8
+charset.save, UTF-8
+charset.extension, UTF-8
+
+
+//---- Dictionary Files ---------------------------------------------------------------------
+
+//These are the .dic files your ghost will be using. You can add new .dic files or take them away as you like, just always make sure to test your ghost to make sure it still works if you do. This can be very finicky.
+//I would recommend adding the initials of your ghost to the front of your .dic files, such as hs_string or hs_bootend, particularly if you're going to be editing multiple ghosts at once, or studying other ghost's files to see how they work. It'll help you keep the files straight in Notepad++. You don't have to though, that's optional. If you do, make sure to change the filenames here too, so if you changed the filename to hs_string, make sure you come back here and change the line here to dic,hs_string.
+//I alphebatized these so it's easier to reference when changing the names.
+
+//dicdir, yaya_base //this is if you didn't delete the __loading_order.txt in the folder hahaha
+dic, yaya_base/config.dic, UTF-8
+dic, yaya_base/shiori3.dic, UTF-8
+dicif, yaya_base/optional.dic, UTF-8
+dicif, yaya_base/compatible.dic, UTF-8
+dic, mii_aitalk.dic
+dic, mii_anchor.dic
+dic, mii_bootend.dic
+dic, mii_commu.dic
+dic, mii_config.dic
+dic, mii_etc.dic
+dic, mii_menu.dic
+dic, mii_string.dic
+dic, mii_word.dic
+
+
+//---- YAYA Code Stuff -------------------------------------------------------------------------
+//all of this is for the YAYA, don't touch any of it. (I left some of the comments from the original in there because I dunno it might be helpful??)
+
+//------------------------------------------------------------------------------
+//実行ログ
+//実行ログをayame.logに記録します。開発時には記録しておいたほうが良いです。
+//------------------------------------------------------------------------------
+// log, ayame.log	
+ignoreiolog, ID: OnSecondChange //OnSecondChange無視
+ignoreiolog, ID: OnMouse        //OnMouse系無視
+
+msglang,english

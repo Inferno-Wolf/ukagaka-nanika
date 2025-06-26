@@ -1,0 +1,2714 @@
+//---------------------------Surfaces.txt--------------------------
+//GUIDE TO THE MII
+
+
+//this small bit changes it to the new definition!
+descript
+{
+version,1
+}
+
+
+//--The Main Character's Poses---------------------------------------------------------
+
+//Mii arms crossed >w>
+surface0
+{
+	//collision0,44,40,134,65,MHead
+	//collision1,53,66,123,100,MFace
+	
+	
+	//blinking!
+	animation0.interval,random,4
+	animation0.pattern0,overlay,-1,100,0,0
+	animation0.pattern1,overlayfast,205,50,0,0
+	animation0.pattern2,overlayfast,201,100,0,0
+	animation0.pattern3,overlay,-1,30,0,0
+}
+
+//arms crossed poses
+//Mii <w<
+surface1
+{
+	element0,overlay,surface0.png,0,0
+	element1,overlay,eyes1_glareleft.png,0,0
+	
+	//blinking!
+	animation0.interval,random,4
+	animation0.pattern0,overlay,-1,100,0,0
+	animation0.pattern1,overlayfast,205,50,0,0
+	animation0.pattern2,overlayfast,203,100,0,0
+	animation0.pattern3,overlay,-1,30,0,0
+}
+
+//Mii TwT
+surface2
+{
+	element0,overlay,surface0.png,0,0
+	element1,overlay,eyes1_halfcentre.png,0,0
+	
+	//blinking!
+	animation0.interval,random,4
+	animation0.pattern0,overlay,-1,100,0,0
+	animation0.pattern1,overlayfast,205,50,0,0
+	animation0.pattern2,overlayfast,202,100,0,0
+	animation0.pattern3,overlay,-1,30,0,0
+}
+
+//Mii >wT
+surface3
+{
+	element0,overlay,surface0.png,0,0
+	element1,overlay,eyes1_raise.png,0,0
+	
+	//blinking!
+	animation0.interval,random,4
+	animation0.pattern0,overlay,-1,100,0,0
+	animation0.pattern1,overlayfast,205,50,0,0
+	animation0.pattern2,overlayfast,201,100,0,0
+	animation0.pattern3,overlay,-1,30,0,0
+}
+
+//Mii 'w'
+surface4
+{
+	element0,overlay,surface0.png,0,0
+	element1,overlay,eyes1_neutral.png,0,0
+	
+	//blinking!
+	animation0.interval,random,4
+	animation0.pattern0,overlay,-1,100,0,0
+	animation0.pattern1,overlayfast,205,50,0,0
+	animation0.pattern2,overlayfast,201,100,0,0
+	animation0.pattern3,overlay,-1,30,0,0
+}
+
+//Mii '_'
+surface5
+{
+	element0,overlay,surface0.png,0,0
+	element1,overlay,eyes1_neutral.png,0,0
+	element2,overlay,mouth1_neutral.png,0,0
+	
+	//blinking!
+	animation0.interval,random,4
+	animation0.pattern0,overlay,-1,100,0,0
+	animation0.pattern1,overlayfast,205,50,0,0
+	animation0.pattern2,overlayfast,201,100,0,0
+	animation0.pattern3,overlay,-1,30,0,0
+}
+
+//Mii >_>
+surface6
+{
+	element0,overlay,surface0.png,0,0
+	element1,overlay,mouth1_neutral.png,0,0
+	
+	//blinking!
+	animation0.interval,random,4
+	animation0.pattern0,overlay,-1,100,0,0
+	animation0.pattern1,overlayfast,205,50,0,0
+	animation0.pattern2,overlayfast,201,100,0,0
+	animation0.pattern3,overlay,-1,30,0,0
+}
+
+//Mii <_<
+surface7
+{
+	element0,overlay,surface0.png,0,0
+	element1,overlay,eyes1_glareleft.png,0,0
+	element2,overlay,mouth1_neutral.png,0,0
+	
+	//blinking!
+	animation0.interval,random,4
+	animation0.pattern0,overlay,-1,100,0,0
+	animation0.pattern1,overlayfast,205,50,0,0
+	animation0.pattern2,overlayfast,203,100,0,0
+	animation0.pattern3,overlay,-1,30,0,0
+}
+
+//Mii T_T
+surface8
+{
+	element0,overlay,surface0.png,0,0
+	element1,overlay,eyes1_halfcentre.png,0,0
+	element2,overlay,mouth1_neutral.png,0,0
+	
+	//blinking!
+	animation0.interval,random,4
+	animation0.pattern0,overlay,-1,100,0,0
+	animation0.pattern1,overlayfast,205,50,0,0
+	animation0.pattern2,overlayfast,202,100,0,0
+	animation0.pattern3,overlay,-1,30,0,0
+}
+
+//Mii >_T
+surface9
+{
+	element0,overlay,surface0.png,0,0
+	element1,overlay,eyes1_raise.png,0,0
+	element2,overlay,mouth1_neutral.png,0,0
+	
+	//blinking!
+	animation0.interval,random,4
+	animation0.pattern0,overlay,-1,100,0,0
+	animation0.pattern1,overlayfast,205,50,0,0
+	animation0.pattern2,overlayfast,201,100,0,0
+	animation0.pattern3,overlay,-1,30,0,0
+}
+
+//Mii '7'
+surface11
+{
+	element0,overlay,surface0.png,0,0
+	element1,overlay,eyes1_neutral.png,0,0
+	element2,overlay,mouth1_grins.png,0,0
+	
+	//blinking!
+	animation0.interval,random,4
+	animation0.pattern0,overlay,-1,100,0,0
+	animation0.pattern1,overlayfast,205,50,0,0
+	animation0.pattern2,overlayfast,201,100,0,0
+	animation0.pattern3,overlay,-1,30,0,0
+}
+
+//Mii >7>
+surface12
+{
+	element0,overlay,surface0.png,0,0
+	element1,overlay,mouth1_grins.png,0,0
+	
+	//blinking!
+	animation0.interval,random,4
+	animation0.pattern0,overlay,-1,100,0,0
+	animation0.pattern1,overlayfast,205,50,0,0
+	animation0.pattern2,overlayfast,201,100,0,0
+	animation0.pattern3,overlay,-1,30,0,0
+}
+
+//Mii <7<
+surface13
+{
+	element0,overlay,surface0.png,0,0
+	element1,overlay,eyes1_glareleft.png,0,0
+	element2,overlay,mouth1_grins.png,0,0
+	
+	//blinking!
+	animation0.interval,random,4
+	animation0.pattern0,overlay,-1,100,0,0
+	animation0.pattern1,overlayfast,205,50,0,0
+	animation0.pattern2,overlayfast,203,100,0,0
+	animation0.pattern3,overlay,-1,30,0,0
+}
+
+//Mii T7T
+surface14
+{
+	element0,overlay,surface0.png,0,0
+	element1,overlay,eyes1_halfcentre.png,0,0
+	element2,overlay,mouth1_grins.png,0,0
+	
+	//blinking!
+	animation0.interval,random,4
+	animation0.pattern0,overlay,-1,100,0,0
+	animation0.pattern1,overlayfast,205,50,0,0
+	animation0.pattern2,overlayfast,202,100,0,0
+	animation0.pattern3,overlay,-1,30,0,0
+}
+
+//Mii >7T
+surface15
+{
+	element0,overlay,surface0.png,0,0
+	element1,overlay,eyes1_raise.png,0,0
+	element2,overlay,mouth1_grins.png,0,0
+	
+	//blinking!
+	animation0.interval,random,4
+	animation0.pattern0,overlay,-1,100,0,0
+	animation0.pattern1,overlayfast,205,50,0,0
+	animation0.pattern2,overlayfast,201,100,0,0
+	animation0.pattern3,overlay,-1,30,0,0
+}
+
+//eyes closed
+//Mii ^w^
+surface16
+{
+	element0,overlay,surface0.png,0,0
+	element1,overlay,eyes1_close_happies.png,0,0
+}
+
+//Mii angy ^w^
+surface17
+{
+	element0,overlay,surface0.png,0,0
+	element1,overlay,eyes1_close_happyangy.png,0,0
+}
+
+//Mii uwu
+surface18
+{
+	element0,overlay,surface0.png,0,0
+	element1,overlay,surface204.png,0,0
+}
+
+//Mii angy uwu
+surface19
+{
+	element0,overlay,surface0.png,0,0
+	element1,overlay,eyes1_close_upset.png,0,0
+}
+
+//Mii >w<
+surface20
+{
+	element0,overlay,surface0.png,0,0
+	element1,overlay,eyes1_close_squint.png,0,0
+}
+
+//Mii u_u
+surface21
+{
+	element0,overlay,surface0.png,0,0
+	element1,overlay,surface204.png,0,0
+	element2,overlay,mouth1_neutral.png,0,0
+}
+
+//Mii angy u_u
+surface22
+{
+	element0,overlay,surface0.png,0,0
+	element1,overlay,eyes1_close_upset.png,0,0
+	element2,overlay,mouth1_neutral.png,0,0
+}
+
+//Mii >_<
+surface23
+{
+	element0,overlay,surface0.png,0,0
+	element1,overlay,eyes1_close_squint.png,0,0
+	element2,overlay,mouth1_neutral.png,0,0
+}
+
+//Mii ^7^
+surface24
+{
+	element0,overlay,surface0.png,0,0
+	element1,overlay,eyes1_close_happies.png,0,0
+	element2,overlay,mouth1_grins.png,0,0
+}
+
+//Mii angy ^w^
+surface25
+{
+	element0,overlay,surface0.png,0,0
+	element1,overlay,eyes1_close_happyangy.png,0,0
+	element2,overlay,mouth1_grins.png,0,0
+}
+
+//Mii u7u
+surface26
+{
+	element0,overlay,surface0.png,0,0
+	element1,overlay,surface204.png,0,0
+	element2,overlay,mouth1_grins.png,0,0
+}
+
+//Mii angy u7u
+surface27
+{
+	element0,overlay,surface0.png,0,0
+	element1,overlay,eyes1_close_upset.png,0,0
+	element2,overlay,mouth1_grins.png,0,0
+}
+
+//Mii >7<
+surface28
+{
+	element0,overlay,surface0.png,0,0
+	element1,overlay,eyes1_close_squint.png,0,0
+	element2,overlay,mouth1_grins.png,0,0
+}
+
+
+//--------------------------------hands on hips expressions
+//Mii >w>
+surface29
+{
+	element0,overlay,surface34.png,0,0
+	element1,overlay,eyes1_glarert.png,0,0
+	element2,overlay,mouth1_smiles.png,0,0
+	
+	//blinking!
+	animation0.interval,random,4
+	animation0.pattern0,overlay,-1,100,0,0
+	animation0.pattern1,overlayfast,205,50,0,0
+	animation0.pattern2,overlayfast,201,100,0,0
+	animation0.pattern3,overlay,-1,30,0,0
+}
+
+//Mii <w<
+surface30
+{
+	element0,overlay,surface34.png,0,0
+	element1,overlay,eyes1_glareleft.png,0,0
+	element2,overlay,mouth1_smiles.png,0,0
+	
+	//blinking!
+	animation0.interval,random,4
+	animation0.pattern0,overlay,-1,100,0,0
+	animation0.pattern1,overlayfast,205,50,0,0
+	animation0.pattern2,overlayfast,203,100,0,0
+	animation0.pattern3,overlay,-1,30,0,0
+}
+
+//Mii TwT
+surface31
+{
+	element0,overlay,surface34.png,0,0
+	element1,overlay,eyes1_halfcentre.png,0,0
+	element2,overlay,mouth1_smiles.png,0,0
+	
+	//blinking!
+	animation0.interval,random,4
+	animation0.pattern0,overlay,-1,100,0,0
+	animation0.pattern1,overlayfast,205,50,0,0
+	animation0.pattern2,overlayfast,202,100,0,0
+	animation0.pattern3,overlay,-1,30,0,0
+}
+
+//Mii >wT
+surface32
+{
+	element0,overlay,surface34.png,0,0
+	element1,overlay,eyes1_raise.png,0,0
+	element2,overlay,mouth1_smiles.png,0,0
+	
+	//blinking!
+	animation0.interval,random,4
+	animation0.pattern0,overlay,-1,100,0,0
+	animation0.pattern1,overlayfast,205,50,0,0
+	animation0.pattern2,overlayfast,201,100,0,0
+	animation0.pattern3,overlay,-1,30,0,0
+}
+
+//Mii 'w'
+surface33
+{
+	element0,overlay,surface34.png,0,0
+	element1,overlay,mouth1_smiles.png,0,0
+	
+	//blinking!
+	animation0.interval,random,4
+	animation0.pattern0,overlay,-1,100,0,0
+	animation0.pattern1,overlayfast,205,50,0,0
+	animation0.pattern2,overlayfast,201,100,0,0
+	animation0.pattern3,overlay,-1,30,0,0
+}
+
+//Mii '_'
+surface34
+{
+	//blinking!
+	animation0.interval,random,4
+	animation0.pattern0,overlay,-1,100,0,0
+	animation0.pattern1,overlayfast,205,50,0,0
+	animation0.pattern2,overlayfast,201,100,0,0
+	animation0.pattern3,overlay,-1,30,0,0
+}
+
+//Mii >_>
+surface35
+{
+	element0,overlay,surface34.png,0,0
+	element1,overlay,eyes1_glarert.png,0,0
+	
+	//blinking!
+	animation0.interval,random,4
+	animation0.pattern0,overlay,-1,100,0,0
+	animation0.pattern1,overlayfast,205,50,0,0
+	animation0.pattern2,overlayfast,201,100,0,0
+	animation0.pattern3,overlay,-1,30,0,0
+}
+
+//Mii <_<
+surface36
+{
+	element0,overlay,surface34.png,0,0
+	element1,overlay,eyes1_glareleft.png,0,0
+	
+	//blinking!
+	animation0.interval,random,4
+	animation0.pattern0,overlay,-1,100,0,0
+	animation0.pattern1,overlayfast,205,50,0,0
+	animation0.pattern2,overlayfast,203,100,0,0
+	animation0.pattern3,overlay,-1,30,0,0
+}
+
+//Mii T_T
+surface37
+{
+	element0,overlay,surface34.png,0,0
+	element1,overlay,eyes1_halfcentre.png,0,0
+	
+	//blinking!
+	animation0.interval,random,4
+	animation0.pattern0,overlay,-1,100,0,0
+	animation0.pattern1,overlayfast,205,50,0,0
+	animation0.pattern2,overlayfast,202,100,0,0
+	animation0.pattern3,overlay,-1,30,0,0
+}
+
+//Mii >_T
+surface38
+{
+	element0,overlay,surface34.png,0,0
+	element1,overlay,eyes1_raise.png,0,0
+	
+	//blinking!
+	animation0.interval,random,4
+	animation0.pattern0,overlay,-1,100,0,0
+	animation0.pattern1,overlayfast,205,50,0,0
+	animation0.pattern2,overlayfast,201,100,0,0
+	animation0.pattern3,overlay,-1,30,0,0
+}
+
+//Mii '7'
+surface39
+{
+	element0,overlay,surface34.png,0,0
+	element1,overlay,mouth1_grins.png,0,0
+	
+	//blinking!
+	animation0.interval,random,4
+	animation0.pattern0,overlay,-1,100,0,0
+	animation0.pattern1,overlayfast,205,50,0,0
+	animation0.pattern2,overlayfast,201,100,0,0
+	animation0.pattern3,overlay,-1,30,0,0
+}
+
+//Mii >7>
+surface40
+{
+	element0,overlay,surface34.png,0,0
+	element1,overlay,eyes1_glarert.png,0,0
+	element2,overlay,mouth1_grins.png,0,0
+	
+	//blinking!
+	animation0.interval,random,4
+	animation0.pattern0,overlay,-1,100,0,0
+	animation0.pattern1,overlayfast,205,50,0,0
+	animation0.pattern2,overlayfast,201,100,0,0
+	animation0.pattern3,overlay,-1,30,0,0
+}
+
+//Mii <7<
+surface41
+{
+	element0,overlay,surface34.png,0,0
+	element1,overlay,eyes1_glareleft.png,0,0
+	element2,overlay,mouth1_grins.png,0,0
+	
+	//blinking!
+	animation0.interval,random,4
+	animation0.pattern0,overlay,-1,100,0,0
+	animation0.pattern1,overlayfast,205,50,0,0
+	animation0.pattern2,overlayfast,203,100,0,0
+	animation0.pattern3,overlay,-1,30,0,0
+}
+
+//Mii T7T
+surface42
+{
+	element0,overlay,surface34.png,0,0
+	element1,overlay,eyes1_halfcentre.png,0,0
+	element2,overlay,mouth1_grins.png,0,0
+	
+	//blinking!
+	animation0.interval,random,4
+	animation0.pattern0,overlay,-1,100,0,0
+	animation0.pattern1,overlayfast,205,50,0,0
+	animation0.pattern2,overlayfast,202,100,0,0
+	animation0.pattern3,overlay,-1,30,0,0
+}
+
+//Mii >7T
+surface43
+{
+	element0,overlay,surface34.png,0,0
+	element1,overlay,eyes1_raise.png,0,0
+	element2,overlay,mouth1_grins.png,0,0
+	
+	//blinking!
+	animation0.interval,random,4
+	animation0.pattern0,overlay,-1,100,0,0
+	animation0.pattern1,overlayfast,205,50,0,0
+	animation0.pattern2,overlayfast,201,100,0,0
+	animation0.pattern3,overlay,-1,30,0,0
+}
+
+//eyes closed
+//Mii ^w^
+surface44
+{
+	element0,overlay,surface34.png,0,0
+	element1,overlay,eyes1_close_happies.png,0,0
+	element2,overlay,mouth1_smiles.png,0,0
+}
+
+//Mii angy ^w^
+surface45
+{
+	element0,overlay,surface34.png,0,0
+	element1,overlay,eyes1_close_happyangy.png,0,0
+	element2,overlay,mouth1_smiles.png,0,0
+}
+
+//Mii uwu
+surface46
+{
+	element0,overlay,surface34.png,0,0
+	element1,overlay,surface204.png,0,0
+	element2,overlay,mouth1_smiles.png,0,0
+}
+
+//Mii angy uwu
+surface47
+{
+	element0,overlay,surface34.png,0,0
+	element1,overlay,eyes1_close_upset.png,0,0
+	element2,overlay,mouth1_smiles.png,0,0
+}
+
+//Mii >w<
+surface48
+{
+	element0,overlay,surface34.png,0,0
+	element1,overlay,eyes1_close_squint.png,0,0
+	element2,overlay,mouth1_smiles.png,0,0
+}
+
+//Mii u_u
+surface49
+{
+	element0,overlay,surface34.png,0,0
+	element1,overlay,surface204.png,0,0
+}
+
+//Mii angy u_u
+surface50
+{
+	element0,overlay,surface34.png,0,0
+	element1,overlay,eyes1_close_upset.png,0,0
+}
+
+//Mii >_<
+surface51
+{
+	element0,overlay,surface34.png,0,0
+	element1,overlay,eyes1_close_squint.png,0,0
+}
+
+//Mii ^7^
+surface52
+{
+	element0,overlay,surface34.png,0,0
+	element1,overlay,eyes1_close_happies.png,0,0
+	element2,overlay,mouth1_grins.png,0,0
+}
+
+//Mii angy ^w^
+surface53
+{
+	element0,overlay,surface34.png,0,0
+	element1,overlay,eyes1_close_happyangy.png,0,0
+	element2,overlay,mouth1_grins.png,0,0
+}
+
+//Mii u7u
+surface54
+{
+	element0,overlay,surface34.png,0,0
+	element1,overlay,surface204.png,0,0
+	element2,overlay,mouth1_grins.png,0,0
+}
+
+//Mii angy u7u
+surface55
+{
+	element0,overlay,surface34.png,0,0
+	element1,overlay,eyes1_close_upset.png,0,0
+	element2,overlay,mouth1_grins.png,0,0
+}
+
+//Mii >7<
+surface56
+{
+	element0,overlay,surface34.png,0,0
+	element1,overlay,eyes1_close_squint.png,0,0
+	element2,overlay,mouth1_grins.png,0,0
+}
+
+
+//-----------------------------------points at you expressions
+//Mii >w>
+surface57
+{
+	element0,overlay,surface61.png,0,0
+	element1,overlay,eyes1_glarert.png,0,0
+	
+	//blinking!
+	animation0.interval,random,4
+	animation0.pattern0,overlay,-1,100,0,0
+	animation0.pattern1,overlayfast,205,50,0,0
+	animation0.pattern2,overlayfast,201,100,0,0
+	animation0.pattern3,overlay,-1,30,0,0
+}
+
+//Mii <w<
+surface58
+{
+	element0,overlay,surface61.png,0,0
+	element1,overlay,eyes1_glareleft.png,0,0
+	
+	//blinking!
+	animation0.interval,random,4
+	animation0.pattern0,overlay,-1,100,0,0
+	animation0.pattern1,overlayfast,205,50,0,0
+	animation0.pattern2,overlayfast,203,100,0,0
+	animation0.pattern3,overlay,-1,30,0,0
+}
+
+//Mii TwT
+surface59
+{
+	element0,overlay,surface61.png,0,0
+	element1,overlay,eyes1_halfcentre.png,0,0
+	
+	//blinking!
+	animation0.interval,random,4
+	animation0.pattern0,overlay,-1,100,0,0
+	animation0.pattern1,overlayfast,205,50,0,0
+	animation0.pattern2,overlayfast,202,100,0,0
+	animation0.pattern3,overlay,-1,30,0,0
+}
+
+//Mii >wT
+surface60
+{
+	element0,overlay,surface61.png,0,0
+	element1,overlay,eyes1_raise.png,0,0
+	
+	//blinking!
+	animation0.interval,random,4
+	animation0.pattern0,overlay,-1,100,0,0
+	animation0.pattern1,overlayfast,205,50,0,0
+	animation0.pattern2,overlayfast,201,100,0,0
+	animation0.pattern3,overlay,-1,30,0,0
+}
+
+//Mii 'w'
+surface61
+{
+	//blinking!
+	animation0.interval,random,4
+	animation0.pattern0,overlay,-1,100,0,0
+	animation0.pattern1,overlayfast,205,50,0,0
+	animation0.pattern2,overlayfast,201,100,0,0
+	animation0.pattern3,overlay,-1,30,0,0
+}
+
+//Mii '_'
+surface62
+{
+	element0,overlay,surface61.png,0,0
+	element1,overlay,mouth1_neutral.png,0,0
+	
+	//blinking!
+	animation0.interval,random,4
+	animation0.pattern0,overlay,-1,100,0,0
+	animation0.pattern1,overlayfast,205,50,0,0
+	animation0.pattern2,overlayfast,201,100,0,0
+	animation0.pattern3,overlay,-1,30,0,0
+}
+
+//Mii >_>
+surface63
+{
+	element0,overlay,surface61.png,0,0
+	element1,overlay,eyes1_glarert.png,0,0
+	element2,overlay,mouth1_neutral.png,0,0
+	
+	//blinking!
+	animation0.interval,random,4
+	animation0.pattern0,overlay,-1,100,0,0
+	animation0.pattern1,overlayfast,205,50,0,0
+	animation0.pattern2,overlayfast,201,100,0,0
+	animation0.pattern3,overlay,-1,30,0,0
+}
+
+//Mii <_<
+surface64
+{
+	element0,overlay,surface61.png,0,0
+	element1,overlay,eyes1_glareleft.png,0,0
+	element2,overlay,mouth1_neutral.png,0,0
+	
+	//blinking!
+	animation0.interval,random,4
+	animation0.pattern0,overlay,-1,100,0,0
+	animation0.pattern1,overlayfast,205,50,0,0
+	animation0.pattern2,overlayfast,203,100,0,0
+	animation0.pattern3,overlay,-1,30,0,0
+}
+
+//Mii T_T
+surface65
+{
+	element0,overlay,surface61.png,0,0
+	element1,overlay,eyes1_halfcentre.png,0,0
+	element2,overlay,mouth1_neutral.png,0,0
+	
+	//blinking!
+	animation0.interval,random,4
+	animation0.pattern0,overlay,-1,100,0,0
+	animation0.pattern1,overlayfast,205,50,0,0
+	animation0.pattern2,overlayfast,202,100,0,0
+	animation0.pattern3,overlay,-1,30,0,0
+}
+
+//Mii >_T
+surface66
+{
+	element0,overlay,surface61.png,0,0
+	element1,overlay,eyes1_raise.png,0,0
+	element2,overlay,mouth1_neutral.png,0,0
+	
+	//blinking!
+	animation0.interval,random,4
+	animation0.pattern0,overlay,-1,100,0,0
+	animation0.pattern1,overlayfast,205,50,0,0
+	animation0.pattern2,overlayfast,201,100,0,0
+	animation0.pattern3,overlay,-1,30,0,0
+}
+
+//Mii '7'
+surface67
+{
+	element0,overlay,surface61.png,0,0
+	element1,overlay,mouth1_grins.png,0,0
+	
+	//blinking!
+	animation0.interval,random,4
+	animation0.pattern0,overlay,-1,100,0,0
+	animation0.pattern1,overlayfast,205,50,0,0
+	animation0.pattern2,overlayfast,201,100,0,0
+	animation0.pattern3,overlay,-1,30,0,0
+}
+
+//Mii >7>
+surface68
+{
+	element0,overlay,surface61.png,0,0
+	element1,overlay,eyes1_glarert.png,0,0
+	element2,overlay,mouth1_grins.png,0,0
+	
+	//blinking!
+	animation0.interval,random,4
+	animation0.pattern0,overlay,-1,100,0,0
+	animation0.pattern1,overlayfast,205,50,0,0
+	animation0.pattern2,overlayfast,201,100,0,0
+	animation0.pattern3,overlay,-1,30,0,0
+}
+
+//Mii <7<
+surface69
+{
+	element0,overlay,surface61.png,0,0
+	element1,overlay,eyes1_glareleft.png,0,0
+	element2,overlay,mouth1_grins.png,0,0
+	
+	//blinking!
+	animation0.interval,random,4
+	animation0.pattern0,overlay,-1,100,0,0
+	animation0.pattern1,overlayfast,205,50,0,0
+	animation0.pattern2,overlayfast,203,100,0,0
+	animation0.pattern3,overlay,-1,30,0,0
+}
+
+//Mii T7T
+surface70
+{
+	element0,overlay,surface61.png,0,0
+	element1,overlay,eyes1_halfcentre.png,0,0
+	element2,overlay,mouth1_grins.png,0,0
+	
+	//blinking!
+	animation0.interval,random,4
+	animation0.pattern0,overlay,-1,100,0,0
+	animation0.pattern1,overlayfast,205,50,0,0
+	animation0.pattern2,overlayfast,202,100,0,0
+	animation0.pattern3,overlay,-1,30,0,0
+}
+
+//Mii >7T
+surface71
+{
+	element0,overlay,surface61.png,0,0
+	element1,overlay,eyes1_raise.png,0,0
+	element2,overlay,mouth1_grins.png,0,0
+	
+	//blinking!
+	animation0.interval,random,4
+	animation0.pattern0,overlay,-1,100,0,0
+	animation0.pattern1,overlayfast,205,50,0,0
+	animation0.pattern2,overlayfast,201,100,0,0
+	animation0.pattern3,overlay,-1,30,0,0
+}
+
+//eyes closed
+//Mii ^w^
+surface72
+{
+	element0,overlay,surface61.png,0,0
+	element1,overlay,eyes1_close_happies.png,0,0
+}
+
+//Mii angy ^w^
+surface73
+{
+	element0,overlay,surface61.png,0,0
+	element1,overlay,eyes1_close_happyangy.png,0,0
+}
+
+//Mii uwu
+surface74
+{
+	element0,overlay,surface61.png,0,0
+	element1,overlay,surface204.png,0,0
+}
+
+//Mii angy uwu
+surface75
+{
+	element0,overlay,surface61.png,0,0
+	element1,overlay,eyes1_close_upset.png,0,0
+}
+
+//Mii >w<
+surface76
+{
+	element0,overlay,surface61.png,0,0
+	element1,overlay,eyes1_close_squint.png,0,0
+}
+
+//Mii u_u
+surface77
+{
+	element0,overlay,surface61.png,0,0
+	element1,overlay,surface204.png,0,0
+	element2,overlay,mouth1_neutral.png,0,0
+}
+
+//Mii angy u_u
+surface78
+{
+	element0,overlay,surface61.png,0,0
+	element1,overlay,eyes1_close_upset.png,0,0
+	element2,overlay,mouth1_neutral.png,0,0
+}
+
+//Mii >_<
+surface79
+{
+	element0,overlay,surface61.png,0,0
+	element1,overlay,eyes1_close_squint.png,0,0
+	element2,overlay,mouth1_neutral.png,0,0
+}
+
+//Mii ^7^
+surface80
+{
+	element0,overlay,surface61.png,0,0
+	element1,overlay,eyes1_close_happies.png,0,0
+	element2,overlay,mouth1_grins.png,0,0
+}
+
+//Mii angy ^w^
+surface81
+{
+	element0,overlay,surface61.png,0,0
+	element1,overlay,eyes1_close_happyangy.png,0,0
+	element2,overlay,mouth1_grins.png,0,0
+}
+
+//Mii u7u
+surface82
+{
+	element0,overlay,surface61.png,0,0
+	element1,overlay,surface204.png,0,0
+	element2,overlay,mouth1_grins.png,0,0
+}
+
+//Mii angy u7u
+surface83
+{
+	element0,overlay,surface61.png,0,0
+	element1,overlay,eyes1_close_upset.png,0,0
+	element2,overlay,mouth1_grins.png,0,0
+}
+
+//Mii >7<
+surface84
+{
+	element0,overlay,surface61.png,0,0
+	element1,overlay,eyes1_close_squint.png,0,0
+	element2,overlay,mouth1_grins.png,0,0
+}
+
+
+//---------------------------thinking arms crossed expressions
+//Mii 'w'
+surface85
+{
+	
+}
+
+//Mii >w>
+surface86
+{
+	element0,overlay,surface85.png,0,0
+	element1,overlay,eyes2_glarert.png,0,0
+}
+
+//Mii >wT
+surface87
+{
+	element0,overlay,surface85.png,0,0
+	element1,overlay,eyes2_raise.png,0,0
+}
+
+//Mii '_'
+surface88
+{
+	element0,overlay,surface85.png,0,0
+	element1,overlay,mouth2_neutral.png,0,0
+}
+
+//Mii >_>
+surface89
+{
+	element0,overlay,surface85.png,0,0
+	element1,overlay,eyes2_glarert.png,0,0
+	element2,overlay,mouth2_neutral.png,0,0
+}
+
+//Mii >_T
+surface90
+{
+	element0,overlay,surface85.png,0,0
+	element1,overlay,eyes2_raise.png,0,0
+	element2,overlay,mouth2_neutral.png,0,0
+}
+
+//Mii '7'
+surface91
+{
+	element0,overlay,surface85.png,0,0
+	element1,overlay,mouth2_grins.png,0,0
+}
+
+//Mii >7>
+surface92
+{
+	element0,overlay,surface85.png,0,0
+	element1,overlay,eyes2_glarert.png,0,0
+	element2,overlay,mouth2_grins.png,0,0
+}
+
+//Mii >7T
+surface93
+{
+	element0,overlay,surface85.png,0,0
+	element1,overlay,eyes2_raise.png,0,0
+	element2,overlay,mouth2_grins.png,0,0
+}
+
+//eyes closed
+//Mii uwu
+surface94
+{
+	element0,overlay,surface85.png,0,0
+	element1,overlay,surface211.png,0,0
+}
+
+//Mii u_u
+surface95
+{
+	element0,overlay,surface85.png,0,0
+	element1,overlay,surface211.png,0,0
+	element2,overlay,mouth2_neutral.png,0,0
+}
+
+
+//--------------------------------------thinking hand to chin expressions
+//Mii 'w'
+surface96
+{
+	
+}
+
+//Mii >w>
+surface97
+{
+	element0,overlay,surface96.png,0,0
+	element1,overlay,eyes2_glarert.png,0,0
+	element2,overlay,mouth2_smiles.png,0,0
+}
+
+//Mii >wT
+surface98
+{
+	element0,overlay,surface96.png,0,0
+	element1,overlay,eyes2_raise.png,0,0
+	element2,overlay,mouth2_smiles.png,0,0
+}
+
+//Mii '_'
+surface99
+{
+	element0,overlay,surface96.png,0,0
+	element1,overlay,eyes2_neutral.png,0,0
+	element2,overlay,mouth2_neutral.png,0,0
+}
+
+//Mii >_>
+surface100
+{
+	element0,overlay,surface96.png,0,0
+	element1,overlay,eyes2_glarert.png,0,0
+	element2,overlay,mouth2_neutral.png,0,0
+}
+
+//Mii >_T
+surface101
+{
+	element0,overlay,surface96.png,0,0
+	element1,overlay,eyes2_raise.png,0,0
+	element2,overlay,mouth2_neutral.png,0,0
+}
+
+//Mii '7'
+surface102
+{
+	element0,overlay,surface96.png,0,0
+	element1,overlay,eyes2_neutral.png,0,0
+	element2,overlay,mouth2_grins.png,0,0
+}
+
+//Mii >7>
+surface103
+{
+	element0,overlay,surface96.png,0,0
+	element1,overlay,eyes2_glarert.png,0,0
+	element2,overlay,mouth2_grins.png,0,0
+}
+
+//Mii >7T
+surface104
+{
+	element0,overlay,surface96.png,0,0
+	element1,overlay,eyes2_raise.png,0,0
+	element2,overlay,mouth2_grins.png,0,0
+}
+
+//eyes closed
+//Mii uwu
+surface105
+{
+	element0,overlay,surface96.png,0,0
+	element1,overlay,surface211.png,0,0
+	element2,overlay,mouth2_smiles.png,0,0
+}
+
+//Mii u_u
+surface106
+{
+	element0,overlay,surface96.png,0,0
+	element1,overlay,surface211.png,0,0
+	element2,overlay,mouth2_neutral.png,0,0
+}
+
+
+//--------------------------------------fists down expressions
+//Mii >3
+surface107
+{
+	//blinking!
+	animation0.interval,random,4
+	animation0.pattern0,overlay,-1,100,0,0
+	animation0.pattern1,overlayfast,218,50,0,0
+	animation0.pattern2,overlayfast,215,100,0,0
+	animation0.pattern3,overlay,-1,30,0,0
+}
+
+//Mii <w<
+surface108
+{
+	element0,overlay,surface107.png,0,0
+	element1,overlay,eyes3_glareleft.png,0,0
+	
+	//blinking!
+	animation0.interval,random,4
+	animation0.pattern0,overlay,-1,100,0,0
+	animation0.pattern1,overlayfast,218,50,0,0
+	animation0.pattern2,overlayfast,216,100,0,0
+	animation0.pattern3,overlay,-1,30,0,0
+}
+
+//Mii >w>
+surface109
+{
+	element0,overlay,surface107.png,0,0
+	element1,overlay,eyes3_glarert.png,0,0
+	
+	//blinking!
+	animation0.interval,random,4
+	animation0.pattern0,overlay,-1,100,0,0
+	animation0.pattern1,overlayfast,218,50,0,0
+	animation0.pattern2,overlayfast,217,100,0,0
+	animation0.pattern3,overlay,-1,30,0,0
+}
+
+//Mii owo
+surface110
+{
+	element0,overlay,surface107.png,0,0
+	element1,overlay,eyes3_shock.png,0,0
+	
+	//blinking!
+	animation0.interval,random,4
+	animation0.pattern0,overlay,-1,100,0,0
+	animation0.pattern1,overlayfast,218,50,0,0
+	animation0.pattern2,overlayfast,215,100,0,0
+	animation0.pattern3,overlay,-1,30,0,0
+}
+
+//Mii >D
+surface111
+{
+	element0,overlay,surface107.png,0,0
+	element1,overlay,mouth3_grins.png,0,0
+	
+	//blinking!
+	animation0.interval,random,4
+	animation0.pattern0,overlay,-1,100,0,0
+	animation0.pattern1,overlayfast,218,50,0,0
+	animation0.pattern2,overlayfast,215,100,0,0
+	animation0.pattern3,overlay,-1,30,0,0
+}
+
+//Mii <7<
+surface112
+{
+	element0,overlay,surface107.png,0,0
+	element1,overlay,eyes3_glareleft.png,0,0
+	element2,overlay,mouth3_grins.png,0,0
+	
+	//blinking!
+	animation0.interval,random,4
+	animation0.pattern0,overlay,-1,100,0,0
+	animation0.pattern1,overlayfast,218,50,0,0
+	animation0.pattern2,overlayfast,216,100,0,0
+	animation0.pattern3,overlay,-1,30,0,0
+}
+
+//Mii >7>
+surface113
+{
+	element0,overlay,surface107.png,0,0
+	element1,overlay,eyes3_glarert.png,0,0
+	element2,overlay,mouth3_grins.png,0,0
+	
+	//blinking!
+	animation0.interval,random,4
+	animation0.pattern0,overlay,-1,100,0,0
+	animation0.pattern1,overlayfast,218,50,0,0
+	animation0.pattern2,overlayfast,217,100,0,0
+	animation0.pattern3,overlay,-1,30,0,0
+}
+
+//Mii o7o
+surface114
+{
+	element0,overlay,surface107.png,0,0
+	element1,overlay,eyes3_shock.png,0,0
+	element2,overlay,mouth3_grins.png,0,0
+	
+	//blinking!
+	animation0.interval,random,4
+	animation0.pattern0,overlay,-1,100,0,0
+	animation0.pattern1,overlayfast,218,50,0,0
+	animation0.pattern2,overlayfast,215,100,0,0
+	animation0.pattern3,overlay,-1,30,0,0
+}
+
+//Mii >|
+surface115
+{
+	element0,overlay,surface107.png,0,0
+	element1,overlay,mouth3_neutral.png,0,0
+	
+	//blinking!
+	animation0.interval,random,4
+	animation0.pattern0,overlay,-1,100,0,0
+	animation0.pattern1,overlayfast,218,50,0,0
+	animation0.pattern2,overlayfast,215,100,0,0
+	animation0.pattern3,overlay,-1,30,0,0
+}
+
+//Mii <_<
+surface116
+{
+	element0,overlay,surface107.png,0,0
+	element1,overlay,eyes3_glareleft.png,0,0
+	element2,overlay,mouth3_neutral.png,0,0
+	
+	//blinking!
+	animation0.interval,random,4
+	animation0.pattern0,overlay,-1,100,0,0
+	animation0.pattern1,overlayfast,218,50,0,0
+	animation0.pattern2,overlayfast,216,100,0,0
+	animation0.pattern3,overlay,-1,30,0,0
+}
+
+//Mii >_>
+surface117
+{
+	element0,overlay,surface107.png,0,0
+	element1,overlay,eyes3_glarert.png,0,0
+	element2,overlay,mouth3_neutral.png,0,0
+	
+	//blinking!
+	animation0.interval,random,4
+	animation0.pattern0,overlay,-1,100,0,0
+	animation0.pattern1,overlayfast,218,50,0,0
+	animation0.pattern2,overlayfast,217,100,0,0
+	animation0.pattern3,overlay,-1,30,0,0
+}
+
+//Mii o_o
+surface118
+{
+	element0,overlay,surface107.png,0,0
+	element1,overlay,eyes3_shock.png,0,0
+	element2,overlay,mouth3_neutral.png,0,0
+	
+	//blinking!
+	animation0.interval,random,4
+	animation0.pattern0,overlay,-1,100,0,0
+	animation0.pattern1,overlayfast,218,50,0,0
+	animation0.pattern2,overlayfast,215,100,0,0
+	animation0.pattern3,overlay,-1,30,0,0
+}
+
+//Mii >P
+surface119
+{
+	element0,overlay,surface107.png,0,0
+	element1,overlay,mouth3_blehhh.png,0,0
+	
+	//blinking!
+	animation0.interval,random,4
+	animation0.pattern0,overlay,-1,100,0,0
+	animation0.pattern1,overlayfast,218,50,0,0
+	animation0.pattern2,overlayfast,215,100,0,0
+	animation0.pattern3,overlay,-1,30,0,0
+}
+
+//closed eyes
+//Mii >w<
+surface120
+{
+	element0,overlay,surface107.png,0,0
+	element1,overlay,eyes3_close_squint.png,0,0
+}
+
+//Mii >_<
+surface121
+{
+	element0,overlay,surface107.png,0,0
+	element1,overlay,eyes3_close_squint.png,0,0
+	element2,overlay,mouth3_neutral.png,0,0
+}
+
+//Mii >p<
+surface122
+{
+	element0,overlay,surface107.png,0,0
+	element1,overlay,eyes3_close_squint.png,0,0
+	element2,overlay,mouth3_blehhh.png,0,0
+}
+
+//Mii angy u_u
+surface123
+{
+	element0,overlay,surface107.png,0,0
+	element1,overlay,eyes3_close_angy.png,0,0
+	element2,overlay,mouth3_neutral.png,0,0
+}
+
+//Mii angy upu
+surface124
+{
+	element0,overlay,surface107.png,0,0
+	element1,overlay,eyes3_close_angy.png,0,0
+	element2,overlay,mouth3_blehhh.png,0,0
+}
+
+//Mii uwu
+surface125
+{
+	element0,overlay,surface107.png,0,0
+	element1,overlay,surface218.png,0,0
+}
+
+//Mii u_u
+surface126
+{
+	element0,overlay,surface107.png,0,0
+	element1,overlay,surface218.png,0,0
+	element2,overlay,mouth3_neutral.png,0,0
+}
+
+//Mii upu
+surface127
+{
+	element0,overlay,surface107.png,0,0
+	element1,overlay,surface218.png,0,0
+	element2,overlay,mouth3_blehhh.png,0,0
+}
+
+
+//---------------------------------------schmoovin expressions
+//Mii >3
+surface128
+{
+	//blinking!
+	animation0.interval,random,4
+	animation0.pattern0,overlay,-1,100,0,0
+	animation0.pattern1,overlayfast,218,50,0,0
+	animation0.pattern2,overlayfast,215,100,0,0
+	animation0.pattern3,overlay,-1,30,0,0
+}
+
+//Mii <w<
+surface129
+{
+	element0,overlay,surface128.png,0,0
+	element1,overlay,eyes3_glareleft.png,0,0
+	
+	//blinking!
+	animation0.interval,random,4
+	animation0.pattern0,overlay,-1,100,0,0
+	animation0.pattern1,overlayfast,218,50,0,0
+	animation0.pattern2,overlayfast,216,100,0,0
+	animation0.pattern3,overlay,-1,30,0,0
+}
+
+//Mii >w>
+surface130
+{
+	element0,overlay,surface128.png,0,0
+	element1,overlay,eyes3_glarert.png,0,0
+	
+	//blinking!
+	animation0.interval,random,4
+	animation0.pattern0,overlay,-1,100,0,0
+	animation0.pattern1,overlayfast,218,50,0,0
+	animation0.pattern2,overlayfast,217,100,0,0
+	animation0.pattern3,overlay,-1,30,0,0
+}
+
+//Mii owo
+surface131
+{
+	element0,overlay,surface128.png,0,0
+	element1,overlay,eyes3_shock.png,0,0
+	
+	//blinking!
+	animation0.interval,random,4
+	animation0.pattern0,overlay,-1,100,0,0
+	animation0.pattern1,overlayfast,218,50,0,0
+	animation0.pattern2,overlayfast,215,100,0,0
+	animation0.pattern3,overlay,-1,30,0,0
+}
+
+//Mii >D
+surface132
+{
+	element0,overlay,surface128.png,0,0
+	element1,overlay,mouth3_grins.png,0,0
+	
+	//blinking!
+	animation0.interval,random,4
+	animation0.pattern0,overlay,-1,100,0,0
+	animation0.pattern1,overlayfast,218,50,0,0
+	animation0.pattern2,overlayfast,215,100,0,0
+	animation0.pattern3,overlay,-1,30,0,0
+}
+
+//Mii <7<
+surface133
+{
+	element0,overlay,surface128.png,0,0
+	element1,overlay,eyes3_glareleft.png,0,0
+	element2,overlay,mouth3_grins.png,0,0
+	
+	//blinking!
+	animation0.interval,random,4
+	animation0.pattern0,overlay,-1,100,0,0
+	animation0.pattern1,overlayfast,218,50,0,0
+	animation0.pattern2,overlayfast,216,100,0,0
+	animation0.pattern3,overlay,-1,30,0,0
+}
+
+//Mii >7>
+surface134
+{
+	element0,overlay,surface128.png,0,0
+	element1,overlay,eyes3_glarert.png,0,0
+	element2,overlay,mouth3_grins.png,0,0
+	
+	//blinking!
+	animation0.interval,random,4
+	animation0.pattern0,overlay,-1,100,0,0
+	animation0.pattern1,overlayfast,218,50,0,0
+	animation0.pattern2,overlayfast,217,100,0,0
+	animation0.pattern3,overlay,-1,30,0,0
+}
+
+//Mii o7o
+surface135
+{
+	element0,overlay,surface128.png,0,0
+	element1,overlay,eyes3_shock.png,0,0
+	element2,overlay,mouth3_grins.png,0,0
+	
+	//blinking!
+	animation0.interval,random,4
+	animation0.pattern0,overlay,-1,100,0,0
+	animation0.pattern1,overlayfast,218,50,0,0
+	animation0.pattern2,overlayfast,215,100,0,0
+	animation0.pattern3,overlay,-1,30,0,0
+}
+
+//Mii >|
+surface136
+{
+	element0,overlay,surface128.png,0,0
+	element1,overlay,mouth3_neutral.png,0,0
+	
+	//blinking!
+	animation0.interval,random,4
+	animation0.pattern0,overlay,-1,100,0,0
+	animation0.pattern1,overlayfast,218,50,0,0
+	animation0.pattern2,overlayfast,215,100,0,0
+	animation0.pattern3,overlay,-1,30,0,0
+}
+
+//Mii <_<
+surface137
+{
+	element0,overlay,surface128.png,0,0
+	element1,overlay,eyes3_glareleft.png,0,0
+	element2,overlay,mouth3_neutral.png,0,0
+	
+	//blinking!
+	animation0.interval,random,4
+	animation0.pattern0,overlay,-1,100,0,0
+	animation0.pattern1,overlayfast,218,50,0,0
+	animation0.pattern2,overlayfast,216,100,0,0
+	animation0.pattern3,overlay,-1,30,0,0
+}
+
+//Mii >_>
+surface138
+{
+	element0,overlay,surface128.png,0,0
+	element1,overlay,eyes3_glarert.png,0,0
+	element2,overlay,mouth3_neutral.png,0,0
+	
+	//blinking!
+	animation0.interval,random,4
+	animation0.pattern0,overlay,-1,100,0,0
+	animation0.pattern1,overlayfast,218,50,0,0
+	animation0.pattern2,overlayfast,217,100,0,0
+	animation0.pattern3,overlay,-1,30,0,0
+}
+
+//Mii o_o
+surface139
+{
+	element0,overlay,surface128.png,0,0
+	element1,overlay,eyes3_shock.png,0,0
+	element2,overlay,mouth3_neutral.png,0,0
+	
+	//blinking!
+	animation0.interval,random,4
+	animation0.pattern0,overlay,-1,100,0,0
+	animation0.pattern1,overlayfast,218,50,0,0
+	animation0.pattern2,overlayfast,215,100,0,0
+	animation0.pattern3,overlay,-1,30,0,0
+}
+
+//Mii >P
+surface140
+{
+	element0,overlay,surface128.png,0,0
+	element1,overlay,mouth3_blehhh.png,0,0
+	
+	//blinking!
+	animation0.interval,random,4
+	animation0.pattern0,overlay,-1,100,0,0
+	animation0.pattern1,overlayfast,218,50,0,0
+	animation0.pattern2,overlayfast,215,100,0,0
+	animation0.pattern3,overlay,-1,30,0,0
+}
+
+//closed eyes
+//Mii >w<
+surface141
+{
+	element0,overlay,surface128.png,0,0
+	element1,overlay,eyes3_close_squint.png,0,0
+}
+
+//Mii >_<
+surface142
+{
+	element0,overlay,surface128.png,0,0
+	element1,overlay,eyes3_close_squint.png,0,0
+	element2,overlay,mouth3_neutral.png,0,0
+}
+
+//Mii >p<
+surface143
+{
+	element0,overlay,surface128.png,0,0
+	element1,overlay,eyes3_close_squint.png,0,0
+	element2,overlay,mouth3_blehhh.png,0,0
+}
+
+//Mii angy u_u
+surface144
+{
+	element0,overlay,surface128.png,0,0
+	element1,overlay,eyes3_close_angy.png,0,0
+	element2,overlay,mouth3_neutral.png,0,0
+}
+
+//Mii angy upu
+surface145
+{
+	element0,overlay,surface128.png,0,0
+	element1,overlay,eyes3_close_angy.png,0,0
+	element2,overlay,mouth3_blehhh.png,0,0
+}
+
+//Mii uwu
+surface146
+{
+	element0,overlay,surface128.png,0,0
+	element1,overlay,surface218.png,0,0
+}
+
+//Mii u_u
+surface147
+{
+	element0,overlay,surface128.png,0,0
+	element1,overlay,surface218.png,0,0
+	element2,overlay,mouth3_neutral.png,0,0
+}
+
+//Mii upu
+surface148
+{
+	element0,overlay,surface128.png,0,0
+	element1,overlay,surface218.png,0,0
+	element2,overlay,mouth3_blehhh.png,0,0
+}
+
+
+//----------------------------------laughing poses
+//Mii >q<
+surface149
+{
+	
+}
+
+//Mii >7<
+surface150
+{
+	element0,overlay,surface149.png,0,0
+	element1,overlay,mouth4_grins.png,0,0
+}
+
+//Mii nqn
+surface151
+{
+	element0,overlay,surface149.png,0,0
+	element1,overlay,eyes4_close_happies.png,0,0
+}
+
+//Mii n7n
+surface152
+{
+	element0,overlay,surface149.png,0,0
+	element1,overlay,eyes4_close_happies.png,0,0
+	element2,overlay,mouth4_grins.png,0,0
+}
+
+
+//-----------------------------------look left
+//Mii :3
+surface153
+{
+	//blinking!
+	animation0.interval,random,4
+	animation0.pattern0,overlay,-1,100,0,0
+	animation0.pattern1,overlayfast,223,50,0,0
+	animation0.pattern2,overlayfast,222,100,0,0
+	animation0.pattern3,overlay,-1,30,0,0
+
+	//talking!
+	animation1.interval,talk,4
+	animation1.pattern0,alternativestart,(2,3,4),0,0
+
+	//the intervals!!
+	animation2.interval,never
+	animation2.pattern0,overlay,226,100,0,0
+	animation2.pattern1,overlay,224,130,0,0
+	animation2.pattern2,overlay,-1,100,0,0
+
+	animation3.interval,never
+	animation3.pattern0,overlay,224,140,0,0
+	animation3.pattern1,overlay,-1,100,0,0
+
+	animation4.interval,never
+	animation4.pattern0,overlay,226,140,0,0
+	animation4.pattern1,overlay,-1,100,0,0
+}
+
+//Mii >3
+surface154
+{
+	element0,overlay,surface153.png,0,0
+	element1,overlay,eyes5_glares.png,0,0
+	
+	
+	//blinking!
+	animation0.interval,random,4
+	animation0.pattern0,overlay,-1,100,0,0
+	animation0.pattern1,overlayfast,223,50,0,0
+	animation0.pattern2,overlayfast,222,100,0,0
+	animation0.pattern3,overlay,-1,30,0,0
+
+	//talking!
+	animation1.interval,talk,4
+	animation1.pattern0,alternativestart,(2,3,4),0,0
+
+	//the intervals!!
+	animation2.interval,never
+	animation2.pattern0,overlay,226,100,0,0
+	animation2.pattern1,overlay,224,130,0,0
+	animation2.pattern2,overlay,-1,100,0,0
+
+	animation3.interval,never
+	animation3.pattern0,overlay,224,140,0,0
+	animation3.pattern1,overlay,-1,100,0,0
+
+	animation4.interval,never
+	animation4.pattern0,overlay,226,140,0,0
+	animation4.pattern1,overlay,-1,100,0,0
+}
+
+//Mii :!
+surface155
+{
+	element0,overlay,surface153.png,0,0
+	element1,overlay,mouth5_neutral.png,0,0
+	
+	
+	//blinking!
+	animation0.interval,random,4
+	animation0.pattern0,overlay,-1,100,0,0
+	animation0.pattern1,overlayfast,223,50,0,0
+	animation0.pattern2,overlayfast,222,100,0,0
+	animation0.pattern3,overlay,-1,30,0,0
+
+	//talking!
+	animation1.interval,talk,4
+	animation1.pattern0,alternativestart,(2,3,4),0,0
+
+	//the intervals!!
+	animation2.interval,never
+	animation2.pattern0,overlay,225,100,0,0
+	animation2.pattern1,overlay,224,130,0,0
+	animation2.pattern2,overlay,-1,100,0,0
+
+	animation3.interval,never
+	animation3.pattern0,overlay,224,140,0,0
+	animation3.pattern1,overlay,-1,100,0,0
+
+	animation4.interval,never
+	animation4.pattern0,overlay,225,140,0,0
+	animation4.pattern1,overlay,-1,100,0,0
+}
+
+//Mii >!
+surface156
+{
+	element0,overlay,surface153.png,0,0
+	element1,overlay,eyes5_glares.png,0,0
+	element2,overlay,mouth5_neutral.png,0,0
+	
+	
+	//blinking!
+	animation0.interval,random,4
+	animation0.pattern0,overlay,-1,100,0,0
+	animation0.pattern1,overlayfast,223,50,0,0
+	animation0.pattern2,overlayfast,222,100,0,0
+	animation0.pattern3,overlay,-1,30,0,0
+
+	//talking!
+	animation1.interval,talk,4
+	animation1.pattern0,alternativestart,(2,3,4),0,0
+
+	//the intervals!!
+	animation2.interval,never
+	animation2.pattern0,overlay,225,100,0,0
+	animation2.pattern1,overlay,224,130,0,0
+	animation2.pattern2,overlay,-1,100,0,0
+
+	animation3.interval,never
+	animation3.pattern0,overlay,224,140,0,0
+	animation3.pattern1,overlay,-1,100,0,0
+
+	animation4.interval,never
+	animation4.pattern0,overlay,225,140,0,0
+	animation4.pattern1,overlay,-1,100,0,0
+}
+
+//Mii :D
+surface157
+{
+	element0,overlay,surface153.png,0,0
+	element1,overlay,mouth5_grins.png,0,0
+	
+	
+	//blinking!
+	animation0.interval,random,4
+	animation0.pattern0,overlay,-1,100,0,0
+	animation0.pattern1,overlayfast,223,50,0,0
+	animation0.pattern2,overlayfast,222,100,0,0
+	animation0.pattern3,overlay,-1,30,0,0
+
+	//talking!
+	animation1.interval,talk,4
+	animation1.pattern0,alternativestart,(2,3,4),0,0
+
+	//the intervals!!
+	animation2.interval,never
+	animation2.pattern0,overlay,226,100,0,0
+	animation2.pattern1,overlay,224,130,0,0
+	animation2.pattern2,overlay,-1,100,0,0
+
+	animation3.interval,never
+	animation3.pattern0,overlay,224,140,0,0
+	animation3.pattern1,overlay,-1,100,0,0
+
+	animation4.interval,never
+	animation4.pattern0,overlay,226,140,0,0
+	animation4.pattern1,overlay,-1,100,0,0
+}
+
+//Mii >D
+surface158
+{
+	element0,overlay,surface153.png,0,0
+	element1,overlay,eyes5_glares.png,0,0
+	element2,overlay,mouth5_grins.png,0,0
+	
+	
+	//blinking!
+	animation0.interval,random,4
+	animation0.pattern0,overlay,-1,100,0,0
+	animation0.pattern1,overlayfast,223,50,0,0
+	animation0.pattern2,overlayfast,222,100,0,0
+	animation0.pattern3,overlay,-1,30,0,0
+
+	//talking!
+	animation1.interval,talk,4
+	animation1.pattern0,alternativestart,(2,3,4),0,0
+
+	//the intervals!!
+	animation2.interval,never
+	animation2.pattern0,overlay,226,100,0,0
+	animation2.pattern1,overlay,224,130,0,0
+	animation2.pattern2,overlay,-1,100,0,0
+
+	animation3.interval,never
+	animation3.pattern0,overlay,224,140,0,0
+	animation3.pattern1,overlay,-1,100,0,0
+
+	animation4.interval,never
+	animation4.pattern0,overlay,226,140,0,0
+	animation4.pattern1,overlay,-1,100,0,0
+}
+
+
+//-----------------------------------look right
+//Mii :3
+surface159
+{
+	//blinking!
+	animation0.interval,random,4
+	animation0.pattern0,overlay,-1,100,0,0
+	animation0.pattern1,overlayfast,228,50,0,0
+	animation0.pattern2,overlayfast,227,100,0,0
+	animation0.pattern3,overlay,-1,30,0,0
+
+	//talking!
+	animation1.interval,talk,4
+	animation1.pattern0,alternativestart,(2,3,4),0,0
+
+	//the intervals!!
+	animation2.interval,never
+	animation2.pattern0,overlay,231,100,0,0
+	animation2.pattern1,overlay,229,130,0,0
+	animation2.pattern2,overlay,-1,100,0,0
+
+	animation3.interval,never
+	animation3.pattern0,overlay,229,140,0,0
+	animation3.pattern1,overlay,-1,100,0,0
+
+	animation4.interval,never
+	animation4.pattern0,overlay,231,140,0,0
+	animation4.pattern1,overlay,-1,100,0,0
+}
+
+//Mii >3
+surface160
+{
+	element0,overlay,surface159.png,0,0
+	element1,overlay,eyes6_glares.png,0,0
+	
+	
+	//blinking!
+	animation0.interval,random,4
+	animation0.pattern0,overlay,-1,100,0,0
+	animation0.pattern1,overlayfast,228,50,0,0
+	animation0.pattern2,overlayfast,227,100,0,0
+	animation0.pattern3,overlay,-1,30,0,0
+
+	//talking!
+	animation1.interval,talk,4
+	animation1.pattern0,alternativestart,(2,3,4),0,0
+
+	//the intervals!!
+	animation2.interval,never
+	animation2.pattern0,overlay,231,100,0,0
+	animation2.pattern1,overlay,229,130,0,0
+	animation2.pattern2,overlay,-1,100,0,0
+
+	animation3.interval,never
+	animation3.pattern0,overlay,229,140,0,0
+	animation3.pattern1,overlay,-1,100,0,0
+
+	animation4.interval,never
+	animation4.pattern0,overlay,231,140,0,0
+	animation4.pattern1,overlay,-1,100,0,0
+}
+
+//Mii :!
+surface161
+{
+	element0,overlay,surface159.png,0,0
+	element1,overlay,mouth6_neutral.png,0,0
+	
+	
+	//blinking!
+	animation0.interval,random,4
+	animation0.pattern0,overlay,-1,100,0,0
+	animation0.pattern1,overlayfast,228,50,0,0
+	animation0.pattern2,overlayfast,227,100,0,0
+	animation0.pattern3,overlay,-1,30,0,0
+
+	//talking!
+	animation1.interval,talk,4
+	animation1.pattern0,alternativestart,(2,3,4),0,0
+
+	//the intervals!!
+	animation2.interval,never
+	animation2.pattern0,overlay,230,100,0,0
+	animation2.pattern1,overlay,229,130,0,0
+	animation2.pattern2,overlay,-1,100,0,0
+
+	animation3.interval,never
+	animation3.pattern0,overlay,229,140,0,0
+	animation3.pattern1,overlay,-1,100,0,0
+
+	animation4.interval,never
+	animation4.pattern0,overlay,230,140,0,0
+	animation4.pattern1,overlay,-1,100,0,0
+}
+
+//Mii >!
+surface162
+{
+	element0,overlay,surface159.png,0,0
+	element1,overlay,eyes6_glares.png,0,0
+	element2,overlay,mouth6_neutral.png,0,0
+	
+	
+	//blinking!
+	animation0.interval,random,4
+	animation0.pattern0,overlay,-1,100,0,0
+	animation0.pattern1,overlayfast,228,50,0,0
+	animation0.pattern2,overlayfast,227,100,0,0
+	animation0.pattern3,overlay,-1,30,0,0
+
+	//talking!
+	animation1.interval,talk,4
+	animation1.pattern0,alternativestart,(2,3,4),0,0
+
+	//the intervals!!
+	animation2.interval,never
+	animation2.pattern0,overlay,230,100,0,0
+	animation2.pattern1,overlay,229,130,0,0
+	animation2.pattern2,overlay,-1,100,0,0
+
+	animation3.interval,never
+	animation3.pattern0,overlay,229,140,0,0
+	animation3.pattern1,overlay,-1,100,0,0
+
+	animation4.interval,never
+	animation4.pattern0,overlay,230,140,0,0
+	animation4.pattern1,overlay,-1,100,0,0
+}
+
+//Mii :D
+surface163
+{
+	element0,overlay,surface159.png,0,0
+	element1,overlay,mouth6_grins.png,0,0
+	
+	
+	//blinking!
+	animation0.interval,random,4
+	animation0.pattern0,overlay,-1,100,0,0
+	animation0.pattern1,overlayfast,228,50,0,0
+	animation0.pattern2,overlayfast,227,100,0,0
+	animation0.pattern3,overlay,-1,30,0,0
+
+	//talking!
+	animation1.interval,talk,4
+	animation1.pattern0,alternativestart,(2,3,4),0,0
+
+	//the intervals!!
+	animation2.interval,never
+	animation2.pattern0,overlay,231,100,0,0
+	animation2.pattern1,overlay,229,130,0,0
+	animation2.pattern2,overlay,-1,100,0,0
+
+	animation3.interval,never
+	animation3.pattern0,overlay,229,140,0,0
+	animation3.pattern1,overlay,-1,100,0,0
+
+	animation4.interval,never
+	animation4.pattern0,overlay,231,140,0,0
+	animation4.pattern1,overlay,-1,100,0,0
+}
+
+//Mii >D
+surface164
+{
+	element0,overlay,surface159.png,0,0
+	element1,overlay,eyes6_glares.png,0,0
+	element2,overlay,mouth6_grins.png,0,0
+	
+	
+	//blinking!
+	animation0.interval,random,4
+	animation0.pattern0,overlay,-1,100,0,0
+	animation0.pattern1,overlayfast,228,50,0,0
+	animation0.pattern2,overlayfast,227,100,0,0
+	animation0.pattern3,overlay,-1,30,0,0
+
+	//talking!
+	animation1.interval,talk,4
+	animation1.pattern0,alternativestart,(2,3,4),0,0
+
+	//the intervals!!
+	animation2.interval,never
+	animation2.pattern0,overlay,231,100,0,0
+	animation2.pattern1,overlay,229,130,0,0
+	animation2.pattern2,overlay,-1,100,0,0
+
+	animation3.interval,never
+	animation3.pattern0,overlay,229,140,0,0
+	animation3.pattern1,overlay,-1,100,0,0
+
+	animation4.interval,never
+	animation4.pattern0,overlay,231,140,0,0
+	animation4.pattern1,overlay,-1,100,0,0
+}
+
+
+//-----------------------------------hunch left
+//Mii :3
+surface165
+{
+	//blinking!
+	animation0.interval,random,4
+	animation0.pattern0,overlay,-1,100,0,0
+	animation0.pattern1,overlayfast,233,50,0,0
+	animation0.pattern2,overlayfast,232,100,0,0
+	animation0.pattern3,overlay,-1,30,0,0
+
+	//talking!
+	animation1.interval,talk,4
+	animation1.pattern0,alternativestart,(2,3,4),0,0
+
+	//the intervals!!
+	animation2.interval,never
+	animation2.pattern0,overlay,236,100,0,0
+	animation2.pattern1,overlay,234,130,0,0
+	animation2.pattern2,overlay,-1,100,0,0
+
+	animation3.interval,never
+	animation3.pattern0,overlay,234,140,0,0
+	animation3.pattern1,overlay,-1,100,0,0
+
+	animation4.interval,never
+	animation4.pattern0,overlay,236,140,0,0
+	animation4.pattern1,overlay,-1,100,0,0
+}
+
+//Mii >3
+surface166
+{
+	element0,overlay,surface165.png,0,0
+	element1,overlay,eyes7_glares.png,0,0
+	
+	
+	//blinking!
+	animation0.interval,random,4
+	animation0.pattern0,overlay,-1,100,0,0
+	animation0.pattern1,overlayfast,233,50,0,0
+	animation0.pattern2,overlayfast,232,100,0,0
+	animation0.pattern3,overlay,-1,30,0,0
+
+	//talking!
+	animation1.interval,talk,4
+	animation1.pattern0,alternativestart,(2,3,4),0,0
+
+	//the intervals!!
+	animation2.interval,never
+	animation2.pattern0,overlay,236,100,0,0
+	animation2.pattern1,overlay,234,130,0,0
+	animation2.pattern2,overlay,-1,100,0,0
+
+	animation3.interval,never
+	animation3.pattern0,overlay,234,140,0,0
+	animation3.pattern1,overlay,-1,100,0,0
+
+	animation4.interval,never
+	animation4.pattern0,overlay,236,140,0,0
+	animation4.pattern1,overlay,-1,100,0,0
+}
+
+//Mii :!
+surface167
+{
+	element0,overlay,surface165.png,0,0
+	element1,overlay,mouth7_neutral.png,0,0
+	
+	
+	//blinking!
+	animation0.interval,random,4
+	animation0.pattern0,overlay,-1,100,0,0
+	animation0.pattern1,overlayfast,233,50,0,0
+	animation0.pattern2,overlayfast,232,100,0,0
+	animation0.pattern3,overlay,-1,30,0,0
+
+	//talking!
+	animation1.interval,talk,4
+	animation1.pattern0,alternativestart,(2,3,4),0,0
+
+	//the intervals!!
+	animation2.interval,never
+	animation2.pattern0,overlay,235,100,0,0
+	animation2.pattern1,overlay,234,130,0,0
+	animation2.pattern2,overlay,-1,100,0,0
+
+	animation3.interval,never
+	animation3.pattern0,overlay,234,140,0,0
+	animation3.pattern1,overlay,-1,100,0,0
+
+	animation4.interval,never
+	animation4.pattern0,overlay,235,140,0,0
+	animation4.pattern1,overlay,-1,100,0,0
+}
+
+//Mii >!
+surface168
+{
+	element0,overlay,surface165.png,0,0
+	element1,overlay,eyes7_glares.png,0,0
+	element2,overlay,mouth7_neutral.png,0,0
+	
+	
+	//blinking!
+	animation0.interval,random,4
+	animation0.pattern0,overlay,-1,100,0,0
+	animation0.pattern1,overlayfast,233,50,0,0
+	animation0.pattern2,overlayfast,232,100,0,0
+	animation0.pattern3,overlay,-1,30,0,0
+
+	//talking!
+	animation1.interval,talk,4
+	animation1.pattern0,alternativestart,(2,3,4),0,0
+
+	//the intervals!!
+	animation2.interval,never
+	animation2.pattern0,overlay,235,100,0,0
+	animation2.pattern1,overlay,234,130,0,0
+	animation2.pattern2,overlay,-1,100,0,0
+
+	animation3.interval,never
+	animation3.pattern0,overlay,234,140,0,0
+	animation3.pattern1,overlay,-1,100,0,0
+
+	animation4.interval,never
+	animation4.pattern0,overlay,235,140,0,0
+	animation4.pattern1,overlay,-1,100,0,0
+}
+
+//Mii :D
+surface169
+{
+	element0,overlay,surface165.png,0,0
+	element1,overlay,mouth7_grins.png,0,0
+	
+	
+	//blinking!
+	animation0.interval,random,4
+	animation0.pattern0,overlay,-1,100,0,0
+	animation0.pattern1,overlayfast,233,50,0,0
+	animation0.pattern2,overlayfast,232,100,0,0
+	animation0.pattern3,overlay,-1,30,0,0
+
+	//talking!
+	animation1.interval,talk,4
+	animation1.pattern0,alternativestart,(2,3,4),0,0
+
+	//the intervals!!
+	animation2.interval,never
+	animation2.pattern0,overlay,236,100,0,0
+	animation2.pattern1,overlay,234,130,0,0
+	animation2.pattern2,overlay,-1,100,0,0
+
+	animation3.interval,never
+	animation3.pattern0,overlay,234,140,0,0
+	animation3.pattern1,overlay,-1,100,0,0
+
+	animation4.interval,never
+	animation4.pattern0,overlay,236,140,0,0
+	animation4.pattern1,overlay,-1,100,0,0
+}
+
+//Mii >D
+surface170
+{
+	element0,overlay,surface165.png,0,0
+	element1,overlay,eyes7_glares.png,0,0
+	element2,overlay,mouth7_grins.png,0,0
+	
+	
+	//blinking!
+	animation0.interval,random,4
+	animation0.pattern0,overlay,-1,100,0,0
+	animation0.pattern1,overlayfast,233,50,0,0
+	animation0.pattern2,overlayfast,232,100,0,0
+	animation0.pattern3,overlay,-1,30,0,0
+
+	//talking!
+	animation1.interval,talk,4
+	animation1.pattern0,alternativestart,(2,3,4),0,0
+
+	//the intervals!!
+	animation2.interval,never
+	animation2.pattern0,overlay,236,100,0,0
+	animation2.pattern1,overlay,234,130,0,0
+	animation2.pattern2,overlay,-1,100,0,0
+
+	animation3.interval,never
+	animation3.pattern0,overlay,234,140,0,0
+	animation3.pattern1,overlay,-1,100,0,0
+
+	animation4.interval,never
+	animation4.pattern0,overlay,236,140,0,0
+	animation4.pattern1,overlay,-1,100,0,0
+}
+
+
+//-----------------------------------hunch right
+//Mii :3
+surface171
+{
+	//blinking!
+	animation0.interval,random,4
+	animation0.pattern0,overlay,-1,100,0,0
+	animation0.pattern1,overlayfast,238,50,0,0
+	animation0.pattern2,overlayfast,237,100,0,0
+	animation0.pattern3,overlay,-1,30,0,0
+
+	//talking!
+	animation1.interval,talk,4
+	animation1.pattern0,alternativestart,(2,3,4),0,0
+
+	//the intervals!!
+	animation2.interval,never
+	animation2.pattern0,overlay,241,100,0,0
+	animation2.pattern1,overlay,239,130,0,0
+	animation2.pattern2,overlay,-1,100,0,0
+
+	animation3.interval,never
+	animation3.pattern0,overlay,239,140,0,0
+	animation3.pattern1,overlay,-1,100,0,0
+
+	animation4.interval,never
+	animation4.pattern0,overlay,241,140,0,0
+	animation4.pattern1,overlay,-1,100,0,0
+}
+
+//Mii >3
+surface172
+{
+	element0,overlay,surface171.png,0,0
+	element1,overlay,eyes8_glares.png,0,0
+	
+	
+	//blinking!
+	animation0.interval,random,4
+	animation0.pattern0,overlay,-1,100,0,0
+	animation0.pattern1,overlayfast,238,50,0,0
+	animation0.pattern2,overlayfast,237,100,0,0
+	animation0.pattern3,overlay,-1,30,0,0
+
+	//talking!
+	animation1.interval,talk,4
+	animation1.pattern0,alternativestart,(2,3,4),0,0
+
+	//the intervals!!
+	animation2.interval,never
+	animation2.pattern0,overlay,241,100,0,0
+	animation2.pattern1,overlay,239,130,0,0
+	animation2.pattern2,overlay,-1,100,0,0
+
+	animation3.interval,never
+	animation3.pattern0,overlay,239,140,0,0
+	animation3.pattern1,overlay,-1,100,0,0
+
+	animation4.interval,never
+	animation4.pattern0,overlay,241,140,0,0
+	animation4.pattern1,overlay,-1,100,0,0
+}
+
+//Mii :!
+surface173
+{
+	element0,overlay,surface171.png,0,0
+	element1,overlay,mouth8_neutral.png,0,0
+	
+	
+	//blinking!
+	animation0.interval,random,4
+	animation0.pattern0,overlay,-1,100,0,0
+	animation0.pattern1,overlayfast,238,50,0,0
+	animation0.pattern2,overlayfast,237,100,0,0
+	animation0.pattern3,overlay,-1,30,0,0
+
+	//talking!
+	animation1.interval,talk,4
+	animation1.pattern0,alternativestart,(2,3,4),0,0
+
+	//the intervals!!
+	animation2.interval,never
+	animation2.pattern0,overlay,240,100,0,0
+	animation2.pattern1,overlay,239,130,0,0
+	animation2.pattern2,overlay,-1,100,0,0
+
+	animation3.interval,never
+	animation3.pattern0,overlay,239,140,0,0
+	animation3.pattern1,overlay,-1,100,0,0
+
+	animation4.interval,never
+	animation4.pattern0,overlay,240,140,0,0
+	animation4.pattern1,overlay,-1,100,0,0
+}
+
+//Mii >!
+surface174
+{
+	element0,overlay,surface171.png,0,0
+	element1,overlay,eyes8_glares.png,0,0
+	element2,overlay,mouth8_neutral.png,0,0
+	
+	
+	//blinking!
+	animation0.interval,random,4
+	animation0.pattern0,overlay,-1,100,0,0
+	animation0.pattern1,overlayfast,238,50,0,0
+	animation0.pattern2,overlayfast,237,100,0,0
+	animation0.pattern3,overlay,-1,30,0,0
+
+	//talking!
+	animation1.interval,talk,4
+	animation1.pattern0,alternativestart,(2,3,4),0,0
+
+	//the intervals!!
+	animation2.interval,never
+	animation2.pattern0,overlay,240,100,0,0
+	animation2.pattern1,overlay,239,130,0,0
+	animation2.pattern2,overlay,-1,100,0,0
+
+	animation3.interval,never
+	animation3.pattern0,overlay,239,140,0,0
+	animation3.pattern1,overlay,-1,100,0,0
+
+	animation4.interval,never
+	animation4.pattern0,overlay,240,140,0,0
+	animation4.pattern1,overlay,-1,100,0,0
+}
+
+//Mii :D
+surface175
+{
+	element0,overlay,surface171.png,0,0
+	element1,overlay,mouth8_grins.png,0,0
+	
+	
+	//blinking!
+	animation0.interval,random,4
+	animation0.pattern0,overlay,-1,100,0,0
+	animation0.pattern1,overlayfast,238,50,0,0
+	animation0.pattern2,overlayfast,237,100,0,0
+	animation0.pattern3,overlay,-1,30,0,0
+
+	//talking!
+	animation1.interval,talk,4
+	animation1.pattern0,alternativestart,(2,3,4),0,0
+
+	//the intervals!!
+	animation2.interval,never
+	animation2.pattern0,overlay,241,100,0,0
+	animation2.pattern1,overlay,239,130,0,0
+	animation2.pattern2,overlay,-1,100,0,0
+
+	animation3.interval,never
+	animation3.pattern0,overlay,239,140,0,0
+	animation3.pattern1,overlay,-1,100,0,0
+
+	animation4.interval,never
+	animation4.pattern0,overlay,241,140,0,0
+	animation4.pattern1,overlay,-1,100,0,0
+}
+
+//Mii >D
+surface176
+{
+	element0,overlay,surface171.png,0,0
+	element1,overlay,eyes8_glares.png,0,0
+	element2,overlay,mouth8_grins.png,0,0
+	
+	
+	//blinking!
+	animation0.interval,random,4
+	animation0.pattern0,overlay,-1,100,0,0
+	animation0.pattern1,overlayfast,238,50,0,0
+	animation0.pattern2,overlayfast,237,100,0,0
+	animation0.pattern3,overlay,-1,30,0,0
+
+	//talking!
+	animation1.interval,talk,4
+	animation1.pattern0,alternativestart,(2,3,4),0,0
+
+	//the intervals!!
+	animation2.interval,never
+	animation2.pattern0,overlay,241,100,0,0
+	animation2.pattern1,overlay,239,130,0,0
+	animation2.pattern2,overlay,-1,100,0,0
+
+	animation3.interval,never
+	animation3.pattern0,overlay,239,140,0,0
+	animation3.pattern1,overlay,-1,100,0,0
+
+	animation4.interval,never
+	animation4.pattern0,overlay,241,140,0,0
+	animation4.pattern1,overlay,-1,100,0,0
+}
+
+
+
+//Mii 
+//surface
+//{
+	//element0,overlay,surface0.png,0,0
+	//element1,overlay,.png,0,0
+	//element2,overlay,.png,0,0
+//}
+
+
+
+//--The Side Character's poses------------------
+
+surface10
+{
+
+}
+
+
+
+
+//--surface.append-------------------------------------------------------------------
+//1 smile talkies
+surface.append0-4,11-20,24-33,39-48,52-61,67-76,80-84
+{
+	//talking!
+	animation1.interval,talk,4
+	animation1.pattern0,alternativestart,(2,3,4),0,0
+
+	//the intervals!
+	animation2.interval,never
+	animation2.pattern0,overlay,207,100,0,0
+	animation2.pattern1,overlay,206,130,0,0
+	animation2.pattern2,overlay,-1,100,0,0
+
+	animation3.interval,never
+	animation3.pattern0,overlay,206,140,0,0
+	animation3.pattern1,overlay,-1,100,0,0
+
+	animation4.interval,never
+	animation4.pattern0,overlay,208,140,0,0
+	animation4.pattern1,overlay,-1,100,0,0
+}
+
+//1 neutral talkies
+surface.append5-9,21-23,34-38,49-51,62-66,77-79
+{
+	//talking!
+	animation1.interval,talk,4
+	animation1.pattern0,alternativestart,(2,3,4),0,0
+
+	//the intervals!!
+	animation2.interval,never
+	animation2.pattern0,overlay,207,100,0,0
+	animation2.pattern1,overlay,206,130,0,0
+	animation2.pattern2,overlay,-1,100,0,0
+
+	animation3.interval,never
+	animation3.pattern0,overlay,206,140,0,0
+	animation3.pattern1,overlay,-1,100,0,0
+
+	animation4.interval,never
+	animation4.pattern0,overlay,207,140,0,0
+	animation4.pattern1,overlay,-1,100,0,0
+}
+
+
+//-------------------------------2 eyes open happies talk
+surface.append85-87,91-93,96-98,102-104
+{
+	//blinking!
+	animation0.interval,random,4
+	animation0.pattern0,overlay,-1,100,0,0
+	animation0.pattern1,overlayfast,211,50,0,0
+	animation0.pattern2,overlayfast,210,100,0,0
+	animation0.pattern3,overlay,-1,30,0,0
+
+	//talking!
+	animation1.interval,talk,4
+	animation1.pattern0,alternativestart,(2,3,4),0,0
+
+	//the intervals!!
+	animation2.interval,never
+	animation2.pattern0,overlay,214,100,0,0
+	animation2.pattern1,overlay,212,130,0,0
+	animation2.pattern2,overlay,-1,100,0,0
+
+	animation3.interval,never
+	animation3.pattern0,overlay,212,140,0,0
+	animation3.pattern1,overlay,-1,100,0,0
+
+	animation4.interval,never
+	animation4.pattern0,overlay,214,140,0,0
+	animation4.pattern1,overlay,-1,100,0,0
+}
+
+//2 eyes closed happies talk
+surface.append94,105
+{
+	//talking!
+	animation1.interval,talk,4
+	animation1.pattern0,alternativestart,(2,3,4),0,0
+
+	//the intervals!!
+	animation2.interval,never
+	animation2.pattern0,overlay,214,100,0,0
+	animation2.pattern1,overlay,212,130,0,0
+	animation2.pattern2,overlay,-1,100,0,0
+
+	animation3.interval,never
+	animation3.pattern0,overlay,212,140,0,0
+	animation3.pattern1,overlay,-1,100,0,0
+
+	animation4.interval,never
+	animation4.pattern0,overlay,214,140,0,0
+	animation4.pattern1,overlay,-1,100,0,0
+}
+
+//2 eyes open neutral talk
+surface.append88-90,99-101
+{
+	//blinking!
+	animation0.interval,random,4
+	animation0.pattern0,overlay,-1,100,0,0
+	animation0.pattern1,overlayfast,211,50,0,0
+	animation0.pattern2,overlayfast,210,100,0,0
+	animation0.pattern3,overlay,-1,30,0,0
+
+	//talking!
+	animation1.interval,talk,4
+	animation1.pattern0,alternativestart,(2,3,4),0,0
+
+	//the intervals!!
+	animation2.interval,never
+	animation2.pattern0,overlay,213,100,0,0
+	animation2.pattern1,overlay,212,130,0,0
+	animation2.pattern2,overlay,-1,100,0,0
+
+	animation3.interval,never
+	animation3.pattern0,overlay,212,140,0,0
+	animation3.pattern1,overlay,-1,100,0,0
+
+	animation4.interval,never
+	animation4.pattern0,overlay,213,140,0,0
+	animation4.pattern1,overlay,-1,100,0,0
+}
+
+//2 eyes closed neutral talk
+surface.append95,106
+{
+	//talking!
+	animation1.interval,talk,4
+	animation1.pattern0,alternativestart,(2,3,4),0,0
+
+	//the intervals!!
+	animation2.interval,never
+	animation2.pattern0,overlay,213,100,0,0
+	animation2.pattern1,overlay,212,130,0,0
+	animation2.pattern2,overlay,-1,100,0,0
+
+	animation3.interval,never
+	animation3.pattern0,overlay,212,140,0,0
+	animation3.pattern1,overlay,-1,100,0,0
+
+	animation4.interval,never
+	animation4.pattern0,overlay,213,140,0,0
+	animation4.pattern1,overlay,-1,100,0,0
+}
+
+
+//3 neutral talks
+surface.append115-118,121,123,126,136-139,142,144,147
+{
+	//talking!
+	animation1.interval,talk,4
+	animation1.pattern0,alternativestart,(2,3,4),0,0
+
+	//the intervals!!
+	animation2.interval,never
+	animation2.pattern0,overlay,220,100,0,0
+	animation2.pattern1,overlay,219,130,0,0
+	animation2.pattern2,overlay,-1,100,0,0
+
+	animation3.interval,never
+	animation3.pattern0,overlay,219,140,0,0
+	animation3.pattern1,overlay,-1,100,0,0
+
+	animation4.interval,never
+	animation4.pattern0,overlay,220,140,0,0
+	animation4.pattern1,overlay,-1,100,0,0
+}
+
+//3 smile talks
+surface.append107-114,120,125,128-135,141,146
+{
+	//talking!
+	animation1.interval,talk,4
+	animation1.pattern0,alternativestart,(2,3,4),0,0
+
+	//the intervals!!
+	animation2.interval,never
+	animation2.pattern0,overlay,221,100,0,0
+	animation2.pattern1,overlay,219,130,0,0
+	animation2.pattern2,overlay,-1,100,0,0
+
+	animation3.interval,never
+	animation3.pattern0,overlay,219,140,0,0
+	animation3.pattern1,overlay,-1,100,0,0
+
+	animation4.interval,never
+	animation4.pattern0,overlay,221,140,0,0
+	animation4.pattern1,overlay,-1,100,0,0
+}
+
+
+
+//--Tooltips------------------
+
+//Maybe you'd like a tooltip to pop up when your user is hovering over a hitbox on your ghost. It works much the same as above!
+
+//sakura.tooltips 
+//{ 
+//ChildHead,This is child's head. 
+//ChildFace,This is First's face.  
+//}
+
+//Basically put the name of your collision first, then what you want the tooltip to say.
+//Like above, replace sakura with kero for the secondary character.
+
+
+
+//--Surface.alias------------------
+//laughin
+sakura.surface.alias
+{
+	laughs,[149,150,151,152]
+	left,[129,133,153,154,155,156,157,158]
+	right,[130,134,159,160,161,162,163,164]
+	lowleft,[165,166,167,168,169,170]
+	lowright,[171,172,173,174,175,176]
+}
+
+
+//There is another function along the same lines of surface.append and it's surface.alias. What it does is assign a range of numbers to a single number or word that can be called using \s[].
+
+//sakura.surface.alias
+//{
+//6666,[1229,1230,1231,1235]
+//}

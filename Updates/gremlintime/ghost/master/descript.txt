@@ -1,0 +1,24 @@
+﻿//important backend stuffs
+
+
+charset,UTF-8
+
+name,Little My
+type,ghost
+
+sakura.name,Little My
+kero.name,gremlin time
+
+icon,mii.ico
+
+balloon,Little Myloon
+
+
+craftman,KFC
+craftmanw,KFC
+craftmanurl,http://www.characteroulette.tumblr.com/
+
+
+
+sstp.allowunspecifiedsend,0
+shiori,yaya.dll

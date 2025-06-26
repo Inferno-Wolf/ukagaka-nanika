@@ -1,0 +1,521 @@
+﻿//--Booting & Closing & State Changes--
+//Make sure you initialise all your variables here!!
+
+
+//OnFirstBoot
+// \![raise,OnFirstBoot]
+OnFirstBoot
+{
+	lastTalk = ""
+	passhour = 0
+	passmin = 0
+	passsec = 0
+	user = "Stranger"
+	birthdayprint = "????"
+	stroke = 0
+	firstboot = 1
+	mode = 0 //alone
+	rgbcheck = 0 //off
+	moves = 0 //off
+	
+	"\t\*\1\s[-1]\0"
+	--
+	if reference0 == 0 //if you've just installed them
+	{
+		"\s[139]What the--??\w8 \s[8]Where did I end up now?\w8 \s[101]I've never seen this part of the forest before.\w8 \n\n[half]...\w8\w8\s[62]Is anyone there?\w8"
+	}
+	else //if they're being reinstalled after being uninstalled before
+	{
+		"\s[99]Oh.\w8 Huh.\w8 \s[101]Here again...?\w8\w8 \s[40]\n\n[half]Well,\w4 I guess it's as nice a place as any.\w8"
+	}
+	--
+	"\n\n[half]\![*]\__q[Onintro]Introduce yourself\__q \n\![*]\__q[Onalone]Leave her be\__q"
+}
+
+//no longer alone
+Onintro
+{
+	mode = 1
+	
+	"\0\s[131]\_q(Your name is...)\_q"
+	--
+	"\![open,inputbox,OnNameTeach,-1]\e"
+}
+
+//firstboot finish
+Onalone
+{
+	"\0\s[65]...\w8\w8\w8\s[31]Okay.\w8 \s[40]Seems I've got this place to myself.\w8 \s[24]\n\n[half]Suits me just fine.\w8 \s[87]Let's see what's around here...\w8\e"
+}
+
+
+
+//OnBoot
+OnBoot
+{
+	lastTalk = ""
+	passhour = 0
+	passmin = 0
+	passsec = 0
+	
+	"\1\s[-1]\0\s[0]"
+	--
+	if mode == 1 //she can see you
+	{
+		if rgbcheck == 1 //RGB guys open
+		{
+			if dayslot == userbirthday
+			{
+				"\0\s[5]Oh,\w4 I guess it's your birthday today,\w4 isn't it,\w4 %(user)?\w8 \s[1]\n\n[half]Happy birthday and all that.\w8 \s[16]I'm gonna keep running around here to see what I can find.\w8\e"
+				
+				"\0\s[90]Isn't it your birthday today,\w4 %(user)?\w8 \s[66]What're you doing here when you should be out somewhere having a party?\w8 \s[9]That's what everyone else always likes to do.\w8 \s[7]'Cept Snufkin,\w4 of course.\w8\e"
+			}
+			//elseif dayslot == "2month 15day" //Feb 15; Curious Village release in JP! (Layton bday)
+			//elseif dayslot == "2month 19day" //Feb 19; AJ release in US! (Apollo bday)
+			//elseif dayslot == "4month 12day" //April 12; AJ release in JP! (Trucy bday)
+			//elseif dayslot == "6month 9day" //June 9; SoJ release in JP! (Nahyuta bday)
+			//elseif dayslot == "7month 20day" //July 20; LMJ release in JP! (Katrielle bday)
+			//elseif dayslot == "7month 25day" //July 25; DD release in JP! (Athena bday)
+			//elseif dayslot == "8month 6day" || dayslot == "8month 8day" //Aug 6; Great Comet Chase release date + August 8; Comet in Moominland Release date (Snufkin bday)
+			//elseif dayslot == "9month 12day" //Sep 12; Unwound Future release in US! (Flora bday)
+			//elseif dayslot == "9month 21day" //Sep 21; LBMR release in JP! (Alfendi bday)
+			//elseif dayslot == "10month 22day" //Oct 22; Great Comet Chase release in US! (Little My bday)
+			//elseif dayslot == "11month 1day" //Nov 1; Moomins and Great Flood English UK release! (Apollo bday)
+			//elseif dayslot == "11month 7day" || dayslot == "11month 26day" //Nov 7; Curious Villate release in UK + Nov 26; Last Spectre release in JP (Luke bday)
+			//elseif dayslot == "12month 24day" //Dec 24; Rayfa bday and Almost Christmas
+			//elseif dayslot == "12month 25day" //Dec 25; it Christmas
+			//elseif dayslot == "12month 28day" //Dec 28; happy DL-6!
+			else
+			{
+				"%(rgbboottalk)"
+			}
+		}
+		else //0; no rgb guys
+		{
+			if dayslot == userbirthday
+			{
+				"\0\s[5]Hey,\w4 %(user).\w8 \s[101]It's your birthday today,\w4 isn't it?\w8 \s[73]\n\n[half]Happy birthday and all that.\w8 \s[60]You gonna help me with these Hattifatner seeds I gathered?\w8 \s[56]If not,\w4 more for me.\w8\e"
+				
+				"\0\s[98]I guess today's your birthday,\w4 isn't it?\w8 \s[33]Well.\w8 \s[44]Happy birthday,\w4 then.\w8 \s[32]Even folk as strange as you deserve to have a good day on their birthdays.\w8 \s[86]If it matters to you that much,\w4 at least.\w8\e"
+			}
+			elseif dayslot == "2month 19day" //Feb 19; AJ release in US! (Apollo bday)
+			{
+				"\0\s[4]Oh,\w4 %(user).\w8 \s[128]Ready to hunt for some mushrooms?\w8 \s[129]It's Moomin's birthday,\w4 but he's busy hibernating,\w4 \s[130]so I was thinking we could fill his bed with them for when he wakes up.\w8 \s[laughs]He'll get so confused!\w8\e"
+				
+				"\0\s[33]Oh,\w4 thanks for the company,\w4 %(user).\w8 \s[100]Moomin's too busy hibernating,\w4 so I can't exactly bother him today.\w8 \s[106]And it's his birthday,\w4 too.\w8 \s[9]Isn't it weird how that worked out?\w8\e"
+			}
+			elseif dayslot == "8month 6day" || dayslot == "8month 8day" //Aug 6; Great Comet Chase release date + August 8; Comet in Moominland Release date (Snufkin bday)
+			{
+				"\0\s[132]%(user),\w4 perfect timing.\w8 \s[0]Moomin's kinda unavailable today since it's kinda Snufkin's birthday,\w4 \s[25]so I was getting stir crazy with boredome.\w8\e"
+				
+				"\0\s[3]Got any mushrooms around here,\w4 %(user)?\w8 \s[24]I was just thinking we could fill up Snufkin's bag with 'em.\w8 \s[30]That'd teach him to leave it unattended while he's off gallivanting with Moomin.\w8\e"
+				
+				"\0\s[90]It's weird to think that Snufkin has a birthday,\w4 isn't it?\w8 \s[89]Weird to think he's my little brother,\w4 too.\w8 \s[34]But today's his birthday and I know he'd rather be off on his own than celebrating.\w8 \s[132]So let's see what bugs we can find around here,\w4 %(user).\w8\e"
+			}
+			elseif dayslot == "9month 12day" //Sep 12; Unwound Future release in US! (Flora bday)
+			{
+				"\0\s[86]Got some interesting plants around here,\w4 %(user).\w8 \s[24]Plenty for making a neat flower crown.\w8 \s[4]\n\n[half]It's just that kind of day,\w4 really.\w8 Don't you think?\w8\e"
+				
+				"\0\s[8]%(user),\w4 if you wanted some help in making flower crowns,\w4 then you're asking the wrong person.\w8 \s[90]Moomin or Snork Maiden would be more than happy to help you.\w8 \s[132]\n\n[half]I,\w4 meanwhile,\w4 am here to see how they all taste.\w8\e"
+			}
+			elseif dayslot == "10month 22day" //Oct 22; Great Comet Chase release in US! (Little My bday)
+			{
+				"\0\s[laughs]Hah!\w8 \s[94]Had to see me for my birthday,\w4 didja,\w4 %(user)?\w8 \s[29]I'll have you know I'm in very high demand today,\w4 \s[44]so you're lucky I felt like rooting around here for something tasty to sink my teeth into.\w8\e"
+				
+				"\0\s[132]Yeah,\w4 let's see what offerings you have for me today.\w8 \s[94]After all,\w4 today's a very special day.\w8 \s[57]I accept cake and crunchy bugs and good mushrooms,\w4 just in case you needed some ideas.\w8\e"
+			}
+			elseif dayslot == "11month 1day" //Nov 1; Moomins and Great Flood English UK release! (Apollo bday)
+			{
+				"\0\s[31]I bet you're scrambling around as much as I am for a good gift for Moomin,\w4 %(user).\w8 \s[101]His fluffy butt is deceptively hard to get something good for.\w8\e"
+				
+				"\0\s[110]Hey,\w4 %(user),\w4 thanks for saving me.\w8 \s[left]\n\n[half]Now,\w4 we gotta hurry and \s[right]find something around here for Moomin.\w8 \s[lowleft]It's his birthday and all,\w4 \s[lowright]and I can't be the only one to have forgotten to get him something good for it.\w8\e"
+			}
+			elseif dayslot == "11month 7day" || dayslot == "11month 26day" //Nov 7; Curious Villate release in UK + Nov 26; Last Spectre release in JP (Luke bday)
+			{
+				"\0\s[139]%(user),\w4 quick!!\w8 Get some pretty flowers or shells ready!\w8 \s[124]It's Snork Maiden's birthday and she'll be so annoying if she doesn't get something nice today!\w8 \s[118]\n\n[half]...\w8\w8\w8\s[95]Of course,\w4 Moomin has it mostly handled.\w8 \s[86]But still.\w8 \s[71]Got you to panic for a moment,\w4 maybe.\w8\e"
+				
+				"\0\s[3]Trying to find a nice gift for Snork Maiden today,\w4 too,\w4 %(user)?\w8 \s[19]Sorry I can't be of much help.\w8 \s[60]Why else do you think I've been scrounging around your place?\w8 \s[73]Nothing but bugs and mushrooms and cobwebs around here!\w8\e"
+				
+				"\0\s[101]I suppose there can be nice flowers around here sometimes.\w8 \s[97]Snork Maiden might like those.\w8 \s[24]Good thinking,\w4 %(user)!\w8 \s[0]Now,\w4 let's see if I can find them...\w8\e"
+			}
+			else
+			{
+				"%(normalboottalk)"
+			}
+		}
+	}
+	else //0; alone
+	{
+		if rgbcheck == 1 //RGB guys open
+		{
+			if dayslot == userbirthday
+			{
+				"\0\s[101]%(bornmonthprint) %(borndayprint),\w4 huh?\w8 \s[106]Must be something special today.\w8 \s[0]And that thing is the chance to go and pester my dear little brother.\w8\e"
+				
+				"\0\s[9]%(bornmonthprint) %(borndayprint)?\w8 Sounds familiar.\w8 \s[97]I should ask Snufkin if his precious sunshine knows something about today.\w8\e"
+			}
+			//elseif dayslot == "2month 15day" //Feb 15; Curious Village release in JP! (Layton bday)
+			//elseif dayslot == "2month 19day" //Feb 19; AJ release in US! (Apollo bday)
+			//elseif dayslot == "4month 12day" //April 12; AJ release in JP! (Trucy bday)
+			//elseif dayslot == "6month 9day" //June 9; SoJ release in JP! (Nahyuta bday)
+			//elseif dayslot == "7month 20day" //July 20; LMJ release in JP! (Katrielle bday)
+			//elseif dayslot == "7month 25day" //July 25; DD release in JP! (Athena bday)
+			//elseif dayslot == "8month 6day" || dayslot == "8month 8day" //Aug 6; Great Comet Chase release date + August 8; Comet in Moominland Release date (Snufkin bday)
+			//elseif dayslot == "9month 12day" //Sep 12; Unwound Future release in US! (Flora bday)
+			//elseif dayslot == "9month 21day" //Sep 21; LBMR release in JP! (Alfendi bday)
+			//elseif dayslot == "10month 22day" //Oct 22; Great Comet Chase release in US! (Little My bday)
+			//elseif dayslot == "11month 1day" //Nov 1; Moomins and Great Flood English UK release! (Apollo bday)
+			//elseif dayslot == "11month 7day" || dayslot == "11month 26day" //Nov 7; Curious Villate release in UK + Nov 26; Last Spectre release in JP (Luke bday)
+			//elseif dayslot == "12month 24day" //Dec 24; Rayfa bday and Almost Christmas
+			//elseif dayslot == "12month 25day" //Dec 25; it Christmas
+			//elseif dayslot == "12month 28day" //Dec 28; happy DL-6!
+			else
+			{
+				"%(rgbboottalk)"
+			}
+		}
+		else //0; no rgb guys
+		{
+			if dayslot == userbirthday
+			{
+				"\0\s[22]Hmm.\w8 %(bornmonthprint) %(borndayprint).\w8 Sounds familiar.\w8 \s[8]\n\n[half]Ah,\w4 well.\w8 \s[40]Back to figuring out the best thing to bite around here.\w8\e"
+				
+				"\0\s[101]%(bornmonthprint) %(borndayprint)?\w8 \s[92]Wonder if anything about today makes it tastier...\w8\e"
+			}
+			elseif dayslot == "2month 19day" //Feb 19; AJ release in US! (Apollo bday)
+			{
+				"\0\s[9]It's so weird that Moomin gets two birthdays.\w8 \s[22]One for when Snufkin's around,\w4 or whatever.\w8 \s[37]\n\n[half]You know who should get two birthdays?\w8 \s[124]Me!\w8\w4 \s[117]Then I could get twice as much cake!\w8 \s[8]\n\n[half]Ugh.\w8 Whatever.\w8\e"
+				
+				"\0\s[121]Moomin's not even awake right now!\w8 \s[35]\n\n[half]Ugh.\w8 Whatever.\w8 \s[30]He's too busy hibernating to have fun with me here.\w8\e"
+			}
+			elseif dayslot == "8month 6day" || dayslot == "8month 8day" //Aug 6; Great Comet Chase release date + August 8; Comet in Moominland Release date (Snufkin bday)
+			{
+				"\0\s[101]Isn't it Snufkin's birthday today?\w8 \s[97]Wonder if I can find anything around here that'll give him a good fright...\w8\e"
+				
+				"\0\s[38]Wellp,\w4 better here than around those two.\w8 \s[22]They're off on their own little adventure anyway.\w8 \s[0]Perfect time to have my own and make them jealous later.\w8\e"
+				
+				"\0\s[115]But why can't I go on their adventure with them?\w8 \s[123]I bet they'd let Snork Maiden join.\w8 \s[35]\n\n[half]Ugh.\w8 Whatever.\w8 \s[30]Time to find something really great and make them all jealous of how good I am at finding treasures.\w8\e"
+			}
+			elseif dayslot == "9month 12day" //Sep 12; Unwound Future release in US! (Flora bday)
+			{
+				"\0\s[155]Flowers,\w4 \s[167]flowers...\w8\w8 \s[121]\n\n[half]C'mon,\w4 there's gotta be some nice flowers around here somewhere!\w8\e"
+				
+				"\0\s[7]I really don't get the appeal of flower crowns.\w8 \s[22]But they do look pretty on Snufkin's hat or on Snork Maiden's head.\w8 \s[37]So I guess we'll just have to pick some nice ones.\w8\e"
+			}
+			elseif dayslot == "10month 22day" //Oct 22; Great Comet Chase release in US! (Little My bday)
+			{
+				"\0\s[18]Phew.\w8 Nice to get away for a minute after all that good cake.\w8 \n\n[half]...\w8\w8\w8\s[123]oh heck no,\w4 I sounded like Snufkin.\w8 \s[143]Something must be wrong with me.\w8 \s[23]He can never know of this or I'll never hear the end of it.\w8\e"
+				
+				"\0\s[5]Cake is great and all,\w4 but I'm really in the mood for something with a good crunch.\w8 \s[0]There's gotta be some tasty bugs around here somewhere...\w8\e"
+			}
+			elseif dayslot == "11month 1day" //Nov 1; Moomins and Great Flood English UK release! (Apollo bday)
+			{
+				"\0\s[88]Moomin'll have plenty of fun without me,\w4 I'm sure.\w8 \s[22]So long as he's got his precious Snufkin with him,\w4 they won't even notice I'm gone.\w8\e"
+				
+				"\0\s[99]Maybe I can find something good around here to give Moomin.\w8 \s[105]He can forever be in awe of my fantastic gift giving skills.\w8 \s[92]\n\n[half]And if he's not,\w4 then I have some good teeth to remind him who he's dealing with.\w8\e"
+			}
+			elseif dayslot == "11month 7day" || dayslot == "11month 26day" //Nov 7; Curious Villate release in UK + Nov 26; Last Spectre release in JP (Luke bday)
+			{
+				"\0\s[5]Gotta find something good for Snork Maiden...\w8\w8 \s[156]\n\n[half]C'mon,\w4 there's gotta \s[162]be something around here somewhere!\w8\e"
+				
+				"\0\s[38]Something for Snork Maiden,\w4 huh...?\w8\w8 \s[22]\n\n[half]She's guaranteed to get all gooey when Moomin gives her some flowers or a pretty shell.\w8 \s[29]I can easily one up that and get something that'll make her scream!\w8 \s[52]Or maybe even turn pink!\w8\e"
+				
+				"\0\s[106]Hmm.\w8 Gifts are hard for someone like Snork Maiden.\w8 \s[101]She likes all that pretty stuff.\w8 \s[22]\n\n[half]I'd prefer giving her a really cool bug,\w4 but I suppose if I have to.\w8 \s[0]I can find something pretty around here,\w4 definitely.\w8\e"
+			}
+			else
+			{
+				"%(normalboottalk)"
+			}
+		}
+	}
+}
+
+
+//normalboottalk
+normalboottalk
+{
+	//if RAND(100) < 5 //I just like the random chance boots
+	//elseif weekday == 6 && hour >= 19 //Ohhhh, it's Saturday night, yeah!
+	//if timeslot == "earlymorning" //am5 to am8
+	//elseif timeslot == "morning" //am9 to am11
+	//elseif timeslot == "lunch" //pm12 to pm2
+	//elseif timeslot == "afternoon" //pm3 to pm5
+	//elseif timeslot == "evening" //pm6 to pm8
+	//elseif timeslot == "night" //pm9 to pm11
+	//else //latenight; am12 to am5
+	
+	if mode == 1 //she can see you
+	{
+		"\0\s[4]Hey there,\w4 %(user).\w8 \s[129]Hope you don't mind me poking around again.\w8\e"
+		
+		"\0\s[141]I'm coming into your space,\w4 %(user)!!\w8 \s[132]Better hide all the goodies you want for yourself before I can find 'em!\w8\e"
+		
+		"\0\s[33]Hey,\w4 I'm back again.\w8 \s[45]Wanna share if I can find some good worms or such?\w8\e"
+	}
+	
+	"\0\s[29]Let's see.\w8 \s[30]Anything new growing around here?\w8\e"
+	
+	"\0\s[4]Ooh,\w4 back in this grove.\w8 \s[12]Let's see if we can find %(edibles)...\w8\e"
+	
+	"\0\s[3]Hello again,\w4 strange grove.\w8 \s[52]What goodies have you got for me today?\w8\e"
+	
+	"\0\s[99]Ah.\w8 Found my way back here.\w8 \s[132]Let the search for ill-advised snacks begin!\w8\e"
+	
+	"\0\s[90]Hmm.\w8 Looks the same as it did last time.\w8 \s[86]Doesn't mean there aren't any new flowers or mushrooms to discover,\w4 though.\w8\e"
+	
+	"\0\s[56]Time to dig around for more snacks!!\w8 \s[39]My favourite pasttimes.\w8\e"
+	
+	"\0\s[92]Let's see.\w8 \s[94]Where did I leave off last time...?\w8\e"
+	
+	"\0\s[132]I'm back,\w4 you grove of treasures!!\w8 \s[141]Bare all your goodies to me!!\w8\e"
+	
+	"\0\s[132]Thought you could escape my teeth?\w8 \s[141]Think again!!\w8\e"
+	
+	"\0\s[101]Have I dug over in that patch of dirt yet?\w8 \s[128]Best get to it,\w4 then.\w8\e"
+}
+
+//rgb boot talks
+rgbboottalk
+{
+	//if RAND(100) < 5 //I just like the random chance boots
+	//elseif weekday == 6 && hour >= 19 //Ohhhh, it's Saturday night, yeah!
+	//if timeslot == "earlymorning" //am5 to am8
+	//elseif timeslot == "morning" //am9 to am11
+	//elseif timeslot == "lunch" //pm12 to pm2
+	//elseif timeslot == "afternoon" //pm3 to pm5
+	//elseif timeslot == "evening" //pm6 to pm8
+	//elseif timeslot == "night" //pm9 to pm11
+	//else //latenight; am12 to am5
+	
+	if mode == 1 //she can see you
+	{
+		"\0\s[3]Need my help tormenting my brother some more?\w8 \s[12]I'm ready for it!\w8\e"
+	}
+	
+	"\0\s[101]Here again...\w8\w8 \s[86]\n\n[half]Suppose I can scrounge around a bit some more.\w8 \s[94]What mum doesn't know can't hurt her and all.\w8\e"
+	
+	"\0\s[32]Ooh,\w4 did I get too close to my poor little brother's campsite again?\w8 \s[40]Bet he's gonna love that.\w8\e"
+}
+
+
+
+
+//OnClose
+OnClose
+{
+	if passmin >= 5 || passhour > 0 //open for at least five minutes.
+	{
+		if rgbcheck == 1 //RGB guys open
+		{
+			//if RAND(100) < 5
+			//if dayslot == userbirthday //if it's your birthday!
+			//elseif timeslot == "earlymorning" //am5 to am8
+			//elseif timeslot == "morning" //am9 to am11
+			//elseif timeslot == "lunch" //pm12 to pm2
+			//elseif timeslot == "afternoon" //pm3 to pm5
+			//elseif timeslot == "evening" //pm6 to pm8
+			//elseif timeslot == "night" //pm9 to pm11
+			//else //latenight; am12 to am5
+			
+			if mode == 1 //she can see you
+			{
+				"\0\s[9]Wellp.\w8 I'm off.\w8 \s[8]Gotta report back to mum about all this.\w8"
+				
+				"\0\s[1]Got lots of gossip to share with mum and the sibs when I get back.\w8"
+			}
+			
+			"\0\s[12]I'm heading out now,\w4 you big ol' wet rag.\w8"
+			
+			"\0\s[18]Okay,\w4 I'm done for the day.\w8 \s[59]Count your blessings and all that.\w8"
+		}
+		else //0; no rgb guys
+		{
+			//if RAND(100) < 5
+			//elseif timeslot == "earlymorning" //am5 to am8
+			//elseif timeslot == "morning" //am9 to am11
+			//elseif timeslot == "lunch" //pm12 to pm2
+			//elseif timeslot == "afternoon" //pm3 to pm5
+			//elseif timeslot == "evening" //pm6 to pm8
+			//elseif timeslot == "night" //pm9 to pm11
+			//else //latenight; am12 to am5
+			
+			if mode == 1 //she can see you
+			{
+				if dayslot == userbirthday //if it's your birthday!
+				{
+					"\0\s[4]Seeya,\w4 %(user)!\w8 \s[20]Enjoy %(edibles) for your birthday!\w8"
+					
+					"\0\s[2]Guess you would want all the goodies for your birthday.\w8 \s[24]All right,\w4 seeya,\w4 then!\w8"
+				}
+				
+				"\0\s[3]Nice things don't stay nice forever,\w4 so better get these to Snork Maiden quick.\w8"
+				
+				"\0\s[31]Enjoy half of the goodies I scrounged up.\w8 \s[41]The rest are coming with me!\w8"
+				
+				"\0\s[52]Let's share again next time,\w4 %(user)!\w8"
+				
+				"\0\s[29]I'll be back whether you invite me or not.\w8 \s[57]That's a promise.\w8"
+				
+				"\0\s[18]The rest are for you,\w4 %(user).\w8 Fair's fair.\w8"
+			}
+			
+			"\0\s[88]Oh,\w4 shoot.\w8 \s[106]Moomin's probably getting himself into trouble right about now.\w8"
+			
+			"\0\s[89]Ah,\w4 can't miss Moomin getting himself into more trouble!\w8"
+			
+			"\0\s[101]Wonder if Moominmamma will make dinner for me with all this stuff.\w8"
+			
+			"\0\s[106]Right,\w4 I should find Snufkin if I want to stuff any of this into his backpack.\w8"
+			
+			"\0\s[90]Maybe Moominpappa has this grove marked on his map by now...\w8"
+			
+			"\0\s[86]Time to see if Sniff'll have any ideas on what to do with this treasure trove of junk.\w8"
+			
+			"\0\s[101]Wonder if sis even realised I was gone.\w8 \s[92]Time to see!\w8"
+			
+			"\0\s[90]I should get these flowers back before they wilt.\w8"
+		}
+	}
+	else //if they haven't been open for at least five minutes
+	{
+		if rgbcheck == 1 //RGB guys open
+		{
+			if mode == 1 //she can see you
+			{
+				"\0\s[9]Oh,\w4 want to torment them yourself,\w4 huh?\w8 \s[2]I see how it is.\w8"
+				
+				"\0\s[19]Okay,\w4 fine,\w4 I'll leave my brother alone for a bit.\w8"
+			}
+			
+			"\0\s[139]Oh,\w4 shoot,\w4 wasn't I supposed to do that thing for mum?\w8"
+			
+			"\0\s[131]Shit,\w4 I forgot about picking them up from school!\w8"
+			
+			"\0\s[101]Wait -\w8 didn't mum leave the oven on?\w8"
+		}
+		else //0; no rgb guys
+		{
+			if mode == 1 //she can see you
+			{
+				"\0\s[115]Aww,\w4 right as I was ready to get searching.\w8"
+				
+				"\0\s[98]Ooh,\w4 see me as competition?\w8 \s[105]I get'cha,\w4 I get'cha.\w8"
+				
+				"\0\s[57]Can't keep me from nabbing your best bugs forever,\w4 %(user).\w8"
+			}
+			
+			"\0\s[37]Ah,\w4 dang.\w8 \s[50]Not enough time to really look for anything.\w8"
+			
+			"\0\s[88]Wait -\w8 \s[90]did I leave my good snacks on Moominmamma's table?\w8"
+			
+			"\0\s[122]Ugh,\w8 \s[115]no time for this when there's plenty of fun to have back in the valley.\w8"
+			
+			"\0\s[98]I should bite Snufkin again.\w8 \s[44]Better now than later!\w8"
+			
+			"\0\s[5]Hmm.\w8 \s[22]Moomin is due for some trouble,\w4 I suppose.\w8"
+			
+			"\0\s[105]I gotta go check on Moomin,\w4 make sure his fluffy butt isn't getting into mischief without me.\w8"
+		}
+	}
+	--
+	"\w8\-\e"
+}
+
+
+
+//OnWindowStateRestore
+OnWindowStateRestore
+{
+	"\1\s[-1]\0\s[0]"
+}
+
+
+
+//OnGhostChanging
+//%(refrence0) is name of your Sakura character as you put it in the descript.txt
+/*
+OnGhostChanging
+{
+	if reference0 == "Little My" //herself!!
+	{
+		if mode == 1 //she can see you
+		{
+			""
+		}
+		else //0; alone
+		{
+			""
+		}
+	}
+	elseif reference0 == "RGB Puzzlers"
+	{
+		if mode == 1 //she can see you
+		{
+			""
+		}
+		else //mode == 0; alone
+		{
+			""
+		}
+	}
+	//elseif reference0 == ""
+	else //unspecified ghosts %(reference0)
+	{
+		if mode == 1 //she can see you
+		{
+			""
+		}
+		else //mode == 0; alone
+		{
+			""
+		}
+	}
+}
+
+//OnGhostChanged
+//again, %(reference0) is the name of the Sakura of the ghost you're switching from.
+OnGhostChanged
+{
+	"\1\s[-1]\0\s[0]"
+	--
+	if reference0 == "Little My" //herself!!
+	{
+		if mode == 1 //she can see you
+		{
+			""
+		}
+		else //mode == 0; alone
+		{
+			""
+		}
+	}
+	elseif reference0 == "Inferno"
+	{
+		if mode == 1 //she can see you
+		{
+			""
+		}
+		else //mode == 0; alone
+		{
+			""
+		}
+	}
+	//elseif reference0 == ""
+	else //unspecified ghosts %(reference0)
+	{
+		if mode == 1 //she can see you
+		{
+			""
+		}
+		else //mode == 0; alone
+		{
+			""
+		}
+	}
+}
+*/
+
+
+
+
+//that should be it!

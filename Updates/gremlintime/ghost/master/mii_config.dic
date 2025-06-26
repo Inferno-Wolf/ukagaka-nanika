@@ -1,0 +1,407 @@
+﻿//--Nameteach & Pronouns & Birthdayteach--
+//I like putting most of the User input in here if not in its own Config.dic
+
+
+//OnTeachName
+OnTeachName
+{
+	if mode == 1 //she can see you
+	{
+		"\0\s[33]Oh,\w4 sure.\w8 \s[32]What do you want me to call you instead of %(user)?\w8"
+	}
+	else //0; alone
+	{
+		if firstboot == 1 //teaching her for the first time
+		{
+			firstboot = 0
+			mode = 1
+			
+			"\0\s[68]Ah-hah!\w8 \s[29]So there was someone living here.\w8 \s[55]I thought as much!\w8\w8 \c\s[34]Um.\w8 \s[66]So who are you,\w4 then?\w8"
+		}
+		else //return teachings
+		{
+			"\0\s[4]Oh,\w4 back with a new name?\w8 \s[0]Let's hear it,\w4 then.\w8"
+		}
+	}
+	--
+	"\![open,inputbox,OnNameTeach,-1]"
+}
+
+
+//this is straight from Zi because they are a gremlin who loves to breakproof the firstboot sequence as much as they can
+OnUserInputCancel
+{
+	"\C\![open,inputbox,%(reference0),-1]\t\![set,balloontimeout,-1]"
+}
+
+
+//OnNameTeach
+// %(tempname)
+OnNameTeach
+{
+	tempname = reference0 //this stores the name value from reference0 in _tempname
+	reference0 = TOLOWER(reference0) //changes it to lowercase
+	reference0 = REPLACE(reference0," ","") //removes spaces
+	reference0 = REPLACE(reference0,".","") //removes periods
+	reference0 = REPLACE(reference0,"-","") //removes dashes
+	reference0 = REPLACE(reference0,"'","") //removes apostrophes
+	
+	if tempname == user && firstboot != 1 //this checks if the username is the same as before AND if the firstboot has finished! thanks Zi for putting this in here I love it
+	{
+		"\0\s[101]Isn't that the same thing?\w8 \s[31]Didn't actually change your mind,\w4 did you?\w8 \s[19]All right.\w8\x"
+		--
+		OnTalkConfig
+	}
+	elseif reference0 == "littlemy" || reference0 == "lillamii" || reference0 == "mii"
+	{
+		"\0\s[32]You like my name that much?\w8 \s[52]Thanks!\w8 \s[98]I hear it's gotten pretty popular over the years.\w8 \s[31]\n\n[half]I think it'd be better for you to choose something else,\w4 though.\w8 \s[19]It'd feel too much like talking to myself if you were also Little My...\w8"
+		--
+		"\![open,inputbox,OnNameTeach,-1]"
+	}
+	elseif reference0 == "moomin" || reference0 == "moomintroll" || reference0 == "moominmamma" || reference0 == "moominpappa"
+	{
+		user = tempname
+		
+		"\0\s[4]Ooh,\w4 another Moomin.\w8 \s[24]Neat!\w8"
+		--
+		NameDone
+	}
+	elseif reference0 == "mymble" || reference0 == "themymble" || reference0 == "mymblejr" || reference0 == "snufkin" || reference0 == "joxter" || reference0 == "thejoxter"
+	{
+		user = tempname
+		
+		"\0\s[4]Oh,\w4 like my family,\w4 huh?\w8 \s[19]You probably understand the responsibility of having a gaggle of siblings to watch over,\w4 then.\w8"
+		--
+		NameDone
+	}
+	elseif reference0 == "sniff" || reference0 == "snork" || reference0 == "thesnork" || reference0 == "muskrat" || reference0 == "themuskrat" || reference0 == "muddler" || reference0 == "themuddler"
+	{
+		user = tempname
+		
+		"\0\s[98]Interesting,\w4 interesting.\w8 \s[105]So this is how other folk live outside of the valley.\w8"
+		--
+		NameDone
+	}
+	elseif reference0 == "hemulin" || reference0 == "hattifatner"
+	{
+		user = tempname
+		
+		"\0\s[5]Oh.\w8 Well.\w8 \s[3]Nice to meet you,\w4 then.\w8 \s[101]Huh.\w8"
+		--
+		NameDone
+	}
+	elseif reference0 == "snorkmaiden" || reference0 == "florin"
+	{
+		user = tempname
+		
+		"\0\s[52]Ooh,\w4 you can help me pick out nice things for the Snork Maiden I know!\w8 \s[33]I bet you also have a discerning eye for beautiful things.\w8"
+		--
+		NameDone
+	}
+	elseif reference0 == "apollo" || reference0 == "apollojustice" || reference0 == "luketriton"
+	{
+		"\0\s[8]That's a weird name.\w8 No thank you.\w8"
+		--
+		"\![open,inputbox,OnNameTeach,-1]"
+	}
+	//elseif reference0 == ""
+	elseif reference0 == "" //blank check
+	{
+		"\0\s[3]Little nervous there?\w8 \s[18]It's okay.\w8 Take your time.\w8 \s[87]I may root around a bit,\w4 but I'll be here whenever you're ready.\w8"
+		--
+		"\![open,inputbox,OnNameTeach,-1]"
+	}
+	else //usable name
+	{
+		user = tempname
+		NameDone
+	}
+}
+
+
+//NameDone
+NameDone
+{
+	if firstboot == 1
+	{
+		firstboot = 0
+		
+		"\0\s[32]Okay.\w8 Nice to meet you,\w4 %(user).\w8 \s[9]\n\n[half]So...\w8\w8 if you don't mind...\w8\w8 \s[29]\n\n[half]I'm gonna find what goodies I can around here.\w8 \s[40]Anything particularly tasty,\w4 I promise I'll share.\w8 \s[81]Your space,\w4 you get dibs on half.\w8\e"
+	}
+	else
+	{
+		"\0\s[0]"
+		"\0\s[4]"
+		"\0\s[11]"
+		"\0\s[16]"
+		"\0\s[29]"
+		"\0\s[33]"
+		"\0\s[39]"
+		"\0\s[44]"
+		--
+		"%(user).\w8 Sounds good.\w8"
+		
+		"Okay,\w4 %(user) it is.\w8"
+		
+		"Sounds good,\w4 %(user).\w8"
+		--
+		"\n\n[half]\![*]\q[Back to Config menu,configmenu] \n\![*]\q[Back to Main menu,BACKTOMENU] \n\![*]\q[All finished,CANCEL]\e"
+	}
+}
+
+
+
+//leads here from the menu option
+OnPronouns
+{
+	if reference0 == "masc"
+	{
+		presuffix = "masculine"
+	}
+	elseif reference0 == "fem"
+	{
+		presuffix = "feminine"
+	}
+	elseif reference0 == "undef"
+	{
+		presuffix = "undefined"
+	}
+	elseif reference0 == "own"
+	{
+		"\0\_qWhich pronoun would you prefer for them / him / her?\_q\w8"
+		--
+		"\![open,inputbox,OnthemTeach,-1]\e"
+	}
+	elseif reference0 == "menu" {OnMenuRun}
+	elseif reference0 == "config" {OnTalkConfig}
+	else //cancel
+	{
+		OnTalkConfig
+	}
+	--
+	OnTalkConfig
+}
+
+
+//Teaching Pronouns!!
+OnthemTeach
+{
+	xthem = reference0
+	
+	if reference0 == "" //blank check!
+	{
+		xthem = "them"
+	}
+	PronounThey
+}
+
+//inputbox selection
+PronounThey
+{
+	"\0\_q'%(xthem)'.\w8 \n\n[half]Next, which pronoun would you prefer for they / he / she?\w8\_q"
+	--
+	"\![open,inputbox,OntheyTeach,-1]\e"
+}
+
+OntheyTeach
+{
+	xthey = reference0
+	
+	if reference0 == "" //blank check!
+	{
+		xthey = "they"
+	}
+	PronounTheir
+}
+
+//inputbox selection
+PronounTheir
+{
+	"\0\_q'%(xthey)'.\w8 \n\n[half]Next, which pronoun would you prefer for their / his / her?\w8\_q"
+	--
+	"\![open,inputbox,OntheirTeach,-1]\e"
+}
+
+OntheirTeach
+{
+	xtheir = reference0
+	
+	if reference0 == "" //blank check!
+	{
+		xtheir = "their"
+	}
+	PronounTheyre
+}
+
+//inputbox selection
+PronounTheyre
+{
+	"\0\_q'%(xtheir)'.\w8 \n\n[half]Finally, which pronoun would you prefer for they're / he's / she's?\w8\_q"
+	--
+	"\![open,inputbox,OntheyreTeach,-1]\e"
+}
+
+OntheyreTeach
+{
+	xtheyre = reference0
+	
+	if reference0 == "" //blank check!
+	{
+		xtheyre = "they're"
+	}
+	PronounsFinish
+}
+
+//Finished!!
+PronounsFinish
+{
+	presuffix = "own"
+	
+	"\0\_qPersonal pronouns are set to: '%(they)' / '%(them)' / '%(their)'\w8"
+	--
+	"\n\n[half]\![*]\q[Back to Config menu,configmenu] \n\![*]\q[Back to Main menu,BACKTOMENU] \n\![*]\q[Cancel,CANCEL]\_q\e"
+}
+
+
+
+//birthday time!!
+Select.TEACHBDAY
+{
+	if birthdayprint == "????"
+	{
+		"\0\s[90]Birthday?\w8 \s[85]All right.\w8 \s[98]Which month,\w4 then?\w8"
+	}
+	elseif dayslot == userbirthday //this checks if you're inputting your birthday again on your birthday!
+	{
+		"\0\s[19]Yeah,\w4 I know today's your birthday.\w8 \s[3]Having a good one?\w8 \s[24]I hope you are.\w8"
+		--
+		"\n\n\![*]\q[Tell her it's changed,teachagain] \n\n[half]\![*]\q[Back to Main menu,BACKTOMENU] \n\![*]\q[Back to Config menu,configmenu] \n\n\![*]\q[All finished,]\w8\w8\w8\w8\w8\e"
+	}
+	else //already input your birthday
+	{
+		"\0\s[3]Changed your mind?\w8 \s[29]All right,\w4 which month should we celebrate,\w4 then?\w8"
+	}
+	--
+	"\![open,inputbox,OnUserBornMonth,-1]\e"
+}
+
+//here's to teach again
+Select.teachagain
+{
+	"\0\s[34]Oh,\w4 did you want to change it up?\w8 \s[3]Okay,\w4 which month should we celebrate,\w4 then?\w8"
+	--
+	"\![open,inputbox,OnUserBornMonth,-1]\e"
+}
+
+
+//--OnUserBornMonth
+OnUserBornMonth
+{
+	_tempmonth = TOSTR(reference0) //this stores what the user put in as a variable called _tempmonth
+	_tempmonth = TOLOWER(_tempmonth) //changes it to lowercase
+	
+	//this is attaching the right value to the input from the user
+	if _tempmonth == "january" || _tempmonth == "1" {bornmonth = 1; bornmonthprint = "January"}
+	elseif _tempmonth == "february" || _tempmonth == "2" {bornmonth = 2; bornmonthprint = "February"}
+	elseif _tempmonth == "march" || _tempmonth == "3" {bornmonth = 3; bornmonthprint = "March"}
+	elseif _tempmonth == "april" || _tempmonth == "4" {bornmonth = 4; bornmonthprint = "April"}
+	elseif _tempmonth == "may" || _tempmonth == "5" {bornmonth = 5; bornmonthprint = "May"}
+	elseif _tempmonth == "june" || _tempmonth == "6" {bornmonth = 6; bornmonthprint = "June"}
+	elseif _tempmonth == "july" || _tempmonth == "7" {bornmonth = 7; bornmonthprint = "July"}
+	elseif _tempmonth == "august" || _tempmonth == "8" {bornmonth = 8; bornmonthprint = "August"}
+	elseif _tempmonth == "september" || _tempmonth == "9" {bornmonth = 9; bornmonthprint = "September"}
+	elseif _tempmonth == "october" || _tempmonth == "10" {bornmonth = 10; bornmonthprint = "October"}
+	elseif _tempmonth == "november" || _tempmonth == "11" {bornmonth = 11; bornmonthprint = "November"}
+	elseif _tempmonth == "december" || _tempmonth == "12" {bornmonth = 12; bornmonthprint = "December"}
+	
+	else //if the month isn't a valid month
+	{
+		"\0\s[101]Hm.\w8 Dunno if that'll work with your calendar.\w8 \s[3]Maybe try that one again.\w8"
+		
+		"\0\s[90]Don't think I've ever heard of that month on a calendar.\w8 \s[32]Maybe try again.\w8"
+		--
+		"\![open,inputbox,OnUserBornMonth,-1]\![set,balloontimeout,-1]\e"
+	}
+	--
+	//If it's a valid month
+	"\0\s[97]%(bornmonthprint) sounds like a good one.\w8 \s[87]How about the day?\w8"
+	--
+	"\![open,inputbox,OnUserBornDay,-1]\![set,balloontimeout,-1]\e"
+}
+
+//This adds an appropriate suffix to the number for the day. No need to mess with this.
+Printday
+{
+	if bornday == 1 || bornday == 21 || bornday == 31
+	{	"%(bornday)st"	}
+	elseif bornday == 2 || bornday == 22
+	{	"%(bornday)nd"	}
+	elseif bornday == 3 || bornday == 23
+	{	"%(bornday)rd"	}
+	else
+	{	"%(bornday)th"	}
+}	
+
+//--OnUserBornDay
+OnUserBornDay
+{
+	_tempday = reference0 //storing the input in _tempday
+	_tempday = TOLOWER(_tempday) //changes it to lowercase
+	_tempday = REPLACE(_tempday,"st","")
+	_tempday = REPLACE(_tempday,"nd","")
+	_tempday = REPLACE(_tempday,"rd","")
+	_tempday = REPLACE(_tempday,"th","")
+	_tempday = TOINT(_tempday) //Converts it to an integer
+	
+	if ((bornmonth == 1 || bornmonth == 3 || bornmonth == 5 || bornmonth == 7 || bornmonth == 8 || bornmonth == 10 || bornmonth == 12) && _tempday >= 1 && _tempday <= 31) || (bornmonth == 2 && _tempday >= 1 && _tempday <= 29) || ((bornmonth == 4 || bornmonth == 6 || bornmonth == 9 || bornmonth == 11) && _tempday >= 1 && _tempday <= 30)
+	{
+		bornday = _tempday
+		borndayprint = Printday
+		userbirthday = "%(bornmonth)month %(bornday)day"
+		birthdayprint = "%(bornmonthprint) %(borndayprint)"
+		
+		"%(birthchecked)"
+	}
+	else //If the day isn't valid
+	{
+		"\0\s[laughs]Wow,\w4 I'd hate living by your calendar with that many days to it.\w8 \s[2]But I'm pretty sure that's not right.\w8 \s[3]Wanna try that again?\w8"
+		--
+		"\![open,inputbox,OnUserBornDay,-1]\e"
+	}	
+}
+
+//--birthchecked
+birthchecked
+{
+	if userbirthday == dayslot //if today is the user's birthday
+	{
+		"\0\s[110]What??\w8 That's today!!\w8 \s[3]\n\n[half]Well.\w8 Happy birthday and all that.\w8 \s[25]Hope I'm not disrupting any of your plans by rooting around your place.\w8 \s[61]Whatever I can find,\w4 you're entitled to half of it!\w8"
+	}
+	/*
+	//elseif dayslot == "2month 15day" //Feb 15; Curious Village release in JP! (Layton bday)
+	//elseif dayslot == "2month 19day" //Feb 19; AJ release in US! (Apollo bday)
+	//elseif dayslot == "4month 12day" //April 12; AJ release in JP! (Trucy bday)
+	//elseif dayslot == "6month 9day" //June 9; SoJ release in JP! (Nahyuta bday)
+	//elseif dayslot == "7month 20day" //July 20; LMJ release in JP! (Katrielle bday)
+	//elseif dayslot == "7month 25day" //July 25; DD release in JP! (Athena bday)
+	//elseif dayslot == "8month 6day" || dayslot == "8month 8day" //Aug 6; Great Comet Chase release date + August 8; Comet in Moominland Release date (Snufkin bday)
+	//elseif dayslot == "9month 12day" //Sep 12; Unwound Future release in US! (Flora bday)
+	//elseif dayslot == "9month 21day" //Sep 21; LBMR release in JP! (Alfendi bday)
+	//elseif dayslot == "10month 22day" //Oct 22; Great Comet Chase release in US! (Little My bday)
+	//elseif dayslot == "11month 1day" //Nov 1; Moomins and Great Flood English UK release! (Apollo bday)
+	//elseif dayslot == "11month 7day" || dayslot == "11month 26day" //Nov 7; Curious Villate release in UK + Nov 26; Last Spectre release in JP (Luke bday)
+	//elseif dayslot == "12month 24day" //Dec 24; Rayfa bday and Almost Christmas
+	//elseif dayslot == "12month 25day" //Dec 25; it Christmas
+	//elseif dayslot == "12month 28day" //Dec 28; happy DL-6!
+	*/
+	else // %(bornmonthprint) %(borndayprint)
+	{
+		"\0\s[98]%(bornmonthprint) %(borndayprint),\w4 huh?\w8 \s[18]Sounds as good as any other date.\w8 \s[12]All right,\w4 I'll keep that in mind for later!\w8"
+	}
+	--
+	"\n\n\![*]\q[Back to Config menu,configmenu] \n\![*]\q[Back to Main menu,BACKTOMENU] \n\![*]\q[All finished,blank]\w8\w8\w8\w8\w8\e"
+}
+
+
+
+//The personal pronouns teaching came from either Dusk and Dawn or MiniDev, I think...

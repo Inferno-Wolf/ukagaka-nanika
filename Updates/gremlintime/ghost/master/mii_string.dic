@@ -1,0 +1,261 @@
+﻿///////// 빒?긕?긚긣긡깛긵깒?긣
+///////// 빒럻쀱깏??긚렖룕
+///////// written by umeici.
+
+
+//---------------------------Strings--------------------------
+
+
+//---- Username -----------------------------------------------------------------------
+On_username
+{
+	user
+}
+
+//---- Network Update URL ----------------------------------------------
+//put your own directory here!
+On_homeurl
+{
+	"https://raw.githubusercontent.com/Inferno-Wolf/ukagaka-nanika/main/Updates/gremlintime/"
+}
+
+
+
+//---- Top Menu Option Caption -----------------------------------------
+On_recommendrootbutton.caption
+{
+	"Reference Sites"
+	"More Ghost Information"
+}
+
+
+//---- Top Menu Option Websites -----------------------------------------------------
+On_sakura.recommendsites
+{
+	"Zarla's Ghost Walkthrough"
+	--
+	"%ASC(1)http://www.ashido.com/ukagaka/%ASC(2)"
+	--
+	
+	"SSP"
+	--
+	"%ASC(1)http://ssp.shillest.net/%ASC(2)"
+	--
+	
+	"Crow + SSP Reference (J)"
+	--
+	"%ASC(1)http://crow.aqrs.jp/reference/all/index.html%ASC(2)"
+	--
+	
+	"Ghost Documentation (J)"
+	--
+	"%ASC(1)http://usada.sakura.vg/contents/specification.html%ASC(2)"
+	--
+	
+	"Disc-2 (J)"
+	--
+	"%ASC(1)http://disc2.s56.xrea.com/%ASC(2)"
+	--
+	
+	"UKADOC Project Wiki (J)"
+	--
+	"%ASC(1)http://ssp.shillest.net/ukadoc/manual/index.html/%ASC(2)"
+	--
+	
+	"Ukagaka Dream Team"
+	--
+	"%ASC(1)https://ukagakadreamteam.tumblr.com/%ASC(2)"
+}
+
+//---- The second option from the top's caption -----------------------------------------
+On_portalrootbutton.caption
+{
+	"Reach Out to Devs"
+	"Devs Personal Sites"
+}
+
+//---- Websites in the Second Option --------------------------------------------------
+//%ASC(1)%ASC(2)
+On_sakura.portalsites
+{
+	"KFC's Github"
+	--
+	"%ASC(1)https://github.com/Inferno-Wolf/ukagaka-nanika%ASC(2)"
+	--
+	
+	"KFC's Tumblr"
+	--
+	"%ASC(1)http://www.characteroulette.tumblr.com/%ASC(2)"
+	--
+	
+	"Moomin's Official Site"
+	--
+	"%ASC(1)https://www.moomin.com/en/%ASC(2)"
+}
+
+
+//---- Update Menu Caption ------------------------------------------------------------
+On_updatebutton.caption
+{
+	"Update the Ghost"
+	"Press to Update"
+}
+
+//---- Dress-up Menu Caption ----------------------------------------------------------
+On_dressuprootbutton.caption
+{
+	"Press for Dress-Ups"
+	"Dress-Ups Here"
+}
+
+//---- Headlines and RSS Feeds ---------------------------------------------------------
+On_headlinesenserootbutton.caption
+{
+	"Headlines + RSS Feeds"
+	"RSS Feeds + Headlines"
+}
+
+//---- Readme Caption -------------------------------------------------------
+On_readmebutton.caption
+{
+	"READ ME"
+	"readme.txt"
+	"Press F1"
+}
+
+//---- Uninstall Caption -----------------------------------------------------
+On_vanishbutton.caption
+{
+	"Uninstall"
+}
+
+//---- Shell Caption -----------------------------------------------------
+//if you want to hide a shell from the menu/user, you have to put that into the descript.txt of your shell! it would be "menu,hidden" and then it won't show up in this menu!
+On_shellrootbutton.caption
+{
+	"Change Shell"
+	"Swap Shells"
+}
+
+//---- Change Ghost Caption -----------------------------------------------------
+On_ghostrootbutton.caption
+{
+	"Change Ghost"
+	"Swap Ghosts"
+}
+
+//---- Call Ghosts Caption -----------------------------------------------------
+On_callghostrootbutton.caption
+{
+	"Call Ghost"
+	"Open Another Ghost"
+}
+
+//---- Quit Caption -----------------------------------------------------
+On_quitbutton.caption
+{
+	"Quit"
+}
+
+
+
+//---- Top Menu Option in the Second Character -----------------------------------------
+//The Kero has their own right click menu unique from the Sakura! It's tiny and most of us use it for silly things.
+On_kero.recommendbuttoncaption
+{
+	"Find Book Here"
+	"Game Kids Book 1"
+}
+
+//---- Top Menu Websites for the Second Character --------------------------------------
+//%ASC(1)%ASC(2)
+On_kero.recommendsites
+{
+	"Game Kid Tumblr"
+	--
+	"%ASC(1)https://gamekids-firewolf.tumblr.com/%ASC(2)"
+	--
+	
+	"Github Download"
+	--
+	"%ASC(1)https://github.com/Inferno-Wolf/ukagaka-nanika/tree/main/books%ASC(2)"
+}
+
+
+
+//----------------------------------End of Line------------------------------------
+
+
+
+//---- 소멸 지시 버튼 표시 교체 -------------------------------------------------------
+On_vanishbutton.visible
+{
+	if deleteshitai == "ON"; { "1" }
+	else; { "0" }
+}
+
+//---- 딳벍뭷궻뫜궻긕?긚긣뼹롦벦 -------------------------------------------------------
+//Written by Zichqec https://ukagaka.zichqec.com/
+On_otherghostname
+{
+	ghostexlist = IARRAY
+	foreach reference.raw; _ref
+	{
+		ghostexlist ,= _ref[0,C_BYTE1]
+	}
+}
+
+ghostexcount
+{
+	ARRAYSIZE(ghostexlist)
+}
+
+
+//this uses the Sakura name of the ghost
+GhostIsOpen
+{
+	if ASEARCH(_argv[0],ghostexlist) != -1; 1
+	else; 0
+}
+
+//This uses the full name of the ghost
+GhostIsInstalled
+{
+	ASEARCH(_argv[0],installedghostlist) != -1
+}
+
+//---- SHIORI 듫쁀륃뺪 ------------------------------------------------------------------
+On_version
+{
+	GETSETTING(AYAINFO_VERSION)
+}
+
+On_craftman
+{
+	"umeici"
+}
+
+On_craftmanw
+{
+	"梅市"
+}
+
+On_name
+{
+	"AYA"
+}
+
+//---- Owned SSTP 뾭 uniqueid 롦벦 ------------------------------------------------------
+On_uniqueid
+{
+	uniqueid = reference0
+}
+
+//---- hwnd 롦벦 ------------------------------------------------------------------------
+On_hwnd
+{
+	sakurahwnd    = reference0[0]
+	kerohwnd      = reference0[1]
+	sakurablnhwnd = reference1[0]
+	keroblnhwnd   = reference1[1]
+}

@@ -1,0 +1,502 @@
+﻿//---------------------------Menus--------------------------
+//Okay! menu time.
+
+
+//--Test Variable --------------------------------------------------------
+
+Select.testvariable
+{
+	"\0\s[0]Testing!\e"
+}
+
+
+//--OpenSakuraMenu
+OpenSakuraMenu
+{
+	"\0\b[2]" //setting up the Sakura and big balloon
+	--
+	if mode == 1 //she can see you
+	{
+		"\s[0]"
+		"\s[3]"
+		"\s[4]"
+		"\s[5]"
+		"\s[9]"
+		"\s[29]"
+		"\s[32]"
+		"\s[33]"
+		"\s[34]"
+		"\s[38]"
+		--
+		"Yeah?\w8"
+		
+		"What do you need,\w4 %(user)?\w8"
+		--
+		OnMenuRun
+	}
+	else //0; alone
+	{
+		OnTalkConfig
+	}
+}
+
+//--MenuRun
+OnMenuRun : all
+{	
+	"\0\b[2]\n\n\_q\*"
+	
+	if lastTalk != "" {"\![*]\__q[OnLastTalk]%(repeats)\__q\n\n[half]"}
+	
+ 	"\![*]\__q[OnAiTalk]%(talks)\__q"
+	
+	if ghostexcount > 0 {"\n\![*]\__q[OnStartTalking]%(othertalks)\__q"}
+	
+	if mode == 1 //she can see you
+	{
+		"\n\n[half]\![*]\__q[OnModeChange]%(leaveses)\__q\n\n[half]"
+	}
+	else //0; alone //this doesn't actually ever get called but I'm leaving it in here in case :T
+	{
+		"\n\n[half]\![*]\__q[OnModeChange]Tell her you've returned\__q\n\n[half]"
+	}
+	
+	if user == "KFC" {"\![*]\q[Test variable,testvariable]\n\n[half]"}
+	
+	"\![*]\__q[OnExplainMenu,menu]%(asks)\__q\n\n[half]"
+	
+	if moves == 1 //on
+	{
+		"\![*]\__q[Onschmoovement]%(lookie)\__q\n\n[half]"
+	}
+	
+	"\![*]\q[Config Menu,configmenu]"
+	"\n\![*]\q[Functions,dosomething]"
+	"\n\n[half]\![*]\q[Nevermind,CANCEL]\e"
+}
+
+talks {"Anything on your mind?"; "Got something to say?"; "Any thoughts to share?"}
+
+repeats {"Can you repeat that?"; "Can you say that again?"}
+
+othertalks {"Say hello to the company!"; "Say something to the company!"}
+
+leaveses {"Leave her to her own devices for now"; "Sneak away for a bit"; "Let her do her own thing"}
+
+asks {"Can you tell me a bit more about yourself?"; "Can you explain some things to me?"; "Can I ask about some of the names you've said?"; "Can I ask who you're talking about?"}
+
+lookie {"Hey what's that over there?"; "Think there might be something over there"; "Look over there!"}
+
+//\![*]\q[,]
+//\![*]\__q[]\__q
+
+
+//Leave this alone
+OnLastTalk
+{
+	"%(lastTalk)\e"
+}
+
+
+//menu openers
+extalks : nonoverlap
+{
+	"\0"
+	--
+	"\s[38]Uhh,\w4 sure.\w8 \s[101]Who do you want to hear me talk about?"
+	"\s[90]Who do you need me to explain?"
+	"\s[29]Who are we gossiping about today?"
+}
+
+//explaining things
+OnExplainMenu : all
+{
+	"\0\b[2]\![set,autoscroll,disable]\*\t"
+	
+	if reference0 == "menu" {"%(extalks)"}
+	
+	"\_q\n\n[half]"
+	
+	if rgbcheck == 1 //RGB guys open
+	{
+		"\![*]\_a[ApolloJustice]Apollo Justice\_a"
+		"\n\![*]\_a[GSnufkin]Snufkin\_a"
+		"\n\![*]\_a[LukeTriton]Luke Triton\_a"
+		"\n\![*]\_a[FloraReinhold]Flora Reinhold\_a"
+	}
+	else //0; alone
+	{
+		"--Moominhousehold--\n\n[half]"
+		"\![*]\_a[Moomintroll]Moomintroll\_a"
+		"\n\![*]\_a[Moominmamma]Moominmamma\_a  "
+		"\![*]\_a[Moominpappa]Moominpappa\_a"
+		
+		"\n\n[half]--Family--\n\n[half]"
+		"\![*]\_a[theMymble]Mymble\_a  "
+		"\![*]\_a[MymbleJr]Mymble Jr\_a"
+		"\n\![*]\_a[Snufkin]Snufkin\_a"
+		
+		"\n\n[half]--Friends--\n\n[half]"
+		"\![*]\_a[SnorkMaiden]Snork Maiden\_a"
+		"\n\![*]\_a[Sniff]Sniff\_a  "
+		"\![*]\_a[theSnork]Snork\_a"
+		"\n\![*]\_a[InvisibleGirl]Ninny\_a  "
+		"\![*]\_a[Tooticky]Tooticky\_a"
+		"\n\![*]\_a[Toffle]Toffle\_a"
+		
+		"\n\n[half]--Other Folk--\n\n[half]"
+		"\![*]\_a[Muskrat]Muskrat\_a  "
+		"\![*]\_a[Hemulin]Hemulins\_a"
+		"\n\![*]\_a[Hattifatners]Hattifatners\_a"
+	}
+	
+	"\n\n\![*]\q[Back to Main Menu,BACKTOMENU]\n"
+	"\![*]\q[Cancel,CANCEL]\e"
+}
+
+
+//she movin!
+Onschmoovement
+{
+	"\0%(schmoovin)"
+	--
+	"What,\w4 what is it?\w8\e"
+	
+	"Is it %(edibles)?\w8 Is it?\w8\e"
+	
+	"What?\w8 \s[115]Aww,\w4 %(user),\w4 there's nothing here!\w8\e"
+}
+
+
+//stepping in and out
+OnModeChange
+{
+	if mode == 1 //she can see you
+	{
+		mode = 0
+		
+		"\0\s[5]%(user)?\w8\w8 \s[9]Hm.\w8 Guess %(they) went home.\w8 \s[97]Now,\w4 where should I look next...?\w8"
+	}
+	else //0; alone
+	{
+		mode = 1
+		
+		"\0\s[5]Huh?\w8\w8 \s[8]Oh,\w4 there you are,\w4 %(user).\w8 \s[35]Where were you off to,\w4 then?\w8 \s[89]Keeping all the best goodies to yourself,\w4 I bet.\w8 \s[12]Well,\w4 even you best hiding places can't escape from my nose.\w8"
+	}
+	--
+	"\n\n[half]"
+	--
+	if mode == 1 //she can see you
+	{"\![*]\q[Back to Main Menu,BACKTOMENU]\n"}
+	--
+	"\![*]\q[All finished,]\e"
+}
+
+
+
+//the back to the menu option which runs the menurun
+Select.BACKTOMENU
+{
+	OnMenuRun
+}
+
+//to the config menu!
+Select.configmenu
+{
+	OnTalkConfig
+}
+
+
+//--TalkConfig
+OnTalkConfig : all
+{
+	"\0\b[2]\_q\*"
+	
+	if mode == 1 //she can see you
+	{
+		"\![*]\q[Your name,TEACHNAME]: %(user)"
+		
+		"\n\![*]\q[Your pronouns,TEACHPRONOUN]: %(they)/%(them)/%(their)"
+		
+		"\n\![*]\q[Your birthday,TEACHBDAY]: %(birthdayprint)"
+	}
+	else //0; alone
+	{
+		if firstboot == 1 //doesn't know you yet
+		{"\![*]\__q[TEACHNAME]Tell her your name\__q"}
+		else //returning teachings
+		{"\![*]\__q[OnModeChange]Tell her you're back\__q"}
+	}
+	
+	"\n\nTalk Rate: %(talktime)\n"
+	_talktimes = ("2min,120","3min,180","5min,300","7min,420","10min,600","Silent,0")
+	foreach _talktimes; _times
+	{
+		if TOINT(_times[1]) == aitalkinterval {"\![*]\__q[OnTalkrate,%(_times[1])]%(_times[0])\__q"}
+		else {"\_a[OnTalkrate,%(_times[1])]%(_times[0])\_a"}
+		"  "
+	}
+	
+	"\n\n\![*]\q[Movement Options,movetoggle]: "
+	if moves == 1 {"On"}
+	else {"Disabled"}
+	
+	"\n\n\n[half]"
+	if mode == 1 //she can see you
+	{"\![*]\q[Back to Main Menu,BACKTOMENU]\n"}
+	"\![*]\q[Cancel,CANCEL]\e"
+}
+
+
+//--Talk Rate
+OnTalkrate
+{
+	aitalkinterval = reference0
+	OnTalkConfig
+}
+
+//move toggle
+Select.movetoggle
+{
+	if moves == 0 //off
+	{moves = 1}
+	else //1; on
+	{moves = 0}
+	OnTalkConfig
+}
+
+
+//this leads to the function in nameteach.dic
+Select.TEACHNAME
+{
+	OnTeachName	
+}
+
+
+//this is the start of the pronoun options
+Select.TEACHPRONOUN
+{
+	"\0\s[5]\*\_qChoose your preferred pronouns.\w8"
+	--
+	"\n\n\![*]\q[He/Him/His,OnPronouns,masc] \n\![*]\q[She/Her/Hers,OnPronouns,fem] \n\![*]\q[They/Them/Their,OnPronouns,undef] \n\![*]\q[I have my own,OnPronouns,own] \n\n[half]\![*]\q[No change,OnPronouns,cancel] \n\![*]\q[Back to Main menu,OnPronouns,menu] \n\![*]\q[Back to Config menu,OnPronouns,config]\_q\e"
+}
+
+
+
+//Cancel messages!
+Select.CANCEL
+{
+	if mode == 1 //she can see you
+	{
+		"\0\s[3]All finished with that?\w8\e"
+		
+		"\0\s[0]Had enough?\w8\e"
+		
+		"\0\s[18]And that's enough of that.\w8\e"
+	}
+	else //0; alone
+	{
+		"\0\s[0]"
+	}
+}
+
+
+//Functions menu!
+Select.dosomething
+{
+	"\0\b[2]\*"
+	--
+	"\_q\n\n\![*]\q[Open Calendar,CALENDAR] \n\![*]\q[Check Email,MailCheck] \n\![*]\q[Open SSP Preferences,sspconfig] \n\![*]\q[Empty Recycle Bin,areyousure] \n\![*]\q[Report a bug,bugreport] \n\![*]\q[Check for updates,updatecheck] \n\n\![*]\q[Back to main menu,BACKTOMENU] \n\n\![*]\q[Cancel,CANCEL]\e"
+}
+
+
+//the built-in ssp calendar function.
+Select.CALENDAR
+{
+	"\0\s[101]\w8"
+	--
+	"\![open,calendar]\e"
+}
+
+//mail time!
+Select.MailCheck
+{
+	"\0\s[31]Hah.\w8\w8 \s[30]That mailman should remember the last time he came around.\w8 \s[27]No,\w4 I think you're better off going to see him yourself,\w4 %(user).\w8\e"
+	
+	"\0\s[9]You trying to make me a mailman for you?\w8 \s[7]Thanks,\w4 but I'll pass.\w8 \s[22]Can't really chase myself around and up a tree.\w8\e"
+	
+	//--
+	//"\![biff]\e"
+}
+
+//the ssp preferences menu. in case navigating the right click menu isn't in your spoons at the moment.
+Select.sspconfig
+{
+	"\0\![open,configurationdialog]\e"
+}
+
+
+//garbage check
+Select.areyousure
+{
+	"\0\s[60]You want me to go garbage diving?\w8 \s[132]Say less!\w8"
+	
+	"\0\s[39]Right,\w4 the garbage!\w8 \s[129]Always usually something gross and crunchy in there.\w8"
+	--
+	"\n\n\![*]\q[Have at the trash,ChoiceGarbagecan] \n\![*]\q[Actually\, don't do it,garbagecancel] \n\n[half]\![*]\q[Back to Functions menu,dosomething] \n\![*]\q[Back to Main menu,BACKTOMENU]\e"
+}
+
+//unique cancels
+Select.garbagecancel
+{
+	"\0\s[125]Aww,\w4 no?\w8 \s[47]Saving whatever's in there for yourself?\w8 \s[36]Fine.\w8\e"
+	
+	"\0\s[126]Gotta sort through it before you let me get my paws on it?\w8 \s[50]Fair enough.\w8 \s[29]Let me know when it's ready for me to dig through it.\w8\e"
+}
+
+//changed over to OnRecycleBinEmpty
+Select.ChoiceGarbagecan
+{
+	"\0\![execute,emptyrecyclebin]"
+}
+
+//occurs when the recycle bin is emptied via the command up there
+// reference0 is how many files, reference1 is size of files, both are usually 0.
+// reference2 is the difference between the number of current files and number before emptying, usually a negative number (similar with reference3)
+// reference4 is 1 if normal, 0 if an error occurred
+// reference5 is the Sakura name of the ghost that ran the tag
+OnRecycleBinEmpty
+{
+	if reference2 < 0 //checking for negative numbers, aka executed the process
+	{
+		"\0\s[-1]\w8\w8\w8\w8"
+		--
+		"\s[laughs]"
+		"\s[44]"
+		"\s[45]"
+		"\s[48]"
+		"\s[52]"
+		"\s[53]"
+		"\s[54]"
+		"\s[55]"
+		"\s[56]"
+		--
+		"Now that was a fun dive.\w8 \s[33]All sorts of interesting things to gnaw on in there.\w8"
+		
+		"Hahaha,\w4 that was fun!\w8 \s[29]Thanks for the dive,\w4 %(user).\w8 \s[4]Some really interesting things to gnash and gnaw on in there.\w8"
+	}
+	elseif reference2 == 0 //no change...?
+	{
+		"\0\s[136]%(user),\w4 you didn't even have any trash!\w8 \s[22]That's disappointing.\w8 \s[6]I mean,\w4 good job on keeping your place clean,\w4 \s[7]but no cracked eggshells or fruit rinds for me...\w8"
+	}
+	--
+	"\n\n\![*]\q[Back to Functions menu,dosomething] \n\![*]\q[Back to Main menu,BACKTOMENU] \n\![*]\q[Cancel,CANCEL]\w8\e"
+}
+
+
+//a general bug report
+Select.bugreport
+{
+	"\0\s[4]Ooh,\w4 which kind of bug?\w8 \s[15]A stag beetle?\w8 Locust?\w8 \s[5]\n\n[half]...\w8\w8\w8\s[38]this is a weird looking bug.\w8 \s[50]\_a[https://characteroulette.tumblr.com/]You can keep it\_a,\w4 thanks.\w8"
+	--
+	"\*\n\n\![*]\q[Back to Functions menu,dosomething] \n\![*]\q[Back to Main menu,BACKTOMENU] \n\![*]\q[Cancel,CANCEL]\w8\e"
+}
+
+//and, finally, update stuff!
+Select.updatecheck
+{
+	"\![updatebymyself]\e"
+}
+
+
+	
+//---- OnChoiceTimeout ---------------------------------------------------------
+OnChoiceTimeout
+{
+	if moves == 1 //on
+	{
+		"\0\s[98]Ooh,\w4 what's over here?\w8"
+		
+		"\0\s[133]Ah,\w4 over there!\w8"
+		
+		"\0\s[87]Have I checked that spot yet?\w8 \s[130]Guess I should now.\w8"
+		--
+		"%(schmoovin)\e"
+	}
+	else //0; off
+	{
+		"\0\s[105]Let's see.\w8 Where should I check next...?\w8\e"
+		
+		"\0\s[101]Hmm.\w8 Where haven't I looked yet...?\w8\e"
+		
+		"\0\s[97]I guess the next place I should be digging is...\w8\e"
+	}
+}
+
+
+
+//---- OnMouseDoubleClick -------------------------------------------------------
+//moved here because I wasn't sure about petting
+//reference5 checks which button is being used for the click, reference3 for which character
+OnMouseDoubleClick
+{
+	if reference5 == 0
+	{
+	 	if reference3 == 0 //for the Sakura
+		{
+			MouseDoubleClickSakura
+		}
+		else //for the Kero / others
+		{
+			MouseDoubleClickKero
+		}
+	}
+}
+
+//---- MouseDoubleClickSakura ----------------------------------------------------------
+// reference4 is the name of the hitbox as defined in surface.txt
+MouseDoubleClickSakura
+{
+ 	OpenSakuraMenu
+}
+
+
+/*
+OnMouseMove
+{
+	if reference3 == 0 // 0, aka the Sakura
+	{
+		MouseMoveSakura
+	}
+	else // not 0, so the Kero
+	{
+		MouseMoveKero
+	}
+}
+
+MouseMoveSakura
+{
+	if reference4 != ""
+	{
+		stroke++
+		if stroke >= 40
+		{
+			stroke = 0
+			if reference4 == "MiiHead"
+			{
+				"\0\s[0]Yeah,\w4 yeah.\w8 Careful not to lose a finger there.\w8\e"
+			}
+			elseif reference4 == "MiiFace"
+			{
+				"\0\s[0]Chomp!!\w8\e"
+			}
+		}
+	}
+	else
+	{
+		stroke = 0
+	}
+}
+*/
+
+
+//and that's menu complete!

@@ -1,0 +1,349 @@
+//---------------------------Communication--------------------------
+//inter-ghost connectivity!! aka press the button to make your ghost speak to other ghosts.
+
+
+//---- OnGhostCalling ---------------------------------------------------------------
+//when you call another ghost. It activates immediately, so write dialogue accordingly.
+//reference0 is the Sakura name of the ghost
+OnGhostCalling
+{
+	case reference0
+	{
+		when "RGB Puzzlers"
+		{
+			//if mode == 1 //she can see you
+			//else //0; alone
+			
+			"\0\s[9]Here comes the weirdos and their weirdo situationship.\w8\e"
+		}
+		//when ""
+		//{
+			//""
+		//}
+		when "Little My" //themself
+		{
+			"\0\s[139]Huh.\w8 Weid.\w8 \s[99]Isn't that me?\w8\e"
+		}
+		others //all other unrecognised ghosts!
+		{
+			if mode == 1 //she can see you
+			{
+				"\0\s[8]Huh?\w8 %(reference0)??\w8 \s[22]Why would you think I know who that is,\w4 %(user)?\w8\e"
+				
+				"\0\s[9]Inviting %(reference0) over?\w8 \s[50]I guess this is your decision to make.\w8\e"
+			}
+			else //0; alone
+			{
+				"\0\s[139]Uh oh.\w8 \s[110]Someone else found this place,\w4 too.\w8\e"
+				
+				"\0\s[139]Ack,\w4 someone else is coming over!\w8\e"
+			}
+		}
+	}
+}
+
+//when you close another ghost. Only activates after the other ghost is gone.
+OnOtherGhostClosed
+{
+	case reference0
+	{
+		when "RGB Puzzlers"
+		{
+			//if mode == 1 //she can see you
+			//else //0; alone
+			
+			"\0\s[18]And there goes my cute little brother.\w8 \s[2]What a menace.\w8\e"
+		}
+		//when ""
+		//{
+			//""
+		//}
+		when "Little My"
+		{
+			"\0\s[9]Strange reflections around here.\w8 \s[22]I guess that's why it's so off the normal path.\w8\e"
+		}
+		others //all other unspecified ghosts!
+		{
+			if mode == 1 //she can see you
+			{
+				"\0\s[7]I'm sure you said bye to %(reference0) all ready.\w8 \s[21]I don't need to help with that.\w8\e"
+				
+				"\0\s[38]The company you keep is weird,\w4 %(user).\w8 \s[19]Not that I can talk.\w8\e"
+			}
+			else //0; alone
+			{
+				"\0\s[21]Okay,\w4 they're gone.\w8 \s[130]Back to looking for %(edibles)...\w8\e"
+				
+				"\0\s[126]One less interloper to worry about.\w8 \s[101]Wonder if they know some of the paths around here that I don't...\w8\e"
+			}
+		}
+	}
+}
+
+
+//--OnCommunicate
+//OnCommunicate is called when your ghost is either targeted by another ghost for a conversation, or when your ghost is targeting another ghost for conversation.
+OnCommunicate
+{
+	if reference0 == "user" || reference0 == "User"
+	{
+		//blank because it is defunct, very sadly.
+	}
+	else //---- answering another ghost
+	{ReplyToGhost}
+}
+
+
+
+//this is when you start the conversation with another ghost. you may notice it's the function called from that option in the Sakura's menu!
+OnStartTalking
+{
+	if ghostexcount > 0
+	{
+		_randghost = ANY(ghostexlist)
+		//this simplifies the process!! thanks again, Zi!!
+		--
+		//Checks for the Sakura name; make sure you change the res_reference0 value as well!
+		case _randghost
+		{
+			//known ghosts
+			/*
+			when "RGB Puzzlers"
+			{
+				res_reference0 = "RGB Puzzlers"
+				
+				if mode == 1 //she can see you
+				{
+					"\0\s[1]Inferno,\w4 Wolf.\w8 Nice to see you trapped here as well.\w8\e Thief1"
+				}
+				else //0; alone
+				{
+					"\0\s[0]Hello,\w4 brother.\w8\e first1"
+				}
+			}*/
+			//when ""
+			//{
+				//res_reference0 = ""
+				
+				//""
+			//}
+			when "Little My"
+			{
+				res_reference0 = ""
+				
+				if mode == 1 //Vektoria
+				{
+					"\0\s[131]Nope,\w4 not doing that.\w8 \s[122]I know how these things work,\w4 %(user).\w8\e"
+					
+					"\0\s[95]You can't talk to your own reflection,\w4 %(user).\w8\e"
+				}
+				else //0; First
+				{
+					"\0\s[23]It's just a reflection.\w8 Just don't interact with it.\w8\e"
+				}
+			}
+			others //Ghosts there is no specific response to.
+			{
+				res_reference0 = _randghost
+				
+				if mode == 1 //she can see you
+				{
+					"\0\s[101]What's this one called?\w8 %(_randghost)?\w8 \s[38]\n\n[half]Okay.\w8 Hi,\w4 I guess.\w8\e"
+					
+					"\0\s[38]Hey,\w4 %(_randghost).\w8 \s[97]Did %(user) invite you to the feast?\w8\e"
+				}
+				else //0; alone
+				{
+					"\0\s[33]So.\w8\w8 \s[32]Know any good trails around here?\w8\e"
+					
+					"\0\s[3]You here for the foraging,\w4 too?\w8\e"
+				}
+			}
+		}
+	}
+	else //If no ghosts are open.
+	{
+		if mode == 1 //she can see you
+		{
+			"\0\s[56]Hello!\w8 Hello!!\w8\w8 \s[laughs]\n\n[half]Hahaha,\w8 \s[39]it's fun shouting for the sake of it!\w8\e"
+		}
+		else //0; alone
+		{
+			"\0\s[131]"
+			"\0\s[139]"
+			"\0\s[143]"
+		}
+	}
+}
+
+
+//--ReplyToGhost
+//reference0 is the ghost's Sakura name and reference1 is their dialogue
+ReplyToGhost
+{
+	_Speech = SPLIT(reference1,"\e")[0]
+	ConvoTag = SPLIT(reference1,"\e")[1]
+	_Last = SPLIT(reference1,"::")[1]
+	
+	_Last = RemovePauses(_Last)
+	"\![commu-%(reference0)]"
+	//this reflect system was written by Zi! (https://ukagaka.zichqec.com/)
+	
+	--
+	case reference0
+	{
+		when "RGB Puzzlers"
+		{
+			"\![quicksection,true]%(_Last)\![quicksection,false]"
+			--
+			"%(rgbtalk)"
+			--
+			"::%(_Speech)"
+			//Only add this for ghosts that use the reflect system
+		}
+		//when ""
+		//{
+			//"%(talk)"
+		//}
+		//when ""
+		//{
+			//
+		//}
+		others //Responses to unknown ghosts
+		{
+			if "\![commu-%(reference0)]" !_in_ SHIORI3FW.LastTalk //This checks for that commu tag up above! checking if they didn't start the conversation! (again, pretty sure Zi figured this out)
+			{
+				res_reference0 = reference0 //you add this so they can respond again
+				
+				//if mode == 1 //she can see you
+				//else //0; alone
+				
+				"\0\s[9]Yep,\w4 hi there.\w8 How's it going.\w8\e"
+				
+				"\0\s[9]%(reference0)?\w8 \s[7]Nice to see you.\w8 I guess.\w8\e"
+			}
+			else //started the conversation
+			{
+				res_reference0 = "" //leaving this blank ends the conversation
+				
+				if mode == 1 //she can see you
+				{
+					"\0\s[22]Okay,\w4 I said hi.\w8 \s[29]Back to foraging!\w8\e"
+					
+					"\0\s[21]That's the end of that conversation.\w8 \s[40]My teeth need to be occupied with much tastier treats.\w8\e"
+				}
+				else //0; alone
+				{
+					"\0\s[6]Okay,\w4 nice chatting.\w8 \s[43]Back to searching out goodies...\w8\e"
+				}
+			}
+		}
+	}
+}
+
+//Removes pauses and quicksections; this is a part of that mirroring Zi wrote!
+RemovePauses
+{
+	_argv[0] = RE_REPLACE(_argv[0],"\\!\[quicksection,(true|false|1|0)\]","")
+	_argv[0] = REPLACE(_argv[0],"\_q","")
+	_argv[0] = RE_REPLACE(_argv[0],"\\w\d","") //\w
+	_argv[0] = RE_REPLACE(_argv[0],"\\_w\[\d+\]","") //\_w[]
+	_argv[0]
+}
+
+
+//space for continuing ghost dialogues down here
+/*
+rgbtalk
+{
+	//RGB started convos
+	if "checkmode" _in_ ConvoTag
+	{
+		res_reference0 = "RGB Puzzlers"
+		
+		if mode == 1 //she can see you
+		{
+			""
+		}
+		else //0; alone
+		{
+			""
+		}
+	}
+	elseif "" _in_ ConvoTag
+	{
+		res_reference0 = "RGB Puzzlers"
+		
+		""
+	}
+	elseif "" _in_ ConvoTag
+	{
+		res_reference0 = "RGB Puzzlers"
+		
+		""
+	}
+	//Mii started convos
+	elseif "" _in_ ConvoTag
+	{
+		res_reference0 = "RGB Puzzlers"
+		
+		if mode == 1 //she can see you
+		{
+			""
+		}
+		else //0; alone
+		{
+			""
+		}
+	}
+	else //for anything they don't have a specific response to
+	{
+		res_reference0 = ""
+		
+		if mode == 1 //she can see you
+		{
+			""
+		}
+		else //0; alone
+		{
+			""
+		}
+	}
+}
+
+
+//
+talk
+{
+	if "" _in_ ConvoTag
+	{
+		res_reference0 = ""
+		
+		if mode == 1 //she can see you
+		{
+			""
+		}
+		else //0; alone
+		{
+			""
+		}
+	}
+	//elseif "" _in_ ConvoTag
+	//{
+		//res_reference0 = ""
+	//}
+	else //all other responses
+	{
+		res_reference0 = ""
+		
+		if mode == 1 //she can see you
+		{
+			""
+		}
+		else //0; alone
+		{
+			""
+		}
+	}
+}
+*/
