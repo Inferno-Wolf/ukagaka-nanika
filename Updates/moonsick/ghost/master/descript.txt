@@ -1,0 +1,17 @@
+charset,UTF-8
+
+name,Moon Sickness
+type,ghost
+
+shiori,yaya.dll
+
+craftman,KFC
+craftmanw,KFC
+craftmanurl,https://characteroulette.tumblr.com/
+
+sakura.name,Clive Dove
+kero.name,Claire de Lune
+
+icon,icon.ico
+
+sstp.allowunspecifiedsend,0

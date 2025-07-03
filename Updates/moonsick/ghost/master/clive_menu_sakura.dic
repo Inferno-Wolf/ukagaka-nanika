@@ -1,0 +1,77 @@
+//menu time!
+
+
+//Sakura menu
+OnSakuraMenu : all
+{
+	"\0\s[0]\b[2]\![set,autoscroll,disable]\_q\n"
+	
+	"\![*]\q[Talk to her,OnAiTalk]"
+	switch LastTalk == "" //Uses top option if there is a dialogue to repeat
+	{
+		"\n\![*]\q[Say that again,OnLastTalk]"
+		"\n\![*]\f[color,disable]Say that again\f[color,default]"
+	}
+	
+	"\n\n\n"
+	
+	"Talk Rate: %(talktime)\n"
+	_talktimes = ("3min,180","5min,300","7min,420","10min,600","Silent,0")
+	foreach _talktimes; _times
+	{
+		if TOINT(_times[1]) == aitalkinterval {"\![*]\__q[OnTalkrate,%(_times[1])]%(_times[0])\__q"}
+		else {"\_a[OnTalkrate,%(_times[1])]%(_times[0])\_a"}
+		"  "
+	}
+	
+	"\n\n\n"
+	
+	if finale == 1 //reached
+	{
+		"\![*]\__q[OnFinaleRun]Replay the Finale\__q\n\n\n"
+	}
+	
+	"\![*]\q[Cancel,blank]"	
+}
+
+OnLastTalk
+{
+	LastTalk
+}
+
+//--Talk Rate
+OnTalkrate
+{
+	aitalkinterval = reference0
+	OnSakuraMenu
+}
+
+//Talktime
+talktime
+{
+	if aitalkinterval == 180 {"3 minutes"}
+	elseif aitalkinterval == 300 {"5 minutes"}
+	elseif aitalkinterval == 420 {"7 minutes"}
+	elseif aitalkinterval == 600 {"10 minutes"}
+	else //0
+	{"Silent"}
+}
+
+
+
+//random moon events
+OnKeroMenu
+{
+	if RAND(100) < 5
+	{
+		"\0\![set,balloonmarker,You won't find him here] "
+		"\0\![set,balloonmarker,You need to stop chasing me] "
+		"\0\![set,balloonmarker,You won't cease until the end] "
+		"\0\![set,balloonmarker,He's not here] "
+		"\0\![set,balloonmarker,I'm sorry it had to be this way] "
+		"\0\![set,balloonmarker,You can't stop it] "
+		"\0\![set,balloonmarker,I've poisoned you. I'm sorry.] "
+		"\0\![set,balloonmarker,You will never be the same again] "
+	}
+	else {OnSurfaceRestore}
+}

@@ -1,0 +1,58 @@
+//Separate from the menus
+
+
+//reference3 is which character is being clicked
+//If you want to add double click interactions, reference4 will be the name of the hitbox the mouse is over
+OnMouseDoubleClick
+{
+	if reference5 == 0 //reference5 is the mouse button being clicked, in this case a left click
+	{
+		if reference3 == 0
+		{
+			OnSakuraMenu
+		}
+		else
+		{
+			OnKeroMenu
+		}
+	}
+}
+
+OnMouseMove
+{
+	if reference4 != ""
+	{
+		stroke++
+		
+		if stroke % 40 == 0
+		{
+			if reference3 == 0; OnMouseMove.Sakura
+			else; OnMouseMove.Kero
+		}
+	}
+}
+
+OnMouseMove.Sakura
+{
+	if reference4 == "head"
+	{
+		"\0\s[0]"
+	}
+}
+
+OnMouseMove.Kero
+{
+	if reference4 == "head"
+	{
+		"\0She's out of your reach.\w8\e"
+		
+		"\0Much as you try,\w4 you cannot dig your fingers into her flesh.\w8\e"
+		
+		"\0Careful.\w8 Her sharp dust bites.\w8\e"
+	}
+}
+
+OnMouseLeaveAll
+{
+	stroke = 0
+}

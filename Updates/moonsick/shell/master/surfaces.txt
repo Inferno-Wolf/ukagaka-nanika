@@ -1,0 +1,127 @@
+//Some quick notes:
+
+//////Sakura
+// 0 -> arms down; 1 -> reach rt; 2 -> reach left; 3 -> reach both; 4 -> despair
+
+/////Kero
+// 10 -> Full; 11 -> waning gib; 12 -> waning half; 13 -> waning crescent; 14 -> new; 15 -> waxing crescent; 16 -> waxing half; 17 -> waxing gib
+// 10 faces: \i[0] -> mochi rabbit; \i[1] -> face; \i[2] -> lunatone; \i[3] -> Majora; \i[4] -> Liar Princess; \i[5] -> C look down; \i[6] -> C look you; \i[7] -> Luke cry
+
+
+descript
+{
+	version,1
+}
+
+//—————————————————————————————— Sakura surfaces ——————————————————————————————
+//Clive arms down
+surface0
+{
+	//collision0,0,0,130,65,head
+}
+
+//Clive reach rt
+surface1
+{
+	
+}
+
+//Clive reach left
+surface2
+{
+	
+}
+
+//Clive reach both
+surface3
+{
+	
+}
+
+//Clive despair
+surface4
+{
+	
+}
+
+//—————————————————————————————— Kero surfaces ——————————————————————————————
+//Full Moon
+surface10
+{
+	//collision0,0,0,130,65,head
+	
+	//------------faces
+	//mochi rabbit
+	animation0.interval,never
+	animation0.pattern0,overlay,20,0,0,0
+	
+	//face
+	animation1.interval,never
+	animation1.pattern0,overlay,21,0,0,0
+	
+	//lunatone
+	animation2.interval,never
+	animation2.pattern0,overlay,22,0,0,0
+	
+	//Majora
+	animation3.interval,never
+	animation3.pattern0,overlay,23,0,0,0
+	
+	//Liar Princess
+	animation4.interval,never
+	animation4.pattern0,overlay,24,0,0,0
+	
+	//Claire look down
+	animation5.interval,never
+	animation5.pattern0,overlay,25,0,0,0
+	
+	//Clair look you
+	animation6.interval,never
+	animation6.pattern0,overlay,26,0,0,0
+	
+	//Luke cry
+	animation7.interval,never
+	animation7.pattern0,overlay,27,0,0,0
+}
+
+//waning gibbous
+surface11
+{
+	
+}
+
+//waning half
+surface12
+{
+	
+}
+
+//waning crescent
+surface13
+{
+	
+}
+
+//new moon
+surface14
+{
+	
+}
+
+//waxing crescent
+surface15
+{
+	
+}
+
+//waxing half
+surface16
+{
+	
+}
+
+//waxing gibbous
+surface17
+{
+	
+}

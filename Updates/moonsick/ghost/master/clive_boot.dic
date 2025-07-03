@@ -1,0 +1,175 @@
+//Boots and closes!!
+
+
+OnFirstBoot
+{
+	stroke = 0
+	LastTalk = ""
+	tempFlags = IARRAY
+	finale = 0
+	
+	"\t\1\s[10]\0\s[0]They call it Moon Sickness.\x[noclear]\n\n[half]What you have is an illness.\w8 It's spread too far through you.\xMoon blinking.\w8 Another name for what you have.\x[noclear]\n\n[half]\s[1]You drank and drank and drank until her silver blood filled you.\w8 \s[3]You chased and chased until nothing else could fulfill you.\x\s[0]Moon Sickness.\w8 That's what they called it.\x[noclear]\n\n[half]\1\s[10]\i[5]\0\s[2]You'll reclaim what she's taken from you.\w8 You have to.\w8 \1\s[10]\0\s[0]It's only a matter of time until she can't run from you any longer.\w8\e"
+}
+
+OnInitialize
+{
+	//If you want some variables to reset on boot, put them here. This event will happen even if you add other events like OnGhostChanged
+	
+	//If you add new variables in updates, I recommend initializing them like so:
+	//if !ISVAR("NewVariable"); NewVariable = 0
+	//This means that it will only set the new variable if the user doesn't already have it, so that their variables don't get overwritten
+	
+	if reference0 != "reload" //For things you want to reset EXCEPT when just reloading
+	{
+		LastTalk = ""
+	}
+}
+
+OnBoot
+{
+	"\1\s[10]\0\s[0]"
+	--
+	if isTemp("worship") == 1
+	{
+		"Your altar has been built.\w8 It's time for the worship.\w8\e"
+		
+		"Another altar built.\w8 Now you must worship her.\w8\e"
+		
+		"\1\s[10]\i[5]\0She's whispering in your ear again.\w8 \1\s[10]\0You cannot disobey her.\w8\e"
+	}
+	if isTemp("hole") == 1
+	{
+		"You arrive once more to be Moon Blinked.\w8 You welcome the relinquishing of your autonomy.\w8\e"
+		
+		"She slips back into your mind through the holes.\w8 Every single nook and cranny.\w8\e"
+		
+		"You aren't full until she's within your very soul.\w8 Not that you have one anymore.\w8\e"
+	}
+	if isTemp("blood") == 1
+	{
+		"There's not much else you can do besides return to her.\w8 This world is not meant for you anymore.\w8\e"
+		
+		"She demands more sacrifice.\w8 So here you are,\w4 upon her altar.\w8\e"
+		
+		"To drink of her blood is all you desire.\w8 By this point,\w4 there's nothing else that matters to you.\w8\e"
+	}
+	if isTemp("beg") == 1
+	{
+		"It is time to beg once more.\w8 She won't respond.\w8\e"
+		
+		"You must keep begging.\w8 Even if she cannot listen to you.\w8\e"
+		
+		"She won't give him back,\w4 no matter how much you beg.\w8\e"
+	}
+	if isTemp("height") == 1
+	{
+		"\s[3]To the highest heights,\w4 to the tallest of towers.\w8 \s[4]Here you are once again.\w8\e"
+		
+		"\s[1]Perhaps tonight is the night you will finally reach her orbit.\w8 \s[0]All you need to do is keep jumping.\w8\e"
+		
+		"\s[3]Her embrace still eludes you,\w4 no matter how high you climb.\w8 No matter how much you reach.\w8\e"
+	}
+	if isTemp("hell") == 1
+	{
+		"\1\s[10]\i[3]\0It's time to keep building down,\w4 down,\w4 down.\w8\e"
+		
+		"You can only keep building down into your own hell.\w8\e"
+		
+		"Another tower,\w4 \1\s[10]\i[3]\0another step closer to your own damnation.\w8\e"
+	}
+	if isTemp("phases") == 1
+	{
+		"\s[1]''I've missed you,\w4 my love.''\w8\e"
+		
+		"\s[2]''I've returned to see you again,\w4 my dear.''\w8\e"
+		
+		"\s[4]''I thought I'd lost sight of you.\w8 \s[3]Yet here you are.''\w8\e"
+	}
+	if isTemp("spotlight") == 1
+	{
+		"Back to the stage.\w8 Her spotlight shines upon you once more.\w8\e"
+		
+		"You're back to dance for her.\w8 She demands it.\w8\e"
+		
+		"Her strings have dragged you back.\w8 You bask in her spotlight.\w8\e"
+	}
+	if isTemp("smiles") == 1
+	{
+		"\1\s[12]"
+		"\1\s[13]"
+		"\1\s[15]"
+		"\1\s[16]"
+		"\1\s[10]\i[1]"
+		--
+		"\0"
+		--
+		"You're back to see her smile.\w8 It's just for you,\w4 after all.\w8\e"
+		
+		"Her smile's drawn you right back in.\w8 How can you resist such a lovely smile?\w8\e"
+		
+		"You needed to see her smile again.\w8 You longed for it.\w8 Bled for it.\w8\e"
+	}
+	if isTemp("hunger") == 1
+	{
+		"Another night of drinking her blood.\w8 It's the only nourishment you need.\w8\e"
+		
+		"You prefer her drink over any mortal food.\w8 It's all you know after so long,\w4 anyway.\w8\e"
+		
+		"She's offering you her feast once more.\w8 You must partake in the only sustenance that matters.\w8\e"
+	}
+	if isTemp("shadows") == 1
+	{
+		"She's bright enough to cast shadows.\w8 You try to avoid looking too hard into your own.\w8\e"
+		
+		"You bathe under her silver light.\w8 You drink in all the terror splattered across your hands.\w8\e"
+		
+		"She won't judge you for your sins.\w8 You take comfort in that fact.\w8\e"
+	}
+	
+	"You've returned to her.\w8\e"
+	
+	"She's returned to you.\w8 \s[1]Always out of your reach.\w8\e"
+	
+	"She's here in your sky once more.\w8\e"
+	
+	"And there she is.\w8 Just as you were hoping for.\w8\e"
+	
+	"She is here.\w8 He is not.\w8\e"
+	
+	"How you've missed her.\w8\e"
+	
+	"Shall you resume?\w8\e"
+	
+	"Another night,\w4 another day of gazing into her loveliness.\w8\e"
+	
+	"You've climbed to the top to gaze upon her once more.\w8\e"
+	
+	"Once again,\w4 you've been driven to madness.\w8 You've always been this way.\w8\e"
+}
+
+OnClose
+{
+	"\1\s[10]\0\s[0]"
+	--
+	"And then she fell asleep."
+	
+	"\s[2]Until the next night,\w4 then."
+	
+	"Until the next tower has been built."
+	
+	"Until the next altar has been erected."
+	
+	"You wish her goodnight.\w8 Sleep well."
+	
+	"Today is not the day."
+	
+	"There's nothing left for you to do."
+	
+	"You'll have to deal with not seeing her again until another night."
+	
+	"You cannot claim her.\w8 You cannot claim him."
+	
+	"\s[2]She's slipped out of your reach."
+	--
+	"\w8\w8\-"
+}

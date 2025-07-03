@@ -1,0 +1,135 @@
+//This file handles a couple little QOL functions
+
+
+//—————————————————————————————— Installing something ——————————————————————————————
+OnInstallBegin
+{
+	"\0\s[1]"
+	"\0\s[2]"
+	"\0\s[3]"
+	--
+	"Another tower built for her acclaim.\w8\e"
+	
+	"Another ladder to climb ever closer.\w8\e"
+	
+	"Another arm stretching out to her embrace.\w8\e"
+}
+
+OnInstallComplete
+{
+	"\0\s[4]"
+	--
+	"You are closer,\w4 and yet you still cannot reach.\w8\e"
+	
+	"Even when completed,\w4 you still cannot reach her.\w8\e"
+}
+
+OnInstallFailure
+{
+	"\0\s[4]The tower crumbles.\w8 You've failed today.\w8\e"
+	
+	"\0\s[4]The ladder topples.\w8 You won't be climbing any higher.\w8\e"
+	
+	"\0\s[0]The arm snaps.\w8 You can't reach any more.\w8\e"
+}
+
+
+//—————————————————————————————— Creating updates and .nar ——————————————————————————————
+OnUpdatedataCreating
+{
+	"\0\s[1]"
+	"\0\s[2]"
+	--
+	"Stacking ladders upon ladders upon ladders.\w8\e"
+	
+	"Building arm after arm after arm.\w8\e"
+	
+	"Adding block after block after block to the tower.\w8\e"
+}
+
+OnUpdatedataCreated
+{
+	"\0\s[0]"
+	--
+	"The pieces are ready to be put into their places.\w8\e"
+	
+	"The setup is complete.\w8 All that's left to do is to climb.\w8\e"
+}
+
+
+OnNarCreating
+{
+	"\0\s[1]"
+	"\0\s[2]"
+	--
+	"Time to set up another altar.\w8\e"
+	
+	"Time to add another machine to her collection.\w8\e"
+}
+
+OnNarCreated
+{
+	"\0\s[0]"
+	--
+	"Another altar for her beauty.\w8\e"
+	
+	"Another machine to destroy your way to her.\w8\e"
+}
+
+
+//—————————————————————————————— Network Update ——————————————————————————————
+OnUpdateBegin
+{
+	"\0\s[1]"
+	"\0\s[3]"
+	"\0\s[2]"
+	--
+	"Rejoice\w8 and partake in her silver.\w8\e"
+	
+	"Rejoice\w8 and partake in her blood.\w8\e"
+}
+
+//reference0 is the number of new files, starting from 0
+OnUpdateReady
+{
+	reference0++ //Number of files starts from 0, so this displays the correct amount
+	
+	//plural checks, adds an s and changes is to are if there's more than 1 file
+	_s = ""; _are = "is"
+	if reference0 != 1; {_s = "s"; _are = "are"}
+	
+	"\0\s[0]\_q(There %(_are) %(reference0) new file%(_s).)\_q\w8\w8\w8"
+}
+
+//when the update fails
+OnUpdateFailure
+{
+	"\0\s[4]"
+	--
+	"You've failed to reach her gifts.\w8 How devastating for you.\w8\e"
+	
+	"But her grace never reaches you.\w8 You've failed somehow.\w8\e"
+}
+
+//When the update finishes.
+//reference0 is 'none' if there were no new files to update with
+OnUpdateComplete
+{
+	if reference0 == "none"
+	{
+		"\0\s[4]"
+		"\0\s[0]"
+		--
+		"She has nothing new to share with you.\w8\e"
+		
+		"But you've all ready guzzled down what she's given you.\w8\e"
+	}
+	else
+	{
+		"\0\s[0]"
+		--
+		"Her shine upon your skin bites anew.\w8\e"
+		
+		"Her gifts breathe anew in your breast.\w8\e"
+	}
+}
