@@ -26,9 +26,11 @@ OnSakuraMenu : all
 	
 	"\n\n\n"
 	
-	if finale == 1 //reached
+	if endcomplete == 1 //reached
 	{
-		"\![*]\__q[OnFinaleRun]Replay the Finale\__q\n\n\n"
+		"\![*]\__q[OnFinaleRun]Replay the Finale\__q\n"
+		"\![*]\__q[OnReset]Reset Story\__q"
+		"\n\n\n"
 	}
 	
 	"\![*]\q[Cancel,blank]"	
@@ -55,6 +57,27 @@ talktime
 	elseif aitalkinterval == 600 {"10 minutes"}
 	else //0
 	{"Silent"}
+}
+
+OnReset
+{
+	finale = 0
+	endcomplete = 0
+	
+	if isTemp('worship') == 1 {yeetTemp("worship")}
+	if isTemp('hole') == 1 {yeetTemp("hole")}
+	if isTemp('blood') == 1 {yeetTemp("blood")}
+	if isTemp('beg') == 1 {yeetTemp("beg")}
+	if isTemp('height') == 1 {yeetTemp("height")}
+	if isTemp('hell') == 1 {yeetTemp("hell")}
+	if isTemp('phases') == 1 {yeetTemp("phases")}
+	if isTemp('spotlight') == 1 {yeetTemp("spotlight")}
+	if isTemp('smiles') == 1 {yeetTemp("smiles")}
+	if isTemp('hunger') == 1 {yeetTemp("hunger")}
+	if isTemp('shadows') == 1 {yeetTemp("shadows")}
+	//if isTemp('') == 1 {yeetTemp("")}
+	
+	OnSakuraMenu
 }
 
 

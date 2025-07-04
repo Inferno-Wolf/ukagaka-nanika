@@ -26,4 +26,5 @@ Huge thanks to the Ukagaka Dream Team community, as always!!
 
 -----/Versions & Updates/------
 
+(v.1.1) - Adjusted story timing and added a reset button
 (v.1.0) - Initial Release

@@ -6,17 +6,17 @@
 storycheck : array
 {
 	//variable,%(isTemp('flag') == 1)
-	"worship,%(isTemp('flag') == 1)"
-	"hole,%(isTemp('flag') == 1)"
-	"blood,%(isTemp('flag') == 1)"
-	"beg,%(isTemp('flag') == 1)"
-	"height,%(isTemp('flag') == 1)"
-	"hell,%(isTemp('flag') == 1)"
-	"phases,%(isTemp('flag') == 1)"
-	"spotlight,%(isTemp('flag') == 1)"
-	"smiles,%(isTemp('flag') == 1)"
-	"hunger,%(isTemp('flag') == 1)"
-	"shadows,%(isTemp('flag') == 1)"
+	"worship,%(isTemp('worship') == 1)"
+	"hole,%(isTemp('hole') == 1)"
+	"blood,%(isTemp('blood') == 1)"
+	"beg,%(isTemp('beg') == 1)"
+	"height,%(isTemp('height') == 1)"
+	"hell,%(isTemp('hell') == 1)"
+	"phases,%(isTemp('phases') == 1)"
+	"spotlight,%(isTemp('spotlight') == 1)"
+	"smiles,%(isTemp('smiles') == 1)"
+	"hunger,%(isTemp('hunger') == 1)"
+	"shadows,%(isTemp('shadows') == 1)"
 }
 
 

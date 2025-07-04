@@ -7,17 +7,14 @@ OnFirstBoot
 	LastTalk = ""
 	tempFlags = IARRAY
 	finale = 0
+	endcomplete = 0
 	
 	"\t\1\s[10]\0\s[0]They call it Moon Sickness.\x[noclear]\n\n[half]What you have is an illness.\w8 It's spread too far through you.\xMoon blinking.\w8 Another name for what you have.\x[noclear]\n\n[half]\s[1]You drank and drank and drank until her silver blood filled you.\w8 \s[3]You chased and chased until nothing else could fulfill you.\x\s[0]Moon Sickness.\w8 That's what they called it.\x[noclear]\n\n[half]\1\s[10]\i[5]\0\s[2]You'll reclaim what she's taken from you.\w8 You have to.\w8 \1\s[10]\0\s[0]It's only a matter of time until she can't run from you any longer.\w8\e"
 }
 
 OnInitialize
 {
-	//If you want some variables to reset on boot, put them here. This event will happen even if you add other events like OnGhostChanged
-	
-	//If you add new variables in updates, I recommend initializing them like so:
-	//if !ISVAR("NewVariable"); NewVariable = 0
-	//This means that it will only set the new variable if the user doesn't already have it, so that their variables don't get overwritten
+	if !ISVAR("endcomplete"); endcomplete = 0
 	
 	if reference0 != "reload" //For things you want to reset EXCEPT when just reloading
 	{

@@ -10,7 +10,7 @@ OnAiTalk
 
 RandomTalk : nonoverlap_pool
 {
-	if finale == 1 //reached; random dialogues
+	if endcomplete == 1 //reached; random dialogues
 	{
 		"\0\s[0]There is a hole in your head.\w8 It's been there for a long time.\w8\e:chain=holehead"
 		
@@ -49,7 +49,7 @@ RandomTalk : nonoverlap_pool
 		
 		"\1\s[10]\i[1]\0\s[0]When she smiles,\w4 you know it's just for you.\w8\e:chain=smiling"
 		
-		"\0\s[0]You never hunger.\x\n\n[half]You can't enjoy what you don't taste,\w4 after all.\w8\e:chain=alwayshungry"
+		"\0\s[0]You never hunger.\x[noclear]\n\n[half]You can't enjoy what you don't taste,\w4 after all.\w8\e:chain=alwayshungry"
 		
 		"\0\s[0]The shadows she casts from her light pool beneath you in cacophony.\w8\e:chain=destruction"
 	}
@@ -119,7 +119,7 @@ RandomTalk : nonoverlap_pool
 		
 		if isTemp("hunger") != 1
 		{
-			"\0\s[0]You never hunger.\x\n\n[half]You can't enjoy what you don't taste,\w4 after all.\w8\e:chain=alwayshungry"
+			"\0\s[0]You never hunger.\x[noclear]\n\n[half]You can't enjoy what you don't taste,\w4 after all.\w8\e:chain=alwayshungry"
 		}
 		
 		if isTemp("shadows") != 1
@@ -127,7 +127,7 @@ RandomTalk : nonoverlap_pool
 			"\0\s[0]The shadows she casts from her light pool beneath you in cacophony.\w8\e:chain=destruction"
 		}
 		
-		if isTemp("hunger") == 1 && isTemp("smiles") == 1 && isTemp("spotlight") == 1 && isTemp("phases") == 1 && isTemp("hell") == 1 && isTemp("height") == 1 && isTemp("beg") == 1 && isTemp("blood") == 1 && isTemp("hole") == 1 && isTemp("worship") == 1 && isTemp("shadows") == 1 //&& isTemp("") == 1
+		if finale >= 5
 		{
 			"\![raise,OnFinaleRun]"
 		}
@@ -154,7 +154,7 @@ worshipher
 	
 	"\0\s[0]Altars are not enough.\w8 Consuming is not enough.\x[noclear]\n\n[half]\s[3]Until you hold her head in your hands,\w4 until you feel your flesh once more,\w4 it will never be enough.\x[noclear]\n\n[half]\s[1]She taunts you with how close she is.\w8 She taunts you with how much distance remains between you and him.\w8\e"
 	
-	"\0\s[0]\![set,balloonmarker,Worship me.]\w8You hear her whisper.\x\n\n[half]''For you,\w4 my dear,\w4 gladly.''\w8%setTemp('worship')\e:chain=end"
+	"\0\s[0]\![set,balloonmarker,Worship me.]\w8You hear her whisper.\x''For you,\w4 my dear,\w4 gladly.''\w8\![raise,OnFinaleAdd,worship]\e:chain=end"
 }}CHAIN
 
 holehead
@@ -169,7 +169,7 @@ holehead
 	
 	"\0\s[0]You're thanking her for it.\w8 For possessing you so thoroughly.\x[noclear]\n\n[half]\1\s[10]\i[6]\0You're sobbing and thanking her for taking away your sanity.\w8\e"
 	
-	"\0\s[0]There is a hole in your head.\w8 It's how she slipped in.\x[noclear]\n\n[half]And you'll do everything to get her back out.\w8%setTemp('hole')\e:chain=end"
+	"\0\s[0]There is a hole in your head.\w8 It's how she slipped in.\x[noclear]\n\n[half]And you'll do everything to get her back out.\w8\![raise,OnFinaleAdd,hole]\e:chain=end"
 }}CHAIN
 
 immortal
@@ -182,7 +182,7 @@ immortal
 	
 	"\0\s[0]Biting into each bit is like rubber.\w8 Like a stress ball.\w8 A balloon filled with bubbling acid.\x[noclear]\n\n[half]It makes you queasy when you shake your stomach.\w8 Makes you cough when you prod at your lungs,\w4 when you trail fingers along your esophagus.\w8\e"
 	
-	"\0\s[0]You can squeeze and make yourself squirm.\w8 She desires sacrifice,\w4 after all.\x[noclear]\n\n[half]But it won't release you from her hold.\w8 Nothing will.\xYou are her unwilling servant.\w8%setTemp('blood')\e:chain=end"
+	"\0\s[0]You can squeeze and make yourself squirm.\w8 She desires sacrifice,\w4 after all.\x[noclear]\n\n[half]But it won't release you from her hold.\w8 Nothing will.\xYou are her unwilling servant.\w8\![raise,OnFinaleAdd,blood]\e:chain=end"
 }}CHAIN
 
 begforit
@@ -193,7 +193,7 @@ begforit
 	
 	"\0\s[0]...\w8\w8she is all that remains in your life.\x[noclear]\n\n[half]You've forgotten how to be without her dragging you along.\w8 You've forgotten there is anything that can exist outside of this chase.\x[noclear]\n\n[half]She is eons away and you cannot give in.\w8 You have to keep building.\w8\e"
 	
-	"\0\s[3]You beg.\x[noclear]\n\n[half]All that's left for you to do is beg.\xBeg for mercy.\w8 Beg for your life.\x[noclear]\n\n[half]\1\s[10]\i[1]\0\s[0]She remains silent and your pleas fall to the stars surrounding her.\w8%setTemp('beg')\e:chain=end"
+	"\0\s[3]You beg.\x[noclear]\n\n[half]All that's left for you to do is beg.\xBeg for mercy.\w8 Beg for your life.\x[noclear]\n\n[half]\1\s[10]\i[1]\0\s[0]She remains silent and your pleas fall to the stars surrounding her.\w8\![raise,OnFinaleAdd,beg]\e:chain=end"
 }}CHAIN
 
 ladders
@@ -204,7 +204,7 @@ ladders
 	
 	"\0\s[0]As much as you try,\w4 it's not enough.\x[noclear]\n\n[half]You've engineered machines.\w8 You've built arms and ladders reaching up to the edge of your limits.\w8 Like toys,\w4 like building blocks,\w4 you keep stacking and stacking until they all crumble to pieces.\x[noclear]\n\n[half]It never works.\w8 It can never work.\w8\e"
 	
-	"\0\s[1]As high as you can reach,\w4 as far as you stretch yourself to your fingertips,\w4 you cannot brush against her face.\x[noclear]\n\n[half]\s[4]As close as your eyes trick you into believing you are,\w4 she is still too far.\w8%setTemp('height')\e:chain=end"
+	"\0\s[1]As high as you can reach,\w4 as far as you stretch yourself to your fingertips,\w4 you cannot brush against her face.\x[noclear]\n\n[half]\s[4]As close as your eyes trick you into believing you are,\w4 she is still too far.\w8\![raise,OnFinaleAdd,height]\e:chain=end"
 }}CHAIN
 
 tower
@@ -217,7 +217,7 @@ tower
 	
 	"\0\s[4]She brings herself too close and all you want is to kiss her in return.\w8 To dig your fingers into her flesh.\w8 To rip her open and consume what she's been filling you with this whole time.\x[noclear]\n\n[half]Ashes to ashes to ashes.\w8 Blood to blood to blood.\w8\e"
 	
-	"\0\s[0]The higher you build,\w4 the further you sink into her grasp.\x[noclear]\n\n[half]\1\s[10]\i[3]\0She flipped you upside-down when you weren't even looking.\w8 Yet you continue to build.\w8%setTemp('hell')\e:chain=end"
+	"\0\s[0]The higher you build,\w4 the further you sink into her grasp.\x[noclear]\n\n[half]\1\s[10]\i[3]\0She flipped you upside-down when you weren't even looking.\w8 Yet you continue to build.\w8\![raise,OnFinaleAdd,hell]\e:chain=end"
 }}CHAIN
 
 shiftingsmiles
@@ -230,7 +230,7 @@ shiftingsmiles
 	
 	"\1\s[15]\0She takes flight during the day.\w8 \1\s[16]\0During the evening.\w8 \1\s[17]\0At night.\x[noclear]\n\n[half]\s[1]You reach for her at every hour you can,\w4 whether she's visible or not.\w8\e"
 	
-	"\1\s[13]\0\s[0]Every face of her is just as sweet.\x[noclear]\n\n[half]As her lone worshipper,\w4 you have little choice but to build in her honour.\w8%setTemp('phases')\e:chain=end"
+	"\1\s[13]\0\s[0]Every face of her is just as sweet.\x[noclear]\n\n[half]As her lone worshipper,\w4 you have little choice but to build in her honour.\w8\![raise,OnFinaleAdd,phases]\e:chain=end"
 }}CHAIN
 
 performance
@@ -241,7 +241,7 @@ performance
 	
 	"\0\s[0]Despite how these strings lead right back to her,\w4 you're unable to climb them.\w8 They're too slick with her blood.\x[noclear]\n\n[half]\1\s[10]\i[1]\0She pours her silver into you.\w8 Replaces your veins with it.\x[noclear]\n\n[half]\1\s[10]\0You aren't allowed to exist without her.\w8 You're not allowed to cease until her say so.\w8\e"
 	
-	"\1\s[10]\i[5]\0\s[0]Her watchful gaze shines down on you.\w8 She's expecting your performance.\x[noclear]\n\n[half]\1\s[10]\0\s[1]What else can you do besides take up her spotlight?\w8%setTemp('spotlight')\e:chain=end"
+	"\1\s[10]\i[5]\0\s[0]Her watchful gaze shines down on you.\w8 She's expecting your performance.\x[noclear]\n\n[half]\1\s[10]\0\s[1]What else can you do besides take up her spotlight?\w8\![raise,OnFinaleAdd,spotlight]\e:chain=end"
 }}CHAIN
 
 smiling
@@ -254,7 +254,7 @@ smiling
 	
 	"\1\s[10]\i[1]\0\s[0]Her smile is cold.\w8 Her smile is warmth.\x[noclear]\n\n[half]She can freeze you from how high you must climb.\w8 She'll burn you alive the further you reach.\w8\e"
 	
-	"\1\s[15]\0\s[0]She's smiling just for you.\w8 Just for you.\x[noclear]\n\n[half]\s[1]It's the only reminder you ever need for why you continue building.\w8%setTemp('smiles')\e:chain=end"
+	"\1\s[15]\0\s[0]She's smiling just for you.\w8 Just for you.\x[noclear]\n\n[half]\s[1]It's the only reminder you ever need for why you continue building.\w8\![raise,OnFinaleAdd,smiles]\e:chain=end"
 }}CHAIN
 
 alwayshungry
@@ -271,7 +271,7 @@ alwayshungry
 	
 	"\0\s[0]The only thing you know is her blood.\w8 Silver dripping down your throat,\w4 coating your liver and lungs,\w4 imparting morphine and mercury and everything you could ever need.\x[noclear]\n\n[half]What use is taste when she's too divine for it?\w8 When you have no need to consume anything else?\w8\e"
 	
-	"\0\s[0]Hunger is a distant concept now.\w8 A memory of something you once had.\x[noclear]\n\n[half]Just the same as your sanity.\w8 \1\s[10]\i[5]\0\s[3]It all rests in her arms.\w8%setTemp('hunger')\e:chain=end"
+	"\0\s[0]Hunger is a distant concept now.\w8 A memory of something you once had.\x[noclear]\n\n[half]Just the same as your sanity.\w8 \1\s[10]\i[5]\0\s[3]It all rests in her arms.\w8\![raise,OnFinaleAdd,hunger]\e:chain=end"
 }}CHAIN
 
 destruction
@@ -284,7 +284,7 @@ destruction
 	
 	"\0\s[0]It's not just your own blood on your hands.\w8 \s[4]It's not just her own blood you've been drowned in.\x[noclear]\n\n[half]\s[0]You'd destroy the world to reach her.\w8 \s[4]You'd slice open your hands on her sharp skin.\x[noclear]\n\n[half]\s[0]As much as you've destroyed yourself,\w4 you'll wreak havoc and terror just to keep building.\w8 \s[1]Just to keep reaching.\w8\e"
 	
-	"\0\s[0]Her light is strong enough to cast shadows.\w8 Yours looms behind you,\w4 darker and darker still.\x[noclear]\n\n[half]\1\s[14]\0There is nothing left of you that gives you any distinction from it.\w8%setTemp('shadows')\e:chain=end"
+	"\0\s[0]Her light is strong enough to cast shadows.\w8 Yours looms behind you,\w4 darker and darker still.\x[noclear]\n\n[half]\1\s[14]\0There is nothing left of you that gives you any distinction from it.\w8\![raise,OnFinaleAdd,shadows]\e:chain=end"
 }}CHAIN
 
 /*
@@ -313,10 +313,32 @@ finaletime
 	
 	"\1\s[10]\i[5]\0\s[0]She stole him from you.\w8 You'd do anything to get him back.\x[noclear]\n\n[half]\s[3]You are doing anything to get him back.\x[noclear]\n\n[half]\s[4]But no matter how far you climb,\w4 she remains out of your reach.\x\1\s[14]\0And you\w8\w8 are too tired\w8\w8 to continue the chase.\w8\e"
 	
-	"\1\s[14]\0\s[0]For now,\w8\w8 all you can do\w8\w8 is succumb to the smoke.\x\1\s[10]\i[5]\0You prefer drowning in her blood.\w8 You'd prefer anything besides admitting defeat.\x[noclear]\n\n[half]\![set,balloonmarker,I'm sorry]\1\s[10]\i[6]\0She remains out of your reach.\w8 Solitary and luminescent and laughing at your misery.\x\1\s[10]\i[7]\0The curtain\w8\w8 falls.\![raise,OnFinaleCheck]\x\+\e:chain=end"
+	"\1\s[14]\0\s[0]For now,\w8\w8 all you can do\w8\w8 is succumb to the smoke.\x\1\s[10]\i[5]\0You prefer drowning in her blood.\w8 You'd prefer anything besides admitting defeat.\x[noclear]\n\n[half]\![set,balloonmarker,I'm sorry]\1\s[10]\i[6]\0She remains out of your reach.\w8 Solitary and luminescent and laughing at your misery.\x\1\s[10]\i[7]\0The curtain\w8\w8 falls.\![raise,OnFinaleReach]\x\+\e:chain=end"
 }}CHAIN
 
-OnFinaleCheck {finale = 1}
+OnFinaleAdd
+{
+	if endcomplete == 1 //all ready reached
+	{}
+	else //first run
+	{
+		finale ++
+		
+		if reference0 == "worship" {setTemp('worship')}
+		elseif reference0 == "hole" {setTemp('hole')}
+		elseif reference0 == "blood" {setTemp('blood')}
+		elseif reference0 == "beg" {setTemp('beg')}
+		elseif reference0 == "height" {setTemp('height')}
+		elseif reference0 == "hell" {setTemp('hell')}
+		elseif reference0 == "phases" {setTemp('phases')}
+		elseif reference0 == "spotlight" {setTemp('spotlight')}
+		elseif reference0 == "smiles" {setTemp('smiles')}
+		elseif reference0 == "hunger" {setTemp('hunger')}
+		elseif reference0 == "shadows" {setTemp('shadows')}
+	}
+}
+
+OnFinaleReach {endcomplete = 1}
 
 
 
