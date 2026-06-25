@@ -1,0 +1,355 @@
+//MENU STUFFS
+
+
+//config menu basically
+OnSakuraMenu : all
+{
+	if simple == 1 //on
+	{OnManualMenu}
+	else //default
+	{
+		"\*\t\0\b[2]\![set,autoscroll,disable]\_q\n"
+		
+		"\![*]\q[Say something,OnAiTalk]"
+		switch LastTalk == "" //Uses top option if there is a dialogue to repeat
+		{
+			"\n\![*]\q[Repeat Last Dialogue,OnLastTalk]"
+			"\n\![*]\f[color,disable]Repeat Last Dialogue\f[color,default]"
+		}
+		
+		"\n\n"
+		
+		"Manual Mode: \![*]\q[On,Onsimpleswitch]"
+		"   \![*]\_a[OnSimpleExplain](Info?)\_a"
+		
+		"\n\n"
+		if flipswitch != 1 //not tripped
+		{
+			if mode == 2 {"\![*]\__q[OnSwapModes,R]Remove Green\__q \n\![*]\__q[OnSwapModes,G]Remove Red\__q"} //RG
+			elseif mode == 1 {"\![*]\__q[OnSwapModes,RG]Add Red\__q \n\![*]\__q[OnSwapModes,R]Swap to Red\__q"} //G
+			else {"\![*]\__q[OnSwapModes,G]Swap to Green\__q \n\![*]\__q[OnSwapModes,RG]Add Green\__q"} //R
+		}
+		if flipswitch == 1 //tripped
+		{
+			if mode == 2 {"\![*]\__q[OnSwapModes,R]Remove Green\__q"} //RG
+			elseif mode == 1 {"\![*]\__q[OnSwapModes,R]Swap to Red\__q"} //G
+			else {"\![*]\__q[OnSwapModes,G]Swap to Green\__q"} //R
+		}
+		
+		"\n\n"
+		
+		switch overlaps == 1 //on
+		{
+			"\![*]\q[Turn On Overlap Notifications,Onoverlaptoggle]"
+			"\![*]\q[Turn Off Overlap Notifications,Onoverlaptoggle]"
+		}
+		
+		"\n\n\![*]\q[Cancel,blank]"
+	}
+}
+
+//manual menu waugh
+OnManualMenu : all
+{
+	"\*\t\0\b[2]\![set,autoscroll,disable]\_q\n"
+	
+	"\![*]\q[Say something,OnAiTalk]"
+	switch LastTalk == "" //Uses top option if there is a dialogue to repeat
+	{
+		"\n\![*]\q[Repeat Last Dialogue,OnLastTalk]"
+		"\n\![*]\f[color,disable]Repeat Last Dialogue\f[color,default]"
+	}
+	
+	"\n\n"
+	
+	"Talk Rate: %(talkrate)\n"
+	_talkrate = ("1min,60", "3min,180", "5min,300", "7min,420", "10min,600", "Silent,0")
+	foreach _talkrate; _rates
+	{
+		if TOINT(_rates[1]) == aitalkinterval {"\![*]\__q[OnTalkRateMenu,%(_rates[1])]%(_rates[0])\__q"}
+		else {"\_a[OnTalkRateMenu,%(_rates[1])]%(_rates[0])\_a"}
+		"  "
+	}
+	
+	"\n\n[half]"
+	
+	_fliptime[0] = ""
+	_fliptime[1] = ""
+	if fliprate == 0 {_fliptime[0] = "Off"}
+	elseif fliprate == 1 {_fliptime[0] = 1; _fliptime[1] = "hour"}
+	else {_fliptime[0] = fliprate; _fliptime[1] = "hours"}
+	
+	"Flip Rate: %(_fliptime[0]) %(_fliptime[1])"
+	"\n\__q[OnFliprateAdjust,def]Default\__q   \__q[OnFliprateAdjust,plus]\![*]+1\__q   \__q[OnFliprateAdjust,minus]\![*]-1\__q   \__q[OnFliprateAdjust,none]Off\__q"
+	
+	"\n\n[half]"
+	
+	if flipswitch == 1 //tripped
+	{
+		"\f[color,disable](%(restless))\f[color,default]\n"
+	}
+	"\![*]\__q[OnSwapModes,R]Solo Apollo\__q \n\![*]\__q[OnSwapModes,G]Solo Snufkin\__q \n\![*]\__q[OnSwapModes,RG]Apollo and Snufkin\__q"
+	
+	"\n\n"
+	
+	"Manual Mode: \![*]\q[Off,Onsimpleswitch]"
+	"   \![*]\_a[OnSimpleExplain](Info?)\_a"
+	
+	"\n\n"
+	
+	switch overlaps == 1 //on
+	{
+		"\![*]\q[Turn On Overlap Notifications,Onoverlaptoggle]"
+		"\![*]\q[Turn Off Overlap Notifications,Onoverlaptoggle]"
+	}
+	
+	"\n\n\![*]\q[Cancel,blank]"
+}
+
+OnLastTalk
+{
+	LastTalk
+}
+
+restless
+{
+	if mode == 2 //RG
+	{
+		"Snufkin and Apollo both seem restless..."
+		"Doesn't seem like Apollo and Snufkin are okay."
+		"Seems like Snufkin and Apollo are getting restless."
+		"Snufkin and Apollo need some time apart."
+		"Snufkin and Apollo need to rest their souls."
+		"Snufkin and Apollo need time to themselves."
+	}
+	elseif mode == 1 //G
+	{
+		"Snufkin seems a bit restless..."
+		"Snufkin seems to want to get back to his travels."
+		"Snufkin has gotten too antsy."
+		"Snufkin wants to get back to his travels."
+		"Snufkin needs a break."
+		"Snufkin is starting to feel too enclosed."
+		"Snufkin is restless."
+	}
+	else //R
+	{
+		"Apollo seems a bit restless..."
+		"It seems Apollo is getting antsy."
+		"Apollo seems to want to take a break."
+		"Seems like Apollo needs to take a break."
+		"Apollo seems restless."
+		"Looks like Apollo is getting restless."
+	}
+}
+
+//simple mode
+Onsimpleswitch
+{
+	if simple == 1 //on
+	{simple = 0}
+	else //0; off
+	{simple = 1}
+	OnSakuraMenu
+}
+
+//overlap toggle
+Onoverlaptoggle
+{
+	if overlaps == 1 //on
+	{overlaps = 0}
+	else //0; off
+	(overlaps = 1)
+	OnSakuraMenu
+}
+
+//talkrate
+OnTalkRateMenu : all
+{	
+	aitalkinterval = TOINT(reference0)
+	OnSakuraMenu
+}
+
+talkrate
+{
+	if aitalkinterval == 60 {"1 minute"}
+	elseif aitalkinterval == 180 {"3 minutes"}
+	elseif aitalkinterval == 300 {"5 minutes"}
+	elseif aitalkinterval == 420 {"7 minutes"}
+	elseif aitalkinterval == 600 {"10 minutes"}
+	else {"Silent"} //0
+}
+
+//flip rate
+OnFliprateAdjust
+{
+	if reference0 == "plus" {fliprate += 1}
+	elseif reference0 == "minus"
+	{
+		fliprate -= 1
+		
+		if fliprate < 0 {fliprate = 0}
+	}
+	elseif reference0 == "none" {fliprate = 0}
+	else //default
+	{fliprate = 4}
+	OnSakuraMenu
+}
+
+
+//mode swaps
+OnSwapModes
+{
+	if reference0 == "RG" //swap to both
+	{
+		if mode == 1 //G
+		{
+			mode = 2
+			timepass[3] = 0
+			
+			"\p2\s[-1]\1\b[0]\s[1]\0\b[0]\s[0]"
+			--
+			if simple == 1 //on
+			{
+				"\1\s[1]\0\s[0]"
+			}
+			else //off
+			{
+				"\1\w8\w8Apollo!\w8 \0\s[0]Hey,\w4 Snuf.\w8 \1\n\n[half]To what do I owe this pleasure?\w8 \0\n\n[half]Just wanted to come see you.\w8 The usual.\w8 \1\n\n[half]How lucky I am,\w4 in that case.\w8"
+				
+				"\1Ah,\w4 Apollo!\w8 \0\s[0]Snufkin.\w8 \1\n\n[half]It's a pleasure to see you,\w4 my dear.\w8 Come,\w4 sit with me and have some stew.\w8 \0\n\n[half]Aww,\w4 thanks!\w8 It's good to see you,\w4 too.\w8"
+				
+				"\1Oh,\w4 Apollo!\w8 \0\s[0]Snufkin!\w8 \1\n\n[half]You're a sight for sore eyes.\w8 \0\n\n[half]Sure,\w4 yeah.\w8 You better not have been staring at the sun again.\w8 \1\n\n[half]Ah,\w4 you know me too well,\w4 my dear.\w8"
+				--
+				"\n\n\_q\![*]\q[Back to Menu,OnSakuraMenu]   \![*]\q[Cancel,blank]\_q\e"
+			}
+		}
+		else //R
+		{
+			mode = 2
+			timepass[3] = 0
+			
+			"\p2\s[-1]\1\b[0]\s[1]\0\b[0]\s[0]"
+			--
+			if simple == 1 //on
+			{
+				"\1\s[1]\0\s[0]"
+			}
+			else //off
+			{
+				"\0\w8\w8Snufkin!!\w8 \1\s[1]Apollo.\w8 \0\n\n[half]Oh,\w4 right,\w4 right.\w8 \c\w8\w8Snufkin.\w8 \1\n\n[half]Haha,\w4 it's good to see you,\w4 my dear.\w8 \0\n\n[half]Same here!\w8"
+				
+				"\0Snufkin,\w4 hey!\w8 \1\s[1]Hello,\w4 Apollo.\w8 \0\n\n[half]Did you wanna hang out?\w8 \1\n\n[half]You know I cannot resist your orbit for long.\w8 \0\n\n[half]Haha,\w4 I guess so.\w8"
+				
+				"\0Oh Snuf,\w4 hey!\w8 \1\s[1]Hello,\w4 my dear.\w8 Mind if I sit with you a while?\w8 \0\n\n[half]You know my door's always open for you.\w8"
+				--
+				"\n\n\_q\![*]\q[Back to Menu,OnSakuraMenu]   \![*]\q[Cancel,blank]\_q\e"
+			}
+		}
+	}
+	elseif reference0 == "G" //solo G
+	{
+		if mode == 2 //RG
+		{
+			mode = 1
+			timepass[3] = 0
+			
+			"\p2\s[-1]\1\b[0]\0\s[0]"
+			--
+			if simple == 1 //on
+			{
+				"\1\s[-1]\0\s[1]"
+			}
+			else //off
+			{
+				"\0\s[0]Oh,\w4 shoot.\w8 I should be going.\w8 \1\s[1]I'll see you again later,\w4 in that case.\w8 Take care,\w4 my dear.\w8 \0\n\n[half]Bye,\w4 Snuf!\w8 \1...\w8\w8\w8\0\b[-1]\s[-1]\1Until next time,\w4 my sunshine.\w8"
+				
+				"\0\s[0]Ah,\w4 I gotta head out now.\w8 \1\s[1]So soon?\w8 \0\n\n[half]Justice calls.\w8 \1\n\n[half]Understandable,\w4 then.\w8 Good luck in your trials,\w4 my sunshine dragon.\w8 \0\n\n[half]Thanks,\w4 Snuf.\w8 Seeya later!\w8 \1\n\n[half]Of course.\w8\w8\0\b[-1]\s[-1]\1"
+				
+				"\0\s[0]I'll head out now.\w8 \1\s[1]Then I shall see you again later.\w8 \0\n\n[half]Yeah.\w8 Seeya,\w4 Snuf!\w8 \1\n\n[half]Until next time,\w4 my dear.\w8\w8\0\b[-1]\s[-1]\1"
+				--
+				"\n\n\_q\![*]\q[Back to Menu,OnSakuraMenu]   \![*]\q[Cancel,blank]\_q\e"
+			}
+		}
+		else //R
+		{
+			mode = 1
+			timepass[3] = 0
+			
+			"\p2\s[-1]\1\s[-1]\0\b[0]"
+			--
+			if simple == 1 //on
+			{
+				"\0\s[1]"
+			}
+			else //off
+			{
+				"\0\s[1](Ah.\w8 I suppose this is fine for now.)\w8"
+				
+				"\0\s[1]\w8\w8\w8(I suppose this is fine.)\w8"
+				
+				"\0\s[1](I suppose...\w8\w8 this is fine for now.)\w8"
+				--
+				"\n\n\_q\![*]\q[Back to Menu,OnSakuraMenu]   \![*]\q[Cancel,blank]\_q\e"
+			}
+		}
+	}
+	else //solo R
+	{
+		if mode == 2 //RG
+		{
+			mode = 0
+			timepass[3] = 0
+			
+			"\p2\s[-1]\1\b[0]\0\b[0]"
+			--
+			if simple == 1 //on
+			{
+				"\1\s[-1]\0\s[0]"
+			}
+			else //off
+			{
+				"\1\s[1]I'll see you again soon,\w4 my dear.\w8 \0\s[0]Oh,\w4 uh.\w8 Yeah.\w8 \1\b[-1]\s[-1]\0Seeya later,\w4 I guess.\w8"
+				
+				"\1\s[1]Sorry,\w4 my dear,\w4 but I really must be going.\w8 \0\s[0]Aww.\w8 Well,\w4 I'll see you later,\w4 then.\w8 \1\n\n[half]Take care,\w4 Apollo.\w8 \0\n\n[half]You,\w4 too,\w4 Snuf.\w8 \1\b[-1]\s[-1]\0"
+				
+				"\1\s[1]Ah,\w4 it's time for me to go.\w8 \0\s[0]Oh.\w8 Uh,\w4 okay.\w8 I'll\w8\w8 see you again later.\w8 \1\n\n[half]Until next time,\w4 my dear.\w8 \0\n\n[half]Until next time...\w8 \1\b[-1]\s[-1]\0"
+				--
+				"\n\n\_q\![*]\q[Back to Menu,OnSakuraMenu]   \![*]\q[Cancel,blank]\_q\e"
+			}
+		}
+		else //G
+		{
+			mode = 0
+			timepass[3] = 0
+			
+			"\p2\s[-1]\1\s[-1]\0\b[0]"
+			--
+			if simple == 1 //on
+			{
+				"\0\s[0]"
+			}
+			else //off
+			{
+				"\0\s[0](Huh.\w8 Guess I'm here now.)\w8"
+				
+				"\0\s[0]\w8\w8\w8(Huh.\w8 I guess I'm here now.)\w8"
+				
+				"\0\s[0](Hm.\w8 Guess it's my turn here.)\w8"
+				--
+				"\n\n\_q\![*]\q[Back to Menu,OnSakuraMenu]   \![*]\q[Cancel,blank]\_q\e"
+			}
+		}
+	}
+	--
+	OnSakuraMenu
+}
+
+
+//simple mode stuff
+OnSimpleExplain
+{
+	"\*\t\0\b[2]\_q\![set,autoscroll,disable][Switching to and from Manual Mode allows you to do things like set the talkrate and switch between characters easier. It also allows you to set the flip rate, which is the length of time these two can sit before getting anxious or restless. This only affects their random talk right now and not much else. You can settle their nerves by swapping them out with one another. \n\n[half]Leaving Manual Mode off will allow them to randomise which character you get on boot, which is more thematically appropriate for Green. You can swap freely between the two modes, though, so don't feel pressured to choose one over the other.]\_q\x"
+	--
+	OnSakuraMenu
+}

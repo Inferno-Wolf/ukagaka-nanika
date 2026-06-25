@@ -1,0 +1,182 @@
+//NOTES --
+
+//R - 0, 4, 5
+//G - 1, 6
+//B - 2, 7 // 3, 8
+//RG - 11
+
+//emote balloon - 
+// 0 - ... / 1 - ! / 2 - ? / 3 - <3 / 4 - anger / 5 - throb / 6 - scribble / 7 - sweats / 8 - laughs
+
+
+descript
+{
+	version,1
+}
+
+//----- Main Surfaces ----------
+
+//R norm
+surface0
+{
+	//collision0,0,0,130,65,head
+}
+
+//R hair down
+surface4
+{
+	
+}
+
+//R simple
+surface5
+{
+	
+}
+
+//G norm
+surface1
+{
+	
+}
+
+//G simple
+surface6
+{
+	
+}
+
+//B child
+surface2
+{
+	
+}
+
+//B child simple
+surface7
+{
+	
+}
+
+//B adult
+surface3
+{
+	
+}
+
+//B adult simple
+surface8
+{
+	
+}
+
+
+//RG
+surface11
+{
+	
+}
+
+
+
+//APPENDS
+surface.append0-8
+{
+	//emote bloon dotdotdot
+	animation0.interval,never
+	animation0.pattern0,overlay,30,0,0,0
+	animation0.pattern1,overlay,31,300,0,0
+	animation0.pattern2,overlay,32,300,0,0
+	
+	//emote bloon !
+	animation1.interval,never
+	animation1.pattern0,overlay,21,0,0,0
+	animation1.pattern1,replace,22,80,0,0
+	animation1.pattern2,replace,23,80,0,0
+	animation1.pattern3,overlay,33,80,0,0
+	
+	//emote bloon ?
+	animation2.interval,never
+	animation2.pattern0,overlay,21,0,0,0
+	animation2.pattern1,replace,22,80,0,0
+	animation2.pattern2,replace,23,80,0,0
+	animation2.pattern3,overlay,34,80,0,0
+	
+	//emote bloon <3
+	animation3.interval,never
+	animation3.pattern0,overlay,21,0,0,0
+	animation3.pattern1,replace,22,80,0,0
+	animation3.pattern2,replace,23,80,0,0
+	animation3.pattern3,overlay,35,80,0,0
+	
+	//emote bloon angy
+	animation4.interval,never
+	animation4.pattern0,overlay,21,0,0,0
+	animation4.pattern1,replace,22,80,0,0
+	animation4.pattern2,replace,23,80,0,0
+	animation4.pattern3,overlay,36,80,0,0
+	animation4.pattern4,overlay,37,80,0,0
+	animation4.pattern5,overlay,36,80,0,0
+	animation4.pattern6,overlay,37,80,0,0
+	animation4.pattern7,overlay,36,80,0,0
+	animation4.pattern8,overlay,37,80,0,0
+	animation4.pattern9,overlay,36,80,0,0
+	animation4.pattern10,overlay,37,80,0,0
+	
+	//emote bloon throb
+	animation5.interval,never
+	animation5.pattern0,overlay,21,0,0,0
+	animation5.pattern1,replace,22,80,0,0
+	animation5.pattern2,replace,23,80,0,0
+	animation5.pattern3,overlay,38,80,0,0
+	animation5.pattern4,overlay,39,80,0,0
+	animation5.pattern5,overlay,38,80,0,0
+	animation5.pattern6,overlay,39,80,0,0
+	animation5.pattern7,overlay,38,80,0,0
+	animation5.pattern8,overlay,39,80,0,0
+	animation5.pattern9,overlay,38,80,0,0
+	
+	//emote bloon scribble
+	animation6.interval,never
+	animation6.pattern0,overlay,40,0,0,0
+	animation6.pattern1,overlay,41,200,0,0
+	animation6.pattern2,overlay,42,200,0,0
+	
+	//emote bloon sweats
+	animation7.interval,never
+	animation7.pattern0,overlay,43,0,0,0
+	animation7.pattern1,overlay,44,100,0,0
+	animation7.pattern2,overlay,45,100,0,0
+	animation7.pattern3,overlay,46,100,0,0
+	animation7.pattern4,overlay,20,100,0,0
+	animation7.pattern5,overlay,43,100,0,0
+	animation7.pattern6,overlay,44,100,0,0
+	animation7.pattern7,overlay,45,100,0,0
+	animation7.pattern8,overlay,46,100,0,0
+	animation7.pattern9,overlay,20,100,0,0
+	animation7.pattern10,overlay,43,100,0,0
+	animation7.pattern11,overlay,44,100,0,0
+	animation7.pattern12,overlay,45,100,0,0
+	animation7.pattern13,overlay,46,100,0,0
+	animation7.pattern14,overlay,20,100,0,0
+	animation7.pattern15,overlay,-1,200,0,0
+	
+	//laughs
+	animation8.interval,never
+	animation8.pattern0,overlay,47,0,0,0
+	animation8.pattern1,overlay,48,100,0,0
+	animation8.pattern2,overlay,47,100,0,0
+	animation8.pattern3,overlay,48,100,0,0
+	animation8.pattern4,overlay,47,100,0,0
+	animation8.pattern5,overlay,48,100,0,0
+	animation8.pattern6,overlay,47,100,0,0
+	animation8.pattern7,overlay,48,100,0,0
+	animation8.pattern8,overlay,47,100,0,0
+}
+
+
+//REMAINS BLANK
+surface10
+{
+	
+}

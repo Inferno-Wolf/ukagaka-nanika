@@ -1,0 +1,23 @@
+charset,UTF-8
+
+name,RG Guys
+type,ghost
+balloon,RGB Puzzlers Talk
+
+shiori,yaya.dll
+
+craftman,KFC
+craftmanw,KFC
+craftmanurl,https://characteroulette.tumblr.com/
+
+sakura.name,RRed
+kero.name,GGreen
+char2.name,BBlue
+
+sakura.seriko.defaultsurface,0
+kero.seriko.defaultsurface,1
+char2.seriko.defaultsurface,2
+
+icon,rg.ico
+
+sstp.allowunspecifiedsend,0

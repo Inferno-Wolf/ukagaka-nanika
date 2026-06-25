@@ -1,0 +1,378 @@
+//open and close stuffs augh
+
+
+OnFirstBoot
+{
+	stroke = 0
+	LastTalk = ""
+	simple = 0 //off
+	overlaps = 1 //on
+	fliprate = 4 //default
+	timepass[0] = 0 //seconds
+	timepass[1] = 0 //mins
+	timepass[2] = 0 //hours
+	timepass[3] = 0 //keeping track of hours but for each mode
+	
+	"\*\t\p2\s[-1]\1\b[0]\s[-1]\0\b[0]"
+	--
+	if RAND(100) < 5 //rarest; RG proc
+	{
+		mode = 2
+		
+		"\0\s[0]Snuf!\w8 Good to see you back.\w8 \1\s[1]You know I can't stay away for long,\w4 my dear.\w8 \0\n\n[half]That's not true,\w4 but thanks.\w8 You know I'm always happy to see you.\w8 \1\n\n[half]Thank you as well,\w4 my heart.\w8 Now,\w4 what would you like to talk about first?\w8 \0\n\n[half]Haha,\w4 give me a minute to think about it!\w8\e"
+	}
+	elseif RAND(100) >= 5 && RAND(100) <= 30 //G proc
+	{
+		mode = 1
+		
+		"\0\s[2](Ah,\w8 returning is always such an interesting experience.)\w8\w8 \b\b[half](Having somewhere to return to at all is also...\w8\w8 interesting.)\w8\w8 \c(...\w8\w8I'm not sure I'm ready to see my sunshine again.)\w8\w8 \n\n[half](Well,\w4 might as well set up camp and keep my soul rested for when I do wish for him to find me.)\w8\e"
+	}
+	else //31+; R proc
+	{
+		mode = 0
+		
+		"\0\s[0](Ahh,\w4 what a pain.\w8 Trials like that are always such a slog.)\w8\w8 \n\n[half](Well.\w8 At least I'll get to see my friend again soon.)\w8\w8 \c(...\w8\w8I miss him too much.\w8 I hope he sets up camp soon so I can find his smoke trail or follow his tune...)\w8\e"
+	}
+}
+
+OnInitialize
+{
+	//If you want some variables to reset on boot, put them here. This event will happen even if you add other events like OnGhostChanged
+	
+	//If you add new variables in updates, I recommend initializing them like so:
+	//if !ISVAR("NewVariable"); NewVariable = 0
+	//This means that it will only set the new variable if the user doesn't already have it, so that their variables don't get overwritten
+	
+	if reference0 != "reload" //For things you want to reset EXCEPT when just reloading; a convenience for you the dev, basically
+	{
+		LastTalk = ""
+		timepass[3] = 0
+	}
+}
+
+OnBoot
+{
+	//_temp = SHIORI3FW.UserBirthday
+	//_user_birthday = "%(_temp[2])/%(_temp[1])" //user bday
+	_today = "%(day)/%(month)" //day / month
+	
+	if simple == 1 //on
+	{
+		if mode == 2 //RG
+		{"\p2\s[-1]\1\s[1]\0\b[0]\s[0]"}
+		elseif mode == 1 //G
+		{"\p2\s[-1]\1\s[-1]\0\b[0]\s[1]"}
+		else //mode == 0; R
+		{"\p2\s[-1]\1\s[-1]\0\b[0]\s[0]"}
+	}
+	else //off
+	{
+		if RAND(100) > 70 {"\p2\s[-1]\1\s[1]\0\b[0]\s[0]"} //RG
+		elseif RAND(100) <= 70 && RAND(100) >= 40 {"\p2\s[-1]\1\s[-1]\0\b[0]\s[1]"} //G
+		else // < 40; R
+		{"\p2\s[-1]\1\s[-1]\0\b[0]\s[0]"}
+	}
+	--
+	//if _today == _user_birthday
+	//elseif _today == "1/1" //cool dates; %(year)
+	//else //Normal boot
+	{
+		"%(otherboots)"
+	}
+}
+
+//non-specific boot messages
+otherboots
+{
+	if mode == 2 //RG
+	{
+		"\0\s[0]Oh,\w4 Snuf!\w8 \1\s[1]Hello,\w4 my dear.\w8 \0\n\n[half]You're just in time to eat with me!\w8 \1\n\n[half]Ah,\w4 then I came at the perfect time.\w8 \0\n\n[half]Sure did!\w8\e"
+		
+		"\1\s[1]Oh,\w4 Apollo.\w8 \0\s[0]Hey,\w4 Snuf!\w8 \1\n\n[half]You followed my campfire smoke.\w8 \0\n\n[half]Of course.\w8 You were calling me,\w4 after all.\w8 \1\n\n[half]I supppose I was.\w8\e"
+		
+		"\0\s[0]Hey,\w4 Snufkin!\w8 \1\s[1]Apollo.\w8 \0\n\n[half]Oh.\w8 Right.\w8 \cHey,\w4 Snufkin.\w8 \1\n\n[half]Are you here to share my meal?\w8 \0\n\n[half]I'm here to say hi and hang out.\w8 \1\n\n[half]Wonderful.\w8 I'll be glad to share your company,\w4 in that case.\w8\e"
+		
+		"\1\s[1]Ah,\w4 my dear.\w8 \0\s[0]Hey,\w4 Snuf!\w8 Mind if I hang out for a while?\w8 \1\n\n[half]I'd love nothing more.\w8\e"
+		
+		"\0\s[0]Hey,\w4 Snuf!\w8 \1\s[1]Hello,\w4 my dear.\w8 Would you mind if I stay a while with you?\w8 \0\n\n[half]Not at all.\w8 Stay as long as you like!\w8\e"
+		
+		"\0\s[0]Oh,\w4 Snuf!\w8 Hey there.\w8 \1\s[1]Good to see you again,\w4 my dear.\w8 \0\n\n[half]Did you miss me that much?\w8 \1\n\n[half]Perhaps a bit.\w8 I simply needed to see you.\w8 \0\n\n[half]Aww,\w4 well.\w8 I'm glad to see you,\w4 too.\w8\e"
+	}
+	elseif mode == 1 //G
+	{
+		"\0(...\w8\w8Not yet.\w8 Not yet.)\w8\e"
+		
+		"\0(...\w8\w8Not yet.\w8 I'm not ready yet.)\w8\e"
+		
+		"\0(Hm.\w8 I wonder if my sunshine will find me soon.)\w8\e"
+		
+		"\0(Should I build up my campfire this time?\w8) \n\n[half](...\w8\w8am I ready to see him again?)\w8\e"
+		
+		"\0(Perhaps I'll see him this time.\w8 Perhaps not,\w4 but it might be time.)\w8\e"
+		
+		"\0(It's nice to have a break from the day.)\w8\e"
+		
+		"\0(Ah...\w8\w8 That was a very nice nap.)\w8 \n\n[half](Now,\w4 what should I do with my time next...?)\w8\e"
+		
+		"\0(I think I deserve a break from the day.\w8 Hopefully,\w4 the rest will help my spirits.)\w8\e"
+		
+		"\0(It would be nice to play a good tune.\w8 Maybe my dear sunshine will hear and follow it to me.)\w8\e"
+		
+		"\0(Back to waiting for him,\w4 I suppose.)\w8\e"
+		
+		"\0(...\w8\w8hm.\w8 Seems like as good a day as any to set up my campfire and best stew.)\w8\e"
+	}
+	else //mode == 0; R
+	{
+		"\0(Ah.\w8\w8 Still no Snufkin,\w4 huh?)\w8 \n\n[half](...\w8\w8it's fine.\w8 I'm fine.\w8 You'll be fine,\w4 Justice.)\w8\e"
+		
+		"\0(Ugh,\w4 that trial went on way too long.\w8 Time to rest up for the next one.)\w8\e"
+		
+		"\0(Mm.\w8 He's not here...)\w8\w8 \n\n[half](...\w8\w8You'll be fine,\w4 Justice.\w8 You'll see him again soon.)\w8\e"
+		
+		"\0(Okay.\w8 No more work for now.\w8 Back to waiting,\w4 I guess.)\w8\e"
+		
+		"\0(Here you are again,\w4 Justice.\w8 Waiting on your friend like always.)\w8\e"
+		
+		"\0(Still no Snufkin...)\w8\w8 \n\n[half](Come on,\w4 Justice.\w8 You'll be fine.\w8 You have to be.)\w8\e"
+		
+		"\0(Finally,\w4 a break from dealing with everyone.)\w8 \n\n[half](...\w8\w8Wonder if I'll get to see my friend this time.)\w8\e"
+		
+		"\0(...\w8\w8Hm.\w8 Nothing yet.)\w8 \n\n[half](How long's it gonna take,\w4 I wonder...?)\w8\e"
+		
+		"\0(All done for the day,\w4 hopefully.\w8 Now I can finally unwind and relax...)\w8\e"
+		
+		"\0(Okay.\w8 Gotta rest before prepping for the next trial.\w8 Shouldn't be too bad.)\w8\e"
+		
+		"\0(Ahh,\w4 I miss my friend.\w8 You're just gonna have to wait and see if he wants to see you yet,\w4 Justice.)\w8\e"
+	}
+}
+
+//Happens when the ghost is unminimized; set to just go to OnSurfaceRestore
+OnWindowStateRestore
+{
+	OnSurfaceRestore
+}
+
+
+//closing dialogues!
+OnClose
+{
+	"%(closes)"
+	--
+	"\w8\w8\-"
+}
+
+//separated like this so I can use them in ghostchanging stuffs
+closes
+{
+	"\p2\b[0]\1\b[0]\0\b[0]"
+	--
+	if mode == 2 //RG
+	{
+		"\0\s[0]Ah,\w4 I gotta get going now.\w8 \1\s[1]Not to fret,\w4 my dear.\w8 I'll see you again soon."
+		
+		"\1\s[1]Ah,\w4 I must be going now,\w4 my dear.\w8 \0\s[0]Seeya again soon,\w4 Snuf."
+		
+		"\1\s[1]It's time for me to take my leave.\w8 \0\s[0]Aww.\w8 I'll see ya later,\w4 then."
+		
+		"\0\s[0]I better head out now.\w8 \1\s[1]Then I'll see you again soon,\w4 my dear."
+		
+		"\0\s[0]Whoops,\w4 I better get going.\w8 \1\s[1]Wouldn't want to be late to your next trial,\w4 after all."
+		
+		"\1\s[1]Unfortunately,\w4 I must be going.\w8 \0\s[0]Good luck out there,\w4 Snuf."
+		
+		"\0\s[0]I'll see you later,\w4 okay?\w8 \1\s[1]Of course,\w4 my dear."
+		
+		"\1\s[1]I'll visit again soon.\w8 \0\s[0]Looking forward to it,\w4 Snuf."
+		
+		"\1\s[1]Until next time,\w4 my dear.\w8 \0\s[0]Seeya!"
+		
+		"\0\s[0]I'll see you again next time,\w4 Snuf.\w8 \1\s[1]Good luck out there,\w4 my sunshine."
+		
+		"\1\s[1]I'll look forward to our next meeting.\w8 \0\s[0]Same here!"
+	}
+	elseif mode == 1 //G
+	{
+		"\0(...\w8\w8maybe next time.)"
+		
+		"\0(Maybe I'll see him next time.)"
+		
+		"\0(Perhaps my soul will be rested enough next time...)"
+		
+		{
+			"\0(Hmm.\w8 The fish "
+			--
+			"in the lake"
+			"at the river"
+			"of the sea"
+			"in the ocean"
+			--
+			" are calling to me.)"
+		}
+		
+		"\0(Let's see.\w8 For next time,\w4 I'll need...)"
+		
+		"\0(Ah,\w4 I'm sorry,\w4 my sunshine.)"
+		
+		"\0(...\w8\w8Perhaps next time.)"
+		
+		"\0(I'll see you again soon,\w4 my dear.)"
+		
+		"\0(I'll see you again next time,\w4 my sunshine.)"
+		
+		"\0(Perhaps going to him myself might be the better solution...)"
+		
+		"\0(...\w8\w8okay.\w8 Time to see you again,\w4 my dear.)"
+		
+		"\0(Yes,\w4 better to go and see him myself.)"
+	}
+	else //mode == 0; R
+	{
+		"\0(Hm.\w8 We'll see if it works out next time.)"
+		
+		"\0(...\w8\w8Maybe tomorrow.)"
+		
+		"\0(Gotta head back out there.\w8 Okay,\w4 Justice,\w8 you've got this.)"
+		
+		"\0(Okay,\w4 world.\w8 Here comes Justice!)"
+		
+		"\0(You can do this,\w4 Justice.\w8 You'll be fine!)"
+		
+		"\0(Okay,\w4 courtroom.\w8 Here comes Justice!)"
+		
+		"\0(Time to head on back out there.\w8 Okay,\w4 Justice.\w8 You've got this!)"
+		
+		"\0(You'll be fine,\w4 Justice.\w8 It's gonna be fine.)"
+		
+		"\0(...\w8\w8It's fine.\w8 You're fine,\w4 Justice.)"
+		
+		"\0(Maybe I'll see him out there today.)"
+		
+		"\0(Haha,\w4 maybe I'll run into him when I head out.\w8 That'd be perfectly silly.)"
+		
+		"\0(Here's hoping I see him while I'm out there...)"
+	}
+}
+
+
+//onghostchanging
+OnGhostChanging
+{
+	"\p2\b[0]\1\b[0]\0\b[0]"
+	--
+	if reference0 == "RRed" //themselves
+	{
+		if mode == 2 //RG
+		{
+			"\0\s[0]\i[2]Forgot something?\w8 \1\s[1]I might have..."
+			
+			"\1\s[1]\i[2]Is there something you've forgotten?\w8 \0\s[0]Could be!"
+			
+			"\0\s[0]Hang on,\w4 I gotta check something..."
+			
+			"\1\s[1]One moment,\w4 please,\w4 my dear."
+			
+			"\0\s[0]Hold on,\w4 Snuf.\w8 \1\s[1]Take your time,\w4 my dear."
+			
+			"\1\s[1]Hold on,\w4 my dear.\w8 \0\s[0]Holding!"
+		}
+		elseif mode == 1 //G
+		{
+			"\0(Ah,\w4 did I forget something?)"
+			
+			"\0(Ah,\w4 I forgot how harsh the winds can be.)"
+			
+			{
+				"\0(Did I "
+				--
+				"pitch my tent correctly"
+				"forget my fish"
+				"forget my fish by the fire"
+				"forget to bring in my fish"
+				"leave my catches for the day"
+				"leave my fish by the fire"
+				"leave my fishing rod out there"
+				"leave out my stew pot"
+				--
+				"?)"
+			}
+			
+			{
+				"\0\s[1]\i[1](Ah,\w4 "
+				--
+				"my tent"
+				"my stew"
+				"the campfire"
+				"the wind"
+				--
+				"!)"
+			}
+			
+			"\0\s[1]\i[2](...\w8\w8Did I forget something?)"
+		}
+		else //mode == 0; R
+		{
+			"\0(Shit,\w4 did I forget something?)"
+			
+			"\0(Ah,\w4 shit.\w8 Forgot something.)"
+			
+			{
+				"\0\s[0]\i[2](What'd I forget"
+				--
+				""
+				" now"
+				" this time"
+				--
+				"??)"
+			}
+			
+			{
+				"\0(Okay,\w4 what'd I forget"
+				--
+				""
+				" this time"
+				" now"
+				--
+				"?)"
+			}
+			
+			"\0(Ah,\w4 did I forget something?)"
+			
+			"\0(Was there something I forgot...?)"
+			
+			"\0\s[0]\i[2](Justice,\w4 did you forget something again??)"
+		}
+	}
+	else //other ghosts
+	{
+		"%(closes)"
+	}
+	--
+	"\w8\w8"
+}
+
+//onghostchanged
+OnGhostChanged
+{
+	if mode == 2 //RG
+	{"\p2\s[-1]\1\b[0]\s[1]\0\b[0]\s[0]"}
+	elseif mode == 1 //G
+	{"\p2\s[-1]\1\s[-1]\0\b[0]\s[1]"}
+	else //mode == 0; R
+	{"\p2\s[-1]\1\s[-1]\0\b[0]\s[0]"}
+	--
+	if reference0 == "RRed" //themselves
+	{
+		if mode == 2 //RG
+		{"\p2\s[-1]\1\b[0]\s[1]\0\b[0]\s[0]"}
+		elseif mode == 1 //G
+		{"\p2\s[-1]\1\s[-1]\0\b[0]\s[1]"}
+		else //mode == 0; R
+		{"\p2\s[-1]\1\s[-1]\0\b[0]\s[0]"}
+	}
+	else //other ghosts
+	{
+		"%(otherboots)"
+	}
+}

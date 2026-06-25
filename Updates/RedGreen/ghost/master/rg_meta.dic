@@ -1,0 +1,148 @@
+//quality of life functions that I have flavour text ideas for but DO NOT HAVE THE TIME TO WRITE AUGH
+
+
+//installing begin
+OnInstallBegin
+{
+	"\0\b[0]\_q[Installation in progress...]\_q\w8\e"
+}
+
+//installing complete; reference0 is what is being installed, reference1 is the name of it
+OnInstallComplete
+{
+	"\0\b[0]\_q[Installed %(reference0): %(reference1)\w8\_q"
+	--
+	//A little menu to open or change to the ghost that was installed immediately
+	if "ghost" _in_ reference0
+	{
+		"\n\n\_q"
+		--
+		"\![*]\__q[OnInstallComplete.Action,call]Call %(reference0)\__q  \![*]\__q[OnInstallComplete.Action,change]Change to %(reference0)\__q\n\n"
+		--
+		"\![*]\q[Thanks,blank]"
+	}
+}
+
+OnInstallComplete.Action
+{
+	if reference0 == "change"
+	{
+		"\![change,ghost,lastinstalled]"
+	}
+	else //call
+	{
+		"\![call,ghost,lastinstalled]"
+	}
+}
+
+OnInstallFailure
+{
+	_reason = reference0
+	case reference0
+	{
+		when "unlha32"; _reason = "could not load the dll to decompress lzh files"
+		when "extraction"; _reason = "failed to decompress the file"
+		when "invalid type"; _reason = "the install.txt is incorrect"
+		when "unsupported"; _reason = "the archive is not supported"
+		when "password"; _reason = "incorrect password"
+		when "artificial"; _reason = "canceled by user"
+	}
+	
+	"\0\b[0]\_q[Installation failed:\w8 %(_reason).]\_q\w8\e"
+}
+
+
+
+//update creation started
+OnUpdatedataCreating
+{
+	"\0\b[0]\_q[Creating updates...]\_q\w8\w8\e"
+}
+
+//update created
+OnUpdatedataCreated
+{
+	"\0\b[0]\_q[Updates created.]\_q\w8\w8\e"
+}
+
+
+//nar file creation; reference0 is the name of what you're making a nar for (which is the name of your ghost as specified in install.txt), reference2 is what you're making (balloon/ghost/etc)
+OnNarCreating
+{
+	"\0\b[0]\_q[Creating %(reference0) nar.]\_q\w8\w8\e"
+}
+
+//nar file created; reference0 here will be the filename of the nar you just created.
+OnNarCreated
+{
+	//Makes a clickable link that'll open the location of the file they just made
+	_nar = "\_a[OnNarLocation,""%(reference1)""]%(reference0)\_a"
+	
+	"\0\b[0]\_q[%(_nar) has been created.]\_q\w8\w8\e"
+}
+
+OnNarLocation
+{
+	"\![open,explorer,""%(reference0)""]"
+}
+
+
+//updates stuff
+OnUpdateBegin
+{
+	"\0\b[0]\_q[Checking for updates...]\_q\w8\w8\e"
+}
+
+//reference0 is the number of new files, starting from 0
+OnUpdateReady
+{
+	//reference0++ //Number of files starts from 0, so this displays the correct amount
+	
+	"\0\b[0]\_q[New updates found.]\_q\w8\w8\e"
+}
+
+//When the update finishes.
+//reference0 is 'none' if there were no new files to update with
+OnUpdateComplete
+{
+	if reference0 == "none"
+	{
+		"\0\b[0]\_q[No new updates found.]\_q\w8\w8\e"
+	}
+	else
+	{
+		"\0\b[0]\_q[Updates complete.]\_q\w8\w8\e"
+	}
+}
+
+OnUpdateFailure
+{	
+	_file = SPLITPATH(reference1)[2] + SPLITPATH(reference1)[3] //For MD5 errors, this gets the name and extension of the offending file
+	_reason = reference0
+	case reference0
+	{
+		when "timeout"; _reason = "connection timed out"
+		when "md5 miss"; _reason = "MD5 error on file %(_file)\n\nPlease contact the ghost author for assistance"
+		when "artificial"; _reason = "canceled by user"
+	}
+	
+	"\0\b[0]\_q[Updates could not be completed : %(_reason).]\_q\w8\w8\w8\e"
+}
+
+
+
+//email and clock fixing and headlines
+OnSNTPCompare
+{
+	"\0\e"
+}
+
+OnBIFFFailure
+{
+	"\0\e"
+}
+
+OnHeadlinesenseFailure
+{
+	"\0\e"
+}

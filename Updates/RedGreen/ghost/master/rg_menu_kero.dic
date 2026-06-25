@@ -1,0 +1,51 @@
+//Kero menu augh!!
+
+
+
+//Because there is an all modifier here, you don't need to write -- between menu options
+OnKeroMenu : all
+{
+	"\t\*\1\b[2]\![set,autoscroll,disable]\_q"
+	
+	"\n"
+	
+	"\![*]\__q[OnExplanations,R]Who is Red?\__q\n"
+	"\![*]\__q[OnExplanations,G]Who is Green?\__q\n"
+	"\![*]\__q[OnExplanations,B]Who is Blue?\__q\n"
+	"\![*]\__q[OnExplanations,rgb]Why these three together?\__q"
+	
+	"\n\n"
+	
+	"\![*]\q[Cancel,blank]"
+}
+
+//EXPLAIN THIS TO ME
+OnExplanations
+{
+	"\t\*\1\b[2]"
+	--
+	if reference0 == "R"
+	{
+		"Apollo Justice,\w4 Ace Attorney!\w8\w8 \n\n[half]Apollo is from the game series Ace Attorney by CAPCOM.\w8 He debuted specifically in the fourth game in the series, titled after him (Apollo Justice).\w8 He's a headstrong and abrasive young lawyer who has the special eyesight to see when others are nervous and lying.\w8 Very useful for someone who wants to earn the eye of an unyielding dragon!\x"
+	}
+	elseif reference0 == "G"
+	{
+		"Snufkin hails from the Moomins series by Tove Jansson.\w8 Specifically,\w4 he made his first appearance in the book Comet in Moominland,\w4 the second book she wrote for it.\w8 \n\n[half]Snufkin is a traveller who enjoys his solitude,\w4 but has grown very attached to Apollo over their years as friends.\w8 He's good at playing polite and comes off as sagely due to his experience,\w4 but he has a bit of a petty streak in him!\w8 Especially when it comes to those who would hurt his friend.\x"
+	}
+	elseif reference0 == "B"
+	{
+		"Luke Triton is Professor Layton's apprentice.\w8 \n\n[half]More specifically,\w4 Luke debuted at the same time as Layton in the first game in this series by Level-5,\w4 Professor Layton and the Curious Village.\w8 Luke is full of energy and eager to make friends,\w4 an outgoing and kind sort.\w8 He can speak to animals and has taken some of that wildness into himself,\w4 though,\w4 so don't count him out when it comes to delivering snark and bite.\x"
+	}
+	elseif reference0 == "rgb"
+	{
+		"They're my RGB guys,\w4 that's why.\x"
+	}
+	else //cancel
+	{OnKeroMenu}
+	--
+	OnKeroMenu
+}
+
+
+//eventual B menu
+//OnBMenu : all

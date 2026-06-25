@@ -1,0 +1,82 @@
+//overlap the boys
+
+
+//reference5 is the mouse button being clicked, in this case a left click
+//reference3 is which character is being clicked
+//reference4 will be the name of the hitbox the mouse is over
+OnMouseDoubleClick
+{
+	if reference5 == 0
+	{
+		if reference3 == 1 {OnKeroMenu}
+		//elseif reference3 == 2 {OnP2Menu}
+		else {OnSakuraMenu}
+	}
+}
+
+//petting stuff
+/*
+OnMouseMove
+{
+	if reference4 != ""
+	{
+		stroke++
+		
+		if stroke % 40 == 0
+		{
+			if reference3 == 0; OnMouseMove.Sakura
+			else; OnMouseMove.Kero
+		}
+	}
+}
+
+OnMouseMove.Sakura
+{
+	if reference4 == "head"
+	{
+		"\0\s[0]Petting??"
+	}
+}
+
+OnMouseMove.Kero
+{
+	if reference4 == "head"
+	{
+		"\1\s[10]Petting..."
+	}
+}
+
+OnMouseLeaveAll
+{
+	stroke = 0
+}
+*/
+
+
+//reference0 is the ID of the characters overlapping, reference1 is the overlap status before ref0 occurred in the same ID formatting
+//WITH THIS METHOD I CAN'T MAKE THEM CUTE OVERLAP SPRITES AWWWWWW
+OnOverlap
+{
+	//0-1 ref0 == overlap start
+	//0-1 ref1 == overlap end
+	
+	//I'll add all the stuff in after jam I don't have time to fiddle with this to see if I can make them aware of who is overlapping who and in what order augh
+	_overlapping = reference.raw[0]
+	_lastoverlapping = reference.raw[1]
+	
+	if overlaps == 1 //on
+	{
+		"\0\b[0]\1\b[0]\p2\b[0]"
+		--
+		if _overlapping == "0-1" //RG overlapping
+		{
+			"\0Woah.\w8 Hey there.\w8 \1Hello,\w4 my dear.\w8 \0\n\n[half]Feeling a bit cuddly?\w8 \1\n\n[half]Sometimes,\w4 I simply need to feel your warmth.\w8 \0\n\n[half]Like a lizard.\w8 \1\n\n[half]You make for a fantastic heating rock.\w8 \0\n\n[half]Hah!\w8\e"
+			
+			"\0Oh,\w4 hey.\w8 You're in a cuddly mood.\w8 \1Sometimes,\w4 all a Snufkin could ever want is to curl up around his lovely campfire.\w8 \0\n\n[half]Sounds real nice when you say it like that.\w8\e"
+		}
+		elseif _lastoverlapping == "0-1" //RG no longer overlapping
+		{
+			"\0\s[0]\1\s[1]"
+		}
+	}
+}

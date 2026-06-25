@@ -1,0 +1,29 @@
+charset, UTF-8
+charset.dic, UTF-8
+charset.output, UTF-8
+charset.file, UTF-8
+charset.save, UTF-8
+charset.extension, UTF-8
+
+dic, yaya_base/config.dic, UTF-8
+dic, yaya_base/shiori3.dic, UTF-8
+dicif, yaya_base/optional.dic, UTF-8
+dicif, yaya_base/compatible.dic, UTF-8
+dic, rg_aitalk.dic
+dic, rg_boot.dic
+dic, rg_menu_kero.dic
+dic, rg_menu_sakura.dic
+dic, rg_meta.dic
+dic, rg_mouse.dic
+dic, rg_other.dic
+dic, rg_word.dic
+
+msglang,english
+
+//------------------------------------------------------------------------------
+//Execution log
+//The execution log is recorded in ayame.log. It is recommended to keep logs during development.
+//------------------------------------------------------------------------------
+// log, ayame.log	
+ignoreiolog, ID: OnSecondChange //Ignores OnSecondChange
+ignoreiolog, ID: OnMouse        //Ignores all OnMouse functions

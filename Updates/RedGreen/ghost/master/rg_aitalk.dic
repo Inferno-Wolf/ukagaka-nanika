@@ -1,0 +1,406 @@
+/// dialoguessssss
+
+
+OnAiTalk
+{
+	if CHAIN.IDName != "" { LastTalk = ChainTalk }
+	else { LastTalk = RandomTalk }
+	LastTalk
+}
+
+
+//--- MODES ----
+// 0 -> R
+// 1 -> G
+// 2 -> RG
+
+
+RandomTalk : nonoverlap_pool
+{
+	if mode == 2 //RG
+	{
+		"\0\b[0]\s[0]Hey,\w4 Snuf.\w8 \1\b[0]\s[1]\i[2]Yes?\w8 \0\n\n[half]What do you think about this?\w8 \1\s[1]\n\n[half]Hmm.\w8 I may not be any epxert on law,\w4 but it seems like it should be...\w8 \0\s[0]\i[1]\n\n[half]Oh,\w4 yeah,\w4 I see that!\w8\s[0]\e"
+		
+		"\1\b[0]\s[1]How are those colleagues of yours treating you lately?\w8 \0\b[0]\s[0]Not bad,\w4 actually.\w8 \1\s[1]\i[7]\n\n[half]That's not great,\w4 but I suppose it could be worse.\w8 \0\s[0]\i[8]\n\n[half]Yeah,\w4 you get it.\w8 \s[0]It's just annoying how much they wanna act like we're a family.\w8 \1\s[1]\i[0]\n\n[half]...\w8\w8\s[1]my offer to you remains open,\w4 as always.\w8 \0\n\n[half]While it would be really funny to see them get the pants scared off them,\w4 I really don't want them even having a chance to interrogate you.\w8 \1\n\n[half]Fair enough.\w8 Still,\w4 you know I wouldn't mind.\w8 \0\n\n[half]I'd mind you getting accused of murder.\w8 \1\s[1]\i[8]\n\n[half]Haha,\w4 yes,\w4 \s[1]I suppose that's a valid concern when it comes to this.\w8\e"
+		
+		"\0\b[0]\s[0]\i[0]Hmm.\w8 Since it's %(season)...\w8 \1\b[0]\s[1]Ah,\w4 right.\w8 \0\s[0]\1\s[1]\i[0]It is %(season)...\w8 \0\n\n[half]Wanna do anything special for it?\w8 \1\s[1]\n\n[half]Does this not count?\w8 \0\s[0]\i[8]\n\n[half]Haha,\w4 good point!\w8\e"
+		
+		//activities
+		"\1\b[0]\s[1]We should go foraging together again,\w4 my dear.\w8 \0\b[0]\s[0]\i[1]Oh,\w4 yeah!\w8 \s[0]It's been a while since I used some fresh nuts and mushrooms.\w8 \1\n\n[half]It always tastes better when gathered by your own hand.\w8 \0\s[0]\i[8]\n\n[half]It does,\w4 yeah.\w8\e"
+		
+		{
+			"\0\b[0]\s[0]Hey,\w4 I was thinking...\w8 \1\b[0]\s[1]\i[2]Yes?\w8 \0\n\n[half]We should make time "
+			--
+			"for fishing"
+			"to go fishing"
+			"for storm watching"
+			"to go storm watching"
+			"for camping"
+			"to go camping"
+			--
+			" again.\w8 \1\s[1]\0Wouldn't that be "
+			--
+			"fun"
+			"great"
+			--
+			"?\w8\1\s[1]\i[3]\n\n[half]"
+			--
+			"That sounds wonderful indeed"
+			"That does sound like it would be wonderful"
+			"I'll pencil it into my schedule,\w4 as you might say"
+			--
+			",\w4 my dear.\w8\e"
+		}
+		
+		{
+			"\1\b[0]\s[1]Ah,\w4 my dear.\w8 \0\b[0]\s[0]\i[2]What's up?\w8 \1\n\n[half]I'd love to go on another "
+			--
+			"fishing"
+			"camping"
+			"storm watching"
+			--
+			" trip with you soon.\w8 \0\s[0]\n\n[half]Ooh,\w4 yeah.\w8 That does sound "
+			--
+			"fun"
+			"great"
+			"like it'd be fun"
+			"like it'd be great"
+			--
+			".\w8 \s[0]\i[8]I'll see if I can clear some time for it.\w8 \1\s[1]\i[3]\n\n[half]I'll look forward to the date.\w8\w8\w8\s[1]\0\s[0]\e"
+		}
+		
+		"\1\b[0]\s[1]I really do think you'd be a fantastic swimmer if you weren't afraid of the water.\w8 \0\b[0]\s[0]Yeah,\w4 I kinda think the same thing.\w8 \s[0]\i[7]Unfortunately,\w4 can't help that I just freeze up when I get into it.\w8 \1\n\n[half]Truly,\w4 a shame.\w8 \s[1]\i[3]I'll just have to bring much more manageable waters to you.\w8 \0\s[0]\i[7]\n\n[half]You don't have to get me wet too whenever we go to the ocean!\w8\e"
+		
+		"\1\b[0]\s[1]\i[2]Your last trial went well,\w4 I take it?\w8 \0\b[0]\s[0]As well as it could,\w4 at least.\w8 \1\s[1]\0Things always get craziest right before the whole truth gets pulled out.\w8 \1\n\n[half]It always sounds so stressful when you recount them.\w8 But fantastic as well.\w8 \0\n\n[half]It's always better after the fact,\w4 that's for sure.\w8\e"
+		
+		"\0\b[0]\s[0]My last trial was a real headache.\w8 \1\b[0]\s[1]\i[2]Is that so?\w8 \0\n\n[half]The witnesses were all as bad as pulling teeth,\w4 \1\s[1]\0the prosecutor assigned was extra ornery,\w4 and we didn't get to the truth of things until nearly the last minute.\w8 \1\n\n[half]Sounds more like a marathon than a trial when you put it like that.\w8 \0\s[0]\i[6]\n\n[half]Marathon's a great way to put it for sure.\w8 \s[0]I'm just glad we dug out the whole truth by the end.\w8 \1\n\n[half]I'm glad for you as well,\w4 my dear.\w8 \0\s[0]\i[3]\n\n[half]Thanks.\w8\1\s[1]\i[3]\e"
+		
+		"\0\b[0]\s[0]\i[2]How'd your travels go?\w8 \1\b[0]\s[1]There were many ups and downs,\w4 \0\s[0]\1as there always are.\w8 Some familiar faces,\w4 some unkind and terrible folk,\w4 and some very kind folk.\w8 \0\n\n[half]Hopefully,\w4 you had more kind encounters than bad ones.\w8 \1\n\n[half]That's all a simple traveller can hope for.\w8\e"
+		
+		"\1\b[0]\s[1]I had a rather odd encounter during my past travels.\w8 \0\b[0]\s[0]\i[2]Oh?\w8 \1\n\n[half]It was a little startling,\w4 too.\w8 \0\s[0]\1But I was able to stay out of trouble and help someone in need.\w8 \0\n\n[half]Aww,\w4 that's good.\w8 You know you can call me if you do get in trouble,\w4 yeah?\w8 \1\n\n[half]I know,\w4 my dear.\w8 \s[1]\i[3]Thank you.\w8\0\s[0]\i[3]\e"
+		
+		//food musing
+		"\1\b[0]\s[1]I'm sorry to say that I didn't bring any cherries for you this time.\w8 \0\b[0]\s[0]Aww.\w8 That's okay,\w4 I also missed out on the melon I wanted to get you.\w8 \1\s[1]\i[7]\n\n[half]Look at us,\w4 perfectly matched in our lack of gifts.\w8 \0\s[0]\i[7]\n\n[half]That's a really optimistic way of looking at it.\w8\s[0]\1\s[1]\e"
+		
+		"\1\b[0]\s[1]Would you like some of my stew later,\w4 my dear?\w8 \0\b[0]Always!\w8 \s[0]\i[3]You make the best stew in the world,\w4 Snuf.\w8 \1\n\n[half]Thank you,\w4 my dear.\w8 \0\s[0]\1\s[1]\i[3]I try my best for you.\w8 \0\s[0]\i[8]\n\n[half]Hey,\w4 I'm enjoying it!\w8 \1\s[1]\0\s[0]So you're kicking it out of the park!\w8 \1\s[1]\i[3]\0\s[0]\i[3]\e"
+		
+		{
+			"\0\b[0]\s[0]\i[2]Would you prefer something spicy or something sour?\w8\1\b[0]\s[1]"
+			--
+			"\i[8]Why not something sweet?\w8 \0\s[0]\n\n[half]Sweet works.\w8 \1\s[1]\0\s[0]\i[7]But I was kinda banking on the spicy or sour options.\w8 \1\n\n[half]Then you know I wouldn't mind either.\w8 Sour especially sounds good right about now.\w8 \0\s[0]\i[8]\n\n[half]Sour it is,\w4 then!"
+			
+			"\i[8]Why not something sweet?\w8 \0\s[0]\n\n[half]Sweet works.\w8 \1\s[1]\0\s[0]\i[7]But I was kinda banking on the spicy or sour options.\w8 \1\n\n[half]Then you know I wouldn't mind either.\w8 Spicy especially sounds good right about now.\w8 \0\s[0]\i[8]\n\n[half]Spicy it is,\w4 then!"
+			
+			"\i[8]Why not something sweet?\w8 \0\s[0]\n\n[half]Sweet's good.\w8 \1\s[1]\0But that's not spicy nor sour,\w4 Snuf.\w8 \1\n\n[half]You know me,\w4 my dear.\w8 \s[1]\i[8]Constraints just don't suit a Snufkin like myself.\w8 \0\s[0]\i[8]\n\n[half]Good point.\w8 \1\s[1]\0\s[0]Okay,\w4 sweet it is,\w4 then."
+			
+			"How about the spicy option?\w8 \0\s[0]\i[8]\n\n[half]Good choice!\w8 \s[0]I do love making spicy foods.\w8 \1\s[1]\i[3]\n\n[half]And I do so enjoy whatever you cook."
+			
+			"I'll take sour this time.\w8 \0\s[0]\n\n[half]Okay,\w4 cool.\w8 \s[0]\i[8]Get ready for some lemon zest,\w4 then.\w8 \1\s[1]\i[3]\n\n[half]Ah,\w4 my favourite."
+			
+			"Why not something salty?\w8 \0\s[0]\n\n[half]Uh.\w8 \1\s[1]\i[8]\0\s[0]\i[7]I'm not sure about that.\w8 \1\s[1]\n\n[half]I'm kidding,\w4 my dear.\w8 Sour is fine with me.\w8 \0\n\n[half]Okay.\w8 Sour it is,\w4 then."
+			
+			"Why not something salty?\w8 \0\s[0]\n\n[half]Uh.\w8 \1\s[1]\i[8]\0\s[0]\i[7]Not sure about that one,\w4 Snuf.\w8 \1\s[1]\n\n[half]Only joking,\w4 my dear.\w8 I'll take the spicy.\w8 \0\n\n[half]Okay.\w8 You got it."
+			--
+			"\w8\e"
+		}
+		
+		"\1\b[0]\s[1]\i[2]Would you prefer cooking over my campfire or using your stove?\w8 \0\b[0]\w8\w8\1\s[1]\0\s[0]\i[2]Are you saying you want me to make you dinner?\w8 \1\n\n[half]If you wouldn't mind,\w4 at least.\w8 \0\s[0]\n\n[half]I never mind sharing what I've got with you.\w8 \s[0]\i[8]Let's make some campfire goodies.\w8 \1\s[1]\i[3]\n\n[half]Sounds wonderful.\w8\e"
+		
+		"\1\b[0]\s[1]My dear,\w4 would you mind doing the honours for our next meal time?\w8 \0\b[0]\s[0]\i[1]Oh.\w8\w8 \s[0]You want me to cook for you?\w8 \1\n\n[half]If you wouldn't mind.\w8 \0\n\n[half]I never do.\w8 \s[0]\i[8]Yeah,\w4 I'll make you something good.\w8 \1\n\n[half]Of that,\w4 I have no doubts.\w8 \s[1]\i[3]Your cooking is always delicious.\w8 \0\s[0]\n\n[half]Aww,\w4 thanks.\w8 \s[0]\i[3]I'm glad you enjoy it.\w8\e"
+		
+		//they're fucking flirting.
+		"\1\b[0]\s[1]You know,\w4 my dear.\w8 \0\b[0]\s[0]\i[2]\1I do so adore your smile.\w8 \0\s[0]\1Like it's the shining of the sun itself.\w8 \0\s[0]\i[8]Haha aww,\w4 Snuf.\w8 \s[0]\i[7]That's so embarrassingly sappy,\w4 hearing you say that.\w8 \1\n\n[half]Ah,\w4 sorry.\w8 You know I mean it,\w4 though.\w8 \0\n\n[half]I know.\w8 \s[0]\i[7]That's why it's so embarrassing,\w4 \s[0]\i[8]haha.\w8\e"
+		
+		"\0\b[0]\s[0]Hey,\w4 Snuf.\w8 \1\b[0]\s[1]\i[2]Yes,\w4 my dear?\w8 \0\n\n[half]Thanks for being with me.\w8 \1\s[1]\0I like getting to see you and just hanging out together.\w8 \1\n\n[half]Of course,\w4 Apollo.\w8 \s[1]\i[3]I'm here for you as long as you need me.\w8 \0\n\n[half]I'll always need you.\w8 \1\s[1]\0\s[0]\i[7]But,\w4 uh,\w4 not always \w4need\w8 you.\w8 \s[0]\i[7]You know what I mean?\w8 \1\n\n[half]Yes,\w4 I know exactly what you mean.\w8\e"
+		
+		"\0\b[0]\s[0]\i[2]What do you think would be nice for dinner?\w8 \1\b[0]\s[1]Are you inviting me to stay the night,\w4 my dear?\w8 \0\s[0]\n\n[half]\w8\w8If you'd like.\w8 \s[0]\i[7]That'd be nice...\w8 \1\s[1]\i[3]\n\n[half]Then why don't we have something hearty and warm?\w8 \0\s[0]\i[8]\n\n[half]Sounds good to me!\w8\e"
+		
+		"\0\b[0]\s[0]\i[2]What would you like to eat for dinner?\w8 \1\b[0]\s[1]\i[8]My dear!\w8 \0\s[0]\1Inviting me out so boldly!\w8 \s[1]\0\n\n[half]Oh,\w4 uh.\w8 \s[0]\i[7]Sorry,\w4 I shouldn't have assumed.\w8 \1\n\n[half]I'll simply have to stay now the offer's on the table.\w8 \1\s[1]\i[3]I do so adore your cooking.\w8 \0\s[0]\i[8]\n\n[half]Haha,\w4 \1\s[1]\0then I'll make something extra nice for you.\w8 \s[0]\1\s[1]\i[3]\n\n[half]Oh,\w4 how you spoil me,\w4 my sunshine.\w8\0\s[0]\i[3]\e"
+		
+		"\1\b[0]\s[1]We should go to the beach again sometime.\w8 \0\b[0]Sure.\w8 \s[0]\i[8]Then you can get sand all over me when you flop on top of me after dunking yourself in the waves.\w8 \s[0]\1\n\n[half]When you lay it out like that,\w4 \s[1]\i[3]it sounds even more enticing of an idea.\w8 \s[1]\0\s[0]\i[8]\n\n[half]Snuf,\w4 come on!\w8\1\s[1]\i[8]\e"
+		
+		"\1\b[0]\s[1]We should collect shells at the beach again.\w8 \0\b[0]\s[0]Think there'll be any good ones?\w8 I don't think I could find any that'd top the ones I gave you when we were kids.\w8 \1\n\n[half]True.\w8 But it'd be nice to visit the ocean again.\w8 \0\s[0]\i[8]\n\n[half]You just wanna go jump in the waves and then flop on me to get me all wet.\w8 \s[0]\1\n\n[half]That,\w4 too.\w8 \s[1]\i[3]That's the other rather appealing thing of it.\w8\0\s[0]\i[8]\e"
+		
+		"\1\b[0]\s[1]\i[0]Hmm...\w8 \0\b[0]\s[0]\i[2]What'cha thinking about over there?\w8 \s[0]\1\s[1]\n\n[half]How much of a shame it is to not be enjoying such a wonderful campfire.\w8 \0\s[0]\i[2]\n\n[half]Huh?\w8 \1\s[-1]\0\s[11]Wha--!\w8 Snuf!\w8 \1\n\n[half]Would you deny me this warmth,\w4 my dear?\w8 \0\n\n[half]Of course not.\w8 You're so silly sometimes.\w8\e"
+		
+		"\1\b[0]\s[1]Ah,\w4 my dear...\w8 \0\b[0]\s[0]\i[2]What's up,\w4 Snuf?\w8 \1\n\n[half]Would you mind if I...?\w8\w8 \0\n\n[half]If you...?\w8 \1\s[-1]\0\s[11]\w8Oh!\w8 Nah,\w4 I don't mind at all.\w8 \1\n\n[half]Thank you,\w4 my dear.\w8 I do so love how warm you are.\w8 \0\n\n[half]Just try not to overheat me,\w4 okay?\w8\e"
+		
+		"\1\b[0]\s[1]\i[0]\w8\w8\w8\s[-1]\0\b[0]\s[11]\w8Woah!\w8 Hey,\w4 Snuf.\w8 \1Hello,\w4 my dear.\w8 \0\n\n[half]You're in a cuddly mood,\w4 huh?\w8 \1\n\n[half]Sometimes,\w4 I cannot resist the temptation of your warmth.\w8 \0\n\n[half]Haha,\w4 well.\w8 Glad I can be you personal heater.\w8 \1\n\n[half]Thank you,\w4 my dear.\w8 You're positively wonderful.\w8\e"
+		
+		//quarantining you two here for your flirting crimes :T
+		if flipswitch == 1 //tripped
+		{
+			"\0\b[0]\s[0]\i[0]You know...\w8\1\b[0]\s[1]\i[2]\w8\w8\0\s[0] I'm in the mood for a hunt.\w8 \1\s[1]\i[1]\0You game?\w8 \1\w8\w8\s[1]\i[3]How could I ever say no to a proposition like that?\w8\0\s[0]\i[3]\e"
+			
+			{
+				"\1\b[0]\s[1]Say,\w4 my dear.\w8 \0\b[0]\s[0]\i[2]What is it?\w8 \1\n\n[half]Shall we make the most of this time we have together?\w8\0\s[0]\i[0]\n\n[half]\w8\w8\w8\s[0]"
+				--
+				"And what is it you're suggesting we do,\w4 exactly?"
+				"And what exactly do you mean by that?"
+				"What exactly do you mean by that,\w4 Snuf?"
+				"And\w8\w8 \s[0]\i[7]what does that entail,\w4 exactly?"
+				"What exactly do you mean by that,\w4 Snuf?"
+				--
+				"\w8\1\n\n[half]\s[1]"
+				--
+				"\i[3]Making the most of it."
+				"Why,\w4 \s[1]\i[3]making the most of it.\w8 \s[1]What else?"
+				"Exactly as I said.\w8 \s[1]\i[3]Making the most of it."
+				"\i[8]That we make the most of it."
+				--
+				"\w8\0\s[0]\n\n[half]Haha,\w4 \1\s[1]\0okay,\w4 okay.\w8 \s[0]\i[3]You know I'd never say no to that.\w8\1\s[1]\i[3]\e"
+			}
+			
+			"\0\b[0]\s[0]You're really good with your tongue,\w4 huh?\w8 \1\b[0]\s[1]\i[0]\w8\w8\w8\s[1]\i[2]What??\w8 \0\n\n[half]I mean,\w4 you play your harmonica really well.\w8 \1\s[1]\0I've tried noodling around on it and I can never get half of the complicated notes you do.\w8 \1\n\n[half]I see.\w8 Well,\w4 in that case,\w4 \s[1]\i[8]would you like me to show you how to better work with your tongue?\w8 \0\s[0]\i[1]\n\n[half]\w8\w8\s[0]Oh.\w8 \1\s[1]\0\s[0]\i[7]Oh,\w4 shit,\w4 sorry,\w4 I didn't mean--\w8 \1\s[1]\i[3]\n\n[half]Ah,\w4 my dear,\w4 you can be rather silly at times.\w8 \0\s[0]\i[8]\n\n[half]So can you!!\w8\e"
+			
+			"\1\b[0]\s[1]\i[2]Care for a tune,\w4 my dear?\w8 \0\b[0]\s[0]\i[3]Ooh,\w4 absolutely.\w8 \1\s[1]\0\s[0]I love hearing you play.\w8 \1\n\n[half]Any requests?\w8 \s[1]\i[8]I am quite talented with my tongue,\w4 you know.\w8 \s[1]\0\n\n[half]Wow,\w4 making fun of me.\w8 \s[0]\i[3]But you know I like all of your tunes.\w8 \1\s[1]\i[3]\n\n[half]Yes,\w4 I do know.\w8 \0\s[0]\1\s[1]\i[0]How about...\w8\e"
+			
+			"\1\b[0]\s[1]\i[0]\w8\w8\w8\w8\s[-1]\0\b[0]\s[11]Oh.\w8 Hey,\w4 Snuf.\w8 What's up?\w8 \1Mm.\w8 I want to tear you open and crawl into your guts.\w8 \0\n\n[half]Ah.\w8 Thinking about eating me,\w4 huh?\w8 \1\n\n[half]Always,\w4 my dear.\w8\e"
+			
+			"\0\b[0]\s[0]\i[0]...\w8\w8hey,\w4 Snuf.\w8 \s[0]\1\b[0]\s[1]\i[2]Yes?\w8 \0\n\n[half]Would you mind if you.\w8 \1\s[1]\0\s[0]\i[7]If I.\w8\w8 \1\s[1]\i[0]\n\n[half]...\w8\w8\s[1]ah,\w4 I think I see.\w8 \s[-1]\0\s[11]\1Here we are.\w8 \0\n\n[half]Thanks.\w8 I needed this...\w8\e"
+			
+			"\0\b[0]\s[0]\i[0]Hmm.\w8\w8 \1\b[0]\s[1]\i[2]Something on your mind,\w4 my dear?\w8\s[1] \0\s[0]\n\n[half]Kinda wanna bite you.\w8 \1\s[1]\i[8]\n\n[half]Haha,\w4 I see!\w8 \s[1]Well,\w4 you know I always want your fangs in me.\w8 \0\s[0]\i[8]\n\n[half]Oh,\w4 you,\w4 too,\w4 huh?\w8\1\s[1]\i[3]\e"
+			
+			"\1\b[0]\s[1]How deeply can I stab into you,\w4 do you think?\w8 \0\b[0]\s[0]\i[2]Huh?\w8 Uh,\w4 \s[0]pretty deep,\w4 I'd say.\w8 \1\n\n[half]Deep enough to reach your ribs and lick every one?\w8 \0\n\n[half]Yeah,\w4 I'd say so.\w8 You thinking of eating me again?\w8 \1\s[1]\i[7]\n\n[half]It's very much on my mind,\w4 yes.\w8 \0\s[0]\i[8]\n\n[half]Figures.\w8\e"
+		}
+	}
+	elseif mode == 1 //G
+	{
+		"\0\b[0](A nap would be nice right about now.\w8 \s[1]\i[3]Perhaps one within my sunshine's warmth.)\w8\e"
+		
+		"\0\b[0]\s[1]\i[7](Ahh,\w8 I miss my sunshine...)\w8\e"
+		
+		"\0\b[0]\s[1]\i[0](Hmm.\w8 The sun's rather nice right now.\w8 \s[1]A little peek wouldn't hurt too much,\w4 would it?)\w8\e"
+		
+		"\0\b[0](Perhaps it would be similar enough,\w4 staring into this sun a while.\w8 \s[1]\i[3]He's so brilliant and radiant,\w4 it can be blinding.)\w8\e"
+		
+		"\0\b[0]\s[1]\i[3](His brilliance truly is mesmerising...)\w8\w8 \s[1]\n\n[half]\w8\w8(So why am I here and not basking in his radiance?\w8 That's the question.)\w8\e"
+		
+		"\0\b[0](Mm,\w4 I'd like to fish with him again soon.\w8 \s[1]\i[3]My dear and darling sunshine...)\w8\e"
+		
+		"\0\b[0](Let's see.\w8 \s[1]\i[0]Next up on the trails should be...)\w8\e"
+		
+		"\0\b[0](I'd be happy just seeing his smile.\w8 \s[1]\i[6]Ahh,\w4 it's difficult to miss someone so much...)\w8\e"
+		
+		{
+			"\0\b[0](What should I tell him about my travels first...?\w8\w8 \s[1]\i[3]"
+			--
+			"Ah,\w4 I've so missed seeing my sunshine's smile"
+			"It will be so nice to see him smile again"
+			"I've missed his smile too much,\w4 I fear"
+			"It will be so nice to see his smile again"
+			--
+			".)\w8\e"
+		}
+		
+		"\0\b[0]\s[1]\i[0](It's %(season)...)\w8\w8\w8 \s[1]\n\n[half](Perhaps I should make haste.)\w8\e"
+		
+		"\0\b[0](Has my soul had its rest yet?\w8 \s[1]\i[0]Hm...)\w8\e"
+		
+		"\0\b[0](Has my soul had enough rest for me to see my heart again?\w8 \s[1]\i[0]Hm...)\w8\e"
+		
+		"\0\b[0](I would like to see him again,\w4 I think.\w8 \s[1]\i[7]Just...\w8\w8 not now.)\w8\e"
+		
+		"\0\b[0](Hmm.\w8 What sort of adventures await myself and my dear next...?)\w8\e"
+		
+		"\0\b[0](Oh,\w4 we should find a good storm to dance in.\w8 \s[1]\i[8]I'm sure Apollo will complain the whole time about it,\w4 \s[1]but he'll go along with me anyway.\w8 \s[1]\i[3]Because he is my dear and darling sunshine.)\w8\e"
+		
+		"\0\b[0](It would be nice to take him to the beach again.\w8 \s[1]\i[6]Ah,\w4 if only he didn't hate large bodies of water...)\w8\e"
+		
+		//food musings
+		"\0\b[0](Ah,\w4 perhaps I should bring him some cherries.\w8 He does so love them.)\w8\e"
+		
+		"\0\b[0](Perhaps I should pilfer some fresh cherries for him.\w8 The look on his face would be well worth the risk,\w4 \s[1]\i[3]no doubts about that.)\w8\e"
+		
+		"\0\b[0](It's been a while since I've had a fresh melon...)\w8\w8 \s[1]\i[0]\n\n[half](...\w8\w8hmm.\w8 \s[1]It doesn't look like any farms nearby stock them.\w8 Such a shame...)\w8\e"
+		
+		"\0\b[0]\s[1]\i[0](Let's see...\w8\w8 \s[1]For my next meal,\w4 I need at least two more fish.\w8 That means I'll need to head out to the river again.)\w8\e"
+		
+		//lawyer things
+		"\0\b[0](Are his trials going well,\w4 I wonder?\w8 I suppose he'll tell me all about them when I next see him.)\w8\e"
+		
+		"\0\b[0]\s[1]\i[6](Ahh,\w4 I do hope he isn't being bothered as much by his colleagues anymore...\w8\w8 \s[1]I can't exactly threaten all of them with my knife.)\w8\e"
+		
+		"\0\b[0](It would be rather fun to see his reaction to seeing me appear in the courtroom's audience during one of his trials.\w8 \s[1]\i[3]He always has such great reactions...)\w8\e"
+		
+		"\0\b[0]\s[1]\i[8](I'm sure he'd be extra surprised to see me congratulate him after one of his trials.)\w8 \s[1]\n\n[half](Hello,\w4 my dear.\w8 \s[1]\i[3]I had to wish you a job well done for your fantastic display of your dragon defiance.)\w8 \s[1]\n\n[half](But,\w4 no.\w8 I will respect his wishes and keep myself from wandering too close to that side of his life.)\w8\e"
+		
+		"\0\b[0]\s[1]\i[4](How maddening,\w4 that more folk don't tell him how well he's doing at his job.)\w8 \s[1]\n\n[half](You're marvellous,\w4 Apollo.\w8 \s[1]\i[5]Brilliant,\w4 in fact!\w8 \s[1]You've reached higher than the sun and become the dragon you've always said you were going to be.\w8 \s[1]\i[5]You've earned your horns and fangs and claws ten times over!!)\w8\w8 \s[1]\n\n[half](Alas.\w8 \s[1]\i[6]I suppose I shall have to fill in for everyone else who is too stupid to see his brilliance.)\w8\e"
+		
+		//a bit unhinged
+		"\0\b[0]\s[1]\i[0](...\w8\w8I came to see you again,\w4 my dear.\w8 \s[1]I needed to exist in your orbit once more.)\w8 \s[1]\i[7]\n\n[half](No,\w4 no,\w4 that's.\w8\w8 That's far too close to my heart...)\w8\e"
+		
+		"\0\b[0](Am I avoiding him on purpose?\w8 Does this count as yet another knife?)\w8 \s[1]\i[7]\n\n[half](Oh,\w4 my dear.\w8 I'm sorry...)\w8\e"
+		
+		"\0\b[0](Is this all I am?\w8 Existing within his orbit?\w8 Tied to him by his gravity?)\w8 \s[1]\i[0]\n\n[half](...\w8\w8it's not completely terrible.\w8 \s[1]I do love him with all my heart.\w8 \s[1]\i[6]But it is stifling,\w4 that's for sure...)\w8\e"
+		
+		"\0\b[0](If being stuck in his gravity is all I can do,\w4 then I suppose I'll have to keep clawing and scraping and biting to free myself.)\w8 \n\n[half](I may be tamed,\w4 but I refuse to be docile.)\w8\e"
+		
+		"\0\b[0](It's a lot like drowning.\w8 Like reaching down towards the darkness and sinking further because there's no chance of surfacing for air.)\w8 \s[1]\i[0]\n\n[half](...\w8\w8by this point,\w4 \s[1]I'm sure the fresh air would kill me.\w8 I've learned to suffocate and like it.)\w8\e" //jfc, Snuf
+		
+		//he is getting unhinged lol
+		if flipswitch == 1 //tripped
+		{
+			"\0\b[0]\s[1]\i[0]...\w8\w8hm.\w8 \s[1]\n\n[half]\f[height,25]I'm Snufkin and I'm fine!!\f[height,default]\w8\w8\w8 \s[1]\i[7]\n\n[half]Haha!\w8 How does he do this all the time without laughing?\w8 \s[1]\i[3]Ah,\w4 my darling Apollo...\w8\e"
+			
+			"\0\b[0](Oh,\w4 my lovely dear...)\w8\w8 \s[1]\i[3]\n\n[half](Ah!\w8 \s[1]My darling sunshine.\w8 \s[1]\i[3]How you enchant me so.)\w8\e"
+			
+			"\0\b[0](Let's see,\w8 \s[1]\i[7]what sort of mischief can I pull my sunshine into next...?)\w8\e"
+			
+			"\0\b[0]\s[1]\i[6](Ahh,\w4 I need to dig into his guts.\w8 \s[1]I need to pry open his ribcage and live inside his lungs.)\w8 \n\n[half](I need...\s[1]\i[0]\w8\w8\w8 \s[1]to see him sooner than I thought,\w4 apparently.)\w8\e"
+			
+			"\0\b[0](How long until I see him again?\w8 How long until I stab him once more?)\w8 \s[1]\i[6]\n\n[half](Ugh,\w4 this is so maddening.)\w8\e"
+			
+			"\0\b[0](I miss him I miss him I miss him I miss him I miss him I miss him.)\w8\w8\w8 \s[1]\i[4]\n\n[half](I need to see him.\w8 \s[1]I need to swallow my sunshine whole.)\w8\e"
+			
+			"\0\b[0](I miss my sunshine.\w8 I need to feel the burn of his heat against my skin once more.\w8 I need it like a dying man needs air.)\w8\e"
+			
+			{
+				"\0\b[0](I want to drag my claws down his skin.\w8 I need to bite him.\w8 Mark him.\w8 Make him mine.)"
+				--
+				"\w8\e"
+				"\w8\s[1]\i[0]\n\n[half](...\w8\w8\w8\s[1]He is mine.\w8 My heart,\w4 certainly.)\w8\e"
+			}
+			
+			"\0\b[0](I need to tear out this heart of mine and replace it with his.\w8 I need him to breathe what's inside my lungs just as much as I need him to live inside my guts.)\w8 \s[1]\i[6]\n\n[half](Ah,\w4 I think I'm going a bit mad,\w4 not seeing him for so long...)\w8\e"
+			
+			"\0\b[0]\s[1]\i[6](Ah,\w4 my sunshine.\w8 \s[1]I'll see you again soon,\w4 I'm sure.\w8 \s[1]\i[6]I can't exist without you much longer.)\w8\e"
+		}
+	}
+	else //mode == 0; R
+	{
+		"\0\b[0](Hmm...\w8\w8 I can't believe it's %(season) all ready...)\w8\e"
+		
+		"\0\b[0](It's been a while since a good storm has rolled in,\w4 huh...?\w8\w8 A real shame.)\w8\e"
+		
+		"\0\b[0]\s[0]\i[6]...\w8\w8\w8ugh.\w8 \s[0]\n\n[half]\f[height,45]I'm Apollo Justice and I'm fine!!\f[height,default]\w8\w8\w8 \n\n[half](Yeah.\w8 That helped.\w8 As usual.)\w8\e"
+		
+		"\0\b[0]\s[0]\i[0](Hmm...)\w8\w8\w8 \s[0]\n\n[half]\f[height,45]I'm Apollo Justice and I'm fine!!\f[height,default]\w8\w8\w8\w8 \0\s[0]\i[8]\n\n[half](Got one in,\w4 at least.)\w8\e"
+		
+		//food musings
+		"\0\b[0](Ah,\w4 crap.\w8 I forgot to get stuff for dinner...)\w8\e"
+		
+		"\0\b[0](Ah,\w4 shit.\w8 I forgot to go get groceries before this...)\w8\e"
+		
+		"\0\b[0]\s[0]\i[0](I wonder if I can find cherries at the store next time I go...)\w8\w8 \s[0]\i[6]\n\n[half](They never seem to have 'em even when they are in season.)\w8\e"
+		
+		"\0\b[0](I should pick up a watermelon next time I'm at the store.\w8 \s[0]\i[8]Heh,\w4 I can't wait to see the look on Snufkin's face when he sees it.)\w8\e"
+		
+		"\0\b[0](Ahh,\w4 what I wouldn't give for some pancakes right about now...\w8\w8 Preferrably,\w4 ones that aren't onion with honey.)\w8\e"
+		
+		//lawyer things
+		"\0\b[0](Let's see.\w8 If I approach the case with this sort of angle,\w4 then maybe it'll reveal the truth of things.\w8 \s[0]\i[0]Hmm...)\w8\e"
+		
+		"\0\b[0](Ah,\w4 shoot.\w8 I wasn't even thinking about how that piece fits into the case.\w8 Better restructure my notes to see if anything becomes clearer...)\w8\e"
+		
+		"\0\b[0]\s[0]\i[0](It's %(season),\w4 huh...?)\w8\w8 \s[0]\n\n[half](Better get ready for all the crazy cases about to come in.)\w8\e"
+		
+		"\0\b[0]\s[0]\i[2](Did I finish writing down my notes for that last trial?\w8 \s[0]I should do that later,\w4 just in case.)\w8\e"
+		
+		"\0\b[0](Weird how adamant everyone can get about me going with them on their celebrations.)\w8 \n\n[half](Team building exercises,\w4 huh?\w8 \s[0]\i[6]Yeah,\w4 no thanks.\w8 \s[0]Not right now,\w4 at least.)\w8\e"
+		
+		"\0\b[0]\s[0]\i[4](At least here,\w4 I don't have to worry about anyone trying to pry into my journal or messing with my paperwork...)\w8\e"
+		
+		"\0\b[0](Let's see.\w8 Since the testimony ended up being bogus,\w4 what other approach can I take to pulling out the truth of this case...?)\w8\e"
+		
+		//G thoughts
+		"\0\b[0](Oh,\w4 I should tell Snufkin about my last trial.\w8 \s[0]\i[3]He'll probably find it pretty funny.)\w8\e"
+		
+		"\0\b[0](I hope he's doing well.\w8 It's %(season),\w4 he knows how to get around wherever.)\w8 \s[0]\i[7]\n\n[half](Still,\w4 I can't help but worry about him...)\w8\e"
+		
+		"\0\b[0](I wonder if he's having his best stew right now.\w8 Or maybe some of his great pancakes.\w8 \s[0]\i[7]Something delicious,\w4 at least,\w4 I hope.)\w8\e"
+		
+		"\0\b[0](It's all ready %(season),\w4 huh?\w8 \s[0]\i[0]I wonder what my friend's getting up to...)\w8\e"
+		
+		"\0\b[0](Maybe I should go out and find him first.\w8 He's probably waiting for me to do that.)\w8\e"
+		
+		"\0\b[0]\s[0]\i[0](When am I gonna see his smoke signal furling up into the air...?)\w8\e"
+		
+		"\0\b[0]\s[0]\i[6](Ahh,\w4 I wanna see my friend again.\w8 \s[0]I miss him so much...)\w8\e"
+		
+		"\0\b[0]\s[0]\i[6](Ahh,\w4 I want to see him again.\w8 \s[0]Waiting on him to be ready kinda sucks sometimes...)\w8\e"
+		
+		"\0\b[0](You gotta play it cool when you see him again,\w4 Justice.\w8 He's your best friend.\w8 He knows you missed him enough to cry about it.)\w8\e"
+		
+		"\0\b[0]\s[0]\i[6](It's so embarrassing,\w4 how much you miss him...)\w8\w8 \s[0]\i[5]\n\n[half](Get it together,\w4 Justice.\w8 \s[0]You can do this!)\w8\e"
+		
+		"\0\b[0]\s[0]\i[5](You gotta stop missing him so much,\w4 Justice.\w8 \s[0]Come on.\w8 You know he hates it.)\w8\e"
+		
+		"\0\b[0](He needs to rest his soul.\w8 You know this,\w4 Justice.\w8 Let him come to you when he's ready.)\w8\e"
+		
+		"\0\b[0](I bet he'll want to go fishing again when we see each other.\w8 That'll be nice,\w4 just sitting together and listening to the world turn around us.)\w8\e"
+		
+		"\0\b[0]\s[0]\i[0](...\w8\w8sometimes,\w4 it's nice just being by yourself.)\w8\e"
+		
+		"\0\s[0]\i[0]\w8\w8\w8\w8\e"
+		
+		//him annoyed lol
+		if flipswitch == 1 //tripped
+		{
+			"\0\b[0]\s[0]\i[7](Maybe I should head out to the forest.\w8 Maybe I'll see him then.)\w8\e"
+			
+			"\0\b[0](Mm,\w4 I'm not sure if I should go and find him first this time.\w8 \s[0]\i[0]He's real particular about our rhythm sometimes...)\w8\e"
+			
+			"\0\b[0](I know he can be really particular about this sort of thing sometimes,\w4 but I want to see him.\w8 \s[0]\i[6]Ugh,\w4 this sucks so much...)\w8\e"
+			
+			"\0\b[0]\s[0]\i[6](Don't be too much,\w4 Justice.\w8 \s[0]Don't be too much...)\w8\e"
+			
+			"\0\b[0](Stop being too much,\w4 Justice.\w8 \s[0]\i[5]Stop being too much!!)\w8\e"
+			
+			"\0\b[0](Has he not come back yet?\w8 \s[0]\i[7]Did he leave again before seeing me?\w8 I hate not knowing for sure...)\w8\e"
+			
+			"\0\b[0]\s[0]\i[7](Will he think me too much\w8 if I show just how much I missed him?\w8 \s[0]\i[6]Ugh,\w4 this is so frustrating...)\w8\e"
+			
+			"\0\b[0](I miss him I miss him I miss him I miss him I miss him I miss him.)\w8\w8 \n\n[half]\s[0]\i[6](Ugh.\w8 Can't even think of anything else,\w4 I miss him so much.)\w8\e"
+			
+			"\0\b[0]\s[0]\i[7](Did I say too much?\w8 Was my love too overbearing?\w8 \s[0]\i[7]Am I really that hard to love?)\w8 \s[0]\i[4]\n\n[half](Ugh,\w4 stop thinking,\w4 Justice...)\w8\e"
+			
+			"\0\b[0](Have I said too much?\w8 Did I love him too hard?\w8 Is he going to abandon me like all the rest?)\w8\w8 \s[0]\i[6]\n\n[half](Ugh.\w8 Justice,\w4 stop thinking.\w8 \s[0]You're spiralling.)\w8\e"
+		}
+	}
+}
+
+
+//hourchecks
+OnHourCheck
+{
+	if timepass[1] >= 59
+	{
+		timepass[1] = 0
+		timepass[2]++
+		timepass[3]++
+	}
+}
+
+flipswitch
+{
+	if timepass[3] == fliprate && fliprate != 0 {1} //tripped!
+	else {0} //off
+}
+
+OnMinuteChange
+{
+	OnHourCheck
+}
+
+OnSecondChange
+{
+	if timepass[0] == 59
+	{
+		timepass[0] = 0
+		timepass[1]++
+	}
+	else {timepass[0]++}
+}
+
+
+//Happens about 30 seconds after a script ends, by default, to bring them back to normal poses
+OnSurfaceRestore
+{
+	if mode == 2 //RG
+	{"\p2\s[-1]\1\s[1]\0\s[0]"}
+	elseif mode == 1 //G
+	{"\p2\s[-1]\1\s[-1]\0\s[1]"}
+	else //mode == 0; R
+	{"\p2\s[-1]\1\s[-1]\0\s[0]"}
+}

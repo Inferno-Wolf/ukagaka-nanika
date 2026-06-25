@@ -1,0 +1,23 @@
+///misc function backend stuffs
+
+
+OnTranslate
+{
+	_talk = reference0
+	
+	//This is what makes %(embedded_elements) work in script input
+	if reference1 == "" && reference2 == "" //If this is from the input box
+	{ //send input box : no event (ref2) , no special flag (ref1)
+		_talk = EVAL('"' + REPLACE(_talk,'"','""') + '"')
+	}
+	
+	//If you want to add anything to OnTranslate, like text replacement, I would put it after this point, generally. Just make sure it's before the TOSTR(_talk)
+	
+	TOSTR(_talk)
+}
+
+//This is just here so you can use anchors to link to websites if you want. You can link to websites with normal menu choice tags! If you do, a handy URL preview will show up in the balloon!
+OnAnchorSelect
+{
+	if "http://" _in_ reference0 || "https://" _in_ reference0; "\j[""%(reference0)""]"
+}
