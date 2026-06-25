@@ -19,7 +19,7 @@ RandomTalk : nonoverlap_pool
 {
 	if mode == 2 //RG
 	{
-		"\0\b[0]\s[0]Hey,\w4 Snuf.\w8 \1\b[0]\s[1]\i[2]Yes?\w8 \0\n\n[half]What do you think about this?\w8 \1\s[1]\n\n[half]Hmm.\w8 I may not be any epxert on law,\w4 but it seems like it should be...\w8 \0\s[0]\i[1]\n\n[half]Oh,\w4 yeah,\w4 I see that!\w8\s[0]\e"
+		"\0\b[0]\s[0]Hey,\w4 Snuf.\w8 \1\b[0]\s[1]\i[2]Yes?\w8 \0\n\n[half]What do you think about this?\w8 \1\s[1]\n\n[half]Hmm.\w8 I may not be any expert on law,\w4 but it seems like it should be...\w8 \0\s[0]\i[1]\n\n[half]Oh,\w4 yeah,\w4 I see that!\w8\s[0]\e"
 		
 		"\1\b[0]\s[1]How are those colleagues of yours treating you lately?\w8 \0\b[0]\s[0]Not bad,\w4 actually.\w8 \1\s[1]\i[7]\n\n[half]That's not great,\w4 but I suppose it could be worse.\w8 \0\s[0]\i[8]\n\n[half]Yeah,\w4 you get it.\w8 \s[0]It's just annoying how much they wanna act like we're a family.\w8 \1\s[1]\i[0]\n\n[half]...\w8\w8\s[1]my offer to you remains open,\w4 as always.\w8 \0\n\n[half]While it would be really funny to see them get the pants scared off them,\w4 I really don't want them even having a chance to interrogate you.\w8 \1\n\n[half]Fair enough.\w8 Still,\w4 you know I wouldn't mind.\w8 \0\n\n[half]I'd mind you getting accused of murder.\w8 \1\s[1]\i[8]\n\n[half]Haha,\w4 yes,\w4 \s[1]I suppose that's a valid concern when it comes to this.\w8\e"
 		
