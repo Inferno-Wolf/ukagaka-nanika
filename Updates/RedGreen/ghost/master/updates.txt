@@ -6,7 +6,7 @@ file,thumbnail.pngee0cad7831d7baed462103e50919ebadsize=6051date=2026-06-20T16
 file,ghost/master/descript.txta1072c2895a99e697e37c542a8d037d1size=365date=2026-06-20T16:18:07
 file,ghost/master/emerg.dicc7cb6eacd3262003fef909c382a6fefesize=351date=2023-04-14T12:45:50
 file,ghost/master/rg.icob260b4e55c0259bd2f6bcb94885fe1cfsize=15086date=2026-06-20T16:16:48
-file,ghost/master/rg_aitalk.dic0f5db45d4092eb4cdae1052c86aaa0f9size=29428date=2026-06-25T00:16:47
+file,ghost/master/rg_aitalk.dic8dddb961510c77ba49cdb3c4c4bb73e3size=29764date=2026-06-25T00:27:10
 file,ghost/master/rg_boot.dicd6218d94b8f3647a2a12cfe8aa12019dsize=11476date=2026-06-24T08:18:55
 file,ghost/master/rg_menu_kero.dicb35280e603bb63711b9f8de2936752c2size=2149date=2026-06-23T14:14:49
 file,ghost/master/rg_menu_sakura.dicd3a63916a16c80bd8f52aed9a38f5440size=10212date=2026-06-23T20:36:11

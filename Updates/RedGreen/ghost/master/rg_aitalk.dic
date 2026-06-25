@@ -130,6 +130,8 @@ RandomTalk : nonoverlap_pool
 		//quarantining you two here for your flirting crimes :T
 		if flipswitch == 1 //tripped
 		{
+			"\0\b[0]\s[0]\i[7]You're doing okay,\w4 right?\w8 \1\b[0]\0Getting enough food?\w8 Staying warm enough at night?\w8 \1\s[1]I'm doing fine,\w4 my dear.\w8 Relax.\w8 \0\n\n[half]Sorry.\w8 Just.\w8 You know you can rely on me if you need anything,\w4 right?\w8 \1\s[1]\i[6]\n\n[half]Yes,\w4 my dear.\w8 I know.\w8 \0\s[0]\i[7]\e"
+			
 			"\0\b[0]\s[0]\i[0]You know...\w8\1\b[0]\s[1]\i[2]\w8\w8\0\s[0] I'm in the mood for a hunt.\w8 \1\s[1]\i[1]\0You game?\w8 \1\w8\w8\s[1]\i[3]How could I ever say no to a proposition like that?\w8\0\s[0]\i[3]\e"
 			
 			{
