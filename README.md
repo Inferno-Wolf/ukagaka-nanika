@@ -1,4 +1,4 @@
 # ukagaka-nanika
 Ghosts holder folder
 
---For storing any of Game Kid's Ghosts he makes!!
+--For storing any of KFC's Ghosts he makes!!
